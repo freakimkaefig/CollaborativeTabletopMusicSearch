@@ -1,0 +1,8 @@
+Um den Prototyp im Browser zu testen muss die Datei
+
+"Naturkunde_Museum_Ostbayern.html"
+
+aus dem Ordner "Axure Prototype (Browser)" ausgeführt werden.
+
+
+(Die Datei "start.html" kann ebenfalls ausgeführt werden, enthält jedoch eine Sidebar von Axure)

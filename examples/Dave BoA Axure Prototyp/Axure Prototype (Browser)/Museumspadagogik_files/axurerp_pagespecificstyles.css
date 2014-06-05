@@ -1,0 +1,1896 @@
+﻿body {
+    margin: 0px;
+    background-image: url('bg.jpg');
+    background-position: left top;
+    background-repeat: repeat;
+}
+
+div {
+    background-repeat: no-repeat;
+}
+
+.raw_image {
+    width: 100%;
+    height: 100%;
+}
+
+.preload {
+    display: none;
+}
+#main_container {
+}
+
+.form_sketch {
+    border-color: transparent;
+    background-color: transparent;
+}
+
+.u0_line {
+    background-image: url('../Museumspadagogik_files/u0_line.png');
+}
+
+.u0_line {
+    position:absolute;
+    left:0px;
+    top:4px;
+    width:200px;
+    height:3px;
+}
+
+.u0 {
+    position:absolute;
+    left:132px;
+    top:1208px;
+    width:200px;
+    height:10px;
+    
+}
+
+.u1 {
+    position:absolute;
+    left:68px;
+    top:267px;
+    width:471px;
+    height:26px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u2_container {
+    position:absolute;
+    left:687px;
+    top:388px;
+    width:463px;
+    height:177px;
+}
+
+#u2_img {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:463px;
+    height:177px;
+}
+
+.u3 {
+    position:absolute;
+    left:2px;
+    top:80px;
+    width:459px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u4 {
+    position:absolute;
+    left:69px;
+    top:317px;
+    width:338px;
+    height:21px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u5 {
+    position:absolute;
+    left:69px;
+    top:347px;
+    width:625px;
+    height:315px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u6 {
+    position:absolute;
+    left:275px;
+    top:665px;
+    width:216px;
+    height:15px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u7_normal {
+    background-image: url('../Museumspadagogik_files/u7_normal.png');
+}
+
+.u7_container {
+    position:absolute;
+    left:245px;
+    top:658px;
+    width:25px;
+    height:25px;
+}
+
+#u7_img {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:25px;
+    height:25px;
+}
+
+.u8 {
+    position:absolute;
+    left:2px;
+    top:4px;
+    width:21px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u9 {
+    position:absolute;
+    left:71px;
+    top:757px;
+    width:338px;
+    height:21px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u10 {
+    position:absolute;
+    left:71px;
+    top:787px;
+    width:625px;
+    height:225px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u11 {
+    position:absolute;
+    left:277px;
+    top:1021px;
+    width:216px;
+    height:15px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u12_normal {
+    background-image: url('../Museumspadagogik_files/u7_normal.png');
+}
+
+.u12_container {
+    position:absolute;
+    left:247px;
+    top:1014px;
+    width:25px;
+    height:25px;
+}
+
+#u12_img {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:25px;
+    height:25px;
+}
+
+.u13 {
+    position:absolute;
+    left:2px;
+    top:4px;
+    width:21px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u14 {
+    position:absolute;
+    left:687px;
+    top:596px;
+    width:338px;
+    height:21px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u15 {
+    position:absolute;
+    left:687px;
+    top:626px;
+    width:625px;
+    height:375px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u16 {
+    position:absolute;
+    left:893px;
+    top:1018px;
+    width:216px;
+    height:15px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u17_normal {
+    background-image: url('../Museumspadagogik_files/u7_normal.png');
+}
+
+.u17_container {
+    position:absolute;
+    left:863px;
+    top:1011px;
+    width:25px;
+    height:25px;
+}
+
+#u17_img {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:25px;
+    height:25px;
+}
+
+.u18 {
+    position:absolute;
+    left:2px;
+    top:4px;
+    width:21px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+#u19 {
+    position:fixed;
+    left: 50%;
+    margin-left: -670px;
+    bottom:0px;
+    width:1341px;
+    height:164px;
+    overflow:hidden;
+}
+
+#pd0u19 {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:1341px;
+    height:164px;
+    
+}
+
+#u20 {
+    position:absolute;
+    left:0px;
+    top:12px;
+    width:1341px;
+    height:151px;
+    overflow:hidden;
+}
+
+#pd0u20 {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:1341px;
+    height:151px;
+    
+}
+
+.u21_normal {
+    background-image: url('../Navigation_open_files/u156_normal.png');
+}
+
+.u21_container {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:1340px;
+    height:153px;
+}
+
+#u21_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:1346px;
+    height:159px;
+}
+
+.u22 {
+    position:absolute;
+    left:2px;
+    top:68px;
+    width:1336px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u23 {
+    position:absolute;
+    left:23px;
+    top:13px;
+    width:205px;
+    height:17px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u24 {
+    position:absolute;
+    left:23px;
+    top:67px;
+    width:216px;
+    height:17px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u25 {
+    position:absolute;
+    left:23px;
+    top:94px;
+    width:219px;
+    height:17px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u26 {
+    position:absolute;
+    left:272px;
+    top:67px;
+    width:150px;
+    height:17px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u27 {
+    position:absolute;
+    left:272px;
+    top:94px;
+    width:187px;
+    height:17px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u28 {
+    position:absolute;
+    left:829px;
+    top:67px;
+    width:150px;
+    height:17px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u29 {
+    position:absolute;
+    left:829px;
+    top:94px;
+    width:150px;
+    height:17px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u30 {
+    position:absolute;
+    left:535px;
+    top:13px;
+    width:216px;
+    height:17px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u31 {
+    position:absolute;
+    left:535px;
+    top:40px;
+    width:261px;
+    height:17px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u32 {
+    position:absolute;
+    left:535px;
+    top:67px;
+    width:216px;
+    height:17px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u33 {
+    position:absolute;
+    left:535px;
+    top:94px;
+    width:216px;
+    height:17px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u34_line {
+    background-image: url('../Navigation_open_files/u169_line.png');
+}
+
+.u34_line {
+    position:absolute;
+    left:4px;
+    top:0px;
+    width:3px;
+    height:143px;
+}
+
+.u34 {
+    position:absolute;
+    left:252px;
+    top:5px;
+    width:10px;
+    height:143px;
+    
+}
+
+.u35_line {
+    background-image: url('../Navigation_open_files/u170_line.png');
+}
+
+.u35_line {
+    position:absolute;
+    left:4px;
+    top:0px;
+    width:3px;
+    height:143px;
+}
+
+.u35 {
+    position:absolute;
+    left:515px;
+    top:5px;
+    width:10px;
+    height:143px;
+    
+}
+
+.u36_line {
+    background-image: url('../Navigation_open_files/u171_line.png');
+}
+
+.u36_line {
+    position:absolute;
+    left:4px;
+    top:0px;
+    width:3px;
+    height:143px;
+}
+
+.u36 {
+    position:absolute;
+    left:811px;
+    top:7px;
+    width:10px;
+    height:143px;
+    
+}
+
+.u37_line {
+    background-image: url('../Navigation_open_files/u172_line.png');
+}
+
+.u37_line {
+    position:absolute;
+    left:4px;
+    top:0px;
+    width:3px;
+    height:143px;
+}
+
+.u37 {
+    position:absolute;
+    left:1021px;
+    top:7px;
+    width:10px;
+    height:143px;
+    
+}
+
+.u38 {
+    position:absolute;
+    left:23px;
+    top:40px;
+    width:102px;
+    height:17px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u39 {
+    position:absolute;
+    left:1043px;
+    top:67px;
+    width:163px;
+    height:17px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u40 {
+    position:absolute;
+    left:1043px;
+    top:94px;
+    width:163px;
+    height:17px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u41 {
+    position:absolute;
+    left:20px;
+    top:121px;
+    width:219px;
+    height:23px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u42 {
+    position:absolute;
+    left:269px;
+    top:121px;
+    width:243px;
+    height:23px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u43 {
+    position:absolute;
+    left:537px;
+    top:121px;
+    width:205px;
+    height:23px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u44 {
+    position:absolute;
+    left:831px;
+    top:121px;
+    width:66px;
+    height:23px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u45 {
+    position:absolute;
+    left:1043px;
+    top:121px;
+    width:229px;
+    height:23px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u47_normal {
+    background-image: url('../Navigation_closed_files/nav_closed_u182_normal.png');
+}
+
+.u47_container {
+    position:absolute;
+    left:0px;
+    top:125px;
+    width:1340px;
+    height:38px;
+}
+
+#u47_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:1346px;
+    height:44px;
+}
+
+.u48 {
+    position:absolute;
+    left:2px;
+    top:4px;
+    width:1336px;
+    height:29px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u50_normal {
+    background-image: url('../resources/images/transparent.gif');
+}
+
+.u50_container {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:1340px;
+    height:163px;
+}
+
+#u50_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:1346px;
+    height:169px;
+}
+
+.u51 {
+    position:absolute;
+    left:2px;
+    top:74px;
+    width:1336px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u52_normal {
+    background-image: url('../resources/images/transparent.gif');
+}
+
+.u52_container {
+    position:absolute;
+    left:0px;
+    top:125px;
+    width:1340px;
+    height:38px;
+}
+
+#u52_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:1346px;
+    height:44px;
+}
+
+.u53 {
+    position:absolute;
+    left:2px;
+    top:11px;
+    width:1336px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u54_normal {
+    background-image: url('../Museumspadagogik_files/header-background_u54_normal.png');
+}
+
+.u54_container {
+    position:absolute;
+    left:0px;
+    top:-6px;
+    width:1341px;
+    height:210px;
+}
+
+#u54_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:1347px;
+    height:216px;
+}
+
+.u55 {
+    position:absolute;
+    left:2px;
+    top:97px;
+    width:1337px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+#u56 {
+    position:absolute;
+    left:331px;
+    top:0px;
+    width:781px;
+    height:201px;
+    overflow:hidden;
+}
+
+#pd2u56 {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:781px;
+    height:201px;
+    
+}
+
+.u57_normal {
+    background-image: url('../Slideshow_files/u30_normal.png');
+}
+
+.u57_container {
+    position:absolute;
+    left:0px;
+    top:-20px;
+    width:779px;
+    height:251px;
+}
+
+#u57_img {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:779px;
+    height:251px;
+}
+
+.u58 {
+    position:absolute;
+    left:2px;
+    top:118px;
+    width:775px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+#pd1u56 {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:781px;
+    height:201px;
+    
+}
+
+.u59_normal {
+    background-image: url('../Slideshow_files/u32_normal.png');
+}
+
+.u59_container {
+    position:absolute;
+    left:0px;
+    top:-50px;
+    width:779px;
+    height:250px;
+}
+
+#u59_img {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:779px;
+    height:250px;
+}
+
+.u60 {
+    position:absolute;
+    left:2px;
+    top:117px;
+    width:775px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+#pd0u56 {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:781px;
+    height:201px;
+    
+}
+
+.u61_normal {
+    background-image: url('../Slideshow_files/u34_normal.png');
+}
+
+.u61_container {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:779px;
+    height:251px;
+}
+
+#u61_img {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:779px;
+    height:251px;
+}
+
+.u62 {
+    position:absolute;
+    left:2px;
+    top:118px;
+    width:775px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+#u63 {
+    position:absolute;
+    left:520px;
+    top:124px;
+    width:592px;
+    height:66px;
+    overflow:hidden;
+}
+
+#pd2u63 {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:592px;
+    height:66px;
+    
+}
+
+.u64_normal {
+    background-image: url('../Slideshow_files/u37_normal.png');
+}
+
+.u64_container {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:589px;
+    height:63px;
+}
+
+#u64_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:595px;
+    height:69px;
+}
+
+.u65 {
+    position:absolute;
+    left:2px;
+    top:24px;
+    width:585px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u66 {
+    position:absolute;
+    left:11px;
+    top:1px;
+    width:562px;
+    height:23px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u67 {
+    position:absolute;
+    left:11px;
+    top:22px;
+    width:562px;
+    height:40px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+#pd1u63 {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:592px;
+    height:66px;
+    
+}
+
+.u68_normal {
+    background-image: url('../Slideshow_files/u37_normal.png');
+}
+
+.u68_container {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:589px;
+    height:63px;
+}
+
+#u68_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:595px;
+    height:69px;
+}
+
+.u69 {
+    position:absolute;
+    left:2px;
+    top:24px;
+    width:585px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u70 {
+    position:absolute;
+    left:11px;
+    top:1px;
+    width:562px;
+    height:23px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u71 {
+    position:absolute;
+    left:11px;
+    top:22px;
+    width:562px;
+    height:40px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+#pd0u63 {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:592px;
+    height:66px;
+    
+}
+
+.u72_normal {
+    background-image: url('../Slideshow_files/u37_normal.png');
+}
+
+.u72_container {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:589px;
+    height:63px;
+}
+
+#u72_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:595px;
+    height:69px;
+}
+
+.u73 {
+    position:absolute;
+    left:2px;
+    top:24px;
+    width:585px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u74 {
+    position:absolute;
+    left:11px;
+    top:1px;
+    width:562px;
+    height:23px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u75 {
+    position:absolute;
+    left:11px;
+    top:22px;
+    width:562px;
+    height:40px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u77_normal {
+    background-image: url('../Museumspadagogik_files/u77_normal.png');
+}
+
+.u77_container {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:331px;
+    height:200px;
+}
+
+#u77_img {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:331px;
+    height:200px;
+}
+
+.u78 {
+    position:absolute;
+    left:2px;
+    top:92px;
+    width:327px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u79_normal {
+    background-image: url('../Museumspadagogik_files/u79_normal.png');
+}
+
+.u79_container {
+    position:absolute;
+    left:1179px;
+    top:32px;
+    width:27px;
+    height:27px;
+}
+
+#u79_img {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:27px;
+    height:27px;
+}
+
+.u80 {
+    position:absolute;
+    left:2px;
+    top:6px;
+    width:23px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u81_normal {
+    background-image: url('../Museumspadagogik_files/u81_normal.png');
+}
+
+.u81_container {
+    position:absolute;
+    left:1216px;
+    top:32px;
+    width:27px;
+    height:27px;
+}
+
+#u81_img {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:27px;
+    height:27px;
+}
+
+.u82 {
+    position:absolute;
+    left:2px;
+    top:6px;
+    width:23px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u83_normal {
+    background-image: url('../Museumspadagogik_files/u83_normal.png');
+}
+
+.u83_container {
+    position:absolute;
+    left:1253px;
+    top:32px;
+    width:27px;
+    height:27px;
+}
+
+#u83_img {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:27px;
+    height:27px;
+}
+
+.u84 {
+    position:absolute;
+    left:2px;
+    top:6px;
+    width:23px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u85_normal {
+    background-image: url('../Museumspadagogik_files/u85_normal.png');
+}
+
+.u85_container {
+    position:absolute;
+    left:1252px;
+    top:91px;
+    width:27px;
+    height:27px;
+}
+
+#u85_img {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:27px;
+    height:27px;
+}
+
+.u86 {
+    position:absolute;
+    left:2px;
+    top:6px;
+    width:23px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u87_normal {
+    background-image: url('../Museumspadagogik_files/image_u87_normal.png');
+}
+
+.u87_container {
+    position:absolute;
+    left:1179px;
+    top:91px;
+    width:27px;
+    height:27px;
+}
+
+#u87_img {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:27px;
+    height:27px;
+}
+
+.u88 {
+    position:absolute;
+    left:2px;
+    top:6px;
+    width:23px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u89_normal {
+    background-image: url('../Museumspadagogik_files/u89_normal.png');
+}
+
+.u89_container {
+    position:absolute;
+    left:1216px;
+    top:91px;
+    width:27px;
+    height:27px;
+}
+
+#u89_img {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:27px;
+    height:27px;
+}
+
+.u90 {
+    position:absolute;
+    left:2px;
+    top:6px;
+    width:23px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u91_normal {
+    background-image: url('../Museumspadagogik_files/u91_normal.png');
+}
+
+.u91_container {
+    position:absolute;
+    left:1134px;
+    top:144px;
+    width:200px;
+    height:31px;
+}
+
+#u91_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:206px;
+    height:37px;
+}
+
+.u92 {
+    position:absolute;
+    left:2px;
+    top:8px;
+    width:196px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u93 {
+    position:absolute;
+    left:1163px;
+    top:148px;
+    width:149px;
+    height:25px;
+    ;
+    ;
+    text-align: left;;
+    font-family:'Arial';
+    font-size: 13px;
+    color:#000000;
+    font-style:normal;
+    font-weight:normal;
+    text-decoration:none;
+    border-color:transparent;
+    outline-style:none;
+}
+
+.u94_normal {
+    background-image: url('../Museumspadagogik_files/u94_normal.png');
+}
+
+.u94_container {
+    position:absolute;
+    left:1311px;
+    top:150px;
+    width:21px;
+    height:21px;
+}
+
+#u94_img {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:21px;
+    height:21px;
+}
+
+.u95 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:17px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u96_normal {
+    background-image: url('../Museumspadagogik_files/u96_normal.png');
+}
+
+.u96_container {
+    position:absolute;
+    left:1138px;
+    top:150px;
+    width:21px;
+    height:21px;
+}
+
+#u96_img {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:21px;
+    height:21px;
+}
+
+.u97 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:17px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u98_normal {
+    background-image: url('../Museumspadagogik_files/u98_normal.png');
+}
+
+.u98_container {
+    position:absolute;
+    left:327px;
+    top:0px;
+    width:10px;
+    height:200px;
+}
+
+#u98_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:16px;
+    height:206px;
+}
+
+.u99 {
+    position:absolute;
+    left:2px;
+    top:92px;
+    width:6px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u100_normal {
+    background-image: url('../Museumspadagogik_files/u100_normal.png');
+}
+
+.u100_container {
+    position:absolute;
+    left:1104px;
+    top:0px;
+    width:10px;
+    height:200px;
+}
+
+#u100_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:16px;
+    height:206px;
+}
+
+.u101 {
+    position:absolute;
+    left:2px;
+    top:92px;
+    width:6px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u102_normal {
+    background-image: url('../Museumspadagogik_files/u100_normal.png');
+}
+
+.u102_container {
+    position:absolute;
+    left:320px;
+    top:0px;
+    width:10px;
+    height:200px;
+}
+
+#u102_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:16px;
+    height:206px;
+}
+
+.u103 {
+    position:absolute;
+    left:2px;
+    top:92px;
+    width:6px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u104_normal {
+    background-image: url('../Museumspadagogik_files/u98_normal.png');
+}
+
+.u104_container {
+    position:absolute;
+    left:1111px;
+    top:0px;
+    width:10px;
+    height:200px;
+}
+
+#u104_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:16px;
+    height:206px;
+}
+
+.u105 {
+    position:absolute;
+    left:2px;
+    top:92px;
+    width:6px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u106_normal {
+    background-image: url('../Museumspadagogik_files/u106_normal.png');
+}
+
+.u106_container {
+    position:absolute;
+    left:716px;
+    top:-198px;
+    width:10px;
+    height:787px;-webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+
+}
+
+#u106_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:16px;
+    height:793px;
+}
+
+.u107 {
+    position:absolute;
+    left:2px;
+    top:386px;
+    width:6px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u108_normal {
+    background-image: url('../Museumspadagogik_files/u108_normal.png');
+}
+
+.u108_container {
+    position:absolute;
+    left:716px;
+    top:-190px;
+    width:10px;
+    height:787px;-webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+
+}
+
+#u108_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:16px;
+    height:793px;
+}
+
+.u109 {
+    position:absolute;
+    left:2px;
+    top:386px;
+    width:6px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u110 {
+    position:absolute;
+    left:687px;
+    top:317px;
+    width:338px;
+    height:21px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u111 {
+    position:absolute;
+    left:717px;
+    top:354px;
+    width:278px;
+    height:15px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u112_normal {
+    background-image: url('../Museumspadagogik_files/u7_normal.png');
+}
+
+.u112_container {
+    position:absolute;
+    left:687px;
+    top:349px;
+    width:25px;
+    height:25px;
+}
+
+#u112_img {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:25px;
+    height:25px;
+}
+
+.u113 {
+    position:absolute;
+    left:2px;
+    top:4px;
+    width:21px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+#u114 {
+    position:absolute;
+    left:71px;
+    top:757px;
+    width:50px;
+    height:50px;
+    ;
+    ;
+    ;
+    background-image: url('../resources/images/transparent.gif');
+    overflow:hidden;
+}
+
+#u115 {
+    position:absolute;
+    left:687px;
+    top:596px;
+    width:50px;
+    height:50px;
+    ;
+    ;
+    ;
+    background-image: url('../resources/images/transparent.gif');
+    overflow:hidden;
+}
+

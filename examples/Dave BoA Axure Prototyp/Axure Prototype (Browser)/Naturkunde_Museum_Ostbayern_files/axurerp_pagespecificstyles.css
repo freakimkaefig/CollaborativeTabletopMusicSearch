@@ -1,0 +1,3419 @@
+﻿body {
+    margin: 0px;
+    background-image: url('bg.jpg');
+    background-position: left center;
+    background-repeat: repeat;
+    background-attachment:fixed;
+}
+
+div {
+    background-repeat: no-repeat;
+}
+
+.raw_image {
+    width: 100%;
+    height: 100%;
+}
+
+.preload {
+    display: none;
+}
+#main_container {
+}
+
+.form_sketch {
+    border-color: transparent;
+    background-color: transparent;
+}
+
+.u0_normal {
+    background-image: url('../Naturkunde_Museum_Ostbayern_files/header-background_u0_normal.png');
+}
+
+.u0_container {
+    position:absolute;
+    left:0px;
+    top:-6px;
+    width:1341px;
+    height:210px;
+}
+
+#u0_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:1347px;
+    height:216px;
+}
+
+.u1 {
+    position:absolute;
+    left:2px;
+    top:97px;
+    width:1337px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+#u2 {
+    position:absolute;
+    left:28px;
+    top:670px;
+    width:519px;
+    height:251px;
+    overflow:hidden;
+}
+
+#pd1u2 {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:519px;
+    height:251px;
+    
+}
+
+.u3_container {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:293px;
+    height:250px;
+}
+
+#u3_img {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:293px;
+    height:250px;
+}
+
+.u4 {
+    position:absolute;
+    left:2px;
+    top:117px;
+    width:289px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u5_normal {
+    background-image: url('../Naturkunde_Museum_Ostbayern_files/u5_normal.png');
+}
+
+.u5_container {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:293px;
+    height:250px;
+}
+
+#u5_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:299px;
+    height:256px;
+}
+
+.u6 {
+    position:absolute;
+    left:2px;
+    top:117px;
+    width:289px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u7 {
+    position:absolute;
+    left:9px;
+    top:5px;
+    width:275px;
+    height:23px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u8 {
+    position:absolute;
+    left:9px;
+    top:36px;
+    width:275px;
+    height:180px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+#pd0u2 {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:519px;
+    height:251px;
+    
+}
+
+.u9_container {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:293px;
+    height:250px;
+}
+
+#u9_img {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:293px;
+    height:250px;
+}
+
+.u10 {
+    position:absolute;
+    left:2px;
+    top:117px;
+    width:289px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u11_normal {
+    background-image: url('../Naturkunde_Museum_Ostbayern_files/u11_normal.png');
+}
+
+.u11_container {
+    position:absolute;
+    left:0px;
+    top:187px;
+    width:293px;
+    height:63px;
+}
+
+#u11_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:299px;
+    height:69px;
+}
+
+.u12 {
+    position:absolute;
+    left:2px;
+    top:24px;
+    width:289px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u13 {
+    position:absolute;
+    left:11px;
+    top:188px;
+    width:272px;
+    height:23px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u14 {
+    position:absolute;
+    left:11px;
+    top:209px;
+    width:272px;
+    height:40px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+#u15 {
+    position:absolute;
+    left:28px;
+    top:288px;
+    width:519px;
+    height:251px;
+    overflow:hidden;
+}
+
+#pd1u15 {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:519px;
+    height:251px;
+    
+}
+
+.u16_container {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:293px;
+    height:250px;
+}
+
+#u16_img {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:293px;
+    height:250px;
+}
+
+.u17 {
+    position:absolute;
+    left:2px;
+    top:117px;
+    width:289px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u18_normal {
+    background-image: url('../Naturkunde_Museum_Ostbayern_files/u5_normal.png');
+}
+
+.u18_container {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:293px;
+    height:250px;
+}
+
+#u18_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:299px;
+    height:256px;
+}
+
+.u19 {
+    position:absolute;
+    left:2px;
+    top:117px;
+    width:289px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u20 {
+    position:absolute;
+    left:9px;
+    top:5px;
+    width:276px;
+    height:23px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u21 {
+    position:absolute;
+    left:8px;
+    top:51px;
+    width:276px;
+    height:160px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+#pd0u15 {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:519px;
+    height:251px;
+    
+}
+
+.u22_container {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:293px;
+    height:250px;
+}
+
+#u22_img {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:293px;
+    height:250px;
+}
+
+.u23 {
+    position:absolute;
+    left:2px;
+    top:117px;
+    width:289px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u24_normal {
+    background-image: url('../Naturkunde_Museum_Ostbayern_files/u24_normal.png');
+}
+
+.u24_container {
+    position:absolute;
+    left:0px;
+    top:178px;
+    width:293px;
+    height:72px;
+}
+
+#u24_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:299px;
+    height:78px;
+}
+
+.u25 {
+    position:absolute;
+    left:2px;
+    top:28px;
+    width:289px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u26 {
+    position:absolute;
+    left:11px;
+    top:184px;
+    width:272px;
+    height:23px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u27 {
+    position:absolute;
+    left:11px;
+    top:205px;
+    width:272px;
+    height:40px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u28_line {
+    background-image: url('../Naturkunde_Museum_Ostbayern_files/u28_line.png');
+}
+
+.u28_line {
+    position:absolute;
+    left:0px;
+    top:4px;
+    width:200px;
+    height:3px;
+}
+
+.u28 {
+    position:absolute;
+    left:42px;
+    top:1080px;
+    width:200px;
+    height:10px;
+    
+}
+
+#u29 {
+    position:absolute;
+    left:331px;
+    top:0px;
+    width:781px;
+    height:201px;
+    overflow:hidden;
+}
+
+#pd2u29 {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:781px;
+    height:201px;
+    
+}
+
+.u30_normal {
+    background-image: url('../Slideshow_files/u30_normal.png');
+}
+
+.u30_container {
+    position:absolute;
+    left:0px;
+    top:-20px;
+    width:779px;
+    height:251px;
+}
+
+#u30_img {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:779px;
+    height:251px;
+}
+
+.u31 {
+    position:absolute;
+    left:2px;
+    top:118px;
+    width:775px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+#pd1u29 {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:781px;
+    height:201px;
+    
+}
+
+.u32_normal {
+    background-image: url('../Slideshow_files/u32_normal.png');
+}
+
+.u32_container {
+    position:absolute;
+    left:0px;
+    top:-50px;
+    width:779px;
+    height:250px;
+}
+
+#u32_img {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:779px;
+    height:250px;
+}
+
+.u33 {
+    position:absolute;
+    left:2px;
+    top:117px;
+    width:775px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+#pd0u29 {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:781px;
+    height:201px;
+    
+}
+
+.u34_normal {
+    background-image: url('../Slideshow_files/u34_normal.png');
+}
+
+.u34_container {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:779px;
+    height:251px;
+}
+
+#u34_img {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:779px;
+    height:251px;
+}
+
+.u35 {
+    position:absolute;
+    left:2px;
+    top:118px;
+    width:775px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+#u36 {
+    position:absolute;
+    left:520px;
+    top:124px;
+    width:592px;
+    height:66px;
+    overflow:hidden;
+}
+
+#pd2u36 {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:592px;
+    height:66px;
+    
+}
+
+.u37_normal {
+    background-image: url('../Slideshow_files/u37_normal.png');
+}
+
+.u37_container {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:589px;
+    height:63px;
+}
+
+#u37_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:595px;
+    height:69px;
+}
+
+.u38 {
+    position:absolute;
+    left:2px;
+    top:24px;
+    width:585px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u39 {
+    position:absolute;
+    left:11px;
+    top:1px;
+    width:562px;
+    height:23px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u40 {
+    position:absolute;
+    left:11px;
+    top:22px;
+    width:562px;
+    height:40px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+#pd1u36 {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:592px;
+    height:66px;
+    
+}
+
+.u41_normal {
+    background-image: url('../Slideshow_files/u37_normal.png');
+}
+
+.u41_container {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:589px;
+    height:63px;
+}
+
+#u41_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:595px;
+    height:69px;
+}
+
+.u42 {
+    position:absolute;
+    left:2px;
+    top:24px;
+    width:585px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u43 {
+    position:absolute;
+    left:11px;
+    top:1px;
+    width:562px;
+    height:23px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u44 {
+    position:absolute;
+    left:11px;
+    top:22px;
+    width:562px;
+    height:40px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+#pd0u36 {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:592px;
+    height:66px;
+    
+}
+
+.u45_normal {
+    background-image: url('../Slideshow_files/u37_normal.png');
+}
+
+.u45_container {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:589px;
+    height:63px;
+}
+
+#u45_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:595px;
+    height:69px;
+}
+
+.u46 {
+    position:absolute;
+    left:2px;
+    top:24px;
+    width:585px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u47 {
+    position:absolute;
+    left:11px;
+    top:1px;
+    width:562px;
+    height:23px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u48 {
+    position:absolute;
+    left:11px;
+    top:22px;
+    width:562px;
+    height:40px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u50_normal {
+    background-image: url('../Naturkunde_Museum_Ostbayern_files/u50_normal.png');
+}
+
+.u50_container {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:331px;
+    height:200px;
+}
+
+#u50_img {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:331px;
+    height:200px;
+}
+
+.u51 {
+    position:absolute;
+    left:2px;
+    top:92px;
+    width:327px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u52_normal {
+    background-image: url('../Naturkunde_Museum_Ostbayern_files/u52_normal.png');
+}
+
+.u52_container {
+    position:absolute;
+    left:1179px;
+    top:32px;
+    width:27px;
+    height:27px;
+}
+
+#u52_img {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:27px;
+    height:27px;
+}
+
+.u53 {
+    position:absolute;
+    left:2px;
+    top:6px;
+    width:23px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u54_normal {
+    background-image: url('../Naturkunde_Museum_Ostbayern_files/u54_normal.png');
+}
+
+.u54_container {
+    position:absolute;
+    left:1216px;
+    top:32px;
+    width:27px;
+    height:27px;
+}
+
+#u54_img {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:27px;
+    height:27px;
+}
+
+.u55 {
+    position:absolute;
+    left:2px;
+    top:6px;
+    width:23px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u56_normal {
+    background-image: url('../Naturkunde_Museum_Ostbayern_files/u56_normal.png');
+}
+
+.u56_container {
+    position:absolute;
+    left:1253px;
+    top:32px;
+    width:27px;
+    height:27px;
+}
+
+#u56_img {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:27px;
+    height:27px;
+}
+
+.u57 {
+    position:absolute;
+    left:2px;
+    top:6px;
+    width:23px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u58_normal {
+    background-image: url('../Naturkunde_Museum_Ostbayern_files/u58_normal.png');
+}
+
+.u58_container {
+    position:absolute;
+    left:1252px;
+    top:91px;
+    width:27px;
+    height:27px;
+}
+
+#u58_img {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:27px;
+    height:27px;
+}
+
+.u59 {
+    position:absolute;
+    left:2px;
+    top:6px;
+    width:23px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u60_normal {
+    background-image: url('../Naturkunde_Museum_Ostbayern_files/image_u60_normal.png');
+}
+
+.u60_container {
+    position:absolute;
+    left:1179px;
+    top:91px;
+    width:27px;
+    height:27px;
+}
+
+#u60_img {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:27px;
+    height:27px;
+}
+
+.u61 {
+    position:absolute;
+    left:2px;
+    top:6px;
+    width:23px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u62_normal {
+    background-image: url('../Naturkunde_Museum_Ostbayern_files/u62_normal.png');
+}
+
+.u62_container {
+    position:absolute;
+    left:1216px;
+    top:91px;
+    width:27px;
+    height:27px;
+}
+
+#u62_img {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:27px;
+    height:27px;
+}
+
+.u63 {
+    position:absolute;
+    left:2px;
+    top:6px;
+    width:23px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u64_normal {
+    background-image: url('../Naturkunde_Museum_Ostbayern_files/u64_normal.png');
+}
+
+.u64_container {
+    position:absolute;
+    left:1134px;
+    top:144px;
+    width:200px;
+    height:31px;
+}
+
+#u64_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:206px;
+    height:37px;
+}
+
+.u65 {
+    position:absolute;
+    left:2px;
+    top:8px;
+    width:196px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u66 {
+    position:absolute;
+    left:1163px;
+    top:148px;
+    width:149px;
+    height:25px;
+    ;
+    ;
+    text-align: left;;
+    font-family:'Arial';
+    font-size: 13px;
+    color:#000000;
+    font-style:normal;
+    font-weight:normal;
+    text-decoration:none;
+    border-color:transparent;
+    outline-style:none;
+}
+
+.u67_normal {
+    background-image: url('../Naturkunde_Museum_Ostbayern_files/u67_normal.png');
+}
+
+.u67_container {
+    position:absolute;
+    left:1311px;
+    top:150px;
+    width:21px;
+    height:21px;
+}
+
+#u67_img {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:21px;
+    height:21px;
+}
+
+.u68 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:17px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u69_normal {
+    background-image: url('../Naturkunde_Museum_Ostbayern_files/u69_normal.png');
+}
+
+.u69_container {
+    position:absolute;
+    left:1138px;
+    top:150px;
+    width:21px;
+    height:21px;
+}
+
+#u69_img {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:21px;
+    height:21px;
+}
+
+.u70 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:17px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u71 {
+    position:absolute;
+    left:28px;
+    top:250px;
+    width:658px;
+    height:21px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+#u72 {
+    position:absolute;
+    left:132px;
+    top:288px;
+    width:519px;
+    height:251px;
+    overflow:hidden;
+}
+
+#pd1u72 {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:519px;
+    height:251px;
+    
+}
+
+.u73_container {
+    position:absolute;
+    left:225px;
+    top:0px;
+    width:293px;
+    height:250px;
+}
+
+#u73_img {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:293px;
+    height:250px;
+}
+
+.u74 {
+    position:absolute;
+    left:2px;
+    top:117px;
+    width:289px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u75_normal {
+    background-image: url('../Naturkunde_Museum_Ostbayern_files/u75_normal.png');
+}
+
+.u75_container {
+    position:absolute;
+    left:225px;
+    top:0px;
+    width:293px;
+    height:250px;
+}
+
+#u75_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:299px;
+    height:256px;
+}
+
+.u76 {
+    position:absolute;
+    left:2px;
+    top:117px;
+    width:289px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u77 {
+    position:absolute;
+    left:234px;
+    top:5px;
+    width:277px;
+    height:23px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u78 {
+    position:absolute;
+    left:234px;
+    top:46px;
+    width:277px;
+    height:160px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+#pd0u72 {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:519px;
+    height:251px;
+    
+}
+
+.u79_container {
+    position:absolute;
+    left:225px;
+    top:-1px;
+    width:293px;
+    height:250px;
+}
+
+#u79_img {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:293px;
+    height:250px;
+}
+
+.u80 {
+    position:absolute;
+    left:2px;
+    top:117px;
+    width:289px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u81_normal {
+    background-image: url('../Naturkunde_Museum_Ostbayern_files/u81_normal.png');
+}
+
+.u81_container {
+    position:absolute;
+    left:225px;
+    top:178px;
+    width:293px;
+    height:72px;
+}
+
+#u81_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:299px;
+    height:78px;
+}
+
+.u82 {
+    position:absolute;
+    left:2px;
+    top:28px;
+    width:289px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u83 {
+    position:absolute;
+    left:236px;
+    top:183px;
+    width:272px;
+    height:23px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u84 {
+    position:absolute;
+    left:236px;
+    top:204px;
+    width:272px;
+    height:40px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+#u85 {
+    position:absolute;
+    left:460px;
+    top:288px;
+    width:519px;
+    height:251px;
+    overflow:hidden;
+}
+
+#pd1u85 {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:519px;
+    height:251px;
+    
+}
+
+.u86_container {
+    position:absolute;
+    left:225px;
+    top:0px;
+    width:293px;
+    height:250px;
+}
+
+#u86_img {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:293px;
+    height:250px;
+}
+
+.u87 {
+    position:absolute;
+    left:2px;
+    top:117px;
+    width:289px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u88_normal {
+    background-image: url('../Naturkunde_Museum_Ostbayern_files/u88_normal.png');
+}
+
+.u88_container {
+    position:absolute;
+    left:225px;
+    top:0px;
+    width:293px;
+    height:250px;
+}
+
+#u88_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:299px;
+    height:256px;
+}
+
+.u89 {
+    position:absolute;
+    left:2px;
+    top:117px;
+    width:289px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u90 {
+    position:absolute;
+    left:234px;
+    top:82px;
+    width:277px;
+    height:120px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u91 {
+    position:absolute;
+    left:234px;
+    top:12px;
+    width:277px;
+    height:46px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+#pd0u85 {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:519px;
+    height:251px;
+    
+}
+
+.u92_container {
+    position:absolute;
+    left:225px;
+    top:0px;
+    width:293px;
+    height:250px;
+}
+
+#u92_img {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:293px;
+    height:250px;
+}
+
+.u93 {
+    position:absolute;
+    left:2px;
+    top:117px;
+    width:289px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u94_normal {
+    background-image: url('../Naturkunde_Museum_Ostbayern_files/u81_normal.png');
+}
+
+.u94_container {
+    position:absolute;
+    left:225px;
+    top:178px;
+    width:293px;
+    height:72px;
+}
+
+#u94_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:299px;
+    height:78px;
+}
+
+.u95 {
+    position:absolute;
+    left:2px;
+    top:28px;
+    width:289px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u96 {
+    position:absolute;
+    left:235px;
+    top:180px;
+    width:272px;
+    height:66px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+#u97 {
+    position:absolute;
+    left:797px;
+    top:288px;
+    width:519px;
+    height:251px;
+    overflow:hidden;
+}
+
+#pd1u97 {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:519px;
+    height:251px;
+    
+}
+
+.u98_container {
+    position:absolute;
+    left:225px;
+    top:0px;
+    width:293px;
+    height:250px;
+}
+
+#u98_img {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:293px;
+    height:250px;
+}
+
+.u99 {
+    position:absolute;
+    left:2px;
+    top:117px;
+    width:289px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u100_normal {
+    background-image: url('../Naturkunde_Museum_Ostbayern_files/u5_normal.png');
+}
+
+.u100_container {
+    position:absolute;
+    left:225px;
+    top:0px;
+    width:293px;
+    height:250px;
+}
+
+#u100_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:299px;
+    height:256px;
+}
+
+.u101 {
+    position:absolute;
+    left:2px;
+    top:117px;
+    width:289px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u102 {
+    position:absolute;
+    left:232px;
+    top:5px;
+    width:279px;
+    height:46px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u103 {
+    position:absolute;
+    left:232px;
+    top:71px;
+    width:279px;
+    height:120px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+#pd0u97 {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:519px;
+    height:251px;
+    
+}
+
+.u104_container {
+    position:absolute;
+    left:225px;
+    top:0px;
+    width:293px;
+    height:250px;
+}
+
+#u104_img {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:293px;
+    height:250px;
+}
+
+.u105 {
+    position:absolute;
+    left:2px;
+    top:117px;
+    width:289px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u106_normal {
+    background-image: url('../Naturkunde_Museum_Ostbayern_files/u24_normal.png');
+}
+
+.u106_container {
+    position:absolute;
+    left:225px;
+    top:178px;
+    width:293px;
+    height:72px;
+}
+
+#u106_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:299px;
+    height:78px;
+}
+
+.u107 {
+    position:absolute;
+    left:2px;
+    top:28px;
+    width:289px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u108 {
+    position:absolute;
+    left:236px;
+    top:180px;
+    width:272px;
+    height:46px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u109 {
+    position:absolute;
+    left:236px;
+    top:226px;
+    width:272px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u110 {
+    position:absolute;
+    left:28px;
+    top:631px;
+    width:658px;
+    height:21px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+#u111 {
+    position:absolute;
+    left:132px;
+    top:670px;
+    width:519px;
+    height:251px;
+    overflow:hidden;
+}
+
+#pd1u111 {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:519px;
+    height:251px;
+    
+}
+
+.u112_container {
+    position:absolute;
+    left:225px;
+    top:0px;
+    width:293px;
+    height:250px;
+}
+
+#u112_img {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:293px;
+    height:250px;
+}
+
+.u113 {
+    position:absolute;
+    left:2px;
+    top:117px;
+    width:289px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u114_normal {
+    background-image: url('../Naturkunde_Museum_Ostbayern_files/u5_normal.png');
+}
+
+.u114_container {
+    position:absolute;
+    left:225px;
+    top:0px;
+    width:293px;
+    height:250px;
+}
+
+#u114_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:299px;
+    height:256px;
+}
+
+.u115 {
+    position:absolute;
+    left:2px;
+    top:117px;
+    width:289px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u116 {
+    position:absolute;
+    left:234px;
+    top:5px;
+    width:276px;
+    height:23px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u117 {
+    position:absolute;
+    left:234px;
+    top:51px;
+    width:276px;
+    height:140px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+#pd0u111 {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:519px;
+    height:251px;
+    
+}
+
+.u118_container {
+    position:absolute;
+    left:225px;
+    top:0px;
+    width:293px;
+    height:250px;
+}
+
+#u118_img {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:293px;
+    height:250px;
+}
+
+.u119 {
+    position:absolute;
+    left:2px;
+    top:117px;
+    width:289px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u120_normal {
+    background-image: url('../Naturkunde_Museum_Ostbayern_files/u11_normal.png');
+}
+
+.u120_container {
+    position:absolute;
+    left:225px;
+    top:187px;
+    width:293px;
+    height:63px;
+}
+
+#u120_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:299px;
+    height:69px;
+}
+
+.u121 {
+    position:absolute;
+    left:2px;
+    top:24px;
+    width:289px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u122 {
+    position:absolute;
+    left:236px;
+    top:188px;
+    width:272px;
+    height:23px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u123 {
+    position:absolute;
+    left:236px;
+    top:209px;
+    width:334px;
+    height:40px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+#u124 {
+    position:absolute;
+    left:460px;
+    top:670px;
+    width:519px;
+    height:251px;
+    overflow:hidden;
+}
+
+#pd1u124 {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:519px;
+    height:251px;
+    
+}
+
+.u125_container {
+    position:absolute;
+    left:225px;
+    top:0px;
+    width:293px;
+    height:250px;
+}
+
+#u125_img {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:293px;
+    height:250px;
+}
+
+.u126 {
+    position:absolute;
+    left:2px;
+    top:117px;
+    width:289px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u127_normal {
+    background-image: url('../Naturkunde_Museum_Ostbayern_files/u5_normal.png');
+}
+
+.u127_container {
+    position:absolute;
+    left:225px;
+    top:0px;
+    width:293px;
+    height:250px;
+}
+
+#u127_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:299px;
+    height:256px;
+}
+
+.u128 {
+    position:absolute;
+    left:2px;
+    top:117px;
+    width:289px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u129 {
+    position:absolute;
+    left:235px;
+    top:5px;
+    width:275px;
+    height:23px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u130 {
+    position:absolute;
+    left:235px;
+    top:47px;
+    width:275px;
+    height:140px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+#pd0u124 {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:519px;
+    height:251px;
+    
+}
+
+.u131_container {
+    position:absolute;
+    left:225px;
+    top:0px;
+    width:293px;
+    height:250px;
+}
+
+#u131_img {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:293px;
+    height:250px;
+}
+
+.u132 {
+    position:absolute;
+    left:2px;
+    top:117px;
+    width:289px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u133_normal {
+    background-image: url('../Naturkunde_Museum_Ostbayern_files/u11_normal.png');
+}
+
+.u133_container {
+    position:absolute;
+    left:225px;
+    top:187px;
+    width:293px;
+    height:63px;
+}
+
+#u133_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:299px;
+    height:69px;
+}
+
+.u134 {
+    position:absolute;
+    left:2px;
+    top:24px;
+    width:289px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u135 {
+    position:absolute;
+    left:236px;
+    top:188px;
+    width:272px;
+    height:23px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u136 {
+    position:absolute;
+    left:236px;
+    top:209px;
+    width:282px;
+    height:40px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+#u137 {
+    position:absolute;
+    left:798px;
+    top:670px;
+    width:519px;
+    height:251px;
+    overflow:hidden;
+}
+
+#pd1u137 {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:519px;
+    height:251px;
+    
+}
+
+.u138_container {
+    position:absolute;
+    left:225px;
+    top:0px;
+    width:293px;
+    height:250px;
+}
+
+#u138_img {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:293px;
+    height:250px;
+}
+
+.u139 {
+    position:absolute;
+    left:2px;
+    top:117px;
+    width:289px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u140_normal {
+    background-image: url('../Naturkunde_Museum_Ostbayern_files/u5_normal.png');
+}
+
+.u140_container {
+    position:absolute;
+    left:225px;
+    top:0px;
+    width:293px;
+    height:250px;
+}
+
+#u140_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:299px;
+    height:256px;
+}
+
+.u141 {
+    position:absolute;
+    left:2px;
+    top:117px;
+    width:289px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u142 {
+    position:absolute;
+    left:234px;
+    top:5px;
+    width:276px;
+    height:23px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u143 {
+    position:absolute;
+    left:233px;
+    top:51px;
+    width:276px;
+    height:160px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+#pd0u137 {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:519px;
+    height:251px;
+    
+}
+
+.u144_container {
+    position:absolute;
+    left:225px;
+    top:0px;
+    width:293px;
+    height:250px;
+}
+
+#u144_img {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:293px;
+    height:250px;
+}
+
+.u145 {
+    position:absolute;
+    left:2px;
+    top:117px;
+    width:289px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u146_normal {
+    background-image: url('../Naturkunde_Museum_Ostbayern_files/u11_normal.png');
+}
+
+.u146_container {
+    position:absolute;
+    left:225px;
+    top:187px;
+    width:293px;
+    height:63px;
+}
+
+#u146_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:299px;
+    height:69px;
+}
+
+.u147 {
+    position:absolute;
+    left:2px;
+    top:24px;
+    width:289px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u148 {
+    position:absolute;
+    left:236px;
+    top:188px;
+    width:272px;
+    height:23px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u149 {
+    position:absolute;
+    left:236px;
+    top:209px;
+    width:295px;
+    height:40px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u150_normal {
+    background-image: url('../resources/images/transparent.gif');
+}
+
+.u150_container {
+    position:absolute;
+    left:11px;
+    top:591px;
+    width:1330px;
+    height:363px;
+}
+
+#u150_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:1336px;
+    height:369px;
+}
+
+.u151 {
+    position:absolute;
+    left:2px;
+    top:174px;
+    width:1326px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u152_normal {
+    background-image: url('../resources/images/transparent.gif');
+}
+
+.u152_container {
+    position:absolute;
+    left:11px;
+    top:232px;
+    width:1332px;
+    height:342px;
+}
+
+#u152_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:1338px;
+    height:348px;
+}
+
+.u153 {
+    position:absolute;
+    left:2px;
+    top:163px;
+    width:1328px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+#u154 {
+    position:fixed;
+    left: 50%;
+    margin-left: -670px;
+    bottom:0px;
+    width:1341px;
+    height:164px;
+    overflow:hidden;
+}
+
+#pd0u154 {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:1341px;
+    height:164px;
+    
+}
+
+#u155 {
+    position:absolute;
+    left:0px;
+    top:12px;
+    width:1341px;
+    height:151px;
+    overflow:hidden;
+}
+
+#pd0u155 {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:1341px;
+    height:151px;
+    
+}
+
+.u156_normal {
+    background-image: url('../Navigation_open_files/u156_normal.png');
+}
+
+.u156_container {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:1340px;
+    height:153px;
+}
+
+#u156_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:1346px;
+    height:159px;
+}
+
+.u157 {
+    position:absolute;
+    left:2px;
+    top:68px;
+    width:1336px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u158 {
+    position:absolute;
+    left:23px;
+    top:13px;
+    width:205px;
+    height:17px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u159 {
+    position:absolute;
+    left:23px;
+    top:67px;
+    width:216px;
+    height:17px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u160 {
+    position:absolute;
+    left:23px;
+    top:94px;
+    width:219px;
+    height:17px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u161 {
+    position:absolute;
+    left:272px;
+    top:67px;
+    width:150px;
+    height:17px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u162 {
+    position:absolute;
+    left:272px;
+    top:94px;
+    width:187px;
+    height:17px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u163 {
+    position:absolute;
+    left:829px;
+    top:67px;
+    width:150px;
+    height:17px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u164 {
+    position:absolute;
+    left:829px;
+    top:94px;
+    width:150px;
+    height:17px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u165 {
+    position:absolute;
+    left:535px;
+    top:13px;
+    width:216px;
+    height:17px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u166 {
+    position:absolute;
+    left:535px;
+    top:40px;
+    width:261px;
+    height:17px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u167 {
+    position:absolute;
+    left:535px;
+    top:67px;
+    width:216px;
+    height:17px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u168 {
+    position:absolute;
+    left:535px;
+    top:94px;
+    width:216px;
+    height:17px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u169_line {
+    background-image: url('../Navigation_open_files/u169_line.png');
+}
+
+.u169_line {
+    position:absolute;
+    left:4px;
+    top:0px;
+    width:3px;
+    height:143px;
+}
+
+.u169 {
+    position:absolute;
+    left:252px;
+    top:5px;
+    width:10px;
+    height:143px;
+    
+}
+
+.u170_line {
+    background-image: url('../Navigation_open_files/u170_line.png');
+}
+
+.u170_line {
+    position:absolute;
+    left:4px;
+    top:0px;
+    width:3px;
+    height:143px;
+}
+
+.u170 {
+    position:absolute;
+    left:515px;
+    top:5px;
+    width:10px;
+    height:143px;
+    
+}
+
+.u171_line {
+    background-image: url('../Navigation_open_files/u171_line.png');
+}
+
+.u171_line {
+    position:absolute;
+    left:4px;
+    top:0px;
+    width:3px;
+    height:143px;
+}
+
+.u171 {
+    position:absolute;
+    left:811px;
+    top:7px;
+    width:10px;
+    height:143px;
+    
+}
+
+.u172_line {
+    background-image: url('../Navigation_open_files/u172_line.png');
+}
+
+.u172_line {
+    position:absolute;
+    left:4px;
+    top:0px;
+    width:3px;
+    height:143px;
+}
+
+.u172 {
+    position:absolute;
+    left:1021px;
+    top:7px;
+    width:10px;
+    height:143px;
+    
+}
+
+.u173 {
+    position:absolute;
+    left:23px;
+    top:40px;
+    width:102px;
+    height:17px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u174 {
+    position:absolute;
+    left:1043px;
+    top:67px;
+    width:163px;
+    height:17px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u175 {
+    position:absolute;
+    left:1043px;
+    top:94px;
+    width:163px;
+    height:17px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u176 {
+    position:absolute;
+    left:20px;
+    top:121px;
+    width:219px;
+    height:23px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u177 {
+    position:absolute;
+    left:269px;
+    top:121px;
+    width:243px;
+    height:23px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u178 {
+    position:absolute;
+    left:537px;
+    top:121px;
+    width:205px;
+    height:23px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u179 {
+    position:absolute;
+    left:831px;
+    top:121px;
+    width:66px;
+    height:23px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u180 {
+    position:absolute;
+    left:1043px;
+    top:121px;
+    width:229px;
+    height:23px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u182_normal {
+    background-image: url('../Navigation_closed_files/nav_closed_u182_normal.png');
+}
+
+.u182_container {
+    position:absolute;
+    left:0px;
+    top:125px;
+    width:1340px;
+    height:38px;
+}
+
+#u182_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:1346px;
+    height:44px;
+}
+
+.u183 {
+    position:absolute;
+    left:2px;
+    top:4px;
+    width:1336px;
+    height:29px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u185_normal {
+    background-image: url('../resources/images/transparent.gif');
+}
+
+.u185_container {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:1340px;
+    height:163px;
+}
+
+#u185_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:1346px;
+    height:169px;
+}
+
+.u186 {
+    position:absolute;
+    left:2px;
+    top:74px;
+    width:1336px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u187_normal {
+    background-image: url('../resources/images/transparent.gif');
+}
+
+.u187_container {
+    position:absolute;
+    left:0px;
+    top:125px;
+    width:1340px;
+    height:38px;
+}
+
+#u187_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:1346px;
+    height:44px;
+}
+
+.u188 {
+    position:absolute;
+    left:2px;
+    top:11px;
+    width:1336px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u189_normal {
+    background-image: url('../Naturkunde_Museum_Ostbayern_files/u189_normal.png');
+}
+
+.u189_container {
+    position:absolute;
+    left:327px;
+    top:0px;
+    width:10px;
+    height:200px;
+}
+
+#u189_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:16px;
+    height:206px;
+}
+
+.u190 {
+    position:absolute;
+    left:2px;
+    top:92px;
+    width:6px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u191_normal {
+    background-image: url('../Naturkunde_Museum_Ostbayern_files/u191_normal.png');
+}
+
+.u191_container {
+    position:absolute;
+    left:1104px;
+    top:0px;
+    width:10px;
+    height:200px;
+}
+
+#u191_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:16px;
+    height:206px;
+}
+
+.u192 {
+    position:absolute;
+    left:2px;
+    top:92px;
+    width:6px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u193_normal {
+    background-image: url('../Naturkunde_Museum_Ostbayern_files/u191_normal.png');
+}
+
+.u193_container {
+    position:absolute;
+    left:320px;
+    top:0px;
+    width:10px;
+    height:200px;
+}
+
+#u193_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:16px;
+    height:206px;
+}
+
+.u194 {
+    position:absolute;
+    left:2px;
+    top:92px;
+    width:6px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u195_normal {
+    background-image: url('../Naturkunde_Museum_Ostbayern_files/u189_normal.png');
+}
+
+.u195_container {
+    position:absolute;
+    left:1111px;
+    top:0px;
+    width:10px;
+    height:200px;
+}
+
+#u195_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:16px;
+    height:206px;
+}
+
+.u196 {
+    position:absolute;
+    left:2px;
+    top:92px;
+    width:6px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u197_normal {
+    background-image: url('../Naturkunde_Museum_Ostbayern_files/u197_normal.png');
+}
+
+.u197_container {
+    position:absolute;
+    left:716px;
+    top:-198px;
+    width:10px;
+    height:787px;-webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+
+}
+
+#u197_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:16px;
+    height:793px;
+}
+
+.u198 {
+    position:absolute;
+    left:2px;
+    top:386px;
+    width:6px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u199_normal {
+    background-image: url('../Naturkunde_Museum_Ostbayern_files/u199_normal.png');
+}
+
+.u199_container {
+    position:absolute;
+    left:716px;
+    top:-190px;
+    width:10px;
+    height:787px;-webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+
+}
+
+#u199_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:16px;
+    height:793px;
+}
+
+.u200 {
+    position:absolute;
+    left:2px;
+    top:386px;
+    width:6px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u201 {
+    position:absolute;
+    left:497px;
+    top:512px;
+    width:129px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u202 {
+    position:absolute;
+    left:827px;
+    top:513px;
+    width:129px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u203 {
+    position:absolute;
+    left:1141px;
+    top:513px;
+    width:129px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u204 {
+    position:absolute;
+    left:516px;
+    top:898px;
+    width:129px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u205 {
+    position:absolute;
+    left:847px;
+    top:898px;
+    width:129px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u206 {
+    position:absolute;
+    left:1183px;
+    top:899px;
+    width:129px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u207 {
+    position:absolute;
+    left:165px;
+    top:512px;
+    width:129px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u208 {
+    position:absolute;
+    left:185px;
+    top:898px;
+    width:129px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
