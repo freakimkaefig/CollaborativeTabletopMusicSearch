@@ -91,3 +91,4 @@ uploads
 # Temporary files #
 #################
 ~$*
+_gsdata_
