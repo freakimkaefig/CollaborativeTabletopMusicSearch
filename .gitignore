@@ -91,5 +91,6 @@ uploads
 # Temporary files #
 #################
 ~$*
-
 _gsdata_
+*.sublime-workspace
+app.sublime-workspace
