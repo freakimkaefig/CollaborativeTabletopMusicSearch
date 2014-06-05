@@ -1,0 +1,1 @@
+Ordner in dem alle für das Design relevanten Dateien abgelegt werden.
