@@ -1,10 +1,12 @@
 <?php
 class AccountController extends BaseController {
-	public function login() {
+	public function renderPage() {
 
+		/*
 		Mail::send('emails.auth.test', array('name' => 'Name'), function($message) {
 			$message->to('lukas.lamm89@hotmail.com', 'Lukas Lamm')->subject('Test Mail');
 		});
+		*/
 
 		return View::make('login');
 	}
