@@ -87,3 +87,7 @@ uploads
 #####################
 .VimballRecord
 .netrwhist
+
+# Temporary files #
+#################
+~$*
