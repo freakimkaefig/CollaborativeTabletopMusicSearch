@@ -1,0 +1,1 @@
+Ordner für den Code der Anwendung. Dieser Ordner wird automatisch mit "mediathek.lukaslamm.de" synchronisiert (Wenn ich Pull!).
