@@ -1,5 +1,11 @@
 @extends('layout.main')
 
 @section('content')
-	Hello Mediathek Crawler.
+	<h1>Hello Mediathek Crawler.</h1>
+	
+	@if(Auth::check())
+		<p>Angemeldet als {{ Auth::user()->email }}.</p>
+	@else
+		<p>Du bist nicht angemeldet.</p>
+	@endif
 @stop
