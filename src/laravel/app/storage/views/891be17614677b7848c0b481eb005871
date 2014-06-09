@@ -1,0 +1,6 @@
+<nav>
+	<ul>
+		<li><a href="<?php echo URL::route('home'); ?>">Home</a></li>
+		<li><a href="<?php echo URL::route('login'); ?>">Login</a></li>
+	</ul>
+</nav>
