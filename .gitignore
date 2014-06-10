@@ -96,7 +96,6 @@ _gsdata_
 app.sublime-workspace
 
 /bootstrap/compiled.php
-/vendor
 composer.phar
 composer.lock
 .env.*.php

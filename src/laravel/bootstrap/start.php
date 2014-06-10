@@ -24,11 +24,24 @@ $app = new Illuminate\Foundation\Application;
 |
 */
 
+/*
 $env = $app->detectEnvironment(array(
-
 	'local' => array('homestead'),
-
 ));
+*/
+
+$env = $app->detectEnvironment(function()
+{
+	switch ($_SERVER['HTTP_HOST']) {
+		case 'mediathek.lukaslamm.de':
+			return 'strato';
+			break;
+		
+		default:
+			return 'production';
+			break;
+	}
+});
 
 /*
 |--------------------------------------------------------------------------
