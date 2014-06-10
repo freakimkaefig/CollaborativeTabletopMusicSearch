@@ -25,7 +25,9 @@
         "Illuminate\\Translation\\TranslationServiceProvider",
         "Illuminate\\Validation\\ValidationServiceProvider",
         "Illuminate\\View\\ViewServiceProvider",
-        "Illuminate\\Workbench\\WorkbenchServiceProvider"
+        "Illuminate\\Workbench\\WorkbenchServiceProvider",
+        "Barryvdh\\LaravelIdeHelper\\IdeHelperServiceProvider",
+        "Barryvdh\\Debugbar\\ServiceProvider"
     ],
     "eager": [
         "Illuminate\\Cookie\\CookieServiceProvider",
@@ -34,7 +36,8 @@
         "Illuminate\\Filesystem\\FilesystemServiceProvider",
         "Illuminate\\Session\\SessionServiceProvider",
         "Illuminate\\View\\ViewServiceProvider",
-        "Illuminate\\Workbench\\WorkbenchServiceProvider"
+        "Illuminate\\Workbench\\WorkbenchServiceProvider",
+        "Barryvdh\\Debugbar\\ServiceProvider"
     ],
     "deferred": {
         "artisan": "Illuminate\\Foundation\\Providers\\ArtisanServiceProvider",
@@ -105,7 +108,9 @@
         "translator": "Illuminate\\Translation\\TranslationServiceProvider",
         "translation.loader": "Illuminate\\Translation\\TranslationServiceProvider",
         "validator": "Illuminate\\Validation\\ValidationServiceProvider",
-        "validation.presence": "Illuminate\\Validation\\ValidationServiceProvider"
+        "validation.presence": "Illuminate\\Validation\\ValidationServiceProvider",
+        "command.ide-helper.generate": "Barryvdh\\LaravelIdeHelper\\IdeHelperServiceProvider",
+        "command.ide-helper.models": "Barryvdh\\LaravelIdeHelper\\IdeHelperServiceProvider"
     },
     "when": {
         "Illuminate\\Foundation\\Providers\\ArtisanServiceProvider": [
@@ -163,6 +168,9 @@
 
         ],
         "Illuminate\\Validation\\ValidationServiceProvider": [
+
+        ],
+        "Barryvdh\\LaravelIdeHelper\\IdeHelperServiceProvider": [
 
         ]
     }
