@@ -33,7 +33,7 @@ CREATE TABLE `users` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,6 +43,7 @@ CREATE TABLE `users` (
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` VALUES (3,'lukas.lamm89@hotmail.com','$2y$10$RJw6uzvlPCRdc8e4ItTa8.Ql9I/S3xkbn7jHf5HrAEH5A33ihsPla','','',1,'upXyM0GaC06abABLDrVSV56r9IezgZ7hGkT3DGwcmdKuJURdLANCNAFisyeZ','2014-06-07 13:04:23','2014-06-10 12:55:51');
+INSERT INTO `users` VALUES (4,'test@test.de','$2y$10$vk1Sat7mZgCFmPDYfnJB9uWkjwUIOzeQk41893bXzEjNccd63jGwa','','LcE4KKYXWlaqjF0VDCzIJJalyIQQ7cswzxVkv7m2QAWTUpmUfdL1rZCzhWUR',0,'','2014-06-10 14:51:01','2014-06-10 14:51:01');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -55,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-06-10 16:48:56
+-- Dump completed on 2014-06-10 16:52:08
