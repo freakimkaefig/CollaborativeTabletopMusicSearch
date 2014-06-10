@@ -32,15 +32,15 @@ class AccountController extends BaseController {
 			
 			if($auth) {
 				//Redirect to the intended page
-				return Redirect::intended('/');
+				return Redirect::route('account-my-account');
 			} else {
 				return Redirect::route('account-sign-in')
-					->with('global', 'Bei der Anmeldung ist ein Problem aufgetreten. Falsche Email-Adresse/Passwort oder das Konto ist nicht aktiviert.');
+					->with('global-warning', 'Bei der Anmeldung ist ein Problem aufgetreten. Falsche Email-Adresse/Passwort oder das Konto ist nicht aktiviert.');
 			}
 		}
 		
 		return Redirect::route('account-sign-in')
-			->with('global', 'Bei der Anmeldung ist ein Problem aufgetreten.');
+			->with('global-danger', 'Bei der Anmeldung ist ein Problem aufgetreten.');
 	}
 	
 	public function getSignOut() {
@@ -49,7 +49,7 @@ class AccountController extends BaseController {
 	}
 	
 	public function getCreate() {
-		return View::make('account.create');
+		return View::make('account.signin');
 	}
 	
 	public function postCreate() {
@@ -62,7 +62,7 @@ class AccountController extends BaseController {
 		);
 		
 		if($validator->fails()) {
-			return Redirect::route('account-create')
+			return Redirect::route('account-sign-in')
 				->withErrors($validator)
 				->withInput();
 		} else {
@@ -85,8 +85,8 @@ class AccountController extends BaseController {
 					$message->to($user->email)->subject('Mediathek-Crawler: Konto aktivieren');
 				});
 				
-				return Redirect::route('home')
-					->with('global', 'Dein Konto wurde angelegt, bitte bestätige zunächst deine Email-Adresse.');
+				return Redirect::route('account-sign-in')
+					->with('global-success', 'Dein Konto wurde angelegt, bitte bestätige zunächst deine Email-Adresse.');
 			}
 		}
 	}
@@ -102,13 +102,13 @@ class AccountController extends BaseController {
 			$user->code 	= '';
 			
 			if($user->save()) {
-				return Redirect::route('home')
-					->with('global', 'Konto aktiviert.');
+				return Redirect::route('account-my-account')
+					->with('global-success', 'Dein Konto wurde aktiviert. Du kannst dich jetzt einloggen');
 			}
 		}
 		
-		return Redirect::route('home')
-			->with('global', 'Bei der Aktivierung ist ein Fehler aufgetreten. Versuch es später noch einmal.');
+		return Redirect::route('account-sign-in')
+			->with('global-warning', 'Bei der Aktivierung ist ein Fehler aufgetreten. Versuch es später noch einmal.');
 	}
 
 	public function getChangePassword() {
@@ -139,17 +139,17 @@ class AccountController extends BaseController {
 				$user->password = Hash::make($password);
 
 				if($user->save()) {
-					return Redirect::route('home')
-						->with('global', "Dein Passwort wurde geändert.");
+					return Redirect::route('account-my-account')
+						->with('global-success', "Dein Passwort wurde geändert.");
 				}
 			} else {
 				return Redirect::route('account-change-password')
-					->with('global', 'Dein aktuelles Passwort ist nicht korrekt.');
+					->with('global-warning', 'Dein aktuelles Passwort ist nicht korrekt.');
 			}
 		}
 
 		return Redirect::route('account-change-password')
-			->with('global', 'Wir konnten dein Passwort nicht ändern.');
+			->with('global-danger', 'Wir konnten dein Passwort nicht ändern.');
 	}
 
 	public function getForgotPassword() {
@@ -186,14 +186,14 @@ class AccountController extends BaseController {
 						$message->to($user->email, $user->email)->subject('Dein neues Passwort');
 					});
 
-					return Redirect::route('home')
-						->with('global', 'Wir haben dir eine Email mit einem neuen Passwort geschickt.');
+					return Redirect::route('account-sign-in')
+						->with('global-success', 'Wir haben dir eine Email mit einem neuen Passwort geschickt.');
 				}
 			}
 		}
 
 		return Redirect::route('account-forgot-password')
-			->with('global', 'Fehler beim Zurücksetzen des Passworts');
+			->with('global-danger', 'Fehler beim Zurücksetzen des Passworts');
 	}
 
 	public function getRecover($code) {
@@ -208,12 +208,16 @@ class AccountController extends BaseController {
 			$user->code 			= '';
 
 			if($user->save()) {
-				return Redirect::route('home')
-					->with('global', 'Dein Konto wurde zurückgesetzt.');
+				return Redirect::route('account-sign-in')
+					->with('global-success', 'Dein Konto wurde zurückgesetzt.');
 			}
 		}
 
 		return Redirect::route('home')
-			->with('global', 'Wir konnten dein Konto nicht zurücksetzen.');
+			->with('global-danger', 'Wir konnten dein Konto nicht zurücksetzen.');
+	}
+
+	public function getMyAccount() {
+		return View::make('account.myaccount');
 	}
 }

@@ -40,6 +40,12 @@ Route::group(array('before' => 'auth'), function() {
 		'as' => 'account-sign-out',
 		'uses' => 'AccountController@getSignOut'
 	));
+
+	// My account (GET)
+	Route::get('/account/my-account', array(
+		'as' => 'account-my-account',
+		'uses' => 'AccountController@getMyAccount'
+	));
 });
 
 /*
