@@ -1,0 +1,95 @@
+
+Ein Set ist ein Satz von Hilfsprogrammen, an die eine
+URL eines Films übergeben wird. Je nach Programm
+wird der Film dann aufgezeichnet oder angezeigt.
+
+
+====================
+Arten:
+===
+
+Es muss je ein Set zum Abspielen und eins zum Aufzeichnen angelegt
+sein. Diese werden beim ersten Programmstart mit den "Standardeinstellungen"
+angelegt. Das Set "Abspielen" wird gestartet, wenn ein Film zum
+Abspielen gestartet wird, das Set "Speichern" ist dann für das Speichern
+eines Films zuständig. Sind mehrere Sets zum Speichern angelegt, wird das
+Set zum Speichern für jeden Film in einem Dialog abgefragt.
+
+Werden Abos genutzt, muss auch dafür eine Set angelegt sein. Meist
+eignet sich dafür das Set "Speichern", bei diesem ist also "Speichern"
+und "Abo" eingeschaltet.
+
+"Button" ist eine Möglichkeit weitere Programme (Sets) einzurichten und 
+diese dann über das Menü "Ansicht->Buttons anzeigen" anzuzeigen.
+
+
+====================
+Details der Sets:
+===
+
+Soll ein Film mit einem Set aufgezeichnet werden, ist die Angabe des
+"Zielpfads" und des "Zieldateinamens" wichtig. Beim Namen sind diese Parameter
+möglich:
+
+%D Sendedatum des Films oder aktuelles Datum, wenn Sendedatum leer
+%d Sendezeit des Films oder "jetzt", wenn Sendezeit leer
+%H "heute", aktuelles Datum der Form JJJJMMTT z.B. 20090815 (15.08.2009)
+%h "jetzt", aktuelle Uhrzeit der Form SSMMss z.B. 152059 (15:20:59)
+
+%s Sender des Films
+%T Titel des Films
+%t Thema des Films
+%N Originaldateiname des Films (der kann sehr kryptisch und lang sein)
+%S Suffix des Originaldateinamens des Films (z.B. "mp4")
+
+Damit kann man einen Namen z.B. so aufbauen:
+%H__%t-%T.mp4 -> 20131206__Doku-Titel_der_Doku.mp4
+%H__%t-%T.%S  -> 20131206__Doku-Titel_der_Doku.xxx (hier wird die Originaldateiendung
+verwendet)
+
+"Direkter Download, Präfix, Suffix": Damit kann man URLs angeben, die nicht
+über ein Programm geladen werden sollen, sondern direkt als Download heruntergeladen
+werden.
+
+
+Die Auflösung kann ebenfalls vorgegeben werden. Existiert für den Film die angegebene
+Auflösung nicht, wird die nächstkleinere verwendet.
+
+
+====================
+Hilfsprogramme:
+===
+
+Hier werden die Programme zum jeweiligen Set eingetragen. Sind mehrere
+Programme eingetragen, kann man zu jedem Programm über die Felder Präfix und Suffix wählen,
+für welche URL ein Programm zuständig ist.
+
+"Zieldateiname": Damit kann ein eigener Zieldateiname für das jeweilige Programm gewählt
+werden. Ist das Feld leer, wird der Zieldateiname des Sets verwendet. Meist muss
+nichts angegeben werden.
+
+"Programm": In dem Feld steht der Pfad zur Programmdatei.
+
+"Schalter": In diesem Feld werden die Programmschalter angegeben, die das Programm
+zum Start braucht. Mögliche Parameter sind:
+
+Diese Angaben werden durch die URL ersetzt:
+%f ist die URL des Films (Original-URL)
+%F ist die URL des Films für den flvstreamer vorbereitet
+
+zwei Sterne ** werden durch den Zieldateinamen mit Pfad ersetzt.
+
+
+==================================================
+
+Beispiel für den VLC:
+Programm: "/usr/bin/vlc"
+Schalter: "%f :sout=#standard{access=file,mux=asf,dst=**} -I dummy --play-and-exit"
+Dateiname: "%t-%T.mp4"
+
+Hier wird %f durch die URL des Films ersetzt.
+%t und %T werden durch einen Pfad und Dateinamen 
+ersetzt und in den Programmschalter anstatt der "**" eingesetzt.
+(C:\Pfad\Thema-Titel.mp4)
+
+
