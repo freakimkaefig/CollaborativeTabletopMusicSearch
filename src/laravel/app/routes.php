@@ -16,8 +16,10 @@ Route::get('/', array(
 	'uses' => 'HomeController@renderPage'
 ));
 
-/*
- * Authenticated group
+
+/* ###########################
+ * ##  Authenticated group  ##
+ * ###########################
  */
 Route::group(array('before' => 'auth'), function() {
 	
@@ -48,12 +50,16 @@ Route::group(array('before' => 'auth'), function() {
 	));
 });
 
-/*
- * Unauthenticated group
+
+
+/* #############################
+ * ##  Unauthenticated group  ##
+ * #############################
  */
 Route::group(array('before' => 'guest'), function() {
 
-	// CSRF protection group
+	// #############################
+	// ### CSRF protection group ###
 	Route::group(array('before' => 'csrf'), function() {
 		//Sign in (POST)
 		Route::post('/account/sign-in', array(
@@ -74,6 +80,7 @@ Route::group(array('before' => 'guest'), function() {
 		));
 	});
 
+	// ###############
 	// Forgot password
 	Route::get('/account/forgot-password', array(
 		'as' => 'account-forgot-password',
