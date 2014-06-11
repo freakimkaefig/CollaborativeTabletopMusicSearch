@@ -20,26 +20,10 @@
 			}
 		},
 		{
-			"file": "src/laravel/app/views/layout/header.blade.php",
+			"file": "src/laravel/app/views/home.blade.php",
 			"settings":
 			{
-				"buffer_size": 1555,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/laravel/app/views/account/myaccount.blade.php",
-			"settings":
-			{
-				"buffer_size": 287,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/laravel/app/views/layout/main.blade.php",
-			"settings":
-			{
-				"buffer_size": 924,
+				"buffer_size": 242,
 				"line_ending": "Unix"
 			}
 		},
@@ -47,7 +31,15 @@
 			"file": "src/laravel/app/routes.php",
 			"settings":
 			{
-				"buffer_size": 2820,
+				"buffer_size": 2817,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/laravel/app/controllers/HomeController.php",
+			"settings":
+			{
+				"buffer_size": 582,
 				"line_ending": "Unix"
 			}
 		},
@@ -92,7 +84,11 @@
 	},
 	"file_history":
 	[
+		"/D/Workspace/Praxisseminar/ps-mediathekcrawler/src/laravel/app/views/layout/header.blade.php",
 		"/D/Workspace/Praxisseminar/ps-mediathekcrawler/src/laravel/app/views/account/myaccount.blade.php",
+		"/D/Workspace/Praxisseminar/ps-mediathekcrawler/src/laravel/app/views/layout/main.blade.php",
+		"/C/Users/Lukas/.ssh/uberspace.ppk",
+		"/D/Workspace/Portfolio/Online/work.html",
 		"/D/Workspace/Praxisseminar/ps-mediathekcrawler/src/laravel/app/views/home.blade.php",
 		"/C/Xampp/phpMyAdmin/config.inc.php",
 		"/D/Workspace/Praxisseminar/ps-mediathekcrawler/.git/hooks/pre-commit",
@@ -101,9 +97,7 @@
 		"/D/Workspace/Praxisseminar/ps-mediathekcrawler/src/test.html",
 		"/C/Users/Lukas/Desktop 3/compiled.php",
 		"/D/Workspace/Praxisseminar/ps-mediathekcrawler/.git/hooks/pre-commit.sample",
-		"/D/Workspace/Praxisseminar/ps-mediathekcrawler/src/laravel/app/views/layout/main.blade.php",
 		"/D/Workspace/Praxisseminar/ps-mediathekcrawler/src/laravel/composer.json",
-		"/D/Workspace/Praxisseminar/ps-mediathekcrawler/src/laravel/app/views/layout/header.blade.php",
 		"/D/Workspace/Praxisseminar/ps-mediathekcrawler/src/laravel/app/views/hello.php",
 		"/D/Workspace/Praxisseminar/ps-mediathekcrawler/src/laravel/app/routes.php",
 		"/C/Xampp/apache/conf/extra/httpd-vhosts.conf",
@@ -130,7 +124,7 @@
 	],
 	"find":
 	{
-		"height": 34.0
+		"height": 26.0
 	},
 	"find_in_files":
 	{
@@ -164,7 +158,7 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -180,40 +174,8 @@
 						"selection":
 						[
 							[
-								271,
-								271
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": -0.0,
-						"translation.y": 702.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "src/laravel/app/views/layout/header.blade.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1555,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								53,
-								53
+								134,
+								134
 							]
 						],
 						"settings":
@@ -232,20 +194,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "src/laravel/app/views/account/myaccount.blade.php",
+					"buffer": 1,
+					"file": "src/laravel/app/views/home.blade.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 287,
+						"buffer_size": 242,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								44,
-								44
+								242,
+								242
 							]
 						],
 						"settings":
@@ -259,56 +221,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "src/laravel/app/views/layout/main.blade.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 924,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								9,
-								9
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": -0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
+					"buffer": 2,
 					"file": "src/laravel/app/routes.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2820,
+						"buffer_size": 2817,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2298,
-								2276
+								468,
+								468
 							]
 						],
 						"settings":
@@ -319,15 +249,47 @@
 							"syntax": "Packages/PHP/PHP.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
-						"translation.x": -0.0,
-						"translation.y": 504.0,
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 3,
+					"file": "src/laravel/app/controllers/HomeController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 582,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								534,
+								541
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
 					"file": "src/laravel/app/controllers/AccountController.php",
 					"semi_transient": false,
 					"settings":
@@ -355,7 +317,7 @@
 						"translation.y": 4266.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 4,
 					"type": "text"
 				}
 			]

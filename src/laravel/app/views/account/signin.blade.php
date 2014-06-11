@@ -3,7 +3,7 @@
 @section('content')
 	<div class="row">
 		<div class="col-xs-12 col-md-offset-2 col-md-3">
-			<h2>Anmelden</h2>
+			<h3>Anmelden</h3>
 			<form action="{{ URL::route('account-sign-in-post') }}" method="post" role="form">
 				<div class="form-group{{ ($errors->has('email')) ? ' has-error' : '' }}">
 					<label for="email">Email-Adresse</label>
@@ -41,7 +41,7 @@
 		</div>
 
 		<div class="col-xs-12 col-md-offset-1 col-sm-3">
-			<h2>oder Account erstellen</h2>
+			<h3>oder Account erstellen</h3>
 			<form action="{{ URL::route('account-create-post') }}" method="post" role="form">
 				<div class="form-group{{ ($errors->has('email')) ? ' has-error' : '' }}">
 					<label for="email">Email-Adresse</label>
