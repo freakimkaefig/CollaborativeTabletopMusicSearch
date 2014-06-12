@@ -42,7 +42,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (3,'lukas.lamm89@hotmail.com','$2y$10$RJw6uzvlPCRdc8e4ItTa8.Ql9I/S3xkbn7jHf5HrAEH5A33ihsPla','','',1,'mm2w1jRXuvPRW2Fdzg4XUkoUvxKBjxnvOsBOyk7vojmqwv8jrtrXX3uUo72I','2014-06-07 13:04:23','2014-06-10 19:38:34');
+INSERT INTO `users` VALUES (3,'lukas.lamm89@hotmail.com','$2y$10$RJw6uzvlPCRdc8e4ItTa8.Ql9I/S3xkbn7jHf5HrAEH5A33ihsPla','','',1,'SjDnGmSYCGFDbInjF59AS7X4xc7SSfJ6wGYhxPKrQIAoxV5xu8rmXDRjAy7H','2014-06-07 13:04:23','2014-06-12 08:19:38');
 INSERT INTO `users` VALUES (4,'test@test.de','$2y$10$vk1Sat7mZgCFmPDYfnJB9uWkjwUIOzeQk41893bXzEjNccd63jGwa','','LcE4KKYXWlaqjF0VDCzIJJalyIQQ7cswzxVkv7m2QAWTUpmUfdL1rZCzhWUR',0,'','2014-06-10 14:51:01','2014-06-10 14:51:01');
 INSERT INTO `users` VALUES (5,'lukas.lamm89@gmail.com','$2y$10$nGSOV0zdtz1Dn/3SozT6Ke3C0SR/PaOuUVy2s8lGJbc8bZRziFeU6','','iuE0qTRckmHP7dsJi1kym7YbyTTKwlOTYXXdIRA4vtC5rUSBqt8QbWfWSuKH',0,'','2014-06-10 18:50:35','2014-06-10 18:50:35');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
@@ -57,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-06-11 21:15:05
+-- Dump completed on 2014-06-12 10:21:42

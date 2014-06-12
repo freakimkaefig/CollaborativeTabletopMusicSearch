@@ -28,7 +28,7 @@ return array(
 	|
 	*/
 
-	'host' => 'smtp.strato.de',
+	'host' => 'smtp.mailgun.org',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -54,7 +54,7 @@ return array(
 	|
 	*/
 
-	'from' => array('address' => 'info@mediathek.lukaslamm.de', 'name' => 'Mediathek Crawler'),
+	'from' => array('address' => null, 'name' => null),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -80,7 +80,7 @@ return array(
 	|
 	*/
 
-	'username' => 'info@mediathek.lukaslamm.de',
+	'username' => null,
 
 	/*
 	|--------------------------------------------------------------------------
@@ -93,7 +93,7 @@ return array(
 	|
 	*/
 
-	'password' => 'psmc2014',
+	'password' => null,
 
 	/*
 	|--------------------------------------------------------------------------
