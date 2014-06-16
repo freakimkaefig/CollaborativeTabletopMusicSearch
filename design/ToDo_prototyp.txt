@@ -1,0 +1,31 @@
+# fehlende verlinkungen in navi und filter einbauen, da sonst der weg vorgegeben ist, weil ja nur des gesuchte verlinkt ist. Unnütze Links (für Tasks) einfach nichts auslösen lassen, oder auf Fehlerseit umleiten.
+
+# fehlerhafte/fehlende verlinkungen auf der startseite (oben rechts) einbauen
+
+# konto dropdown vergrößern, bzw. übersichtlicher gestalten
+
+# nach klick auf filter: angezeigte videoinhalte vervollständigen (bilder, titel, dauer,...)
+
+# senderseiten (ARD,ZDF,...) einbauen.
+
+# playlist "Serien" auch den Titel 'Serien' verlinken, nicht nur dass Bild
+
+# playlists: 'neue liste' verlinken (popup/neue seite)
+
+# playbutton mit weißér border zur besseren erkennbarkeit
+
+# playlistansicht 'Serien' vervollständingen (Titel, Dauer, ...)
+
+# playlistansicht 'Serien': Bearbeiten und Löschen Buttons (oben rechts) weiter runter. evtl untereinander rechts vom Bild.
+
+# Konto->Übersicht: klarer strukturieren (gleichmäßiger abstand/verteilung der spalten, gleiche höhe der bilder, ...)
+
+# Konto->Favoriten: vervollständigen
+
+# Konto->Merkliste: vervollständingen
+
+# Einstellungen: Seite fehlt
+
+# Abmelden: verlinkt auf 'anmelden/registrieren' !? (-> auf Startseite verlinken)
+
+# generell die ganze videobox verlinken, nicht nur das bild
