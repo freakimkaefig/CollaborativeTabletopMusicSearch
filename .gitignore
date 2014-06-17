@@ -112,3 +112,4 @@ Thumbs.db
 #sftp configuration file
 sftp-config.json
 /examples/zdfmediathk-msearch/build/
+/examples/zdfmediathk-code/build/
