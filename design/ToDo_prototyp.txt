@@ -32,6 +32,11 @@
 
 
 # Home fehlts bei den unteren 2 videos #done
+
 # Playlist hinzufügen, gleich alle anzeigen und gleich beim draufklicken hinzufügen #Done
+
 # einstellungen , email ändern #Done
+
 # task: rechtliche bedenken, bzw kontakt #Done
+
+# Playlist titel über bild #Done
