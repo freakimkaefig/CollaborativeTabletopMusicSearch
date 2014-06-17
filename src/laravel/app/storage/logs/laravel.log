@@ -115,3 +115,977 @@ Stack trace:
 #31 E:\Coding\MediathekCrawler\ps-mediathekcrawler\src\laravel\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(606): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
 #32 E:\Coding\MediathekCrawler\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
 #33 {main} [] []
+[2014-06-16 14:23:05] production.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected 'Route' (T_STRING), expecting ')'' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\app\routes.php:48
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2014-06-16 15:09:13] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php:5440
+Stack trace:
+#0 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4789): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4777): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4769): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(706): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(687): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7418): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(8024): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7971): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(10586): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(648): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2014-06-16 15:09:13] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php:5440
+Stack trace:
+#0 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4789): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4777): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4769): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(706): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(687): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7418): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(8024): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7971): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(10586): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(648): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2014-06-16 15:09:14] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php:5440
+Stack trace:
+#0 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4789): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4777): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4769): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(706): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(687): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7418): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(8024): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7971): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(10586): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(648): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2014-06-16 15:09:14] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php:5440
+Stack trace:
+#0 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4789): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4777): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4769): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(706): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(687): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7418): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(8024): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7971): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(10586): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(648): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2014-06-16 15:10:26] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php:5440
+Stack trace:
+#0 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4789): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4777): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4769): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(706): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(687): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7418): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(8024): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7971): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(10586): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(648): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2014-06-16 19:05:07] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php:5440
+Stack trace:
+#0 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4789): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4777): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4769): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(706): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(687): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7418): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(8024): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7971): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(10586): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(648): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2014-06-16 19:07:11] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php:5440
+Stack trace:
+#0 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4789): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4777): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4769): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(706): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(687): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7418): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(8024): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7971): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(10586): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(648): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2014-06-16 19:23:01] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php:5440
+Stack trace:
+#0 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4789): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4777): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4769): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(706): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(687): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7418): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(8024): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7971): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(10586): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(648): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2014-06-16 19:23:15] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php:5440
+Stack trace:
+#0 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4789): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4777): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4769): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(706): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(687): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7418): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(8024): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7971): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(10586): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(648): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2014-06-16 19:23:44] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php:5440
+Stack trace:
+#0 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4789): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4777): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4769): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(706): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(687): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7418): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(8024): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7971): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(10586): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(648): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2014-06-16 19:23:56] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php:5440
+Stack trace:
+#0 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4789): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4777): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4769): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(706): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(687): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7418): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(8024): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7971): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(10586): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(648): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2014-06-16 19:24:32] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php:5440
+Stack trace:
+#0 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4789): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4777): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4769): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(706): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(687): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7418): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(8024): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7971): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(10586): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(648): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2014-06-16 19:24:58] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php:5440
+Stack trace:
+#0 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4789): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4777): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4769): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(706): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(687): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7418): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(8024): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7971): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(10586): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(648): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2014-06-16 19:25:09] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php:5440
+Stack trace:
+#0 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4789): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4777): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4769): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(706): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(687): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7418): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(8024): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7971): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(10586): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(648): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2014-06-17 10:12:19] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php:5440
+Stack trace:
+#0 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4789): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4777): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4769): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(706): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(687): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7418): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(8024): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7971): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(10586): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(648): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2014-06-17 10:12:34] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php:5440
+Stack trace:
+#0 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4789): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4777): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4769): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(706): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(687): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7418): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(8024): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7971): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(10586): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(648): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2014-06-17 11:09:13] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php:5440
+Stack trace:
+#0 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4789): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4777): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4769): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(706): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(687): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7418): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(8024): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7971): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(10586): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(648): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2014-06-17 11:09:13] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php:5440
+Stack trace:
+#0 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4789): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4777): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4769): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(706): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(687): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7418): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(8024): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7971): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(10586): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(648): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2014-06-17 11:09:36] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php:5440
+Stack trace:
+#0 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4789): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4777): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4769): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(706): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(687): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7418): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(8024): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7971): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(10586): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(648): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2014-06-17 11:10:37] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php:5440
+Stack trace:
+#0 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4789): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4777): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4769): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(706): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(687): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7418): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(8024): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7971): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(10586): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(648): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2014-06-17 11:10:50] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php:5440
+Stack trace:
+#0 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4789): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4777): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4769): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(706): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(687): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7418): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(8024): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7971): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(10586): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(648): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2014-06-17 11:34:07] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php:5440
+Stack trace:
+#0 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4789): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4777): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4769): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(706): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(687): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7418): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(8024): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7971): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(10586): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(648): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2014-06-17 11:34:07] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php:5440
+Stack trace:
+#0 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4789): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4777): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4769): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(706): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(687): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7418): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(8024): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7971): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(10586): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(648): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2014-06-17 11:34:08] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php:5440
+Stack trace:
+#0 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4789): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4777): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4769): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(706): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(687): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7418): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(8024): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7971): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(10586): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(648): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2014-06-17 11:34:52] production.ERROR: exception 'InvalidArgumentException' with message 'View [angularjs] not found.' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php:9081
+Stack trace:
+#0 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(9054): Illuminate\View\FileViewFinder->findInPaths('angularjs', Array)
+#1 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\vendor\laravel\framework\src\Illuminate\View\Factory.php(124): Illuminate\View\FileViewFinder->find('angularjs')
+#2 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\app\storage\views\dcd5564fdc1c14caaccc64b0b920aa17(39): Illuminate\View\Factory->make('angularjs', Array)
+#3 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(9450): include('D:\\Workspace\\Pr...')
+#4 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php(56): Illuminate\View\Engines\PhpEngine->evaluatePath('D:\\Workspace\\Pr...', Array)
+#5 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(9328): Illuminate\View\Engines\CompilerEngine->get('D:\\Workspace\\Pr...', Array)
+#6 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(9315): Illuminate\View\View->getContents()
+#7 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(9306): Illuminate\View\View->renderContents()
+#8 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\app\storage\views\07df95a8800a02ddad30f78aba359e85(12): Illuminate\View\View->render()
+#9 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(9450): include('D:\\Workspace\\Pr...')
+#10 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php(56): Illuminate\View\Engines\PhpEngine->evaluatePath('D:\\Workspace\\Pr...', Array)
+#11 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(9328): Illuminate\View\Engines\CompilerEngine->get('D:\\Workspace\\Pr...', Array)
+#12 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(9315): Illuminate\View\View->getContents()
+#13 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(9306): Illuminate\View\View->renderContents()
+#14 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(9986): Illuminate\View\View->render()
+#15 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(9536): Illuminate\Http\Response->setContent(Object(Illuminate\View\View))
+#16 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4957): Symfony\Component\HttpFoundation\Response->__construct(Object(Illuminate\View\View))
+#17 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4783): Illuminate\Routing\Router->prepareResponse(Object(Illuminate\Http\Request), Object(Illuminate\View\View))
+#18 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4769): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#19 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(706): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#20 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(687): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#21 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7418): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#22 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(8024): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#23 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7971): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#24 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(10586): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#25 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(648): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#26 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
+#27 {main}
+
+Next exception 'ErrorException' with message 'View [angularjs] not found. (View: D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\app\views\layout\main.blade.php)' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php:9081
+Stack trace:
+#0 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(9452): Illuminate\View\Engines\CompilerEngine->handleViewException(Object(InvalidArgumentException))
+#1 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php(56): Illuminate\View\Engines\PhpEngine->evaluatePath('D:\\Workspace\\Pr...', Array)
+#2 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(9328): Illuminate\View\Engines\CompilerEngine->get('D:\\Workspace\\Pr...', Array)
+#3 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(9315): Illuminate\View\View->getContents()
+#4 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(9306): Illuminate\View\View->renderContents()
+#5 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\app\storage\views\07df95a8800a02ddad30f78aba359e85(12): Illuminate\View\View->render()
+#6 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(9450): include('D:\\Workspace\\Pr...')
+#7 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php(56): Illuminate\View\Engines\PhpEngine->evaluatePath('D:\\Workspace\\Pr...', Array)
+#8 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(9328): Illuminate\View\Engines\CompilerEngine->get('D:\\Workspace\\Pr...', Array)
+#9 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(9315): Illuminate\View\View->getContents()
+#10 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(9306): Illuminate\View\View->renderContents()
+#11 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(9986): Illuminate\View\View->render()
+#12 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(9536): Illuminate\Http\Response->setContent(Object(Illuminate\View\View))
+#13 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4957): Symfony\Component\HttpFoundation\Response->__construct(Object(Illuminate\View\View))
+#14 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4783): Illuminate\Routing\Router->prepareResponse(Object(Illuminate\Http\Request), Object(Illuminate\View\View))
+#15 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4769): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#16 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(706): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#17 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(687): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#18 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7418): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#19 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(8024): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#20 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7971): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#21 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(10586): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#22 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(648): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#23 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
+#24 {main}
+
+Next exception 'ErrorException' with message 'View [angularjs] not found. (View: D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\app\views\layout\main.blade.php) (View: D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\app\views\layout\main.blade.php)' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php:9081
+Stack trace:
+#0 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(9452): Illuminate\View\Engines\CompilerEngine->handleViewException(Object(ErrorException))
+#1 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php(56): Illuminate\View\Engines\PhpEngine->evaluatePath('D:\\Workspace\\Pr...', Array)
+#2 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(9328): Illuminate\View\Engines\CompilerEngine->get('D:\\Workspace\\Pr...', Array)
+#3 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(9315): Illuminate\View\View->getContents()
+#4 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(9306): Illuminate\View\View->renderContents()
+#5 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(9986): Illuminate\View\View->render()
+#6 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(9536): Illuminate\Http\Response->setContent(Object(Illuminate\View\View))
+#7 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4957): Symfony\Component\HttpFoundation\Response->__construct(Object(Illuminate\View\View))
+#8 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4783): Illuminate\Routing\Router->prepareResponse(Object(Illuminate\Http\Request), Object(Illuminate\View\View))
+#9 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4769): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#10 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(706): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#11 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(687): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#12 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7418): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#13 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(8024): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#14 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7971): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#15 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(10586): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#16 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(648): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#17 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
+#18 {main} [] []
+[2014-06-17 11:35:12] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php:5440
+Stack trace:
+#0 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4789): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4777): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4769): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(706): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(687): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7418): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(8024): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7971): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(10586): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(648): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2014-06-17 11:36:11] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php:5440
+Stack trace:
+#0 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4789): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4777): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4769): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(706): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(687): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7418): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(8024): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7971): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(10586): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(648): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2014-06-17 11:36:43] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php:5440
+Stack trace:
+#0 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4789): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4777): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4769): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(706): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(687): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7418): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(8024): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7971): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(10586): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(648): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2014-06-17 11:36:55] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php:5440
+Stack trace:
+#0 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4789): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4777): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4769): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(706): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(687): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7418): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(8024): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7971): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(10586): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(648): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2014-06-17 11:37:28] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php:5440
+Stack trace:
+#0 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4789): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4777): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4769): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(706): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(687): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7418): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(8024): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7971): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(10586): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(648): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2014-06-17 11:38:30] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php:5440
+Stack trace:
+#0 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4789): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4777): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4769): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(706): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(687): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7418): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(8024): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7971): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(10586): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(648): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2014-06-17 11:38:51] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php:5440
+Stack trace:
+#0 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4789): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4777): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4769): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(706): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(687): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7418): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(8024): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7971): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(10586): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(648): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2014-06-17 11:39:14] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php:5440
+Stack trace:
+#0 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4789): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4777): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4769): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(706): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(687): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7418): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(8024): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7971): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(10586): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(648): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2014-06-17 11:39:17] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php:5440
+Stack trace:
+#0 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4789): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4777): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4769): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(706): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(687): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7418): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(8024): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7971): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(10586): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(648): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2014-06-17 11:39:21] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php:5440
+Stack trace:
+#0 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4789): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4777): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4769): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(706): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(687): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7418): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(8024): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7971): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(10586): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(648): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2014-06-17 11:41:22] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php:5440
+Stack trace:
+#0 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4789): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4777): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4769): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(706): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(687): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7418): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(8024): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7971): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(10586): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(648): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2014-06-17 11:41:33] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php:5440
+Stack trace:
+#0 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4789): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4777): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4769): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(706): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(687): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7418): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(8024): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7971): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(10586): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(648): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2014-06-17 11:47:18] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php:5440
+Stack trace:
+#0 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4789): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4777): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4769): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(706): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(687): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7418): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(8024): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7971): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(10586): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(648): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2014-06-17 11:56:51] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php:5440
+Stack trace:
+#0 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4789): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4777): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4769): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(706): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(687): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7418): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(8024): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7971): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(10586): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(648): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2014-06-17 11:58:48] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php:5440
+Stack trace:
+#0 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4789): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4777): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4769): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(706): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(687): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7418): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(8024): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7971): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(10586): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(648): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2014-06-17 11:59:15] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php:5440
+Stack trace:
+#0 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4789): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4777): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4769): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(706): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(687): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7418): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(8024): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7971): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(10586): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(648): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2014-06-17 12:01:48] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php:5440
+Stack trace:
+#0 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4789): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4777): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4769): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(706): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(687): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7418): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(8024): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7971): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(10586): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(648): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2014-06-17 12:02:08] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php:5440
+Stack trace:
+#0 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4789): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4777): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4769): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(706): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(687): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7418): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(8024): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7971): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(10586): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(648): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2014-06-17 12:02:35] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php:5440
+Stack trace:
+#0 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4789): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4777): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4769): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(706): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(687): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7418): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(8024): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7971): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(10586): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(648): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2014-06-17 12:03:27] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php:5440
+Stack trace:
+#0 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4789): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4777): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4769): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(706): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(687): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7418): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(8024): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7971): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(10586): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(648): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2014-06-17 12:04:51] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php:5440
+Stack trace:
+#0 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4789): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4777): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4769): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(706): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(687): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7418): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(8024): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7971): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(10586): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(648): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2014-06-17 12:25:48] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php:5440
+Stack trace:
+#0 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4789): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4777): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4769): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(706): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(687): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7418): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(8024): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7971): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(10586): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(648): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2014-06-17 12:27:23] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php:5440
+Stack trace:
+#0 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4789): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4777): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4769): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(706): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(687): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7418): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(8024): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7971): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(10586): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(648): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2014-06-17 12:27:35] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php:5440
+Stack trace:
+#0 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4789): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4777): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4769): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(706): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(687): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7418): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(8024): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7971): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(10586): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(648): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2014-06-17 12:27:35] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php:5440
+Stack trace:
+#0 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4789): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4777): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4769): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(706): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(687): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7418): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(8024): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7971): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(10586): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(648): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2014-06-17 12:27:35] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php:5440
+Stack trace:
+#0 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4789): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4777): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4769): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(706): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(687): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7418): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(8024): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7971): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(10586): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(648): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2014-06-17 12:27:35] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php:5440
+Stack trace:
+#0 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4789): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4777): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4769): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(706): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(687): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7418): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(8024): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7971): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(10586): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(648): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2014-06-17 12:27:36] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php:5440
+Stack trace:
+#0 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4789): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4777): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4769): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(706): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(687): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7418): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(8024): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7971): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(10586): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(648): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2014-06-17 12:27:36] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php:5440
+Stack trace:
+#0 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4789): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4777): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4769): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(706): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(687): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7418): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(8024): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7971): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(10586): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(648): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2014-06-17 12:27:42] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php:5440
+Stack trace:
+#0 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4789): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4777): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4769): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(706): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(687): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7418): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(8024): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7971): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(10586): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(648): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2014-06-17 12:28:26] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php:5440
+Stack trace:
+#0 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4789): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4777): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4769): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(706): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(687): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7418): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(8024): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7971): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(10586): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(648): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2014-06-17 14:56:57] local.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php:5440
+Stack trace:
+#0 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4789): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4777): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4769): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(706): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(687): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7418): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(8024): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7971): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(10586): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(648): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2014-06-17 14:58:03] local.ERROR: exception 'ErrorException' with message 'Undefined variable: env' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\app\storage\views\dcd5564fdc1c14caaccc64b0b920aa17:34
+Stack trace:
+#0 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\app\storage\views\dcd5564fdc1c14caaccc64b0b920aa17(34): Illuminate\Exception\Handler->handleError(8, 'Undefined varia...', 'D:\\Workspace\\Pr...', 34, Array)
+#1 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(9450): include('D:\\Workspace\\Pr...')
+#2 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php(56): Illuminate\View\Engines\PhpEngine->evaluatePath('D:\\Workspace\\Pr...', Array)
+#3 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(9328): Illuminate\View\Engines\CompilerEngine->get('D:\\Workspace\\Pr...', Array)
+#4 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(9315): Illuminate\View\View->getContents()
+#5 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(9306): Illuminate\View\View->renderContents()
+#6 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\app\storage\views\07df95a8800a02ddad30f78aba359e85(12): Illuminate\View\View->render()
+#7 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(9450): include('D:\\Workspace\\Pr...')
+#8 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php(56): Illuminate\View\Engines\PhpEngine->evaluatePath('D:\\Workspace\\Pr...', Array)
+#9 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(9328): Illuminate\View\Engines\CompilerEngine->get('D:\\Workspace\\Pr...', Array)
+#10 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(9315): Illuminate\View\View->getContents()
+#11 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(9306): Illuminate\View\View->renderContents()
+#12 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(9986): Illuminate\View\View->render()
+#13 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(9536): Illuminate\Http\Response->setContent(Object(Illuminate\View\View))
+#14 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4957): Symfony\Component\HttpFoundation\Response->__construct(Object(Illuminate\View\View))
+#15 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4783): Illuminate\Routing\Router->prepareResponse(Object(Illuminate\Http\Request), Object(Illuminate\View\View))
+#16 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4769): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#17 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(706): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#18 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(687): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#19 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7418): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#20 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(8024): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#21 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7971): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#22 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(10586): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#23 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(648): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#24 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
+#25 {main}
+
+Next exception 'ErrorException' with message 'Undefined variable: env (View: D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\app\views\layout\main.blade.php)' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\app\storage\views\dcd5564fdc1c14caaccc64b0b920aa17:34
+Stack trace:
+#0 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(9452): Illuminate\View\Engines\CompilerEngine->handleViewException(Object(ErrorException))
+#1 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php(56): Illuminate\View\Engines\PhpEngine->evaluatePath('D:\\Workspace\\Pr...', Array)
+#2 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(9328): Illuminate\View\Engines\CompilerEngine->get('D:\\Workspace\\Pr...', Array)
+#3 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(9315): Illuminate\View\View->getContents()
+#4 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(9306): Illuminate\View\View->renderContents()
+#5 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\app\storage\views\07df95a8800a02ddad30f78aba359e85(12): Illuminate\View\View->render()
+#6 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(9450): include('D:\\Workspace\\Pr...')
+#7 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php(56): Illuminate\View\Engines\PhpEngine->evaluatePath('D:\\Workspace\\Pr...', Array)
+#8 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(9328): Illuminate\View\Engines\CompilerEngine->get('D:\\Workspace\\Pr...', Array)
+#9 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(9315): Illuminate\View\View->getContents()
+#10 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(9306): Illuminate\View\View->renderContents()
+#11 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(9986): Illuminate\View\View->render()
+#12 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(9536): Illuminate\Http\Response->setContent(Object(Illuminate\View\View))
+#13 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4957): Symfony\Component\HttpFoundation\Response->__construct(Object(Illuminate\View\View))
+#14 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4783): Illuminate\Routing\Router->prepareResponse(Object(Illuminate\Http\Request), Object(Illuminate\View\View))
+#15 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4769): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#16 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(706): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#17 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(687): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#18 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7418): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#19 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(8024): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#20 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7971): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#21 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(10586): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#22 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(648): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#23 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
+#24 {main}
+
+Next exception 'ErrorException' with message 'Undefined variable: env (View: D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\app\views\layout\main.blade.php) (View: D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\app\views\layout\main.blade.php)' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\app\storage\views\dcd5564fdc1c14caaccc64b0b920aa17:34
+Stack trace:
+#0 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(9452): Illuminate\View\Engines\CompilerEngine->handleViewException(Object(ErrorException))
+#1 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php(56): Illuminate\View\Engines\PhpEngine->evaluatePath('D:\\Workspace\\Pr...', Array)
+#2 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(9328): Illuminate\View\Engines\CompilerEngine->get('D:\\Workspace\\Pr...', Array)
+#3 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(9315): Illuminate\View\View->getContents()
+#4 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(9306): Illuminate\View\View->renderContents()
+#5 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(9986): Illuminate\View\View->render()
+#6 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(9536): Illuminate\Http\Response->setContent(Object(Illuminate\View\View))
+#7 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4957): Symfony\Component\HttpFoundation\Response->__construct(Object(Illuminate\View\View))
+#8 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4783): Illuminate\Routing\Router->prepareResponse(Object(Illuminate\Http\Request), Object(Illuminate\View\View))
+#9 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4769): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#10 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(706): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#11 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(687): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#12 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7418): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#13 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(8024): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#14 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7971): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#15 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(10586): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#16 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(648): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#17 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
+#18 {main} [] []
+[2014-06-17 14:58:40] local.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php:5440
+Stack trace:
+#0 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4789): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4777): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4769): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(706): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(687): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7418): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(8024): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7971): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(10586): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(648): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2014-06-17 15:21:14] local.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php:5440
+Stack trace:
+#0 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4789): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4777): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(4769): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(706): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(687): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7418): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(8024): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(7971): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(10586): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\bootstrap\compiled.php(648): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 D:\Workspace\Praxisseminar\ps-mediathekcrawler\src\laravel\public\index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []

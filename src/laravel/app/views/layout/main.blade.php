@@ -2,7 +2,12 @@
 <html>
 	<head>
 		<title>Mediathek Crawler</title>
-		<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+		{{ HTML::style('css/bootstrap.min.css'); }}
+		{{ HTML::style('css/style.css') }}
+
+		{{ HTML::script('js/libs/jquery/jquery.min.js') }}
+		{{ HTML::script('js/libs/bootstrap/bootstrap.min.js') }}
+		{{ HTML::script('js/libs/angularjs/angular.min.js') }}
 	</head>
 	<body>
 		@if(Session::has('global'))
@@ -10,7 +15,6 @@
 		@endif
 			
 		@include('layout.header')
-	
 		<div class="container">
 			<div class="row">
 				@if(Session::has('global-danger'))
@@ -32,7 +36,7 @@
 
 		@include('layout.footer')
 
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+		@include('mediathek-crawler-js')
+
 	</body>
 </html>
