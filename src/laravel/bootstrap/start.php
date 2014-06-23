@@ -47,7 +47,7 @@ $env = $app->detectEnvironment(function()
 	} 
 	else
 	{
-		return 'production';
+		return 'local';
 	}
 });
 
