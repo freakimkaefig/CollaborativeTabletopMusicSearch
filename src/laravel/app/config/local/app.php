@@ -17,4 +17,8 @@ return array(
 
 	'url' => 'http://mediathek-crawler',
 
+	'providers' => array(
+		'Orangehill\Iseed\IseedServiceProvider',
+	)
+
 );
