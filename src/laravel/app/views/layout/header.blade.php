@@ -1,3 +1,4 @@
+<!-- START layout/header -->
 <nav class="navbar navbar-default" role="navigation">
 	<div class="container-fluid">
      	<ul class="nav navbar-nav">
@@ -5,12 +6,13 @@
      	</ul>
      	<ul class="nav navbar-nav navbar-right">
       		<li>
-      			<form class="navbar-form navbar-left" role="search">
+      			<form class="navbar-form navbar-left" role="search" action="{{ URL::route('search-post') }}" method="post">
       				<div class="form-group">
       					<input type="text" class="form-control" placeholder="Search">
       				</div>
       				<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
       				<button class="btn btn-default"><a href="#"><span class="glyphicon glyphicon-filter"></span></a></button>
+      				{{ Form::token() }}
 	     		</form>
 	     	</li>
         	@if(Auth::check())
@@ -28,6 +30,7 @@
 			@else
 				<li><a href="{{ URL::route('account-sign-in') }}">Anmelden</a></li>
 			@endif
-		</ul><!-- /ul..nav.navbar-nav.navbar-right -->
- 	</div><!-- /.container-fluid -->
+		</ul>
+ 	</div>
 </nav>
+<!-- END layout/header -->

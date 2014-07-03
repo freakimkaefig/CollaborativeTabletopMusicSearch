@@ -1,6 +1,7 @@
 @extends('layout.main')
 
 @section('content')
+	<!-- START account/forgot -->
 	<form action="{{ URL::route('account-forgot-password-post') }}" method="post">
 		<div class="field">
 			<label for="email">Email-Adresse</label>
@@ -18,4 +19,5 @@
 		<input type="submit" value="Passwort zurücksetzen">
 		{{ Form::token() }}
 	</form>
+	<!-- END account/forgot -->
 @stop

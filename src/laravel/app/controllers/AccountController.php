@@ -1,5 +1,5 @@
 <?php
-class AccountController extends BaseController {	
+class AccountController extends BaseController {
 	public function getSignIn() {
 		// handles get request for sign-in page ('/account/sign-in')
 		return View::make('account.signin');
