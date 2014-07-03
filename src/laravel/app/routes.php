@@ -86,11 +86,6 @@ Route::group(array('before' => 'guest'), function() {
 			'uses' => 'AccountController@postForgotPassword'
 		));
 
-		// ARD search
-		Route::post('/search', array(
-			'as' => 'search-post',
-			'uses' => 'MediathekController@postSearch'
-		));
 	});
 
 	/* ACCOUNT */
@@ -123,23 +118,42 @@ Route::group(array('before' => 'guest'), function() {
 		'uses' => 'AccountController@getActivate'
 	));
 
+});
+
+
+
+/* ######################
+ * ##  EVERYONE GROUP  ##
+ * ######################
+ */
+
+// ### CSRF protection group ###
+Route::group(array('before' => 'csrf'), function() {
 
 	/* SEARCH */
-	// Search results
-	Route::get('/search/results', array(
-		'as' => 'search-results',
-		'uses' => 'AccountController@getSearchResults'
+	// ARD
+	Route::post('/search', array(
+		'as' => 'search-post',
+		'uses' => 'MediathekController@postSearch'
 	));
 
-
 });
+
+
+/* SEARCH */
+// Search results
+Route::get('/search/results', array(
+	'as' => 'search-results',
+	'uses' => 'MediathekController@getSearch'
+));
+
+
+
 
 /* ############
  * ##  TEST  ##
  * ############
  */
-
-
 // Route for streaming-tests
 Route::get('/streaming-test', function() {
 	return View::make('test.streaming-test');

@@ -1,6 +1,6 @@
 {
     "providers": [
-        "Orangehill\\Iseed\\IseedServiceProvider",
+        "Illuminate\\Foundation\\Providers\\ArtisanServiceProvider",
         "Illuminate\\Auth\\AuthServiceProvider",
         "Illuminate\\Cache\\CacheServiceProvider",
         "Illuminate\\Session\\CommandsServiceProvider",
@@ -25,19 +25,25 @@
         "Illuminate\\Translation\\TranslationServiceProvider",
         "Illuminate\\Validation\\ValidationServiceProvider",
         "Illuminate\\View\\ViewServiceProvider",
-        "Illuminate\\Workbench\\WorkbenchServiceProvider"
+        "Illuminate\\Workbench\\WorkbenchServiceProvider",
+        "Orangehill\\Iseed\\IseedServiceProvider",
+        "Barryvdh\\Debugbar\\ServiceProvider"
     ],
     "eager": [
-        "Orangehill\\Iseed\\IseedServiceProvider",
         "Illuminate\\Cookie\\CookieServiceProvider",
         "Illuminate\\Database\\DatabaseServiceProvider",
         "Illuminate\\Encryption\\EncryptionServiceProvider",
         "Illuminate\\Filesystem\\FilesystemServiceProvider",
         "Illuminate\\Session\\SessionServiceProvider",
         "Illuminate\\View\\ViewServiceProvider",
-        "Illuminate\\Workbench\\WorkbenchServiceProvider"
+        "Illuminate\\Workbench\\WorkbenchServiceProvider",
+        "Orangehill\\Iseed\\IseedServiceProvider",
+        "Barryvdh\\Debugbar\\ServiceProvider"
     ],
     "deferred": {
+        "artisan": "Illuminate\\Foundation\\Providers\\ArtisanServiceProvider",
+        "command.changes": "Illuminate\\Foundation\\Providers\\ArtisanServiceProvider",
+        "command.environment": "Illuminate\\Foundation\\Providers\\ArtisanServiceProvider",
         "auth": "Illuminate\\Auth\\AuthServiceProvider",
         "cache": "Illuminate\\Cache\\CacheServiceProvider",
         "cache.store": "Illuminate\\Cache\\CacheServiceProvider",
@@ -107,6 +113,9 @@
         "validation.presence": "Illuminate\\Validation\\ValidationServiceProvider"
     },
     "when": {
+        "Illuminate\\Foundation\\Providers\\ArtisanServiceProvider": [
+
+        ],
         "Illuminate\\Auth\\AuthServiceProvider": [
 
         ],

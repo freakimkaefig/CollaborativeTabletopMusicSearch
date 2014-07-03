@@ -9,11 +9,7 @@
 		{{ HTML::script('js/libs/jquery/jquery.min.js') }}
 		{{ HTML::script('js/libs/bootstrap/bootstrap.min.js') }}
 	</head>
-	<body>
-		@if(Session::has('global'))
-			<div class="messages">{{ Session::get('global') }}</div>
-		@endif
-			
+	<body>			
 		@include('layout.header')
 		<div class="container">
 			<div class="row">

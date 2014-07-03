@@ -8,7 +8,7 @@
       		<li>
       			<form class="navbar-form navbar-left" role="search" action="{{ URL::route('search-post') }}" method="post">
       				<div class="form-group">
-      					<input type="text" class="form-control" placeholder="Search">
+      					<input type="text" class="form-control" name="search" placeholder="Search"{{ (Input::old('search')) ? ' value="' . e(Input::old('search')) . '"' : '' }}>
       				</div>
       				<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
       				<button class="btn btn-default"><a href="#"><span class="glyphicon glyphicon-filter"></span></a></button>

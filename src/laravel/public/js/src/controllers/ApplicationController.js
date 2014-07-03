@@ -17,9 +17,10 @@ MediathekCrawler.ApplicationController = function() {
 	    zdfController.init();
 
 	    //TestQuery
-	    zdfController.searchString("tatort",100);
+	    //zdfController.searchString("tatort",100);
 
 	    //init Views:
+	    footerView = MediathekCrawler.FooterView();
 		footerView.init();
 	};
 
@@ -28,4 +29,3 @@ MediathekCrawler.ApplicationController = function() {
 	return that;
 
 };
- 
