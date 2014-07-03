@@ -42,6 +42,44 @@ Route::group(array('before' => 'auth'), function() {
 		'as' => 'account-sign-out',
 		'uses' => 'AccountController@getSignOut'
 	));
+});
+
+/*
+ * Unauthenticated group
+ */
+Route::group(array('before' => 'guest'), function() {
+
+	// CSRF protection group
+	Route::group(array('before' => 'csrf'), function() {
+		//Sign in (POST)
+		Route::post('/account/sign-in', array(
+			'as' => 'account-sign-in-post',
+			'uses' => 'AccountController@postSignIn'
+		));
+		
+		// Create account (POST)
+		Route::post('/account/create', array(
+			'as' => 'account-create-post',
+		 	'uses' => 'AccountController@postCreate'
+		));
+
+		// Forgot password
+		Route::post('/account/forgot-password', array(
+			'as' => 'account-forgot-password-post',
+			'uses' => 'AccountController@postForgotPassword'
+		));
+	});
+
+	// Forgot password
+	Route::get('/account/forgot-password', array(
+		'as' => 'account-forgot-password',
+		'uses' => 'AccountController@getForgotPassword'
+	));
+
+	Route::get('/account/recover/{code}', array(
+		'as' => 'account-recover',
+		'uses' => 'AccountController@getRecover'
+	));
 
 	// My account (GET)
 	Route::get('/account/my-account', array(

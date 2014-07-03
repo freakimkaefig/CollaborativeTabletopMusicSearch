@@ -1,6 +1,6 @@
 {
     "providers": [
-        "Illuminate\\Foundation\\Providers\\ArtisanServiceProvider",
+        "Orangehill\\Iseed\\IseedServiceProvider",
         "Illuminate\\Auth\\AuthServiceProvider",
         "Illuminate\\Cache\\CacheServiceProvider",
         "Illuminate\\Session\\CommandsServiceProvider",
@@ -28,6 +28,7 @@
         "Illuminate\\Workbench\\WorkbenchServiceProvider"
     ],
     "eager": [
+        "Orangehill\\Iseed\\IseedServiceProvider",
         "Illuminate\\Cookie\\CookieServiceProvider",
         "Illuminate\\Database\\DatabaseServiceProvider",
         "Illuminate\\Encryption\\EncryptionServiceProvider",
@@ -37,9 +38,6 @@
         "Illuminate\\Workbench\\WorkbenchServiceProvider"
     ],
     "deferred": {
-        "artisan": "Illuminate\\Foundation\\Providers\\ArtisanServiceProvider",
-        "command.changes": "Illuminate\\Foundation\\Providers\\ArtisanServiceProvider",
-        "command.environment": "Illuminate\\Foundation\\Providers\\ArtisanServiceProvider",
         "auth": "Illuminate\\Auth\\AuthServiceProvider",
         "cache": "Illuminate\\Cache\\CacheServiceProvider",
         "cache.store": "Illuminate\\Cache\\CacheServiceProvider",
@@ -94,6 +92,7 @@
         "queue.failer": "Illuminate\\Queue\\QueueServiceProvider",
         "command.queue.work": "Illuminate\\Queue\\QueueServiceProvider",
         "command.queue.listen": "Illuminate\\Queue\\QueueServiceProvider",
+        "command.queue.restart": "Illuminate\\Queue\\QueueServiceProvider",
         "command.queue.subscribe": "Illuminate\\Queue\\QueueServiceProvider",
         "redis": "Illuminate\\Redis\\RedisServiceProvider",
         "remote": "Illuminate\\Remote\\RemoteServiceProvider",
@@ -108,9 +107,6 @@
         "validation.presence": "Illuminate\\Validation\\ValidationServiceProvider"
     },
     "when": {
-        "Illuminate\\Foundation\\Providers\\ArtisanServiceProvider": [
-
-        ],
         "Illuminate\\Auth\\AuthServiceProvider": [
 
         ],

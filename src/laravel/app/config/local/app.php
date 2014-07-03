@@ -13,6 +13,12 @@ return array(
 	|
 	*/
 
-	'debug' => true,
+	'debug' => TRUE,
+
+	'url' => 'http://mediathek-crawler',
+
+	'providers' => array(
+		'Orangehill\Iseed\IseedServiceProvider',
+	)
 
 );

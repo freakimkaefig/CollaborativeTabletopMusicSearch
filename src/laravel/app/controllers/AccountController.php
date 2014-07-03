@@ -11,7 +11,7 @@ class AccountController extends BaseController {
 		// validating fields
 		$validator = Validator::make(Input::all(),
 			array(
-				'email' 	=> 'required|email',
+				'email' 	=> 'required'/*|email'*/,	/* Change for production */
 				'password' 	=> 'required'
 			)
 		);

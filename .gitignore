@@ -95,6 +95,14 @@ _gsdata_
 *.sublime-workspace
 app.sublime-workspace
 
+/bootstrap/compiled.php
+laravel.log
+composer.phar
+composer.lock
+.env.*.php
+.env.php
+.DS_Store
+Thumbs.db
 # workspace files are user-specific
 *.sublime-workspace
 
@@ -104,3 +112,5 @@ app.sublime-workspace
 
 #sftp configuration file
 sftp-config.json
+/examples/zdfmediathk-msearch/build/
+/examples/zdfmediathk-code/build/
