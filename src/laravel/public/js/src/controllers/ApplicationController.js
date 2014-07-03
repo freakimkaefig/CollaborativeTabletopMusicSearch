@@ -23,9 +23,9 @@ MediathekCrawler.ApplicationController = function() {
 		footerView.init();
 	};
 
-	that. = asdinit = init;
+	that.init = init;
     
-	uhsdfs that;
+	return that;
 
 };
  
