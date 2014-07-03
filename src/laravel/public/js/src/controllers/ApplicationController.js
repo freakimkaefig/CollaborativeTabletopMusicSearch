@@ -1,25 +1,30 @@
-MediathekCrawler.ApplicationController = function() {
+/*global MediathekCrawler, console*/
+"use strict";
+MediathekCrawler.ApplicationController = function () {
 
 	var that = {},
 
 	/* ===== VIEWS ===== */
 	footerView = null,
-	
 
-	init = function() {
-		console.log('MediathekCrawler.ApplicationController.init');
+	/* ===== CONTROLLER ======*/
+	zdfController= null,
+ 
+
+	init = function() {   
+		console.log("MediathekCrawler.ApplicationController.init");
 
 	    //init Models
 	    //MediathekCrawler.Model.init();
 
 	    //init Controlers:
-	    zdfController = MediathekCrawler.ZDFController();
-	    zdfController.init();
+		zdfController = MediathekCrawler.ZDFController();
+	 	zdfController.init();
 
-	    //TestQuery
-	    zdfController.searchString("tatort",100);
+		//TestQuery
+		zdfController.searchString("tatort",100);
 
-	    //init Views:
+		//init Views:
 		footerView.init();
 	};
 
