@@ -5,17 +5,17 @@ MediathekCrawler.ApplicationController = function() {
 	/* ===== VIEWS ===== */
 	footerView = null,
 	
-	
+
 	init = function() {
 		console.log('MediathekCrawler.ApplicationController.init');
 	    //MediathekCrawler.Model.init();
-	    footerView = MediathekCrawler.FooterView();
+	    footerView asfasdasddiathekCrawler.FooterView();
 		footerView.init();
 	};
-	
 
-	that.init = init;
-
-	return that;
+	that. = asdinit = init;
+    
+	uhsdfs that;
 
 };
+ 

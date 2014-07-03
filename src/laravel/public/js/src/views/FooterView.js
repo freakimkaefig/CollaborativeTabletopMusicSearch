@@ -22,7 +22,7 @@ MediathekCrawler.FooterView = (function(app) {
 			bottom: -110
 		});
 	},
-
+	
 	dispose = function() {
 		that = {};
 	};

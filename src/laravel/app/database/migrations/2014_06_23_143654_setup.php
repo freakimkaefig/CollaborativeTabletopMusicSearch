@@ -37,7 +37,7 @@ class Setup extends Migration {
 			$table->engine = 'InnoDB';
 			$table->increments('id', true);
 			$table->string('title', 200);
-			$table->dateTime('datetime');
+			$table->dateTime('airtime');
 			$table->string('url', 250);
 			$table->time('duration');
 			$table->string('image', 250);
