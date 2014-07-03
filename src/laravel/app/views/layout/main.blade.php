@@ -8,7 +8,6 @@
 
 		{{ HTML::script('js/libs/jquery/jquery.min.js') }}
 		{{ HTML::script('js/libs/bootstrap/bootstrap.min.js') }}
-		{{ HTML::script('js/libs/angularjs/angular.min.js') }}
 	</head>
 	<body>
 		@if(Session::has('global'))

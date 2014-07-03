@@ -1,3 +1,4 @@
+<!-- START layout/header -->
 <nav class="navbar navbar-default" role="navigation">
 	<div class="container-fluid">
      	<ul class="nav navbar-nav">
@@ -28,6 +29,7 @@
 			@else
 				<li><a href="{{ URL::route('account-sign-in') }}">Anmelden</a></li>
 			@endif
-		</ul><!-- /ul..nav.navbar-nav.navbar-right -->
- 	</div><!-- /.container-fluid -->
+		</ul>
+ 	</div>
 </nav>
+<!-- END layout/header -->

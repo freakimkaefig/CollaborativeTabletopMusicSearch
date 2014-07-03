@@ -1,7 +1,7 @@
 @extends('layout.main')
 
 @section('content')
-	
+	<!-- START account/create -->
 	<form action="{{ URL::route('account-create-post') }}" method="post">
 		<div class="field">
 			<label for="email">Email-Adresse</label>
@@ -48,4 +48,5 @@
 		<input type="submit" value="Registrieren">
 		{{ Form::token() }}
 	</form>
+	<!-- END account/create -->
 @stop
