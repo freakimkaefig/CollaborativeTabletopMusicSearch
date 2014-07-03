@@ -8,14 +8,24 @@ MediathekCrawler.ApplicationController = function() {
 
 	init = function() {
 		console.log('MediathekCrawler.ApplicationController.init');
+
+	    //init Models
 	    //MediathekCrawler.Model.init();
-	    footerView asfasdasddiathekCrawler.FooterView();
+
+	    //init Controlers:
+	    zdfController = MediathekCrawler.ZDFController();
+	    zdfController.init();
+
+	    //TestQuery
+	    zdfController.searchString("tatort",100);
+
+	    //init Views:
 		footerView.init();
 	};
 
-	that. = asdinit = init;
+	that.init = init;
     
-	uhsdfs that;
+	return that;
 
 };
  
