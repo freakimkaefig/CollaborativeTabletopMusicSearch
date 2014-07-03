@@ -3,6 +3,7 @@
 
 	<!-- Controller -->
 	{{ HTML::script('js/src/controllers/ApplicationController.js') }}
+	{{ HTML::script('js/src/controllers/ZDFController.js') }}
 
 	<!-- Views -->
 	{{ HTML::script('js/src/views/FooterView.js') }}
