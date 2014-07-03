@@ -4,4 +4,9 @@ class MediathekController extends BaseController {
 
 		return Redirect::route('search.results');
 	}
+
+	public function getSearch() {
+
+		return View::make('search.results');
+	}
 }
