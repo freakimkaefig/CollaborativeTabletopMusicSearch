@@ -9,3 +9,7 @@
 
 	<!-- INIT -->
 	{{ HTML::script('js/bootstrap.js') }}
+
+
+{{ HTML::script('js/libs/videojs/video.dev.js') }}
+{{ HTML::script('js/libs/videojs/video.js') }}

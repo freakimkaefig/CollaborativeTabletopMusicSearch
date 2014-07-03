@@ -149,3 +149,7 @@ Route::group(array('before' => 'guest'), function() {
 	));
 
 });
+
+Route::get('/streaming-test', function() {
+	return View::make('test.streaming-test');
+});
