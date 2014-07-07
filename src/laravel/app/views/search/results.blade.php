@@ -3,8 +3,7 @@
 @section('content')
 	<h2>Search results</h2>
 
-	@if(Session::has('results'))
-	@endif
+	<div id="result-wrapper"></div>
 
 	<input id="search-string" type="hidden"{{ (Input::old('search')) ? ' value="' . e(Input::old('search')) . '"' : '' }}>
 @stop

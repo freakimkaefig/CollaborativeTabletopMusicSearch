@@ -3,9 +3,11 @@
  * Overrides and extends style information of Twitter Bootstrap
  */
 
+body { padding-bottom: 100px; }
+
 /* ========== EXTENDING GRID ========== */
-.alpha { padding-left:0; }
-.omega { padding-right:0; }
+.alpha { padding-left: 0; }
+.omega { padding-right: 0; }
 
 /* ========== COMMON RULES ========== */
 

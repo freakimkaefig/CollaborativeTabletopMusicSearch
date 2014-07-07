@@ -6,18 +6,18 @@ class MediathekController extends BaseController {
 		$searchQuery = Input::all();
 		$searchString = $searchQuery['search'];
 
-		$results = array();
+		// $results = array();
 
 		// Initialize ARD Controller
-		$ardController = new ARDController();
+		// $ardController = new ARDController();
 		// Start search in ARD
 		// $ardResults = $ardController->startSearch($searchString);
 
 		// $results['ard'] = $ardResults;
 
 		return Redirect::route('search-results')
-			->with('results', $results)
 			->withInput();
+			// ->with('results', $results)
 	}
 
 

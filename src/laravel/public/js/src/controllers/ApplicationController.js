@@ -1,5 +1,3 @@
-/*global MediathekCrawler, console*/
-"use strict";
 MediathekCrawler.ApplicationController = function () {
 
 	var that = {},
@@ -8,6 +6,7 @@ MediathekCrawler.ApplicationController = function () {
 	footerView = null,
 
 	/* ===== MEDIATHEK-CONTROLLERS ===== */
+	ardController = null,
 	zdfController = null,
 	
 
@@ -18,6 +17,8 @@ MediathekCrawler.ApplicationController = function () {
 	    // MediathekCrawler.Model.init();
 
 	    // init Mediathek-Controllers:
+	    ardController = MediathekCrawler.ARDController();
+	    ardController.init();
 		zdfController = MediathekCrawler.ZDFController();
 	 	zdfController.init();
 
@@ -36,6 +37,7 @@ MediathekCrawler.ApplicationController = function () {
 	},
 
 	search = function(searchString) {
+		ardController.searchString(searchString);
 		zdfController.searchString(searchString, 100);
 	};
 
