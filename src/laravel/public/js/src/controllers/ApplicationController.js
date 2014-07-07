@@ -1,4 +1,6 @@
-MediathekCrawler.ApplicationController = function() {
+/*global MediathekCrawler, console*/
+"use strict";
+MediathekCrawler.ApplicationController = function () {
 
 	var that = {},
 
@@ -9,20 +11,21 @@ MediathekCrawler.ApplicationController = function() {
 	zdfController = null,
 	
 
-	init = function() {
+	init = function() {   
 		console.log('MediathekCrawler.ApplicationController.init');
 
-	    //init Models
-	    //MediathekCrawler.Model.init();
+	    // init Models
+	    // MediathekCrawler.Model.init();
 
-	    //init Mediathek-Controllers:
-	    zdfController = MediathekCrawler.ZDFController();
-	    zdfController.init();
+	    // init Mediathek-Controllers:
+		zdfController = MediathekCrawler.ZDFController();
+	 	zdfController.init();
 
-	    //init Views:
+		// init Views:
 	    footerView = MediathekCrawler.FooterView();
 		footerView.init();
 
+		// check if $_POST data is available
 		analyzeRoute($('#search-string').val());
 	},
 

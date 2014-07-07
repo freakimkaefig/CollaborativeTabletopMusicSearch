@@ -4,7 +4,7 @@ MediathekCrawler.ZDFController = function() {
 	ZDFSEARCHURL = "http://www.zdf.de/ZDFmediathek/xmlservice/web/detailsSuche?searchString=",
 	ZDFSTREAMURL = "http://www.zdf.de/ZDFmediathek/xmlservice/web/beitragsDetails?id=",
 	xmlHttp = null,
-	once = 0
+	once = 0;
 	
 	
 	init = function() {
@@ -35,7 +35,7 @@ MediathekCrawler.ZDFController = function() {
 				assetID = 0,
 				length = "",
 				airtime = "",
-				streams = []
+				streams = [];
 
 				// get all teaserImgs with resolution
 		    	$(this).find("teaserimage").each(function(){
@@ -116,7 +116,7 @@ MediathekCrawler.ZDFController = function() {
 	    		var basetype = "",
 	    		quality = "",
 	    		url = "",
-	    		filesize = 0
+	    		filesize = 0;
 
 	    		basetype = $(this).attr('basetype');
 	    		quality = $(this).find("quality").text();
@@ -130,8 +130,7 @@ MediathekCrawler.ZDFController = function() {
 	    	return streams;
 
 	    }
-	}
-
+	};
 	
 
 	that.init = init,
