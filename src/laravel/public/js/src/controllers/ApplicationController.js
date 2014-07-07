@@ -4,6 +4,9 @@ MediathekCrawler.ApplicationController = function() {
 
 	/* ===== VIEWS ===== */
 	footerView = null,
+
+	/* ===== MEDIATHEK-CONTROLLERS ===== */
+	zdfController = null,
 	
 
 	init = function() {
@@ -12,16 +15,25 @@ MediathekCrawler.ApplicationController = function() {
 	    //init Models
 	    //MediathekCrawler.Model.init();
 
-	    //init Controlers:
+	    //init Mediathek-Controllers:
 	    zdfController = MediathekCrawler.ZDFController();
 	    zdfController.init();
-
-	    //TestQuery
-	    //zdfController.searchString("tatort",100);
 
 	    //init Views:
 	    footerView = MediathekCrawler.FooterView();
 		footerView.init();
+
+		analyzeRoute($('#search-string').val());
+	},
+
+	analyzeRoute = function(POST) {
+		if (POST !== '') {
+			search(POST);
+		}
+	},
+
+	search = function(searchString) {
+		zdfController.searchString(searchString, 100);
 	};
 
 	that.init = init;

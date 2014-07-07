@@ -11,7 +11,7 @@ MediathekCrawler.FooterView = (function(app) {
 	},
 
 	footerOnMouseEnter = function(event) {
-		console.log(event)
+		// console.log(event)
 		$(this).animate({
 			bottom: 0
 		});
