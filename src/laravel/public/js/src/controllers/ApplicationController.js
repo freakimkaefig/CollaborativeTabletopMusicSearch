@@ -27,16 +27,16 @@ MediathekCrawler.ApplicationController = function () {
 		footerView.init();
 
 		// check if $_POST data is available
-		analyzeRoute($('#search-string').val());
+		_analyzeRoute($('#search-string').val());
 	},
 
-	analyzeRoute = function(POST) {
-		if (POST !== '') {
-			search(POST);
+	_analyzeRoute = function(POST) {
+		if (POST !== '' && POST !== undefined) {
+			_search(POST);
 		}
 	},
 
-	search = function(searchString) {
+	_search = function(searchString) {
 		ardController.searchString(searchString);
 		zdfController.searchString(searchString, 100);
 	};
