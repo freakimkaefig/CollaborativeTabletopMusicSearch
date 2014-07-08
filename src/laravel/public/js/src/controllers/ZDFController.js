@@ -105,9 +105,15 @@ MediathekCrawler.ZDFController = function() {
 	    		filesize = 0;
 
 	    		basetype = $(this).attr('basetype');
+	    		
+	    		// filter for playable & working(!) basetypes
+	    		// only save url if this is the case!
+
+
 	    		switch (basetype) {
 	    			case 'h264_aac_3gp_rtsp_na_na':
 	    				type = null;	// TODO: transform to type! (.3gp)
+	    				// geht nicht mit videojs?
 	    				break;
 	    			case 'h264_aac_f4f_http_f4m_http':
 	    				type = null;	// TODO: transform to type! (.f4m)
@@ -125,10 +131,10 @@ MediathekCrawler.ZDFController = function() {
 	    				type = null;	// TODO: transform to type! (.mov)
 	    				break;
 	    			case 'h264_aac_ts_http_m3u8_http':
-	    				type = null;	// TODO: transform to type! (.m3u8)
+	    				type = 'application/x-mpegURL';	// oder 'vnd.apple.mpegURL'
 	    				break;
 	    			case 'vp8_vorbis_webm_http_na_na':
-	    				type = 'video/webm';
+	    				type = 'video/webm'; 	// oder 'video/webm; codecs="vp8, vorbis"'
 	    				break;
 	    			default:
 	    				type = null;
@@ -154,6 +160,7 @@ MediathekCrawler.ZDFController = function() {
 				filesize = $(this).find("filesize").text();
 
 				var stream = mediathekModel.createStream(basetype, type, quality, url, filesize);
+	    		console.log("basetype: ",basetype,", stream: ",stream._url);
 				streams.push(stream);
 
 	    	}); // end foreach formitaet
