@@ -108,7 +108,7 @@ MediathekCrawler.ZDFController = function() {
 				url = $(this).find("url").text();
 				filesize = $(this).find("filesize").text();
 
-				var stream = mediathekModel.createStream(basetype, quality, url, filesize);
+				var stream = mediathekModel.createStream(basetype, null, quality, url, filesize);
 				streams.push(stream);
 
 	    	}); // end foreach formitaet
