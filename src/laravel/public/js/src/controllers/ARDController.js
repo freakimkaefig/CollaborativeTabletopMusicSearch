@@ -9,22 +9,32 @@ MediathekCrawler.ARDController = function() {
 	VIDEO_CLASS = 'div.media.mediaA',
 	LINK_CLASS = 'a.mediaLink',
 	STREAM_PLUGIN = 1,
+
+	QUALITIES = [
+		{ 'quality': 0, 'resolution': '256x144' },
+		{ 'quality': 1, 'resolution': '512x288' },
+		{ 'quality': 2, 'resolution': '640x360' },
+		{ 'quality': 3, 'resolution': '966x544' },
+	],
+
+	_model = null,
 	
 	
-	init = function() {
+	init = function(model) {
 		//init ZDFController
 		console.log("ZDFController init");
+		_model = model;
 	},
 
 	searchString = function(searchStr) {
 		// build restful URL for search in ARD
-		var searchUrl = ARD_SEARCH_URL + searchStr;
+		var _searchUrl = ARD_SEARCH_URL + searchStr;
 
 		// send http request to URL
-		var searchXmlHttp = new XMLHttpRequest();
-		searchXmlHttp.open('GET', '/proxy.php?url=' + encodeURI(searchUrl), false);
-		searchXmlHttp.send(null);
-		var searchXmlResponse = searchXmlHttp.responseText;
+		var _searchXmlHttp = new XMLHttpRequest();
+		_searchXmlHttp.open('GET', '/proxy.php?url=' + encodeURI(_searchUrl), false);
+		_searchXmlHttp.send(null);
+		var searchXmlResponse = _searchXmlHttp.responseText;
 
 		// find all divs with the class 'teaser'
 		$(searchXmlResponse).find(WRAPPER_ELEMENT).each(function(index, element) {
@@ -38,39 +48,55 @@ MediathekCrawler.ARDController = function() {
 				// check if broadcast URL is not undefined
 				if (broadcastUrl !== undefined) {
 					// find div with class 'textwrapper' for information about the broadcast
-					var $textWrapper = $(element).find('div.textWrapper'),
-					title = $textWrapper.find('h4.headline').text(),
-					subtitle = $textWrapper.find('p.subtitle').text(),
+					
 
 					// send http request for documentId
-					broadcastXmlHttp = new XMLHttpRequest();
-					broadcastXmlHttp.open('GET', '/proxy.php?url=' + encodeURI(broadcastUrl), false);
-					broadcastXmlHttp.send(null);
+					_broadcastXmlHttp = new XMLHttpRequest();
+					_broadcastXmlHttp.open('GET', '/proxy.php?url=' + encodeURI(broadcastUrl), false);
+					_broadcastXmlHttp.send(null);
 
-					// parse JSON response
-					var broadcastXmlResponse = JSON.parse(broadcastXmlHttp.responseText);
-					var imageUrl = BASE_URL + broadcastXmlResponse._previewImage;
-					var streamUrl = broadcastXmlResponse._mediaArray;
-					for (var i=0; i<streamUrl.length; i++) {
+					// parse JSON response to access stream urls
+					var _broadcastXmlResponse = JSON.parse(_broadcastXmlHttp.responseText),
+						_streamUrl = _broadcastXmlResponse._mediaArray,
+
+						// find container for details
+						$textWrapper = $(element).find('div.textWrapper'),
+						_station = $textWrapper.find('p.subtitle').text().split(' | ')[2],
+						_title = $textWrapper.find('h4.headline').text(),
+						_details = $textWrapper.find('p.teasertext').text(),
+						_length = $textWrapper.find('p.subtitle').text().split(' | ')[1],
+						_airtime = $textWrapper.find('p.subtitle').text().split(' | ')[0],
+						
+						// get teaser image
+						_teaserImage_resolution = null,		// TODO: resolution missing!
+						_teaserImage_url = BASE_URL + _broadcastXmlResponse._previewImage,
+						_teaserImages = [_model.createTeaserImage(_teaserImage_resolution, _teaserImage_url)],
+						_streams = [];
+					
+					// iterate over available streams
+					for (var i=0; i<_streamUrl.length; i++) {
 						// search for plugin 1 ==> http
-						if (streamUrl[i]._plugin == 1) {
-							// get video url for best quality
-							streamUrl = streamUrl[i]._mediaStreamArray[streamUrl[i]._mediaStreamArray.length-1]._stream;
+						if (_streamUrl[i]._plugin == STREAM_PLUGIN) {
+							// get video urls for different qualities
+							for (var j=0; j<_streamUrl[i]._mediaStreamArray.length; j++) {
+								// build array of available streams for broadcast
+								var _url = _streamUrl[i]._mediaStreamArray[j]._stream,
+									_basetype = null,	// TODO: basetype missing!
+									_type = _broadcastXmlResponse._type + '/' + _url.slice(-3),
+									_quality = _streamUrl[i]._mediaStreamArray[j]._quality,
+									_filesize = null;	// TODO: filesize missing!
+
+								_streams.push(_model.createStream(_basetype, _type, _quality, _url, _filesize));
+							}
 						}
 					}
 
-					/*$('#result-wrapper').append('<div class="col-xs-6">' +
-						'<img src="'+ imageUrl + '">' +
-						'<video class="video-js vjs-default-skin" width="400" height="225" controls>' +
-						'<source src="' + streamUrl + '" type="video/mp4">' +
-						'</video>' +
-						'<div>' + title + '</div>' +
-						'<div>' + subtitle + '</div>' +
-						'</div>');*/
+					// push result to model
+					_model.addResults(_station, _title, _details, length, _airtime, _teaserImages, _streams);
 				}
 			}
 		});
-	}, 
+	},
 
 	_parseQueryString = function( queryString ) {
     	var params = {}, queries, temp, i, l;

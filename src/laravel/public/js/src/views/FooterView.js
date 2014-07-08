@@ -1,4 +1,4 @@
-MediathekCrawler.FooterView = (function(app) {
+MediathekCrawler.FooterView = (function() {
 	var that = {},
 
 	$footerNav = null,
