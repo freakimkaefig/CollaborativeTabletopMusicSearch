@@ -3,7 +3,7 @@ MediathekCrawler.ZDFController = function() {
 	var that = {},
 	ZDFSEARCHURL = "http://www.zdf.de/ZDFmediathek/xmlservice/web/detailsSuche?searchString=",
 	ZDFSTREAMURL = "http://www.zdf.de/ZDFmediathek/xmlservice/web/beitragsDetails?id=",
-	STATION = "ZDF",
+	ZDFSEARCHHOTURL = "http://www.zdf.de/ZDFmediathek/xmlservice/web/meistGesehen?id=_GLOBAL&maxLength=",
 	xmlHttp = null,
 	once = 0,
 	mediathekModel = null;
@@ -33,6 +33,7 @@ MediathekCrawler.ZDFController = function() {
 				assetID = 0,
 				length = "",
 				airtime = "",
+				station = "",
 				streams = [];
 
 				// get all teaserImgs with resolution
@@ -47,10 +48,10 @@ MediathekCrawler.ZDFController = function() {
 				});
 				//console.log("images: "+teaserImages[0].resolution+", "+teaserImages[0].url);
 
-
-			    //get information (titel, detail)
+			    //get information
 			    title = $(this).find("title").text();
 			    details = $(this).find("detail").text();
+			    station = $(this).find("channel").text();
 
 			    //get assetid (for stream-url's)
 			    assetID = $(this).find("assetId").text();
@@ -63,13 +64,14 @@ MediathekCrawler.ZDFController = function() {
 
 			    //Fetch stream url's
 			    streams = searchStream(assetID);
-			    //print info's for 1st searchresult:
-				if(once === 0){
-				    once = 1;
-				    console.log("resulting details: "+title+", "+details+", "+assetID+", "+length+", "+airtime+", "+streams[0].basetype+", "+streams[0].quality+", "+streams[0].url+", "+streams[0].filesize);
-			    }
 
-			    pushResultToModel(title, details, assetID, length, airtime, teaserImages, streams);
+			    //print info's for 1st searchresult:
+				// if(once === 0){
+				//     once = 1;
+				//     console.log("resulting details: "+title+", "+station+", "+details+", "+assetID+", "+length+", "+airtime+", "+streams[0].basetype+", "+streams[0].quality+", "+streams[0].url+", "+streams[0].filesize);
+			 //    }
+
+			    pushResultToModel(title, details, station, assetID, length, airtime, teaserImages, streams);
 
 	    	}); //end foreach searchResult
 		    	
@@ -113,17 +115,95 @@ MediathekCrawler.ZDFController = function() {
 	    }
 	},
 
-	pushResultToModel = function(title, details, assetID, length, airtime, teaserImages, streams){
-		mediathekModel.addResults(STATION, title, details, length, airtime, teaserImages, streams);
+	pushResultToModel = function(title, details, station, assetID, length, airtime, teaserImages, streams){
+		mediathekModel.addResults(station, title, details, length, airtime, teaserImages, streams);
+	},
+
+	searchHot = function(maxResults){
+		if(maxResults >50){
+			maxResults = 50;
+		} 
+		
+		xmlHttp = new XMLHttpRequest();
+	    xmlHttp.open( "GET", ZDFSEARCHHOTURL+String(maxResults), false );
+	    xmlHttp.send( null );
+	    //console.log("RESPONSE"+xmlHttp.responseText);
+	    var xmlResponse = $.parseXML(xmlHttp.responseText);
+	    $xml = $(xmlResponse);
+
+	    if(typeof $xml  != "undefined"){
+
+	    	//each teaser = 1 search Result
+	    	$xml.find("teaser").each(function(){
+
+	    		// check for videos
+				var type = $(this).find("type").text();
+				if(type === "video")
+				{	
+
+					var teaserImages = [],
+					details = "",
+					title = "",
+					assetID = 0,
+					length = "",
+					airtime = "",
+					station = "",
+					streams = [];
+
+					// get all teaserImgs with resolution
+			    	$(this).find("teaserimage").each(function(){
+			    		
+			    		var res = $(this).attr('key');
+				    	var imgUrl = $(this).text();
+
+				    	//Array containing all the unsorted teaserImages as Objects(with resolution & url)
+				    	var ti = mediathekModel.createTeaserImage(res, imgUrl);
+				    	teaserImages.push(ti);
+			    	});
+
+			    	//get information
+				    title = $(this).find("title").text();
+				    details = $(this).find("detail").text();
+				    station = $(this).find("channel").text();
+
+				    //get assetid (for stream-url's)
+				    assetID = $(this).find("assetId").text();
+
+				    //get length
+				    length = $(this).find("length").text();
+
+				    //get airtime
+				    airtime = $(this).find("airtime").text();
+
+				    //Fetch stream url's
+				    streams = searchStream(assetID);
+					
+					//print info's for 1st searchresult:
+					// if(once === 0){
+					//     once = 1;
+					//     console.log("resulting details: "+title+", "+station+", "+details+", "+assetID+", "+length+", "+airtime+", "+streams[0].basetype+", "+streams[0].quality+", "+streams[0].url+", "+streams[0].filesize);
+				 //    }
+
+				    pushResultToModel(title, details, station, assetID, length, airtime, teaserImages, streams);
+
+				} //end if type === video
+
+		    });	//end foreach searchResult
+			
+		}	//end if xml != undefined
+			
+
 	};
 
 			    //TODO:
+			    //meist-gesehen
 			    //SendungenAbisZ-Suche?
 			    //Rubriken-Suche
 
 
 	that.init = init;
 	that.searchString = searchString;
+	that.searchHot = searchHot;
 
 	return that;
 
