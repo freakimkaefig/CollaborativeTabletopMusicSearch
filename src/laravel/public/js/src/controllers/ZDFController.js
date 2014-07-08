@@ -16,6 +16,9 @@ MediathekCrawler.ZDFController = function() {
 	},
 
 	searchString = function(searchStr, maxResults){
+		if(maxResults >= 50){
+			maxResults = 50;
+		}
 	    xmlHttp = new XMLHttpRequest();
 	    xmlHttp.open( "GET", ZDFSEARCHURL+searchStr+"&maxLength="+String(maxResults), false );
 	    xmlHttp.send( null );
@@ -123,7 +126,7 @@ MediathekCrawler.ZDFController = function() {
 		if(maxResults >50){
 			maxResults = 50;
 		} 
-		
+
 		xmlHttp = new XMLHttpRequest();
 	    xmlHttp.open( "GET", ZDFSEARCHHOTURL+String(maxResults), false );
 	    xmlHttp.send( null );
@@ -192,7 +195,6 @@ MediathekCrawler.ZDFController = function() {
 			
 		}	//end if xml != undefined
 			
-
 	};
 
 			    //TODO:
