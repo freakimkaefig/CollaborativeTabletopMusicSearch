@@ -61,11 +61,12 @@ MediathekCrawler.ARDController = function() {
 
 						// find container for details
 						$textWrapper = $(element).find('div.textWrapper'),
-						_station = $textWrapper.find('p.subtitle').text().split(' | ')[2],
+						subtitle = $textWrapper.find('p.subtitle').text().split(' | '),
+						_station = subtitle[2],
 						_title = $textWrapper.find('h4.headline').text(),
 						_details = $textWrapper.find('p.teasertext').text(),
-						_length = $textWrapper.find('p.subtitle').text().split(' | ')[1],
-						_airtime = $textWrapper.find('p.subtitle').text().split(' | ')[0],
+						_length = subtitle[1],
+						_airtime = subtitle[0],
 						
 						// get teaser image
 						_teaserImage_resolution = null,		// TODO: resolution missing!
@@ -92,7 +93,7 @@ MediathekCrawler.ARDController = function() {
 					}
 
 					// push result to model
-					_model.addResults(_station, _title, _details, length, _airtime, _teaserImages, _streams);
+					_model.addResults(_station, _title, _details, _length, _airtime, _teaserImages, _streams);
 				}
 			}
 		});

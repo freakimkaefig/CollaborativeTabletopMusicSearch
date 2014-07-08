@@ -105,11 +105,55 @@ MediathekCrawler.ZDFController = function() {
 	    		filesize = 0;
 
 	    		basetype = $(this).attr('basetype');
-	    		quality = $(this).find("quality").text();
+	    		switch (basetype) {
+	    			case 'h264_aac_3gp_rtsp_na_na':
+	    				type = null;	// TODO: transform to type! (.3gp)
+	    				break;
+	    			case 'h264_aac_f4f_http_f4m_http':
+	    				type = null;	// TODO: transform to type! (.f4m)
+	    				break;
+	    			case 'h264_aac_mp4_http_na_na':
+	    				type = 'video/mp4';
+	    				break;
+	    			case 'h264_aac_mp4_rtmp_smil_http':
+	    				type = null;	// TODO: transform to type! (.smil)
+	    				break;
+	    			case 'h264_aac_mp4_rtmp_zdfmeta_http':
+	    				type = null;	// TODO: transform to type! (.meta)
+	    				break;
+	    			case 'h264_aac_mp4_rtsp_mov_http':
+	    				type = null;	// TODO: transform to type! (.mov)
+	    				break;
+	    			case 'h264_aac_ts_http_m3u8_http':
+	    				type = null;	// TODO: transform to type! (.m3u8)
+	    				break;
+	    			case 'vp8_vorbis_webm_http_na_na':
+	    				type = 'video/webm';
+	    				break;
+	    			default:
+	    				type = null;
+	    				break;
+	    		}
+	    		// type = 
+	    		qualityText = $(this).find("quality").text();
+	    		switch (qualityText) {
+	    			case 'low':
+	    				quality = 0;
+	    				break;
+	    			case 'med':
+	    				quality = 1;
+	    				break;
+	    			case 'high':
+	    				quality = 2;
+	    				break;
+	    			case 'veryhigh':
+	    				quality = 3;
+	    				break;
+	    		}
 				url = $(this).find("url").text();
 				filesize = $(this).find("filesize").text();
 
-				var stream = mediathekModel.createStream(basetype, null, quality, url, filesize);
+				var stream = mediathekModel.createStream(basetype, type, quality, url, filesize);
 				streams.push(stream);
 
 	    	}); // end foreach formitaet

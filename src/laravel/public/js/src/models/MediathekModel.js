@@ -15,16 +15,16 @@ MediathekCrawler.MediathekModel = function() {
 	
 
 	teaserImage = function(resolution, url){
-	    this.resolution = resolution;
-	    this.url = url;
+	    this._resolution = resolution;
+	    this._url = url;
 	},
 
 	stream = function(basetype, type, quality, url, filesize){
-	    this.basetype = basetype;
-	    this.type = type;
-	    this.quality = quality;
-	    this.url = url;
-	    this.filesize = filesize;
+	    this._basetype = basetype;
+	    this._type = type;
+	    this._quality = quality;
+	    this._url = url;
+	    this._filesize = filesize;
 	},
 
 	createStream = function(basetype, type, quality, url, filesize){
@@ -40,17 +40,17 @@ MediathekCrawler.MediathekModel = function() {
 	addResults = function(station, title, details, length, airtime, teaserImages, streams) {
 		
 		var _result = {
-			'station': station,
-			'title': title,
-			'details': details,
-			'length': length,
-			'airtime': airtime,
-			'teaserImages': teaserImages,
-			'streams': streams
+			'_station': station,
+			'_title': title,
+			'_details': details,
+			'_length': length,
+			'_airtime': airtime,
+			'_teaserImages': teaserImages,
+			'_streams': streams
 		};
 		results.push(_result);
 		// trigger to view
-		$(that).trigger('resultReceived', _result);
+		$(that).trigger('resultReceived', [ _result ]);
 	},
 
 	clearResults = function() {
