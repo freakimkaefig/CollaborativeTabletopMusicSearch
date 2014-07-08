@@ -16,6 +16,10 @@ class DatabaseSeeder extends Seeder {
 		$this->call('UserTableSeeder');
 		$this->call('StationTableSeeder');
 		$this->call('BroadcastTableSeeder');
+		$this->call('BroadcastsTableSeeder');
+		$this->call('PlaylistsTableSeeder');
+		$this->call('StationsTableSeeder');
+		$this->call('UsersTableSeeder');
 	}
 
 }
@@ -28,6 +32,10 @@ class UserTableSeeder extends Seeder {
 			'password' => Hash::make('test'),
 			'active' => 1
 		));
+		$this->call('BroadcastsTableSeeder');
+		$this->call('PlaylistsTableSeeder');
+		$this->call('StationsTableSeeder');
+		$this->call('UsersTableSeeder');
 	}
 }
 
@@ -42,6 +50,10 @@ class StationTableSeeder extends Seeder {
 			'name' => 'ZDF',
 			'logo' => 'http://www.zdf.de/ZDF/zdfportal/blob/24559496/6/data.jpg'
 		));
+		$this->call('BroadcastsTableSeeder');
+		$this->call('PlaylistsTableSeeder');
+		$this->call('StationsTableSeeder');
+		$this->call('UsersTableSeeder');
 	}
 }
 
@@ -69,6 +81,10 @@ class BroadcastTableSeeder extends Seeder {
 		$heuteJournal->station()->associate(Station::where('name', '=', 'ZDF')->first());
 		$heuteJournal->user()->associate(User::where('email', '=', 'test')->first());
 		$heuteJournal->save();
+		$this->call('BroadcastsTableSeeder');
+		$this->call('PlaylistsTableSeeder');
+		$this->call('StationsTableSeeder');
+		$this->call('UsersTableSeeder');
 	}
 }
 
@@ -82,5 +98,9 @@ class Clear extends Seeder {
 		DB::table('broadcasts')->truncate();
 
 		DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+		$this->call('BroadcastsTableSeeder');
+		$this->call('PlaylistsTableSeeder');
+		$this->call('StationsTableSeeder');
+		$this->call('UsersTableSeeder');
 	}
 }
