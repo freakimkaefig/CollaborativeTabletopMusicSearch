@@ -3,6 +3,7 @@ MediathekCrawler.ZDFController = function() {
 	var that = {},
 	ZDFSEARCHURL = "http://www.zdf.de/ZDFmediathek/xmlservice/web/detailsSuche?searchString=",
 	ZDFSTREAMURL = "http://www.zdf.de/ZDFmediathek/xmlservice/web/beitragsDetails?id=",
+	STATION = "ZDF",
 	xmlHttp = null,
 	once = 0,
 	mediathekModel = null;
@@ -64,11 +65,11 @@ MediathekCrawler.ZDFController = function() {
 			    streams = searchStream(assetID);
 			    //print info's for 1st searchresult:
 				if(once === 0){
-				    once = 1
+				    once = 1;
 				    console.log("resulting details: "+title+", "+details+", "+assetID+", "+length+", "+airtime+", "+streams[0].basetype+", "+streams[0].quality+", "+streams[0].url+", "+streams[0].filesize);
 			    }
 
-
+			    prepareForModel(title, details, assetID, length, airtime, teaserImages, streams);
 			    //TODO:
 			    //ADD TO MODEL-RESULT-OBJECT
 			    //SendungenAbisZ-Suche?
@@ -79,6 +80,10 @@ MediathekCrawler.ZDFController = function() {
 		    	
 	    } 
 	    
+	},
+
+	prepareForModel = function(title, details, assetID, length, airtime, teaserImages, streams){
+
 	},
 
 	searchStream = function(assetID){

@@ -7,8 +7,9 @@ MediathekCrawler.MediathekModel = function() {
 		//init MediathekModel
 		console.log("MediathekModel init");
 
-
 	},
+
+	
 
 	teaserImage = function(resolution, url){
 	    this.resolution = resolution;
