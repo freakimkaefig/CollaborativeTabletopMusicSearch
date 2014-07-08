@@ -1,4 +1,4 @@
-MediathekCrawler.ApplicationController = function () {
+MediathekCrawler.ApplicationController = function() {
 
 	var that = {},
 
@@ -9,18 +9,22 @@ MediathekCrawler.ApplicationController = function () {
 	ardController = null,
 	zdfController = null,
 	
+	/* ==== MEDIATHEK-MODEL ====*/
+	mediathekModel = null,
 
 	init = function() {   
 		console.log('MediathekCrawler.ApplicationController.init');
 
 	    // init Models
-	    // MediathekCrawler.Model.init();
+	    mediathekModel = MediathekCrawler.MediathekModel();
+	    mediathekModel.init();
 
 	    // init Mediathek-Controllers:
 	    ardController = MediathekCrawler.ARDController();
 	    ardController.init();
 		zdfController = MediathekCrawler.ZDFController();
-	 	zdfController.init();
+	 	zdfController.init(mediathekModel);
+	 	
 
 		// init Views:
 	    footerView = MediathekCrawler.FooterView();
