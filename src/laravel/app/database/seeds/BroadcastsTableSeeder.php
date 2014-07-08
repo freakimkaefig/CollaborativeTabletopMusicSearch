@@ -16,7 +16,7 @@ class BroadcastsTableSeeder extends Seeder {
 			array (
 				'id' => 1,
 				'title' => 'Tatort',
-				'datetime' => '0000-00-00 00:00:00',
+				'airtime' => '0000-00-00 00:00:00',
 				'url' => 'http://www.daserste.de',
 				'duration' => '00:00:00',
 				'image' => '',
@@ -30,7 +30,7 @@ class BroadcastsTableSeeder extends Seeder {
 			array (
 				'id' => 2,
 				'title' => 'Heute Journal',
-				'datetime' => '0000-00-00 00:00:00',
+				'airtime' => '0000-00-00 00:00:00',
 				'url' => 'http://www.zdf.de',
 				'duration' => '00:00:00',
 				'image' => '',

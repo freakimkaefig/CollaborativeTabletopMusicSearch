@@ -11,6 +11,10 @@
 |
 */
 
+/* ############
+ * ##  HOME  ##
+ * ############
+ */
 Route::get('/', array(
 	'as' => 'home',
 	'uses' => 'HomeController@getHome'
@@ -18,12 +22,14 @@ Route::get('/', array(
 
 
 /* ###########################
- * ##  Authenticated group  ##
+ * ##  AUTHENTICATED GROUP  ##
  * ###########################
  */
 Route::group(array('before' => 'auth'), function() {
 	
 	Route::group(array('before' => 'csrf'), function() {
+
+		/* ACCOUNT */
 		//Change password (POST)
 		Route::post('/account/change-password', array(
 			'as' => 'account-change-password-post',
@@ -31,6 +37,7 @@ Route::group(array('before' => 'auth'), function() {
 		));
 	});
 
+	/* ACCOUNT */
 	// Change password (GET)
 	Route::get('/account/change-password', array(
 		'as' => 'account-change-password',
@@ -42,44 +49,6 @@ Route::group(array('before' => 'auth'), function() {
 		'as' => 'account-sign-out',
 		'uses' => 'AccountController@getSignOut'
 	));
-});
-
-/*
- * Unauthenticated group
- */
-Route::group(array('before' => 'guest'), function() {
-
-	// CSRF protection group
-	Route::group(array('before' => 'csrf'), function() {
-		//Sign in (POST)
-		Route::post('/account/sign-in', array(
-			'as' => 'account-sign-in-post',
-			'uses' => 'AccountController@postSignIn'
-		));
-		
-		// Create account (POST)
-		Route::post('/account/create', array(
-			'as' => 'account-create-post',
-		 	'uses' => 'AccountController@postCreate'
-		));
-
-		// Forgot password
-		Route::post('/account/forgot-password', array(
-			'as' => 'account-forgot-password-post',
-			'uses' => 'AccountController@postForgotPassword'
-		));
-	});
-
-	// Forgot password
-	Route::get('/account/forgot-password', array(
-		'as' => 'account-forgot-password',
-		'uses' => 'AccountController@getForgotPassword'
-	));
-
-	Route::get('/account/recover/{code}', array(
-		'as' => 'account-recover',
-		'uses' => 'AccountController@getRecover'
-	));
 
 	// My account (GET)
 	Route::get('/account/my-account', array(
@@ -89,16 +58,16 @@ Route::group(array('before' => 'guest'), function() {
 });
 
 
-
 /* #############################
- * ##  Unauthenticated group  ##
+ * ##  UNAUTHENTICATED GROUP  ##
  * #############################
  */
 Route::group(array('before' => 'guest'), function() {
 
-	// #############################
 	// ### CSRF protection group ###
 	Route::group(array('before' => 'csrf'), function() {
+
+		/* ACCOUNT */
 		//Sign in (POST)
 		Route::post('/account/sign-in', array(
 			'as' => 'account-sign-in-post',
@@ -116,9 +85,10 @@ Route::group(array('before' => 'guest'), function() {
 			'as' => 'account-forgot-password-post',
 			'uses' => 'AccountController@postForgotPassword'
 		));
+
 	});
 
-	// ###############
+	/* ACCOUNT */
 	// Forgot password
 	Route::get('/account/forgot-password', array(
 		'as' => 'account-forgot-password',
@@ -148,4 +118,43 @@ Route::group(array('before' => 'guest'), function() {
 		'uses' => 'AccountController@getActivate'
 	));
 
+});
+
+
+
+/* ######################
+ * ##  EVERYONE GROUP  ##
+ * ######################
+ */
+
+// ### CSRF protection group ###
+Route::group(array('before' => 'csrf'), function() {
+
+	/* SEARCH */
+	// ARD
+	Route::post('/search', array(
+		'as' => 'search-post',
+		'uses' => 'MediathekController@postSearch'
+	));
+
+});
+
+
+/* SEARCH */
+// Search results
+Route::get('/search/results', array(
+	'as' => 'search-results',
+	'uses' => 'MediathekController@getSearch'
+));
+
+
+
+
+/* ############
+ * ##  TEST  ##
+ * ############
+ */
+// Route for streaming-tests
+Route::get('/streaming-test', function() {
+	return View::make('test.streaming-test');
 });
