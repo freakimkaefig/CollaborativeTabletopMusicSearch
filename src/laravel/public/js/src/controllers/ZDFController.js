@@ -69,21 +69,12 @@ MediathekCrawler.ZDFController = function() {
 				    console.log("resulting details: "+title+", "+details+", "+assetID+", "+length+", "+airtime+", "+streams[0].basetype+", "+streams[0].quality+", "+streams[0].url+", "+streams[0].filesize);
 			    }
 
-			    prepareForModel(title, details, assetID, length, airtime, teaserImages, streams);
-			    //TODO:
-			    //ADD TO MODEL-RESULT-OBJECT
-			    //SendungenAbisZ-Suche?
-			    //Rubriken-Suche
-
+			    pushResultToModel(title, details, assetID, length, airtime, teaserImages, streams);
 
 	    	}); //end foreach searchResult
 		    	
 	    } 
 	    
-	},
-
-	prepareForModel = function(title, details, assetID, length, airtime, teaserImages, streams){
-
 	},
 
 	searchStream = function(assetID){
@@ -120,7 +111,16 @@ MediathekCrawler.ZDFController = function() {
 	    	return streams;
 
 	    }
+	},
+
+	pushResultToModel = function(title, details, assetID, length, airtime, teaserImages, streams){
+		mediathekModel.addResults(STATION, title, details, length, airtime, teaserImages, streams);
 	};
+
+			    //TODO:
+			    //SendungenAbisZ-Suche?
+			    //Rubriken-Suche
+
 
 	that.init = init;
 	that.searchString = searchString;

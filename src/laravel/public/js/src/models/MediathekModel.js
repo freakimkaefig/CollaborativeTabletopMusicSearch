@@ -36,8 +36,19 @@ MediathekCrawler.MediathekModel = function() {
 		return new teaserImage(resolution, url);
 	},
 
-	addResults = function(station) {
-		results.push(null);
+	addResults = function(station, title, details, length, airtime, teaserImages, streams) {
+		
+		results.push(
+			{
+				'station': station,
+				'title': title,
+				'details': details,
+				'length': length,
+				'airtime': airtime,
+				'teaserImages': teaserImages,
+				'streams': streams
+			}
+		);
 		// trigger to view
 	},
 
