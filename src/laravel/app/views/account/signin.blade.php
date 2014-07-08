@@ -1,6 +1,7 @@
 @extends('layout.main')
 
 @section('content')
+	<!-- START account/signin -->
 	<div class="row">
 		<div class="col-xs-12 col-md-offset-2 col-md-3">
 			<h3>Anmelden</h3>
@@ -90,4 +91,5 @@
 			</form>
 		</div>
 	</div>
+	<!-- END account/signin -->
 @stop

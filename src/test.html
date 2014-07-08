@@ -1,16 +1,52 @@
+<!--
+
+Tests for streaming
+
+-->
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
         <title>Test</title>
-        
+        <link rel="stylesheet" href="laravel/public/css/video-js.css">
     </head>
     <body>
 
+        <!--
+        NOT WORKING:
+        <video src="rtsp://daserste.edges.wowza.gl-systemhaus.de/live/daserste_de_1600">
+        Your browser does not support the VIDEO tag and/or RTP streams.
+        </video>
 
-    	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+        <video id="sampleMovie" src="rtsp://daserste.edges.wowza.gl-systemhaus.de/live/daserste_de_1600" width="640" height="360" controls></video>
+
+
+        <video id="my_video_1" class="video-js vjs-default-skin" controls
+          preload="auto" width="640" height="264" data-setup='{ "techOrder": ["flash"] }'>
+          <source src="http://zdf_hds_de-f.akamaihd.net/i/de14_v1@147090/master.m3u8" type='application/vnd.apple.mpegurl'>
+        </video>
+
+        application/x-mpegURL
+
+        -->
+
+
+
+
+        <video id="my_video_1" class="video-js vjs-default-skin" controls preload="auto" width="640" height="264" data-setup='{}'>
+  <source src="rtmp://cp108475.live.edgefcs.net/live/zdfneo_1_800@44504" type='rtmp/mp4'>
+</video>
+
+
+        
+
+    	<script src="laravel/public/js/libs/jquery/jquery.min.js"></script>
+        <script src="laravel/public/js/libs/videojs/video.dev.js"></script>
+        <script src="laravel/public/js/libs/videojs/video.js"></script>
         <script>
-            $(function() {
+            /*$(function() {
                 console.log("###################\n\ntest environment...\n\n###################");
 
 
@@ -48,7 +84,7 @@
                 request.open(method, url, async);
                 //console.log("Hello");
                 request.setRequestHeader('User-Agent', 'Mozilla/5.0')
-                request.setRequestHeader('Accept', 'json/text,text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8')
+                request.setRequestHeader('Accept', 'json/text,text/html,application/xhtml+xml,application/xml;q=0.9,*//*;q=0.8')
                 request.setRequestHeader('Accept-Language', 'de-de,de;q=0.8,en-us;q=0.5,en;q=0.3')
                 //request.setRequestHeader('Accept-Charset', 'utf-8')
 
@@ -57,7 +93,7 @@
 
                 //console.log("");
 
-            });
+            });*/
         </script>
 
 

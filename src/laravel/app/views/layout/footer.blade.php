@@ -1,3 +1,4 @@
+<!-- START layout/footer -->
 <nav id="footer-nav" class="navbar navbar-default navbar-fixed-bottom" role="navigation">
 	<div class="container-fluid">
 		<div class="row">
@@ -63,6 +64,7 @@
 				    </ul>
 				</div>
 		    </div>
-	    </div><!-- /.row -->
-	</div><!-- /.container-fluid -->
-</nav><!-- /.navbar.navbar-default.navbar-fixed-bottom -->
+	    </div>
+	</div>
+</nav>
+<!-- END layout/footer -->

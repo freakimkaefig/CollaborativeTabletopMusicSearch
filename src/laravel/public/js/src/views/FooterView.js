@@ -1,4 +1,4 @@
-MediathekCrawler.FooterView = (function(app) {
+MediathekCrawler.FooterView = (function() {
 	var that = {},
 
 	$footerNav = null,
@@ -11,7 +11,7 @@ MediathekCrawler.FooterView = (function(app) {
 	},
 
 	footerOnMouseEnter = function(event) {
-		console.log(event)
+		// console.log(event)
 		$(this).animate({
 			bottom: 0
 		});
@@ -22,7 +22,7 @@ MediathekCrawler.FooterView = (function(app) {
 			bottom: -110
 		});
 	},
-
+	
 	dispose = function() {
 		that = {};
 	};
