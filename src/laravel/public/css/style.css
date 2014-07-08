@@ -1,0 +1,17 @@
+/* CSS Document
+ *
+ * Overrides and extends style information of Twitter Bootstrap
+ */
+
+body { padding-bottom: 100px; }
+
+/* ========== EXTENDING GRID ========== */
+.alpha { padding-left: 0; }
+.omega { padding-right: 0; }
+
+/* ========== COMMON RULES ========== */
+
+ul { list-style: none; padding: 0;}
+
+/* ========== FOOTER ========== */
+#footer-nav { bottom: -110px; }

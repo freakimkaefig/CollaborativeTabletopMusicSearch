@@ -5,8 +5,8 @@
 	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.2.*",
-		"barryvdh/laravel-ide-helper": "1.*",
-		"barryvdh/laravel-debugbar": "dev-master"
+		"orangehill/iseed": "dev-master",
+		"barryvdh/laravel-debugbar": "1.*"
 	},
 	"autoload": {
 		"classmap": [
@@ -35,5 +35,8 @@
 	"config": {
 		"preferred-install": "dist"
 	},
+	"suggest": {
+        "doctrine/dbal": "Allow renaming columns and dropping SQLite columns."
+    },
 	"minimum-stability": "dev"
 }

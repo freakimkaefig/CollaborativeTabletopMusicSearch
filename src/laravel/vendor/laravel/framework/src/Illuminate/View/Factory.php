@@ -247,9 +247,14 @@ class Factory {
 	 * @param  string  $path
 	 * @return \Illuminate\View\Engines\EngineInterface
 	 */
-	protected function getEngineFromPath($path)
+	public function getEngineFromPath($path)
 	{
-		$engine = $this->extensions[$this->getExtension($path)];
+		if ( ! $extension = $this->getExtension($path))
+		{
+			throw new \InvalidArgumentException("Unrecognized extension in file: $path");
+		}
+
+		$engine = $this->extensions[$extension];
 
 		return $this->engines->resolve($engine);
 	}

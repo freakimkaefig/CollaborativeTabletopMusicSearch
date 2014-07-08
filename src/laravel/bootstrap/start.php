@@ -32,14 +32,22 @@ $env = $app->detectEnvironment(array(
 
 $env = $app->detectEnvironment(function()
 {
-	switch ($_SERVER['HTTP_HOST']) {
-		case 'mediathek.lukaslamm.de':
-			return 'strato';
-			break;
-		
-		default:
-			return 'production';
-			break;
+	if (isset($_SERVER['HTTP_HOST']))
+	{
+		switch ($_SERVER['HTTP_HOST'])
+		{
+			case 'mediathek.lukaslamm.de':
+				return 'strato';
+				break;
+			
+			default:
+				return 'local';
+				break;
+		}
+	} 
+	else
+	{
+		return 'local';
 	}
 });
 

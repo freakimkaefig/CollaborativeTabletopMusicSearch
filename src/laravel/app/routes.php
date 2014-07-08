@@ -11,17 +11,25 @@
 |
 */
 
+/* ############
+ * ##  HOME  ##
+ * ############
+ */
 Route::get('/', array(
 	'as' => 'home',
-	'uses' => 'HomeController@renderPage'
+	'uses' => 'HomeController@getHome'
 ));
 
-/*
- * Authenticated group
+
+/* ###########################
+ * ##  AUTHENTICATED GROUP  ##
+ * ###########################
  */
 Route::group(array('before' => 'auth'), function() {
 	
 	Route::group(array('before' => 'csrf'), function() {
+
+		/* ACCOUNT */
 		//Change password (POST)
 		Route::post('/account/change-password', array(
 			'as' => 'account-change-password-post',
@@ -29,6 +37,7 @@ Route::group(array('before' => 'auth'), function() {
 		));
 	});
 
+	/* ACCOUNT */
 	// Change password (GET)
 	Route::get('/account/change-password', array(
 		'as' => 'account-change-password',
@@ -40,15 +49,25 @@ Route::group(array('before' => 'auth'), function() {
 		'as' => 'account-sign-out',
 		'uses' => 'AccountController@getSignOut'
 	));
+
+	// My account (GET)
+	Route::get('/account/my-account', array(
+		'as' => 'account-my-account',
+		'uses' => 'AccountController@getMyAccount'
+	));
 });
 
-/*
- * Unauthenticated group
+
+/* #############################
+ * ##  UNAUTHENTICATED GROUP  ##
+ * #############################
  */
 Route::group(array('before' => 'guest'), function() {
 
-	// CSRF protection group
+	// ### CSRF protection group ###
 	Route::group(array('before' => 'csrf'), function() {
+
+		/* ACCOUNT */
 		//Sign in (POST)
 		Route::post('/account/sign-in', array(
 			'as' => 'account-sign-in-post',
@@ -66,8 +85,10 @@ Route::group(array('before' => 'guest'), function() {
 			'as' => 'account-forgot-password-post',
 			'uses' => 'AccountController@postForgotPassword'
 		));
+
 	});
 
+	/* ACCOUNT */
 	// Forgot password
 	Route::get('/account/forgot-password', array(
 		'as' => 'account-forgot-password',
@@ -97,4 +118,43 @@ Route::group(array('before' => 'guest'), function() {
 		'uses' => 'AccountController@getActivate'
 	));
 
+});
+
+
+
+/* ######################
+ * ##  EVERYONE GROUP  ##
+ * ######################
+ */
+
+// ### CSRF protection group ###
+Route::group(array('before' => 'csrf'), function() {
+
+	/* SEARCH */
+	// ARD
+	Route::post('/search', array(
+		'as' => 'search-post',
+		'uses' => 'MediathekController@postSearch'
+	));
+
+});
+
+
+/* SEARCH */
+// Search results
+Route::get('/search/results', array(
+	'as' => 'search-results',
+	'uses' => 'MediathekController@getSearch'
+));
+
+
+
+
+/* ############
+ * ##  TEST  ##
+ * ############
+ */
+// Route for streaming-tests
+Route::get('/streaming-test', function() {
+	return View::make('test.streaming-test');
 });

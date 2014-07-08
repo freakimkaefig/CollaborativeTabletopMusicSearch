@@ -2,6 +2,7 @@
 
 use Closure;
 use DateTime;
+use DateTimeZone;
 use Illuminate\Support\Fluent;
 use Illuminate\Support\MessageBag;
 use Illuminate\Container\Container;
@@ -696,6 +697,20 @@ class Validator implements MessageProviderInterface {
 	}
 
 	/**
+	 * Validate that an attribute is a boolean.
+	 *
+	 * @param  string  $attribute
+	 * @param  mixed   $value
+	 * @return bool
+	 */
+	protected function validateBoolean($attribute, $value)
+	{
+		$acceptable = array(true, false, 0, 1, '0', '1');
+
+		return in_array($value, $acceptable, true);
+	}
+
+	/**
 	 * Validate that an attribute is an array.
 	 *
 	 * @param  string  $attribute
@@ -1268,8 +1283,13 @@ class Validator implements MessageProviderInterface {
 	 */
 	protected function validateBeforeWithFormat($format, $value, $parameters)
 	{
-		return DateTime::createFromFormat($format, $value) <
-               DateTime::createFromFormat($format, $parameters[0]);
+		$param = $this->getValue($parameters[0]) ?: $parameters[0];
+
+		$dateValue = DateTime::createFromFormat($format, $value);
+
+		$dateParam = DateTime::createFromFormat($format, $param) ?: new DateTime($param);
+
+		return ($dateValue && $dateParam) && ($dateValue < $dateParam);
 	}
 
 	/**
@@ -1309,8 +1329,34 @@ class Validator implements MessageProviderInterface {
 	 */
 	protected function validateAfterWithFormat($format, $value, $parameters)
 	{
-		return DateTime::createFromFormat($format, $value) >
-               DateTime::createFromFormat($format, $parameters[0]);
+		$param = $this->getValue($parameters[0]) ?: $parameters[0];
+
+		$dateValue = DateTime::createFromFormat($format, $value);
+
+		$dateParam = DateTime::createFromFormat($format, $param) ?: new DateTime($param);
+
+		return ($dateValue && $dateParam) && ($dateValue > $dateParam);
+	}
+
+	/**
+	 * Validate that an attribute is a valid timezone.
+	 *
+	 * @param string $attribute
+	 * @param mixed $value
+	 * @return bool
+	 */
+	protected function validateTimezone($attribute, $value)
+	{
+		try
+		{
+			new DateTimeZone($value);
+		}
+		catch (\Exception $e)
+		{
+			return false;
+		}
+
+		return true;
 	}
 
 	/**
