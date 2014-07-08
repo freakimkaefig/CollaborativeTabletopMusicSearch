@@ -4,20 +4,17 @@ MediathekCrawler.ZDFController = function() {
 	ZDFSEARCHURL = "http://www.zdf.de/ZDFmediathek/xmlservice/web/detailsSuche?searchString=",
 	ZDFSTREAMURL = "http://www.zdf.de/ZDFmediathek/xmlservice/web/beitragsDetails?id=",
 	xmlHttp = null,
-	once = 0;
+	once = 0,
+	mediathekModel = null;
 	
 	
-	init = function() {
+	init = function(mModel) {
 		//init ZDFController
 		console.log("ZDFController init");
-
-		//http://www.zdf.de/ZDFmediathek/xmlservice/web/detailsSuche?searchString=tatort&maxLength=100
-
-
+		mediathekModel = mModel;
 	},
 
 	searchString = function(searchStr, maxResults){
-
 	    xmlHttp = new XMLHttpRequest();
 	    xmlHttp.open( "GET", ZDFSEARCHURL+searchStr+"&maxLength="+String(maxResults), false );
 	    xmlHttp.send( null );
@@ -44,7 +41,8 @@ MediathekCrawler.ZDFController = function() {
 			    	var imgUrl = $(this).text();
 
 			    	//Array containing all the unsorted teaserImages as Objects(with resolution & url)
-			    	teaserImages.push(new teaserImage(res, imgUrl));
+			    	var ti = mediathekModel.createTeaserImage(res, imgUrl);
+			    	teaserImages.push(ti);
 				});
 				//console.log("images: "+teaserImages[0].resolution+", "+teaserImages[0].url);
 
@@ -64,7 +62,6 @@ MediathekCrawler.ZDFController = function() {
 
 			    //Fetch stream url's
 			    streams = searchStream(assetID);
-
 			    //print info's for 1st searchresult:
 				if(once === 0){
 				    once = 1
@@ -82,18 +79,6 @@ MediathekCrawler.ZDFController = function() {
 		    	
 	    } 
 	    
-	},
-
-	teaserImage = function(key1, key2){
-	    this.resolution = key1;
-	    this.url = key2;
-	},
-
-	stream = function(key1, key2, key3, key4){
-	    this.basetype = key1;
-	    this.quality = key2;
-	    this.url = key3;
-	    this.filesize = key4;
 	},
 
 	searchStream = function(assetID){
@@ -123,17 +108,16 @@ MediathekCrawler.ZDFController = function() {
 				url = $(this).find("url").text();
 				filesize = $(this).find("filesize").text();
 
-				streams.push(new stream(basetype, quality, url, filesize));
+				var stream = mediathekModel.createStream(basetype, quality, url, filesize);
+				streams.push(stream);
 
 	    	}); // end foreach formitaet
-
 	    	return streams;
 
 	    }
 	};
-	
 
-	that.init = init,
+	that.init = init;
 	that.searchString = searchString;
 
 	return that;
