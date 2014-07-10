@@ -39,6 +39,7 @@ MediathekCrawler.ApplicationController = function() {
 	},
 
 	onResultReceived = function(event, result) {
+		console.log(result);
 		resultView.appendResult(event, result);
 	},
 
