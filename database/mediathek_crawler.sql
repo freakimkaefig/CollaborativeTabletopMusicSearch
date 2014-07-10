@@ -38,9 +38,9 @@ CREATE TABLE `broadcasts` (
   KEY `broadcasts_station_id_foreign` (`station_id`),
   KEY `broadcasts_playlist_id_foreign` (`playlist_id`),
   KEY `broadcasts_user_id_foreign` (`user_id`),
-  CONSTRAINT `broadcasts_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
   CONSTRAINT `broadcasts_playlist_id_foreign` FOREIGN KEY (`playlist_id`) REFERENCES `playlists` (`id`),
-  CONSTRAINT `broadcasts_station_id_foreign` FOREIGN KEY (`station_id`) REFERENCES `stations` (`id`)
+  CONSTRAINT `broadcasts_station_id_foreign` FOREIGN KEY (`station_id`) REFERENCES `stations` (`id`),
+  CONSTRAINT `broadcasts_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -154,7 +154,7 @@ CREATE TABLE `users` (
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -164,6 +164,8 @@ CREATE TABLE `users` (
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` VALUES (1,'test','$2y$10$1vXm3wYZqxFAQtZyBqKnneZdrOYJCIhbPX4DlA.pKDzHeprptXH.K','','',1,'o8QxvTTqXUotgIYXLzDqCUQEqY8iQALd62UoWduoI7iq3kIDCJtVu0eWURVG','2014-06-30 09:36:02','2014-07-03 14:10:41');
+INSERT INTO `users` VALUES (2,'test@test.de','$2y$10$qxzFsaT9Y3XC4cqG2HAQHeyMREh/bsDvTruK86lYN/PkRBHXuZ9qK','','k8criabTjiaWjzkFjyjoh6WoVvAvudWTMEQQLVTeNUwvoBNo7KHZuJmxN5Ni',0,'','2014-07-10 06:29:24','2014-07-10 06:29:24');
+INSERT INTO `users` VALUES (3,'test123@test.de','$2y$10$EIhfyX.DTy7BlhOoWRTPmOaybwnbFKf8eTYje6gBv1UAm8wOOYdRm','','bEa0MjBK2LgiWEM3kfVrBya5oVfcQhI35JbwOHKjVYf94hgWkKAYIX0X2bms',0,'','2014-07-10 06:31:01','2014-07-10 06:31:01');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -176,4 +178,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-07-08 14:40:02
+-- Dump completed on 2014-07-10 10:34:32
