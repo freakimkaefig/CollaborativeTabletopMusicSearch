@@ -11,36 +11,6 @@ class BroadcastsTableSeeder extends Seeder {
 	{
 		\DB::table('broadcasts')->truncate();
         
-		\DB::table('broadcasts')->insert(array (
-			0 => 
-			array (
-				'id' => 1,
-				'title' => 'Tatort',
-				'airtime' => '0000-00-00 00:00:00',
-				'url' => 'http://www.daserste.de',
-				'duration' => '00:00:00',
-				'image' => '',
-				'created_at' => '2014-06-30 11:36:02',
-				'updated_at' => '2014-06-30 11:36:02',
-				'station_id' => 1,
-				'playlist_id' => NULL,
-				'user_id' => 1,
-			),
-			1 => 
-			array (
-				'id' => 2,
-				'title' => 'Heute Journal',
-				'airtime' => '0000-00-00 00:00:00',
-				'url' => 'http://www.zdf.de',
-				'duration' => '00:00:00',
-				'image' => '',
-				'created_at' => '2014-06-30 11:36:02',
-				'updated_at' => '2014-06-30 11:36:02',
-				'station_id' => 2,
-				'playlist_id' => NULL,
-				'user_id' => 1,
-			),
-		));
 	}
 
 }
