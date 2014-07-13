@@ -3,13 +3,15 @@ MediathekCrawler.MediathekModel = function() {
 	var that = {},
 
 	results = null,
+	idCounter = null,
 		
 	
 	init = function(){
 		//init MediathekModel
-		console.log("MediathekModel init");
+		console.log("MediathekCrawler.MediathekModel.init");
 
 		results = [];
+		idCounter = 0;
 	},
 
 	
@@ -38,8 +40,9 @@ MediathekCrawler.MediathekModel = function() {
 	},
 
 	addResults = function(station, title, details, length, airtime, teaserImages, streams) {
-		
+
 		var _result = {
+			'_id': idCounter,
 			'_station': station,
 			'_title': title,
 			'_details': details,
@@ -49,15 +52,21 @@ MediathekCrawler.MediathekModel = function() {
 			'_streams': streams
 		};
 		results.push(_result);
+		idCounter++;
 		// trigger to view
 		$(that).trigger('resultReceived', [ _result ]);
 	},
 
 	clearResults = function() {
 		results = [];
+	},
+
+	dispose = function() {
+		that = {};
 	};
 
 	that.init = init;
+	that.dispose = dispose;
 	that.teaserImage = teaserImage;
 	that.createTeaserImage = createTeaserImage;
 	that.createStream = createStream;

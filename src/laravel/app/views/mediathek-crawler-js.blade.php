@@ -8,6 +8,7 @@
 	<!-- Controller -->
 	{{ HTML::script('js/src/controllers/ApplicationController.js') }}
 	{{ HTML::script('js/src/controllers/ARDController.js') }}
+	{{ HTML::script('js/src/controllers/DasErsteController.js') }}
 	{{ HTML::script('js/src/controllers/ZDFController.js') }}
 
 	<!--Model-->

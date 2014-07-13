@@ -7,6 +7,7 @@ MediathekCrawler.ApplicationController = function() {
 
 	/* ===== MEDIATHEK-CONTROLLERS ===== */
 	ardController = null,
+	dasErsteController = null,
 	zdfController = null,
 	
 	/* ===== VIEWS ===== */
@@ -24,6 +25,8 @@ MediathekCrawler.ApplicationController = function() {
 	    // init Mediathek-Controllers:
 	    ardController = MediathekCrawler.ARDController();
 	    ardController.init(mediathekModel);
+	    dasErsteController = MediathekCrawler.DasErsteController();
+	    dasErsteController.init(mediathekModel);
 		zdfController = MediathekCrawler.ZDFController();
 	 	zdfController.init(mediathekModel);
 	 	
@@ -39,22 +42,37 @@ MediathekCrawler.ApplicationController = function() {
 	},
 
 	onResultReceived = function(event, result) {
-		console.log(result);
+		// console.log("RESULT", result);
 		resultView.appendResult(event, result);
 	},
 
 	_analyzeRoute = function(POST) {
 		if (POST !== '' && POST !== undefined) {
 			_search(POST);
+		} else {
+			console.log(document.URL);
+			if (document.URL === "http://mediathek-crawler/") {
+				_getNew();
+			}
 		}
 	},
 
 	_search = function(searchString) {
-		ardController.searchString(searchString);
-		zdfController.searchString(searchString, 100);
+		//ardController.searchString(searchString);
+		dasErsteController.searchString(searchString, 1);
+		//zdfController.searchString(searchString, 100);
+	},
+
+	_getNew = function() {
+		dasErsteController.getNew();
+	}
+
+	dispose = function() {
+		that = {};
 	};
 
 	that.init = init;
+	that.dispose = dispose;
     
 	return that;
 

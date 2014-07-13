@@ -9,5 +9,9 @@
 		@else
 			<p>Du bist nicht angemeldet.</p>
 		@endif
+
+		<hr>
+		<h2>Neue Sendungen</h2>
+		<div id="result-wrapper"></div>
 	</div>
 @stop

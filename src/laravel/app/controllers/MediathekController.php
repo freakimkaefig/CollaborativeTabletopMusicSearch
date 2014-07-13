@@ -25,4 +25,9 @@ class MediathekController extends BaseController {
 
 		return View::make('search.results');
 	}
+
+	public function getVideo($id) {
+		return View::make('search.video')
+			->with('video-id', $id);
+	}
 }

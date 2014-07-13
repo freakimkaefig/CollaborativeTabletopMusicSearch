@@ -11,7 +11,7 @@ MediathekCrawler.ZDFController = function() {
 	
 	init = function(mModel) {
 		//init ZDFController
-		console.log("ZDFController init");
+		console.log("MediathekCrawler.ZDFController.init");
 		mediathekModel = mModel;
 	},
 
@@ -246,15 +246,20 @@ MediathekCrawler.ZDFController = function() {
 			
 		}	//end if xml != undefined
 			
-	};
+	},
 
 			    //TODO:
 			    //meist-gesehen
 			    //SendungenAbisZ-Suche?
 			    //Rubriken-Suche
 
+	dispose = function() {
+		that = {};
+	};
+
 
 	that.init = init;
+	that.dispose = dispose;
 	that.searchString = searchString;
 	that.searchHot = searchHot;
 
