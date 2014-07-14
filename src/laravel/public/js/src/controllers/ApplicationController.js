@@ -53,7 +53,7 @@ MediathekCrawler.ApplicationController = function() {
 		if (POST !== '' && POST !== undefined) {
 			_search(POST);
 		} else {
-			console.log(document.URL);
+			// console.log(document.URL);
 			if (document.URL === "http://mediathek-crawler/") {
 				_getNew();
 			}
@@ -67,7 +67,7 @@ MediathekCrawler.ApplicationController = function() {
 		mediathekModel.clearResults();
 
 		//ardController.searchString(searchString);
-		dasErsteController.searchString(searchString, 1);
+		dasErsteController.searchString(searchString, 0);
 		// zdfController.searchString(searchString, 100);
 	},
 

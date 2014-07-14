@@ -5,6 +5,9 @@ MediathekCrawler.BroadcastView = (function() {
 	$video = null,
 	$infoWrapper = null,
 
+	/**
+	 * Public function to initialize the instance of BroadcastView
+	 */
 	init = function() {
 		console.log('MediathekCrawler.BroadcastView.init');
 		
@@ -28,11 +31,15 @@ MediathekCrawler.BroadcastView = (function() {
 		}
 
 		var infoElement = '<div>' + result._title + '</div>' +
+			'<div>' + result._subtitle + '</div>' +
 			'<div>' + result._details + '</div>' +
 			'<div><span>' + result._airtime + '</span> | <span>' + result._length + '</span> | <span>' + result._station + '</span></div>';
 		$infoWrapper.append(infoElement);
 	},
 
+	/**
+	 * Public function to reset the instance of BroadcastView
+	 */
 	dispose = function() {
 		that = {};
 	};
