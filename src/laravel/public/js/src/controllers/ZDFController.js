@@ -170,7 +170,8 @@ MediathekCrawler.ZDFController = function() {
 	},
 
 	pushResultToModel = function(title, details, station, assetID, length, airtime, teaserImages, streams){
-		mediathekModel.addResults(station, title, details, length, airtime, teaserImages, streams);
+		// TODO: add subtitle!
+		mediathekModel.addResults(station, title, null, details, length, airtime, teaserImages, streams);
 	},
 
 	searchHot = function(maxResults){
