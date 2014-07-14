@@ -45,7 +45,7 @@ MediathekCrawler.MediathekModel = function() {
 			'_id': idCounter,
 			'_station': station,
 			'_title': title,
-			'_subtitle': subtitle
+			'_subtitle': subtitle,
 			'_details': details,
 			'_length': length,
 			'_airtime': airtime,

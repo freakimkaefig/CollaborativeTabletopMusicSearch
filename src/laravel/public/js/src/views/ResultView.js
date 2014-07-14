@@ -19,7 +19,7 @@ MediathekCrawler.ResultView = (function() {
 			'<source src="' + result._streams[i]._url + '" type="' + result._streams[i]._type + '">' +
 			'</video>' + */
 			'<div>' + result._title + '</div>' +
-			'<div>' + result._details + '</div>' +
+			'<div>' + result._subtitle + '</div>' +
 			'<div><span>' + result._airtime + '</span> | <span>' + result._length + '</span> | <span>' + result._station + '</span></div>' +
 			'</a>' +
 			'</div>';
