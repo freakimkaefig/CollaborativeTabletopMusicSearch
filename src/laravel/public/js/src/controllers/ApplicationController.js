@@ -13,6 +13,7 @@ MediathekCrawler.ApplicationController = function() {
 	/* ===== VIEWS ===== */
 	footerView = null,
 	resultView = null,
+	broadcastView = null,
 
 	init = function() {   
 		console.log('MediathekCrawler.ApplicationController.init');
@@ -36,6 +37,8 @@ MediathekCrawler.ApplicationController = function() {
 		footerView.init();
 		resultView = MediathekCrawler.ResultView();
 		resultView.init();
+		broadcastView = MediathekCrawler.BroadcastView();
+		broadcastView.init();
 
 		// check if $_POST data is available
 		_analyzeRoute($('#search-string').val());
@@ -54,18 +57,28 @@ MediathekCrawler.ApplicationController = function() {
 			if (document.URL === "http://mediathek-crawler/") {
 				_getNew();
 			}
+			if (document.URL === "http://mediathek-crawler/video") {
+				_getVideoById();
+			}
 		}
 	},
 
 	_search = function(searchString) {
+		mediathekModel.clearResults();
+
 		//ardController.searchString(searchString);
 		dasErsteController.searchString(searchString, 1);
-		//zdfController.searchString(searchString, 100);
+		// zdfController.searchString(searchString, 100);
 	},
 
 	_getNew = function() {
 		dasErsteController.getNew();
-	}
+	},
+
+	_getVideoById = function() {
+		var _id = $('#video-id').val();
+		broadcastView.renderVideoById(_id);
+	},
 
 	dispose = function() {
 		that = {};

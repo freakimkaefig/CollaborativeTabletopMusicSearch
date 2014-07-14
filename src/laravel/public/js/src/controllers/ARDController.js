@@ -95,7 +95,7 @@ MediathekCrawler.ARDController = function() {
 					}
 
 					// push result to model
-					_model.addResults(_station, _title, _details, _length, _airtime, _teaserImages, _streams);
+					_model.addResults(_station, _title, null, _details, _length, _airtime, _teaserImages, _streams);
 				}
 			}
 		});

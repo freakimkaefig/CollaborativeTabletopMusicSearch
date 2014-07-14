@@ -12,6 +12,7 @@
 
 		<hr>
 		<h2>Neue Sendungen</h2>
-		<div id="result-wrapper"></div>
+		@include('search.results')
+
 	</div>
 @stop

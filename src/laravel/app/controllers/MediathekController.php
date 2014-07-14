@@ -6,28 +6,24 @@ class MediathekController extends BaseController {
 		$searchQuery = Input::all();
 		$searchString = $searchQuery['search'];
 
-		// $results = array();
-
-		// Initialize ARD Controller
-		// $ardController = new ARDController();
-		// Start search in ARD
-		// $ardResults = $ardController->startSearch($searchString);
-
-		// $results['ard'] = $ardResults;
+		echo '<script>localstorage.removeItem("searchOptions"); localstorage.setItem("searchOptions", JSON.stringify({ "searchString": ' . $searchString . '}));</script>';
 
 		return Redirect::route('search-results')
 			->withInput();
-			// ->with('results', $results)
 	}
 
 
 	public function getSearch() {
-
-		return View::make('search.results');
+		return View::make('search.search');
 	}
 
-	public function getVideo($id) {
-		return View::make('search.video')
-			->with('video-id', $id);
+	public function getVideoById($id) {
+		Debugbar::info($id);
+		return Redirect::route('video')
+			->with('video-id', $id);		
+	}
+
+	public function getVideo() {
+		return View::make('streaming.video');
 	}
 }

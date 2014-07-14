@@ -148,6 +148,17 @@ Route::get('/search/results', array(
 ));
 
 
+Route::get('/video/{id}', array(
+	'as' => 'video-id',
+	'uses' => 'MediathekController@getVideoById'
+));
+
+Route::get('/video', array(
+	'as' => 'video',
+	'uses' => 'MediathekController@getVideo'
+));
+
+
 /* ############
  * ##  TEST  ##
  * ############

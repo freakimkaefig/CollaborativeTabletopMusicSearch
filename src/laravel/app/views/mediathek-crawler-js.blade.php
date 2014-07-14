@@ -17,6 +17,7 @@
 	<!-- Views -->
 	{{ HTML::script('js/src/views/FooterView.js') }}
 	{{ HTML::script('js/src/views/ResultView.js') }}
+	{{ HTML::script('js/src/views/BroadcastView.js') }}
 
 	<!-- INIT -->
 	{{ HTML::script('js/bootstrap.js') }}

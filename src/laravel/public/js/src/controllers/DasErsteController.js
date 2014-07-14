@@ -62,7 +62,7 @@ MediathekCrawler.DasErsteController = function() {
 	getNew = function() {
 		// build restful URL for search in Das Erste
 		var _searchUrl = '/proxy.php?url=' + encodeURI(BASE_URL);
-		console.log("MediathekCrawler.DasErsteController.getMostViewed", _searchUrl);
+		// console.log("MediathekCrawler.DasErsteController.getMostViewed", _searchUrl);
 
 		// send asynchronous xmphttp request
 		$.ajax({
@@ -105,6 +105,20 @@ MediathekCrawler.DasErsteController = function() {
 		});
 	},
 
+	/**
+	 * Private function for async loading of details for a search result
+	 * @param {String}		url of the detail page
+	 */
+	loadDetails = function(documentId, result, detailURL) {
+		var detailURL = '/proxy.php?url=' + encodeURI(detailURL);
+		$.ajax({
+			url: detailURL,
+			type: 'GET',
+			success: function(data) {
+				onLoadDetails(documentId, result, data);
+			}
+		});
+	},
 
 	/**
 	 * Private function for async loading of streams for a search result
@@ -129,7 +143,7 @@ MediathekCrawler.DasErsteController = function() {
 	onSearchString = function(data) {
 		$(data).find(SEARCH_WRAPPER_ELEMENT).find('li').each(function (index, element) {
 			if(!$(element).find('a.clearfix').hasClass('boxNowPlaying')) {
-				console.log(element);
+				// console.log(element);
 				// retrieving documentId for streamURL
 				var documentId = $(element).find('a.clearfix').attr('href');
 				documentId = documentId.split('/')[2];
@@ -147,8 +161,8 @@ MediathekCrawler.DasErsteController = function() {
 					_result._teaserImages.push(_model.createTeaserImage('128x72', BASE_URL + imgURL)),
 					_result._streams = [];
 
-				// load streams for result
-				loadStreams(documentId, _result);
+				// load details
+				loadDetails(documentId, _result, BASE_URL + $(element).find('a.clearfix').attr('href'));
 			} else {
 				// LIVESTREAM
 			}
@@ -172,7 +186,7 @@ MediathekCrawler.DasErsteController = function() {
 				var _result = {}
 					_result._station = 'Das Erste',
 					_result._title = $(element).find('span.boxTitle').text(),
-					_result._details = $(element).find('span.boxDescription').text(),
+					_result._subtitle = $(element).find('span.boxDescription').text(),
 					_result._length = $(element).find('span.boxDuration').text(),
 					_result._airtime = $(element).find('span.boxDate').text(),
 					imgURL = $(element).find('span.boxImgContainer img').attr('src'),
@@ -180,13 +194,23 @@ MediathekCrawler.DasErsteController = function() {
 					_result._teaserImages.push(_model.createTeaserImage('128x72', BASE_URL + imgURL)),
 					_result._streams = [];
 
-				// load streams for result
-				loadStreams(documentId, _result);
-			} else {
-				// LIVESTREAM
+				// load details for result
+				loadDetails(documentId, _result, BASE_URL + $(element).find('a.clearfix').attr('href'));
 			}
 		});
 	},
+
+	onLoadDetails = function(documentId, result, data) {
+		var data = data,
+			_result = result;
+			_result._details = $(data).find('#infobox_1 .boxInner p').text(),
+			_result._airtime = $(data).find('#infobox_1 .boxInner .boxMeta .boxDate').text().split(' ')[1] + ' ' + $(data).find('#infobox_1 .boxInner .boxMeta .boxTime').text().split(' ')[0];
+
+		console.log(_result);
+
+		// load streams for result
+		loadStreams(documentId, _result);
+	}
 
 	/**
 	 * Callback function for async loading of streams
@@ -195,7 +219,7 @@ MediathekCrawler.DasErsteController = function() {
 	 * @param {JSON}				JSON response of stream loading
 	 */
 	onLoadStreams = function(documentId, result, data) {
-		data = JSON.parse(data);
+		var data = JSON.parse(data);
 		result._teaserImages.push(_model.createTeaserImage('960x540', BASE_URL + data._previewImage));
 
 		// for (var i=0; i<data._mediaArray.length; i++) {
@@ -217,7 +241,7 @@ MediathekCrawler.DasErsteController = function() {
 		}
 		// }
 
-		_model.addResults(result._station, result._title, result._details, result._length, result._airtime, result._teaserImages, result._streams);
+		_model.addResults(result._station, result._title, result._subtitle, result._details, result._length, result._airtime, result._teaserImages, result._streams);
 	},
 
 	dispose = function() {
