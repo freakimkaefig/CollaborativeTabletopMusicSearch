@@ -9,25 +9,9 @@ class DatabaseSeeder extends Seeder {
 	 */
 	public function run()
 	{
-		Eloquent::unguard();
-
-		$this->call('BroadcastsTableSeeder');
-		$this->call('PlaylistsTableSeeder');
-		$this->call('StationsTableSeeder');
-		$this->call('UsersTableSeeder');
-		$this->call('BroadcastsTableSeeder');
-		$this->call('PlaylistsTableSeeder');
-		$this->call('StationsTableSeeder');
-		$this->call('UsersTableSeeder');
-		$this->call('BroadcastsTableSeeder');
-		$this->call('PlaylistsTableSeeder');
-		$this->call('StationsTableSeeder');
-		$this->call('UsersTableSeeder');
-		$this->call('BroadcastsTableSeeder');
-		$this->call('PlaylistsTableSeeder');
-		$this->call('StationsTableSeeder');
-		$this->call('UsersTableSeeder');
 		DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+
+		Eloquent::unguard();
 
 		$this->call('ClearAllTablesSeeder');
 		$this->call('UsersTableSeeder');
@@ -36,10 +20,6 @@ class DatabaseSeeder extends Seeder {
 		$this->call('BroadcastsTableSeeder');
 
 		DB::statement('SET FOREIGN_KEY_CHECKS=1;');
-		$this->call('BroadcastsTableSeeder');
-		$this->call('PlaylistsTableSeeder');
-		$this->call('StationsTableSeeder');
-		$this->call('UsersTableSeeder');
 	}
 
 }

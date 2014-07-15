@@ -13,5 +13,8 @@ body { padding-bottom: 100px; }
 
 ul { list-style: none; padding: 0;}
 
+/* ========== SEARCH RESULTS ======== */
+#result-wrapper .item { height: 185px; }
+
 /* ========== FOOTER ========== */
-#footer-nav { bottom: -110px; }
+#footer-nav { bottom: -190px; }

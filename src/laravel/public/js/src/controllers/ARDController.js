@@ -1,14 +1,16 @@
 MediathekCrawler.ARDController = function() {
 
 	var that = {},
-	BASE_URL = 'http://www.ardmediathek.de';
-	ARD_SEARCH_URL = 'http://www.ardmediathek.de/tv/suche?searchText=',
-	ARD_STREAM_URL = 'http://www.ardmediathek.de/play/media/',
-	ARD_STREAM_PARAMS = '?deviceType=pc&features=flash',
+	BASE_URL = 'http://www.ardmediathek.de',
+	SEARCH_URL = 'http://www.ardmediathek.de/tv/suche?searchText=',
+	SEARCH_PARAM = '&sort=date',
+	STREAM_URL = 'http://www.ardmediathek.de/play/media/',
+	STREAM_PARAMS = '?deviceType=pc&features=flash',
 	WRAPPER_ELEMENT = 'div.teaser',
 	VIDEO_CLASS = 'div.media.mediaA',
 	LINK_CLASS = 'a.mediaLink',
 	STREAM_PLUGIN = 1,
+	// http://www.ardmediathek.de/play/media/22342328
 
 	QUALITIES = [
 		{ 'quality': 0, 'resolution': '256x144' },
@@ -22,13 +24,13 @@ MediathekCrawler.ARDController = function() {
 	
 	init = function(model) {
 		//init ZDFController
-		console.log("ZDFController init");
+		console.log("MediathekCrawler.ARDController.init");
 		_model = model;
 	},
 
 	searchString = function(searchStr) {
 		// build restful URL for search in ARD
-		var _searchUrl = ARD_SEARCH_URL + searchStr;
+		var _searchUrl = SEARCH_URL + searchStr + SEARCH_PARAM;
 
 		// send http request to URL
 		var _searchXmlHttp = new XMLHttpRequest();
@@ -37,13 +39,13 @@ MediathekCrawler.ARDController = function() {
 		var searchXmlResponse = _searchXmlHttp.responseText;
 
 		// find all divs with the class 'teaser'
-		$(searchXmlResponse).find(WRAPPER_ELEMENT).each(function(index, element) {
+		$(searchXmlResponse).find(WRAPPER_ELEMENT).each(function (index, element) {
 			// check if element has child with class 'media' and 'mediaA'
 			if($(element).find(VIDEO_CLASS).length > 0) {
 				// get 'documentId' of video
 				var broadcastUrlParams = _parseQueryString($(element).find(VIDEO_CLASS).find(LINK_CLASS).attr('href'));
 				// build URL for documentId
-				var broadcastUrl = ARD_STREAM_URL + broadcastUrlParams.documentId;
+				var broadcastUrl = STREAM_URL + broadcastUrlParams.documentId;
 				
 				// check if broadcast URL is not undefined
 				if (broadcastUrl !== undefined) {
@@ -61,11 +63,12 @@ MediathekCrawler.ARDController = function() {
 
 						// find container for details
 						$textWrapper = $(element).find('div.textWrapper'),
-						_station = $textWrapper.find('p.subtitle').text().split(' | ')[2],
+						subtitle = $textWrapper.find('p.subtitle').text().split(' | '),
+						_station = subtitle[2],
 						_title = $textWrapper.find('h4.headline').text(),
 						_details = $textWrapper.find('p.teasertext').text(),
-						_length = $textWrapper.find('p.subtitle').text().split(' | ')[1],
-						_airtime = $textWrapper.find('p.subtitle').text().split(' | ')[0],
+						_length = subtitle[1],
+						_airtime = subtitle[0],
 						
 						// get teaser image
 						_teaserImage_resolution = null,		// TODO: resolution missing!
@@ -92,7 +95,7 @@ MediathekCrawler.ARDController = function() {
 					}
 
 					// push result to model
-					_model.addResults(_station, _title, _details, length, _airtime, _teaserImages, _streams);
+					_model.addResults(_station, _title, null, _details, _length, _airtime, _teaserImages, _streams);
 				}
 			}
 		});
@@ -113,9 +116,14 @@ MediathekCrawler.ARDController = function() {
 	    }
 	 
 	    return params;
+	},
+
+	dispose = function() {
+		that = {};
 	};
 
 	that.init = init;
+	that.dispose = dispose;
 	that.searchString = searchString;
 
 	return that;

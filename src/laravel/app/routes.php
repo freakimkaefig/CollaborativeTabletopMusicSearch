@@ -148,6 +148,15 @@ Route::get('/search/results', array(
 ));
 
 
+Route::get('/video/{id}', array(
+	'as' => 'video-id',
+	'uses' => 'MediathekController@getVideoById'
+));
+
+Route::get('/video', array(
+	'as' => 'video',
+	'uses' => 'MediathekController@getVideo'
+));
 
 
 /* ############
@@ -158,3 +167,8 @@ Route::get('/search/results', array(
 Route::get('/streaming-test', function() {
 	return View::make('test.streaming-test');
 });
+
+Route::get('/update', array(
+	'as' => 'update',
+	'uses' => 'MediathekController@updateCategories'
+));
