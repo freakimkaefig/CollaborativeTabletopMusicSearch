@@ -12,14 +12,14 @@ MediathekCrawler.FooterView = (function() {
 
 	footerOnMouseEnter = function(event) {
 		// console.log(event)
-		$(this).finish();
+		$(this).stop(true, false);
 		$(this).animate({
 			bottom: 0
 		});
 	},
 
 	footerOnMouseLeave = function(event) {
-		$(this).finish();
+		$(this).stop(true, false);
 		$(this).animate({
 			bottom: -190
 		});
