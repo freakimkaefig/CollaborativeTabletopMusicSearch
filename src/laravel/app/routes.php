@@ -167,3 +167,8 @@ Route::get('/video', array(
 Route::get('/streaming-test', function() {
 	return View::make('test.streaming-test');
 });
+
+Route::get('/update', array(
+	'as' => 'update',
+	'uses' => 'MediathekController@updateCategories'
+));

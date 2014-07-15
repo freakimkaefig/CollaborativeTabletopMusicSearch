@@ -55,6 +55,38 @@ MediathekCrawler.DasErsteController = function() {
 		{ 'quality': 3, 'resolution': '966x544' },
 	],
 
+	// Categories
+	CATEGORIES = [
+		{
+			'title': 'Nachrichten & Wetter',
+			'url': 'http://mediathek.daserste.de/themen/4324_nachrichten-wetter',
+			'broadcasts':
+			[
+				{
+					'title': 'Anne Will',
+					'url': 'http://mediathek.daserste.de/themen/4324_nachrichten-wetter/328454_anne-will'
+				},
+				{
+					'title': 'ARD-Sondersendung',
+					'url': 'http://mediathek.daserste.de/themen/4324_nachrichten-wetter/3304234_ard-sondersendung'
+				}
+			],
+			'title': 'Kinder',
+			'url': 'http://mediathek.daserste.de/themen/1366_kinder',
+			'broadcasts':
+			[
+				{
+					'title': 'Check Eins Dokumentation',
+					'url': 'http://mediathek.daserste.de/themen/1366_kinder/11526406_check-eins-dokumentation'
+				},
+				{
+					'title': 'Checker Can',
+					'url': 'http://mediathek.daserste.de/themen/1366_kinder/11651908_checker-can'
+				}
+			]
+		}
+	],
+
 	// private instance of the model
 	_model = null,
 	// define empty list for categories
