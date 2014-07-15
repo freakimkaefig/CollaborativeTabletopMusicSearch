@@ -27,12 +27,17 @@ MediathekCrawler.DasErsteController = function() {
 	STREAM_PARAMS = '?deviceType=pc&features=flash',
 
 	// constants for new videos
-	NEW_WRAPPER_ELEMENT = 'div#tab_1',
+	NEW_WRAPPER_ELEMENT = '.moduleVideoList #tab_1',
 
 	// constants for details
 	DETAIL_ELEMENT = '#infobox_1 .boxInner p',
 	AIRTIME_DATE_ELEMENT = '#infobox_1 .boxInner .boxMeta .boxDate',
 	AIRTIME_TIME_ELEMENT = '#infobox_1 .boxInner .boxMeta .boxTime',
+
+	// constants for categories
+	CATEGORIES_URL = 'http://mediathek.daserste.de/themen',
+	CATEGORIES_WRAPPER = '#layer_themen div.boxBody',
+	CATEGORIES_ELEMENT = 'a.boxLink'
 
 	// Available image formats in "DasErste Mediathek"
 	IMG_RESOLUTIONS = [
@@ -52,6 +57,9 @@ MediathekCrawler.DasErsteController = function() {
 
 	// private instance of the model
 	_model = null,
+	// define empty list for categories
+	_categories = null,
+
 
 
 	/**
@@ -60,6 +68,7 @@ MediathekCrawler.DasErsteController = function() {
 	init = function(model) {
 		console.log("MediathekCrawler.DasErsteController.init");
 		_model = model;
+		_categories = [];
 	},
 
 	/**
@@ -85,14 +94,26 @@ MediathekCrawler.DasErsteController = function() {
 	 */
 	getNew = function() {
 		// build restful URL for search in Das Erste
-		var _searchUrl = PROXY_URL + encodeURI(BASE_URL);
-		// console.log("MediathekCrawler.DasErsteController.getMostViewed", _searchUrl);
+		var _newUrl = PROXY_URL + encodeURI(BASE_URL);
 
 		// send asynchronous xmphttp request
 		$.ajax({
-			url: _searchUrl,
+			url: _newUrl,
 			type: 'GET',
 			success: onGetNew
+		});
+	},
+
+	/**
+	 * Function to retrieve categories from "Das Erste Mediathek"
+	 */
+	getCategories = function() {
+		var _categoriesUrl = PROXY_URL + encodeURI(CATEGORIES_URL);
+
+		$.ajax({
+			url: _categoriesUrl,
+			type: 'GET',
+			success: onGetCategories
 		});
 	},
 
@@ -164,6 +185,39 @@ MediathekCrawler.DasErsteController = function() {
 	},
 
 	/**
+	 * Private function for async loading of a category
+	 * @param {String}		title of the category
+	 * @param {String}		url of the category
+	 */
+	loadCategory = function(title, url) {
+		var categoryUrl = PROXY_URL + encodeURI(url);
+		$.ajax({
+			url: categoryUrl,
+			type: 'GET',
+			success: function(data) {
+				onLoadCategory(title, data);
+			}
+		});
+	},
+
+	/**
+	 * Private function for async loading of a category
+	 * @param {String}		title of the category
+	 * @param {String}		title of the category item
+	 * @param {String}		url of the category item
+	 */
+	loadCategoryItem = function(category, title, url) {
+		var categoryItemUrl = PROXY_URL + encodeURI(url);
+		$.ajax({
+			url: categoryItemUrl,
+			type: 'GET',
+			success: function(data) {
+				onLoadCategoryItem(category, title, data);
+			}
+		});
+	},
+
+	/**
 	 * Callback function for async loading of search results
 	 * @param {String|HTML}		xmlhttp response of ajax call
 	 */
@@ -171,9 +225,9 @@ MediathekCrawler.DasErsteController = function() {
 		$(data).find(SEARCH_WRAPPER_ELEMENT).find(SEARCH_ITEM_WRAPPER).each(function (index, element) {
 			if(!$(element).find(SEARCH_ITEM_ELEMENT).hasClass(SEARCH_LIVE_ITEM)) {
 				// retrieving documentId for streamURL
-				var documentUrl = $(element).find(SEARCH_ITEM_ELEMENT).attr('href');
-				documentId = documentUrl.split('/')[2];
-				documentId = documentId.split('_')[0];
+				var documentUrl = $(element).find(SEARCH_ITEM_ELEMENT).attr('href'),
+					documentId = $(element).find('.boxPlaylistIcons img').attr('class'),
+					documentId = documentId.replace(/\D/g,'');
 
 				// building result meta information
 				var _result = {}
@@ -203,9 +257,9 @@ MediathekCrawler.DasErsteController = function() {
 		$(data).find(NEW_WRAPPER_ELEMENT).find(SEARCH_ITEM_WRAPPER).each(function (index, element) {
 			if(!$(element).find(SEARCH_ITEM_ELEMENT).hasClass(SEARCH_LIVE_ITEM)) {
 				// retrieving documentId for streamURL
-				var documentUrl = $(element).find(SEARCH_ITEM_ELEMENT).attr('href');
-				documentId = documentUrl.split('/')[3];
-				documentId = documentId.split('_')[0];
+				var documentUrl = $(element).find(SEARCH_ITEM_ELEMENT).attr('href'),
+					documentId = $(element).find('.boxPlaylistIcons img').attr('class'),
+					documentId = documentId.replace(/\D/g,'');
 
 				// building result meta information
 				var _result = {}
@@ -223,6 +277,22 @@ MediathekCrawler.DasErsteController = function() {
 				loadDetails(documentId, _result, BASE_URL + documentUrl);
 			}
 		});
+	},
+
+	onGetCategories = function(data) {
+		$(data).find(CATEGORIES_WRAPPER).find(CATEGORIES_ELEMENT).each(function (index, element) {
+			var title = $(element).find('span').text(),
+				url = BASE_URL + $(element).attr('href');
+
+			loadCategory(title, url);
+
+			_categories.push({
+				'title': title,
+				'url': url
+			});
+		});
+
+		console.log(_categories);
 	},
 
 	/** 
@@ -272,6 +342,41 @@ MediathekCrawler.DasErsteController = function() {
 		_model.addResults(result._station, result._title, result._subtitle, result._details, result._length, result._airtime, result._teaserImages, result._streams);
 	},
 
+	onLoadCategory = function(title, data) {
+		$(data).find('#layer_themen2 .jsScroll').find('li').each(function (index, element) {
+			var	_category = title,
+				_title = $(element).find('a').text(),
+				_url = BASE_URL + $(element).find('a').attr('href');
+			loadCategoryItem(_category, _title, _url);
+		});
+	},
+
+	onLoadCategoryItem = function(category, title, data) {
+		$(data).find('#layer_themen3 .jsScroll').find(SEARCH_ITEM_WRAPPER).each(function (index, element) {
+			if(!$(element).find(SEARCH_ITEM_ELEMENT).hasClass(SEARCH_LIVE_ITEM)) {
+				// retrieving documentId for streamURL
+				var documentUrl = $(element).find(SEARCH_ITEM_ELEMENT).attr('href'),
+					documentId = $(element).find('.boxPlaylistIcons img').attr('class'),
+					documentId = documentId.replace(/\D/g,'');
+
+				// building result meta information
+				var _result = {}
+					_result._station = STATION,
+					_result._title = $(element).find(TITLE_ELEMENT).text(),
+					_result._subtitle = $(element).find(SUBTITLE_ELEMENT).text(),
+					_result._length = $(element).find(LENGTH_ELEMENT).text(),
+					_result._airtime = $(element).find(DATE_ELEMENT).text(),
+					imgURL = $(element).find(IMAGE_ELEMENT).attr('src'),
+					_result._teaserImages = [],
+					_result._teaserImages.push(_model.createTeaserImage(IMG_RESOLUTIONS[0].resolution, BASE_URL + imgURL)),
+					_result._streams = [];
+
+				// load details for result
+				loadDetails(documentId, _result, BASE_URL + documentUrl);
+			}
+		});
+	},
+
 	/**
 	 * Public function to reset the instance of DasErsteController
 	 */
@@ -283,6 +388,7 @@ MediathekCrawler.DasErsteController = function() {
 	that.dispose = dispose;
 	that.searchString = searchString;
 	that.getNew = getNew;
+	that.getCategories = getCategories;
 
 	return that;
 };

@@ -73,6 +73,7 @@ MediathekCrawler.ApplicationController = function() {
 
 	_getNew = function() {
 		dasErsteController.getNew();
+		// dasErsteController.getCategories();	// produces lag
 	},
 
 	_getVideoById = function() {
