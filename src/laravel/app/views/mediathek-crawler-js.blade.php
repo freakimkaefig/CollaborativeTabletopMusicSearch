@@ -8,6 +8,7 @@
 	<!-- Controller -->
 	{{ HTML::script('js/src/controllers/ApplicationController.js') }}
 	{{ HTML::script('js/src/controllers/ARDController.js') }}
+	{{ HTML::script('js/src/controllers/DasErsteController.js') }}
 	{{ HTML::script('js/src/controllers/ZDFController.js') }}
 
 	<!--Model-->
@@ -16,6 +17,7 @@
 	<!-- Views -->
 	{{ HTML::script('js/src/views/FooterView.js') }}
 	{{ HTML::script('js/src/views/ResultView.js') }}
+	{{ HTML::script('js/src/views/BroadcastView.js') }}
 
 	<!-- INIT -->
 	{{ HTML::script('js/bootstrap.js') }}
