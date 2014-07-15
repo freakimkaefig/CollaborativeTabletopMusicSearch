@@ -16,7 +16,7 @@ class UsersTableSeeder extends Seeder {
 			array (
 				'id' => 1,
 				'email' => 'test',
-				'password' => '$2y$10$tzhcc5Cp/iHEkzJs6OdbZutBiodpfzLp5AXaHwiDO55ck8MKe78Xe',
+				'password' => '$2y$10$51tgc/vFZNLxBWPkgZ6XWe/RAR7Kij173f1LbnGY32NHN7FCqVpY.',
 				'password_temp' => '',
 				'code' => '',
 				'active' => 1,
