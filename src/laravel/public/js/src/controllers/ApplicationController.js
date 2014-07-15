@@ -77,6 +77,7 @@ MediathekCrawler.ApplicationController = function() {
 
 	_getNew = function() {
 		dasErsteController.getNew();
+		zdfController.searchNew();
 		// dasErsteController.getCategories();	// produces lag
 	},
 
