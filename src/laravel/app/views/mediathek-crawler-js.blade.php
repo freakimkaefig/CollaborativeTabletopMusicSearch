@@ -10,6 +10,7 @@
 	{{ HTML::script('js/src/controllers/ARDController.js') }}
 	{{ HTML::script('js/src/controllers/DasErsteController.js') }}
 	{{ HTML::script('js/src/controllers/ZDFController.js') }}
+	{{ HTML::script('js/src/controllers/BRController.js') }}
 
 	<!--Model-->
 	{{ HTML::script('js/src/models/MediathekModel.js') }}

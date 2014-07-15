@@ -9,6 +9,7 @@ MediathekCrawler.ApplicationController = function() {
 	ardController = null,
 	dasErsteController = null,
 	zdfController = null,
+	brController = null,
 	
 	/* ===== VIEWS ===== */
 	footerView = null,
@@ -30,6 +31,8 @@ MediathekCrawler.ApplicationController = function() {
 	    dasErsteController.init(mediathekModel);
 		zdfController = MediathekCrawler.ZDFController();
 	 	zdfController.init(mediathekModel);
+	 	brController = MediathekCrawler.BRController();
+	 	brController.init();
 	 	
 
 		// init Views:
@@ -69,6 +72,7 @@ MediathekCrawler.ApplicationController = function() {
 		//ardController.searchString(searchString);
 		dasErsteController.searchString(searchString, 0);
 		zdfController.searchString(searchString, 100);
+		// brController.searchString(searchString, 1);
 	},
 
 	_getNew = function() {

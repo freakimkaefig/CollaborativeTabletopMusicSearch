@@ -6,7 +6,7 @@ class MediathekController extends BaseController {
 		$searchQuery = Input::all();
 		$searchString = $searchQuery['search'];
 
-		echo '<script>localstorage.removeItem("searchOptions"); localstorage.setItem("searchOptions", JSON.stringify({ "searchString": ' . $searchString . '}));</script>';
+		// echo '<script>localstorage.removeItem("searchOptions"); localstorage.setItem("searchOptions", JSON.stringify({ "searchString": ' . $searchString . '}));</script>';
 
 		return Redirect::route('search-results')
 			->withInput();
