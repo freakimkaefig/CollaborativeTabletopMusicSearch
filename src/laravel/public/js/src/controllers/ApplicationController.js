@@ -64,6 +64,8 @@ MediathekCrawler.ApplicationController = function() {
 			var searchString = $('input[name="search"]').val();
 			if (searchString !== '' && searchString !== undefined) {
 				_search(searchString);
+			} else {
+				_getNew();
 			}
 		}
 		if (document.URL.indexOf('/video') > -1) {
@@ -72,7 +74,7 @@ MediathekCrawler.ApplicationController = function() {
 		if (document.URL.indexOf('/rubrik') > -1) {
 			var url = document.URL.split('/'),
 				category = url[url.length-1];
-			_getCategory(category);
+			_getCategory(category.toLowerCase());
 		}
 	},
 
@@ -87,6 +89,7 @@ MediathekCrawler.ApplicationController = function() {
 
 	_getCategory = function(category) {
 		console.log('MediathekCrawler.ApplicationController._getCategory', category);
+		dasErsteController.getCategories(category);
 	},
 
 	_getNew = function() {

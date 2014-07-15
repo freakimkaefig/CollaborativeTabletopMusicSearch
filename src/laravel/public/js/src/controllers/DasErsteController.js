@@ -35,9 +35,7 @@ MediathekCrawler.DasErsteController = function() {
 	AIRTIME_TIME_ELEMENT = '#infobox_1 .boxInner .boxMeta .boxTime',
 
 	// constants for categories
-	CATEGORIES_URL = 'http://mediathek.daserste.de/themen',
-	CATEGORIES_WRAPPER = '#layer_themen div.boxBody',
-	CATEGORIES_ELEMENT = 'a.boxLink'
+	CATEGORIES_WRAPPER_ELEMENT = '#layer_themen3 .jsScroll',
 
 	// Available image formats in "DasErste Mediathek"
 	IMG_RESOLUTIONS = [
@@ -58,33 +56,41 @@ MediathekCrawler.DasErsteController = function() {
 	// Categories
 	CATEGORIES = [
 		{
-			'title': 'Nachrichten & Wetter',
-			'url': 'http://mediathek.daserste.de/themen/4324_nachrichten-wetter',
-			'broadcasts':
-			[
-				{
-					'title': 'Anne Will',
-					'url': 'http://mediathek.daserste.de/themen/4324_nachrichten-wetter/328454_anne-will'
-				},
-				{
-					'title': 'ARD-Sondersendung',
-					'url': 'http://mediathek.daserste.de/themen/4324_nachrichten-wetter/3304234_ard-sondersendung'
-				}
-			],
-			'title': 'Kinder',
-			'url': 'http://mediathek.daserste.de/themen/1366_kinder',
-			'broadcasts':
-			[
-				{
-					'title': 'Check Eins Dokumentation',
-					'url': 'http://mediathek.daserste.de/themen/1366_kinder/11526406_check-eins-dokumentation'
-				},
-				{
-					'title': 'Checker Can',
-					'url': 'http://mediathek.daserste.de/themen/1366_kinder/11651908_checker-can'
-				}
-			]
-		}
+			'_id': 'nachrichten',
+			'_url': 'http://mediathek.daserste.de/themen/4324_nachrichten-wetter',
+		},
+		{
+			'_id': 'politik',
+			'_url': 'http://mediathek.daserste.de/themen/204_politik-weltgeschehen',
+		},
+		{
+			'_id': 'sport',
+			'_url': 'http://mediathek.daserste.de/themen/53502_sport',
+		},
+		{
+			'_id': 'kinder',
+			'_url': 'http://mediathek.daserste.de/themen/1366_kinder',
+		},
+		{
+			'_id': 'ratgeber-gesundheit',
+			'_url': 'http://mediathek.daserste.de/themen/53356_ratgeber-service',
+		},
+		{
+			'_id': 'wirtschaft',
+			'_url': 'http://mediathek.daserste.de/themen/4072_wirtschaft-boerse',
+		},
+		{
+			'_id': 'unterhaltung',
+			'_url': 'http://mediathek.daserste.de/themen/53378_unterhaltung',
+		},
+		{
+			'_id': 'kino-tv',
+			'_url': 'http://mediathek.daserste.de/themen/5246_soaps-serien',
+		},
+		{
+			'_id': 'wissen-kultur',
+			'_url': 'http://mediathek.daserste.de/themen/1398_wissen-kultur',
+		},
 	],
 
 	// private instance of the model
@@ -137,15 +143,33 @@ MediathekCrawler.DasErsteController = function() {
 	},
 
 	/**
-	 * Function to retrieve categories from "Das Erste Mediathek"
+	 * Function to load all categories from "Das Erste Mediathek"
 	 */
-	getCategories = function() {
-		var _categoriesUrl = PROXY_URL + encodeURI(CATEGORIES_URL);
+	getCategories = function(_category) {
+		var find = CATEGORIES.filter(function (category) { return category._id == _category });
+		if (find.length > 0) {
+			var _broadcastUrl = PROXY_URL + encodeURI(find[0]._url);
+			$.ajax({
+				url: _broadcastUrl,
+				type: 'GET',
+				success: function(data) {
+					onGetCategories(data, _category)
+				}
+			});
+		} else {
+			console.error("Mediathek-Crawler", "|", "DasErsteController", "|", "Kategorie nicht verfügbar:", "'" + _category + "'");
+		}
+	},
 
+	/**
+	 * Function to load a category from "Das Erste Mediathek"
+	 */
+	loadCategory = function(url) {
+		var _broadcastUrl = PROXY_URL + encodeURI(url);
 		$.ajax({
-			url: _categoriesUrl,
+			url: _broadcastUrl,
 			type: 'GET',
-			success: onGetCategories
+			success: onGetCategory
 		});
 	},
 
@@ -179,9 +203,7 @@ MediathekCrawler.DasErsteController = function() {
 		$.ajax({
 			url: _searchUrl,
 			type: 'GET',
-			success: function(data) {
-				onSearchString(data);
-			}
+			success: onSearchString
 		});
 	},
 
@@ -217,39 +239,6 @@ MediathekCrawler.DasErsteController = function() {
 	},
 
 	/**
-	 * Private function for async loading of a category
-	 * @param {String}		title of the category
-	 * @param {String}		url of the category
-	 */
-	loadCategory = function(title, url) {
-		var categoryUrl = PROXY_URL + encodeURI(url);
-		$.ajax({
-			url: categoryUrl,
-			type: 'GET',
-			success: function(data) {
-				onLoadCategory(title, data);
-			}
-		});
-	},
-
-	/**
-	 * Private function for async loading of a category
-	 * @param {String}		title of the category
-	 * @param {String}		title of the category item
-	 * @param {String}		url of the category item
-	 */
-	loadCategoryItem = function(category, title, url) {
-		var categoryItemUrl = PROXY_URL + encodeURI(url);
-		$.ajax({
-			url: categoryItemUrl,
-			type: 'GET',
-			success: function(data) {
-				onLoadCategoryItem(category, title, data);
-			}
-		});
-	},
-
-	/**
 	 * Callback function for async loading of search results
 	 * @param {String|HTML}		xmlhttp response of ajax call
 	 */
@@ -258,7 +247,7 @@ MediathekCrawler.DasErsteController = function() {
 			if(!$(element).find(SEARCH_ITEM_ELEMENT).hasClass(SEARCH_LIVE_ITEM)) {
 				// retrieving documentId for streamURL
 				var documentUrl = $(element).find(SEARCH_ITEM_ELEMENT).attr('href'),
-					documentId = $(element).find('.boxPlaylistIcons img').attr('class'),
+					documentId = $(element).find('.boxPlaylistIcons>img').attr('class'),
 					documentId = documentId.replace(/\D/g,'');
 
 				// building result meta information
@@ -290,7 +279,7 @@ MediathekCrawler.DasErsteController = function() {
 			if(!$(element).find(SEARCH_ITEM_ELEMENT).hasClass(SEARCH_LIVE_ITEM)) {
 				// retrieving documentId for streamURL
 				var documentUrl = $(element).find(SEARCH_ITEM_ELEMENT).attr('href'),
-					documentId = $(element).find('.boxPlaylistIcons img').attr('class'),
+					documentId = $(element).find('.boxPlaylistIcons>img').attr('class'),
 					documentId = documentId.replace(/\D/g,'');
 
 				// building result meta information
@@ -311,20 +300,43 @@ MediathekCrawler.DasErsteController = function() {
 		});
 	},
 
-	onGetCategories = function(data) {
-		$(data).find(CATEGORIES_WRAPPER).find(CATEGORIES_ELEMENT).each(function (index, element) {
-			var title = $(element).find('span').text(),
-				url = BASE_URL + $(element).attr('href');
-
-			loadCategory(title, url);
-
-			_categories.push({
-				'title': title,
-				'url': url
-			});
+	onGetCategories = function(data, _category) {
+		$(data).find('#layer_themen2 .jsScroll').find('li').each(function(index, element) {
+			loadCategory(BASE_URL + $(element).find('a').attr('href'));
 		});
 
-		console.log(_categories);
+	},
+
+	/**
+	 * Callback function for async loading of category results
+	 * @param {String|HTML}		xmlhttp response of ajax call
+	 */
+	onGetCategory = function(data) {
+		$(data).find(CATEGORIES_WRAPPER_ELEMENT).find(SEARCH_ITEM_WRAPPER).each(function (index, element) {
+			if(!$(element).find(SEARCH_ITEM_ELEMENT).hasClass(SEARCH_LIVE_ITEM)) {
+				// retrieving documentId for streamURL
+				var documentUrl = $(element).find(SEARCH_ITEM_ELEMENT).attr('href'),
+					documentId = $(element).find('.boxPlaylistIcons>img').attr('class'),
+					documentId = documentId.replace(/\D/g,'');
+
+				// building result meta information
+				var _result = {}
+					_result._station = STATION,
+					_result._title = $(element).find(TITLE_ELEMENT).text(),
+					_result._subtitle = $(element).find(SUBTITLE_ELEMENT).text(),
+					_result._length = $(element).find(LENGTH_ELEMENT).text(),
+					_result._airtime = $(element).find(DATE_ELEMENT).text(),
+					imgURL = $(element).find(IMAGE_ELEMENT).attr('src'),
+					_result._teaserImages = [],
+					_result._teaserImages.push(_model.createTeaserImage(IMG_RESOLUTIONS[0].resolution, BASE_URL + imgURL)),
+					_result._streams = [];
+
+				// load details
+				loadDetails(documentId, _result, BASE_URL + documentUrl);
+			} else {
+				// LIVESTREAM
+			}
+		});
 	},
 
 	/** 
@@ -340,7 +352,7 @@ MediathekCrawler.DasErsteController = function() {
 
 		// load streams for result
 		loadStreams(documentId, _result);
-	}
+	},
 
 	/**
 	 * Callback function for async loading of streams
@@ -352,61 +364,25 @@ MediathekCrawler.DasErsteController = function() {
 		var data = JSON.parse(data);
 		result._teaserImages.push(_model.createTeaserImage(IMG_RESOLUTIONS[3].resolution, BASE_URL + data._previewImage));
 
-		// for (var i=0; i<data._mediaArray.length; i++) {	//left out to reduce overhead
-		var i = 1;	// only add videos of type mp4
-		for (var j=0; j<data._mediaArray[i]._mediaStreamArray.length; j++) {
-			var stream = data._mediaArray[i]._mediaStreamArray[j]._stream;
-			if ( typeof stream === 'string' ) {
-				var _url = stream;
-			} else {
-				var _url = stream[0];
+		for (var i=0; i<data._mediaArray.length; i++) {	//left out to reduce overhead
+			for (var j=0; j<data._mediaArray[i]._mediaStreamArray.length; j++) {
+				var stream = data._mediaArray[i]._mediaStreamArray[j]._stream;
+				if ( typeof stream === 'string' ) {
+					var _url = stream;
+				} else {
+					var _url = stream[0];
+				}
+
+				var _basetype = null,	// TODO: missing basetype!
+					_type = data._type + '/' + _url.substr(_url.lastIndexOf('.') + 1);
+					_quality = data._mediaArray[i]._mediaStreamArray[j]._quality;
+					_filesize = null;	// TODO: missing filesize!
+
+				result._streams.push(_model.createStream(_basetype, _type, _quality, _url, _filesize));
 			}
-
-			var _basetype = null,	// TODO: missing basetype!
-				_type = data._type + '/' + _url.substr(_url.lastIndexOf('.') + 1);
-				_quality = data._mediaArray[i]._mediaStreamArray[j]._quality;
-				_filesize = null;	// TODO: missing filesize!
-
-			result._streams.push(_model.createStream(_basetype, _type, _quality, _url, _filesize));
 		}
-		// }
 
 		_model.addResults(result._station, result._title, result._subtitle, result._details, result._length, result._airtime, result._teaserImages, result._streams);
-	},
-
-	onLoadCategory = function(title, data) {
-		$(data).find('#layer_themen2 .jsScroll').find('li').each(function (index, element) {
-			var	_category = title,
-				_title = $(element).find('a').text(),
-				_url = BASE_URL + $(element).find('a').attr('href');
-			loadCategoryItem(_category, _title, _url);
-		});
-	},
-
-	onLoadCategoryItem = function(category, title, data) {
-		$(data).find('#layer_themen3 .jsScroll').find(SEARCH_ITEM_WRAPPER).each(function (index, element) {
-			if(!$(element).find(SEARCH_ITEM_ELEMENT).hasClass(SEARCH_LIVE_ITEM)) {
-				// retrieving documentId for streamURL
-				var documentUrl = $(element).find(SEARCH_ITEM_ELEMENT).attr('href'),
-					documentId = $(element).find('.boxPlaylistIcons img').attr('class'),
-					documentId = documentId.replace(/\D/g,'');
-
-				// building result meta information
-				var _result = {}
-					_result._station = STATION,
-					_result._title = $(element).find(TITLE_ELEMENT).text(),
-					_result._subtitle = $(element).find(SUBTITLE_ELEMENT).text(),
-					_result._length = $(element).find(LENGTH_ELEMENT).text(),
-					_result._airtime = $(element).find(DATE_ELEMENT).text(),
-					imgURL = $(element).find(IMAGE_ELEMENT).attr('src'),
-					_result._teaserImages = [],
-					_result._teaserImages.push(_model.createTeaserImage(IMG_RESOLUTIONS[0].resolution, BASE_URL + imgURL)),
-					_result._streams = [];
-
-				// load details for result
-				loadDetails(documentId, _result, BASE_URL + documentUrl);
-			}
-		});
 	},
 
 	/**

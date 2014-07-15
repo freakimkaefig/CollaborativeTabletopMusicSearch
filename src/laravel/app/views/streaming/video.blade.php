@@ -2,7 +2,7 @@
 
 @section('content')
 	<!-- START streaming/video -->
-	@if($video)
+	@if(isset($video))
 		<div id="video-wrapper">
 			<video id="video" class="video-js vjs-default-skin" controls preload="auto"></video>
 		</div>

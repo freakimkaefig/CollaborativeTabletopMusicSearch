@@ -22,8 +22,7 @@ class MediathekController extends BaseController {
 	}
 
 	public function getCategory($category) {
-		// return Redirect::route('category-list')
-		// 	->with('category', $category);
+		// validate category
 		return View::make('search.categories')
 			->with('category', $category);
 	}

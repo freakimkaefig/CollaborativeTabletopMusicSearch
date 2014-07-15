@@ -9,10 +9,10 @@
 	      		<li>
 	      			<div class="navbar-form navbar-left">
 	      				<div class="form-group">
-	      					<input type="text" class="form-control" name="search" placeholder="Search"{{ (Input::old('search')) ? ' value="' . e(Input::old('search')) . '"' : '' }}>
+	      					<input type="text" class="form-control" name="search" placeholder="Suche"{{ (Input::old('search')) ? ' value="' . e(Input::old('search')) . '"' : '' }}>
 	      				</div>
 	      				<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
-	      				<button class="btn btn-default"><a href="/search"><span class="glyphicon glyphicon-filter"></span></a></button>
+	      				<button class="btn btn-default"><a href="{{ URL::route('search-results') }}"><span class="glyphicon glyphicon-filter"></span></a></button>
       				</div>
 		     	</li>
 	        	@if(Auth::check())

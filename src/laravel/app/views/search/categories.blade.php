@@ -3,7 +3,7 @@
 @section('content')
 	<!-- START search/categories -->
 	@if($category)
-		<h2>{{ $category }}</h2>
+		<h2>{{ strtolower(str_replace('-', ' & ', $category)) }}</h2>
 
 		@include('search.results')
 
