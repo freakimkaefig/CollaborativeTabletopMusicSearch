@@ -16,17 +16,20 @@ class MediathekController extends BaseController {
 	}
 
 
-	public function getSearch() {
-		return View::make('search.search');
+	public function getSearchResults() {
+		return View::make('search.search')
+			->with('isSearch', TRUE);
+	}
+
+	public function getCategory($category) {
+		// return Redirect::route('category-list')
+		// 	->with('category', $category);
+		return View::make('search.categories')
+			->with('category', $category);
 	}
 
 	public function getVideoById($id) {
-		Debugbar::info($id);
-		return Redirect::route('video')
-			->with('video-id', $id);		
-	}
-
-	public function getVideo() {
-		return View::make('streaming.video');
+		return View::make('streaming.video')
+			->with('video', $id);		
 	}
 }

@@ -18,3 +18,5 @@ ul { list-style: none; padding: 0;}
 
 /* ========== FOOTER ========== */
 #footer-nav { bottom: -190px; }
+
+h2 { text-transform: capitalize; }
