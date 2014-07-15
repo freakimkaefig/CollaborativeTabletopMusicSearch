@@ -19,12 +19,19 @@ MediathekCrawler.ZDFController = function() {
 		if(maxResults >= 50){
 			maxResults = 50;
 		}
-	    xmlHttp = new XMLHttpRequest();
-	    xmlHttp.open( "GET", ZDFSEARCHURL+searchStr+"&maxLength="+String(maxResults), false );
-	    xmlHttp.send( null );
-	    //console.log("RESPONSE"+xmlHttp.responseText);
-	    var xmlResponse = $.parseXML(xmlHttp.responseText);
-	    $xml = $(xmlResponse);
+	    
+		$.ajax({
+			url: ZDFSEARCHURL+searchStr+"&maxLength="+String(maxResults),
+			type: 'GET',
+			success: function(data) {
+				parseResponse(data);
+			}
+		});
+	},
+
+	parseResponse = function(data){
+		
+	     $xml = $(data);
 
 	    if(typeof $xml  != "undefined"){
 	    	//each teaser = 1 search Result
@@ -37,6 +44,7 @@ MediathekCrawler.ZDFController = function() {
 				length = "",
 				airtime = "",
 				station = "",
+				subtitle = "",
 				streams = [];
 
 				// get all teaserImgs with resolution
@@ -49,7 +57,6 @@ MediathekCrawler.ZDFController = function() {
 			    	var ti = mediathekModel.createTeaserImage(res, imgUrl);
 			    	teaserImages.push(ti);
 				});
-				//console.log("images: "+teaserImages[0].resolution+", "+teaserImages[0].url);
 
 			    //get information
 			    title = $(this).find("title").text();
@@ -66,112 +73,120 @@ MediathekCrawler.ZDFController = function() {
 			    airtime = $(this).find("airtime").text();
 
 			    //Fetch stream url's
-			    streams = searchStream(assetID);
-
-			    //print info's for 1st searchresult:
-				// if(once === 0){
-				//     once = 1;
-				//     console.log("resulting details: "+title+", "+station+", "+details+", "+assetID+", "+length+", "+airtime+", "+streams[0].basetype+", "+streams[0].quality+", "+streams[0].url+", "+streams[0].filesize);
-			 //    }
-
-			    pushResultToModel(title, details, station, assetID, length, airtime, teaserImages, streams);
-
+			    searchStream(assetID, title, subtitle, details, station, assetID, length, airtime, teaserImages);
+			   
 	    	}); //end foreach searchResult
 		    	
 	    } 
 	    
 	},
 
-	searchStream = function(assetID){
-		//"http://www.zdf.de/ZDFmediathek/xmlservice/web/beitragsDetails?id="
-		//ZDFSTREAMURL+assetID
-		//parse for stream urls
-		xmlHttp = new XMLHttpRequest();
-	    xmlHttp.open( "GET", ZDFSTREAMURL+assetID, false );
-	    xmlHttp.send( null );
-	    //console.log("RESPONSE"+xmlHttp.responseText);
-	    var xmlResponse = $.parseXML(xmlHttp.responseText);
-	    $xml = $(xmlResponse);
+	searchStream = function(assetID, title, subtitle, details, station, assetID, length, airtime, teaserImages){
 
-	    if(typeof $xml  != "undefined"){
+		var streams = [];
 
-	    	var streams = [];
+		$.ajax({
+			url: ZDFSTREAMURL+assetID,
+			type: 'GET',
+			success: function(data) {
+				$xml = $(data);
 
-	    	$xml.find("formitaet").each(function(){
-
-	    		var basetype = "",
-	    		quality = "",
-	    		url = "",
-	    		filesize = 0;
-
-	    		basetype = $(this).attr('basetype');
-	    		
-	    		// filter for playable & working(!) basetypes
-	    		// only save url if this is the case!
+			    if(typeof $xml  != "undefined"){
 
 
-	    		switch (basetype) {
-	    			case 'h264_aac_3gp_rtsp_na_na':
-	    				type = null;	// TODO: transform to type! (.3gp)
-	    				// geht nicht mit videojs?
-	    				break;
-	    			case 'h264_aac_f4f_http_f4m_http':
-	    				type = null;	// TODO: transform to type! (.f4m)
-	    				break;
-	    			case 'h264_aac_mp4_http_na_na':
-	    				type = 'video/mp4';
-	    				break;
-	    			case 'h264_aac_mp4_rtmp_smil_http':
-	    				type = null;	// TODO: transform to type! (.smil)
-	    				break;
-	    			case 'h264_aac_mp4_rtmp_zdfmeta_http':
-	    				type = null;	// TODO: transform to type! (.meta)
-	    				break;
-	    			case 'h264_aac_mp4_rtsp_mov_http':
-	    				type = null;	// TODO: transform to type! (.mov)
-	    				break;
-	    			case 'h264_aac_ts_http_m3u8_http':
-	    				type = 'application/x-mpegURL';	// oder 'vnd.apple.mpegURL'
-	    				break;
-	    			case 'vp8_vorbis_webm_http_na_na':
-	    				type = 'video/webm'; 	// oder 'video/webm; codecs="vp8, vorbis"'
-	    				break;
-	    			default:
-	    				type = null;
-	    				break;
-	    		}
-	    		// type = 
-	    		qualityText = $(this).find("quality").text();
-	    		switch (qualityText) {
-	    			case 'low':
-	    				quality = 0;
-	    				break;
-	    			case 'med':
-	    				quality = 1;
-	    				break;
-	    			case 'high':
-	    				quality = 2;
-	    				break;
-	    			case 'veryhigh':
-	    				quality = 3;
-	    				break;
-	    		}
-				url = $(this).find("url").text();
-				filesize = $(this).find("filesize").text();
+			    	$xml.find("formitaet").each(function(){
 
-				var stream = mediathekModel.createStream(basetype, type, quality, url, filesize);
-	    		//console.log("basetype: ",basetype,", stream: ",stream._url);
-				streams.push(stream);
+			    		var basetype = "",
+			    		quality = "",
+			    		url = "",
+			    		filesize = 0;
 
-	    	}); // end foreach formitaet
-	    	return streams;
+			    		basetype = $(this).attr('basetype');
+			    		
+			    		// filter for playable & working(!) basetypes
+			    		// only save url if this is the case!
 
-	    }
+
+			    		switch (basetype) {
+			    			case 'h264_aac_3gp_rtsp_na_na':
+			    				type = null;	// TODO: transform to type! (.3gp)
+			    				// geht nicht mit videojs?
+			    				break;
+			    			case 'h264_aac_f4f_http_f4m_http':
+			    				type = null;	// TODO: transform to type! (.f4m)
+			    				// geht nicht!?
+			    				break;
+			    			case 'h264_aac_mp4_http_na_na':
+			    				type = 'video/mp4';
+			    				url = $(this).find("url").text();
+								filesize = $(this).find("filesize").text();
+
+								var stream = mediathekModel.createStream(basetype, type, quality, url, filesize);
+					    		//console.log("basetype: ",basetype,", stream: ",stream._url);
+								streams.push(stream);
+			    				break;
+			    			case 'h264_aac_mp4_rtmp_smil_http':
+			    				type = null;	// TODO: transform to type! (.smil)
+			    				break;
+			    			case 'h264_aac_mp4_rtmp_zdfmeta_http':
+			    				type = null;	// TODO: transform to type! (.meta)
+			    				break;
+			    			case 'h264_aac_mp4_rtsp_mov_http':
+			    				type = null;	// TODO: transform to type! (.mov)
+			    				break;
+			    			case 'h264_aac_ts_http_m3u8_http':
+			    				type = null; //'application/x-mpegURL' oder 'vnd.apple.mpegURL'
+			    				break;
+			    			case 'vp8_vorbis_webm_http_na_na':
+			    				type = 'video/webm'; 	// oder 'video/webm; codecs="vp8, vorbis"'
+			    				url = $(this).find("url").text();
+								filesize = $(this).find("filesize").text();
+
+								var stream = mediathekModel.createStream(basetype, type, quality, url, filesize);
+					    		//console.log("basetype: ",basetype,", stream: ",stream._url);
+								streams.push(stream);
+			    				break;
+			    			default:
+			    				type = 'video/mp4';
+			    				break;
+			    		}
+			    		// type = 
+			    		qualityText = $(this).find("quality").text();
+			    		switch (qualityText) {
+			    			case 'low':
+			    				quality = 0;
+			    				break;
+			    			case 'med':
+			    				quality = 1;
+			    				break;
+			    			case 'high':
+			    				quality = 2;
+			    				break;
+			    			case 'veryhigh':
+			    				quality = 3;
+			    				break;
+			    		}
+						// url = $(this).find("url").text();
+						// filesize = $(this).find("filesize").text();
+
+						// var stream = mediathekModel.createStream(basetype, type, quality, url, filesize);
+			   //  		//console.log("basetype: ",basetype,", stream: ",stream._url);
+						// streams.push(stream);
+
+			    	}); // end foreach formitaet
+
+			    }
+			},
+			error: function(){
+				console.log('ERROR; ZDFController; AJAX-request did not recieve a response');
+			}
+		});
+		pushResultToModel(title, subtitle, details, station, assetID, length, airtime, teaserImages, streams);
 	},
 
-	pushResultToModel = function(title, details, station, assetID, length, airtime, teaserImages, streams){
-		// TODO: add subtitle!
-		mediathekModel.addResults(station, title, null, details, length, airtime, teaserImages, streams);
+	pushResultToModel = function(title, subtitle, details, station, assetID, length, airtime, teaserImages, streams){
+		
+		mediathekModel.addResults(station, title, subtitle, details, length, airtime, teaserImages, streams);
 	},
 
 	searchHot = function(maxResults){
@@ -179,12 +194,18 @@ MediathekCrawler.ZDFController = function() {
 			maxResults = 50;
 		} 
 
-		xmlHttp = new XMLHttpRequest();
-	    xmlHttp.open( "GET", ZDFSEARCHHOTURL+String(maxResults), false );
-	    xmlHttp.send( null );
-	    //console.log("RESPONSE"+xmlHttp.responseText);
-	    var xmlResponse = $.parseXML(xmlHttp.responseText);
-	    $xml = $(xmlResponse);
+		$.ajax({
+			url: ZDFSEARCHHOTURL+String(maxResults),
+			type: 'GET',
+			success: function(data) {
+				parseHot(data);
+			}
+		});
+	},
+
+	parseHot = function(data){
+
+		$xml = $(data);
 
 	    if(typeof $xml  != "undefined"){
 
@@ -233,12 +254,6 @@ MediathekCrawler.ZDFController = function() {
 				    //Fetch stream url's
 				    streams = searchStream(assetID);
 					
-					//print info's for 1st searchresult:
-					// if(once === 0){
-					//     once = 1;
-					//     console.log("resulting details: "+title+", "+station+", "+details+", "+assetID+", "+length+", "+airtime+", "+streams[0].basetype+", "+streams[0].quality+", "+streams[0].url+", "+streams[0].filesize);
-				 //    }
-
 				    pushResultToModel(title, details, station, assetID, length, airtime, teaserImages, streams);
 
 				} //end if type === video
@@ -250,9 +265,10 @@ MediathekCrawler.ZDFController = function() {
 	},
 
 			    //TODO:
-			    //meist-gesehen
+			    //neu
 			    //SendungenAbisZ-Suche?
 			    //Rubriken-Suche
+			    //filter streaming url's
 
 	dispose = function() {
 		that = {};
