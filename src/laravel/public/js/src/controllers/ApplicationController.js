@@ -71,7 +71,7 @@ MediathekCrawler.ApplicationController = function() {
 
 		//ardController.searchString(searchString);
 		dasErsteController.searchString(searchString, 0);
-		// zdfController.searchString(searchString, 100);
+		zdfController.searchString(searchString, 100);
 		// brController.searchString(searchString, 1);
 	},
 
