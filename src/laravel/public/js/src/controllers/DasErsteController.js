@@ -99,15 +99,15 @@ MediathekCrawler.DasErsteController = function() {
 	_categories = null,
 
 
-
 	/**
 	 * Public function to initialize the instance of DasErsteController
 	 */
 	init = function(model) {
-		console.log("MediathekCrawler.DasErsteController.init");
+		console.info("MediathekCrawler.DasErsteController.init");
 		_model = model;
 		_categories = [];
 	},
+
 
 	/**
 	 * Public function to search with given string, type and numResults
@@ -125,52 +125,6 @@ MediathekCrawler.DasErsteController = function() {
 				searchStringByDate(searchStr);
 				break;
 		}
-	},
-
-	/**
-	 * Public function to get most viewed videos
-	 */
-	getNew = function() {
-		// build restful URL for search in Das Erste
-		var _newUrl = PROXY_URL + encodeURI(BASE_URL);
-
-		// send asynchronous xmphttp request
-		$.ajax({
-			url: _newUrl,
-			type: 'GET',
-			success: onGetNew
-		});
-	},
-
-	/**
-	 * Function to load all categories from "Das Erste Mediathek"
-	 */
-	getCategories = function(_category) {
-		var find = CATEGORIES.filter(function (category) { return category._id == _category });
-		if (find.length > 0) {
-			var _broadcastUrl = PROXY_URL + encodeURI(find[0]._url);
-			$.ajax({
-				url: _broadcastUrl,
-				type: 'GET',
-				success: function(data) {
-					onGetCategories(data, _category)
-				}
-			});
-		} else {
-			console.error("Mediathek-Crawler", "|", "DasErsteController", "|", "Kategorie nicht verfügbar:", "'" + _category + "'");
-		}
-	},
-
-	/**
-	 * Function to load a category from "Das Erste Mediathek"
-	 */
-	loadCategory = function(url) {
-		var _broadcastUrl = PROXY_URL + encodeURI(url);
-		$.ajax({
-			url: _broadcastUrl,
-			type: 'GET',
-			success: onGetCategory
-		});
 	},
 
 	/**
@@ -208,6 +162,39 @@ MediathekCrawler.DasErsteController = function() {
 	},
 
 	/**
+	 * Callback function for async loading of search results
+	 * @param {String|HTML}		xmlhttp response of ajax call
+	 */
+	onSearchString = function(data) {
+		$(data).find(SEARCH_WRAPPER_ELEMENT).find(SEARCH_ITEM_WRAPPER).each(function (index, element) {
+			if(!$(element).find(SEARCH_ITEM_ELEMENT).hasClass(SEARCH_LIVE_ITEM)) {
+				// retrieving documentId for streamURL
+				var documentUrl = $(element).find(SEARCH_ITEM_ELEMENT).attr('href'),
+					documentId = $(element).find('.boxPlaylistIcons>img').attr('class');
+					if (documentId !== undefined) {
+						documentId = documentId.replace(/\D/g,'');
+					// building result meta information
+					var _result = {}
+						_result._station = STATION,
+						_result._title = $(element).find(TITLE_ELEMENT).text(),
+						_result._subtitle = $(element).find(SUBTITLE_ELEMENT).text(),
+						_result._length = $(element).find(LENGTH_ELEMENT).text(),
+						_result._airtime = $(element).find(DATE_ELEMENT).text(),
+						imgURL = $(element).find(IMAGE_ELEMENT).attr('src'),
+						_result._teaserImages = [],
+						_result._teaserImages.push(_model.createTeaserImage(IMG_RESOLUTIONS[0].resolution, BASE_URL + imgURL)),
+						_result._streams = [];
+
+					// load details
+					loadDetails(documentId, _result, BASE_URL + documentUrl);
+				}
+			} else {
+				// LIVESTREAM
+			}
+		});
+	},
+
+	/**
 	 * Private function for async loading of details for a search result
 	 * @param {String}		url of the detail page
 	 */
@@ -220,6 +207,21 @@ MediathekCrawler.DasErsteController = function() {
 				onLoadDetails(documentId, result, data);
 			}
 		});
+	},
+
+	/** 
+	 * Callback function for async loading of details for results
+	 * @param {String|Integer}		documentId of the broadcast
+	 * @param {object}				currently builded result (missing details and precise airtime)
+	 * @param {HTML}				HTML markup of the retrieved detail page of the broadcast
+	 */
+	onLoadDetails = function(documentId, result, data) {
+		var _result = result;
+			_result._details = $(data).find(DETAIL_ELEMENT).text(),
+			_result._airtime = $(data).find(AIRTIME_DATE_ELEMENT).text().split(' ')[1] + ' ' + $(data).find(AIRTIME_TIME_ELEMENT).text().split(' ')[0];
+
+		// load streams for result
+		loadStreams(documentId, _result);
 	},
 
 	/**
@@ -239,34 +241,49 @@ MediathekCrawler.DasErsteController = function() {
 	},
 
 	/**
-	 * Callback function for async loading of search results
-	 * @param {String|HTML}		xmlhttp response of ajax call
+	 * Callback function for async loading of streams
+	 * @param {String|Integer}		documentId of the broadcast
+	 * @param {object}				currently builded result (missing streams and preview images)
+	 * @param {JSON}				JSON response of stream loading
 	 */
-	onSearchString = function(data) {
-		$(data).find(SEARCH_WRAPPER_ELEMENT).find(SEARCH_ITEM_WRAPPER).each(function (index, element) {
-			if(!$(element).find(SEARCH_ITEM_ELEMENT).hasClass(SEARCH_LIVE_ITEM)) {
-				// retrieving documentId for streamURL
-				var documentUrl = $(element).find(SEARCH_ITEM_ELEMENT).attr('href'),
-					documentId = $(element).find('.boxPlaylistIcons>img').attr('class'),
-					documentId = documentId.replace(/\D/g,'');
+	onLoadStreams = function(documentId, result, data) {
+		var data = JSON.parse(data);
+		result._teaserImages.push(_model.createTeaserImage(IMG_RESOLUTIONS[3].resolution, BASE_URL + data._previewImage));
 
-				// building result meta information
-				var _result = {}
-					_result._station = STATION,
-					_result._title = $(element).find(TITLE_ELEMENT).text(),
-					_result._subtitle = $(element).find(SUBTITLE_ELEMENT).text(),
-					_result._length = $(element).find(LENGTH_ELEMENT).text(),
-					_result._airtime = $(element).find(DATE_ELEMENT).text(),
-					imgURL = $(element).find(IMAGE_ELEMENT).attr('src'),
-					_result._teaserImages = [],
-					_result._teaserImages.push(_model.createTeaserImage(IMG_RESOLUTIONS[0].resolution, BASE_URL + imgURL)),
-					_result._streams = [];
+		for (var i=0; i<data._mediaArray.length; i++) {	//left out to reduce overhead
+			for (var j=0; j<data._mediaArray[i]._mediaStreamArray.length; j++) {
+				var stream = data._mediaArray[i]._mediaStreamArray[j]._stream;
+				if ( typeof stream === 'string' ) {
+					var _url = stream;
+				} else {
+					var _url = stream[0];
+				}
 
-				// load details
-				loadDetails(documentId, _result, BASE_URL + documentUrl);
-			} else {
-				// LIVESTREAM
+				var _basetype = null,	// TODO: missing basetype!
+					_type = data._type + '/' + _url.substr(_url.lastIndexOf('.') + 1);
+					_quality = data._mediaArray[i]._mediaStreamArray[j]._quality;
+					_filesize = null;	// TODO: missing filesize!
+
+				result._streams.push(_model.createStream(_basetype, _type, _quality, _url, _filesize));
 			}
+		}
+
+		_model.addResults(result._station, result._title, result._subtitle, result._details, result._length, result._airtime, result._teaserImages, result._streams);
+	},
+
+
+	/**
+	 * Public function to get most viewed videos
+	 */
+	getNew = function() {
+		// build restful URL for search in Das Erste
+		var _newUrl = PROXY_URL + encodeURI(BASE_URL);
+
+		// send asynchronous xmphttp request
+		$.ajax({
+			url: _newUrl,
+			type: 'GET',
+			success: onGetNew
 		});
 	},
 
@@ -300,11 +317,49 @@ MediathekCrawler.DasErsteController = function() {
 		});
 	},
 
-	onGetCategories = function(data, _category) {
+
+	/**
+	 * Function to load all categories from "Das Erste Mediathek"
+	 */
+	getCategories = function(_category) {
+		var find = CATEGORIES.filter(function (category) { return category._id == _category });
+		if (find.length > 0) {
+			var _broadcastUrl = PROXY_URL + encodeURI(find[0]._url);
+			$.ajax({
+				url: _broadcastUrl,
+				type: 'GET',
+				success: function(data) {
+					onGetCategories(data)
+				}
+			});
+		} else {
+			console.error("Mediathek-Crawler", "|", "DasErsteController", "|", "Kategorie nicht verfügbar:", "'" + _category + "'");
+		}
+	},
+
+	/**
+	 * Callback function for loading categories of Das Erste Mediathek
+	 * @param {String}		HTML data of the category page
+	 * @param {String}		current category
+	 */
+	onGetCategories = function(data) {
 		$(data).find('#layer_themen2 .jsScroll').find('li').each(function(index, element) {
 			loadCategory(BASE_URL + $(element).find('a').attr('href'));
 		});
 
+	},
+
+	/**
+	 * Function to load a category from "Das Erste Mediathek"
+	 * @param {String}		the url of the category
+	 */
+	loadCategory = function(url) {
+		var _broadcastUrl = PROXY_URL + encodeURI(url);
+		$.ajax({
+			url: _broadcastUrl,
+			type: 'GET',
+			success: onGetCategory
+		});
 	},
 
 	/**
@@ -339,51 +394,6 @@ MediathekCrawler.DasErsteController = function() {
 		});
 	},
 
-	/** 
-	 * Callback function for async loading of details for results
-	 * @param {String|Integer}		documentId of the broadcast
-	 * @param {object}				currently builded result (missing details and precise airtime)
-	 * @param {HTML}				HTML markup of the retrieved detail page of the broadcast
-	 */
-	onLoadDetails = function(documentId, result, data) {
-		var _result = result;
-			_result._details = $(data).find(DETAIL_ELEMENT).text(),
-			_result._airtime = $(data).find(AIRTIME_DATE_ELEMENT).text().split(' ')[1] + ' ' + $(data).find(AIRTIME_TIME_ELEMENT).text().split(' ')[0];
-
-		// load streams for result
-		loadStreams(documentId, _result);
-	},
-
-	/**
-	 * Callback function for async loading of streams
-	 * @param {String|Integer}		documentId of the broadcast
-	 * @param {object}				currently builded result (missing streams and preview images)
-	 * @param {JSON}				JSON response of stream loading
-	 */
-	onLoadStreams = function(documentId, result, data) {
-		var data = JSON.parse(data);
-		result._teaserImages.push(_model.createTeaserImage(IMG_RESOLUTIONS[3].resolution, BASE_URL + data._previewImage));
-
-		for (var i=0; i<data._mediaArray.length; i++) {	//left out to reduce overhead
-			for (var j=0; j<data._mediaArray[i]._mediaStreamArray.length; j++) {
-				var stream = data._mediaArray[i]._mediaStreamArray[j]._stream;
-				if ( typeof stream === 'string' ) {
-					var _url = stream;
-				} else {
-					var _url = stream[0];
-				}
-
-				var _basetype = null,	// TODO: missing basetype!
-					_type = data._type + '/' + _url.substr(_url.lastIndexOf('.') + 1);
-					_quality = data._mediaArray[i]._mediaStreamArray[j]._quality;
-					_filesize = null;	// TODO: missing filesize!
-
-				result._streams.push(_model.createStream(_basetype, _type, _quality, _url, _filesize));
-			}
-		}
-
-		_model.addResults(result._station, result._title, result._subtitle, result._details, result._length, result._airtime, result._teaserImages, result._streams);
-	},
 
 	/**
 	 * Public function to reset the instance of DasErsteController

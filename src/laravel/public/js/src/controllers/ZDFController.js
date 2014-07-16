@@ -23,7 +23,7 @@ MediathekCrawler.ZDFController = function() {
 	
 	init = function(mModel) {
 		//init ZDFController
-		console.log("MediathekCrawler.ZDFController.init");
+		console.info("MediathekCrawler.ZDFController.init");
 		mediathekModel = mModel;
 	},
 
@@ -39,7 +39,7 @@ MediathekCrawler.ZDFController = function() {
 				_parseResponse(data);
 			},
 			error: function(){
-				console.log('ERROR; ZDFController; AJAX-request did not recieve a response');
+				console.warn('ERROR; ZDFController; AJAX-request did not recieve a response');
 			}
 		});
 	},
@@ -184,7 +184,7 @@ MediathekCrawler.ZDFController = function() {
 			    }
 			},
 			error: function(){
-				console.log('ERROR; ZDFController; AJAX-request did not recieve a response');
+				console.warn('ERROR; ZDFController; AJAX-request did not recieve a response');
 			}
 		});
 		_pushResultToModel(title, subtitle, details, station, assetID, length, airtime, teaserImages, streams);

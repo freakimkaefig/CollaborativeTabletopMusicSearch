@@ -17,7 +17,7 @@ MediathekCrawler.ApplicationController = function() {
 	broadcastView = null,
 
 	init = function() {   
-		console.log('MediathekCrawler.ApplicationController.init');
+		console.info('MediathekCrawler.ApplicationController.init');
 
 	    // init Models
 	    mediathekModel = MediathekCrawler.MediathekModel();
@@ -25,14 +25,14 @@ MediathekCrawler.ApplicationController = function() {
 	    $(mediathekModel).on('resultReceived', onResultReceived);
 
 	    // init Mediathek-Controllers:
-	    ardController = MediathekCrawler.ARDController();
-	    ardController.init(mediathekModel);
+	    // ardController = MediathekCrawler.ARDController();
+	    // ardController.init(mediathekModel);
 	    dasErsteController = MediathekCrawler.DasErsteController();
 	    dasErsteController.init(mediathekModel);
 		zdfController = MediathekCrawler.ZDFController();
 	 	zdfController.init(mediathekModel);
 	 	brController = MediathekCrawler.BRController();
-	 	brController.init();
+	 	brController.init(mediathekModel);
 	 	
 
 		// init Views:
@@ -84,7 +84,7 @@ MediathekCrawler.ApplicationController = function() {
 		//ardController.searchString(searchString);
 		dasErsteController.searchString(searchString, 0);
 		zdfController.searchString(searchString, 100);
-		// brController.searchString(searchString, 1);
+		brController.searchString(searchString, 0);
 	},
 
 	_getCategory = function(category) {
@@ -95,6 +95,7 @@ MediathekCrawler.ApplicationController = function() {
 	_getNew = function() {
 		dasErsteController.getNew();
 		zdfController.searchNew(10);
+		brController.getNew();
 		// dasErsteController.getCategories();	// produces lag
 	},
 

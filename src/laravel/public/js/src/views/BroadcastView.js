@@ -9,7 +9,7 @@ MediathekCrawler.BroadcastView = (function() {
 	 * Public function to initialize the instance of BroadcastView
 	 */
 	init = function() {
-		console.log('MediathekCrawler.BroadcastView.init');
+		console.info('MediathekCrawler.BroadcastView.init');
 		
 		$videoWrapper = $('#video-wrapper');
 		$video = $('#video');

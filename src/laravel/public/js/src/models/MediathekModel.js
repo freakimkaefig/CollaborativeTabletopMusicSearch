@@ -8,7 +8,7 @@ MediathekCrawler.MediathekModel = function() {
 	
 	init = function(){
 		//init MediathekModel
-		console.log("MediathekCrawler.MediathekModel.init");
+		console.info("MediathekCrawler.MediathekModel.init");
 
 		results = [];
 		idCounter = 0;

@@ -4,7 +4,7 @@ MediathekCrawler.ResultView = (function() {
 	$resultWrapper = null,
 
 	init = function() {
-		console.log('MediathekCrawler.ResultView.init');
+		console.info('MediathekCrawler.ResultView.init');
 		
 		$resultWrapper = $('#result-wrapper');
 	},

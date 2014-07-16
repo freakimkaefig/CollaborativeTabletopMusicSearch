@@ -4,6 +4,8 @@
 	{{ HTML::script('js/libs/videojs/video.dev.js') }}
 	{{ HTML::script('js/libs/videojs/video.js') }}
 
+	<!-- Classes -->
+	{{ HTML::script('js/src/exceptions/NotImplementedException.js') }}
 
 	<!-- Controller -->
 	{{ HTML::script('js/src/controllers/ApplicationController.js') }}
