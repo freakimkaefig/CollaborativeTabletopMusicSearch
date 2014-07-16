@@ -14,13 +14,24 @@ MediathekCrawler.MediathekModel = function() {
 		idCounter = 0;
 	},
 
-	
-
+	/**
+	 * Helper class for streams teaser images
+	 * @param {String}		the resolution of the image in "width"x"height"
+	 * @param {String} 		the url of the image
+	 */
 	teaserImage = function(resolution, url){
 	    this._resolution = resolution;
 	    this._url = url;
 	},
 
+	/**
+	 * Helper class for streams
+	 * @param {String}		the files basetype
+	 * @param {String} 		the files type for embedding in html (e.g. "video/mp4")
+	 * @param {Integer}		the quality of the stream (between 0 and 3)
+	 * @param {String}		the files url
+	 * @param {filesize}	the files size
+	 */
 	stream = function(basetype, type, quality, url, filesize){
 	    this._basetype = basetype;
 	    this._type = type;
@@ -77,10 +88,8 @@ MediathekCrawler.MediathekModel = function() {
 
 	that.init = init;
 	that.dispose = dispose;
-	that.teaserImage = teaserImage;
 	that.createTeaserImage = createTeaserImage;
 	that.createStream = createStream;
-	that.stream = stream;
 
 	that.addResults = addResults;
 	that.clearResults = clearResults;
