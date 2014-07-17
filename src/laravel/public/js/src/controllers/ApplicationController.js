@@ -6,10 +6,10 @@ MediathekCrawler.ApplicationController = function() {
 	mediathekModel = null,
 
 	/* ===== MEDIATHEK-CONTROLLERS ===== */
-	ardController = null,
-	dasErsteController = null,
-	zdfController = null,
-	brController = null,
+	ARDService = null,
+	DasErsteService = null,
+	ZDFService = null,
+	BRService = null,
 	
 	/* ===== VIEWS ===== */
 	footerView = null,
@@ -25,14 +25,14 @@ MediathekCrawler.ApplicationController = function() {
 	    $(mediathekModel).on('resultReceived', onResultReceived);
 
 	    // init Mediathek-Controllers:
-	    // ardController = MediathekCrawler.ARDController();
-	    // ardController.init(mediathekModel);
-	    dasErsteController = MediathekCrawler.DasErsteController();
-	    dasErsteController.init(mediathekModel);
-		zdfController = MediathekCrawler.ZDFController();
-	 	zdfController.init(mediathekModel);
-	 	brController = MediathekCrawler.BRController();
-	 	brController.init(mediathekModel);
+	    // ARDService = MediathekCrawler.ARDService();
+	    // ARDService.init(mediathekModel);
+	    DasErsteService = MediathekCrawler.DasErsteService();
+	    DasErsteService.init(mediathekModel);
+		ZDFService = MediathekCrawler.ZDFService();
+	 	ZDFService.init(mediathekModel);
+	 	BRService = MediathekCrawler.BRService();
+	 	BRService.init(mediathekModel);
 	 	
 
 		// init Views:
@@ -82,21 +82,20 @@ MediathekCrawler.ApplicationController = function() {
 		mediathekModel.clearResults();
 
 		//ardController.searchString(searchString);
-		dasErsteController.searchString(searchString, 0);
-		zdfController.searchString(searchString, 100);
-		brController.searchString(searchString, 0);
+		DasErsteService.searchString(searchString, 0);
+		ZDFService.searchString(searchString, 100);
+		BRService.searchString(searchString, 0);
 	},
 
 	_getCategory = function(category) {
 		console.log('MediathekCrawler.ApplicationController._getCategory', category);
-		dasErsteController.getCategories(category);
+		DasErsteService.getCategories(category);
 	},
 
 	_getNew = function() {
-		dasErsteController.getNew();
-		zdfController.searchNew(10);
-		brController.getNew();
-		// dasErsteController.getCategories();	// produces lag
+		DasErsteService.getNew();
+		ZDFService.searchNew(10);
+		BRService.getNew();
 	},
 
 	_getVideoById = function() {

@@ -1,4 +1,4 @@
-MediathekCrawler.BRController = function() {
+MediathekCrawler.BRService = function() {
 
 	var that = {},
 
@@ -22,15 +22,31 @@ MediathekCrawler.BRController = function() {
 	SEARCH_ITEM_WRAPPER = 'article.teaser',
 	SEARCH_ITEM_URL = 'a.link_video',
 
+	// Most recommended broadcastst
+	// http://www.br.de/mediathek/video/suche/tag-suche-mediathek-100.html?t=social&q=mostRecommended
 
+	// Best rated
+	// http://www.br.de/mediathek/video/suche/tag-suche-mediathek-100.html?t=social&q=bestRated
+
+	// Most viewed broadcasts
+	// http://www.br.de/mediathek/video/suche/tag-suche-mediathek-100.html?t=social&q=mostViewed
+
+	// Tipps der Redaktion
+	// http://www.br.de/mediathek/video/suche/tag-suche-mediathek-100.html?t=tags&q=Mediathek-Tagestipp
+
+	// Trailer
+	// http://www.br.de/mediathek/video/suche/tag-suche-mediathek-100.html?t=category&q=trailer
+
+	// Web-Exklusiv
+	// http://www.br.de/mediathek/video/suche/tag-suche-mediathek-100.html?t=category&q=web-exklusiv
 
 	_model = null,
 
 	/**
-	 * Public function to initialize the instance of DasErsteController
+	 * Public function to initialize the instance of BRService
 	 */
 	init = function(model) {
-		console.info('MediathekCrawler.BRController.init');
+		console.info('MediathekCrawler.BRService.init');
 		_model = model;
 	},
 
@@ -226,7 +242,7 @@ MediathekCrawler.BRController = function() {
 
 
 	/**
-	 * Public function to reset the instance of BRController
+	 * Public function to reset the instance of BRService
 	 */
 	dispose = function() {
 		that = {};

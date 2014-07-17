@@ -5,7 +5,7 @@
 			    //Rubriken-Suche
 
 			    //ATM nur mp4 Video links!
-MediathekCrawler.ZDFController = function() {
+MediathekCrawler.ZDFService = function() {
 
 	var that = {},
 	ZDFSEARCHURL = "http://www.zdf.de/ZDFmediathek/xmlservice/web/detailsSuche?searchString=",
@@ -22,8 +22,8 @@ MediathekCrawler.ZDFController = function() {
 	
 	
 	init = function(mModel) {
-		//init ZDFController
-		console.info("MediathekCrawler.ZDFController.init");
+		//init ZDFService
+		console.info("MediathekCrawler.ZDFService.init");
 		mediathekModel = mModel;
 	},
 
@@ -39,7 +39,7 @@ MediathekCrawler.ZDFController = function() {
 				_parseResponse(data);
 			},
 			error: function(){
-				console.warn('ERROR; ZDFController; AJAX-request did not recieve a response');
+				console.warn('ERROR; ZDFService; AJAX-request did not recieve a response');
 			}
 		});
 	},
@@ -184,7 +184,7 @@ MediathekCrawler.ZDFController = function() {
 			    }
 			},
 			error: function(){
-				console.warn('ERROR; ZDFController; AJAX-request did not recieve a response');
+				console.warn('ERROR; ZDFService; AJAX-request did not recieve a response');
 			}
 		});
 		_pushResultToModel(title, subtitle, details, station, assetID, length, airtime, teaserImages, streams);

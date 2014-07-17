@@ -1,4 +1,4 @@
-MediathekCrawler.DasErsteController = function() {
+MediathekCrawler.DasErsteService = function() {
 
 	var that = {},
 
@@ -100,10 +100,10 @@ MediathekCrawler.DasErsteController = function() {
 
 
 	/**
-	 * Public function to initialize the instance of DasErsteController
+	 * Public function to initialize the instance of DasErsteService
 	 */
 	init = function(model) {
-		console.info("MediathekCrawler.DasErsteController.init");
+		console.info("MediathekCrawler.DasErsteService.init");
 		_model = model;
 		_categories = [];
 	},
@@ -396,7 +396,7 @@ MediathekCrawler.DasErsteController = function() {
 
 
 	/**
-	 * Public function to reset the instance of DasErsteController
+	 * Public function to reset the instance of DasErsteService
 	 */
 	dispose = function() {
 		that = {};

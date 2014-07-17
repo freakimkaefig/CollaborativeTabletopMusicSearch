@@ -1,4 +1,4 @@
-MediathekCrawler.ARDController = function() {
+MediathekCrawler.ARDService = function() {
 
 	var that = {},
 	BASE_URL = 'http://www.ardmediathek.de',
@@ -23,8 +23,8 @@ MediathekCrawler.ARDController = function() {
 	
 	
 	init = function(model) {
-		//init ZDFController
-		console.log("MediathekCrawler.ARDController.init");
+		//init ARDService
+		console.log("MediathekCrawler.ARDService.init");
 		_model = model;
 	},
 
