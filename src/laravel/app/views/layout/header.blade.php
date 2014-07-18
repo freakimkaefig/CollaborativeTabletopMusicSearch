@@ -38,7 +38,7 @@
 		 	<div class="container">
 		 		<p>&nbsp;</p>
 		 	</div>
-		 	<div class="container">
+		 	<div class="container-fluid">
 		 		@include('search.filters')
 		 	</div>
 	 	@endif
