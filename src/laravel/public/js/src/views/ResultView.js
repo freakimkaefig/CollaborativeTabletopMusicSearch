@@ -11,10 +11,11 @@ MediathekCrawler.ResultView = (function() {
 
 	appendResult = function(event, result) {
 		// console.log(result);
-		var resultElement = '<div class="item col-xs-6 col-md-4">' +
+		
+		var resultElement = '<div class="item col-xs-6 col-sm-3 col-lg-2">' +
 			// TODO: desicion process for teaserImage missing!
 			'<a href="/video/' + result._id + '">' +
-			'<img src=' + result._teaserImages[0]._url + ' class"img-responsive">' + 
+			'<img src=' + result._teaserImages[0]._url + ' class="img-responsive ">' + 
 			/*'<video class="video-js vjs-default-skin" controls preload="auto" width="400" height="244">' +
 			'<source src="' + result._streams[i]._url + '" type="' + result._streams[i]._type + '">' +
 			'</video>' + */
