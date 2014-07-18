@@ -131,20 +131,18 @@ Route::group(array('before' => 'guest'), function() {
 Route::group(array('before' => 'csrf'), function() {
 
 	/* SEARCH */
-	// ARD
-	Route::post('/search', array(
+	Route::post('/suche', array(
 		'as' => 'search-post',
 		'uses' => 'MediathekController@postSearch'
 	));
-
 });
 
 
 /* SEARCH */
 // Search results
-Route::get('/search/results', array(
+Route::get('/suche', array(
 	'as' => 'search-results',
-	'uses' => 'MediathekController@getSearch'
+	'uses' => 'MediathekController@getSearchResults'
 ));
 
 
@@ -153,9 +151,10 @@ Route::get('/video/{id}', array(
 	'uses' => 'MediathekController@getVideoById'
 ));
 
-Route::get('/video', array(
-	'as' => 'video',
-	'uses' => 'MediathekController@getVideo'
+/* CATEGORIES */
+Route::get('/rubrik/{category}', array(
+	'as' => 'category',
+	'uses' => 'MediathekController@getCategory'
 ));
 
 
@@ -167,3 +166,8 @@ Route::get('/video', array(
 Route::get('/streaming-test', function() {
 	return View::make('test.streaming-test');
 });
+
+Route::get('/update', array(
+	'as' => 'update',
+	'uses' => 'MediathekController@updateCategories'
+));

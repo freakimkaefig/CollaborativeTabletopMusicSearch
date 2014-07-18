@@ -4,7 +4,7 @@ MediathekCrawler.FooterView = (function() {
 	$footerNav = null,
 
 	init = function() {
-		console.log('MediathekCrawler.FooterView.init');
+		console.info('MediathekCrawler.FooterView.init');
 		$footerNav = $('#footer-nav');
 		$footerNav.on('mouseenter', footerOnMouseEnter);
 		$footerNav.on('mouseleave', footerOnMouseLeave);

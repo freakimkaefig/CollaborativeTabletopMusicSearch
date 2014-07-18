@@ -1,6 +1,5 @@
 <?php namespace Illuminate\Routing;
 
-use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Matching\UriValidator;
 use Illuminate\Routing\Matching\HostValidator;
@@ -472,7 +471,7 @@ class Route {
 	/**
 	 * Parse the route action into a standard array.
 	 *
-	 * @param  \Closure|array  $action
+	 * @param  callable|array  $action
 	 * @return array
 	 */
 	protected function parseAction($action)
