@@ -10,7 +10,7 @@
 			<div id="info-wrapper"></div>
 		</div>
 		<div class="row">
-			<div id="description-wrapper"></div>
+			<div id="description-wrapper" class="col-sm-10 col-sm-offset-1"></div>
 		</div>
 		<input id="video-id" type="hidden" value="{{ $video }}">
 	@else
