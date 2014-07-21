@@ -15,14 +15,14 @@ class UsersTableSeeder extends Seeder {
 			0 => 
 			array (
 				'id' => 1,
-				'email' => 'test',
-				'password' => '$2y$10$51tgc/vFZNLxBWPkgZ6XWe/RAR7Kij173f1LbnGY32NHN7FCqVpY.',
+				'email' => 'mueller-felix@web.de',
+				'password' => '$2y$10$Ni327zD6r6DWW45AehYBk.iWZyKHFUTu52lwQbt0ndZ8N1bX2YSeK',
 				'password_temp' => '',
 				'code' => '',
 				'active' => 1,
-				'remember_token' => '',
-				'created_at' => '0000-00-00 00:00:00',
-				'updated_at' => '0000-00-00 00:00:00',
+				'remember_token' => 'eBKPXuUPKtfpnsfKOAv7KQmwtwyKuCUxGnYbO1e8SycTttwwvyrFgPYCZfvx',
+				'created_at' => '2014-07-15 15:42:58',
+				'updated_at' => '2014-07-20 18:29:49',
 			),
 		));
 	}

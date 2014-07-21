@@ -14,6 +14,7 @@ MediathekCrawler.BroadcastView = (function() {
 		$videoWrapper = $('#video-wrapper');
 		$video = $('#video');
 		$infoWrapper = $('#info-wrapper');
+		$descriptionWrapper = $("#description-wrapper");
 	},
 
 	/**
@@ -34,11 +35,26 @@ MediathekCrawler.BroadcastView = (function() {
 			$video.append(source);
 		}
 
-		var infoElement = '<div>' + result._title + '</div>' +
+		var infoElement = 
+			'<h3>Titel:</h3>'+
+			'<div>' + result._title + '</div>' +
 			'<div>' + result._subtitle + '</div>' +
-			'<div>' + result._details + '</div>' +
-			'<div><span>' + result._airtime + '</span> | <span>' + result._length + '</span> | <span>' + result._station + '</span></div>';
+			/*'<div>' + result._details + '</div>' +*/
+			'<h3>Zeit:</h3>' +
+			'<div>' + result._airtime + '</div>' +
+			'<h3>Dauer:</h3>' +
+			'<div>' + result._length + '</div>' +
+			'<h3>Sender:</h3>' +
+			'<div>' + result._station + '</div>'+
+			'<span class="glyphicon glyphicon-star"></span><h4>Favorisieren</h4>' +
+			'<span class="glyphicon glyphicon-list"></span><h4>Playlist</h4>' +
+			'<span class="glyphicon glyphicon-pushpin"></span><h4>Merkliste</h4>';
+
 		$infoWrapper.append(infoElement);
+
+		var descriptionElement = '<div>' + result._details + '</div>';
+		$descriptionWrapper.append(descriptionElement);
+
 	},
 
 	/**
