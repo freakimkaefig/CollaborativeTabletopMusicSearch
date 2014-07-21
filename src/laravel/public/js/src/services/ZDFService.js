@@ -1,11 +1,9 @@
 
 			    //TODO:
-			    //neu
 			    //SendungenAbisZ-Suche?
-			    //Rubriken-Suche
 			    //check ob parseResponse() bereits Daten enthät die searchStream() nochmals abruft!?
+			    //CHECK: nur mp4 Video links abspielbar!?
 
-			    //ATM nur mp4 Video links!
 MediathekCrawler.ZDFService = function() {
 
 	var that = {},
@@ -22,7 +20,6 @@ MediathekCrawler.ZDFService = function() {
 	xmlHttp = null,
 	once = 0,
 	mediathekModel = null,
-	// Categories
 	CATEGORIES = [
 		{
 			'_id': 'nachrichten',
@@ -82,7 +79,7 @@ MediathekCrawler.ZDFService = function() {
 	},
 
 	_parseResponse = function(data){
-		console.log("parsing response: ", data);
+		// console.log("parsing response: ", data);
 	    $xml = $(data);
 	     //console.log(data);
 	    if(typeof $xml  != "undefined"){
@@ -323,7 +320,7 @@ MediathekCrawler.ZDFService = function() {
 		// console.log(assetId);
 		$.ajax({
 			// maxLength: max results of broadcasts per category
-			url: ZDFBROADCASTSPERCATEGORY+String(assetId)+"&maxLength=25",
+			url: ZDFBROADCASTSPERCATEGORY+String(assetId)+"&maxLength=50",
 			type: 'GET',
 			success: function(data) {
 				$xml = $(data);
