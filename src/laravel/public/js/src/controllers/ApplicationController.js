@@ -38,7 +38,7 @@ MediathekCrawler.ApplicationController = function() {
 	 	BRService = MediathekCrawler.BRService();
 	 	BRService.init(mediathekModel);
 	 	WDRService = MediathekCrawler.WDRService();
-	 	WDRService.init();
+	 	WDRService.init(mediathekModel);
 	 	
 
 		// init Views:
@@ -91,7 +91,7 @@ MediathekCrawler.ApplicationController = function() {
 		DasErsteService.searchString(searchString, 0);
 		ZDFService.searchString(searchString, ZDFMAXRESULTS*2);
 		BRService.searchString(searchString, 0);
-		//WDRService.searchString(searchString);
+		WDRService.searchString(searchString);
 	},
 
 	_getCategory = function(category) {
