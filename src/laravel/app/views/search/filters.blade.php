@@ -99,7 +99,7 @@
 			
 	</div>
 	<div class="col-sm-2">
-		<button type="submit" class="btn btn-default">Absenden</button>
+		<button type="submit" class="btn btn-default"><a href="{{ URL::route('search-results') }}">Absenden</a></button>
 		<button type="" class="btn btn-default">Zurücksetzen</button>
 	</div>
 <!-- END search/filters -->
