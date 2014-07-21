@@ -40,6 +40,9 @@ MediathekCrawler.BRService = function() {
 	// Web-Exklusiv
 	// http://www.br.de/mediathek/video/suche/tag-suche-mediathek-100.html?t=category&q=web-exklusiv
 
+	// Vorab im Web
+	// http://www.br.de/mediathek/video/suche/tag-suche-mediathek-100.html?t=category&q=vorab-im-web
+
 	_model = null,
 
 	/**

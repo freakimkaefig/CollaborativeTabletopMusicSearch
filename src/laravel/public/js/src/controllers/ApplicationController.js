@@ -89,7 +89,7 @@ MediathekCrawler.ApplicationController = function() {
 
 	_getCategory = function(category) {
 		console.log('MediathekCrawler.ApplicationController._getCategory', category);
-		DasErsteService.getCategories(category);
+		DasErsteService.getCategories(category, 2);
 	},
 
 	_getNew = function() {
