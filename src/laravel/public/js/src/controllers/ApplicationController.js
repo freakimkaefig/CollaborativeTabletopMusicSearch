@@ -10,6 +10,7 @@ MediathekCrawler.ApplicationController = function() {
 	DasErsteService = null,
 	ZDFService = null,
 	BRService = null,
+	WDRService = null,
 	
 	/* ===== VIEWS ===== */
 	footerView = null,
@@ -33,6 +34,8 @@ MediathekCrawler.ApplicationController = function() {
 	 	ZDFService.init(mediathekModel);
 	 	BRService = MediathekCrawler.BRService();
 	 	BRService.init(mediathekModel);
+	 	WDRService = MediathekCrawler.WDRService();
+	 	WDRService.init();
 	 	
 
 		// init Views:
@@ -82,9 +85,10 @@ MediathekCrawler.ApplicationController = function() {
 		mediathekModel.clearResults();
 
 		//ardController.searchString(searchString);
-		DasErsteService.searchString(searchString, 0);
-		ZDFService.searchString(searchString, 100);
-		BRService.searchString(searchString, 0);
+		// DasErsteService.searchString(searchString, 0);
+		// ZDFService.searchString(searchString, 100);
+		// BRService.searchString(searchString, 0);
+		WDRService.searchString(searchString);
 	},
 
 	_getCategory = function(category) {
