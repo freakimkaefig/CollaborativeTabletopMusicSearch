@@ -61,6 +61,11 @@ Route::group(array('before' => 'auth'), function() {
 		'as' => 'playlists',
 		'uses' => 'PlaylistsController@getAllPlaylists' 
 	));
+
+	Route::post('/playlists/new', array(
+		'as' => 'new-playlist',
+		'uses' => 'PlaylistsController@savePlaylist' 
+	));
 });
 
 
