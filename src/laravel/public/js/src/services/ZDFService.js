@@ -242,7 +242,7 @@ MediathekCrawler.ZDFService = function() {
 		mediathekModel.addResults(station, title, subtitle, details, length, airtime, teaserImages, streams);
 	},
 
-	searchHot = function(maxResults){
+	getHot = function(maxResults){
 		if(maxResults >50){
 			maxResults = 50;
 		} 
@@ -254,7 +254,7 @@ MediathekCrawler.ZDFService = function() {
 				_parseResponse(data);
 			},
 			error: function(){
-				console.warn('ERROR; ZDFService.searchHot; AJAX-request did not recieve a response');
+				console.warn('ERROR; ZDFService.getHot; AJAX-request did not recieve a response');
 			}
 		});
 	},
@@ -447,7 +447,7 @@ MediathekCrawler.ZDFService = function() {
 	that.init = init;
 	that.dispose = dispose;
 	that.searchString = searchString;
-	that.searchHot = searchHot;
+	that.getHot = getHot;
 	that.getNew = getNew;
 	that.getCategories = getCategories;
 

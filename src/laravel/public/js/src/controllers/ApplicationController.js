@@ -16,6 +16,9 @@ MediathekCrawler.ApplicationController = function() {
 	resultView = null,
 	broadcastView = null,
 
+	/* ===== CONTROLS ===== */
+	ZDFMAXRESULTS = 50,
+
 	init = function() {   
 		console.info('MediathekCrawler.ApplicationController.init');
 
@@ -83,7 +86,7 @@ MediathekCrawler.ApplicationController = function() {
 
 		//ardController.searchString(searchString);
 		DasErsteService.searchString(searchString, 0);
-		ZDFService.searchString(searchString, 100);
+		ZDFService.searchString(searchString, ZDFMAXRESULTS*2);
 		BRService.searchString(searchString, 0);
 	},
 
@@ -97,7 +100,7 @@ MediathekCrawler.ApplicationController = function() {
 	_getNew = function() {
 		DasErsteService.getNew();
 		//param: maxLength of ZDF results
-		ZDFService.getNew(10);
+		ZDFService.getNew(ZDFMAXRESULTS);
 		BRService.getNew();
 	},
 
