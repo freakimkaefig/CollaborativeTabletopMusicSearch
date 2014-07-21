@@ -20,7 +20,7 @@
 		       			<a href="#" class="dropdown-toggle" data-toggle="dropdown">Mein Konto<b class="caret"></b></a>
 		      			<ul class="dropdown-menu">
 		        			<li><a href="{{ URL::route('account-my-account') }}">Mein Konto</a></li>
-		        			<li><a href="#">Meine Playlists</a></li>
+		        			<li><a href="{{ URL::route('playlists') }}">Meine Playlists</a></li>
 		         			<li><a href="#">Meine Abos</a></li>
 		         			<li><a href="#">Meine Merklist</a></li>
 		         			<li class="divider"></li>

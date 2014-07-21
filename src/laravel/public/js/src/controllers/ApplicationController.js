@@ -89,7 +89,7 @@ MediathekCrawler.ApplicationController = function() {
 
 	_getCategory = function(category) {
 		console.log('MediathekCrawler.ApplicationController._getCategory', category);
-		DasErsteService.getCategories(category);
+		DasErsteService.getCategories(category, 2);
 		//param: maxLength of ZDF results (videos pro sendung)
 		ZDFService.getCategories(category, 2);
 	},

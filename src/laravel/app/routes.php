@@ -55,6 +55,17 @@ Route::group(array('before' => 'auth'), function() {
 		'as' => 'account-my-account',
 		'uses' => 'AccountController@getMyAccount'
 	));
+
+	// All Playlists (GET)
+	Route::get('/playlists', array(
+		'as' => 'playlists',
+		'uses' => 'PlaylistsController@getAllPlaylists' 
+	));
+
+	Route::post('/playlists/new', array(
+		'as' => 'new-playlist',
+		'uses' => 'PlaylistsController@savePlaylist' 
+	));
 });
 
 

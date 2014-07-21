@@ -46,9 +46,9 @@ MediathekCrawler.BroadcastView = (function() {
 			'<div>' + result._length + '</div>' +
 			'<h3>Sender:</h3>' +
 			'<div>' + result._station + '</div>'+
-			'<h3>*Favorisieren*</h3>' +
-			'<h3>*Playlist*</h3>' +
-			'<h3>*Merkliste*</h3>';
+			'<span class="glyphicon glyphicon-star"></span><h4>Favorisieren</h4>' +
+			'<span class="glyphicon glyphicon-list"></span><h4>Playlist</h4>' +
+			'<span class="glyphicon glyphicon-pushpin"></span><h4>Merkliste</h4>';
 
 		$infoWrapper.append(infoElement);
 
