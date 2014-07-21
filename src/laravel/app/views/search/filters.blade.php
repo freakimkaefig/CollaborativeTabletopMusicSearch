@@ -65,39 +65,25 @@
 			</div>
 		</div>		
 	</div>
-	<div class="form-group col-sm-2 form-inline">
-		<h4>Datum</h4>
-		
-			<div class="disabled col-sm-6">
-				<label>
-					Von:
-					<input type="date" name="von" value="von" disabled>
-				</label>
-			</div>
-			<div class="disabled col-sm-6">
-				<label>
-					Bis:
-					<input type="date" name="bis" value="bis" disabled>
-				</label>
-			</div>
-			
+	<div class="form-group col-sm-4 form-inline">
+		<h4>Datum &amp; Dauer</h4>
+		<div class="disabled col-sm-6">
+			<label>Von:
+				<input type="date" name="von" value="von" disabled>
+			</label>
+		</div>
+		<div class="disabled col-sm-6">
+			<label>Bis:
+				<input type="date" name="bis" value="bis" disabled>
+			</label>
+		</div>
+		<div class="disabled col-sm-6">
+			<label>Dauer in min
+				<input type="range" name="dauer" value="dauer" min="1" max="90" disabled>
+			</label>
+		</div>
 	</div>
-	<div class="form-group col-sm-2 form-inline">
-		<h4>Zeit und Dauer</h4>
-			<div class="disabled col-sm-6">
-				<label>
-					Zeit
-					<input type="time" name="zeit" value="zeit" disabled>
-				</label>
-			</div>
-			<div class="disabled col-sm-6">
-				<label>
-					Dauer in min
-					<input type="range" name="dauer" value="dauer" min="1" max="90" disabled>
-				</label>
-			</div>
-			
-	</div>
+
 	<div class="col-sm-2">
 		<button type="submit" class="btn btn-default"><a href="{{ URL::route('search-results') }}">Absenden</a></button>
 		<button type="" class="btn btn-default">Zurücksetzen</button>

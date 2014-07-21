@@ -11,6 +11,7 @@ MediathekCrawler.ApplicationController = function() {
 	ZDFService = null,
 	BRService = null,
 	ARTEService = null,
+	WDRService = null,
 	
 	/* ===== VIEWS ===== */
 	footerView = null,
@@ -39,6 +40,8 @@ MediathekCrawler.ApplicationController = function() {
 	 	BRService.init(mediathekModel);
 	 	ARTEService = MediathekCrawler.ARTEService();
 	 	ARTEService.init(mediathekModel);
+	 	WDRService = MediathekCrawler.WDRService();
+	 	WDRService.init();
 	 	
 
 		// init Views:
@@ -92,11 +95,12 @@ MediathekCrawler.ApplicationController = function() {
 		ZDFService.searchString(searchString, ZDFMAXRESULTS*2);
 		BRService.searchString(searchString, 0);
 		ARTEService.searchString(searchString);
+		//WDRService.searchString(searchString);
 	},
 
 	_getCategory = function(category) {
 		console.log('MediathekCrawler.ApplicationController._getCategory', category);
-		DasErsteService.getCategories(category, 2);
+		DasErsteService.getCategories(category, 100);
 		//param: maxLength of ZDF results (videos pro sendung)
 		ZDFService.getCategories(category, 2);
 	},

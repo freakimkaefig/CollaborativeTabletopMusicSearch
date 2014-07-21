@@ -2,9 +2,9 @@
 
 @section('content')
 <!-- START test/streaming-test -->
-	<video id="my_video_1" class="video-js vjs-default-skin" controls preload="auto" width="640" height="264" data-setup="{ }">
+	<video controls preload="auto" width="640" height="264">
 	<!-- alternativ: data-setup='{ "techOrder": ["flash"] } -->
-	  <source src="http://adaptiv.wdr.de/z/medstdp/de/fsk0/47/476719/,476719_4938964,476719_4938965,476719_4938967,.mp4.csmil/manifest.f4m" type="smil/f4m">
+	  <source src="http://mobile-ondemand.wdr.de/CMS2010/mdb/ondemand/weltweit/fsk0/47/470454/470454_4863252.mp4" type="video/mp4">
 	</video>
 <!-- END test/streaming-test -->
 @stop
