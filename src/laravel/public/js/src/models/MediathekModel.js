@@ -51,28 +51,38 @@ MediathekCrawler.MediathekModel = function() {
 	},
 
 	addResults = function(station, title, subtitle, details, length, airtime, teaserImages, streams) {
+		console.log
+		if(station != 'null' && title != 'null' && teaserImages != 'null' && streams != 'null' && streams && station && title && teaserImages && streams.length > 0){
 
-		var _result = {
-			'_id': idCounter,
-			'_station': station,
-			'_title': title,
-			'_subtitle': subtitle,
-			'_details': details,
-			'_length': length,
-			'_airtime': airtime,
-			'_teaserImages': teaserImages,
-			'_streams': streams
-		};
-		results.push(_result);
+			var _result = {
+				'_id': idCounter,
+				'_station': station,
+				'_title': title,
+				'_subtitle': subtitle,
+				'_details': details,
+				'_length': length,
+				'_airtime': airtime,
+				'_teaserImages': teaserImages,
+				'_streams': streams
+			};
+			
 
-		// saving results in localstorage
-		storage_object = { '_results': results };
-		storage_json = JSON.stringify(storage_object);
-		localStorage.setItem('mediathek-crawler', storage_json);
+				// console.log("number of streams before pushing to results: ",_result._streams.length);
+				results.push(_result);
 
-		// trigger to view
-		$(that).trigger('resultReceived', [ _result ]);
-		idCounter++;
+				// saving results in localstorage
+				storage_object = { '_results': results };
+				storage_json = JSON.stringify(storage_object);
+				localStorage.setItem('mediathek-crawler', storage_json);
+
+				// trigger to view
+				$(that).trigger('resultReceived', [ _result ]);
+				idCounter++;
+			
+		}
+		else{
+			// console.log("some params missing @ model.addResults: ", "|| station: ", station, " || title: ", title, " || subtitle: ", subtitle, " || details: ", details, " || length: ", length, " || airtime: ", airtime, " || teaserImages: ", teaserImages, " || streams: ", streams);
+		}
 	},
 
 	clearResults = function() {

@@ -1,18 +1,19 @@
 
 			    //TODO:
-			    //SendungenAbisZ-Suche?
-			    //check ob parseResponse() bereits Daten enthät die searchStream() nochmals abruft!?
-			    //CHECK: nur mp4 Video links abspielbar!?
+			    // Filter
+			    // SendungenAbisZ-Suche?
+			    // CHECK ob parseResponse() bereits Daten enthät die searchStream() nochmals abruft!?
+			    // CHECK: nur mp4 Video links abspielbar!?
 
 MediathekCrawler.ZDFService = function() {
 
 	var that = {},
-	ZDFSEARCHURL = "http://www.zdf.de/ZDFmediathek/xmlservice/web/detailsSuche?searchString=",
-	ZDFSTREAMURL = "http://www.zdf.de/ZDFmediathek/xmlservice/web/beitragsDetails?id=",
-	ZDFSEARCHNEWURL = "http://www.zdf.de/ZDFmediathek/xmlservice/web/aktuellste?id=",
-	ZDFSEARCHHOTURL = "http://www.zdf.de/ZDFmediathek/xmlservice/web/meistGesehen?id=_GLOBAL&maxLength=",
-	ZDFBROADCASTSPERCATEGORY = "http://www.zdf.de/ZDFmediathek/xmlservice/web/aktuellste?id=",
-	ZDFVIDEOSPERBROADCAST = "http://www.zdf.de/ZDFmediathek/xmlservice/web/aktuellste?id=",
+	ZDFSEARCHURL = 'http://www.zdf.de/ZDFmediathek/xmlservice/web/detailsSuche?searchString=',
+	ZDFSTREAMURL = 'http://www.zdf.de/ZDFmediathek/xmlservice/web/beitragsDetails?id=',
+	ZDFSEARCHNEWURL = 'http://www.zdf.de/ZDFmediathek/xmlservice/web/aktuellste?id=',
+	ZDFSEARCHHOTURL = 'http://www.zdf.de/ZDFmediathek/xmlservice/web/meistGesehen?id=_GLOBAL&maxLength=',
+	ZDFBROADCASTSPERCATEGORY = 'http://www.zdf.de/ZDFmediathek/xmlservice/web/aktuellste?id=',
+	ZDFVIDEOSPERBROADCAST = 'http://www.zdf.de/ZDFmediathek/xmlservice/web/aktuellste?id=',
 	ZDFID = 322,
 	ZDFNEOID = 857392,
 	ZDFINFOID = 398,
@@ -57,7 +58,7 @@ MediathekCrawler.ZDFService = function() {
 	
 	init = function(mModel) {
 		//init ZDFService
-		console.info("MediathekCrawler.ZDFService.init");
+		console.info('MediathekCrawler.ZDFService.init');
 		mediathekModel = mModel;
 	},
 
@@ -67,7 +68,7 @@ MediathekCrawler.ZDFService = function() {
 		}
 	    
 		$.ajax({
-			url: ZDFSEARCHURL+searchStr+"&maxLength="+String(maxResults),
+			url: ZDFSEARCHURL+searchStr+'&maxLength='+String(maxResults),
 			type: 'GET',
 			success: function(data) {
 				_parseResponse(data);
@@ -79,25 +80,25 @@ MediathekCrawler.ZDFService = function() {
 	},
 
 	_parseResponse = function(data){
-		// console.log("parsing response: ", data);
+		// console.log('parsing response: ', data);
 	    $xml = $(data);
 	     //console.log(data);
-	    if(typeof $xml  != "undefined"){
+	    if(typeof $xml  != 'undefined'){
 	    	//each teaser = 1 search Result
-	    	$xml.find("teaser").each(function(){
+	    	$xml.find('teaser').each(function(){
 
 				var teaserImages = [],
-				details = "",
-				title = "",
+				details = '',
+				title = '',
 				assetID = 0,
-				length = "",
-				airtime = "",
-				station = "",
-				subtitle = "",
+				length = '',
+				airtime = '',
+				station = '',
+				subtitle = '',
 				streams = [];
 
 				// get all teaserImgs with resolution
-		    	$(this).find("teaserimage").each(function(){
+		    	$(this).find('teaserimage').each(function(){
 				
 					var res = $(this).attr('key');
 			    	var imgUrl = $(this).text();
@@ -108,21 +109,21 @@ MediathekCrawler.ZDFService = function() {
 				});
 
 			    //get information
-			    title = $(this).find("title").text();
-			    details = $(this).find("detail").text();
-			    station = $(this).find("channel").text();
+			    title = $(this).find('title').text();
+			    details = $(this).find('detail').text();
+			    station = $(this).find('channel').text();
 
 			    //get assetid (for stream-url's)
-			    assetID = $(this).find("assetId").text();
+			    assetID = $(this).find('assetId').text();
 
 			    //get length
-			    length = $(this).find("length").text();
+			    length = $(this).find('length').text();
 
 			    //get airtime
-			    airtime = $(this).find("airtime").text();
+			    airtime = $(this).find('airtime').text();
 
 			    //Fetch stream url's
-			    // console.log("parsing response: ",assetID, title, subtitle, details, station, assetID, length, airtime, teaserImages);
+			    // console.log('parsing response: ',assetID, title, subtitle, details, station, assetID, length, airtime, teaserImages);
 			    _searchStream(assetID, title, subtitle, details, station, length, airtime, teaserImages);
 			   
 	    	}); //end foreach searchResult
@@ -138,17 +139,17 @@ MediathekCrawler.ZDFService = function() {
 		$.ajax({
 			url: ZDFSTREAMURL+assetID,
 			type: 'GET',
-			success: function(data) {
+			success: function(data) {	
 				$xml = $(data);
 
-			    if(typeof $xml  != "undefined"){
+			    if(typeof $xml  != 'undefined'){
 
 
-			    	$xml.find("formitaet").each(function(){
+			    	$xml.find('formitaet').each(function(){
 
-			    		var basetype = "",
-			    		quality = "",
-			    		url = "",
+			    		var basetype = '',
+			    		quality = '',
+			    		url = '',
 			    		filesize = 0;
 
 			    		basetype = $(this).attr('basetype');
@@ -166,14 +167,14 @@ MediathekCrawler.ZDFService = function() {
 			    				break;
 			    			case 'h264_aac_mp4_http_na_na':
 			    				type = 'video/mp4';
-			    				url = $(this).find("url").text();
+			    				url = $(this).find('url').text();
 			    				// filter metafilegenerator-URLS (not streamable!)
 			    				if(url.indexOf('metafilegenerator') == -1){
 
-									filesize = $(this).find("filesize").text();
-
+									filesize = $(this).find('filesize').text();
+									// console.log('url: ', url);
 									var stream = mediathekModel.createStream(basetype, type, quality, url, filesize);
-						    		//console.log("basetype: ",basetype,", stream: ",stream._url);
+						    		//console.log('basetype: ',basetype,', stream: ',stream._url);
 									streams.push(stream);
 			    				}
 			    				// log those URLs to console:
@@ -194,12 +195,12 @@ MediathekCrawler.ZDFService = function() {
 			    				type = null; //'application/x-mpegURL' oder 'vnd.apple.mpegURL'
 			    				break;
 			    			case 'vp8_vorbis_webm_http_na_na':
-			    				type = null; //'video/webm';  oder 'video/webm; codecs="vp8, vorbis"'
-			    	// 			url = $(this).find("url").text();
-								// filesize = $(this).find("filesize").text();
+			    				type = null; //'video/webm';  oder 'video/webm; codecs='vp8, vorbis''
+			    	// 			url = $(this).find('url').text();
+								// filesize = $(this).find('filesize').text();
 
 								// var stream = mediathekModel.createStream(basetype, type, quality, url, filesize);
-					   //  		//console.log("basetype: ",basetype,", stream: ",stream._url);
+					   //  		//console.log('basetype: ',basetype,', stream: ',stream._url);
 								// streams.push(stream);
 			    				break;
 			    			default:
@@ -207,7 +208,7 @@ MediathekCrawler.ZDFService = function() {
 			    				break;
 			    		}
 			    		// type = 
-			    		qualityText = $(this).find("quality").text();
+			    		qualityText = $(this).find('quality').text();
 			    		switch (qualityText) {
 			    			case 'low':
 			    				quality = 0;
@@ -223,20 +224,29 @@ MediathekCrawler.ZDFService = function() {
 			    				break;
 			    		}
 			    	}); // end foreach formitaet
-
+					if(streams.length < 1){
+						
+						console.log('\'',title, '\' has ', streams.length, ' streams. \nCHECK: ',ZDFSTREAMURL+assetID);
+					}
+					_pushResultToModel(title, subtitle, details, station, assetID, length, airtime, teaserImages, streams);
 			    }
 			},
 			error: function(){
 				console.warn('ERROR; ZDFService._searchStream; AJAX-request did not recieve a response');
 			}
 		});
-// console.log("before pushing to model: ", title, subtitle, details, station, assetID, length, airtime, teaserImages, streams);
-		_pushResultToModel(title, subtitle, details, station, assetID, length, airtime, teaserImages, streams);
 	},
 
 	_pushResultToModel = function(title, subtitle, details, station, assetID, length, airtime, teaserImages, streams){
-		
-		mediathekModel.addResults(station, title, subtitle, details, length, airtime, teaserImages, streams);
+		// console.log('pushing to result model');
+		// if(station != 'null' && title != 'null' && subtitle != 'null' && details != 'null' && length != 'null' && airtime != 'null' && teaserImages != 'null' && streams && station && title && subtitle && details && length && airtime && teaserImages && streams){
+
+			mediathekModel.addResults(station, title, subtitle, details, length, airtime, teaserImages, streams);
+		// }
+		// else{
+			// console.log('some params missing @ ZDFService._pushResultToModel: ', 'station: ', station, 'title: ', title, 'subtitle: ', subtitle, 'details: ', details, 'length: ', length, 'airtime: ', airtime, 'teaserImages: ', teaserImages, 'streams: ', streams);
+		// }
+		// console.log('number of streams: ',streams.length);
 	},
 
 	getHot = function(maxResults){
@@ -262,7 +272,7 @@ MediathekCrawler.ZDFService = function() {
 		} 
 
 		$.ajax({
-			url: ZDFSEARCHNEWURL+ZDFID+"&maxLength="+String(maxResults),
+			url: ZDFSEARCHNEWURL+ZDFID+'&maxLength='+String(maxResults),
 			type: 'GET',
 			success: function(data) {
 				_parseResponse(data);
@@ -272,7 +282,7 @@ MediathekCrawler.ZDFService = function() {
 			}
 		});
 		$.ajax({
-			url: ZDFSEARCHNEWURL+ZDFNEOID+"&maxLength="+String(maxResults),
+			url: ZDFSEARCHNEWURL+ZDFNEOID+'&maxLength='+String(maxResults),
 			type: 'GET',
 			success: function(data) {
 				_parseResponse(data);
@@ -282,7 +292,7 @@ MediathekCrawler.ZDFService = function() {
 			}
 		});
 		$.ajax({
-			url: ZDFSEARCHNEWURL+ZDFKULTURID+"&maxLength="+String(maxResults),
+			url: ZDFSEARCHNEWURL+ZDFKULTURID+'&maxLength='+String(maxResults),
 			type: 'GET',
 			success: function(data) {
 				_parseResponse(data);
@@ -292,7 +302,7 @@ MediathekCrawler.ZDFService = function() {
 			}
 		});
 		$.ajax({
-			url: ZDFSEARCHNEWURL+ZDFINFOID+"&maxLength="+String(maxResults),
+			url: ZDFSEARCHNEWURL+ZDFINFOID+'&maxLength='+String(maxResults),
 			type: 'GET',
 			success: function(data) {
 				_parseResponse(data);
@@ -305,14 +315,14 @@ MediathekCrawler.ZDFService = function() {
 
 	getCategories = function(_category, maxVidProSendung) {
 		var find = CATEGORIES.filter(function (category) { return category._id == _category });
-		if (find.length > 0) {
+		if(find.length > 0) {
 			// console.log(find[0]._assetId);
 			$.each(find[0]._assetId, function(index,value){
 				_getBroadcastOfCategory(value, maxVidProSendung);
 			});
 
 		} else {
-			console.error('ERROR; ZDFService.getCategories; AJAX-request did not recieve a response');
+			console.warn('ERROR; ZDFService.getCategories; AJAX-request did not recieve a response');
 		}
 	},
 
@@ -320,19 +330,19 @@ MediathekCrawler.ZDFService = function() {
 		// console.log(assetId);
 		$.ajax({
 			// maxLength: max results of broadcasts per category
-			url: ZDFBROADCASTSPERCATEGORY+String(assetId)+"&maxLength=50",
+			url: ZDFBROADCASTSPERCATEGORY+String(assetId)+'&maxLength=50',
 			type: 'GET',
 			success: function(data) {
 				$xml = $(data);
 	     		//console.log(data);
-			    if(typeof $xml  != "undefined"){
+			    if(typeof $xml  != 'undefined'){
 			    	//each teaser = 1 search Result
-			    	$xml.find("teaser").each(function(){
+			    	$xml.find('teaser').each(function(){
 
 						var	assetID = 0;
 
 					    //get assetid (for stream-url's)
-					    assetID = $(this).find("assetId").text();
+					    assetID = $(this).find('assetId').text();
 
 					    _getVideosOfBroadcast(assetID, maxVidProSendung);
 			    	}); 
@@ -350,19 +360,19 @@ MediathekCrawler.ZDFService = function() {
 	_getVideosOfBroadcast = function(assetId, maxVidProSendung){
 		
 		$.ajax({
-			url: ZDFVIDEOSPERBROADCAST+String(assetId)+"&maxLength="+String(maxVidProSendung),
+			url: ZDFVIDEOSPERBROADCAST+String(assetId)+'&maxLength='+String(maxVidProSendung),
 			type: 'GET',
 			success: function(data) {
 				$xml = $(data);
 	     		//console.log(data);
-			    if(typeof $xml  != "undefined"){
+			    if(typeof $xml  != 'undefined'){
 			    	//each teaser = 1 search Result
-			    	$xml.find("teaser").each(function(){
+			    	$xml.find('teaser').each(function(){
 
 						var	assetID = 0;
 
 					    //get assetid (for stream-url's)
-					    assetID = $(this).find("assetId").text();
+					    assetID = $(this).find('assetId').text();
 
 					    _getDetailsAndStreamOfVideo(assetID);
 			    	}); 
@@ -383,22 +393,22 @@ MediathekCrawler.ZDFService = function() {
 			success: function(data) {
 				$xml = $(data);
 			    //console.log(data);
-			    if(typeof $xml  != "undefined"){
+			    if(typeof $xml  != 'undefined'){
 			    	//each teaser = 1 search Result
-			    	$xml.find("video").each(function(){
+			    	$xml.find('video').each(function(){
 
 						var teaserImages = [],
-						details = "",
-						title = "",
+						details = '',
+						title = '',
 						assetID = 0,
-						length = "",
-						airtime = "",
-						station = "",
-						subtitle = "",
+						length = '',
+						airtime = '',
+						station = '',
+						subtitle = '',
 						streams = [];
 
 						// get all teaserImgs with resolution
-				    	$(this).find("teaserimage").each(function(){
+				    	$(this).find('teaserimage').each(function(){
 						
 							var res = $(this).attr('key');
 					    	var imgUrl = $(this).text();
@@ -409,21 +419,21 @@ MediathekCrawler.ZDFService = function() {
 						});
 
 					    //get information
-					    title = $(this).find("title").text();
-					    details = $(this).find("detail").text();
-					    station = $(this).find("channel").text();
+					    title = $(this).find('title').text();
+					    details = $(this).find('detail').text();
+					    station = $(this).find('channel').text();
 
 					    //get assetid (for stream-url's)
-					    assetID = $(this).find("assetId").text();
+					    assetID = $(this).find('assetId').text();
 
 					    //get length
-					    length = $(this).find("length").text();
+					    length = $(this).find('length').text();
 
 					    //get airtime
-					    airtime = $(this).find("airtime").text();
+					    airtime = $(this).find('airtime').text();
 
 					    //Fetch stream url's
-					    // console.log("_getDetailsAndStreamOfVideo: ",assetID, title, subtitle, details, station, assetID, length, airtime, teaserImages);
+					    // console.log('_getDetailsAndStreamOfVideo: ',assetID, title, subtitle, details, station, assetID, length, airtime, teaserImages);
 					    _searchStream(assetID, title, subtitle, details, station, length, airtime, teaserImages);
 					   
 			    	});
