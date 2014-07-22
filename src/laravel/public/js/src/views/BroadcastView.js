@@ -33,6 +33,7 @@ MediathekCrawler.BroadcastView = (function() {
 		for (var i=result._streams.length-1; i>=0; i--) {
 			var source = '<source src="' + result._streams[i]._url + '" type="' + result._streams[i]._type + '">'
 			$video.append(source);
+			url = result._streams[i]._url;
 		}
 
 		var infoElement = 
@@ -47,9 +48,27 @@ MediathekCrawler.BroadcastView = (function() {
 			'<h3>Sender:</h3>' +
 			'<div>' + result._station + '</div>'+
 			'<span class="glyphicon glyphicon-star"></span><h4>Favorisieren</h4>' +
-			'<span class="glyphicon glyphicon-list"></span><h4>Playlist</h4>' +
+			'<span class="glyphicon glyphicon-list"></span><button>Playlist</button>' +
 			'<span class="glyphicon glyphicon-pushpin"></span><h4>Merkliste</h4>';
 
+
+		$("#pl").click( function(e){
+			e.preventDefault();
+			console.log("ich bin hier");
+			$.ajax({
+  			type: "GET",
+ 			url: "http://mediathek-crawler/playlists/add/1/1",
+  			// parameters that you want to pass
+			data: {
+				"title": result._title,
+				"airtime":result._airtime,
+				"url": result._streams,
+				"duration": result._length
+			},
+			dataType: 'json',		
+			});
+			return false;
+		});
 		$infoWrapper.append(infoElement);
 
 		var descriptionElement = '<div>' + result._details + '</div>';
