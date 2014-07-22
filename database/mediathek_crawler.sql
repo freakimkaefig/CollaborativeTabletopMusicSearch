@@ -38,9 +38,9 @@ CREATE TABLE `broadcasts` (
   KEY `broadcasts_station_id_foreign` (`station_id`),
   KEY `broadcasts_playlist_id_foreign` (`playlist_id`),
   KEY `broadcasts_user_id_foreign` (`user_id`),
-  CONSTRAINT `broadcasts_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
   CONSTRAINT `broadcasts_playlist_id_foreign` FOREIGN KEY (`playlist_id`) REFERENCES `playlists` (`id`),
-  CONSTRAINT `broadcasts_station_id_foreign` FOREIGN KEY (`station_id`) REFERENCES `stations` (`id`)
+  CONSTRAINT `broadcasts_station_id_foreign` FOREIGN KEY (`station_id`) REFERENCES `stations` (`id`),
+  CONSTRAINT `broadcasts_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -94,7 +94,7 @@ CREATE TABLE `playlists` (
   PRIMARY KEY (`id`),
   KEY `playlists_user_foreign` (`user`),
   CONSTRAINT `playlists_user_foreign` FOREIGN KEY (`user`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -103,8 +103,6 @@ CREATE TABLE `playlists` (
 
 LOCK TABLES `playlists` WRITE;
 /*!40000 ALTER TABLE `playlists` DISABLE KEYS */;
-INSERT INTO `playlists` VALUES (1,'Test','2014-07-21 07:57:59','2014-07-21 07:57:59',NULL);
-INSERT INTO `playlists` VALUES (2,'hallo','2014-07-21 08:02:16','2014-07-21 08:02:16',NULL);
 /*!40000 ALTER TABLE `playlists` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -122,7 +120,7 @@ CREATE TABLE `stations` (
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -131,6 +129,8 @@ CREATE TABLE `stations` (
 
 LOCK TABLES `stations` WRITE;
 /*!40000 ALTER TABLE `stations` DISABLE KEYS */;
+INSERT INTO `stations` VALUES (1,'Das Erste','http://www.daserste.de/mediasrc/img/tv/banner/daserste_logo_white.png','2014-07-08 10:56:04','2014-07-08 10:56:04');
+INSERT INTO `stations` VALUES (2,'ZDF','http://www.zdf.de/ZDF/zdfportal/blob/24559496/6/data.jpg','2014-07-08 10:56:04','2014-07-08 10:56:04');
 /*!40000 ALTER TABLE `stations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -152,7 +152,7 @@ CREATE TABLE `users` (
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -161,7 +161,8 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'mueller-felix@web.de','$2y$10$Ni327zD6r6DWW45AehYBk.iWZyKHFUTu52lwQbt0ndZ8N1bX2YSeK','','',1,'eBKPXuUPKtfpnsfKOAv7KQmwtwyKuCUxGnYbO1e8SycTttwwvyrFgPYCZfvx','2014-07-15 13:42:58','2014-07-20 16:29:49');
+INSERT INTO `users` VALUES (1,'test','$2y$10$1F6zZz8fg6gwXTgHP8i4cePHkCncfhfTCd.NmYO3n8nePsn8nf6fa','','',1,'','2014-07-08 10:56:04','2014-07-08 10:56:04');
+INSERT INTO `users` VALUES (2,'semmel-tobi@gmx.de','$2y$10$xgxBlGlXy5jKKVhczQYKe.0tlEP9w2Ou8fHRTtsvO6ZUp6UG5cuNW','','',1,'X29XjHK3AWupXMi7TU0ZGBztxH29jnjJ38ebAVxghr8CYGW4TshnIk9zY6uN','2014-07-22 08:20:43','2014-07-22 09:16:57');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -174,4 +175,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-07-22 13:26:39
+-- Dump completed on 2014-07-22 14:12:26

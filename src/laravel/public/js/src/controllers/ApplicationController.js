@@ -114,6 +114,9 @@ MediathekCrawler.ApplicationController = function() {
 		DasErsteService.getNew();
 		//param: maxLength of ZDF results
 		ZDFService.getNew(ZDFMAXRESULTS);
+		ARTEService.getNew();
+
+		//BRService blockiert; siehe Fehlermeldung in Console.
 		BRService.getNew();
 	},
 

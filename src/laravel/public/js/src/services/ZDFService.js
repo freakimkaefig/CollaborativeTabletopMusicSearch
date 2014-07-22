@@ -18,7 +18,6 @@ MediathekCrawler.ZDFService = function() {
 	ZDFNEOID = 857392,
 	ZDFINFOID = 398,
 	ZDFKULTURID = 1321386,
-	xmlHttp = null,
 	once = 0,
 	mediathekModel = null,
 	CATEGORIES = [
