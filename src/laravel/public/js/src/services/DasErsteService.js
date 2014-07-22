@@ -174,16 +174,16 @@ MediathekCrawler.DasErsteService = function() {
 					if (documentId !== undefined) {
 						documentId = documentId.replace(/\D/g,'');
 					// building result meta information
-					var _result = {}
-						_result._station = STATION,
-						_result._title = $(element).find(TITLE_ELEMENT).text(),
-						_result._subtitle = $(element).find(SUBTITLE_ELEMENT).text(),
-						_result._length = $(element).find(LENGTH_ELEMENT).text(),
-						_result._airtime = $(element).find(DATE_ELEMENT).text(),
-						imgURL = $(element).find(IMAGE_ELEMENT).attr('src'),
-						_result._teaserImages = [],
-						_result._teaserImages.push(_model.createTeaserImage(IMG_RESOLUTIONS[0].resolution, BASE_URL + imgURL)),
-						_result._streams = [];
+					var _result = {};
+					_result._station = STATION,
+					_result._title = $(element).find(TITLE_ELEMENT).text(),
+					_result._subtitle = $(element).find(SUBTITLE_ELEMENT).text(),
+					_result._length = $(element).find(LENGTH_ELEMENT).text(),
+					_result._airtime = $(element).find(DATE_ELEMENT).text(),
+					imgURL = $(element).find(IMAGE_ELEMENT).attr('src'),
+					_result._teaserImages = [],
+					_result._teaserImages.push(_model.createTeaserImage(IMG_RESOLUTIONS[0].resolution, BASE_URL + imgURL)),
+					_result._streams = [];
 
 					// load details
 					loadDetails(documentId, _result, BASE_URL + documentUrl);
@@ -250,7 +250,7 @@ MediathekCrawler.DasErsteService = function() {
 		var data = JSON.parse(data);
 		result._teaserImages.push(_model.createTeaserImage(IMG_RESOLUTIONS[3].resolution, BASE_URL + data._previewImage));
 
-		for (var i=0; i<data._mediaArray.length; i++) {	//left out to reduce overhead
+		for (var i=0; i<data._mediaArray.length; i++) {
 			for (var j=0; j<data._mediaArray[i]._mediaStreamArray.length; j++) {
 				var stream = data._mediaArray[i]._mediaStreamArray[j]._stream;
 				if ( typeof stream === 'string' ) {
