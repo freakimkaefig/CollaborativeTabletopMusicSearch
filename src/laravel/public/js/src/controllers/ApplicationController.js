@@ -51,6 +51,8 @@ MediathekCrawler.ApplicationController = function() {
 		resultView.init();
 		broadcastView = MediathekCrawler.BroadcastView();
 		broadcastView.init();
+		playlistView =  MediathekCrawler.PlaylistView();
+		playlistView.init();
 
 		// check if $_POST data is available
 		_analyzeRoute();
@@ -84,6 +86,9 @@ MediathekCrawler.ApplicationController = function() {
 			var url = document.URL.split('/'),
 				category = url[url.length-1];
 			_getCategory(category.toLowerCase());
+		}
+		if (document.URL.indexOf('/playlists/playlist') >-1){
+			console.log("ich bin in einer palyliste");
 		}
 	},
 

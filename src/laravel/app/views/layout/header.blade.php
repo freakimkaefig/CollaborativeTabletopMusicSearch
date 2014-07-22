@@ -1,10 +1,11 @@
 <!-- START layout/header -->
-<nav class="navbar navbar-default" role="navigation">
+<nav class="navbar navbar-default hidden-xs" role="navigation">
 	<form class="" role="search" action="{{ URL::route('search-post') }}" method="post">
 		<div class="container-fluid">
 	     	<ul class="nav navbar-nav">
 	     		<li><a class="navbar-brand" href="{{ URL::route('home') }}">LOGO</a></li>
 	     	</ul>
+
 	     	<ul class="nav navbar-nav navbar-right">
 	      		<li>
 	      			<div class="navbar-form navbar-left">
@@ -30,7 +31,10 @@
 				@else
 					<li><a href="{{ URL::route('account-sign-in') }}">Anmelden</a></li>
 				@endif
-			</ul>
+			</ul>	
+			
+
+
 	 	</div>
 	 	
 
@@ -45,5 +49,26 @@
 
  		{{ Form::token() }}
 	</form>
+	
 </nav>
+<!-- START mobile nav-->
+<nav class="navbar navbar-default visible-xs" role="navigation">
+	
+	<div class="container-fluid">
+     	<ul class="nav navbar-nav">
+     		<li><a class="navbar-brand" href="{{ URL::route('home') }}">LOGO</a></li>
+     	
+     		@if(Auth::check())
+     			<li class="pull-right"><a href="{{ URL::route('account-sign-out') }}">Abmelden</a></li>
+     			<li class="pull-right"><a href="">Suchen</a></li>
+
+     		@else
+				<li class="pull-right"><a href="{{ URL::route('account-sign-in') }}">Anmelden</a></li>
+				<li class="pull-right"><a href="">Suchen</a></li>
+     		@endif
+		</ul>
+		
+    </div>
+</nav>
+<!-- END mobile nav-->
 <!-- END layout/header -->
