@@ -81,7 +81,7 @@ MediathekCrawler.MediathekModel = function() {
 			
 		}
 		else{
-			// console.log("some params missing @ model.addResults: ", "|| station: ", station, " || title: ", title, " || subtitle: ", subtitle, " || details: ", details, " || length: ", length, " || airtime: ", airtime, " || teaserImages: ", teaserImages, " || streams: ", streams);
+			console.log("some params missing @ model.addResults: ", "|| station: ", station, " || title: ", title, " || subtitle: ", subtitle, " || details: ", details, " || length: ", length, " || airtime: ", airtime, " || teaserImages: ", teaserImages, " || streams: ", streams);
 		}
 	},
 

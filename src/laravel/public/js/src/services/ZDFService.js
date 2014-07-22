@@ -228,7 +228,9 @@ MediathekCrawler.ZDFService = function() {
 						
 						console.log('\'',title, '\' has ', streams.length, ' streams. \nCHECK: ',ZDFSTREAMURL+assetID);
 					}
-					_pushResultToModel(title, subtitle, details, station, assetID, length, airtime, teaserImages, streams);
+					else{
+						_pushResultToModel(title, subtitle, details, station, assetID, length, airtime, teaserImages, streams);
+					}
 			    }
 			},
 			error: function(){
