@@ -2,7 +2,7 @@
 <nav id="footer-nav" class="navbar navbar-default navbar-fixed-bottom" role="navigation">
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-sm-3">
+			<div class="col-sm-3 hidden-xs">
 				<h4 class="col-sm-offset-4">Rubriken</h4>
 				<div class="col-sm-4 col-sm-offset-4 alpha">
 					<ul>
@@ -18,7 +18,7 @@
 					</ul>
 				</div>
 			</div>
-			<div class="col-sm-3">
+			<div class="col-sm-3 hidden-xs">
 				<h4 class="col-sm-offset-4">Sender</h4>
 				<div class="col-sm-4 col-sm-offset-4 alpha">
 					<ul>
@@ -33,7 +33,7 @@
 					</ul>
 				</div>
 			</div>
-			<div class="col-sm-3">
+			<div class="col-sm-3 hidden-xs">
 				<h4 class="col-sm-offset-4">Konto</h4>
 				<div class="col-sm-4 col-sm-offset-4 alpha ">
 					<ul>
@@ -46,7 +46,7 @@
 					</ul>
 				</div>
 			</div>
-			<div class="col-sm-3 ">
+			<div class="col-sm-3 hidden-xs">
 				<h4 class="col-sm-offset-4">Sonstiges</h4>
 				<div class="col-sm-4 col-sm-offset-4 alpha">
 					<ul>
