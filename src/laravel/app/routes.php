@@ -56,7 +56,6 @@ Route::group(array('before' => 'auth'), function() {
 		'uses' => 'AccountController@getMyAccount'
 	));
 
-	// All Playlists (GET)
 	Route::get('/playlists', array(
 		'as' => 'playlists',
 		'uses' => 'PlaylistsController@getAllPlaylists' 
@@ -66,6 +65,16 @@ Route::group(array('before' => 'auth'), function() {
 		'as' => 'new-playlist',
 		'uses' => 'PlaylistsController@savePlaylist' 
 	));
+	Route::get('/playlists/add/{playlistId}/{broadcastId}',array(
+		'as' => 'add-video-playlist',
+		'uses' => 'PlaylistsController@addVideoToPlaylist'
+	));
+
+	Route::get('/playlists/playlist/{playListId}/{broadcastId}', array(
+		'as' => 'playlist-single',
+		'uses' => 'PlaylistsController@getPlaylistByIds'
+	));
+
 });
 
 

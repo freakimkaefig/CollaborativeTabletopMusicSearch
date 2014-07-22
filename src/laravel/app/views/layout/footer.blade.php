@@ -1,5 +1,5 @@
 <!-- START layout/footer -->
-<nav id="footer-nav" class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+<nav id="footer-nav" class="navbar navbar-default navbar-fixed-bottom hidden-xs" role="navigation">
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-sm-3 hidden-xs">

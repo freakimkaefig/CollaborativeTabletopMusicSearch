@@ -4,6 +4,9 @@
 			    // hot
 			    // new
 			    // rubriken
+			    // INFO
+			    // CONCERT
+			    // FUTURE?
 
 MediathekCrawler.ARTEService = function() {
 
