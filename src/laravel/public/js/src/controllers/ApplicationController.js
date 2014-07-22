@@ -10,11 +10,16 @@ MediathekCrawler.ApplicationController = function() {
 	DasErsteService = null,
 	ZDFService = null,
 	BRService = null,
+	ARTEService = null,
+	WDRService = null,
 	
 	/* ===== VIEWS ===== */
 	footerView = null,
 	resultView = null,
 	broadcastView = null,
+
+	/* ===== CONTROLS ===== */
+	ZDFMAXRESULTS = 50,
 
 	init = function() {   
 		console.info('MediathekCrawler.ApplicationController.init');
@@ -33,6 +38,10 @@ MediathekCrawler.ApplicationController = function() {
 	 	ZDFService.init(mediathekModel);
 	 	BRService = MediathekCrawler.BRService();
 	 	BRService.init(mediathekModel);
+	 	ARTEService = MediathekCrawler.ARTEService();
+	 	ARTEService.init(mediathekModel);
+	 	WDRService = MediathekCrawler.WDRService();
+	 	WDRService.init(mediathekModel);
 	 	
 
 		// init Views:
@@ -88,18 +97,23 @@ MediathekCrawler.ApplicationController = function() {
 
 		//ardController.searchString(searchString);
 		DasErsteService.searchString(searchString, 0);
-		ZDFService.searchString(searchString, 100);
+		ZDFService.searchString(searchString, ZDFMAXRESULTS*2);
 		BRService.searchString(searchString, 0);
+		WDRService.searchString(searchString);
+		ARTEService.searchString(searchString);
 	},
 
 	_getCategory = function(category) {
 		console.log('MediathekCrawler.ApplicationController._getCategory', category);
-		DasErsteService.getCategories(category);
+		DasErsteService.getCategories(category, 100);
+		//param: maxLength of ZDF results (videos pro sendung)
+		ZDFService.getCategories(category, 2);
 	},
 
 	_getNew = function() {
 		DasErsteService.getNew();
-		ZDFService.searchNew(10);
+		//param: maxLength of ZDF results
+		ZDFService.getNew(ZDFMAXRESULTS);
 		BRService.getNew();
 	},
 

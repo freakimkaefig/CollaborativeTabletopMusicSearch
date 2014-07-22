@@ -1,3 +1,7 @@
+//TODO
+// welches videoformat in welcher qualität?
+// dynamischer wechsel der src attribute?
+
 MediathekCrawler.BroadcastView = (function() {
 	var that = {},
 

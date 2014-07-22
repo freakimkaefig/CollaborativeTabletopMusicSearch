@@ -174,16 +174,16 @@ MediathekCrawler.DasErsteService = function() {
 					if (documentId !== undefined) {
 						documentId = documentId.replace(/\D/g,'');
 					// building result meta information
-					var _result = {}
-						_result._station = STATION,
-						_result._title = $(element).find(TITLE_ELEMENT).text(),
-						_result._subtitle = $(element).find(SUBTITLE_ELEMENT).text(),
-						_result._length = $(element).find(LENGTH_ELEMENT).text(),
-						_result._airtime = $(element).find(DATE_ELEMENT).text(),
-						imgURL = $(element).find(IMAGE_ELEMENT).attr('src'),
-						_result._teaserImages = [],
-						_result._teaserImages.push(_model.createTeaserImage(IMG_RESOLUTIONS[0].resolution, BASE_URL + imgURL)),
-						_result._streams = [];
+					var _result = {};
+					_result._station = STATION,
+					_result._title = $(element).find(TITLE_ELEMENT).text(),
+					_result._subtitle = $(element).find(SUBTITLE_ELEMENT).text(),
+					_result._length = $(element).find(LENGTH_ELEMENT).text(),
+					_result._airtime = $(element).find(DATE_ELEMENT).text(),
+					imgURL = $(element).find(IMAGE_ELEMENT).attr('src'),
+					_result._teaserImages = [],
+					_result._teaserImages.push(_model.createTeaserImage(IMG_RESOLUTIONS[0].resolution, BASE_URL + imgURL)),
+					_result._streams = [];
 
 					// load details
 					loadDetails(documentId, _result, BASE_URL + documentUrl);
@@ -250,7 +250,7 @@ MediathekCrawler.DasErsteService = function() {
 		var data = JSON.parse(data);
 		result._teaserImages.push(_model.createTeaserImage(IMG_RESOLUTIONS[3].resolution, BASE_URL + data._previewImage));
 
-		for (var i=0; i<data._mediaArray.length; i++) {	//left out to reduce overhead
+		for (var i=0; i<data._mediaArray.length; i++) {
 			for (var j=0; j<data._mediaArray[i]._mediaStreamArray.length; j++) {
 				var stream = data._mediaArray[i]._mediaStreamArray[j]._stream;
 				if ( typeof stream === 'string' ) {
@@ -321,7 +321,7 @@ MediathekCrawler.DasErsteService = function() {
 	/**
 	 * Function to load all categories from "Das Erste Mediathek"
 	 */
-	getCategories = function(_category) {
+	getCategories = function(_category, numResults) {
 		var find = CATEGORIES.filter(function (category) { return category._id == _category });
 		if (find.length > 0) {
 			var _broadcastUrl = PROXY_URL + encodeURI(find[0]._url);
@@ -329,7 +329,7 @@ MediathekCrawler.DasErsteService = function() {
 				url: _broadcastUrl,
 				type: 'GET',
 				success: function(data) {
-					onGetCategories(data)
+					onGetCategories(data, numResults)
 				}
 			});
 		} else {
@@ -342,23 +342,24 @@ MediathekCrawler.DasErsteService = function() {
 	 * @param {String}		HTML data of the category page
 	 * @param {String}		current category
 	 */
-	onGetCategories = function(data) {
+	onGetCategories = function(data, numResults) {
 		$(data).find('#layer_themen2 .jsScroll').find('li').each(function(index, element) {
-			loadCategory(BASE_URL + $(element).find('a').attr('href'));
+			loadCategory(BASE_URL + $(element).find('a').attr('href'), numResults);
 		});
-
 	},
 
 	/**
 	 * Function to load a category from "Das Erste Mediathek"
 	 * @param {String}		the url of the category
 	 */
-	loadCategory = function(url) {
+	loadCategory = function(url, numResults) {
 		var _broadcastUrl = PROXY_URL + encodeURI(url);
 		$.ajax({
 			url: _broadcastUrl,
 			type: 'GET',
-			success: onGetCategory
+			success: function(data) {
+				onGetCategory(data, numResults);
+			}
 		});
 	},
 
@@ -366,30 +367,34 @@ MediathekCrawler.DasErsteService = function() {
 	 * Callback function for async loading of category results
 	 * @param {String|HTML}		xmlhttp response of ajax call
 	 */
-	onGetCategory = function(data) {
+	onGetCategory = function(data, numResults) {
 		$(data).find(CATEGORIES_WRAPPER_ELEMENT).find(SEARCH_ITEM_WRAPPER).each(function (index, element) {
-			if(!$(element).find(SEARCH_ITEM_ELEMENT).hasClass(SEARCH_LIVE_ITEM)) {
-				// retrieving documentId for streamURL
-				var documentUrl = $(element).find(SEARCH_ITEM_ELEMENT).attr('href'),
-					documentId = $(element).find('.boxPlaylistIcons>img').attr('class'),
-					documentId = documentId.replace(/\D/g,'');
+			if (index < numResults) {
+				if(!$(element).find(SEARCH_ITEM_ELEMENT).hasClass(SEARCH_LIVE_ITEM)) {
+					// retrieving documentId for streamURL
+					var documentUrl = $(element).find(SEARCH_ITEM_ELEMENT).attr('href'),
+						documentId = $(element).find('.boxPlaylistIcons>img').attr('class'),
+						documentId = documentId.replace(/\D/g,'');
 
-				// building result meta information
-				var _result = {}
-					_result._station = STATION,
-					_result._title = $(element).find(TITLE_ELEMENT).text(),
-					_result._subtitle = $(element).find(SUBTITLE_ELEMENT).text(),
-					_result._length = $(element).find(LENGTH_ELEMENT).text(),
-					_result._airtime = $(element).find(DATE_ELEMENT).text(),
-					imgURL = $(element).find(IMAGE_ELEMENT).attr('src'),
-					_result._teaserImages = [],
-					_result._teaserImages.push(_model.createTeaserImage(IMG_RESOLUTIONS[0].resolution, BASE_URL + imgURL)),
-					_result._streams = [];
+					// building result meta information
+					var _result = {}
+						_result._station = STATION,
+						_result._title = $(element).find(TITLE_ELEMENT).text(),
+						_result._subtitle = $(element).find(SUBTITLE_ELEMENT).text(),
+						_result._length = $(element).find(LENGTH_ELEMENT).text(),
+						_result._airtime = $(element).find(DATE_ELEMENT).text(),
+						imgURL = $(element).find(IMAGE_ELEMENT).attr('src'),
+						_result._teaserImages = [],
+						_result._teaserImages.push(_model.createTeaserImage(IMG_RESOLUTIONS[0].resolution, BASE_URL + imgURL)),
+						_result._streams = [];
 
-				// load details
-				loadDetails(documentId, _result, BASE_URL + documentUrl);
+					// load details
+					loadDetails(documentId, _result, BASE_URL + documentUrl);
+				} else {
+					// LIVESTREAM
+				}
 			} else {
-				// LIVESTREAM
+				return;
 			}
 		});
 	},

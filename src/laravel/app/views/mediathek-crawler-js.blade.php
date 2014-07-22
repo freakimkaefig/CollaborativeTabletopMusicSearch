@@ -13,6 +13,8 @@
 	{{ HTML::script('js/src/services/DasErsteService.js') }}
 	{{ HTML::script('js/src/services/ZDFService.js') }}
 	{{ HTML::script('js/src/services/BRService.js') }}
+	{{ HTML::script('js/src/services/ARTEService.js') }}
+	{{ HTML::script('js/src/services/WDRService.js') }}
 
 	<!--Model-->
 	{{ HTML::script('js/src/models/MediathekModel.js') }}
