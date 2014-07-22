@@ -177,10 +177,6 @@ MediathekCrawler.ZDFService = function() {
 						    		//console.log('basetype: ',basetype,', stream: ',stream._url);
 									streams.push(stream);
 			    				}
-			    				// log those URLs to console:
-			    				// else{
-			    				// 	console.log('found metafilegenerator-URL: ', url)
-			    				// }
 			    				break;
 			    			case 'h264_aac_mp4_rtmp_smil_http':
 			    				type = null;	// TODO: transform to type! (.smil)
@@ -195,13 +191,17 @@ MediathekCrawler.ZDFService = function() {
 			    				type = null; //'application/x-mpegURL' oder 'vnd.apple.mpegURL'
 			    				break;
 			    			case 'vp8_vorbis_webm_http_na_na':
-			    				type = null; //'video/webm';  oder 'video/webm; codecs='vp8, vorbis''
-			    	// 			url = $(this).find('url').text();
-								// filesize = $(this).find('filesize').text();
+			    				type = 'video/webm';
+			    				url = $(this).find('url').text();
+			    				// filter metafilegenerator-URLS (not streamable!)
+			    				if(url.indexOf('metafilegenerator') == -1){
 
-								// var stream = mediathekModel.createStream(basetype, type, quality, url, filesize);
-					   //  		//console.log('basetype: ',basetype,', stream: ',stream._url);
-								// streams.push(stream);
+									filesize = $(this).find('filesize').text();
+									// console.log('url: ', url);
+									var stream = mediathekModel.createStream(basetype, type, quality, url, filesize);
+						    		//console.log('basetype: ',basetype,', stream: ',stream._url);
+									streams.push(stream);
+			    				}
 			    				break;
 			    			default:
 			    				type = 'video/mp4';
