@@ -50,24 +50,26 @@ MediathekCrawler.BroadcastView = (function() {
 			'<h3>Dauer:</h3>' +
 			'<div>' + result._length + '</div>' +
 			'<h3>Sender:</h3>' +
-			'<div>' + result._station + '</div>'+
-			'<span class="glyphicon glyphicon-star"></span><h4>Favorisieren</h4>' +
-			'<span class="glyphicon glyphicon-list"></span><button>Playlist</button>' +
-			'<span class="glyphicon glyphicon-pushpin"></span><h4>Merkliste</h4>';
+			'<div>' + result._station + '</div>';
 
-
-		$("#pl").click( function(e){
+		$("#choosePlaylist").click(function(e){
 			e.preventDefault();
-			console.log("ich bin hier");
+			$("#selectPlaylist").removeClass("hidden");
+		})
+
+		$("#addToPlaylist").click( function(e){
+			e.preventDefault();
+			$("#selectPlaylist").addClass("hidden");
 			$.ajax({
   			type: "GET",
- 			url: "http://mediathek-crawler/playlists/add/1/1",
+ 			url: "http://mediathek-crawler/playlists/add/"+$("#select").val()+"/1",
   			// parameters that you want to pass
 			data: {
 				"title": result._title,
 				"airtime":result._airtime,
 				"url": result._streams,
-				"duration": result._length
+				"duration": result._length,
+				"image": result._teaserImages
 			},
 			dataType: 'json',		
 			});

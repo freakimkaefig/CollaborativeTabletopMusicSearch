@@ -21,3 +21,12 @@ ul { list-style: none; padding: 0;}
 
 h2 { text-transform: capitalize; }
 
+
+
+/* ========== LISTS ======= */
+
+.list-item{
+	margin-top: 20px;
+	padding: 20px;
+	border-bottom: 1px solid black; 
+}
