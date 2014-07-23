@@ -29,6 +29,9 @@
 
 		</form>
 		
+		<form>
+			<button id="addToBookmarks">Zur Merkliste Hinzufügen</button>
+		</form>
 		<input id="video-id" type="hidden" value="{{ $video }}">
 	@else
 		{{ Redirect::route('home')->with('global-warning', 'Es ist ein Fehler aufgetreten. Versuchen Sie es später erneut.') }}

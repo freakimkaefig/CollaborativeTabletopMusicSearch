@@ -19,6 +19,8 @@ MediathekCrawler.BroadcastView = (function() {
 		$video = $('#video');
 		$infoWrapper = $('#info-wrapper');
 		$descriptionWrapper = $("#description-wrapper");
+
+		onAddToPlaylist();
 	},
 
 	/**
@@ -52,10 +54,19 @@ MediathekCrawler.BroadcastView = (function() {
 			'<h3>Sender:</h3>' +
 			'<div>' + result._station + '</div>';
 
+		
+		$infoWrapper.append(infoElement);
+
+		var descriptionElement = '<div>' + result._details + '</div>';
+		$descriptionWrapper.append(descriptionElement);
+
+	},
+
+	onAddToPlaylist = function(){
 		$("#choosePlaylist").click(function(e){
 			e.preventDefault();
 			$("#selectPlaylist").removeClass("hidden");
-		})
+		});
 
 		$("#addToPlaylist").click( function(e){
 			e.preventDefault();
@@ -75,13 +86,12 @@ MediathekCrawler.BroadcastView = (function() {
 			});
 			return false;
 		});
-		$infoWrapper.append(infoElement);
-
-		var descriptionElement = '<div>' + result._details + '</div>';
-		$descriptionWrapper.append(descriptionElement);
-
 	},
+	onAddBookmark = function(){
+		$('#addToBookmarks').click(function(e){
 
+		});
+	},
 	/**
 	 * Public function to reset the instance of BroadcastView
 	 */
