@@ -25,11 +25,11 @@ class PlaylistsController extends BaseController {
 			//$Broadcast->playlist_id=$playlistId;
 			$Broadcast->title=$data['title'];
 			$Broadcast->station_id=1;
-			$Broadcast->playlist_id=1;
+			$Broadcast->playlist_id=$playlistId;
 			$Broadcast->airtime=$data['airtime'];
 			$Broadcast->url=json_encode($data['url']);
 			$Broadcast->duration=$data['duration'];
-			Log::info($data['airtime']);
+			$Broadcast->image=json_encode($data['image']);
 			$Broadcast->save();
 		}
 	}

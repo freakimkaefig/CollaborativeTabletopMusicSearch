@@ -14,7 +14,19 @@
 		</div>
 		
 		<form>
-			<span class="glyphicon glyphicon-list"></span><button id="pl">Playlist</button>
+			<button id="choosePlaylist">Zu Playlist hinzufügen</button>
+			<div id="selectPlaylist" class="hidden">			
+				<select id="select">
+				 	<?php
+				 		$user_playlists= DB::table('playlists')->where('user', '=', Auth::id())->get();
+				 	?>
+				 	@foreach($user_playlists as $pl)
+				 		<option value="{{$pl->id}}">{{$pl->name}}</option>
+				 	@endforeach
+				</select>
+				<button id="addToPlaylist">Playlist</button>
+			</div>
+
 		</form>
 		
 		<input id="video-id" type="hidden" value="{{ $video }}">
