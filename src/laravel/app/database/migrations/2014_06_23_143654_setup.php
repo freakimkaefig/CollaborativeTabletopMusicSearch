@@ -29,25 +29,25 @@ class Setup extends Migration {
 		Schema::create('stations', function($table) {
 			$table->increments('id', true);
 			$table->string('name', 50);
-			$table->string('logo', 250);
+			$table->string('logo', 250000);
 			$table->timestamps();
 		});
 
 		Schema::create('broadcasts', function($table) {
 			$table->engine = 'InnoDB';
 			$table->increments('id', true);
-			$table->string('title', 200);
+			$table->string('title', 250000);
 			$table->dateTime('airtime');
-			$table->string('url', 250);
+			$table->string('url', 250000);
 			$table->time('duration');
-			$table->string('image', 250);
+			$table->string('image', 250000);
 			$table->timestamps();
 		});
 
 		Schema::create('playlists', function($table) {
 			$table->engine = 'InnoDB';
 			$table->increments('id', true);
-			$table->string('name', 128);
+			$table->string('name', 250);
 			$table->timestamps();
 		});
 	}
