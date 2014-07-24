@@ -30,7 +30,7 @@
     </div>
     <div class="row">
     @foreach($results_videos as $result)
-    	<div id="list-item-{{$result->id}}"class="list-item col-sm-10 col-sm-offset-1">
+    	<div id="list-item-{{$result->id}}" class="list-item col-sm-10 col-sm-offset-1">
         <?php 
           try{
             $image = get_object_vars(json_decode($result->image)[0])['_url'];

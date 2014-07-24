@@ -41,5 +41,8 @@ class PlaylistsController extends BaseController {
 	public function deleteVideoFromPlaylist($broadcastId){
 		Broadcast::where('id',"=", $broadcastId)->delete();
 	}
+	public function deletePlaylist($playlistId){
+		Playlist::where("id","=",$playlistId)->delete();
+	}
 
 }
