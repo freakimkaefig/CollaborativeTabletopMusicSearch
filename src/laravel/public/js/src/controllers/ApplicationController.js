@@ -53,7 +53,8 @@ MediathekCrawler.ApplicationController = function() {
 		broadcastView.init();
 		playlistView =  MediathekCrawler.PlaylistView();
 		playlistView.init();
-
+		bookmarkView =  MediathekCrawler.BookmarkView();
+		bookmarkView.init();
 		// check if $_POST data is available
 		_analyzeRoute();
 	},

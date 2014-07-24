@@ -75,14 +75,6 @@ Route::group(array('before' => 'auth'), function() {
 		'uses' => 'PlaylistsController@getPlaylistByIds'
 	));
 
-	Route::get('/playlists/delete/video/{broadcastId}', array(
-		'as' => 'delete-video-playlist',
-		'uses' => 'PlaylistsController@deleteVideoFromPlaylist'
-	));
-	Route::get('/playlists/delete/{playlistId}', array(
-		'as' => 'delete-playlist',
-		'uses' => 'PlaylistsController@deletePlaylist'
-	));
 	Route::get('/bookmarks', array(
 		'as' => 'bookmarks',
 		'uses' => 'BookmarksController@getAllBookmarks'	
@@ -97,6 +89,19 @@ Route::group(array('before' => 'auth'), function() {
 		'uses' => 'BookmarksController@getBookmarkVideo'
 	));
 
+	// Delete List-items
+	Route::get('/playlists/delete/video/{broadcastId}', array(
+		'as' => 'delete-video-playlist',
+		'uses' => 'PlaylistsController@deleteVideoFromPlaylist'
+	));
+	Route::get('/playlists/delete/{playlistId}', array(
+		'as' => 'delete-playlist',
+		'uses' => 'PlaylistsController@deletePlaylist'
+	));
+	Route::get('/bookmarks/delete/{broadcastId}', array(
+		'as' => 'delete-bookmark',
+		'uses' => 'BookmarksController@deleteBookmark'
+	));
 });
 
 

@@ -28,6 +28,9 @@ class BookmarksController extends BaseController {
 			->with("bookmarked", $bookmarked)
 			->with("video", $broadcastId);
 	}
+	public function deleteBookmark($broadcastId){
+		Broadcast::where('id',"=", $broadcastId)->delete();
+	}
 
 
 }

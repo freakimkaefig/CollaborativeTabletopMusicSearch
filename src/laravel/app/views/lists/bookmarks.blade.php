@@ -24,7 +24,7 @@
         <h4>Datum:{{$result->airtime}}</h4>
         <h4>Dauer:{{$result->duration}}</h4>
         </div>
-        <button id="delete-from-playlist-{{$result->id}}" value="{{$result->id}}" class="btn pull-right">X</button>
+        <button id="delete-bookmark-{{$result->id}}" value="{{$result->id}}" class="btn pull-right">X</button>
       </div>
     @endforeach
   	</div 	
