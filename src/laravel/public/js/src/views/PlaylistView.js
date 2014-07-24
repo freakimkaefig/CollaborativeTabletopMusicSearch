@@ -6,6 +6,7 @@ MediathekCrawler.PlaylistView = (function() {
 		console.info('MediathekCrawler.PlaylistView.init');
 		$("#new-list").on("click",showCreatePlaylist);
 		$("#create-playlist").on("submit",hideCreatePlaylist);
+		onDeleteVideo();
 	},
 
 	showCreatePlaylist = function() {
@@ -14,8 +15,17 @@ MediathekCrawler.PlaylistView = (function() {
 	hideCreatePlaylist = function() {
 		$("#create-playlist").addClass("hidden");
 	},
-	dispose = function() {
-		that = {};
+	onDeleteVideo = function(e){
+		$("body").on("click","button[id^='delete-from-playlist-']",function(){
+			$broadcastId = $(this).val();
+			
+			$.ajax({
+				type: "GET",
+				url: "http://mediathek-crawler/playlists/delete/"+$broadcastId,
+				data: {},
+			});
+		$("#list-item-"+$broadcastId).remove();
+		});
 	};
 
 	that.init = init;
