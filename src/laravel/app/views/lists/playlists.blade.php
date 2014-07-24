@@ -27,19 +27,25 @@
 		          }
 		        ?>
 		    @if(isset($videos[0]->id))  
-   			<a href="{{ URL::route('playlist-single',[$result->id,$videos[0]->id])}}"><div class="list-item col-sm-10 col-sm-offset-1">
+   			<div  id="list-item-{{$result->id}}" class="list-item col-sm-10 col-sm-offset-1"><a href="{{ URL::route('playlist-single',[$result->id,$videos[0]->id])}}">
 		        <img src='{{$image}}' class="img-responsive col-lg-3"/>
-       			<h3>{{$result->name}}</h3>
-       			<h4>1){{ isset($videos[0]->title) ? $videos[0]->title : '' }}</h4>
-       			<h4>2){{ isset($videos[1]->title) ? $videos[1]->title : '' }}</h4>
-       			<h4>2){{ isset($videos[2]->title) ? $videos[2]->title : '' }}</h4>
-       			<!-- <h4>3)<?php try{ echo $videos[0]->title;}catch(Exception $e){echo "";}?></h4> -->
-   			</div></a>
+       			<div class="col-sm-8">
+       				<h3>{{$result->name}}</h3>
+       				<h4>1){{ isset($videos[0]->title) ? $videos[0]->title : '' }}</h4>
+       				<h4>2){{ isset($videos[1]->title) ? $videos[1]->title : '' }}</h4>
+       				<h4>2){{ isset($videos[2]->title) ? $videos[2]->title : '' }}</h4>
+       				<!-- <h4>3)<?php try{ echo $videos[0]->title;}catch(Exception $e){echo "";}?></h4> -->
+       			</div>
+   				<button id="delete-playlist-{{$result->id}}" value="{{$result->id}}" class="btn pull-right">X</button>
+   			</a></div>
    			@else
-   			<div class="list-item col-sm-10 col-sm-offset-1">
+   			<div id="list-item-{{$result->id}}" class="list-item col-sm-10 col-sm-offset-1">
    				<img src='{{$image}}' class="img-responsive col-lg-3"/>
-   				<h3>{{$result->name}}</h3>
-   				<h4>Noch nichts vorhanden</h4>
+   				<div class="col-sm-8">
+   					<h3>{{$result->name}}</h3>
+   					<h4>Noch nichts vorhanden</h4>
+   				</div>
+   				<button id="delete-playlist-{{$result->id}}" value="{{$result->id}}" class="btn pull-right">X</button>
    			</div> 
    			@endif
        		@endforeach

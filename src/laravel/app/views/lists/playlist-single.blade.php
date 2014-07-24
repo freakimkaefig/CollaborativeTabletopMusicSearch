@@ -30,7 +30,7 @@
     </div>
     <div class="row">
     @foreach($results_videos as $result)
-    	<div class="list-item col-sm-10 col-sm-offset-1">
+    	<div id="list-item-{{$result->id}}" class="list-item col-sm-10 col-sm-offset-1">
         <?php 
           try{
             $image = get_object_vars(json_decode($result->image)[0])['_url'];
@@ -39,14 +39,14 @@
             $image = "no image";
           }
         ?>
-        <img src='{{$image}}' class="img-responsive col-lg-3"/>
+        <img src='{{$image}}' class="img-responsive col-sm-3"/>
+        <div class="list-item-description col-sm-7 col-sm-offset-1">
         <h3><a href="{{URL::route('playlist-single',[$playlist,$result->id])}}">{{$result->title}}</a></h3>
-        <div class="list-item-description">
         <h4>Sender:{{$result->station_id}}</h4>
         <h4>Datum:{{$result->airtime}}</h4>
         <h4>Dauer:{{$result->duration}}</h4>
         </div>
-
+        <button id="delete-from-playlist-{{$result->id}}" value="{{$result->id}}" class="btn pull-right">X</button>
       </div>
     @endforeach
   	</div>

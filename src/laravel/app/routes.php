@@ -75,6 +75,15 @@ Route::group(array('before' => 'auth'), function() {
 		'uses' => 'PlaylistsController@getPlaylistByIds'
 	));
 
+	Route::get('/playlists/delete/video/{broadcastId}', array(
+		'as' => 'delete-video-playlist',
+		'uses' => 'PlaylistsController@deleteVideoFromPlaylist'
+	));
+	Route::get('/playlists/delete/{playlistId}', array(
+		'as' => 'delete-playlist',
+		'uses' => 'PlaylistsController@deletePlaylist'
+	));
+
 });
 
 
