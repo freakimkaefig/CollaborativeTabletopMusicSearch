@@ -51,6 +51,25 @@
 	</div>
 	<div class="col-sm-3 col-lg-4">
 		<h2 class="text-center">Merkliste</h2>
+		<?php
+			//$results = DB::select('select * from playlists where user="'+Auth::id()+'"');
+			$results = DB::table('broadcasts')->where('user_id', '=', Auth::id())->take(5)->get();
+		     
+		?>
+   			@foreach($results as $result)
+		    <?php try{
+		            $image = get_object_vars(json_decode($results[0]->image)[0])['_url'];
+		          }
+		          catch(Exception $e){
+		            $image = "";
+		          } ?>
+			<div class="item col-xs-12 col-sm-12 col-lg-8 col-lg-offset-2">
+				<img src="{{$image}}" class="img-responsive col-xs-12"/>
+				<div class="col-xs-12">{{$result->title}}</div>
+				<div class="col-xs-12">TODO: subtitle</div>
+				<div class="col-xs-12"><span>{{$result->airtime}}</span> | <span> {{$result->duration}}</span> | <span>{{$result->station_id}}</span></div>
+			</div>
+       		@endforeach
 	</div>
 	<!-- END account/myaccount -->
 @stop

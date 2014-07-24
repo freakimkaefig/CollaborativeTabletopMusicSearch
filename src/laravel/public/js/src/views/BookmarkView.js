@@ -1,9 +1,9 @@
-MediathekCrawler.PlaylistView = (function() {
+MediathekCrawler.BookmarkView = (function() {
 	var that = {},
 
 
 	init = function() {
-		console.info('MediathekCrawler.PlaylistView.init');
+		console.info('MediathekCrawler.BookmarkView.init');
 		onDeleteBookmark();
 	},
 	onDeleteBookmark = function(){
