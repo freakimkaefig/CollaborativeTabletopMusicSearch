@@ -15,7 +15,7 @@
 		<h2 class="text-center">Playlisten</h2>
 		<?php
 			//$results = DB::select('select * from playlists where user="'+Auth::id()+'"');
-			$results= DB::table('playlists')->where('user', '=', Auth::id())->get();
+			$results= DB::table('playlists')->where('user', '=', Auth::id())->take(5)->get();
 		?>
    			@foreach($results as $result)
 				<?php 

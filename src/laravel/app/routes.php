@@ -83,6 +83,19 @@ Route::group(array('before' => 'auth'), function() {
 		'as' => 'delete-playlist',
 		'uses' => 'PlaylistsController@deletePlaylist'
 	));
+	Route::get('/bookmarks', array(
+		'as' => 'bookmarks',
+		'uses' => 'BookmarksController@getAllBookmarks'	
+	));	
+	Route::get('/bookmarks/add/{userID}', array(
+		'as' => 'add-bookmark',
+		'uses' => 'BookmarksController@addBookmark'
+	));
+
+	Route::get('video/bookmark/{broadcastId}', array(
+		'as' => 'video-bookmark',
+		'uses' => 'BookmarksController@getBookmarkVideo'
+	));
 
 });
 

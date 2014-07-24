@@ -21,6 +21,7 @@ MediathekCrawler.BroadcastView = (function() {
 		$descriptionWrapper = $("#description-wrapper");
 
 		onAddToPlaylist();
+		onAddBookmark();
 	},
 
 	/**
@@ -61,6 +62,39 @@ MediathekCrawler.BroadcastView = (function() {
 		$descriptionWrapper.append(descriptionElement);
 
 	},
+	renderVideoBookmark = function(id){
+		console.log("renderVideoBookmark");
+		var result = JSON.parse($("#bookmark").val())[0];
+		console.log(result);
+		var streams = JSON.parse(result.url);
+		for (var i=streams.length-1; i>=0; i--) {
+			
+			console.log(streams[i]._type);
+			var source = '<source src="' + streams[i]._url + '" type="' + streams[i]._type + '">'
+			$video.append(source);
+			url = streams[i]._url;
+		}
+
+		var infoElement = 
+			'<h3>Titel:</h3>'+
+			'<div>' + result.title + '</div>' +
+			'<div>' + result.subtitle + '</div>' +
+			/*'<div>' + result._details + '</div>' +*/
+			'<h3>Zeit:</h3>' +
+			'<div>' + result.airtime + '</div>' +
+			'<h3>Dauer:</h3>' +
+			'<div>' + result.duration + '</div>' +
+			'<h3>Sender:</h3>' +
+			'<div>' + result.station_id + '</div>';
+
+		
+		$infoWrapper.append(infoElement);
+
+		var descriptionElement = '<div>' + result._details + '</div>';
+		$descriptionWrapper.append(descriptionElement);
+		
+
+	},
 
 	onAddToPlaylist = function(){
 		$("#choosePlaylist").click(function(e){
@@ -72,24 +106,37 @@ MediathekCrawler.BroadcastView = (function() {
 			e.preventDefault();
 			$("#selectPlaylist").addClass("hidden");
 			$.ajax({
-  			type: "GET",
- 			url: "http://mediathek-crawler/playlists/add/"+$("#select").val()+"/1",
-  			// parameters that you want to pass
-			data: {
-				"title": result._title,
-				"airtime":result._airtime,
-				"url": result._streams,
-				"duration": result._length,
-				"image": result._teaserImages
-			},
-			dataType: 'json',		
+	  			type: "GET",
+	 			url: "http://mediathek-crawler/playlists/add/"+$("#select").val()+"/1",
+	  			// parameters that you want to pass
+				data: {
+					"title": result._title,
+					"airtime":result._airtime,
+					"url": result._streams,
+					"duration": result._length,
+					"image": result._teaserImages
+				},
+				dataType: 'json',		
 			});
 			return false;
 		});
 	},
 	onAddBookmark = function(){
 		$('#addToBookmarks').click(function(e){
-
+			e.preventDefault();
+			$.ajax({
+				type: "GET",
+				url: "http://mediathek-crawler/bookmarks/add/"+$(this).val(),
+				data: {
+					"title": result._title,
+					"airtime":result._airtime,
+					"url": result._streams,
+					"duration": result._length,
+					"image": result._teaserImages
+				},
+				dataType: 'json',		
+			});
+			return true;
 		});
 	},
 	/**
@@ -102,6 +149,7 @@ MediathekCrawler.BroadcastView = (function() {
 	that.init = init;
 	that.dispose = dispose;
 	that.renderVideoById = renderVideoById;
+	that.renderVideoBookmark = renderVideoBookmark;
 
 	return that;
 });

@@ -30,9 +30,12 @@
 		</form>
 		
 		<form>
-			<button id="addToBookmarks">Zur Merkliste Hinzufügen</button>
+			<button id="addToBookmarks" value="{{Auth::id()}}">Zur Merkliste Hinzufügen</button>
 		</form>
 		<input id="video-id" type="hidden" value="{{ $video }}">
+		@if(isset($bookmarked))
+			<input id="bookmark" type="hidden" value='{{$bookmarked}}'>
+		@endif
 	@else
 		{{ Redirect::route('home')->with('global-warning', 'Es ist ein Fehler aufgetreten. Versuchen Sie es später erneut.') }}
 	@endif

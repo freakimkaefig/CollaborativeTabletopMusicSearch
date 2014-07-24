@@ -80,7 +80,13 @@ MediathekCrawler.ApplicationController = function() {
 			}
 		}
 		if (document.URL.indexOf('/video') > -1) {
-			_getVideoById();
+			if (document.URL.indexOf('/video/bookmark') > -1) {
+				console.log("ne merkliste");
+				_getVideoBookmark();
+			}
+			else{	
+				_getVideoById();
+			}
 		}
 		if (document.URL.indexOf('/rubrik') > -1) {
 			var url = document.URL.split('/'),
@@ -123,6 +129,10 @@ MediathekCrawler.ApplicationController = function() {
 	_getVideoById = function() {
 		var _id = $('#video-id').val();
 		broadcastView.renderVideoById(_id);
+	},
+	_getVideoBookmark = function(){
+		var _id = $('#video-id').val();
+		broadcastView.renderVideoBookmark(_id);
 	},
 
 	dispose = function() {
