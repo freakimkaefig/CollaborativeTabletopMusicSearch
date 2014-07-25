@@ -8,28 +8,32 @@
 				<video id="video" class="video-js vjs-default-skin img-responsive" controls preload="auto"></video>
 			</div>
 			<div id="info-wrapper" class="col-sm-4"></div>
-			<div class="col-sm-4">		
-				<button id="choosePlaylist" class="btn col-sm-3 col-lg-3">Playliste</button>
-				<form class="col-sm-3 col-lg-3">
-					<div id="selectPlaylist" class="hidden">			
-						<select id="select">
-						 	<?php
-						 		$user_playlists= DB::table('playlists')->where('user', '=', Auth::id())->get();
-						 	?>
-						 	@foreach($user_playlists as $pl)
-						 		<option value="{{$pl->id}}">{{$pl->name}}</option>
-						 	@endforeach
-						</select>
-						<button id="add-to-playlist" class="btn">Hinzufügen</button>
-						<button id="add-to-playlist-cancel" class="btn" type="button">Abbrechen</button>
+			@if(Auth::check())
+				<div class="row">	
+					<div class="col-sm-4">		
+						<button id="choosePlaylist" class="btn col-sm-3 col-lg-3">Playliste</button>
+						<form class="col-sm-3 col-lg-3">
+							<div id="selectPlaylist" class="hidden">			
+								<select id="select">
+								 	<?php
+								 		$user_playlists= DB::table('playlists')->where('user', '=', Auth::id())->get();
+								 	?>
+								 	@foreach($user_playlists as $pl)
+								 		<option value="{{$pl->id}}">{{$pl->name}}</option>
+								 	@endforeach
+								</select>
+								<button id="add-to-playlist" class="btn">Hinzufügen</button>
+								<button id="add-to-playlist-cancel" class="btn" type="button">Abbrechen</button>
+							</div>
+						</form>
 					</div>
-				</form>
-			</div>
-			<div class="col-sm-4">	
-				<form >
-					<button id="addToBookmarks" class="btn col-sm-3" value="{{Auth::id()}}">Merken</button>
-				</form>
-			</div>
+					<div class="col-sm-4">	
+						<form >
+							<button id="addToBookmarks" class="btn col-sm-3" value="{{Auth::id()}}">Merken</button>
+						</form>
+					</div>
+				</div>
+			@endif
 		</div>
 		<div class="row">
 			<div id="description-wrapper" class="col-sm-10 col-sm-offset-1"></div>
