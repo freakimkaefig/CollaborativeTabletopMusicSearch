@@ -29,15 +29,15 @@
 				<form >
 					<button id="addToBookmarks" class="btn col-sm-3" value="{{Auth::id()}}">Merken</button>
 				</form>
-				<input id="video-id" type="hidden" value="{{ $video }}">
-				@if(isset($bookmarked))
-					<input id="bookmark" type="hidden" value='{{$bookmarked}}'>
-				@endif
 			</div>
 		</div>
 		<div class="row">
 			<div id="description-wrapper" class="col-sm-10 col-sm-offset-1"></div>
 		</div>
+				<input id="video-id" type="hidden" value="{{ $video }}">
+				@if(isset($bookmarked))
+					<input id="bookmark" type="hidden" value='{{$bookmarked}}'>
+				@endif
 	@else
 		{{ Redirect::route('home')->with('global-warning', 'Es ist ein Fehler aufgetreten. Versuchen Sie es später erneut.') }}
 	@endif
