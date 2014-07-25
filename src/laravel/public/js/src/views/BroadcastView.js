@@ -61,6 +61,9 @@ MediathekCrawler.BroadcastView = (function() {
 		var descriptionElement = '<div>' + result._details + '</div>';
 		$descriptionWrapper.append(descriptionElement);
 
+		checkBookmarked(result);
+
+
 	},
 	renderVideoBookmark = function(id){
 		console.log("renderVideoBookmark");
@@ -93,6 +96,8 @@ MediathekCrawler.BroadcastView = (function() {
 		var descriptionElement = '<div>' + result._details + '</div>';
 		$descriptionWrapper.append(descriptionElement);
 		
+		checkBookmarked(result);
+
 
 	},
 
@@ -130,6 +135,8 @@ MediathekCrawler.BroadcastView = (function() {
 	onAddBookmark = function(){
 		$('#addToBookmarks').click(function(e){
 			e.preventDefault();
+			$("#addToBookmarks").addClass("hidden");
+			$("#bookmark-name").removeClass("hidden").html("Gemerkt");
 			$.ajax({
 				type: "GET",
 				url: "http://mediathek-crawler/bookmarks/add/"+$(this).val(),
@@ -142,9 +149,36 @@ MediathekCrawler.BroadcastView = (function() {
 				},
 				dataType: 'json',		
 			});
-			return true;
 		});
 	},
+	checkBookmarked = function(result){
+		var allBookmarks = JSON.parse($("#all-bookmarks").val());
+		
+		for  (var i in allBookmarks){
+			if (allBookmarks[i]['title'] == result._title || allBookmarks[i]['title'] == result.title){
+				id = allBookmarks[i]['id'];
+				$("#addToBookmarks").addClass("hidden");
+				$("#bookmark-name").removeClass("hidden").append("Gemerkt");
+				deleteBookmark(id);
+			}
+		}
+
+		
+	},
+
+	deleteBookmark = function(id){
+		$("#bookmark-name").click(function(e){
+			e.preventDefault();
+			$("#addToBookmarks").removeClass("hidden");
+			$("#bookmark-name").addClass("hidden");
+			$.ajax({
+				type: "GET",
+				url: "http://mediathek-crawler/bookmarks/delete/"+id,
+				data: {},
+			});
+		})
+
+	};
 	/**
 	 * Public function to reset the instance of BroadcastView
 	 */

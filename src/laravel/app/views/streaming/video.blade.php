@@ -3,19 +3,22 @@
 @section('content')
 	<!-- START streaming/video -->
 	@if(isset($video))
+		<?php $inBookmarks = DB::table('broadcasts')->whereNotNull("user_id")->where("user_id","=",Auth::id())->get();
+			 echo "<input id='all-bookmarks' type='hidden' value='".json_encode($inBookmarks)."''>";
+			?>
 		<div class="row">
 			<div id="video-wrapper" class=" col-xs-12 col-sm-8 col-sm-offset-0 col-lg-7 col-lg-offset-1">
-				<video id="video" class="video-js vjs-default-skin img-responsive" controls preload="auto"></video>
+				<video id="video" class="video-js vjs-default-skin col-xs-12 img-responsive" controls preload="auto"></video>
 			</div>
 			<div id="info-wrapper" class="col-sm-4"></div>
 			@if(Auth::check())
 				<div class="row">	
-					<div class="col-sm-4">		
-						<button id="choosePlaylist" class="btn col-sm-3 col-lg-3">Playliste</button>
+					<div class="col-sm-4">
+						<button id="choosePlaylist" class="btn col-sm-3 col-lg-3 broadcast-btn"><span class="glyphicon glyphicon-list"></span>Playliste</button>
 						<form class="col-sm-3 col-lg-3">
 							<div id="selectPlaylist" class="hidden">			
 								<select id="select">
-								 	<?php
+									<?php
 								 		$user_playlists= DB::table('playlists')->where('user', '=', Auth::id())->get();
 								 	?>
 								 	@foreach($user_playlists as $pl)
@@ -29,7 +32,8 @@
 					</div>
 					<div class="col-sm-4">	
 						<form >
-							<button id="addToBookmarks" class="btn col-sm-3" value="{{Auth::id()}}">Merken</button>
+							<button id="addToBookmarks" class="btn col-sm-3 broadcast-btn" value="{{Auth::id()}}"><span class="glyphicon glyphicon-star"></span>Merken</button>
+							<button id="bookmark-name" class="btn col-sm-3 broadcast-btn hidden"><span class="glyphicon glyphicon-bookmark"></span></button>
 						</form>
 					</div>
 				</div>
