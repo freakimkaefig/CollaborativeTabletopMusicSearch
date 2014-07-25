@@ -102,7 +102,7 @@ MediathekCrawler.BroadcastView = (function() {
 			$("#selectPlaylist").removeClass("hidden");
 		});
 
-		$("#addToPlaylist").click( function(e){
+		$("#add-to-playlist").click( function(e){
 			e.preventDefault();
 			$("#selectPlaylist").addClass("hidden");
 			$.ajax({
@@ -118,6 +118,12 @@ MediathekCrawler.BroadcastView = (function() {
 				},
 				dataType: 'json',		
 			});
+			return false;
+		});
+
+		$("#add-to-playlist-cancel").on("click", function(e){
+			e.preventDefault();
+			$("#selectPlaylist").addClass("hidden");
 			return false;
 		});
 	},

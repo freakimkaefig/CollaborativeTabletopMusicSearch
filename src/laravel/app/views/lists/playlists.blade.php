@@ -2,11 +2,14 @@
 
 @section('content')
 	<h1 class="text-center">Playlisten</h1>
-	<button id="new-list">Neue Liste</button>
+	<div class="col-sm-3">
+	<button id="new-list" class="btn">Neue Liste</button>
 	<form id="create-playlist" class="hidden" action="{{ URL::route('new-playlist')}}" method="post">
 		<input type="text" name="playlistName" />
-		<button type="submit">Erstellen</button>
+		<button id="button-create-playlist" class="btn" type="submit">Erstellen</button>
+		<button id="button-create-playlist-cancel" class="btn" >Abbrechen</button>
 	</form>
+	</div>
 		<?php
 			//$results = DB::select('select * from playlists where user="'+Auth::id()+'"');
 			$results= DB::table('playlists')->where('user', '=', Auth::id())->get();

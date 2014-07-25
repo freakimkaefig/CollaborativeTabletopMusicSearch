@@ -37,12 +37,11 @@
 				<h4 class="col-sm-offset-4">Konto</h4>
 				<div class="col-sm-4 col-sm-offset-4 alpha ">
 					<ul>
-						<li><a href="#">Übersicht</a></li>
-						<li><a href="#">Playlisten</a></li>
+						<li><a href="{{ URL::route('account-my-account') }}">Übersicht</a></li>
+						<li><a href="{{ URL::route('playlists') }}">Playlisten</a></li>
 						<li><a href="#">Favoriten</a></li>
-						<li><a href="#">Merkliste</a></li>
-						<li><a href="#">Einstellungen</a></li>
-						<li><a href="#">Abmelden</a></li>
+						<li><a href="{{ URL::route('bookmarks') }}">Merkliste</a></li>
+						<li><a href="{{ URL::route('account-sign-out') }}">Abmelden</a></li>
 					</ul>
 				</div>
 			</div>

@@ -6,8 +6,10 @@ MediathekCrawler.PlaylistView = (function() {
 		console.info('MediathekCrawler.PlaylistView.init');
 		$("#new-list").on("click",showCreatePlaylist);
 		$("#create-playlist").on("submit",hideCreatePlaylist);
+		$("#button-create-playlist-cancel").on("click",hideCreatePlaylist);
 		onDeleteVideo();
 		onDeletePlaylist();
+
 	},
 
 	showCreatePlaylist = function() {
