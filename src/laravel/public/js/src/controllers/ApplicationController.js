@@ -107,7 +107,7 @@ MediathekCrawler.ApplicationController = function() {
 		ZDFService.searchString(searchString, ZDFMAXRESULTS*2);
 		BRService.searchString(searchString, 0);
 		WDRService.searchString(searchString);
-		ARTEService.searchString(searchString);
+		//ARTEService.searchString(searchString);
 	},
 
 	_getCategory = function(category) {
@@ -121,7 +121,7 @@ MediathekCrawler.ApplicationController = function() {
 		DasErsteService.getNew();
 		//param: maxLength of ZDF results
 		ZDFService.getNew(ZDFMAXRESULTS);
-		ARTEService.getNew();
+		//ARTEService.getNew();
 
 		//BRService blockiert; siehe Fehlermeldung in Console.
 		BRService.getNew();
