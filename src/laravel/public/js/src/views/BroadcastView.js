@@ -66,10 +66,10 @@ MediathekCrawler.BroadcastView = (function() {
 
 	},
 	renderVideoBookmark = function(id){
-		console.log("renderVideoBookmark");
-		var result = JSON.parse($("#bookmark").val())[0];
+		result = JSON.parse($("#bookmark").val())[0];
 		console.log(result);
 		var streams = JSON.parse(result.url);
+		console.log(JSON.parse(result.image));
 		for (var i=streams.length-1; i>=0; i--) {
 			
 			console.log(streams[i]._type);
@@ -136,16 +136,16 @@ MediathekCrawler.BroadcastView = (function() {
 		$('#addToBookmarks').click(function(e){
 			e.preventDefault();
 			$("#addToBookmarks").addClass("hidden");
-			$("#bookmark-name").removeClass("hidden").html("Gemerkt");
+			$("#bookmark-name").removeClass("hidden").html('<span class="glyphicon glyphicon-bookmark"></span>Gemerkt');
 			$.ajax({
 				type: "GET",
 				url: "http://mediathek-crawler/bookmarks/add/"+$(this).val(),
 				data: {
-					"title": result._title,
-					"airtime":result._airtime,
-					"url": result._streams,
-					"duration": result._length,
-					"image": result._teaserImages
+					"title": ((result._title) ? result._title : (result.title) ? result.title : 0),
+					"airtime":((result._airtime) ? result._airtime : (result.airtime) ? result.airtime  : 0),
+					"url": ((result._streams) ? result._streams : (result.url) ? JSON.parse(result.url)  : 0),
+					"duration": ((result._length) ? result._length  : (result.duration) ? result.duration : 0),
+					"image": ((result._teaserImages) ? result._teaserImages : (result.image) ? JSON.parse(result.image)  : 0),
 				},
 				dataType: 'json',		
 			});
@@ -158,7 +158,7 @@ MediathekCrawler.BroadcastView = (function() {
 			if (allBookmarks[i]['title'] == result._title || allBookmarks[i]['title'] == result.title){
 				id = allBookmarks[i]['id'];
 				$("#addToBookmarks").addClass("hidden");
-				$("#bookmark-name").removeClass("hidden").append("Gemerkt");
+				$("#bookmark-name").removeClass("hidden").html('<span class="glyphicon glyphicon-bookmark"></span>Gemerkt');
 				deleteBookmark(id);
 			}
 		}
