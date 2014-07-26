@@ -42,6 +42,7 @@ class PlaylistsController extends BaseController {
 		Broadcast::where('id',"=", $broadcastId)->delete();
 	}
 	public function deletePlaylist($playlistId){
+		Broadcast::where('playlist_id',"=", $playlistId)->delete();
 		Playlist::where("id","=",$playlistId)->delete();
 	}
 

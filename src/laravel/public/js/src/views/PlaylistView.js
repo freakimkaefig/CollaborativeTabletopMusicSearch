@@ -24,9 +24,12 @@ MediathekCrawler.PlaylistView = (function() {
 			
 			$.ajax({
 				type: "GET",
-				url: "http://mediathek-crawler/playlists/video/delete/"+$broadcastId,
+				url: "http://mediathek-crawler/playlists/delete/video/"+$broadcastId,
 				data: {},
 			});
+		$('#confirm-delete-'+$broadcastId).modal('hide');
+		$('body').removeClass('modal-open');
+		$('.modal-backdrop').remove();
 		$("#list-item-"+$broadcastId).remove();
 		});
 	},
@@ -39,6 +42,9 @@ MediathekCrawler.PlaylistView = (function() {
 				url: "http://mediathek-crawler/playlists/delete/"+$playlistId,
 				data: {},
 			});
+		$('#confirm-delete-'+$playlistId).modal('hide');
+		$('body').removeClass('modal-open');
+		$('.modal-backdrop').remove();
 		$("#list-item-"+$playlistId).remove();
 		});
 	};

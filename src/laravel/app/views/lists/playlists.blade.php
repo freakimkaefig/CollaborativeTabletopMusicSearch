@@ -39,8 +39,31 @@
        				<h4>2){{ isset($videos[2]->title) ? $videos[2]->title : '' }}</h4>
        				<!-- <h4>3)<?php try{ echo $videos[0]->title;}catch(Exception $e){echo "";}?></h4> -->
        			</div>
-   				<button id="delete-playlist-{{$result->id}}" value="{{$result->id}}" class="btn pull-right">X</button>
-   			</a></div>
+       			
+       			</a>
+       			<button class="btn pull-right" data-toggle="modal" data-target="#confirm-delete-{{$result->id}}">X</button>
+		        <div class="modal fade" id="confirm-delete-{{$result->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		        <div class="modal-dialog">
+		            <div class="modal-content">
+		            
+		                <div class="modal-header">
+		                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		                    <h4 class="modal-title" >Video wirklich löschen?</h4>
+		                </div>
+		            
+		                <div class="modal-body">
+		                    <p>Sie sind dabei die Playliste "{{$result->name}}" zu löschen! </p>
+		                    <p>Wirklich löschen?</p>
+		                </div>
+		                
+		                <div class="modal-footer">
+		                    <button type="button" class="btn btn-default" data-dismiss="modal">Abbrechen</button>
+   							<button id="delete-playlist-{{$result->id}}" value="{{$result->id}}" class="btn pull-right">Löschen</button>
+		                </div>
+		            </div>
+		        </div>
+		        </div>
+   			</div>
    			@else
    			<div id="list-item-{{$result->id}}" class="list-item col-sm-10 col-sm-offset-1">
    				<img src='{{$image}}' class="img-responsive col-lg-3"/>

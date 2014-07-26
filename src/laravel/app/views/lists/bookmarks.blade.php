@@ -35,7 +35,7 @@
                 </div>
             
                 <div class="modal-body">
-                    <p>Sie sind dabei das Video " {{$result->title}} " aus ihrer Merkliste zu löschen! </p>
+                    <p>Sie sind dabei das Video "{{$result->title}}" aus ihrer Merkliste zu löschen! </p>
                     <p>Wirklich löschen?</p>
                 </div>
                 
@@ -45,7 +45,7 @@
                 </div>
             </div>
         </div>
-    </div>
+        </div>
       </div>
     @endforeach
   	</div 	
