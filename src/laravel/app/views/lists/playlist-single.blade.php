@@ -10,50 +10,56 @@
       <div class="col-sm-12 text-center"><h1>Playlist:{{$result->name}}</h1></div>
     @endforeach
     <div class="row">  
-      <div class="col-sm-8 col-sm-offset-2">
-       <?php
-        $beforeIndex = null; 
-        foreach($results_videos AS $key=>$result){
-          if ($result->id == $playlistVideo){
-                $beforeIndex = $key-1;
+      <div class="col-sm-12 col-sm-offset-0">
+        <div id="playlist-before-container" class="col-sm-2">
+         <?php
+          $beforeIndex = null; 
+          foreach($results_videos AS $key=>$result){
+            if ($result->id == $playlistVideo){
+                  $beforeIndex = $key-1;
+            }
           }
-        }
-        try {
-          $before = $results_videos[$beforeIndex]->id;
-          echo '<button class="btn col-sm-1" ><a href="'.URL::route("playlist-single",[$playlist,$before]).'">vorheriges</a></button>';
-          
-        } catch (Exception $e) {
-          $before = $results_videos[$beforeIndex+1]->id;
-        }
-       ?>
-      <video id="playlist-video" class="video-js vjs-default-skin img-responsive col-sm-10" controls preload="auto">
-      <?php
-        $urls = DB::table('broadcasts')->select('url')->where('id',"=", $playlistVideo)->get(); 
-        foreach ($urls as $url ) { 
-          foreach ($url as $u) {
-            $obj = json_decode($u);
-              foreach ($obj as $o) {
-                echo "<source src='$o->_url' type='$o->_type'>";
-              }
+          try {
+            $before = $results_videos[$beforeIndex]->id;
+            echo '<button class="btn col-sm-12" ><a href="'.URL::route("playlist-single",[$playlist,$before]).'">vorheriges Video</a></button>';
+            echo "<span>".$results_videos[$beforeIndex]->title."</span>"; 
+
+          } catch (Exception $e) {
+            $before = $results_videos[$beforeIndex+1]->id;
           }
-        }
-      ?>
-      </video>
-      <?php
-        $nextIndex = null; 
-        foreach($results_videos AS $key=>$result){
-          if ($result->id == $playlistVideo){
-                $nextIndex = $key+1;
+         ?>
+        </div>
+        <video id="playlist-video" class="video-js vjs-default-skin img-responsive col-sm-8" controls preload="auto">
+        <?php
+          $urls = DB::table('broadcasts')->select('url')->where('id',"=", $playlistVideo)->get(); 
+          foreach ($urls as $url ) { 
+            foreach ($url as $u) {
+              $obj = json_decode($u);
+                foreach ($obj as $o) {
+                  echo "<source src='$o->_url' type='$o->_type'>";
+                }
+            }
           }
-        }
-        try {
-          $next = $results_videos[$nextIndex]->id;
-          echo '<button class="btn col-sm-1" ><a href="'.URL::route("playlist-single",[$playlist,$next]).'">nächstes</a></button>';
-          
-        } catch (Exception $e) {
-          $next = $results_videos[$nextIndex-1]->id;
-        }
-       ?>
+        ?>
+        </video>
+        <div id="playlist-next-container"  class="col-sm-2">
+           
+        <?php
+          $nextIndex = null; 
+          foreach($results_videos AS $key=>$result){
+            if ($result->id == $playlistVideo){
+                  $nextIndex = $key+1;
+            }
+          }
+          try {
+            $next = $results_videos[$nextIndex]->id;
+            echo '<button class="btn col-sm-12" ><a href="'.URL::route("playlist-single",[$playlist,$next]).'">nächstes</a></button>';
+            echo "<span>".$results_videos[$nextIndex]->title."</span>"; 
+          } catch (Exception $e) {
+            $next = $results_videos[$nextIndex-1]->id;
+          }
+         ?>
+        </div> 
       </div>
     </div>
     <div class="row">

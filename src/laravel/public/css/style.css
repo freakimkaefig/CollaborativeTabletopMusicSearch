@@ -51,6 +51,18 @@ h2 { text-transform: capitalize; }
 	margin-bottom: 5px;
 }
 
+/* ==== Playlist page ===*/
+
+#playlist-before-container, #playlist-next-container{
+	position: relative;
+	vertical-align: middle;
+}
+#playlist-before-container *{
+	display: inline-block;
+	vertical-align: middle;
+
+}
+
 /* Icons test works for Felix */
 @font-face {   font-family: 'Glyphicons Halflings';   
      src: url('/css/font/glyphicons-halflings-regular.eot');   

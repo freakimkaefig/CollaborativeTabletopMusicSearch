@@ -15,6 +15,9 @@ MediathekCrawler.BookmarkView = (function() {
 				url: "http://mediathek-crawler/bookmarks/delete/"+$broadcastId,
 				data: {},
 			});
+		$('#confirm-delete-'+$broadcastId).modal('hide');
+		$('body').removeClass('modal-open');
+		$('.modal-backdrop').remove();
 		$("#list-item-"+$broadcastId).remove();
 		});
 	};
