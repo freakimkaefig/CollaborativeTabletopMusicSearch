@@ -25,16 +25,14 @@ MediathekCrawler.ARTEService = function() {
 		mediathekModel = mModel;
 	},
 
-	/*
-		second param is for internal use only!
-	*/
-	searchString = function(searchString, ResultSiteToSearch){
+	searchString = function(searchString){
 		//
 		// PROBLEM:
 		// urls werden pro ergebnisseite richtig beschrieben,
 		// aber: es werden stets die selben 'jsnUrls' der ersten seite 
 		// rausgegriffen !?
-		_searchString(searchString,ResultSiteToSearch);
+		// scheinbar ist die response 'data' vom ajax request immer die gleiche!?
+		_searchString(searchString, 1);
 	},
 
 	_searchString = function(searchString, ResultSiteToSearch){
@@ -52,15 +50,14 @@ MediathekCrawler.ARTEService = function() {
 				success: function(data, textStatus, jqXHR) {
 					// console.log('YAAAY', textStatus, jqXHR);
 
-					// data contains the same html altough different url-requests where made
-					// and their html differs from each other...
-					
 					$(data).find('div.video-container').each(function(index,element){
 
 							// console.log("VIDEO DIV: ",element);
 
 							if($(element).attr('arte_vp_url')){
 								var jsonUrl = $(element).attr('arte_vp_url');
+								// stets dieselben videos, da stets dieselbe ergebnisseite
+								// durchsucht wird:
 								console.log("ARTE stream URL: ",jsonUrl);
 								// _onsearchString(jsonUrl);
 							}
