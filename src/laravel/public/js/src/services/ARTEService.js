@@ -1,6 +1,5 @@
 
 			    //TODO:
-			    // FIX getNew()
 			    // FIX searchString()
 			    // check qualities ! (falsch zugeordnet?)
 				// Result-Limit needed;
@@ -18,6 +17,7 @@ MediathekCrawler.ARTEService = function() {
 	ARTESEARCHNEW = 'http://www.arte.tv/papi/tvguide/epg/schedule/D/L3/',
 	ARTESEARCHSTRING = 'http://www.arte.tv/guide/de/suchergebnisse?keyword=',
 	PROXY_URL = '/proxy.php?url=',
+	temp = null;
 	
 	init = function(mModel) {
 		//init ZDFService
@@ -48,11 +48,13 @@ MediathekCrawler.ARTEService = function() {
 			$.ajax({
 				url: _url,
 				type: 'GET',
-				success: function(data) {
-					// console.log('YAAAY',);
-					
-					temp = data;
+				cache: false,
+				success: function(data, textStatus, jqXHR) {
+					// console.log('YAAAY', textStatus, jqXHR);
 
+					// data contains the same html altough different url-requests where made
+					// and their html differs from each other...
+					
 					$(data).find('div.video-container').each(function(index,element){
 
 							// console.log("VIDEO DIV: ",element);
@@ -60,7 +62,7 @@ MediathekCrawler.ARTEService = function() {
 							if($(element).attr('arte_vp_url')){
 								var jsonUrl = $(element).attr('arte_vp_url');
 								console.log("ARTE stream URL: ",jsonUrl);
-								_onsearchString(jsonUrl);
+								// _onsearchString(jsonUrl);
 							}
 						
 					});
@@ -275,8 +277,6 @@ MediathekCrawler.ARTEService = function() {
 		});
 	},
 
-	// PROBLEM:
-	// Could not fetch ALL.json-URL for  Die schönsten Küsten Frankreichs  with ID: XYZ
 	_onGetNew = function(data){
 
 		var response = $.parseJSON(data);
@@ -364,6 +364,7 @@ MediathekCrawler.ARTEService = function() {
 				}
 				try{
 					streamUrl = element.VDO.videoStreamUrl;
+					// console.log('streamUrl: ', element.VDO.videoStreamUrl, ' = ',streamUrl);
 				}catch(e){
 				   // console.log(e);
 				}
