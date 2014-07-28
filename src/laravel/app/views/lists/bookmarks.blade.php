@@ -24,7 +24,28 @@
         <h4>Datum:{{$result->airtime}}</h4>
         <h4>Dauer:{{$result->duration}}</h4>
         </div>
-        <button id="delete-bookmark-{{$result->id}}" value="{{$result->id}}" class="btn pull-right">X</button>
+        <button class="btn pull-right" data-toggle="modal" data-target="#confirm-delete-{{$result->id}}">X</button>
+        <div class="modal fade" id="confirm-delete-{{$result->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" >Video wirklich löschen?</h4>
+                </div>
+            
+                <div class="modal-body">
+                    <p>Sie sind dabei das Video "{{$result->title}}" aus ihrer Merkliste zu löschen! </p>
+                    <p>Wirklich löschen?</p>
+                </div>
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Abbrechen</button>
+                    <button id="delete-bookmark-{{$result->id}}" value="{{$result->id}}" class="btn"  data-dismiss="modal">Löschen</button>
+                </div>
+            </div>
+        </div>
+        </div>
       </div>
     @endforeach
   	</div 	

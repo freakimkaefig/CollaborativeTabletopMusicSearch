@@ -26,15 +26,15 @@
 
 		        <?php 
 		          try{
-		            $image = get_object_vars(json_decode($videos[0]->image)[0])['_url'];
+		            $image_playlist = get_object_vars(json_decode($videos[0]->image)[0])['_url'];
 		          }
 		          catch(Exception $e){
-		            $image = "https://photos-4.dropbox.com/t/0/AAApwsyTodwk2yHgkVFcSHvOVcX_xwrcppU_0HLeIx3GnA/12/97810337/png/1024x768/3/1406131200/0/2/rect3001.png/LEsRiQ13NKBewQUDTxuK0ie3K6O6kGJ1Oy8ez2kQfYY";
+		            $image_playlist = "https://photos-4.dropbox.com/t/0/AAApwsyTodwk2yHgkVFcSHvOVcX_xwrcppU_0HLeIx3GnA/12/97810337/png/1024x768/3/1406131200/0/2/rect3001.png/LEsRiQ13NKBewQUDTxuK0ie3K6O6kGJ1Oy8ez2kQfYY";
 		          }
 		        ?>
 		    @if(isset($videos[0]->id))  
    			<a href="{{ URL::route('playlist-single',[$result->id,$videos[0]->id])}}"><div class="list-item ">
-		        <img src='{{$image}}' class="img-responsive col-lg-6"/>
+		        <img src='{{$image_playlist}}' class="img-responsive col-lg-6"/>
        			<h4>{{$result->name}}</h4>
        			<h5>1){{ isset($videos[0]->title) ? substr($videos[0]->title,0,25).((strlen($videos[0]->title)>24) ? '...' : "") : '' }}</h5>
        			<h5>2){{ isset($videos[1]->title) ? substr($videos[1]->title,0,25).((strlen($videos[1]->title)>24) ? '...' : "") : '' }}</h5>
@@ -58,13 +58,13 @@
 		?>
    			@foreach($results as $result)
 		    <?php try{
-		            $image = get_object_vars(json_decode($results[0]->image)[0])['_url'];
+		            $image_bookmark = get_object_vars(json_decode($result->image)[0])['_url'];
 		          }
 		          catch(Exception $e){
-		            $image = "";
+		            $image_bookmark = "";
 		          } ?>
 			<div class="item col-xs-12 col-sm-12 col-lg-8 col-lg-offset-2">
-				<img src="{{$image}}" class="img-responsive col-xs-12"/>
+				<img src="{{$image_bookmark}}" class="img-responsive col-xs-12"/>
 				<div class="col-xs-12">{{$result->title}}</div>
 				<div class="col-xs-12">TODO: subtitle</div>
 				<div class="col-xs-12"><span>{{$result->airtime}}</span> | <span> {{$result->duration}}</span> | <span>{{$result->station_id}}</span></div>

@@ -32,8 +32,14 @@
 					</div>
 					<div class="col-sm-4">	
 						<form >
-							<button id="addToBookmarks" class="btn col-sm-3 broadcast-btn" value="{{Auth::id()}}"><span class="glyphicon glyphicon-star"></span>Merken</button>
+							<button id="addToBookmarks" class="btn col-sm-3 broadcast-btn" value="{{Auth::id()}}"><span class="glyphicon glyphicon-bookmark"></span>Merken</button>
 							<button id="bookmark-name" class="btn col-sm-3 broadcast-btn hidden"><span class="glyphicon glyphicon-bookmark"></span></button>
+						</form>
+					</div>
+					<div class="col-sm-4">	
+						<form >
+							<button id="addToFavorites" class="btn col-sm-3 broadcast-btn" value="{{Auth::id()}}"><span class="glyphicon glyphicon-star"></span>Favorisieren</button>
+							<button id="favorit-name" class="btn col-sm-3 broadcast-btn hidden"><span class="glyphicon glyphicon-bookmark"></span></button>
 						</form>
 					</div>
 				</div>

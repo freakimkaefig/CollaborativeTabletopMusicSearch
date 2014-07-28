@@ -105,9 +105,9 @@ MediathekCrawler.ApplicationController = function() {
 		//ardController.searchString(searchString);
 		DasErsteService.searchString(searchString, 0);
 		ZDFService.searchString(searchString, ZDFMAXRESULTS*2);
-		BRService.searchString(searchString, 0);
 		WDRService.searchString(searchString);
 		ARTEService.searchString(searchString);
+		BRService.searchString(searchString, 0);
 	},
 
 	_getCategory = function(category) {

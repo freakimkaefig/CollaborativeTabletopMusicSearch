@@ -37,11 +37,16 @@
 				<h4 class="col-sm-offset-4">Konto</h4>
 				<div class="col-sm-4 col-sm-offset-4 alpha ">
 					<ul>
-						<li><a href="{{ URL::route('account-my-account') }}">Übersicht</a></li>
-						<li><a href="{{ URL::route('playlists') }}">Playlisten</a></li>
-						<li><a href="#">Favoriten</a></li>
-						<li><a href="{{ URL::route('bookmarks') }}">Merkliste</a></li>
-						<li><a href="{{ URL::route('account-sign-out') }}">Abmelden</a></li>
+							<li><a href="{{ URL::route('account-my-account') }}">Übersicht</a></li>
+							<li><a href="{{ URL::route('playlists') }}">Playlisten</a></li>
+							<li><a href="#">Favoriten</a></li>
+							<li><a href="{{ URL::route('bookmarks') }}">Merkliste</a></li>
+						
+						@if(Auth::check())
+							<li><a href="{{ URL::route('account-sign-out') }}">Abmelden</a></li>
+					    @else
+					    	<li><a href="{{ URL::route('account-sign-in') }}">Anmelden</a></li>
+					    @endif
 					</ul>
 				</div>
 			</div>
@@ -49,11 +54,6 @@
 				<h4 class="col-sm-offset-4">Sonstiges</h4>
 				<div class="col-sm-4 col-sm-offset-4 alpha">
 					<ul>
-					    @if(Auth::check())
-					    	<li><a href="{{ URL::route('account-my-account') }}">Mein Konto</a></li>
-					    @else
-					    	<li><a href="{{ URL::route('account-sign-in') }}">Anmelden</a></li>
-					    @endif
 					    <li><a href="#">About</a></li>
 					    <li><a href="#">Kontakt</a></li>
 					    <li><a href="#">Impressum</a></li>
