@@ -69,8 +69,8 @@
 				<a href="/video/bookmark/{{$result->id}}">
 				<img src="{{$image_bookmark}}" class="img-responsive col-xs-12"/>
 				<div class="col-xs-12">{{$result->title}}</div>
-				<div class="col-xs-12">TODO: subtitle</div>
-				<div class="col-xs-12"><span>{{$result->airtime}}</span> | <span> {{$result->duration}}</span> | <span>{{$result->station}}</span></div>
+				<div class="col-xs-12">{{($result->subtitle) ? $result->subtitle : ""}}</div>
+				<div class="col-xs-12"><span>{{date('d.m.y H:i', strtotime($result->airtime))}}</span> | <span> {{$result->duration}}</span> | <span>{{$result->station}}</span></div>
 				</a>
 			</div>
        		@endforeach

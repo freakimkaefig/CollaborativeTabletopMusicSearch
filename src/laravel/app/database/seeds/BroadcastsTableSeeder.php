@@ -78,70 +78,6 @@ class BroadcastsTableSeeder extends Seeder {
 			),
 			4 => 
 			array (
-				'id' => 8,
-				'title' => 'Baurfeind assistiert Linda Zervakis -...',
-				'subtitle' => '',
-				'details' => '',
-				'airtime' => '0000-00-00 00:00:00',
-				'url' => '[{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/diverse\\/0305_obenrumjob_bauerfeind_436k_p9v11.mp4","_filesize":"1711052"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"","_url":"http:\\/\\/rodl.zdf.de\\/none\\/zdf\\/diverse\\/0305_obenrumjob_bauerfeind_436k_p9v11.mp4","_filesize":"1711052"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/diverse\\/0305_obenrumjob_bauerfeind_189k_p7v11.mp4","_filesize":"792221"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"","_url":"http:\\/\\/podfiles.zdf.de\\/podcast\\/zdf_podcasts\\/diverse\\/0305_obenrumjob_bauerfeind_446k_p20v11.mp4","_filesize":"1762823"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/diverse\\/0305_obenrumjob_bauerfeind_1456k_p13v11.mp4","_filesize":"5507576"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"","_url":"http:\\/\\/rodl.zdf.de\\/none\\/zdf\\/diverse\\/0305_obenrumjob_bauerfeind_1456k_p13v11.mp4","_filesize":"5507576"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/diverse\\/0305_obenrumjob_bauerfeind_776k_p17v11.webm","_filesize":"1751755"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/diverse\\/0305_obenrumjob_bauerfeind_282k_p16v11.webm","_filesize":"685288"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/diverse\\/0305_obenrumjob_bauerfeind_1496k_p18v11.webm","_filesize":"3418242"}]',
-				'duration' => '00:00:28',
-				'image' => '[{"_resolution":"94x65","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2141302\\/timg94x65blob\\/9591613"},{"_resolution":"173x120","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2141302\\/timg173x120blob\\/9591601"},{"_resolution":"485x273","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2141302\\/timg485x273blob\\/9591600"},{"_resolution":"276x155","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2141302\\/timg276x155blob\\/9591610"},{"_resolution":"116x54","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2141302\\/timg116x54blob\\/9591607"},{"_resolution":"116x88","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2141302\\/timg116x88blob\\/9591612"},{"_resolution":"72x54","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2141302\\/timg72x54blob\\/9591615"},{"_resolution":"476x176","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2141302\\/timg476x176blob\\/9591604"},{"_resolution":"75x52","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2141302\\/timg75x52blob\\/9591611"},{"_resolution":"476x268","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2141302\\/timg476x268blob\\/9591602"},{"_resolution":"298x168","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2141302\\/timg298x168blob\\/9591603"},{"_resolution":"236x133","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2141302\\/timg236x133blob\\/9591614"},{"_resolution":"144x81","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2141302\\/timg144x81blob\\/9591609"},{"_resolution":"644x363","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2141302\\/timg644x363blob\\/9591606"},{"_resolution":"672x378","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2141302\\/timg672x378blob\\/9591605"},{"_resolution":"404x227","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2141302\\/timg404x227blob\\/9591608"}]',
-				'station' => 'ARD',
-				'created_at' => '2014-07-25 12:28:08',
-				'updated_at' => '2014-07-25 12:28:08',
-				'playlist_id' => 1,
-				'user_id' => NULL,
-			),
-			5 => 
-			array (
-				'id' => 9,
-				'title' => 'Baurfeind assistiert Linda Zervakis -...',
-				'subtitle' => 'Testtite',
-				'details' => 'Das hier ist die Beschreibung!',
-				'airtime' => '0000-00-00 00:00:00',
-				'url' => '[{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/diverse\\/0305_obenrumjob_bauerfeind_436k_p9v11.mp4","_filesize":"1711052"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"","_url":"http:\\/\\/rodl.zdf.de\\/none\\/zdf\\/diverse\\/0305_obenrumjob_bauerfeind_436k_p9v11.mp4","_filesize":"1711052"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/diverse\\/0305_obenrumjob_bauerfeind_189k_p7v11.mp4","_filesize":"792221"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"","_url":"http:\\/\\/podfiles.zdf.de\\/podcast\\/zdf_podcasts\\/diverse\\/0305_obenrumjob_bauerfeind_446k_p20v11.mp4","_filesize":"1762823"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/diverse\\/0305_obenrumjob_bauerfeind_1456k_p13v11.mp4","_filesize":"5507576"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"","_url":"http:\\/\\/rodl.zdf.de\\/none\\/zdf\\/diverse\\/0305_obenrumjob_bauerfeind_1456k_p13v11.mp4","_filesize":"5507576"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/diverse\\/0305_obenrumjob_bauerfeind_776k_p17v11.webm","_filesize":"1751755"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/diverse\\/0305_obenrumjob_bauerfeind_282k_p16v11.webm","_filesize":"685288"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/diverse\\/0305_obenrumjob_bauerfeind_1496k_p18v11.webm","_filesize":"3418242"}]',
-				'duration' => '00:00:28',
-				'image' => '[{"_resolution":"94x65","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2141302\\/timg94x65blob\\/9591613"},{"_resolution":"173x120","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2141302\\/timg173x120blob\\/9591601"},{"_resolution":"485x273","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2141302\\/timg485x273blob\\/9591600"},{"_resolution":"276x155","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2141302\\/timg276x155blob\\/9591610"},{"_resolution":"116x54","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2141302\\/timg116x54blob\\/9591607"},{"_resolution":"116x88","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2141302\\/timg116x88blob\\/9591612"},{"_resolution":"72x54","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2141302\\/timg72x54blob\\/9591615"},{"_resolution":"476x176","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2141302\\/timg476x176blob\\/9591604"},{"_resolution":"75x52","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2141302\\/timg75x52blob\\/9591611"},{"_resolution":"476x268","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2141302\\/timg476x268blob\\/9591602"},{"_resolution":"298x168","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2141302\\/timg298x168blob\\/9591603"},{"_resolution":"236x133","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2141302\\/timg236x133blob\\/9591614"},{"_resolution":"144x81","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2141302\\/timg144x81blob\\/9591609"},{"_resolution":"644x363","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2141302\\/timg644x363blob\\/9591606"},{"_resolution":"672x378","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2141302\\/timg672x378blob\\/9591605"},{"_resolution":"404x227","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2141302\\/timg404x227blob\\/9591608"}]',
-				'station' => 'ZDF',
-				'created_at' => '2014-07-25 12:40:31',
-				'updated_at' => '2014-07-25 12:40:31',
-				'playlist_id' => NULL,
-				'user_id' => 1,
-			),
-			6 => 
-			array (
-				'id' => 10,
-				'title' => 'Petersilie und Schnittlauch trennen!',
-				'subtitle' => '',
-				'details' => '',
-				'airtime' => '0000-00-00 00:00:00',
-				'url' => '[{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/06\\/140612_serviceL_mom_436k_p9v11.mp4","_filesize":"11787635"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"","_url":"http:\\/\\/rodl.zdf.de\\/none\\/zdf\\/14\\/06\\/140612_serviceL_mom_436k_p9v11.mp4","_filesize":"11787635"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/06\\/140612_serviceL_mom_189k_p7v11.mp4","_filesize":"5460859"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/06\\/140612_serviceL_mom_1456k_p13v11.mp4","_filesize":"37943538"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"","_url":"http:\\/\\/rodl.zdf.de\\/none\\/zdf\\/14\\/06\\/140612_serviceL_mom_1456k_p13v11.mp4","_filesize":"37943538"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/06\\/140612_serviceL_mom_776k_p17v11.webm","_filesize":"14223889"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/06\\/140612_serviceL_mom_282k_p16v11.webm","_filesize":"5194399"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/06\\/140612_serviceL_mom_1496k_p18v11.webm","_filesize":"25765984"}]',
-				'duration' => '00:03:17',
-				'image' => '[{"_resolution":"94x65","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2174786\\/timg94x65blob\\/9819820"},{"_resolution":"173x120","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2174786\\/timg173x120blob\\/9821245"},{"_resolution":"485x273","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2174786\\/timg485x273blob\\/9819807"},{"_resolution":"276x155","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2174786\\/timg276x155blob\\/9819817"},{"_resolution":"116x54","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2174786\\/timg116x54blob\\/9821248"},{"_resolution":"116x88","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2174786\\/timg116x88blob\\/9819819"},{"_resolution":"72x54","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2174786\\/timg72x54blob\\/9819822"},{"_resolution":"476x176","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2174786\\/timg476x176blob\\/9821251"},{"_resolution":"75x52","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2174786\\/timg75x52blob\\/9821252"},{"_resolution":"476x268","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2174786\\/timg476x268blob\\/9821253"},{"_resolution":"298x168","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2174786\\/timg298x168blob\\/9821254"},{"_resolution":"236x133","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2174786\\/timg236x133blob\\/9821255"},{"_resolution":"144x81","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2174786\\/timg144x81blob\\/9819816"},{"_resolution":"644x363","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2174786\\/timg644x363blob\\/9821256"},{"_resolution":"672x378","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2174786\\/timg672x378blob\\/9819812"},{"_resolution":"404x227","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2174786\\/timg404x227blob\\/9819815"}]',
-				'station' => 'ARD',
-				'created_at' => '2014-07-25 12:53:45',
-				'updated_at' => '2014-07-25 12:53:45',
-				'playlist_id' => NULL,
-				'user_id' => 1,
-			),
-			7 => 
-			array (
-				'id' => 18,
-				'title' => 'Trailer: "Die letzte Fahrstunde"',
-				'subtitle' => '',
-				'details' => '',
-				'airtime' => '0000-00-00 00:00:00',
-				'url' => '[{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/07\\/140717_trailer_fahrstunde_rhc_436k_p9v11.mp4","_filesize":"3695126"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"","_url":"http:\\/\\/rodl.zdf.de\\/none\\/zdf\\/14\\/07\\/140717_trailer_fahrstunde_rhc_436k_p9v11.mp4","_filesize":"3695126"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/07\\/140717_trailer_fahrstunde_rhc_189k_p7v11.mp4","_filesize":"1709688"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/07\\/140717_trailer_fahrstunde_rhc_1456k_p13v11.mp4","_filesize":"11929981"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"","_url":"http:\\/\\/rodl.zdf.de\\/none\\/zdf\\/14\\/07\\/140717_trailer_fahrstunde_rhc_1456k_p13v11.mp4","_filesize":"11929981"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/07\\/140717_trailer_fahrstunde_rhc_776k_p17v11.webm","_filesize":"4038738"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/07\\/140717_trailer_fahrstunde_rhc_282k_p16v11.webm","_filesize":"1531796"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/07\\/140717_trailer_fahrstunde_rhc_1496k_p18v11.webm","_filesize":"7335324"}]',
-				'duration' => '00:01:01',
-				'image' => '[{"_resolution":"94x65","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2202432\\/timg94x65blob\\/10037338"},{"_resolution":"173x120","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2202432\\/timg173x120blob\\/10037326"},{"_resolution":"485x273","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2202432\\/timg485x273blob\\/10037325"},{"_resolution":"276x155","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2202432\\/timg276x155blob\\/10037335"},{"_resolution":"116x54","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2202432\\/timg116x54blob\\/10037332"},{"_resolution":"116x88","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2202432\\/timg116x88blob\\/10037337"},{"_resolution":"72x54","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2202432\\/timg72x54blob\\/10037340"},{"_resolution":"476x176","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2202432\\/timg476x176blob\\/10037329"},{"_resolution":"75x52","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2202432\\/timg75x52blob\\/10037336"},{"_resolution":"476x268","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2202432\\/timg476x268blob\\/10037327"},{"_resolution":"298x168","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2202432\\/timg298x168blob\\/10037328"},{"_resolution":"236x133","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2202432\\/timg236x133blob\\/10037339"},{"_resolution":"144x81","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2202432\\/timg144x81blob\\/10037334"},{"_resolution":"644x363","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2202432\\/timg644x363blob\\/10037331"},{"_resolution":"672x378","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2202432\\/timg672x378blob\\/10037330"},{"_resolution":"404x227","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2202432\\/timg404x227blob\\/10037333"}]',
-				'station' => 'ARD',
-				'created_at' => '2014-07-25 13:39:12',
-				'updated_at' => '2014-07-25 13:39:12',
-				'playlist_id' => NULL,
-				'user_id' => 1,
-			),
-			8 => 
-			array (
 				'id' => 19,
 				'title' => 'Leute heute vom 25.7.2014',
 				'subtitle' => '',
@@ -156,7 +92,7 @@ class BroadcastsTableSeeder extends Seeder {
 				'playlist_id' => 1,
 				'user_id' => NULL,
 			),
-			9 => 
+			5 => 
 			array (
 				'id' => 20,
 				'title' => 'ttt - titel thesen temperamente',
@@ -173,7 +109,7 @@ Was ist Kunst? Und wie schmeckt sie? Max Moor über die Metamorphose der Fett-Ec
 				'playlist_id' => 1,
 				'user_id' => NULL,
 			),
-			10 => 
+			6 => 
 			array (
 				'id' => 21,
 				'title' => 'Mittagsmagazin',
@@ -190,7 +126,7 @@ Es ist schon eine verflixt komplizierte Sache mit diesem Europa ... Was wissen S
 				'playlist_id' => 3,
 				'user_id' => NULL,
 			),
-			11 => 
+			7 => 
 			array (
 				'id' => 23,
 				'title' => 'Wildes Nairobi',
@@ -206,7 +142,7 @@ Es ist schon eine verflixt komplizierte Sache mit diesem Europa ... Was wissen S
 				'playlist_id' => NULL,
 				'user_id' => 1,
 			),
-			12 => 
+			8 => 
 			array (
 				'id' => 24,
 				'title' => 'Abendschau vom 26.07.2014',
@@ -222,7 +158,7 @@ Es ist schon eine verflixt komplizierte Sache mit diesem Europa ... Was wissen S
 				'playlist_id' => NULL,
 				'user_id' => 1,
 			),
-			13 => 
+			9 => 
 			array (
 				'id' => 25,
 				'title' => 'Tagesschau',
@@ -239,7 +175,7 @@ Themen der Sendung: UN-Sicherheitsrat fordert bedingungslose Waffenruhe im Nahen
 				'playlist_id' => NULL,
 				'user_id' => 1,
 			),
-			14 => 
+			10 => 
 			array (
 				'id' => 27,
 				'title' => 'Heiß & Fettig! Gast: Micaela Schäfer',
@@ -252,6 +188,22 @@ Themen der Sendung: UN-Sicherheitsrat fordert bedingungslose Waffenruhe im Nahen
 				'station' => 'ZDFneo',
 				'created_at' => '2014-07-28 11:44:50',
 				'updated_at' => '2014-07-28 11:44:50',
+				'playlist_id' => NULL,
+				'user_id' => 1,
+			),
+			11 => 
+			array (
+				'id' => 28,
+				'title' => 'Pump up the Jam',
+			'subtitle' => 'Heroes of Eurodance (Dokumentation)',
+				'details' => 'AUSSCHNITT: Dieses Musikgenre war stets genauso belächelt wie beliebt: „Pump up the Jam – Heroes of Eurodance“ geht der Entstehung des Genres Eurodance nach. Die Dokumentation zeigt die erfolgreichsten Protagonisten und greift in zahlreichen Interviews und Archivaufnahmen das Gefühl der Szene auf. Dabei wird die Geburt der letzten großen musikalischen Revolution, des Techno, und die Aufbruchstimmung Anfang der 90er Jahre in den Clubs bis hin zur Loveparade miterzählt. Von ihren Erfahrungen berichten unter anderem DJ Bobo, Westbam und H.P. Baxxter von Scooter.',
+				'airtime' => '1970-01-01 00:00:00',
+				'url' => '[{"_basetype":"","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/artestras.vo.llnwxd.net\\/o35\\/nogeo\\/HBBTV\\/051604-000-A_EXT_HQ_1_VOA_01365953_MP4-800_AMM-HBBTV_EXTRAIT.mp4","_filesize":"0"},{"_basetype":"","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/artestras.vo.llnwxd.net\\/o35\\/nogeo\\/HBBTV\\/051604-000-A_EXT_SQ_1_VOA_01365954_MP4-2200_AMM-HBBTV_EXTRAIT.mp4","_filesize":"0"},{"_basetype":"","_type":"video\\/mp4","_quality":"1","_url":"http:\\/\\/artestras.vo.llnwxd.net\\/o35\\/nogeo\\/HBBTV\\/051604-000-A_EXT_EQ_1_VOA_01365955_MP4-1500_AMM-HBBTV_EXTRAIT.mp4","_filesize":"0"}]',
+				'duration' => '22:05:00',
+				'image' => '[{"_resolution":"0","_url":"http:\\/\\/www.arte.tv\\/papi\\/tvguide\\/images\\/1227369\\/ORIGINAL\\/051604-000_eurodance_13-1404618311478.jpg"},{"_resolution":"0","_url":"http:\\/\\/www.arte.tv\\/papi\\/tvguide\\/images\\/1227369\\/W940H530\\/051604-000_eurodance_13-1404618311478.jpg"},{"_resolution":"0","_url":"http:\\/\\/www.arte.tv\\/papi\\/tvguide\\/images\\/1227369\\/ORIGINAL\\/051604-000_eurodance_13-1404618311478.jpg"},{"_resolution":"0","_url":"http:\\/\\/www.arte.tv\\/papi\\/tvguide\\/images\\/1227369\\/W940H530\\/051604-000_eurodance_13-1404618311478.jpg"}]',
+				'station' => 'RBB',
+				'created_at' => '2014-07-28 12:42:05',
+				'updated_at' => '2014-07-28 12:42:05',
 				'playlist_id' => NULL,
 				'user_id' => 1,
 			),
