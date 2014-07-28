@@ -27,7 +27,7 @@ class PlaylistsController extends BaseController {
 			$Broadcast->subtitle=$data['subtitle'];
 			$Broadcast->station=$data['station'];
 			$Broadcast->playlist_id=$playlistId;
-			$Broadcast->airtime=$data['airtime'];
+			$Broadcast->airtime=date('Y-m-d H:i:s', strtotime($data['airtime']));
 			$Broadcast->url=json_encode($data['url']);
 			$Broadcast->duration=$data['duration'];
 			$Broadcast->image=json_encode($data['image']);
