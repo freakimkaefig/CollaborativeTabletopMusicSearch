@@ -14,7 +14,7 @@
 			@if(Auth::check())
 				<div class="row">	
 					<div class="col-sm-4">
-						<button id="choosePlaylist" class="btn col-sm-3 col-lg-3 broadcast-btn"><span class="glyphicon glyphicon-list"></span>Playliste</button>
+						<button id="choosePlaylist" class="btn col-sm-3 col-lg-3 broadcast-btn"><span class="glyphicon glyphicon-list"></span>Playlisten</button>
 						<form class="col-sm-3 col-lg-3">
 							<div id="selectPlaylist" class="hidden">			
 								<select id="select">
@@ -26,9 +26,10 @@
 								 	@endforeach
 								</select>
 								<button id="add-to-playlist" class="btn">Hinzufügen</button>
-								<button id="add-to-playlist-cancel" class="btn" type="button">Abbrechen</button>
+								<button id="add-to-playlist-cancel" class="btn" type="button" >Abbrechen</button>
 							</div>
 						</form>
+						<p class="feedback col-sm-3 col-lg-3" hidden>hinzugefügt!</p>
 					</div>
 					<div class="col-sm-4">	
 						<form >
