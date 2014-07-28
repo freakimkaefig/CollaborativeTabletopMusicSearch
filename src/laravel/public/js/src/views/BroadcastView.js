@@ -88,12 +88,12 @@ MediathekCrawler.BroadcastView = (function() {
 			'<h3>Dauer:</h3>' +
 			'<div>' + result.duration + '</div>' +
 			'<h3>Sender:</h3>' +
-			'<div>' + result.station_id + '</div>';
+			'<div>' + result.station + '</div>';
 
 		
 		$infoWrapper.append(infoElement);
 
-		var descriptionElement = '<div>' + result._details + '</div>';
+		var descriptionElement = '<div>' + result.details + '</div>';
 		$descriptionWrapper.append(descriptionElement);
 		
 		checkBookmarked(result);
@@ -116,10 +116,13 @@ MediathekCrawler.BroadcastView = (function() {
 	  			// parameters that you want to pass
 				data: {
 					"title": result._title,
+					"subtitle": result._subtitle,
 					"airtime":result._airtime,
 					"url": result._streams,
 					"duration": result._length,
-					"image": result._teaserImages
+					"image": result._teaserImages,
+					"details": result._details,
+					"station": result._station
 				},
 				dataType: 'json',		
 			});
@@ -142,10 +145,15 @@ MediathekCrawler.BroadcastView = (function() {
 				url: "http://mediathek-crawler/bookmarks/add/"+$(this).val(),
 				data: {
 					"title": ((result._title) ? result._title : (result.title) ? result.title : 0),
+					"subtitle": ((result._subtitle) ? result._subtitle : (result.subtitle) ? result.subtitle : 0),
 					"airtime":((result._airtime) ? result._airtime : (result.airtime) ? result.airtime  : 0),
 					"url": ((result._streams) ? result._streams : (result.url) ? JSON.parse(result.url)  : 0),
 					"duration": ((result._length) ? result._length  : (result.duration) ? result.duration : 0),
 					"image": ((result._teaserImages) ? result._teaserImages : (result.image) ? JSON.parse(result.image)  : 0),
+					"details": ((result._details) ? result._details : (result.details) ? result.details : 0),
+					"station": ((result._station) ? result._station : (result.station) ? result.station : 0),
+
+				
 				},
 				dataType: 'json',		
 			});

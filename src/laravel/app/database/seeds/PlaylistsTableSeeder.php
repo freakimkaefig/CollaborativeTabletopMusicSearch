@@ -23,7 +23,7 @@ class PlaylistsTableSeeder extends Seeder {
 			1 => 
 			array (
 				'id' => 3,
-				'name' => 'noch',
+				'name' => 'NochEinePlaylist',
 				'created_at' => '2014-07-25 09:29:55',
 				'updated_at' => '2014-07-25 09:29:55',
 				'user' => 1,

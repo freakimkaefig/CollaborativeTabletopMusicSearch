@@ -17,13 +17,15 @@
             $image = "no image";
           }
         ?>
+        <a href="/video/bookmark/{{$result->id}}">
         <img src='{{$image}}' class="img-responsive col-sm-3"/>
         <div class="list-item-description col-sm-7 col-sm-offset-1">
-        <h3><a href="/video/bookmark/{{$result->id}}">{{$result->title}}</a></h3>
-        <h4>Sender:{{$result->station_id}}</h4>
+        <h3>{{$result->title}}</h3>
+        <h4>Sender:{{$result->station}}</h4>
         <h4>Datum:{{$result->airtime}}</h4>
         <h4>Dauer:{{$result->duration}}</h4>
         </div>
+        </a>
         <button class="btn pull-right" data-toggle="modal" data-target="#confirm-delete-{{$result->id}}">X</button>
         <div class="modal fade" id="confirm-delete-{{$result->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">

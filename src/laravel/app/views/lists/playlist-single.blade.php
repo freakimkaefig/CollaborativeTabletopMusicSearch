@@ -21,7 +21,7 @@
           }
           try {
             $before = $results_videos[$beforeIndex]->id;
-            echo '<button class="btn col-sm-12" ><a href="'.URL::route("playlist-single",[$playlist,$before]).'">vorheriges Video</a></button>';
+            echo '<button class="btn col-xs-6 col-sm-12" ><a href="'.URL::route("playlist-single",[$playlist,$before]).'">vorheriges Video</a></button>';
             echo "<span>".$results_videos[$beforeIndex]->title."</span>"; 
 
           } catch (Exception $e) {
@@ -29,7 +29,7 @@
           }
          ?>
         </div>
-        <video id="playlist-video" class="video-js vjs-default-skin img-responsive col-sm-8" controls preload="auto">
+        <video id="playlist-video" class="video-js vjs-default-skin img-responsive col-xs-12 col-sm-8" controls preload="auto">
         <?php
           $urls = DB::table('broadcasts')->select('url')->where('id',"=", $playlistVideo)->get(); 
           foreach ($urls as $url ) { 
@@ -53,7 +53,7 @@
           }
           try {
             $next = $results_videos[$nextIndex]->id;
-            echo '<button class="btn col-sm-12" ><a href="'.URL::route("playlist-single",[$playlist,$next]).'">nächstes</a></button>';
+            echo '<button class="btn col-xs-6 col-sm-12" ><a href="'.URL::route("playlist-single",[$playlist,$next]).'">nächstes</a></button>';
             echo "<span>".$results_videos[$nextIndex]->title."</span>"; 
           } catch (Exception $e) {
             $next = $results_videos[$nextIndex-1]->id;
@@ -64,7 +64,7 @@
     </div>
     <div class="row">
     @foreach($results_videos as $result)
-    	<div id="list-item-{{$result->id}}" class="list-item col-sm-10 col-sm-offset-1">
+    	<div id="list-item-{{$result->id}}" class="list-item  col-xs-12 col-sm-10 col-sm-offset-1">
         <?php 
           try{
             $image = get_object_vars(json_decode($result->image)[0])['_url'];
@@ -73,14 +73,13 @@
             $image = "no image";
           }
         ?>
-        <img src='{{$image}}' class="img-responsive col-sm-3"/>
+        <img src='{{$image}}' class="img-responsive col-xs 12 col-sm-3"/>
         <div class="list-item-description col-sm-7 col-sm-offset-1">
         <h3><a href="{{URL::route('playlist-single',[$playlist,$result->id])}}">{{$result->title}}</a></h3>
-        <h4>Sender:{{$result->station_id}}</h4>
+        <h4>Sender:{{$result->station}}</h4>
         <h4>Datum:{{$result->airtime}}</h4>
         <h4>Dauer:{{$result->duration}}</h4>
         </div>
-        
         <button class="btn pull-right" data-toggle="modal" data-target="#confirm-delete-{{$result->id}}">X</button>
         <div class="modal fade" id="confirm-delete-{{$result->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">

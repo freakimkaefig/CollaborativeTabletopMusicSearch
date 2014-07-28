@@ -12,12 +12,14 @@ class BookmarksController extends BaseController {
 			$Broadcast = new Broadcast;
 			//$Broadcast->playlist_id=$playlistId;
 			$Broadcast->title=$data['title'];
-			$Broadcast->station_id=1;
+			$Broadcast->subtitle=$data['subtitle'];
+			$Broadcast->station=$data['station'];
 			$Broadcast->user_id=$userId;
-			$Broadcast->airtime=$data['airtime'];
+			$Broadcast->airtime=date('Y-m-d H:i:s', strtotime($data['airtime']) );
 			$Broadcast->url=json_encode($data['url']);
 			$Broadcast->duration=$data['duration'];
 			$Broadcast->image=json_encode($data['image']);
+			$Broadcast->details=$data['details'];
 			$Broadcast->save();
 		}
 	}

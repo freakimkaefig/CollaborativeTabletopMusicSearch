@@ -33,12 +33,14 @@
 		          }
 		        ?>
 		    @if(isset($videos[0]->id))  
-   			<a href="{{ URL::route('playlist-single',[$result->id,$videos[0]->id])}}"><div class="list-item ">
-		        <img src='{{$image_playlist}}' class="img-responsive col-lg-6"/>
+   			<a href="{{ URL::route('playlist-single',[$result->id,$videos[0]->id])}}"><div class="list-item row ">
+		        <img src='{{$image_playlist}}' class="img-responsive col-sm-6"/>
+       			<div class="col-sm-6">
        			<h4>{{$result->name}}</h4>
        			<h5>1){{ isset($videos[0]->title) ? substr($videos[0]->title,0,25).((strlen($videos[0]->title)>24) ? '...' : "") : '' }}</h5>
        			<h5>2){{ isset($videos[1]->title) ? substr($videos[1]->title,0,25).((strlen($videos[1]->title)>24) ? '...' : "") : '' }}</h5>
        			<h5>3){{ isset($videos[2]->title) ? substr($videos[2]->title,0,25).((strlen($videos[2]->title)>24) ? '...' : "") : '' }}</h5>
+   				</div>
    			</div></a>
    			@else
    			<div class="list-item">
@@ -64,10 +66,12 @@
 		            $image_bookmark = "";
 		          } ?>
 			<div class="item col-xs-12 col-sm-12 col-lg-8 col-lg-offset-2">
+				<a href="/video/bookmark/{{$result->id}}">
 				<img src="{{$image_bookmark}}" class="img-responsive col-xs-12"/>
 				<div class="col-xs-12">{{$result->title}}</div>
 				<div class="col-xs-12">TODO: subtitle</div>
-				<div class="col-xs-12"><span>{{$result->airtime}}</span> | <span> {{$result->duration}}</span> | <span>{{$result->station_id}}</span></div>
+				<div class="col-xs-12"><span>{{$result->airtime}}</span> | <span> {{$result->duration}}</span> | <span>{{$result->station}}</span></div>
+				</a>
 			</div>
        		@endforeach
 	</div>
