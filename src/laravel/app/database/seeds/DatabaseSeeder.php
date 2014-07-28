@@ -15,7 +15,6 @@ class DatabaseSeeder extends Seeder {
 
 		$this->call('ClearAllTablesSeeder');
 		$this->call('UsersTableSeeder');
-		$this->call('StationsTableSeeder');
 		$this->call('PlaylistsTableSeeder');
 		$this->call('BroadcastsTableSeeder');
 
