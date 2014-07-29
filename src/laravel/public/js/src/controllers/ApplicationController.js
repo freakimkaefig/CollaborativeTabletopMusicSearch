@@ -19,7 +19,8 @@ MediathekCrawler.ApplicationController = function() {
 	broadcastView = null,
 
 	/* ===== CONTROLS ===== */
-	ZDFMAXRESULTS = 50,
+	ZDFMAXRESULTS = 10,
+	ARTEMAXRESULTS = 10,
 
 	init = function() {   
 		console.info('MediathekCrawler.ApplicationController.init');
@@ -104,9 +105,9 @@ MediathekCrawler.ApplicationController = function() {
 
 		//ardController.searchString(searchString);
 		DasErsteService.searchString(searchString, 0);
-		ZDFService.searchString(searchString, ZDFMAXRESULTS*2);
+		ZDFService.searchString(searchString, ZDFMAXRESULTS);
 		WDRService.searchString(searchString);
-		ARTEService.searchString(searchString);
+		ARTEService.searchString(searchString, ARTEMAXRESULTS);
 		BRService.searchString(searchString, 0);
 	},
 
@@ -121,7 +122,7 @@ MediathekCrawler.ApplicationController = function() {
 		DasErsteService.getNew();
 		//param: maxLength of ZDF results
 		ZDFService.getNew(ZDFMAXRESULTS);
-		ARTEService.getNew();
+		ARTEService.getNew(ARTEMAXRESULTS);
 
 		//BRService blockiert; siehe Fehlermeldung in Console.
 		BRService.getNew();

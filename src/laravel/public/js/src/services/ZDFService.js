@@ -1,5 +1,6 @@
 
 			    //TODO:
+			    // mehrere Suchbegriffe (wie verbinden)?
 			    // Filter
 			    // SendungenAbisZ-Suche?
 			    // CHECK ob parseResponse() bereits Daten enthät die searchStream() nochmals abruft!?

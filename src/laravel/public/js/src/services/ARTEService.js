@@ -1,9 +1,5 @@
 
 			    //TODO:
-			    // FIX searchString()
-			    // check qualities ! (falsch zugeordnet?)
-				// Result-Limit needed;
-			    // searchString
 			    // hot
 			    // rubriken
 			    // INFO
@@ -15,9 +11,13 @@ MediathekCrawler.ARTEService = function() {
 	var that = {},
 	mediathekModel = null,
 	ARTESEARCHNEW = 'http://www.arte.tv/papi/tvguide/epg/schedule/D/L3/',
-	ARTESEARCHSTRING = 'http://www.arte.tv/guide/de/suchergebnisse?keyword=',
-	PROXY_URL = '/proxy.php?url=',
-	temp = null;
+	// http://www.arte.tv/papi/tvguide/videos/plus7/search/D/L1/KEYWORD/ALL/ALL/-1/AIRDATE_DESC/LIMIT/0.json
+	// or
+	// http://www.arte.tv/tvhack/tvguide/videos/plus7/search/F/L2/KEYWORD/ALL/ALL/-1/AIRDATE_DESC/LIMIT/0/EUR_DE_FR/DATE(YYYY-MM-DD).json
+	ARTESEARCHSTRING = 'http://www.arte.tv/papi/tvguide/videos/plus7/search/D/L1/', // +KEYWORD
+	ARTESEARCHSTRING2 = '/ALL/ALL/-1/AIRDATE_DESC/', // +maxResults (+'/YYYY-MM-DD'; not working atm!)
+	ARTESEARCHSTRING3 = '/0.json',
+	PROXY_URL = '/proxy.php?url=';
 	
 	init = function(mModel) {
 		//init ZDFService
@@ -25,23 +25,13 @@ MediathekCrawler.ARTEService = function() {
 		mediathekModel = mModel;
 	},
 
-	searchString = function(searchString){
-		//
-		// PROBLEM:
-		// urls werden pro ergebnisseite richtig beschrieben,
-		// aber: es werden stets die selben 'jsnUrls' der ersten seite 
-		// rausgegriffen !?
-		// scheinbar ist die response 'data' vom ajax request immer die gleiche!?
-		_searchString(searchString, 1);
-	},
-
-	_searchString = function(searchString, ResultSiteToSearch){
-
-		if(ResultSiteToSearch == 'undefined' || !ResultSiteToSearch || ResultSiteToSearch === null){
-			ResultSiteToSearch = 1;
+	searchString = function(searchString, maxResults){
+		
+		if(maxResults < 1 || maxResults === null || maxResults === 'undefined' || maxResults === undefined){
+			maxResults = 10;
 		}
-		if(ResultSiteToSearch<10){
-			var _url = PROXY_URL + ARTESEARCHSTRING+String(searchString)+'&page='+String(ResultSiteToSearch);
+
+		var _url = PROXY_URL + encodeURI(ARTESEARCHSTRING+String(searchString)+ARTESEARCHSTRING2+String(maxResults)+ARTESEARCHSTRING3);
 			// console.log("ARTE search results url: ",_url);
 			$.ajax({
 				url: _url,
@@ -49,186 +39,115 @@ MediathekCrawler.ARTEService = function() {
 				cache: false,
 				success: function(data, textStatus, jqXHR) {
 					// console.log('YAAAY', textStatus, jqXHR);
-
-					$(data).find('div.video-container').each(function(index,element){
-
-							// console.log("VIDEO DIV: ",element);
-
-							if($(element).attr('arte_vp_url')){
-								var jsonUrl = $(element).attr('arte_vp_url');
-								// stets dieselben videos, da stets dieselbe ergebnisseite
-								// durchsucht wird:
-								console.log("ARTE stream URL: ",jsonUrl);
-								// _onsearchString(jsonUrl);
-							}
-						
-					});
-					_searchString(searchString,ResultSiteToSearch+1);
+					_onsearchString(data);
+					
 				},
 				error: function(){
 					console.warn('ERROR; ARTEService.searchString(); AJAX-request did not recieve a response');
 				}
 			});
-		}
 	},
 
-	_onsearchString = function(_url){
-		// console.log("ARTE._onsearchString got URL: ",_url);
-		var teaserImages = [],
-			streams = [],
-			details = '',
-			title = '',
-			assetID = 0,
-			length = '',
-			airtime = '',
-			station = '',
-			streamUrl = _url,
-			subtitle = '';
+	_onsearchString = function(data){
+		// console.log("ARTE; data: ",data);
+		var response = $.parseJSON(data);
 
-		$.ajax({
-			url: _url,
-			type: 'GET',
-			success: function(data) {
-				try{
+		if(response.videoList.length > 0){
 
-				var response = $.parseJSON(data);
+			$.each(response.videoList, function(index, element) {
+
+				var teaserImages = [],
+					streams = [],
+					details = '',
+					title = '',
+					assetID = 0,
+					length = '',
+					airtime = '',
+					station = '',
+					streamUrl = '',
+					subtitle = '';
+
+				//get images
+				try{	
+					var ti2 = mediathekModel.createTeaserImage(0, element.programImage);
+			    	teaserImages.push(ti2);
 				}catch(e){
-					if(typeof data === 'object'){
-						response = data;
-					}
+				   // console.log(e);
 				}
-				if(response && response.videoJsonPlayer){
-					try{
-					
-						var ti = mediathekModel.createTeaserImage(0, response.videoJsonPlayer.programImage);
-				    	teaserImages.push(ti);
-					}catch(e){
-					   // console.log(e);
-					}
-					try{
-					
-						var ti2 = mediathekModel.createTeaserImage(0, response.videoJsonPlayer.VTU.original);
-				    	teaserImages.push(ti2);
-					}catch(e){
-					   // console.log(e);
-					}
-					try{
-					
-						var ti3 = mediathekModel.createTeaserImage(0, response.videoJsonPlayer.VTU.IUR);
-				    	teaserImages.push(ti3);
-					}catch(e){
-					   // console.log(e);
-					}
-					try{
-					
-						details = response.videoJsonPlayer.VTX+': '+response.videoJsonPlayer.VDE;
-					}catch(e){
-					   // console.log(e);
-					}
-					try{
-					
-						title = response.videoJsonPlayer.VTI;
-					}catch(e){
-					   // console.log(e);
-					}
-					try{
-					
-						assetID = response.videoJsonPlayer.VPI;
-					}catch(e){
-					   // console.log(e);
-					}
-					try{
-					
-						length = response.videoJsonPlayer.videoDurationSeconds+'s';
-					}catch(e){
-					   // console.log(e);
-					}
-					try{
-						//eig. datum der wiederholung, aber sonst kein vernünftiges & richtiges(!) datum auffindbar!?
-						airtime = response.videoJsonPlayer.VDA;
-					}catch(e){
-					   // console.log(e);
-					}
-					try{
-					
-						station = response.videoJsonPlayer.VST.VS3;
-					}catch(e){
-					   // console.log(e);
-					}
-					try{
-						//eig nur genre
-						subtitle = response.videoJsonPlayer.VST.VGE;
-					}catch(e){
-					   // console.log(e);
-					}
-					//get streams
-					try{
-
-						$.each(response.videoJsonPlayer.VSR, function(key, value){
-
-							// console.log("key: ",key, ", value.mediaType: ",value.mediaType);
-							// console.log("el: ",element," type: ",typeof element);
-							
-
-								var basetype = '',
-					    		quality = '',
-					    		url = '',
-					    		filesize = 0,
-				    			type = 'video/mp4';
-
-					    		try{
-						    		if(String(value.mediaType) === ''){
-				    			// console.log("value.mediaType equals: ",value.mediaType);
-						    			url = value.url;
-						    			switch (value.VQU) {
-							    			case 'SQ':
-							    				quality = 0;
-							    				break;
-							    			case 'EQ':
-							    				quality = 1;
-							    				break;
-							    			case 'MQ':
-							    				quality = 2;
-							    				break;
-							    			case 'HQ':
-							    				quality = 3;
-							    				break;
-						    			}
-
-							    		var stream = mediathekModel.createStream(basetype, type, quality, url, filesize);
-							    		//console.log('basetype: ',basetype,', stream: ',stream._url);
-										streams.push(stream);
-
-						    		}
-					    		}catch(e){
-					    			//fuck.	
-					    		}
-
-							});
-						
-						if(streams.length < 1){				
-							console.log('\'',title, '\' has ', streams.length, ' streams. \nCHECK: ',streamUrl);
-						}
-						else{
-							_pushResultToModel(title, subtitle, details, station, assetID, length, airtime, teaserImages, streams);
-						}				
-
-					}catch(e){
-						console.log('could not fetch streaming urls: ',e);
-					}
-
+				try{
+					var ti3 = mediathekModel.createTeaserImage(0, element.VTU.original);
+			    	teaserImages.push(ti3);
+				}catch(e){
+				   // console.log(e);
 				}
-			},
-			error: function(){
-				console.warn('ERROR; ARTEService._onsearchString(); AJAX-request did not recieve a response');
-			}
-		});
+				try{	
+					var ti4 = mediathekModel.createTeaserImage(0, element.VTU.IUR);
+			    	teaserImages.push(ti4);
+
+				}catch(e){
+				   // console.log(e);
+				}
+				//get remaining infos
+				try{
+					details = element.VDE;
+				}catch(e){
+				   // console.log(e);
+				}
+				try{
+					title = element.VTI;
+				}catch(e){
+				   // console.log(e);
+				}
+				try{
+					assetID = element.VPI;
+				}catch(e){
+				   // console.log(e);
+				}
+				try{
+					length = String(element.VDU)+'m';
+				}catch(e){
+				   // console.log(e);
+				}
+				try{
+					airtime = element.VDA;
+					airtime = String(airtime).slice(0, airtime.length - 5);
+					airtime = airtime.trim();
+					// console.log('airtime: ',airtime);
+				}catch(e){
+				   // console.log(e);
+				}
+				try{
+					station = element.VTX;
+				}catch(e){
+				   // console.log(e);
+				}
+				try{
+					subtitle = element.VSU+' ('+element.VCG+')';
+				}catch(e){
+				   // console.log(e);
+				}
+				try{
+					streamUrl = element.videoStreamUrl;
+					// console.log('streamUrl: ', element.VDO.videoStreamUrl, ' = ',streamUrl);
+				}catch(e){
+				   // console.log(e);
+				}
+				
+				// search Streams
+				if(streamUrl !== ''){
+					_searchStreams(assetID, title, subtitle, details, station, length, airtime, teaserImages, streamUrl);
+				}else{
+					console.log('Could not fetch streamURL for ', title, ' with ID: ',assetID);
+				}
+
+			});
+		}		
 	},
 
 	/*
 	Gets videos from the last 3 days, starting & including today
 	*/
-	getNew = function(){
+	getNew = function(maxResults){
 
 		//set & format today
 		var today = new Date();
@@ -266,7 +185,7 @@ MediathekCrawler.ARTEService = function() {
 			url: _url,
 			type: 'GET',
 			success: function(data) {
-				_onGetNew(data);
+				_onGetNew(data, maxResults);
 			},
 			error: function(){
 				console.warn('ERROR; ARTEService.getNew(); AJAX-request did not recieve a response');
@@ -274,103 +193,107 @@ MediathekCrawler.ARTEService = function() {
 		});
 	},
 
-	_onGetNew = function(data){
-
+	_onGetNew = function(data, maxResults){
+		var counter = 1;
 		var response = $.parseJSON(data);
 		// console.log(response.abstractBroadcastList.length);
 		if(response.abstractBroadcastList.length > 0){
 
 			$.each(response.abstractBroadcastList, function(index, element) {
-				
-				var teaserImages = [],
-					details = '',
-					title = '',
-					assetID = 0,
-					length = '',
-					airtime = '',
-					station = '',
-					streamUrl = '',
-					subtitle = '';
+				if(counter <= maxResults){
 
-				//get images
-				try{
+					var teaserImages = [],
+						details = '',
+						title = '',
+						assetID = 0,
+						length = '',
+						airtime = '',
+						station = '',
+						streamUrl = '',
+						subtitle = '';
+
+					//get images
+					try{
+						
+						var ti = mediathekModel.createTeaserImage(0, element.IMG.IUR);
+				    	teaserImages.push(ti);
+					}catch(e){
+					   // console.log(e);
+					}
+					try{	
+						var ti2 = mediathekModel.createTeaserImage(0, element.VDO.programImage);
+				    	teaserImages.push(ti2);
+					}catch(e){
+					   // console.log(e);
+					}
+					try{
+						var ti3 = mediathekModel.createTeaserImage(0, element.VDO.VTU.original);
+				    	teaserImages.push(ti3);
+					}catch(e){
+					   // console.log(e);
+					}
+					try{	
+						var ti4 = mediathekModel.createTeaserImage(0, element.VDO.VTU.IUR);
+				    	teaserImages.push(ti4);
+
+					}catch(e){
+					   // console.log(e);
+					}
+
+					//get remaining infos
+					try{
+						details = element.VDO.VTX+': '+element.DSS;
+					}catch(e){
+					   // console.log(e);
+					}
+					try{
+						title = element.TIT;
+					}catch(e){
+					   // console.log(e);
+					}
+					try{
+						assetID = element.programId;
+					}catch(e){
+					   // console.log(e);
+					}
+					try{
+						length = element.BAT;
+					}catch(e){
+					   // console.log(e);
+					}
+					try{
+						airtime = element.BDT;
+						airtime = String(airtime).slice(0, airtime.length - 5);
+						airtime = airtime.trim();
+						// console.log('airtime: ',airtime);
+					}catch(e){
+					   // console.log(e);
+					}
+					try{
+						station = element.POR;
+					}catch(e){
+					   // console.log(e);
+					}
+					try{
+						subtitle = element.STL+' ('+element.VDO.genre+')';
+					}catch(e){
+					   // console.log(e);
+					}
+					try{
+						streamUrl = element.VDO.videoStreamUrl;
+						// console.log('streamUrl: ', element.VDO.videoStreamUrl, ' = ',streamUrl);
+					}catch(e){
+					   // console.log(e);
+					}
 					
-					var ti = mediathekModel.createTeaserImage(0, element.IMG.IUR);
-			    	teaserImages.push(ti);
-				}catch(e){
-				   // console.log(e);
-				}
-				try{	
-					var ti2 = mediathekModel.createTeaserImage(0, element.VDO.programImage);
-			    	teaserImages.push(ti2);
-				}catch(e){
-				   // console.log(e);
-				}
-				try{
-					var ti3 = mediathekModel.createTeaserImage(0, element.VDO.VTU.original);
-			    	teaserImages.push(ti3);
-				}catch(e){
-				   // console.log(e);
-				}
-				try{	
-					var ti4 = mediathekModel.createTeaserImage(0, element.VDO.VTU.IUR);
-			    	teaserImages.push(ti4);
+					// search Streams
+					if(streamUrl !== ''){
+						_searchStreams(assetID, title, subtitle, details, station, length, airtime, teaserImages, streamUrl);
+					}else{
+						console.log('Could not fetch streamURL for ', title, ' with ID: ',assetID);
+					}
 
-				}catch(e){
-				   // console.log(e);
-				}
-
-				//get remaining infos
-				try{
-					details = element.VDO.VTX+': '+element.DSS;
-				}catch(e){
-				   // console.log(e);
-				}
-				try{
-					title = element.TIT;
-				}catch(e){
-				   // console.log(e);
-				}
-				try{
-					assetID = element.programId;
-				}catch(e){
-				   // console.log(e);
-				}
-				try{
-					length = element.BAT;
-				}catch(e){
-				   // console.log(e);
-				}
-				try{
-					airtime = element.BDT;
-					airtime = String(airtime).slice(0, airtime.length - 5);
-					airtime = airtime.trim();
-					// console.log('airtime: ',airtime);
-				}catch(e){
-				   // console.log(e);
-				}
-				try{
-					station = element.POR;
-				}catch(e){
-				   // console.log(e);
-				}
-				try{
-					subtitle = element.STL+' ('+element.VDO.genre+')';
-				}catch(e){
-				   // console.log(e);
-				}
-				try{
-					streamUrl = element.VDO.videoStreamUrl;
-					// console.log('streamUrl: ', element.VDO.videoStreamUrl, ' = ',streamUrl);
-				}catch(e){
-				   // console.log(e);
-				}
-				
-				// search Streams
-				if(streamUrl !== ''){
-					_searchStreams(assetID, title, subtitle, details, station, length, airtime, teaserImages, streamUrl);
-				}else{
-					console.log('Could not fetch streamURL for ', title, ' with ID: ',assetID);
+					counter++;
 				}
 				
 			});
@@ -405,16 +328,16 @@ MediathekCrawler.ARTEService = function() {
 					    			url = element.VUR;
 					    			switch (element.VQU) {
 						    			case 'SQ':
-						    				quality = 0;
+						    				quality = 3;
 						    				break;
 						    			case 'EQ':
-						    				quality = 1;
+						    				quality = 0;
 						    				break;
 						    			case 'MQ':
-						    				quality = 2;
+						    				quality = 1;
 						    				break;
 						    			case 'HQ':
-						    				quality = 3;
+						    				quality = 2;
 						    				break;
 					    			}
 
