@@ -114,17 +114,15 @@ MediathekCrawler.ApplicationController = function() {
 	_getCategory = function(category) {
 		console.log('MediathekCrawler.ApplicationController._getCategory', category);
 		DasErsteService.getCategories(category, 100);
-		//param: maxLength of ZDF results (videos pro sendung)
+		//param: maxLength of ZDF results (videos per show/series/broadcast)
 		ZDFService.getCategories(category, 2);
 	},
 
 	_getNew = function() {
 		DasErsteService.getNew();
-		//param: maxLength of ZDF results
 		ZDFService.getNew(ZDFMAXRESULTS);
 		ARTEService.getNew(ARTEMAXRESULTS);
-
-		//BRService blockiert; siehe Fehlermeldung in Console.
+		//BRService blockiert; notImplemented!
 		BRService.getNew();
 	},
 
