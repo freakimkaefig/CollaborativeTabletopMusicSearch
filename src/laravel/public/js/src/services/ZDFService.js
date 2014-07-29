@@ -170,7 +170,21 @@ MediathekCrawler.ZDFService = function() {
 			    				url = $(this).find('url').text();
 			    				// filter metafilegenerator-URLS (not streamable!)
 			    				if(url.indexOf('metafilegenerator') == -1){
-
+			    					qualityText = $(this).find('quality').text();
+						    		switch (qualityText) {
+						    			case 'low':
+						    				quality = 0;
+						    				break;
+						    			case 'med':
+						    				quality = 1;
+						    				break;
+						    			case 'high':
+						    				quality = 2;
+						    				break;
+						    			case 'veryhigh':
+						    				quality = 3;
+						    				break;
+			    				
 									filesize = $(this).find('filesize').text();
 									// console.log('url: ', url);
 									var stream = mediathekModel.createStream(basetype, type, quality, url, filesize);
@@ -195,7 +209,21 @@ MediathekCrawler.ZDFService = function() {
 			    				url = $(this).find('url').text();
 			    				// filter metafilegenerator-URLS (not streamable!)
 			    				if(url.indexOf('metafilegenerator') == -1){
-
+			    					qualityText = $(this).find('quality').text();
+						    		switch (qualityText) {
+						    			case 'low':
+						    				quality = 0;
+						    				break;
+						    			case 'med':
+						    				quality = 1;
+						    				break;
+						    			case 'high':
+						    				quality = 2;
+						    				break;
+						    			case 'veryhigh':
+						    				quality = 3;
+						    				break;
+			    				
 									filesize = $(this).find('filesize').text();
 									// console.log('url: ', url);
 									var stream = mediathekModel.createStream(basetype, type, quality, url, filesize);
@@ -207,22 +235,7 @@ MediathekCrawler.ZDFService = function() {
 			    				type = 'video/mp4';
 			    				break;
 			    		}
-			    		// type = 
-			    		qualityText = $(this).find('quality').text();
-			    		switch (qualityText) {
-			    			case 'low':
-			    				quality = 0;
-			    				break;
-			    			case 'med':
-			    				quality = 1;
-			    				break;
-			    			case 'high':
-			    				quality = 2;
-			    				break;
-			    			case 'veryhigh':
-			    				quality = 3;
-			    				break;
-			    		}
+
 			    	}); // end foreach formitaet
 					if(streams.length < 1){
 						
