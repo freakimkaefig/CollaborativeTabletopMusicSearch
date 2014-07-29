@@ -29,8 +29,10 @@
           }
          ?>
         </div>
-        <video id="playlist-video" class="video-js vjs-default-skin img-responsive col-xs-12 col-sm-8" controls preload="auto">
+        <div id="playlist-video-wrapper" class="img-responsive col-xs-12 col-sm-8">
+        <video id="playlist-video" class="video-js vjs-default-skin " controls preload="auto">
         <?php
+
           $urls = DB::table('broadcasts')->select('url')->where('id',"=", $playlistVideo)->get(); 
           foreach ($urls as $url ) { 
             foreach ($url as $u) {
@@ -40,12 +42,28 @@
                   return strcmp($b->_quality, $a->_quality);
               });
                 foreach ($obj as $o) {
-                  echo "<source src='$o->_url' type='$o->_type'>";
+                  echo "<source src='$o->_url' type='$o->_type' data-res='".checkQuality($o->_quality)."''>";
                 }
             }
           }
+          function checkQuality($quality){
+              if($quality==3){
+                return "Hoch";
+              }
+              else if ($quality==2){
+                return "Gut";
+              }
+              else if ($quality==1){
+                return "Mittel";
+              }
+              else if ($quality==0){
+                return "Schlecht";
+              }
+          }
+
         ?>
         </video>
+        </div>
         <div id="playlist-next-container"  class="col-sm-2">
            
         <?php

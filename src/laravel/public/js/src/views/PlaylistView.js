@@ -9,6 +9,11 @@ MediathekCrawler.PlaylistView = (function() {
 		$("#button-create-playlist-cancel").on("click",hideCreatePlaylist);
 		onDeleteVideo();
 		onDeletePlaylist();
+		videojs("#playlist-video", {plugins : { resolutionSelector : {
+    							force_types : [ 'video/mp4', 'video/webm' ],
+    							default_res : "3"
+							} }}, function(){
+		});
 
 	},
 
