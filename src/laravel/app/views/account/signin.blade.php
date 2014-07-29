@@ -11,10 +11,10 @@
 					<input type="text" class="form-control" name="email"{{ (Input::old('email')) ? ' value="' . e(Input::old('email')) . '"' : '' }}>
 					@if($errors->has('email'))
 						@if($errors->first('email') == 'validation.required')
-							Dieses Feld ist erforderlich
+							Dieses Feld ist erforderlich !
 						@endif
 						@if($errors->first('email') == 'validation.email')
-							Dies ist keine gültige Email-Adresse
+							Dies ist keine gültige Email-Adresse !
 						@endif
 					@endif
 				</div>
@@ -24,18 +24,27 @@
 					<input type="password" class="form-control" name="password">
 					@if($errors->has('password'))
 						@if($errors->first('password') == 'validation.required')
-							Dieses Feld ist erforderlich
+							Dieses Feld ist erforderlich !
 						@endif
 					@endif
 				</div>
-				
-				<div class="checkbox">
-					<label>
-						<input type="checkbox" name="remember">Eingeloggt bleiben
-					</label>
+
+				<div class="visible-xs">
+					<button type="submit" class="btn btn-default pull-right">Anmelden</button>
+					<div class="checkbox">
+						<label><input type="checkbox" name="remember">Eingeloggt bleiben</label>
+					</div>
 				</div>
-				
-				<button type="submit" class="btn btn-default">Anmelden</button>
+
+				<div class="hidden-xs">
+					<button type="submit" class="btn btn-default">Anmelden</button>
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" name="remember">Eingeloggt bleiben
+						</label>
+					</div>
+				</div>
+					
 				{{ Form::token() }}
 			</form>
 			<a href="{{ URL::route('account-forgot-password') }}">Passwort vergessen?</a>
@@ -49,13 +58,13 @@
 					<input type="text" class="form-control" name="email"{{ (Input::old('email')) ? ' value="' . e(Input::old('email')) . '"' : '' }}>
 					@if($errors->has('email'))
 						@if($errors->first('email') == 'validation.required')
-							Dieses Feld ist erforderlich
+							Dieses Feld ist erforderlich !
 						@endif
 						@if($errors->first('email') == 'validation.email')
-							Dies ist keine gültige Email-Adresse
+							Dies ist keine gültige Email-Adresse !
 						@endif
 						@if($errors->first('email') == 'validation.unique')
-							Ein Konto mit dieser Email-Adresse existiert bereits
+							Ein Konto mit dieser Email-Adresse existiert bereits !
 						@endif
 					@endif
 				</div>
@@ -65,10 +74,10 @@
 					<input type="password" class="form-control" name="password">
 					@if($errors->has('password'))
 						@if($errors->first('password') == 'validation.required')
-							Dieses Feld ist erforderlich
+							Dieses Feld ist erforderlich !
 						@endif
 						@if($errors->first('password') == 'validation.min.string')
-							Das Passwort ist zu kurz
+							Das Passwort ist zu kurz !
 						@endif
 					@endif
 				</div>
@@ -78,15 +87,16 @@
 					<input type="password" class="form-control" name="password_again">
 					@if($errors->has('password_again'))
 						@if($errors->first('password_again') == 'validation.required')
-							Dieses Feld ist erforderlich
+							Dieses Feld ist erforderlich !
 						@endif
 						@if($errors->first('password_again') == 'validation.same')
-							Die Passwörter stimmen nicht überein
+							Die Passwörter stimmen nicht überein !
 						@endif
 					@endif
 				</div>
 
-				<button type="submit" class="btn btn-default">Registrieren</button>
+				<button type="submit" class="btn btn-default hidden-xs">Registrieren</button>
+				<button type="submit" class="btn btn-default visible-xs pull-right">Registrieren</button>
 				{{ Form::token() }}
 			</form>
 		</div>
