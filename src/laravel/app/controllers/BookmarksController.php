@@ -15,7 +15,7 @@ class BookmarksController extends BaseController {
 			$Broadcast->subtitle=$data['subtitle'];
 			$Broadcast->station=$data['station'];
 			$Broadcast->user_id=$userId;
-			$Broadcast->airtime=date('Y-m-d H:i:s', strtotime($data['airtime']) );
+			$Broadcast->airtime=date('Y-m-d H:i:s', strtotime($data['airtime']));
 			$Broadcast->url=json_encode($data['url']);
 			$Broadcast->duration=$data['duration'];
 			$Broadcast->image=json_encode($data['image']);

@@ -35,6 +35,11 @@
           foreach ($urls as $url ) { 
             foreach ($url as $u) {
               $obj = json_decode($u);
+              usort($obj, function($a, $b)
+              {
+                  return strcmp($b->_quality, $a->_quality);
+              });
+              print_r($obj);
                 foreach ($obj as $o) {
                   echo "<source src='$o->_url' type='$o->_type'>";
                 }
@@ -73,13 +78,16 @@
             $image = "no image";
           }
         ?>
+        <a href="{{URL::route('playlist-single',[$playlist,$result->id])}}">
         <img src='{{$image}}' class="img-responsive col-xs 12 col-sm-3"/>
         <div class="list-item-description col-sm-7 col-sm-offset-1">
-        <h3><a href="{{URL::route('playlist-single',[$playlist,$result->id])}}">{{$result->title}}</a></h3>
+        <h3>{{$result->title}}</h3>
+        <h4>{{($result->subtitle) ? $result->subtitle : ""}}</h4>
         <h4>Sender:{{$result->station}}</h4>
-        <h4>Datum:{{$result->airtime}}</h4>
+        <h4>Datum:{{date('d.m.y H:i', strtotime($result->airtime))}}</h4>
         <h4>Dauer:{{$result->duration}}</h4>
         </div>
+        </a>
         <button class="btn pull-right" data-toggle="modal" data-target="#confirm-delete-{{$result->id}}">X</button>
         <div class="modal fade" id="confirm-delete-{{$result->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
