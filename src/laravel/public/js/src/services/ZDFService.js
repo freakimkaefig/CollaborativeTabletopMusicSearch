@@ -94,8 +94,7 @@ MediathekCrawler.ZDFService = function() {
 				length = '',
 				airtime = '',
 				station = '',
-				subtitle = '',
-				streams = [];
+				subtitle = '';
 
 				// get all teaserImgs with resolution
 		    	$(this).find('teaserimage').each(function(){
@@ -168,9 +167,27 @@ MediathekCrawler.ZDFService = function() {
 			    			case 'h264_aac_mp4_http_na_na':
 			    				type = 'video/mp4';
 			    				url = $(this).find('url').text();
+
+		    					// console.log("ZDF searching streams");
+		    					qualityText = $(this).find('quality').text();
+		    					// console.log("ZDF quality: ",qualityText);
+					    		switch (qualityText) {
+					    			case 'low':
+					    				quality = 0;
+					    				break;
+					    			case 'med':
+					    				quality = 1;
+					    				break;
+					    			case 'high':
+					    				quality = 2;
+					    				break;
+					    			case 'veryhigh':
+					    				quality = 3;
+					    				break;
+					    		}
 			    				// filter metafilegenerator-URLS (not streamable!)
 			    				if(url.indexOf('metafilegenerator') == -1){
-
+			    				
 									filesize = $(this).find('filesize').text();
 									// console.log('url: ', url);
 									var stream = mediathekModel.createStream(basetype, type, quality, url, filesize);
@@ -193,6 +210,24 @@ MediathekCrawler.ZDFService = function() {
 			    			case 'vp8_vorbis_webm_http_na_na':
 			    				type = 'video/webm';
 			    				url = $(this).find('url').text();
+
+		    					// console.log("ZDF searching streams");
+		    					qualityText = $(this).find('quality').text();
+		    					// console.log("ZDF quality: ",qualityText);
+					    		switch (qualityText) {
+					    			case 'low':
+					    				quality = 0;
+					    				break;
+					    			case 'med':
+					    				quality = 1;
+					    				break;
+					    			case 'high':
+					    				quality = 2;
+					    				break;
+					    			case 'veryhigh':
+					    				quality = 3;
+					    				break;
+					    		}
 			    				// filter metafilegenerator-URLS (not streamable!)
 			    				if(url.indexOf('metafilegenerator') == -1){
 
@@ -207,22 +242,7 @@ MediathekCrawler.ZDFService = function() {
 			    				type = 'video/mp4';
 			    				break;
 			    		}
-			    		// type = 
-			    		qualityText = $(this).find('quality').text();
-			    		switch (qualityText) {
-			    			case 'low':
-			    				quality = 0;
-			    				break;
-			    			case 'med':
-			    				quality = 1;
-			    				break;
-			    			case 'high':
-			    				quality = 2;
-			    				break;
-			    			case 'veryhigh':
-			    				quality = 3;
-			    				break;
-			    		}
+
 			    	}); // end foreach formitaet
 					if(streams.length < 1){
 						
@@ -237,6 +257,7 @@ MediathekCrawler.ZDFService = function() {
 				console.warn('ERROR; ZDFService._searchStream; AJAX-request did not recieve a response');
 			}
 		});
+
 	},
 
 	_pushResultToModel = function(title, subtitle, details, station, assetID, length, airtime, teaserImages, streams){

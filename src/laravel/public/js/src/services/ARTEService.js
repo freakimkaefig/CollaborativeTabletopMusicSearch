@@ -1,7 +1,7 @@
 
 			    //TODO:
-			    // hot
-			    // rubriken
+			    // rubriken/kategorien
+			    // filter
 			    // INFO
 			    // CONCERT
 			    // FUTURE?
@@ -17,12 +17,160 @@ MediathekCrawler.ARTEService = function() {
 	ARTESEARCHSTRING = 'http://www.arte.tv/papi/tvguide/videos/plus7/search/D/L1/', // +KEYWORD
 	ARTESEARCHSTRING2 = '/ALL/ALL/-1/AIRDATE_DESC/', // +maxResults (+'/YYYY-MM-DD'; not working atm!)
 	ARTESEARCHSTRING3 = '/0.json',
-	PROXY_URL = '/proxy.php?url=';
+	ARTESEARCHHOT = 'http://www.arte.tv/papi/tvguide/videos/plus7/D/L2/ALF/ALL/-1/VIEWS/', // +maxResults
+	ARTESEARCHHOT2 = '/0.json',
+	PROXY_URL = '/proxy.php?url=',
+	once = 0;
 	
 	init = function(mModel) {
 		//init ZDFService
 		console.info('MediathekCrawler.ARTEService.init');
 		mediathekModel = mModel;
+	},
+
+	getHot = function(maxResults){
+		if(maxResults < 1 || maxResults === null || maxResults === 'undefined' || maxResults === undefined){
+			maxResults = 10;
+		}
+
+		var _url = PROXY_URL + encodeURI(ARTESEARCHHOT+String(maxResults)+ARTESEARCHHOT2);
+			// console.log("ARTE getHot() url: ",_url);
+			$.ajax({
+				url: _url,
+				type: 'GET',
+				cache: false,
+				success: function(data, textStatus, jqXHR) {
+					// console.log('YAAAY', textStatus, jqXHR);
+					_onGetHot(data);
+					
+				},
+				error: function(){
+					console.warn('ERROR; ARTEService.searchString(); AJAX-request did not recieve a response');
+				}
+			});
+	},
+
+	_onGetHot = function(data){
+		var response = $.parseJSON(data);
+
+		if(response.videoList.length > 0){
+
+			$.each(response.videoList, function(index, element) {
+
+				var teaserImages = [],
+					streams = [],
+					details = '',
+					title = '',
+					assetID = 0,
+					length = '',
+					airtime = '',
+					station = '',
+					streamUrl = '',
+					subtitle = '';
+
+				//get images
+				try{	
+					var resolution = _getResolution(element.programImage);
+					// console.log("res: ",resolution);
+					if(resolution != 0){
+						
+						var ti2 = mediathekModel.createTeaserImage(resolution, element.programImage);
+				    	teaserImages.push(ti2);
+					}
+				}catch(e){
+				   // console.log(e);
+				}
+				//HD IMAGE; NOT POSSIBLE TO GET RESOLUTION:
+
+				// try{
+				// 	// http://www.arte.tv/papi/tvguide/images/915321/ORIGINAL/041102-000_geofalkenaertzin_08-1404791117172.jpg
+					
+				// 	if(once === 0){
+				// 		once = 1;
+				// 		console.log("url: ",element.VTU.original);
+				// 		 $.get({
+		  //                   type: "GET",
+		  //                   url: element.VTU.original,
+		  //                   success: function(res,status,xhr){
+		  //                   	// var temp = $(res);
+		  //                   	console.log("HEADER: ",this.xhr.responseText , this.xhr.responseXML);
+		  //                   }
+		  //               });
+				// 	}
+				// 			// var ti3 = mediathekModel.createTeaserImage(0, element.VTU.original);
+				// 	 		 //teaserImages.push(ti3);
+						
+				// }catch(e){
+				//    // console.log(e);
+				// }
+				try{	
+					var resolution = _getResolution(element.element.VTU.IUR);
+					// console.log("res: ",resolution);
+					if(resolution != 0){
+
+						var ti4 = mediathekModel.createTeaserImage(resolution, element.VTU.IUR);
+				    	teaserImages.push(ti4);
+					}
+
+				}catch(e){
+				   // console.log(e);
+				}
+				//get remaining infos
+				try{
+					details = element.VDE;
+				}catch(e){
+				   // console.log(e);
+				}
+				try{
+					title = element.VTI;
+				}catch(e){
+				   // console.log(e);
+				}
+				try{
+					assetID = element.VPI;
+				}catch(e){
+				   // console.log(e);
+				}
+				try{
+					length = String(element.VDU)+'m';
+				}catch(e){
+				   // console.log(e);
+				}
+				try{
+					airtime = element.VDA;
+					airtime = String(airtime).slice(0, airtime.length - 5);
+					airtime = airtime.trim();
+					// console.log('airtime: ',airtime);
+				}catch(e){
+				   // console.log(e);
+				}
+				try{
+					station = element.VTX;
+				}catch(e){
+				   // console.log(e);
+				}
+				try{
+					subtitle = element.VSU+' ('+element.VCG+')';
+				}catch(e){
+				   // console.log(e);
+				}
+				try{
+					streamUrl = element.videoStreamUrl;
+					// console.log('streamUrl: ', element.VDO.videoStreamUrl, ' = ',streamUrl);
+				}catch(e){
+				   // console.log(e);
+				}
+				
+				// search Streams
+				if(streamUrl !== ''){
+					// console.log("ARTE GETHOT - DATA: ",assetID, title, subtitle, details, station, length, airtime, teaserImages, streamUrl);
+					_searchStreams(assetID, title, subtitle, details, station, length, airtime, teaserImages, streamUrl);
+				}else{
+					console.log('Could not fetch streamURL for ', title, ' with ID: ',assetID);
+				}
+
+			});
+		}		
 	},
 
 	searchString = function(searchString, maxResults){
@@ -39,7 +187,7 @@ MediathekCrawler.ARTEService = function() {
 				cache: false,
 				success: function(data, textStatus, jqXHR) {
 					// console.log('YAAAY', textStatus, jqXHR);
-					_onsearchString(data);
+					_onSearchString(data);
 					
 				},
 				error: function(){
@@ -48,7 +196,7 @@ MediathekCrawler.ARTEService = function() {
 			});
 	},
 
-	_onsearchString = function(data){
+	_onSearchString = function(data){
 		// console.log("ARTE; data: ",data);
 		var response = $.parseJSON(data);
 
@@ -69,20 +217,47 @@ MediathekCrawler.ARTEService = function() {
 
 				//get images
 				try{	
-					var ti2 = mediathekModel.createTeaserImage(0, element.programImage);
-			    	teaserImages.push(ti2);
+					var resolution = _getResolution(element.programImage);
+					// console.log("res: ",resolution);
+					if(resolution != 0){
+						
+						var ti2 = mediathekModel.createTeaserImage(resolution, element.programImage);
+				    	teaserImages.push(ti2);
+					}
 				}catch(e){
 				   // console.log(e);
 				}
-				try{
-					var ti3 = mediathekModel.createTeaserImage(0, element.VTU.original);
-			    	teaserImages.push(ti3);
-				}catch(e){
-				   // console.log(e);
-				}
+				//HD IMAGE; NOT POSSIBLE TO GET RESOLUTION:
+
+				// try{
+				// 	// http://www.arte.tv/papi/tvguide/images/915321/ORIGINAL/041102-000_geofalkenaertzin_08-1404791117172.jpg
+					
+				// 	if(once === 0){
+				// 		once = 1;
+				// 		console.log("url: ",element.VTU.original);
+				// 		 $.get({
+		  //                   type: "GET",
+		  //                   url: element.VTU.original,
+		  //                   success: function(res,status,xhr){
+		  //                   	// var temp = $(res);
+		  //                   	console.log("HEADER: ",this.xhr.responseText , this.xhr.responseXML);
+		  //                   }
+		  //               });
+				// 	}
+				// 			// var ti3 = mediathekModel.createTeaserImage(0, element.VTU.original);
+				// 	 		 //teaserImages.push(ti3);
+						
+				// }catch(e){
+				//    // console.log(e);
+				// }
 				try{	
-					var ti4 = mediathekModel.createTeaserImage(0, element.VTU.IUR);
-			    	teaserImages.push(ti4);
+					var resolution = _getResolution(element.element.VTU.IUR);
+					// console.log("res: ",resolution);
+					if(resolution != 0){
+
+						var ti4 = mediathekModel.createTeaserImage(resolution, element.VTU.IUR);
+				    	teaserImages.push(ti4);
+					}
 
 				}catch(e){
 				   // console.log(e);
@@ -142,6 +317,28 @@ MediathekCrawler.ARTEService = function() {
 
 			});
 		}		
+	},
+
+	_getResolution = function(url){
+		try{
+			if(url.indexOf('ORIGINAL') == -1){
+
+				var res = url,
+				start = res.search(/[W]\d+[H]\d+/),
+				end = res.indexOf("/", start+1);
+				resolution = res.substring(start, end);
+				resolution = resolution.substring(1);
+				resolution = resolution.replace('H','x');
+				resolution = resolution.trim();
+				// console.log("ARTE; resolution: ",resolution, url);
+				return resolution;
+			}else{
+				return 0;
+			}
+		}catch(e){
+			console.log("ARTE; ERROR _getResolution(): ",url, " e: ",e);
+			return 0;
+		}
 	},
 
 	/*
@@ -214,27 +411,41 @@ MediathekCrawler.ARTEService = function() {
 
 					//get images
 					try{
+						var resolution = _getResolution(element.IMG.IUR);
+						if(resolution != 0){
 						
-						var ti = mediathekModel.createTeaserImage(0, element.IMG.IUR);
-				    	teaserImages.push(ti);
+							var ti = mediathekModel.createTeaserImage(resolution, element.IMG.IUR);
+					    	teaserImages.push(ti);
+						}
 					}catch(e){
 					   // console.log(e);
 					}
 					try{	
-						var ti2 = mediathekModel.createTeaserImage(0, element.VDO.programImage);
-				    	teaserImages.push(ti2);
+						var resolution = _getResolution(element.VDO.programImage);
+						if(resolution != 0){
+						
+							var ti2 = mediathekModel.createTeaserImage(resolution, element.VDO.programImage);
+					    	teaserImages.push(ti2);
+						}
 					}catch(e){
 					   // console.log(e);
 					}
 					try{
-						var ti3 = mediathekModel.createTeaserImage(0, element.VDO.VTU.original);
-				    	teaserImages.push(ti3);
+						var resolution = _getResolution(element.VDO.VTU.original);
+						if(resolution != 0){
+						
+							var ti3 = mediathekModel.createTeaserImage(resolution, element.VDO.VTU.original);
+					    	teaserImages.push(ti3);
+						}
 					}catch(e){
 					   // console.log(e);
 					}
-					try{	
-						var ti4 = mediathekModel.createTeaserImage(0, element.VDO.VTU.IUR);
-				    	teaserImages.push(ti4);
+					try{
+						var resolution = _getResolution(element.VDO.VTU.IUR);if(resolution != 0){
+						
+							var ti4 = mediathekModel.createTeaserImage(resolution, element.VDO.VTU.IUR);
+					    	teaserImages.push(ti4);
+						}
 
 					}catch(e){
 					   // console.log(e);
@@ -287,7 +498,7 @@ MediathekCrawler.ARTEService = function() {
 					}
 					
 					// search Streams
-					if(streamUrl !== ''){
+					if(streamUrl !== '' && teaserImages.length > 0){
 						_searchStreams(assetID, title, subtitle, details, station, length, airtime, teaserImages, streamUrl);
 					}else{
 						console.log('Could not fetch streamURL for ', title, ' with ID: ',assetID);
@@ -302,8 +513,13 @@ MediathekCrawler.ARTEService = function() {
 
 	_searchStreams = function(assetID, title, subtitle, details, station, length, airtime, teaserImages, streamUrl){
 		var streams = [],
-		_url = PROXY_URL + encodeURI(streamUrl);
-		// console.log('ARTEService; getNew: ', _url);
+		_url = PROXY_URL + encodeURI(streamUrl),
+		
+		// build alternative stream url:
+		position = streamUrl.indexOf('stream')+6;
+		newStreamUrl = [streamUrl.slice(0, position), '/player', streamUrl.slice(position)].join('');
+		_url2 = PROXY_URL + encodeURI(newStreamUrl);
+		// console.log("New stream url: ",_url2);
 
 		$.ajax({
 			url: _url,
@@ -311,7 +527,7 @@ MediathekCrawler.ARTEService = function() {
 			success: function(data) {
 
 				var response = $.parseJSON(data);
-				// console.log(response.abstractBroadcastList.length);
+				// console.log(response);
 				try{
 
 					if(response.video.VSR.length > 0){
@@ -354,7 +570,12 @@ MediathekCrawler.ARTEService = function() {
 					}
 
 					if(streams.length < 1){				
-						console.log('\'',title, '\' has ', streams.length, ' streams. \nCHECK: ',streamUrl);
+						if(_url != _url2){
+							// console.log("ARTE; trying to search Streams with new streamUrl: ",_url2);
+							_searchStreams(assetID, title, subtitle, details, station, length, airtime, teaserImages, _url2);
+						}else if(_url === _url2){
+							console.log('ARTE; \'',title, '\' has ', streams.length, ' streams. \nCHECK: ',_url, ' AND ',_url2);
+						}
 					}
 					else{
 						_pushResultToModel(title, subtitle, details, station, assetID, length, airtime, teaserImages, streams);
@@ -391,6 +612,7 @@ MediathekCrawler.ARTEService = function() {
 	that.init = init;
 	that.searchString = searchString;
 	that.getNew = getNew;
+	that.getHot = getHot;
 
 	return that;
 
