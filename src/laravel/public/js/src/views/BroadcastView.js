@@ -37,7 +37,7 @@ MediathekCrawler.BroadcastView = (function() {
 
 
 		for (var i=result._streams.length-1; i>=0; i--) {
-			var source = '<source src="' + result._streams[i]._url + '" type="' + result._streams[i]._type + '">'
+			var source = '<source src="' + result._streams[i]._url + '" type="' + result._streams[i]._type + '" data-res="'+ checkQuality(result._streams[i]._quality) + '">'
 			$video.append(source);
 			url = result._streams[i]._url;
 		}
@@ -45,8 +45,8 @@ MediathekCrawler.BroadcastView = (function() {
 		var infoElement = 
 			'<h3>Titel:</h3>'+
 			'<div>' + result._title + '</div>' +
-			'<div>' + result._subtitle + '</div>' +
 			/*'<div>' + result._details + '</div>' +*/
+			'<div>' + result._subtitle + '</div>' +
 			'<h3>Zeit:</h3>' +
 			'<div>' + result._airtime+ '</div>' +
 			'<h3>Dauer:</h3>' +
@@ -57,10 +57,11 @@ MediathekCrawler.BroadcastView = (function() {
 		
 		$infoWrapper.append(infoElement);
 
-		videojs("#video", {}, function(){
-  // Player (this) is initialized and ready.
-			});
-
+		videojs("#video", {plugins : { resolutionSelector : {
+    							force_types : [ 'video/mp4', 'video/webm' ],
+    							default_res : "3"
+							} }}, function(){
+		});
 		var descriptionElement = '<div>' + result._details + '</div>';
 		$descriptionWrapper.append(descriptionElement);
 
@@ -72,7 +73,7 @@ MediathekCrawler.BroadcastView = (function() {
 		result = JSON.parse($("#bookmark").val())[0];
 		var streams = JSON.parse(result.url);
 		for (var i=streams.length-1; i>=0; i--) {
-			var source = '<source src="' + streams[i]._url + '" type="' + streams[i]._type + '" data-res="'+ streams[i]._quality+'">'
+			var source = '<source src="' + streams[i]._url + '" type="' + streams[i]._type + '" data-res="'+ checkQuality(streams[i]._quality) +'">'
 			$video.append(source);
 			url = streams[i]._url;
 		}
@@ -93,11 +94,10 @@ MediathekCrawler.BroadcastView = (function() {
 		$infoWrapper.append(infoElement);
 
 		videojs("#video", {plugins : { resolutionSelector : {
-    force_types : [ 'video/mp4', 'video/webm' ],
-    default_res : "2"
-			} }}, function(){
-  // Player (this) is initialized and ready.
-			});
+    							force_types : [ 'video/mp4', 'video/webm' ],
+    							default_res : "3"
+							} }}, function(){
+		});
 
 		
 		var descriptionElement = '<div>' + result.details + '</div>';
@@ -194,7 +194,22 @@ MediathekCrawler.BroadcastView = (function() {
 			});
 		})
 
+	},
+	checkQuality = function(quality){
+		if(quality==3){
+			return "Hoch";
+		}
+		else if (quality==2){
+			return "Gut";
+		}
+		else if (quality==1){
+			return "Mittel";
+		}
+		else if (quality==0){
+			return "Schlecht";
+		}
 	};
+
 	/**
 	 * Public function to reset the instance of BroadcastView
 	 */

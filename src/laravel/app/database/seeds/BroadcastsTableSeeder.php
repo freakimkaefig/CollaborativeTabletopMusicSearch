@@ -239,6 +239,22 @@ Themen der Sendung: UN-Sicherheitsrat fordert bedingungslose Waffenruhe im Nahen
 				'playlist_id' => 3,
 				'user_id' => NULL,
 			),
+			14 => 
+			array (
+				'id' => 36,
+				'title' => 'Nicht von schlechten Vätern - Marcel',
+				'subtitle' => '0',
+			'details' => 'Marcel (28) ist Puppenmacher und Vater von Lea (1). "Man hat natürlich schon Angst, weil man die komplette Verantwortung für das Kind alleine trägt."',
+				'airtime' => '2014-09-07 10:35:00',
+				'url' => '[{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/07\\/140710_neo_marcel_vsv_436k_p9v11.mp4","_filesize":"4221340"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/rodl.zdf.de\\/none\\/zdf\\/14\\/07\\/140710_neo_marcel_vsv_436k_p9v11.mp4","_filesize":"4221340"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/07\\/140710_neo_marcel_vsv_189k_p7v11.mp4","_filesize":"1945511"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/07\\/140710_neo_marcel_vsv_1456k_p13v11.mp4","_filesize":"13561048"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/rodl.zdf.de\\/none\\/zdf\\/14\\/07\\/140710_neo_marcel_vsv_1456k_p13v11.mp4","_filesize":"13561048"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"2","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/07\\/140710_neo_marcel_vsv_776k_p17v11.webm","_filesize":"4559933"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"0","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/07\\/140710_neo_marcel_vsv_282k_p16v11.webm","_filesize":"1688496"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"3","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/07\\/140710_neo_marcel_vsv_1496k_p18v11.webm","_filesize":"7964490"}]',
+				'duration' => '00:01:10',
+				'image' => '[{"_resolution":"75x52","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2195336\\/timg75x52blob\\/10042392"},{"_resolution":"476x268","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2195336\\/timg476x268blob\\/10042393"},{"_resolution":"298x168","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2195336\\/timg298x168blob\\/10042394"},{"_resolution":"404x227","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2195336\\/timg404x227blob\\/10042399"},{"_resolution":"276x155","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2195336\\/timg276x155blob\\/10042387"},{"_resolution":"644x363","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2195336\\/timg644x363blob\\/10042396"},{"_resolution":"476x176","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2195336\\/timg476x176blob\\/10042391"},{"_resolution":"144x81","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2195336\\/timg144x81blob\\/10042398"},{"_resolution":"485x273","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2195336\\/timg485x273blob\\/10042386"},{"_resolution":"94x65","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2195336\\/timg94x65blob\\/10042384"},{"_resolution":"72x54","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2195336\\/timg72x54blob\\/10042390"},{"_resolution":"173x120","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2195336\\/timg173x120blob\\/10042385"},{"_resolution":"236x133","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2195336\\/timg236x133blob\\/10042395"},{"_resolution":"116x88","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2195336\\/timg116x88blob\\/10042389"},{"_resolution":"116x54","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2195336\\/timg116x54blob\\/10042388"},{"_resolution":"672x378","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2195336\\/timg672x378blob\\/10042397"},{"_resolution":"946x532","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2195336\\/timg946x532blob\\/10042400"}]',
+				'station' => 'ZDFneo',
+				'created_at' => '2014-07-29 12:40:00',
+				'updated_at' => '2014-07-29 12:40:00',
+				'playlist_id' => NULL,
+				'user_id' => 1,
+			),
 		));
 	}
 
