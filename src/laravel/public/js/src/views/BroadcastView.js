@@ -33,8 +33,7 @@ MediathekCrawler.BroadcastView = (function() {
 		var results_json = localStorage.getItem('mediathek-crawler'),
 			results = JSON.parse(results_json);
 			result = results._results[id];
-
-		//console.log(result);
+			
 
 
 		for (var i=result._streams.length-1; i>=0; i--) {
@@ -58,6 +57,10 @@ MediathekCrawler.BroadcastView = (function() {
 		
 		$infoWrapper.append(infoElement);
 
+		videojs("#video", {}, function(){
+  // Player (this) is initialized and ready.
+			});
+
 		var descriptionElement = '<div>' + result._details + '</div>';
 		$descriptionWrapper.append(descriptionElement);
 
@@ -69,7 +72,7 @@ MediathekCrawler.BroadcastView = (function() {
 		result = JSON.parse($("#bookmark").val())[0];
 		var streams = JSON.parse(result.url);
 		for (var i=streams.length-1; i>=0; i--) {
-			var source = '<source src="' + streams[i]._url + '" type="' + streams[i]._type + '">'
+			var source = '<source src="' + streams[i]._url + '" type="' + streams[i]._type + '" data-res="'+ streams[i]._quality+'">'
 			$video.append(source);
 			url = streams[i]._url;
 		}
@@ -89,6 +92,14 @@ MediathekCrawler.BroadcastView = (function() {
 		
 		$infoWrapper.append(infoElement);
 
+		videojs("#video", {plugins : { resolutionSelector : {
+    force_types : [ 'video/mp4', 'video/webm' ],
+    default_res : "2"
+			} }}, function(){
+  // Player (this) is initialized and ready.
+			});
+
+		
 		var descriptionElement = '<div>' + result.details + '</div>';
 		$descriptionWrapper.append(descriptionElement);
 		

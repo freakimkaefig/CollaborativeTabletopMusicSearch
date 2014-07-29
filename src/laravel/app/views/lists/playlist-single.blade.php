@@ -39,7 +39,6 @@
               {
                   return strcmp($b->_quality, $a->_quality);
               });
-              print_r($obj);
                 foreach ($obj as $o) {
                   echo "<source src='$o->_url' type='$o->_type'>";
                 }
