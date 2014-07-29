@@ -8,7 +8,7 @@
 			?>
 		<div class="row">
 			<div id="video-wrapper" class=" col-xs-12 col-sm-8 col-sm-offset-0 col-lg-7 col-lg-offset-1">
-				<video id="video" class="video-js vjs-default-skin col-xs-12 img-responsive" controls preload="auto"></video>
+				<video id="video" class="video-js vjs-default-skin col-xs-12 img-responsive" controls preload="auto" ></video>
 			</div>
 			<div id="info-wrapper" class="col-sm-4"></div>
 			@if(Auth::check())
@@ -29,7 +29,7 @@
 								<button id="add-to-playlist-cancel" class="btn" type="button" >Abbrechen</button>
 							</div>
 						</form>
-						<p class="feedback col-sm-3 col-lg-3" hidden>hinzugefügt!</p>
+						<p class="feedback col-sm-3" hidden>hinzugefügt!</p>
 					</div>
 					<div class="col-sm-4">	
 						<form >

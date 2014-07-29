@@ -63,10 +63,26 @@ h2 { text-transform: capitalize; }
 
 }
 
-/* Icons test works for Felix */
+/* Icons test works for Felix, David */
 @font-face {   font-family: 'Glyphicons Halflings';   
      src: url('/css/font/glyphicons-halflings-regular.eot');   
      src: url('/css/font/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), 
      url('/css/font/glyphicons-halflings-regular.woff') format('woff'),  
      url('/css/font/glyphicons-halflings-regular.ttf') format('truetype'), 
      url('/css/font/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg'); } 
+
+
+
+/* ========= VIDEO-JS overwritten ==== */
+.video-js {
+    min-width: 100% !important;
+    width: auto !important; /* override the plugin's inline dims to let vids scale fluidly */
+    height: auto !important;
+}
+.video-js video {position: relative !important;}
+.video-js .vjs-big-play-button {
+	position: absolute;
+    top: 50%; /* errrr, why isn't the play button centered in the default skin? :) */
+    left: 50%;
+    margin:-2em /* the old negative margin trick */
+}

@@ -10,6 +10,15 @@ MediathekCrawler.PlaylistView = (function() {
 		onDeleteVideo();
 		onDeletePlaylist();
 
+		if($("#video-playlist").length >0){
+
+		videojs("#video", {plugins : { resolutionSelector : {
+    							force_types : [ 'video/mp4', 'video/webm' ],
+    							default_res : "3"
+							} }}, function(){
+		});
+		}
+
 	},
 
 	showCreatePlaylist = function() {

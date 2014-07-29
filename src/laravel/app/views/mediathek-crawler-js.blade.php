@@ -1,8 +1,10 @@
 {{ HTML::script('js/src/App.js') }}
 
+
 	<!-- Libraries -->
 	{{ HTML::script('js/libs/videojs/video.dev.js') }}
 	{{ HTML::script('js/libs/videojs/video.js') }}
+	{{ HTML::script('js/libs/videojs/video-quality-selector.js') }}
 
 	<!-- Classes -->
 	{{ HTML::script('js/src/exceptions/NotImplementedException.js') }}
@@ -27,4 +29,3 @@
 	{{ HTML::script('js/src/views/BookmarkView.js') }}
 	<!-- INIT -->
 	{{ HTML::script('js/bootstrap.js') }}
-
