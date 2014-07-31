@@ -3,8 +3,8 @@
 @section('content')
 	<h1 class="text-center">Playlisten</h1>
 	<div class="col-sm-3">
-	<button id="new-list" class="btn">Neue Liste</button>
-	<form id="create-playlist" class="hidden" action="{{ URL::route('new-playlist')}}" method="post">
+	<button id="new-list" class="btn btn-transparent">Neue Liste</button>
+	<form id="create-playlist" class="select-box col-sm-6 hidden" action="{{ URL::route('new-playlist')}}" method="post">
 		<input type="text" name="playlistName" />
 		<button id="button-create-playlist" class="btn" type="submit">Erstellen</button>
 		<button id="button-create-playlist-cancel" class="btn" >Abbrechen</button>

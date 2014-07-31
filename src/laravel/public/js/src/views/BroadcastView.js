@@ -55,7 +55,7 @@ MediathekCrawler.BroadcastView = (function() {
 			'<div>' + result._station + '</div>';
 
 		
-		$infoWrapper.append(infoElement);
+		$infoWrapper.prepend(infoElement);
 
 		videojs("#video", {plugins : { resolutionSelector : {
     							force_types : [ 'video/mp4', 'video/webm' ],
@@ -91,7 +91,7 @@ MediathekCrawler.BroadcastView = (function() {
 			'<div>' + result.station + '</div>';
 
 		
-		$infoWrapper.append(infoElement);
+		$infoWrapper.prepend(infoElement);
 
 		videojs("#video", {plugins : { resolutionSelector : {
     							force_types : [ 'video/mp4', 'video/webm' ],

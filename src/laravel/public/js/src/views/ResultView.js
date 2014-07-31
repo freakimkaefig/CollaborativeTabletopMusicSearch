@@ -12,18 +12,21 @@ MediathekCrawler.ResultView = (function() {
 	appendResult = function(event, result) {
 		// console.log(result);
 		
-		var resultElement = '<div class="item col-xs-6 col-sm-3 col-lg-2">' +
+		var resultElement = '<div class="video-item col-xs-6 col-sm-3 col-lg-2">' +
 			// TODO: desicion process for teaserImage missing!
 			'<a href="/video/' + result._id + '">' +
-			'<img src=' + result._teaserImages[0]._url + ' class="img-responsive col-xs-12">' + 
+			'<img src=' + result._teaserImages[0]._url + ' class="img-responsive">' + 
 			/*'<video class="video-js vjs-default-skin" controls preload="auto" width="400" height="244">' +
 			'<source src="' + result._streams[i]._url + '" type="' + result._streams[i]._type + '">' +
 			'</video>' + */
-			'<div class="col-xs-12">' + result._title + '</div>' +
-			'<div  class="col-xs-12">' + result._subtitle + '</div>' +
-			'<div  class="col-xs-12"><span>' + result._airtime + '</span> | <span>' + result._length + '</span> | <span>' + result._station + '</span></div>' +
+			'<div class="video-item-description col-xs-12">'+
+				'<div class=" video-item-title">' + result._title + '</div>' +
+				'<div  class="" hidden>' + result._subtitle + '</div>' +
+				'<div  class=""><span>' + result._airtime + '</span> | <span>' + result._length + '</span> | <span>' + result._station + '</span></div>' +
+			'</div>'+
 			'</a>' +
-			'</div>';
+			'</div>'
+			;
 
 		$resultWrapper.append(resultElement);
 
