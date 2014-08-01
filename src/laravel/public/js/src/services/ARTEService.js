@@ -140,6 +140,9 @@ MediathekCrawler.ARTEService = function() {
 					airtime = element.VDA;
 					airtime = String(airtime).slice(0, airtime.length - 5);
 					airtime = airtime.trim();
+					if(once === 0){
+						console.log("GETHOT airtime: ",airtime);
+					}
 					// console.log('airtime: ',airtime);
 				}catch(e){
 				   // console.log(e);
@@ -287,7 +290,9 @@ MediathekCrawler.ARTEService = function() {
 					airtime = element.VDA;
 					airtime = String(airtime).slice(0, airtime.length - 5);
 					airtime = airtime.trim();
-					// console.log('airtime: ',airtime);
+					if(once === 0){
+						console.log("SEARCHSTRING airtime: ",airtime);
+					}
 				}catch(e){
 				   // console.log(e);
 				}
@@ -476,7 +481,9 @@ MediathekCrawler.ARTEService = function() {
 						airtime = element.BDT;
 						airtime = String(airtime).slice(0, airtime.length - 5);
 						airtime = airtime.trim();
-						// console.log('airtime: ',airtime);
+						if(once === 0){
+						console.log("onGETNEW airtime: ",airtime);
+					}
 					}catch(e){
 					   // console.log(e);
 					}
