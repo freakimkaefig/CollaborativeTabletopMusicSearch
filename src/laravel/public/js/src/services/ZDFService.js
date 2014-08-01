@@ -117,6 +117,16 @@ MediathekCrawler.ZDFService = function() {
 
 			    //get length
 			    length = $(this).find('length').text();
+			    if(length.indexOf(".") > 0){
+			    	end = length.indexOf('.');
+			    	length = length.substring(0, end);
+			    }else if(length.indexOf('min') > 0){
+			    	end = length.indexOf('min');
+			    	length = _formatSeconds(length.substring(0, end-1) * 60);
+			    }else if(length.length < 6 && length.indexOf('min') === -1 && length.indexOf(':') === -1){
+			    	length = _formatSeconds(length * 60);
+			    }
+			    // console.log("ZDF _getDetailsAndStreamOfVideo length: ",length);
 
 			    //get airtime
 			    airtime = $(this).find('airtime').text();
@@ -451,6 +461,14 @@ MediathekCrawler.ZDFService = function() {
 
 					    //get length
 					    length = $(this).find('length').text();
+					    if(length.indexOf(".") > 0){
+					    	end = length.indexOf('.');
+					    	length = length.substring(0, end);
+					    }else if(length.indexOf('min') > 0){
+					    	end = length.indexOf('min');
+					    	length = _formatSeconds(length.substring(0, end-1) * 60);
+					    }
+					    // console.log("ZDF _getDetailsAndStreamOfVideo length: ",length);
 
 					    //get airtime
 					    airtime = $(this).find('airtime').text();
@@ -467,6 +485,12 @@ MediathekCrawler.ZDFService = function() {
 				console.warn('ERROR; ZDFService._getDetailsAndStreamOfVideo; ZDFINFO; AJAX-request did not recieve a response');
 			}
 		});
+	},
+
+	_formatSeconds = function(seconds){
+	    var date = new Date(1970,0,1);
+	    date.setSeconds(seconds);
+	    return date.toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
 	},
 
 	dispose = function() {

@@ -132,7 +132,7 @@ MediathekCrawler.ARTEService = function() {
 				   // console.log(e);
 				}
 				try{
-					length = String(element.VDU)+'m';
+					length = _formatSeconds(String(element.VDU) * 60);
 				}catch(e){
 				   // console.log(e);
 				}
@@ -140,9 +140,6 @@ MediathekCrawler.ARTEService = function() {
 					airtime = element.VDA;
 					airtime = String(airtime).slice(0, airtime.length - 5);
 					airtime = airtime.trim();
-					if(once === 0){
-						console.log("GETHOT airtime: ",airtime);
-					}
 					// console.log('airtime: ',airtime);
 				}catch(e){
 				   // console.log(e);
@@ -282,7 +279,7 @@ MediathekCrawler.ARTEService = function() {
 				   // console.log(e);
 				}
 				try{
-					length = String(element.VDU)+'m';
+					length = _formatSeconds(String(element.VDU) * 60);
 				}catch(e){
 				   // console.log(e);
 				}
@@ -290,9 +287,7 @@ MediathekCrawler.ARTEService = function() {
 					airtime = element.VDA;
 					airtime = String(airtime).slice(0, airtime.length - 5);
 					airtime = airtime.trim();
-					if(once === 0){
-						console.log("SEARCHSTRING airtime: ",airtime);
-					}
+					// console.log('airtime: ',airtime);
 				}catch(e){
 				   // console.log(e);
 				}
@@ -473,7 +468,7 @@ MediathekCrawler.ARTEService = function() {
 					   // console.log(e);
 					}
 					try{
-						length = element.BAT;
+						length = _formatSeconds(String(element.VDS[0].VDU) * 60);
 					}catch(e){
 					   // console.log(e);
 					}
@@ -481,9 +476,7 @@ MediathekCrawler.ARTEService = function() {
 						airtime = element.BDT;
 						airtime = String(airtime).slice(0, airtime.length - 5);
 						airtime = airtime.trim();
-						if(once === 0){
-						console.log("onGETNEW airtime: ",airtime);
-					}
+						// console.log('airtime: ',airtime);
 					}catch(e){
 					   // console.log(e);
 					}
@@ -516,6 +509,12 @@ MediathekCrawler.ARTEService = function() {
 				
 			});
 		}
+	},
+
+	_formatSeconds = function(seconds){
+	    var date = new Date(1970,0,1);
+	    date.setSeconds(seconds);
+	    return date.toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
 	},
 
 	_searchStreams = function(assetID, title, subtitle, details, station, length, airtime, teaserImages, streamUrl){
