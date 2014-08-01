@@ -1,5 +1,6 @@
 
 			    //TODO:
+			    // Abfrage ob Ajax response bereits JSON oder nicht
 			    // mehrere Suchbegriffe (wie verbinden)?
 			    // Filter
 			    // SendungenAbisZ-Suche?
@@ -355,7 +356,7 @@ MediathekCrawler.ZDFService = function() {
 			});
 
 		} else {
-			console.warn('ERROR; ZDFService.getCategories; AJAX-request did not recieve a response');
+			console.warn('ERROR; ZDFService.getCategories; Category not found');
 		}
 	},
 

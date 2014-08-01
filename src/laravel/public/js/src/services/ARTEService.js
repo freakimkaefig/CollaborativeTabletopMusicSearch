@@ -1,9 +1,11 @@
 
 			    //TODO:
-			    // rubriken/kategorien
+			    // Abfrage ob Ajax response bereits JSON oder nicht
+			    // type param für searchString (aritime,views,...)??
+			    // Wiederkehrende Funktionalitäten in FUnktionen zusammenfassen!
 			    // filter
-			    // INFO
-			    // CONCERT
+			    // INFO?
+			    // CONCERT?
 			    // FUTURE?
 
 MediathekCrawler.ARTEService = function() {
@@ -19,13 +21,187 @@ MediathekCrawler.ARTEService = function() {
 	ARTESEARCHSTRING3 = '/0.json',
 	ARTESEARCHHOT = 'http://www.arte.tv/papi/tvguide/videos/plus7/D/L2/ALF/ALL/-1/VIEWS/', // +maxResults
 	ARTESEARCHHOT2 = '/0.json',
+	ARTESEARCHCATEGORY = 'http://www.arte.tv/papi/tvguide/videos/plus7/D/L2/',
+	ARTESEARCHCATEGORY2 = '/ALL/-1/VIEWS/10/0.json',
 	PROXY_URL = '/proxy.php?url=',
-	once = 0;
+	once = 0,
+	CATEGORIES = [
+		{
+			'_id': 'nachrichten',
+			'_value': ['ACT'],
+		},
+		{
+			'_id': 'politik',
+			'_value': ['SOC', 'GEO', 'EUR'],
+		},
+		{
+			'_id': 'kinder',
+			'_value': ['JUN'],
+		},
+		{
+			'_id': 'kino-tv',
+			'_value': ['CIN','DOC'],
+		},
+		{
+			'_id': 'wissen-kultur',
+			'_value': ['DEC','ART', 'CUL', 'ENV'],
+		},
+	];
 	
 	init = function(mModel) {
 		//init ZDFService
 		console.info('MediathekCrawler.ARTEService.init');
 		mediathekModel = mModel;
+	},
+
+	getCategories = function(_category) {
+		var find = CATEGORIES.filter(function (category) { return category._id == _category });
+		if(find.length > 0) {
+			// console.log(find[0]._assetId);
+			$.each(find[0]._value, function(index,value){
+				_getBroadcastOfCategory(value);
+			});
+
+		} else {
+			console.warn('ERROR; ARTEService.getCategories; Category not found');
+		}
+	},
+
+	_getBroadcastOfCategory = function(category){
+		$.ajax({
+			// maxLength: max results of broadcasts per category
+			url: ARTESEARCHCATEGORY+String(category)+ARTESEARCHCATEGORY2,
+			type: 'GET',
+			cache: false,
+			success: function(data) {
+				// console.log("DATA: ", data)
+	     		// var response = $.parseJSON(data);
+
+				if(data.videoList.length > 0){
+					// console.log("found videolist entry");
+					$.each(data.videoList, function(index, element) {
+
+						var teaserImages = [],
+							streams = [],
+							details = '',
+							title = '',
+							assetID = 0,
+							length = '',
+							airtime = '',
+							station = '',
+							streamUrl = '',
+							subtitle = '';
+
+						//get images
+						try{	
+							var resolution = _getResolution(element.programImage);
+							// console.log("res: ",resolution);
+							if(resolution != 0){
+								
+								var ti2 = mediathekModel.createTeaserImage(resolution, element.programImage);
+						    	teaserImages.push(ti2);
+							}
+						}catch(e){
+						   // console.log(e);
+						}
+						//HD IMAGE; NOT POSSIBLE TO GET RESOLUTION:
+
+						// try{
+						// 	// http://www.arte.tv/papi/tvguide/images/915321/ORIGINAL/041102-000_geofalkenaertzin_08-1404791117172.jpg
+							
+						// 	if(once === 0){
+						// 		once = 1;
+						// 		console.log("url: ",element.VTU.original);
+						// 		 $.get({
+				  //                   type: "GET",
+				  //                   url: element.VTU.original,
+				  //                   success: function(res,status,xhr){
+				  //                   	// var temp = $(res);
+				  //                   	console.log("HEADER: ",this.xhr.responseText , this.xhr.responseXML);
+				  //                   }
+				  //               });
+						// 	}
+						// 			// var ti3 = mediathekModel.createTeaserImage(0, element.VTU.original);
+						// 	 		 //teaserImages.push(ti3);
+								
+						// }catch(e){
+						//    // console.log(e);
+						// }
+						try{	
+							var resolution = _getResolution(element.element.VTU.IUR);
+							// console.log("res: ",resolution);
+							if(resolution != 0){
+
+								var ti4 = mediathekModel.createTeaserImage(resolution, element.VTU.IUR);
+						    	teaserImages.push(ti4);
+							}
+
+						}catch(e){
+						   // console.log(e);
+						}
+						//get remaining infos
+						try{
+							details = element.VDE;
+						}catch(e){
+						   // console.log(e);
+						}
+						try{
+							title = element.VTI;
+						}catch(e){
+						   // console.log(e);
+						}
+						try{
+							assetID = element.VPI;
+						}catch(e){
+						   // console.log(e);
+						}
+						try{
+							length = _formatSeconds(String(element.VDU) * 60);
+						}catch(e){
+						   // console.log(e);
+						}
+						try{
+							airtime = element.VDA;
+							airtime = String(airtime).slice(0, airtime.length - 5);
+							airtime = airtime.trim();
+							// console.log('airtime: ',airtime);
+						}catch(e){
+						   // console.log(e);
+						}
+						try{
+							station = element.VTX;
+						}catch(e){
+						   // console.log(e);
+						}
+						try{
+							subtitle = element.VSU+' ('+element.VCG+')';
+							subtitle = subtitle.replace('undefined','');
+						}catch(e){
+						   // console.log(e);
+						}
+						try{
+							streamUrl = element.videoStreamUrl;
+							// console.log('streamUrl: ', element.VDO.videoStreamUrl, ' = ',streamUrl);
+						}catch(e){
+						   // console.log(e);
+						}
+						
+						// search Streams
+						if(streamUrl !== ''){
+							// console.log("ARTE GETHOT - DATA: ",assetID, title, subtitle, details, station, length, airtime, teaserImages, streamUrl);
+							_searchStreams(assetID, title, subtitle, details, station, length, airtime, teaserImages, streamUrl);
+						}else{
+							console.log('Could not fetch streamURL for ', title, ' with ID: ',assetID);
+						}
+
+					});
+				}
+			 	
+			},
+			error: function(){
+				console.warn('ERROR; ZDFService._getBroadcastOfCategory; AJAX-request did not recieve a response');
+			}
+		});
 	},
 
 	getHot = function(maxResults){
@@ -151,6 +327,7 @@ MediathekCrawler.ARTEService = function() {
 				}
 				try{
 					subtitle = element.VSU+' ('+element.VCG+')';
+					subtitle = subtitle.replace('undefined','');
 				}catch(e){
 				   // console.log(e);
 				}
@@ -179,7 +356,7 @@ MediathekCrawler.ARTEService = function() {
 			maxResults = 10;
 		}
 
-		var _url = PROXY_URL + encodeURI(ARTESEARCHSTRING+String(searchString)+ARTESEARCHSTRING2+String(maxResults)+ARTESEARCHSTRING3);
+		var _url = /*PROXY_URL + */encodeURI(ARTESEARCHSTRING+String(searchString)+ARTESEARCHSTRING2+String(maxResults)+ARTESEARCHSTRING3);
 			// console.log("ARTE search results url: ",_url);
 			$.ajax({
 				url: _url,
@@ -198,11 +375,15 @@ MediathekCrawler.ARTEService = function() {
 
 	_onSearchString = function(data){
 		// console.log("ARTE; data: ",data);
-		var response = $.parseJSON(data);
+		// try{
+		// 	var response = $.parseJSON(data);
+		// }catch(e){
+		// 	console.log(data, "\n", e);
+		// }
 
-		if(response.videoList.length > 0){
+		if(data.videoList.length > 0){
 
-			$.each(response.videoList, function(index, element) {
+			$.each(data.videoList, function(index, element) {
 
 				var teaserImages = [],
 					streams = [],
@@ -298,6 +479,7 @@ MediathekCrawler.ARTEService = function() {
 				}
 				try{
 					subtitle = element.VSU+' ('+element.VCG+')';
+					subtitle = subtitle.replace('undefined','');
 				}catch(e){
 				   // console.log(e);
 				}
@@ -519,13 +701,7 @@ MediathekCrawler.ARTEService = function() {
 
 	_searchStreams = function(assetID, title, subtitle, details, station, length, airtime, teaserImages, streamUrl){
 		var streams = [],
-		_url = PROXY_URL + encodeURI(streamUrl),
-		
-		// build alternative stream url:
-		position = streamUrl.indexOf('stream')+6;
-		newStreamUrl = [streamUrl.slice(0, position), '/player', streamUrl.slice(position)].join('');
-		_url2 = PROXY_URL + encodeURI(newStreamUrl);
-		// console.log("New stream url: ",_url2);
+		_url = PROXY_URL + encodeURI(streamUrl);
 
 		$.ajax({
 			url: _url,
@@ -534,62 +710,62 @@ MediathekCrawler.ARTEService = function() {
 
 				var response = $.parseJSON(data);
 				// console.log(response);
-				try{
+				if(response.video.VSR.length > 0){
 
-					if(response.video.VSR.length > 0){
+					$.each(response.video.VSR, function(index, element) {
+						var basetype = '',
+			    		quality = '',
+			    		url = '',
+			    		filesize = 0,
+		    			type = 'video/mp4';
 
-						$.each(response.video.VSR, function(index, element) {
-							var basetype = '',
-				    		quality = '',
-				    		url = '',
-				    		filesize = 0,
-			    			type = 'video/mp4';
+			    		try{
+				    		if(String(element.VFO) == 'HBBTV'){
+				    			url = element.VUR;
+				    			switch (element.VQU) {
+					    			case 'SQ':
+					    				quality = 3;
+					    				break;
+					    			case 'EQ':
+					    				quality = 0;
+					    				break;
+					    			case 'MQ':
+					    				quality = 1;
+					    				break;
+					    			case 'HQ':
+					    				quality = 2;
+					    				break;
+				    			}
 
-				    		try{
-					    		if(String(element.VFO) == 'HBBTV'){
-					    			url = element.VUR;
-					    			switch (element.VQU) {
-						    			case 'SQ':
-						    				quality = 3;
-						    				break;
-						    			case 'EQ':
-						    				quality = 0;
-						    				break;
-						    			case 'MQ':
-						    				quality = 1;
-						    				break;
-						    			case 'HQ':
-						    				quality = 2;
-						    				break;
-					    			}
+					    		var stream = mediathekModel.createStream(basetype, type, quality, url, filesize);
+					    		//console.log('basetype: ',basetype,', stream: ',stream._url);
+								streams.push(stream);
 
-						    		var stream = mediathekModel.createStream(basetype, type, quality, url, filesize);
-						    		//console.log('basetype: ',basetype,', stream: ',stream._url);
-									streams.push(stream);
-
-					    		}
-				    		}catch(e){
-				    			//fuck.	
 				    		}
+			    		}catch(e){
+			    			//fuck.	
+			    		}
 
-						});
-					}
-
-					if(streams.length < 1){				
-						if(_url != _url2){
-							// console.log("ARTE; trying to search Streams with new streamUrl: ",_url2);
-							_searchStreams(assetID, title, subtitle, details, station, length, airtime, teaserImages, _url2);
-						}else if(_url === _url2){
-							console.log('ARTE; \'',title, '\' has ', streams.length, ' streams. \nCHECK: ',_url, ' AND ',_url2);
-						}
-					}
-					else{
-						_pushResultToModel(title, subtitle, details, station, assetID, length, airtime, teaserImages, streams);
-					}
-
-				}catch(e){
-					console.log('could not fetch streaming urls: ',e);
+					});
 				}
+
+				if(streams.length < 1){				
+					// build alternative stream url:
+					var position = streamUrl.indexOf('stream')+6;
+					var newStreamUrl = [streamUrl.slice(0, position), '/player', streamUrl.slice(position)].join('');
+					var _url2 = PROXY_URL + encodeURI(newStreamUrl);
+					// console.log("New stream url: ",_url2);
+					if(_url != _url2){
+						// console.log("ARTE; trying to search Streams with new streamUrl: ",_url2);
+						_searchStreams(assetID, title, subtitle, details, station, length, airtime, teaserImages, _url2);
+					}else if(_url === _url2){
+						console.log('ARTE; \'',title, '\' has ', streams.length, ' streams. \nCHECK: ',_url, ' AND ',_url2);
+					}
+				}
+				else{
+					_pushResultToModel(title, subtitle, details, station, assetID, length, airtime, teaserImages, streams);
+				}
+
 			},
 			error: function(){
 				console.warn('ERROR; ARTEService.getNew; AJAX-request did not recieve a response');
@@ -619,6 +795,7 @@ MediathekCrawler.ARTEService = function() {
 	that.searchString = searchString;
 	that.getNew = getNew;
 	that.getHot = getHot;
+	that.getCategories = getCategories;
 
 	return that;
 

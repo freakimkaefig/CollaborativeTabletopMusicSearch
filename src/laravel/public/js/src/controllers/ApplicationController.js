@@ -116,13 +116,13 @@ MediathekCrawler.ApplicationController = function() {
 		DasErsteService.getCategories(category, 100);
 		//param: maxLength of ZDF results (videos per show/series/broadcast)
 		ZDFService.getCategories(category, 2);
+		ARTEService.getCategories(category);
 	},
 
 	_getNew = function() {
 		DasErsteService.getNew();
 		ZDFService.getNew(ZDFMAXRESULTS);
 		ARTEService.getNew(ARTEMAXRESULTS);
-		ARTEService.getHot(ARTEMAXRESULTS);
 		//BRService blockiert; notImplemented!
 		BRService.getNew();
 	},
