@@ -12,11 +12,13 @@ MediathekCrawler.PlaylistView = (function() {
 
 		if($("#video-playlist").length >0){
 
-		videojs("#video", {plugins : { resolutionSelector : {
+		videojs("#video-playlist", {plugins : { resolutionSelector : {
     							force_types : [ 'video/mp4', 'video/webm' ],
     							default_res : "3"
 							} }}, function(){
-		});
+		
+							
+		});		
 		}
 
 	},

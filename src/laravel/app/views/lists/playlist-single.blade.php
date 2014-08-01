@@ -21,7 +21,7 @@
           }
           try {
             $before = $results_videos[$beforeIndex]->id;
-            echo '<button class="btn col-xs-6 col-sm-12" ><a href="'.URL::route("playlist-single",[$playlist,$before]).'">vorheriges Video</a></button>';
+            echo '<a href="'.URL::route("playlist-single",[$playlist,$before]).'"><button class="btn btn-transparent col-xs-6 col-sm-12" >vorheriges Video</button></a>';
             echo "<span>".$results_videos[$beforeIndex]->title."</span>"; 
 
           } catch (Exception $e) {
@@ -30,6 +30,7 @@
          ?>
         </div>
         <div id="playlist-video-wrapper" class="img-responsive col-xs-12 col-sm-8">
+       
         <video id="video-playlist" class="video-js vjs-default-skin " controls preload="auto">
         <?php
 
@@ -75,7 +76,7 @@
           }
           try {
             $next = $results_videos[$nextIndex]->id;
-            echo '<button class="btn col-xs-6 col-sm-12" ><a href="'.URL::route("playlist-single",[$playlist,$next]).'">nächstes</a></button>';
+            echo '<a href="'.URL::route("playlist-single",[$playlist,$next]).'"><button class="btn btn-transparent col-xs-6 col-sm-12" >nächstes</button></a>';
             echo "<span>".$results_videos[$nextIndex]->title."</span>"; 
           } catch (Exception $e) {
             $next = $results_videos[$nextIndex-1]->id;

@@ -44,7 +44,7 @@
    			</div></a>
    			@else
    			<div class="list-item">
-   				<img src='{{$image}}' class="img-responsive col-lg-3"/>
+   				<img src='{{$image_playlist}}' class="img-responsive col-lg-3"/>
    				<h3>{{$result->name}}</h3>
    				<h4>Noch nichts vorhanden</h4>
    			</div> 
@@ -65,12 +65,14 @@
 		          catch(Exception $e){
 		            $image_bookmark = "";
 		          } ?>
-			<div class="item col-xs-12 col-sm-12 col-lg-8 col-lg-offset-2">
+			<div class="video-item col-xs-12 col-sm-12 col-lg-8 col-lg-offset-2">
 				<a href="/video/bookmark/{{$result->id}}">
 				<img src="{{$image_bookmark}}" class="img-responsive col-xs-12"/>
-				<div class="col-xs-12">{{$result->title}}</div>
-				<div class="col-xs-12">{{($result->subtitle) ? $result->subtitle : ""}}</div>
-				<div class="col-xs-12"><span>{{date('d.m.y H:i', strtotime($result->airtime))}}</span> | <span> {{$result->duration}}</span> | <span>{{$result->station}}</span></div>
+				<div class="video-item-description col-xs-12">
+					<div class="col-xs-12">{{$result->title}}</div>
+					<div class="col-xs-12">{{($result->subtitle) ? $result->subtitle : ""}}</div>
+					<div class="col-xs-12"><span>{{date('d.m.y H:i', strtotime($result->airtime))}}</span> | <span> {{$result->duration}}</span> | <span>{{$result->station}}</span></div>
+				</div>
 				</a>
 			</div>
        		@endforeach

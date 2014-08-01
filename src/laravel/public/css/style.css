@@ -22,45 +22,151 @@ ul { list-style: none; padding: 0;}
 h2 { text-transform: capitalize; }
 
 
+/* ======== MAIN Design ===== */
+h1,h2,h3,h4,h5,h6,p,a, body{
+	color: #e3e3e3;
+}
+h3{
+	margin-bottom: 5px;
+	margin-left: -5px;
+}
+a:hover{
+	color: #778899;
+}
 
-/* ========== LISTS ======= */
+body{
+	background-color: #525252;
+	padding-bottom: 70px; 	
+}
+
+.modal *{
+	color: #1b1b1b;
+}
+/* -- Button Styles -- */
+
+.btn{
+	background-color: #ffffff;
+	color: #1b1b1b;
+}
+.btn>a{
+	color: #1b1b1b;
+}
+.btn-transparent{
+	background-color: transparent;
+	border-radius: 0;
+	color: #ffffff;
+	border: 1px solid #ffffff;
+}
+.btn-transparent:hover{
+	background-color: #778899;
+}
+.broadcast-btn{
+	position: relative;
+	margin-top: 10px; 	
+}
+/* -- Navigation --*/
+.navbar{
+
+	background-color: #1b1b1b;
+	border-radius: 0;
+	border: 1px solid #1b1b1b; 
+}
+.navbar .dropdown-toggle{
+	margin: 10px;
+	background-color: #778899;
+	padding: 5px;
+	color: #ffffff !important;
+}
+.navbar .dropdown-toggle:focus{background-color: #778899 !important;}
+
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus{
+	background-color: #778899;
+	color: #ffffff;
+}
+
+.navbar-nav li>a{color: #ffffff;}
+
+.navbar .dropdown-menu{
+	background-color: #1b1b1b;
+}
+.navbar .dropdown-menu>li>a, .navbar .dropdown-menu>li{
+	color: #ffffff;	
+}
+.navbar .dropdown-menu>li>a:hover, .navbar .dropdown-menu>li>a:focus{
+	background-color: #778899;
+}
+
+#footer-nav li>a{color: #ffffff;}
+#footer-nav li:hover{background-color: #778899;}
+
+
+
+/* -- Filter --*/
+.header-container{
+	background-color: #313131;
+}
+
+
+
+.video-item{
+	margin-bottom: 20px;
+	height:200px;
+	overflow: hidden;
+}
+.video-item-description{
+	background-color: #313131;
+	font-size: 12px;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	position: absolute; 
+	bottom: 0;
+}
+.video-item-title{
+	font-size: 14px;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap; 
+
+}
+.video-item img {
+	padding: 0;
+	width: 100%;
+	min-height:90%;
+}
+
+/* -- Lists -- */
 
 .list-item{
 	margin-top: 20px;
 	padding: 20px;
-	border-bottom: 1px solid black; 
+	border-bottom: 1px solid #ffffff; 
 }
 
 
 
 /* ===== Video_page ======*/
 
-#selectPlaylist{
+.select-box{
 	position: absolute;
-	border: 1px solid black;
 	padding: 5px;
 	z-index: 1;
-	background-color: #fff;
+	background-color:#313131;
 }
-.broadcast-btn{
-	position: relative;
-	background-color: transparent;
-}
-#selectPlaylist .btn{
+
+
+.select-box .btn, .select-box select{
 	margin-top: 5px;
 	margin-bottom: 5px;
+	width: 100%;
+	color: #1b1b1b;
 }
+
+
 
 /* ==== Playlist page ===*/
 
 #playlist-before-container, #playlist-next-container{
-	position: relative;
-	vertical-align: middle;
-}
-#playlist-before-container *{
-	display: inline-block;
-	vertical-align: middle;
-
 }
 
 /* Icons test works for Felix, David */

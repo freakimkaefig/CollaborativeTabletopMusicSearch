@@ -20,6 +20,7 @@
 					<li class="dropdown">
 		       			<a href="#" class="dropdown-toggle" data-toggle="dropdown">Mein Konto<b class="caret"></b></a>
 		      			<ul class="dropdown-menu">
+		        			<li class="divider"></li>
 		        			<li><a href="{{ URL::route('account-my-account') }}">Mein Konto</a></li>
 		        			<li><a href="{{ URL::route('playlists') }}">Meine Playlists</a></li>
 		         			<li><a href="#">Meine Abos</a></li>
@@ -39,10 +40,10 @@
 	 	
 
 	 	@if(isset($isSearch))
-		 	<div class="container">
+		 	<div class="container-fluid header-container">
 		 		<p>&nbsp;</p>
 		 	</div>
-		 	<div class="container-fluid">
+		 	<div class="container-fluid header-container">
 		 		@include('search.filters')
 		 	</div>
 	 	@endif
