@@ -17,6 +17,7 @@
 	{{ HTML::script('js/src/services/BRService.js') }}
 	{{ HTML::script('js/src/services/ARTEService.js') }}
 	{{ HTML::script('js/src/services/WDRService.js') }}
+	{{ HTML::script('js/src/services/SRFService.js') }}
 
 	<!--Model-->
 	{{ HTML::script('js/src/models/MediathekModel.js') }}
