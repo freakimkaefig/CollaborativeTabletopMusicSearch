@@ -112,7 +112,7 @@ MediathekCrawler.ApplicationController = function() {
 		WDRService.searchString(searchString);
 		ARTEService.searchString(searchString, ARTEMAXRESULTS);
 		BRService.searchString(searchString, 0);
-		// SRFService.searchString(searchString);
+		SRFService.searchString(searchString);
 	},
 
 	_getCategory = function(category) {

@@ -357,7 +357,7 @@ MediathekCrawler.ARTEService = function() {
 		}
 
 		var _url = /*PROXY_URL + */encodeURI(ARTESEARCHSTRING+String(searchString)+ARTESEARCHSTRING2+String(maxResults)+ARTESEARCHSTRING3);
-			// console.log("ARTE search results url: ",_url);
+			// console.log("ARTE search url: ",_url);
 			$.ajax({
 				url: _url,
 				type: 'GET',
