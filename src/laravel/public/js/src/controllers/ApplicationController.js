@@ -128,7 +128,7 @@ MediathekCrawler.ApplicationController = function() {
 	_getNew = function() {
 		DasErsteService.getNew();
 		ZDFService.getNew(ZDFMAXRESULTS);
-		// ARTEService.getNew(ARTEMAXRESULTS);
+		ARTEService.getNew(ARTEMAXRESULTS);
 		SRFService.getNew();
 		//BRService blockiert; notImplemented!
 		BRService.getNew();
