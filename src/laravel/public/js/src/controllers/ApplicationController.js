@@ -22,6 +22,7 @@ MediathekCrawler.ApplicationController = function() {
 	/* ===== CONTROLS ===== */
 	ZDFMAXRESULTS = 10,
 	ARTEMAXRESULTS = 10,
+	SRFMAXPAGESTOCRAWL = 2,
 
 	init = function() {   
 		console.info('MediathekCrawler.ApplicationController.init');
@@ -112,7 +113,7 @@ MediathekCrawler.ApplicationController = function() {
 		WDRService.searchString(searchString);
 		ARTEService.searchString(searchString, ARTEMAXRESULTS);
 		BRService.searchString(searchString, 0);
-		SRFService.searchString(searchString);
+		SRFService.searchString(searchString, SRFMAXPAGESTOCRAWL);
 	},
 
 	_getCategory = function(category) {
@@ -127,8 +128,8 @@ MediathekCrawler.ApplicationController = function() {
 	_getNew = function() {
 		DasErsteService.getNew();
 		ZDFService.getNew(ZDFMAXRESULTS);
-		ARTEService.getNew(ARTEMAXRESULTS);
-		// SRFService.getNew();
+		// ARTEService.getNew(ARTEMAXRESULTS);
+		SRFService.getNew();
 		//BRService blockiert; notImplemented!
 		BRService.getNew();
 	},
