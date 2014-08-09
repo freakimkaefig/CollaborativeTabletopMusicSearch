@@ -3,7 +3,8 @@
 			    // Stringsuche: search further streams via
 			    	// http://www.srf.ch/webservice/cvis/segment/ID/.json
 			    	// search param (sortierung nach relevanz/neueste/... ???)
-			   	// fix length to '00:00:00'
+			    	// pagination traversieren?
+			   		// fix length to '00:00:00'
 			    // Kategorien
 			    // hot
 			    // new
