@@ -89,6 +89,13 @@ MediathekCrawler.ApplicationController = function() {
 				ARTEService.getNew(ARTEMAXRESULTS);
 				ARTEService.getHot(ARTEMAXRESULTS);
 			}
+			if(document.URL.indexOf('/channel/DasErste') > -1){
+				DasErsteService.getNew();
+			}
+			if(document.URL.indexOf('/channel/SRF') > -1){
+				SRFService.getNew();
+			}
+
 		}
 		if (document.URL.indexOf("/suche") > -1) {
 			// var nachrichten = $('input[name="nachrichten"]').attr('checked');
