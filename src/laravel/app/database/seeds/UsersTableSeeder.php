@@ -7,6 +7,7 @@ class UsersTableSeeder extends Seeder {
 	 *
 	 * @return void
 	 */
+	
 	public function run()
 	{
 		\DB::table('users')->truncate();
