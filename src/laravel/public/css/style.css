@@ -192,3 +192,20 @@ body{
     left: 50%;
     margin:-2em /* the old negative margin trick */
 }
+
+.badge-new{
+	position: absolute;
+	background-image: url('/css/images/badge_new.png');
+	background-repeat: no-repeat;
+	background-size:100%;
+	height: 100%;
+	top: 0; 
+}
+.badge-hot{
+	position: absolute;
+	background-image: url('/css/images/badge_hot.png');
+	background-repeat: no-repeat;
+	background-size:100%;
+	height: 100%;
+	top: 0; 
+}
