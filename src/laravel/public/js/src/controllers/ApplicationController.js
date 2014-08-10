@@ -20,9 +20,9 @@ MediathekCrawler.ApplicationController = function() {
 	broadcastView = null,
 
 	/* ===== CONTROLS ===== */
-	ZDFMAXRESULTS = 6,
+	ZDFMAXRESULTS = 10,
 	ARTEMAXRESULTS = 15,
-	SRFMAXPAGESTOCRAWL = 3,
+	SRFMAXPAGESTOCRAWL = 2,
 
 	init = function() {   
 		console.info('MediathekCrawler.ApplicationController.init');
@@ -133,10 +133,10 @@ MediathekCrawler.ApplicationController = function() {
 	},
 
 	_getNew = function() {
-		//DasErsteService.getNew();
+		DasErsteService.getNew();
 		ZDFService.getNew(ZDFMAXRESULTS);
 		ARTEService.getNew(ARTEMAXRESULTS);
-		//SRFService.getNew();
+		SRFService.getNew();
 		//BRService blockiert; notImplemented!
 		//BRService.getNew();
 	},
