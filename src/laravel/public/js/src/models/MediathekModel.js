@@ -50,11 +50,12 @@ MediathekCrawler.MediathekModel = function() {
 		return new teaserImage(resolution, url);
 	},
 
-	addResults = function(station, title, subtitle, details, length, airtime, teaserImages, streams) {
-		console.log
-		if(station != 'null' && title != 'null' && teaserImages != 'null' && streams != 'null' && streams && station && title && teaserImages && streams.length > 0){
-
+	addResults = function(origin, station, title, subtitle, details, length, airtime, teaserImages, streams) {
+		var orig = origin;
+		if(orig != 'null' && station != 'null' && title != 'null' && teaserImages != 'null' && streams != 'null' && orig && streams && station && title && teaserImages && streams.length > 0){
+			// console.log('ORIGIN: ',typeof orig, '\n',orig);
 			var _result = {
+				'_origin': orig,
 				'_id': idCounter,
 				'_station': station,
 				'_title': title,
@@ -81,7 +82,7 @@ MediathekCrawler.MediathekModel = function() {
 			
 		}
 		else{
-			console.log("some params missing @ model.addResults: ", "|| station: ", station, " || title: ", title, " || subtitle: ", subtitle, " || details: ", details, " || length: ", length, " || airtime: ", airtime, " || teaserImages: ", teaserImages, " || streams: ", streams);
+			console.log("some params missing @ model.addResults:\n", "|| origin: ", orig._channel, "|| origin-METHODE: ", orig._method, " || station: ", station, " || title: ", title, " || subtitle: ", subtitle, " || details: ", details, " || length: ", length, " || airtime: ", airtime, " || teaserImages: ", teaserImages, " || streams: ", streams);
 		}
 	},
 

@@ -67,12 +67,18 @@ MediathekCrawler.ZDFService = function() {
 		if(maxResults >= 50){
 			maxResults = 50;
 		}
+		var origin = {
+			_channel: 'ZDF',
+			_method: 'searchString',
+			_searchTerm: searchStr,
+			_badge: null
+		};
 	    
 		$.ajax({
 			url: ZDFSEARCHURL+searchStr+'&maxLength='+String(maxResults),
 			type: 'GET',
 			success: function(data) {
-				_parseResponse(data);
+				_parseResponse(origin, data);
 			},
 			error: function(){
 				console.warn('ERROR; ZDFService.searchString; AJAX-request did not recieve a response');
@@ -80,7 +86,7 @@ MediathekCrawler.ZDFService = function() {
 		});
 	},
 
-	_parseResponse = function(data){
+	_parseResponse = function(origin, data){
 		// console.log('parsing response: ', data);
 	    $xml = $(data);
 	     //console.log(data);
@@ -134,7 +140,7 @@ MediathekCrawler.ZDFService = function() {
 
 			    //Fetch stream url's
 			    // console.log('parsing response: ',assetID, title, subtitle, details, station, assetID, length, airtime, teaserImages);
-			    _searchStream(assetID, title, subtitle, details, station, length, airtime, teaserImages);
+			    _searchStream(origin, assetID, title, subtitle, details, station, length, airtime, teaserImages);
 			   
 	    	}); //end foreach searchResult
 		    	
@@ -142,7 +148,7 @@ MediathekCrawler.ZDFService = function() {
 	    
 	},
 
-	_searchStream = function(assetID, title, subtitle, details, station, length, airtime, teaserImages){
+	_searchStream = function(origin, assetID, title, subtitle, details, station, length, airtime, teaserImages){
 
 		var streams = [];
 
@@ -260,7 +266,7 @@ MediathekCrawler.ZDFService = function() {
 						console.log('\'',title, '\' has ', streams.length, ' streams. \nCHECK: ',ZDFSTREAMURL+assetID);
 					}
 					else{
-						_pushResultToModel(title, subtitle, details, station, assetID, length, airtime, teaserImages, streams);
+						_pushResultToModel(origin, title, subtitle, details, station, assetID, length, airtime, teaserImages, streams);
 					}
 			    }
 			},
@@ -271,11 +277,11 @@ MediathekCrawler.ZDFService = function() {
 
 	},
 
-	_pushResultToModel = function(title, subtitle, details, station, assetID, length, airtime, teaserImages, streams){
+	_pushResultToModel = function(origin, title, subtitle, details, station, assetID, length, airtime, teaserImages, streams){
 		// console.log('pushing to result model');
 		// if(station != 'null' && title != 'null' && subtitle != 'null' && details != 'null' && length != 'null' && airtime != 'null' && teaserImages != 'null' && streams && station && title && subtitle && details && length && airtime && teaserImages && streams){
 
-			mediathekModel.addResults(station, title, subtitle, details, length, airtime, teaserImages, streams);
+			mediathekModel.addResults(origin, station, title, subtitle, details, length, airtime, teaserImages, streams);
 		// }
 		// else{
 			// console.log('some params missing @ ZDFService._pushResultToModel: ', 'station: ', station, 'title: ', title, 'subtitle: ', subtitle, 'details: ', details, 'length: ', length, 'airtime: ', airtime, 'teaserImages: ', teaserImages, 'streams: ', streams);
@@ -287,12 +293,18 @@ MediathekCrawler.ZDFService = function() {
 		if(maxResults >50){
 			maxResults = 50;
 		} 
+		var origin = {
+			_channel: 'ZDF',
+			_method: 'getHot',
+			_searchTerm: null,
+			_badge: 'hot'
+		};
 
 		$.ajax({
 			url: ZDFSEARCHHOTURL+String(maxResults),
 			type: 'GET',
 			success: function(data) {
-				_parseResponse(data);
+				_parseResponse(origin, data);
 			},
 			error: function(){
 				console.warn('ERROR; ZDFService.getHot; AJAX-request did not recieve a response');
@@ -304,12 +316,18 @@ MediathekCrawler.ZDFService = function() {
 		if(maxResults >50){
 			maxResults = 50;
 		} 
+		var origin = {
+			_channel: 'ZDF',
+			_method: 'getNew',
+			_searchTerm: null,
+			_badge: 'new'
+		};
 
 		$.ajax({
 			url: ZDFSEARCHNEWURL+ZDFID+'&maxLength='+String(maxResults),
 			type: 'GET',
 			success: function(data) {
-				_parseResponse(data);
+				_parseResponse(origin, data);
 			},
 			error: function(){
 				console.warn('ERROR; ZDFService.getNew; ZDF; AJAX-request did not recieve a response');
@@ -319,7 +337,7 @@ MediathekCrawler.ZDFService = function() {
 			url: ZDFSEARCHNEWURL+ZDFNEOID+'&maxLength='+String(maxResults),
 			type: 'GET',
 			success: function(data) {
-				_parseResponse(data);
+				_parseResponse(origin, data);
 			},
 			error: function(){
 				console.warn('ERROR; ZDFService.getNew; ZDFNEO; AJAX-request did not recieve a response');
@@ -329,7 +347,7 @@ MediathekCrawler.ZDFService = function() {
 			url: ZDFSEARCHNEWURL+ZDFKULTURID+'&maxLength='+String(maxResults),
 			type: 'GET',
 			success: function(data) {
-				_parseResponse(data);
+				_parseResponse(origin, data);
 			},
 			error: function(){
 				console.warn('ERROR; ZDFService.getNew; ZDFKULTUR; AJAX-request did not recieve a response');
@@ -339,7 +357,7 @@ MediathekCrawler.ZDFService = function() {
 			url: ZDFSEARCHNEWURL+ZDFINFOID+'&maxLength='+String(maxResults),
 			type: 'GET',
 			success: function(data) {
-				_parseResponse(data);
+				_parseResponse(origin, data);
 			},
 			error: function(){
 				console.warn('ERROR; ZDFService.getNew; ZDFINFO; AJAX-request did not recieve a response');
@@ -348,11 +366,17 @@ MediathekCrawler.ZDFService = function() {
 	},
 
 	getCategories = function(_category, maxVidProSendung) {
+		var origin = {
+			_channel: 'ZDF',
+			_method: 'getCategories',
+			_searchTerm: _category,
+			_badge: null
+		};
 		var find = CATEGORIES.filter(function (category) { return category._id == _category });
 		if(find.length > 0) {
 			// console.log(find[0]._assetId);
 			$.each(find[0]._assetId, function(index,value){
-				_getBroadcastOfCategory(value, maxVidProSendung);
+				_getBroadcastOfCategory(origin, value, maxVidProSendung);
 			});
 
 		} else {
@@ -360,7 +384,7 @@ MediathekCrawler.ZDFService = function() {
 		}
 	},
 
-	_getBroadcastOfCategory = function(assetId, maxVidProSendung){
+	_getBroadcastOfCategory = function(origin, assetId, maxVidProSendung){
 		// console.log(assetId);
 		$.ajax({
 			// maxLength: max results of broadcasts per category
@@ -378,7 +402,7 @@ MediathekCrawler.ZDFService = function() {
 					    //get assetid (for stream-url's)
 					    assetID = $(this).find('assetId').text();
 
-					    _getVideosOfBroadcast(assetID, maxVidProSendung);
+					    _getVideosOfBroadcast(origin, assetID, maxVidProSendung);
 			    	}); 
 				    	
 			    }
@@ -391,7 +415,7 @@ MediathekCrawler.ZDFService = function() {
 		
 	},
 
-	_getVideosOfBroadcast = function(assetId, maxVidProSendung){
+	_getVideosOfBroadcast = function(origin, assetId, maxVidProSendung){
 		
 		$.ajax({
 			url: ZDFVIDEOSPERBROADCAST+String(assetId)+'&maxLength='+String(maxVidProSendung),
@@ -408,7 +432,7 @@ MediathekCrawler.ZDFService = function() {
 					    //get assetid (for stream-url's)
 					    assetID = $(this).find('assetId').text();
 
-					    _getDetailsAndStreamOfVideo(assetID);
+					    _getDetailsAndStreamOfVideo(origin, assetID);
 			    	}); 
 				    	
 			    }
@@ -419,7 +443,7 @@ MediathekCrawler.ZDFService = function() {
 		});
 	},
 
-	_getDetailsAndStreamOfVideo = function(assetId){
+	_getDetailsAndStreamOfVideo = function(origin, assetId){
 		
 		$.ajax({
 			url: ZDFSTREAMURL+assetId,
@@ -476,7 +500,7 @@ MediathekCrawler.ZDFService = function() {
 
 					    //Fetch stream url's
 					    // console.log('_getDetailsAndStreamOfVideo: ',assetID, title, subtitle, details, station, assetID, length, airtime, teaserImages);
-					    _searchStream(assetID, title, subtitle, details, station, length, airtime, teaserImages);
+					    _searchStream(origin, assetID, title, subtitle, details, station, length, airtime, teaserImages);
 					   
 			    	});
 				    	

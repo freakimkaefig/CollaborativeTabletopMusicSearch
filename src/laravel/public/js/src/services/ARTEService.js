@@ -11,7 +11,7 @@
 MediathekCrawler.ARTEService = function() {
 
 	var that = {},
-	mediathekModel = null,
+	ARTEmediathekModel = null,
 	ARTESEARCHNEW = 'http://www.arte.tv/papi/tvguide/epg/schedule/D/L3/',
 	// http://www.arte.tv/papi/tvguide/videos/plus7/search/D/L1/KEYWORD/ALL/ALL/-1/AIRDATE_DESC/LIMIT/0.json
 	// or
@@ -51,15 +51,21 @@ MediathekCrawler.ARTEService = function() {
 	init = function(mModel) {
 		//init ZDFService
 		console.info('MediathekCrawler.ARTEService.init');
-		mediathekModel = mModel;
+		ARTEmediathekModel = mModel;
 	},
 
 	getCategories = function(_category) {
+		var origin = {
+			_channel: 'ARTE',
+			_method: 'getCategories',
+			_searchTerm: _category,
+			_badge: null
+		};
 		var find = CATEGORIES.filter(function (category) { return category._id == _category });
 		if(find.length > 0) {
 			// console.log(find[0]._assetId);
 			$.each(find[0]._value, function(index,value){
-				_getBroadcastOfCategory(value);
+				_getARTEBroadcastOfCategory(origin, value);
 			});
 
 		} else {
@@ -67,10 +73,10 @@ MediathekCrawler.ARTEService = function() {
 		}
 	},
 
-	_getBroadcastOfCategory = function(category){
+	_getARTEBroadcastOfCategory = function(origin, category){
 		$.ajax({
 			// maxLength: max results of broadcasts per category
-			url: ARTESEARCHCATEGORY+String(category)+ARTESEARCHCATEGORY2,
+			url: PROXY_URL + encodeURI(ARTESEARCHCATEGORY+String(category)+ARTESEARCHCATEGORY2),
 			type: 'GET',
 			cache: false,
 			success: function(data) {
@@ -98,7 +104,7 @@ MediathekCrawler.ARTEService = function() {
 							// console.log('res: ',resolution);
 							if(resolution !== 0){
 								
-								var ti2 = mediathekModel.createTeaserImage(resolution, element.programImage);
+								var ti2 = ARTEmediathekModel.createTeaserImage(resolution, element.programImage);
 						    	teaserImages.push(ti2);
 							}
 						}catch(e){
@@ -121,7 +127,7 @@ MediathekCrawler.ARTEService = function() {
 				  //                   }
 				  //               });
 						// 	}
-						// 			// var ti3 = mediathekModel.createTeaserImage(0, element.VTU.original);
+						// 			// var ti3 = ARTEmediathekModel.createTeaserImage(0, element.VTU.original);
 						// 	 		 //teaserImages.push(ti3);
 								
 						// }catch(e){
@@ -132,7 +138,7 @@ MediathekCrawler.ARTEService = function() {
 							// console.log('res: ',resolution);
 							if(resolution !== 0){
 
-								var ti4 = mediathekModel.createTeaserImage(resolution, element.VTU.IUR);
+								var ti4 = ARTEmediathekModel.createTeaserImage(resolution, element.VTU.IUR);
 						    	teaserImages.push(ti4);
 							}
 
@@ -189,7 +195,7 @@ MediathekCrawler.ARTEService = function() {
 						// search Streams
 						if(streamUrl !== ''){
 							// console.log('ARTE GETHOT - DATA: ',assetID, title, subtitle, details, station, length, airtime, teaserImages, streamUrl);
-							_searchStreams(assetID, title, subtitle, details, station, length, airtime, teaserImages, streamUrl);
+							_searchARTEStreams(origin, assetID, title, subtitle, details, station, length, airtime, teaserImages, streamUrl);
 						}else{
 							console.log('Could not fetch streamURL for ', title, ' with ID: ',assetID);
 						}
@@ -199,7 +205,7 @@ MediathekCrawler.ARTEService = function() {
 			 	
 			},
 			error: function(){
-				console.warn('ERROR; ZDFService._getBroadcastOfCategory; AJAX-request did not recieve a response');
+				console.warn('ERROR; ZDFService._getARTEBroadcastOfCategory; AJAX-request did not recieve a response');
 			}
 		});
 	},
@@ -208,8 +214,14 @@ MediathekCrawler.ARTEService = function() {
 		if(maxResults < 1 || maxResults === null || maxResults === 'undefined' || maxResults === undefined){
 			maxResults = 10;
 		}
+		var origin = {
+			_channel: 'ARTE',
+			_method: 'getHot',
+			_searchTerm: null,
+			_badge: 'hot'
+		},
 
-		var _url = PROXY_URL + encodeURI(ARTESEARCHHOT+String(maxResults)+ARTESEARCHHOT2);
+		 _url = PROXY_URL + encodeURI(ARTESEARCHHOT+String(maxResults)+ARTESEARCHHOT2);
 			// console.log('ARTE getHot() url: ',_url);
 			$.ajax({
 				url: _url,
@@ -217,7 +229,7 @@ MediathekCrawler.ARTEService = function() {
 				cache: false,
 				success: function(data, textStatus, jqXHR) {
 					// console.log('YAAAY', textStatus, jqXHR);
-					_onGetHot(data);
+					_onARTEGetHot(origin, data);
 					
 				},
 				error: function(){
@@ -226,7 +238,7 @@ MediathekCrawler.ARTEService = function() {
 			});
 	},
 
-	_onGetHot = function(data){
+	_onARTEGetHot = function(origin, data){
 		var response = $.parseJSON(data);
 
 		if(response.videoList.length > 0){
@@ -250,7 +262,7 @@ MediathekCrawler.ARTEService = function() {
 					// console.log('res: ',resolution);
 					if(resolution !== 0){
 						
-						var ti2 = mediathekModel.createTeaserImage(resolution, element.programImage);
+						var ti2 = ARTEmediathekModel.createTeaserImage(resolution, element.programImage);
 				    	teaserImages.push(ti2);
 					}
 				}catch(e){
@@ -273,7 +285,7 @@ MediathekCrawler.ARTEService = function() {
 		  //                   }
 		  //               });
 				// 	}
-				// 			// var ti3 = mediathekModel.createTeaserImage(0, element.VTU.original);
+				// 			// var ti3 = ARTEmediathekModel.createTeaserImage(0, element.VTU.original);
 				// 	 		 //teaserImages.push(ti3);
 						
 				// }catch(e){
@@ -284,7 +296,7 @@ MediathekCrawler.ARTEService = function() {
 					// console.log('res: ',resolution);
 					if(resolution !== 0){
 
-						var ti4 = mediathekModel.createTeaserImage(resolution, element.VTU.IUR);
+						var ti4 = ARTEmediathekModel.createTeaserImage(resolution, element.VTU.IUR);
 				    	teaserImages.push(ti4);
 					}
 
@@ -341,7 +353,7 @@ MediathekCrawler.ARTEService = function() {
 				// search Streams
 				if(streamUrl !== ''){
 					// console.log('ARTE GETHOT - DATA: ',assetID, title, subtitle, details, station, length, airtime, teaserImages, streamUrl);
-					_searchStreams(assetID, title, subtitle, details, station, length, airtime, teaserImages, streamUrl);
+					_searchARTEStreams(origin, assetID, title, subtitle, details, station, length, airtime, teaserImages, streamUrl);
 				}else{
 					console.log('Could not fetch streamURL for ', title, ' with ID: ',assetID);
 				}
@@ -355,16 +367,24 @@ MediathekCrawler.ARTEService = function() {
 		if(maxResults < 1 || maxResults === null || maxResults === 'undefined' || maxResults === undefined){
 			maxResults = 10;
 		}
+		var origin = {
+			_channel: 'ARTE',
+			_method: 'searchString',
+			_searchTerm: searchString,
+			_badge: null
+		};
 
-		var _url = /*PROXY_URL + */encodeURI(ARTESEARCHSTRING+String(searchString)+ARTESEARCHSTRING2+String(maxResults)+ARTESEARCHSTRING3);
+		var _url = PROXY_URL + encodeURI(ARTESEARCHSTRING+String(searchString)+ARTESEARCHSTRING2+String(maxResults)+ARTESEARCHSTRING3);
 			// console.log('ARTE search url: ',_url);
 			$.ajax({
 				url: _url,
 				type: 'GET',
+				dataType: 'json',
 				cache: false,
 				success: function(data, textStatus, jqXHR) {
-					// console.log('YAAAY', textStatus, jqXHR);
-					_onSearchString(data);
+					// console.log('YAAAY',_url, textStatus);
+					_onARTESearchString(origin, data);
+					// console.log('ARTE.searchString; origin: ',origin, data);
 					
 				},
 				error: function(){
@@ -373,12 +393,13 @@ MediathekCrawler.ARTEService = function() {
 			});
 	},
 
-	_onSearchString = function(data){
-		// console.log('ARTE; data: ',data);
+	_onARTESearchString = function(origin, data){
+		console.log('ARTE._onARTESearchString');
+		// console.log('ARTE._onARTESearchString; origin: ',origin);
 		// try{
 		// 	var response = $.parseJSON(data);
 		// }catch(e){
-		// 	console.log(data, '\n', e);
+		// 	console.log('ARTE onsearchString - failed to parse data', '\n', e);
 		// }
 
 		if(data.videoList.length > 0){
@@ -401,8 +422,8 @@ MediathekCrawler.ARTEService = function() {
 					var resolution = _getResolution(element.programImage);
 					// console.log('res: ',resolution);
 					if(resolution !== 0){
-						
-						var ti2 = mediathekModel.createTeaserImage(resolution, element.programImage);
+						// console.log('IMAGE URL: ',element.programImage);
+						var ti2 = ARTEmediathekModel.createTeaserImage(resolution, element.programImage);
 				    	teaserImages.push(ti2);
 					}
 				}catch(e){
@@ -425,7 +446,7 @@ MediathekCrawler.ARTEService = function() {
 		  //                   }
 		  //               });
 				// 	}
-				// 			// var ti3 = mediathekModel.createTeaserImage(0, element.VTU.original);
+				// 			// var ti3 = ARTEmediathekModel.createTeaserImage(0, element.VTU.original);
 				// 	 		 //teaserImages.push(ti3);
 						
 				// }catch(e){
@@ -436,7 +457,8 @@ MediathekCrawler.ARTEService = function() {
 					// console.log('res: ',resolution);
 					if(resolution !== 0){
 
-						var ti4 = mediathekModel.createTeaserImage(resolution, element.VTU.IUR);
+						// console.log('IMAGE URL: ',element.VTU.IUR);
+						var ti4 = ARTEmediathekModel.createTeaserImage(resolution, element.VTU.IUR);
 				    	teaserImages.push(ti4);
 					}
 
@@ -492,7 +514,8 @@ MediathekCrawler.ARTEService = function() {
 				
 				// search Streams
 				if(streamUrl !== ''){
-					_searchStreams(assetID, title, subtitle, details, station, length, airtime, teaserImages, streamUrl);
+					// console.log('ARTE searchStream: ',origin, assetID, title, subtitle, details, station, length, airtime, teaserImages, streamUrl);
+					_searchARTEStreams(origin, assetID, title, subtitle, details, station, length, airtime, teaserImages, streamUrl);
 				}else{
 					console.log('Could not fetch streamURL for ', title, ' with ID: ',assetID);
 				}
@@ -528,6 +551,12 @@ MediathekCrawler.ARTEService = function() {
 	*/
 	getNew = function(maxResults){
 
+		var origin = {
+			_channel: 'ARTE',
+			_method: 'getNew',
+			_searchTerm: null,
+			_badge: 'new'
+		};
 		//set & format today
 		var today = new Date();
 		var td = today.getDate();
@@ -570,11 +599,7 @@ MediathekCrawler.ARTEService = function() {
 				// var temp = jqXHR.responseText;
 				// var data2 = JSON.stringify(data).split('@').join('');
 				// console.log('DATA CONTAINS \" @ \" = ',data2.indexOf('@'));
-				_onGetNew(data, maxResults);
-			},
-			complete: function(data){
-				console.log('COMPLETE', data);
-
+				_onARTEGetNew(origin, data, maxResults);
 			},
 			error: function(){
 				console.warn('ERROR; ARTEService.getNew(); AJAX-request did not recieve a response');
@@ -586,22 +611,22 @@ MediathekCrawler.ARTEService = function() {
 	  return str.replace(new RegExp(find, 'g'), replace);
 	},
 
-	_onGetNew = function(data, maxResults){
-		console.log('_onGetNew');
-				console.log('_ongetNew(): ',data);
+	_onARTEGetNew = function(origin, data, maxResults){
+		// console.log('_onARTEGetNew');
+				console.log('_onARTEGetNew(): ',data);
 		var counter = 1;
 
-		try{
+		// try{
 
-			var response = $.parseJSON(data);
-		}catch(e){
-			console.log('JSON parse FAIL\n',e);
-		}
+		// 	var response = $.parseJSON(data);
+		// }catch(e){
+		// 	console.log('JSON parse FAIL\n',e);
+		// }
 
 		// console.log(response.abstractBroadcastList.length);
-		if(response !== undefined && response.abstractBroadcastList.length > 0){
+		if(data !== undefined && data.abstractBroadcastList.length > 0){
 
-			$.each(response.abstractBroadcastList, function(index, element) {
+			$.each(data.abstractBroadcastList, function(index, element) {
 				if(counter <= maxResults){
 
 					var teaserImages = [],
@@ -619,63 +644,63 @@ MediathekCrawler.ARTEService = function() {
 						var resolution = _getResolution(element.IMG.IUR);
 						if(resolution !== 0){
 						
-							var ti = mediathekModel.createTeaserImage(resolution, element.IMG.IUR);
+							var ti = ARTEmediathekModel.createTeaserImage(resolution, element.IMG.IUR);
 					    	teaserImages.push(ti);
 						}
 					}catch(e){
-					   console.log('image fail\n',e);
+					   // console.log('image fail\n',e);
 					}
 					try{	
 						var resolution = _getResolution(element.VDO.programImage);
 						if(resolution !== 0){
 						
-							var ti2 = mediathekModel.createTeaserImage(resolution, element.VDO.programImage);
+							var ti2 = ARTEmediathekModel.createTeaserImage(resolution, element.VDO.programImage);
 					    	teaserImages.push(ti2);
 						}
 					}catch(e){
-					   console.log('image fail\n',e);
+					   // console.log('image fail\n',e);
 					}
 					try{
 						var resolution = _getResolution(element.VDO.VTU.original);
 						if(resolution !== 0){
 						
-							var ti3 = mediathekModel.createTeaserImage(resolution, element.VDO.VTU.original);
+							var ti3 = ARTEmediathekModel.createTeaserImage(resolution, element.VDO.VTU.original);
 					    	teaserImages.push(ti3);
 						}
 					}catch(e){
-					   console.log('image fail\n',e);
+					   // console.log('image fail\n',e);
 					}
 					try{
 						var resolution = _getResolution(element.VDO.VTU.IUR);if(resolution !== 0){
 						
-							var ti4 = mediathekModel.createTeaserImage(resolution, element.VDO.VTU.IUR);
+							var ti4 = ARTEmediathekModel.createTeaserImage(resolution, element.VDO.VTU.IUR);
 					    	teaserImages.push(ti4);
 						}
 
 					}catch(e){
-					   console.log('image fail\n',e);
+					   // console.log('image fail\n',e);
 					}
 
 					//get remaining infos
 					try{
 						details = element.VDO.VTX+': '+element.DSS;
 					}catch(e){
-					   console.log('detail fail\n',e);
+					   // console.log('detail fail\n',e);
 					}
 					try{
 						title = element.TIT;
 					}catch(e){
-					   console.log('title fail\n',e);
+					   // console.log('title fail\n',e);
 					}
 					try{
 						assetID = element.programId;
 					}catch(e){
-					   console.log('assetID fail\n',e);
+					   // console.log('assetID fail\n',e);
 					}
 					try{
 						length = _formatSeconds(String(element.VDS[0].VDU) * 60);
 					}catch(e){
-					   console.log('length fail\n',e);
+					   // console.log('length fail\n',e);
 					}
 					try{
 						airtime = element.BDT;
@@ -683,28 +708,28 @@ MediathekCrawler.ARTEService = function() {
 						airtime = airtime.trim();
 						// console.log('airtime: ',airtime);
 					}catch(e){
-					   console.log('airtime fail\n',e);
+					   // console.log('airtime fail\n',e);
 					}
 					try{
 						station = element.POR;
 					}catch(e){
-					   console.log('station fail\n',e);
+					   // console.log('station fail\n',e);
 					}
 					try{
 						subtitle = element.STL+' ('+element.VDO.genre+')';
 					}catch(e){
-					   console.log('subtitle fail\n',e);
+					   // console.log('subtitle fail\n',e);
 					}
 					try{
 						streamUrl = element.VDO.videoStreamUrl;
 						// console.log('streamUrl: ', element.VDO.videoStreamUrl, ' = ',streamUrl);
 					}catch(e){
-					   console.log('streamUrl fail\n',e);
+					   // console.log('streamUrl fail\n',e);
 					}
 					
 					// search Streams
 					if(streamUrl !== '' && teaserImages.length > 0){
-						_searchStreams(assetID, title, subtitle, details, station, length, airtime, teaserImages, streamUrl);
+						_searchARTEStreams(origin, assetID, title, subtitle, details, station, length, airtime, teaserImages, streamUrl);
 					}else{
 						console.log('Could not fetch streamURL for ', title, ' with ID: ',assetID);
 					}
@@ -714,7 +739,7 @@ MediathekCrawler.ARTEService = function() {
 				
 			});
 		}else{
-			console.log('response was: ',response);
+			console.log('response was: ',data);
 		}
 	},
 
@@ -724,7 +749,7 @@ MediathekCrawler.ARTEService = function() {
 	    return date.toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, '$1');
 	},
 
-	_searchStreams = function(assetID, title, subtitle, details, station, length, airtime, teaserImages, streamUrl){
+	_searchARTEStreams = function(origin, assetID, title, subtitle, details, station, length, airtime, teaserImages, streamUrl){
 		var streams = [],
 		_url = PROXY_URL + encodeURI(streamUrl);
 
@@ -762,7 +787,7 @@ MediathekCrawler.ARTEService = function() {
 					    				break;
 				    			}
 
-					    		var stream = mediathekModel.createStream(basetype, type, quality, url, filesize);
+					    		var stream = ARTEmediathekModel.createStream(basetype, type, quality, url, filesize);
 					    		//console.log('basetype: ',basetype,', stream: ',stream._url);
 								streams.push(stream);
 
@@ -782,13 +807,13 @@ MediathekCrawler.ARTEService = function() {
 					// console.log('New stream url: ',_url2);
 					if(_url !== _url2){
 						// console.log('ARTE; trying to search Streams with new streamUrl: ',_url2);
-						_searchStreams(assetID, title, subtitle, details, station, length, airtime, teaserImages, _url2);
+						_searchARTEStreams(origin, assetID, title, subtitle, details, station, length, airtime, teaserImages, _url2);
 					}else if(_url === _url2){
 						console.log('ARTE; \'',title, '\' has ', streams.length, ' streams. \nCHECK: ',_url, ' AND ',_url2);
 					}
 				}
 				else{
-					_pushResultToModel(title, subtitle, details, station, assetID, length, airtime, teaserImages, streams);
+					_pushARTEResultToModel(origin, station, title, subtitle, details, length, airtime, teaserImages, streams);
 				}
 
 			},
@@ -799,14 +824,14 @@ MediathekCrawler.ARTEService = function() {
 
 	},
 
-	_pushResultToModel = function(title, subtitle, details, station, assetID, length, airtime, teaserImages, streams){
+	_pushARTEResultToModel = function(origin, station, title, subtitle, details, length, airtime, teaserImages, streams){
 		// console.log('pushing to result model');
 		// if(station !== 'null' && title !== 'null' && subtitle !== 'null' && details !== 'null' && length !== 'null' && airtime !== 'null' && teaserImages !== 'null' && streams && station && title && subtitle && details && length && airtime && teaserImages && streams){
 
-			mediathekModel.addResults(station, title, subtitle, details, length, airtime, teaserImages, streams);
+			ARTEmediathekModel.addResults(origin, station, title, subtitle, details, length, airtime, teaserImages, streams);
 		// }
 		// else{
-		// console.log('some params missing @ ARTEService._pushResultToModel: ', 'station: ', station, 'title: ', title, 'subtitle: ', subtitle, 'details: ', details, 'length: ', length, 'airtime: ', airtime, 'teaserImages: ', teaserImages, 'streams: ', streams);
+		// console.log('some params missing @ ARTEService._pushARTEResultToModel: ', 'station: ', station, 'title: ', title, 'subtitle: ', subtitle, 'details: ', details, 'length: ', length, 'airtime: ', airtime, 'teaserImages: ', teaserImages, 'streams: ', streams);
 		// }
 		// console.log('number of streams: ',streams.length);
 	},
@@ -817,6 +842,7 @@ MediathekCrawler.ARTEService = function() {
 
 
 	that.init = init;
+	that.dispose = dispose;
 	that.searchString = searchString;
 	that.getNew = getNew;
 	that.getHot = getHot;
