@@ -11,7 +11,6 @@
 		@endif
 
 		<hr>
-		<h2>Neue Sendungen</h2>
 		@include('search.results')
 
 	</div>

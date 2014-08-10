@@ -7,8 +7,8 @@
 				<div class="col-sm-4 col-sm-offset-4 alpha">
 					<ul>
 						<li><a href="#">Live</a></li>
-						<li><a href="#">Hot</a></li>
-						<li><a href="#">New</a></li>
+						<li><a href="{{ URL::route('hot-videos') }}">Hot</a></li>
+						<li><a href="{{ URL::route('new-videos') }}">New</a></li>
 						<li><a href="#">Nachrichten</a></li>
 						<li><a href="#">Sport</a></li>
 						<li><a href="#">Serien</a></li>

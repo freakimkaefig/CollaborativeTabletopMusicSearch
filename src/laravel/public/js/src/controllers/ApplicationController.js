@@ -72,6 +72,13 @@ MediathekCrawler.ApplicationController = function() {
 	_analyzeRoute = function() {
 		if (document.URL === "http://mediathek-crawler/") {
 			_getNew();
+			_getHot();
+		}
+		if(document.URL.indexOf('/new') > -1){
+			_getNew();
+		}
+		if(document.URL.indexOf('/hot') > -1){
+			_getHot();
 		}
 		if (document.URL.indexOf("/suche") > -1) {
 			// var nachrichten = $('input[name="nachrichten"]').attr('checked');
@@ -126,14 +133,17 @@ MediathekCrawler.ApplicationController = function() {
 	},
 
 	_getNew = function() {
-		DasErsteService.getNew();
+		//DasErsteService.getNew();
 		ZDFService.getNew(ZDFMAXRESULTS);
 		ARTEService.getNew(ARTEMAXRESULTS);
-		SRFService.getNew();
+		//SRFService.getNew();
 		//BRService blockiert; notImplemented!
-		BRService.getNew();
+		//BRService.getNew();
 	},
-
+	_getHot = function(){
+		ZDFService.getHot(ZDFMAXRESULTS);
+		ARTEService.getHot(ARTEMAXRESULTS);
+	},
 	_getVideoById = function() {
 		var _id = $('#video-id').val();
 		broadcastView.renderVideoById(_id);
