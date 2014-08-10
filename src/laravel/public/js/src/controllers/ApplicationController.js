@@ -80,6 +80,16 @@ MediathekCrawler.ApplicationController = function() {
 		if(document.URL.indexOf('/hot') > -1){
 			_getHot();
 		}
+		if(document.URL.indexOf('/channel') > -1){
+			if(document.URL.indexOf('/channel/ZDF') > -1){
+				ZDFService.getNew(ZDFMAXRESULTS);
+				ZDFService.getHot(ZDFMAXRESULTS);
+			}
+			if(document.URL.indexOf('/channel/ARTE') > -1){
+				ARTEService.getNew(ARTEMAXRESULTS);
+				ARTEService.getHot(ARTEMAXRESULTS);
+			}
+		}
 		if (document.URL.indexOf("/suche") > -1) {
 			// var nachrichten = $('input[name="nachrichten"]').attr('checked');
 			// if (nachrichten) {

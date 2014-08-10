@@ -209,6 +209,11 @@ Route::get('/new', array(
 		'uses' => 'MediathekController@getNewVideos'
 ));
 
+/* Channels */
+Route::get('/channel/{channel}', array(
+		'as' => 'channel',
+		'uses' => 'MediathekController@getChannel'
+));
 Route::get('/hot', array(
 		'as' => 'hot-videos',
 		'uses' => 'MediathekController@getHotVideos'

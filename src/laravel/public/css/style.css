@@ -119,8 +119,9 @@ body{
 	overflow: hidden;
 	text-overflow:ellipsis;
 	white-space:nowrap;
-	position: absolute; 
-	bottom: 0;
+	position: relative; 
+	bottom: 35px;
+	padding-right: 15px;
 }
 .video-item-title{
 	font-size: 14px;
@@ -130,6 +131,7 @@ body{
 
 }
 .video-item img {
+	top: 0;
 	padding: 0;
 	width: 100%;
 	min-height:90%;

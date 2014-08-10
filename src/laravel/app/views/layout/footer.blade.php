@@ -23,8 +23,8 @@
 				<div class="col-sm-4 col-sm-offset-4 alpha">
 					<ul>
 					    <li><a href="#">Das Erste</a></li>
-					    <li><a href="#">ZDF</a></li>
-					    <li><a href="#">Arte</a></li>
+					    <li><a href="{{URL::route('channel',array('ZDF'))}}">ZDF</a></li>
+					    <li><a href="{{URL::route('channel',array('ARTE'))}}">Arte</a></li>
 					    <li><a href="#">BR</a></li>
 					    <li><a href="#">SWR</a></li>
 					    <li><a href="#">WDR</a></li>

@@ -47,7 +47,7 @@ MediathekCrawler.BroadcastView = (function() {
 			'<div>' + result._title + '</div>' +
 			/*'<div>' + result._details + '</div>' +*/
 			'<div>' + result._subtitle + '</div>' +
-			'<h3>Zeit:</h3>' +
+			'<h3>Ausstrahlung:</h3>' +
 			'<div>' + result._airtime+ '</div>' +
 			'<h3>Dauer:</h3>' +
 			'<div>' + result._length + '</div>' +
@@ -83,7 +83,7 @@ MediathekCrawler.BroadcastView = (function() {
 			'<div>' + result.title + '</div>' +
 			'<div>' + result.subtitle + '</div>' +
 			/*'<div>' + result._details + '</div>' +*/
-			'<h3>Zeit:</h3>' +
+			'<h3>Ausstrahlung:</h3>' +
 			'<div>' + result.airtime.replace(/(\d{4})-(\d{2})-(\d{2})/, "$3.$2.$1") + '</div>' +
 			'<h3>Dauer:</h3>' +
 			'<div>' + result.duration + '</div>' +

@@ -39,4 +39,9 @@ class MediathekController extends BaseController {
 		return View::make('search.hot');
 
 	}
+	public function getChannel($channel){
+		return View::make('search.channel')
+			->with('channel',$channel);
+
+	}
 }
