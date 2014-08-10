@@ -80,12 +80,12 @@ MediathekCrawler.ARTEService = function() {
 			type: 'GET',
 			cache: false,
 			success: function(data) {
-				// console.log('DATA: ', data)
-	     		// var response = $.parseJSON(data);
+				console.log('DATA _getARTEBroadcastOfCategory ', typeof data, data);
+	     		var response = $.parseJSON(data);
 
-				if(data.videoList.length > 0){
+				if(response.videoList.length > 0){
 					// console.log('found videolist entry');
-					$.each(data.videoList, function(index, element) {
+					$.each(response.videoList, function(index, element) {
 
 						var teaserImages = [],
 							streams = [],
