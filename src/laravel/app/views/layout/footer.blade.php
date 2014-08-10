@@ -9,12 +9,22 @@
 						<li><a href="#">Live</a></li>
 						<li><a href="{{ URL::route('hot-videos') }}">Hot</a></li>
 						<li><a href="{{ URL::route('new-videos') }}">New</a></li>
-						<li><a href="#">Nachrichten</a></li>
-						<li><a href="#">Sport</a></li>
-						<li><a href="#">Serien</a></li>
-						<li><a href="#">Spielfilme</a></li>
-						<li><a href="#">Dokumentationen</a></li>
-						<li><a href="#">Lifestyle</a></li>
+						<li><a href="{{URL::route('category',array('nachrichten'))}}">Nachrichten</a></li>
+						<li><a href="{{URL::route('category',array('politik'))}}">Politik</a></li>
+						<li><a href="{{URL::route('category',array('sport'))}}">Sport</a></li>
+						<li><a href="{{URL::route('category',array('kino-tv'))}}">Kino|TV</a></li>
+						<li><a href="{{URL::route('category',array('kinder'))}}">Kinder</a></li>
+						<li><a href="{{URL::route('category',array('wissen-kultur'))}}">Wissen</a></li>
+
+					</ul>
+				</div>
+				<div class="col-sm-4 alpha">
+					<ul>
+						<li><a href="{{URL::route('category',array('ratgeber-gesundheit'))}}">Ratgeber</a></li>
+						<li><a href="{{URL::route('category',array('unterhaltung'))}}">Unterhaltung</a></li>
+						<li><a href="{{URL::route('category',array('wirtschaft'))}}">Wirtschaft</a></li>
+
+
 					</ul>
 				</div>
 			</div>
