@@ -595,7 +595,7 @@ MediathekCrawler.ARTEService = function() {
 			dataType: 'json',
 			success: function(data, textStatus, jqXHR) {
 
-				console.log('ajax succes: \n',data,'\n',_url);
+				// console.log('ajax succes: \n',data,'\n',_url);
 				// var temp = jqXHR.responseText;
 				// var data2 = JSON.stringify(data).split('@').join('');
 				// console.log('DATA CONTAINS \" @ \" = ',data2.indexOf('@'));
@@ -613,7 +613,7 @@ MediathekCrawler.ARTEService = function() {
 
 	_onARTEGetNew = function(origin, data, maxResults){
 		// console.log('_onARTEGetNew');
-				console.log('_onARTEGetNew(): ',data);
+				// console.log('_onARTEGetNew(): ',data);
 		var counter = 1;
 
 		// try{

@@ -20,9 +20,9 @@ MediathekCrawler.ApplicationController = function() {
 	broadcastView = null,
 
 	/* ===== CONTROLS ===== */
-	ZDFMAXRESULTS = 10,
-	ARTEMAXRESULTS = 10,
-	SRFMAXPAGESTOCRAWL = 2,
+	ZDFMAXRESULTS = 6,
+	ARTEMAXRESULTS = 15,
+	SRFMAXPAGESTOCRAWL = 3,
 
 	init = function() {   
 		console.info('MediathekCrawler.ApplicationController.init');
