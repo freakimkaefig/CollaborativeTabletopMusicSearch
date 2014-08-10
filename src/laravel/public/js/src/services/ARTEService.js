@@ -80,11 +80,11 @@ MediathekCrawler.ARTEService = function() {
 			type: 'GET',
 			cache: false,
 			success: function(data) {
-				console.log('DATA _getARTEBroadcastOfCategory ', typeof data, data);
 	     		var response = $.parseJSON(data);
+				console.log('DATA _getARTEBroadcastOfCategory ', typeof response, response);
 
 				if(response.videoList.length > 0){
-					// console.log('found videolist entry');
+					console.log('found videolist entry');
 					$.each(response.videoList, function(index, element) {
 
 						var teaserImages = [],
@@ -395,7 +395,7 @@ MediathekCrawler.ARTEService = function() {
 	},
 
 	_onARTESearchString = function(origin, data){
-		console.log('ARTE._onARTESearchString');
+		// console.log('ARTE._onARTESearchString');
 		// console.log('ARTE._onARTESearchString; origin: ',origin);
 		// try{
 		// 	var response = $.parseJSON(data);

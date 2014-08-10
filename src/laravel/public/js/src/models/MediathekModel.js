@@ -52,6 +52,7 @@ MediathekCrawler.MediathekModel = function() {
 
 	addResults = function(origin, station, title, subtitle, details, length, airtime, teaserImages, streams) {
 		var orig = origin;
+		// console.log('MODEL ORIG: ',orig);
 		if(orig != 'null' && station != 'null' && title != 'null' && teaserImages != 'null' && streams != 'null' && orig && streams && station && title && teaserImages && streams.length > 0){
 			// console.log('ORIGIN: ',typeof orig, '\n',orig);
 			var _result = {

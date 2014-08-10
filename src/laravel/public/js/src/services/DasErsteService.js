@@ -7,9 +7,9 @@ MediathekCrawler.DasErsteService = function() {
 	PROXY_URL = '/proxy.php?url=',
 
 	// constants for searching
-	SEARCH_URL = 'http://mediathek.daserste.de/suche?s=',
-	SEARCH_PARAM_SORT_RELEVANCE = '&reiter=1',
-	SEARCH_PARAM_SORT_DATE = '&reiter=2',
+	SEARCH_URL = 'http://mediathek.daserste.de/tv/suche?searchText=',
+	SEARCH_PARAM_SORT_RELEVANCE = '&topRessort=tv&sort=score',
+	SEARCH_PARAM_SORT_DATE = '&topRessort=tv&sort=date',
 	SEARCH_PARAM_PAGE = '&goto=',
 	SEARCH_WRAPPER_ELEMENT = 'div#resultstab_1',
 	SEARCH_ITEM_WRAPPER = 'li',
@@ -124,11 +124,11 @@ MediathekCrawler.DasErsteService = function() {
 		};
 		switch (type) {
 			case 0: 	// search by relevance
-				searchStringByRelevance(origin, searchStr);
+				searchDASERSTEStringByRelevance(origin, searchStr);
 				break;
 
 			case 1: 	// search by date
-				searchStringByDate(origin, searchStr);
+				searchDASERSTEStringByDate(origin, searchStr);
 				break;
 		}
 	},
@@ -137,17 +137,19 @@ MediathekCrawler.DasErsteService = function() {
 	 * Private function to search with given string sorted by relevance
 	 * @param {String} 	The given keyword(s) to search for
 	 */
-	searchStringByRelevance = function(origin, searchStr) {
+	searchDASERSTEStringByRelevance = function(origin, searchStr) {
 		// build restful URL for search in Das Erste
 		var _searchUrl = PROXY_URL + encodeURI(SEARCH_URL + searchStr + SEARCH_PARAM_SORT_RELEVANCE);
+		// console.log('DASERSTTE searchDASERSTEStringByRelevance: ',_searchUrl);
 
 		// send asynchronous xmphttp request
 		$.ajax({
 			url: _searchUrl,
 			type: 'GET',
+			cache: false,
 			success: function(data, textStatus, jqXHR) {
 
-				onSearchString(origin, data)
+				onDASERSTESearchString(origin, data)
 			}
 		});
 	},
@@ -156,7 +158,7 @@ MediathekCrawler.DasErsteService = function() {
 	 * Private function to search with given string sorted by date
 	 * @param {String} 	The given keyword(s) to search for
 	 */
-	searchStringByDate = function(origin, searchStr) {
+	searchDASERSTEStringByDate = function(origin, searchStr) {
 		// TODO: searching by date not working correctly
 		// 		- second tab on mediathek page is loaded by ajax --> ajax isn't ready when php queries the page
 
@@ -166,9 +168,10 @@ MediathekCrawler.DasErsteService = function() {
 		$.ajax({
 			url: _searchUrl,
 			type: 'GET',
+			cache: false,
 			success: function(data, textStatus, jqXHR) {
 
-				onSearchString(origin, data)
+				onDASERSTESearchString(origin, data)
 			}
 		});
 	},
@@ -177,32 +180,56 @@ MediathekCrawler.DasErsteService = function() {
 	 * Callback function for async loading of search results
 	 * @param {String|HTML}		xmlhttp response of ajax call
 	 */
-	onSearchString = function(origin, data) {
-		$(data).find(SEARCH_WRAPPER_ELEMENT).find(SEARCH_ITEM_WRAPPER).each(function (index, element) {
-			if(!$(element).find(SEARCH_ITEM_ELEMENT).hasClass(SEARCH_LIVE_ITEM)) {
-				// retrieving documentId for streamURL
-				var documentUrl = $(element).find(SEARCH_ITEM_ELEMENT).attr('href'),
-					documentId = $(element).find('.boxPlaylistIcons>img').attr('class');
-					if (documentId !== undefined) {
-						documentId = documentId.replace(/\D/g,'');
-					// building result meta information
-					var _result = {};
-					_result._station = STATION;
-					_result._title = $(element).find(TITLE_ELEMENT).text();
-					_result._subtitle = $(element).find(SUBTITLE_ELEMENT).text();
-					_result._length = $(element).find(LENGTH_ELEMENT).text();
-					_result._airtime = $(element).find(DATE_ELEMENT).text();
-					imgURL = $(element).find(IMAGE_ELEMENT).attr('src');
-					_result._teaserImages = [];
-					_result._teaserImages.push(_model.createTeaserImage(IMG_RESOLUTIONS[0].resolution, BASE_URL + imgURL));
-					_result._streams = [];
+	onDASERSTESearchString = function(origin, data) {
+		$(data).find('.modList').find('.box').each(function (index, el) {
 
-					// load details
-					loadDetails(origin, documentId, _result, BASE_URL + documentUrl);
-				}
-			} else {
-				// LIVESTREAM
+			// console.log('DASERSTE onDASERSTESearchString: ',element);
+			var _result = {};
+			_result._streams = [];
+			documentUrl = $(el).find('.mediaLink').attr('href');
+			documentId = documentUrl.slice(documentUrl.indexOf('documentId=') + 11, documentUrl.indexOf('&topRessort'));
+			
+			var temp2 = $(el).find('.mediaLink').find('.img');
+			_result._teaserImages = [];
+			var res = null;
+			var resX = null;
+			var resY = null;
+			var imgURL = $(temp2).attr('data-ctrl-image');
+			imgURL = imgURL.slice(imgURL.indexOf('urlScheme\':\'') + 12, imgURL.indexOf('##width##'));
+			//willkürliche Größenangabe für Bildbreite:
+			imgURL = imgURL + '384';
+			// console.log('TEASERIMAGES imgURL: ',BASE_URL + imgURL);
+			if(imgURL.indexOf('16x9') > 0){
+				resX = imgURL.slice(imgURL.indexOf('16x9/') + 5, imgURL.length);
+				resY = parseInt(resX / 1.7777);
+				res = resX +'x'+ resY;
+				_result._teaserImages.push(_model.createTeaserImage(res, BASE_URL + imgURL));
+			}else{						
+				_result._teaserImages.push(_model.createTeaserImage(IMG_RESOLUTIONS[0].resolution, BASE_URL + imgURL));
 			}
+			// if(!$(element).find(SEARCH_ITEM_ELEMENT).hasClass(SEARCH_LIVE_ITEM)) {
+			// 	// retrieving documentId for streamURL
+			// 	var documentUrl = $(element).find(SEARCH_ITEM_ELEMENT).attr('href'),
+			// 		documentId = $(element).find('.boxPlaylistIcons>img').attr('class');
+			// 		if (documentId !== undefined) {
+			// 			documentId = documentId.replace(/\D/g,'');
+			// 		// building result meta information
+			// 		var _result = {};
+			// 		_result._station = STATION;
+			// 		_result._title = $(element).find(TITLE_ELEMENT).text();
+			// 		_result._subtitle = $(element).find(SUBTITLE_ELEMENT).text();
+			// 		_result._length = $(element).find(LENGTH_ELEMENT).text();
+			// 		_result._airtime = $(element).find(DATE_ELEMENT).text();
+			// 		imgURL = $(element).find(IMAGE_ELEMENT).attr('src');
+			// 		_result._teaserImages = [];
+			// 		_result._teaserImages.push(_model.createTeaserImage(IMG_RESOLUTIONS[0].resolution, BASE_URL + imgURL));
+			// 		_result._streams = [];
+			// 		// load details
+			loadDASERSTEDetails(origin, documentId, _result, BASE_URL + documentUrl);
+			// 	}
+			// } else {
+			// 	// LIVESTREAM
+			// }
 		});
 	},
 
@@ -210,15 +237,16 @@ MediathekCrawler.DasErsteService = function() {
 	 * Private function for async loading of details for a search result
 	 * @param {String}		url of the detail page
 	 */
-	loadDetails = function(origin, documentId, result, detailURL) {
+	loadDASERSTEDetails = function(origin, documentId, result, detailURL) {
 
-		// console.log('DASERSTE loadDetails: \n',documentId, result, detailURL);
+		// console.log('DASERSTE loadDASERSTEDetails: \n',documentId, result, detailURL);
 		var detailURL = PROXY_URL + encodeURI(detailURL);
 		$.ajax({
 			url: detailURL,
 			type: 'GET',
+			cache: false,
 			success: function(data) {
-				onLoadDetails(origin, documentId, result, data);
+				onloadDASERSTEDetails(origin, documentId, result, data);
 			}
 		});
 	},
@@ -229,23 +257,17 @@ MediathekCrawler.DasErsteService = function() {
 	 * @param {object}				currently builded result (missing details and precise airtime)
 	 * @param {HTML}				HTML markup of the retrieved detail page of the broadcast
 	 */
-	onLoadDetails = function(origin, documentId, result, data) {
+	onloadDASERSTEDetails = function(origin, documentId, result, data) {
 
-		// console.log('DASERSTE onLoadDetails: \n',documentId, result);
 		// console.log('result._streams:\n',result._streams);
 		var _result = result;
 		var res = $(data).find('.modClipinfo');
 		// console.log('DASERSTE res: ',res);
 		// var temp = null;
 		// fill result params if missing:
-			if(!result._station || result._station === undefined){
-				try{
-
-				_result._station = STATION;
-				}catch(e){
-					console.log(e);
-				}
-			}
+			
+			_result._station = STATION;
+				
 			if(!result._title || result._title === undefined){
 				try{
 
@@ -307,9 +329,9 @@ MediathekCrawler.DasErsteService = function() {
 					console.log(e);
 				}
 			}
-
+		// console.log('DASERSTE onloadDASERSTEDetails: \n',documentId, _result);
 		// load streams for result
-		loadStreams(origin, documentId, _result);
+		loadDASERSTEStreams(origin, documentId, _result);
 	},
 
 	/**
@@ -317,15 +339,16 @@ MediathekCrawler.DasErsteService = function() {
 	 * @param {String|Integer}		documentId of the broadcast
 	 * @param {object}				currently builded result (missing streams and preview images)
 	 */
-	loadStreams = function(origin, documentId, result) {
+	loadDASERSTEStreams = function(origin, documentId, result) {
 
-		// console.log('DASERSTE loadStreams: \n',documentId, result);
+		// console.log('DASERSTE loadDASERSTEStreams: \n',documentId, result);
 		var streamURL = PROXY_URL + encodeURI(STREAM_URL + documentId);
 		$.ajax({
 			url: streamURL,
 			type: 'GET',
+			cache: false,
 			success: function(data) {
-				onLoadStreams(origin, documentId, result, data);
+				onloadDASERSTEStreams(origin, documentId, result, data);
 			}
 		});
 	},
@@ -336,9 +359,17 @@ MediathekCrawler.DasErsteService = function() {
 	 * @param {object}				currently builded result (missing streams and preview images)
 	 * @param {JSON}				JSON response of stream loading
 	 */
-	onLoadStreams = function(origin, documentId, result, data) {
+	onloadDASERSTEStreams = function(origin, documentId, result, data) {
+		try{
+		// only is fired for correct results:
+		console.log('DASERSTE onloadDASERSTEStreams: \n',documentId, result);
 
-		// console.log('DASERSTE onLoadStreams: \n',documentId, result);
+		// how do the other reslts get added to the model?
+		// this is the only method with the proper call...!?
+		}catch(e){
+			console.log('could not log result: ',e);
+		}
+		// console.log('DASERSTE onloadDASERSTEStreams: \n',documentId, result);
 		var data = JSON.parse(data);
 		// result._teaserImages.push(_model.createTeaserImage(IMG_RESOLUTIONS[3].resolution, BASE_URL + data._previewImage));
 		result._streams = [];
@@ -387,9 +418,10 @@ MediathekCrawler.DasErsteService = function() {
 		$.ajax({
 			url: _newUrl,
 			type: 'GET',
+			cache: false,
 			success: function(data, textStatus, jqXHR) {
 
-				onGetNew(origin, data)
+				onDASERSTEGetNew(origin, data)
 			}
 		});
 	},
@@ -398,10 +430,10 @@ MediathekCrawler.DasErsteService = function() {
 	 * Callback function for async loading of search results
 	 * @param {String|HTML}		xmlhttp response of ajax call
 	 */
-	onGetNew = function(origin, data) {
+	onDASERSTEGetNew = function(origin, data) {
 		var documentUrl = null;
 		var documentId = null;
-		// console.log('DASERSTE ongetNEW: ',data);
+		// console.log('DASERSTE onDASERSTEGetNew: ',data);
 		$(data)./*find(NEW_WRAPPER_ELEMENT).*/find('.modHeadline').each(function (index, element) {
 			// console.log('modHeadline-element TEXT: ',$(element).text());
 			if($(element).text() === 'Neueste Videos') {
@@ -446,9 +478,9 @@ MediathekCrawler.DasErsteService = function() {
 						_result._teaserImages.push(_model.createTeaserImage(IMG_RESOLUTIONS[0].resolution, BASE_URL + imgURL));
 					}
 
-					// console.log('DASERSTE ongetNEW DATA: ', _result);
+					// console.log('DASERSTE onDASERSTEGetNew DATA: ', _result);
 					// // load details for result
-					loadDetails(origin, documentId, _result, BASE_URL + documentUrl);
+					loadDASERSTEDetails(origin, documentId, _result, BASE_URL + documentUrl);
 				});
 			}
 		});
@@ -471,8 +503,9 @@ MediathekCrawler.DasErsteService = function() {
 			$.ajax({
 				url: _broadcastUrl,
 				type: 'GET',
+				cache: false,
 				success: function(data) {
-					onGetCategories(origin, data, numResults)
+					onDASERSTEGetCategories(origin, data, numResults)
 				}
 			});
 		} else {
@@ -485,9 +518,9 @@ MediathekCrawler.DasErsteService = function() {
 	 * @param {String}		HTML data of the category page
 	 * @param {String}		current category
 	 */
-	onGetCategories = function(origin, data, numResults) {
+	onDASERSTEGetCategories = function(origin, data, numResults) {
 		$(data).find('#layer_themen2 .jsScroll').find('li').each(function(index, element) {
-			loadCategory(origin, BASE_URL + $(element).find('a').attr('href'), numResults);
+			loadDASERSTECategory(origin, BASE_URL + $(element).find('a').attr('href'), numResults);
 		});
 	},
 
@@ -495,13 +528,14 @@ MediathekCrawler.DasErsteService = function() {
 	 * Function to load a category from "Das Erste Mediathek"
 	 * @param {String}		the url of the category
 	 */
-	loadCategory = function(origin, url, numResults) {
+	loadDASERSTECategory = function(origin, url, numResults) {
 		var _broadcastUrl = PROXY_URL + encodeURI(url);
 		$.ajax({
 			url: _broadcastUrl,
 			type: 'GET',
+			cache: false,
 			success: function(data) {
-				onGetCategory(origin, data, numResults);
+				onGetDASERSTECategory(origin, data, numResults);
 			}
 		});
 	},
@@ -510,7 +544,7 @@ MediathekCrawler.DasErsteService = function() {
 	 * Callback function for async loading of category results
 	 * @param {String|HTML}		xmlhttp response of ajax call
 	 */
-	onGetCategory = function(origin, data, numResults) {
+	onGetDASERSTECategory = function(origin, data, numResults) {
 		$(data).find(CATEGORIES_WRAPPER_ELEMENT).find(SEARCH_ITEM_WRAPPER).each(function (index, element) {
 			if (index < numResults) {
 				if(!$(element).find(SEARCH_ITEM_ELEMENT).hasClass(SEARCH_LIVE_ITEM)) {
@@ -532,7 +566,7 @@ MediathekCrawler.DasErsteService = function() {
 						_result._streams = [];
 
 					// load details
-					loadDetails(origin, documentId, _result, BASE_URL + documentUrl);
+					loadDASERSTEDetails(origin, documentId, _result, BASE_URL + documentUrl);
 				} else {
 					// LIVESTREAM
 				}
