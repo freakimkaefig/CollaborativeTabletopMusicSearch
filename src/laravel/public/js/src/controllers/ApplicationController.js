@@ -74,6 +74,12 @@ MediathekCrawler.ApplicationController = function() {
 			_getNew();
 			_getHot();
 		}
+		if(document.URL.indexOf('/new') > -1){
+			_getNew();
+		}
+		if(document.URL.indexOf('/hot') > -1){
+			_getHot();
+		}
 		if (document.URL.indexOf("/suche") > -1) {
 			// var nachrichten = $('input[name="nachrichten"]').attr('checked');
 			// if (nachrichten) {

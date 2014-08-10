@@ -204,6 +204,15 @@ Route::get('/rubrik/{category}', array(
 	'uses' => 'MediathekController@getCategory'
 ));
 
+Route::get('/new', array(
+		'as' => 'new-videos',
+		'uses' => 'MediathekController@getNewVideos'
+));
+
+Route::get('/hot', array(
+		'as' => 'hot-videos',
+		'uses' => 'MediathekController@getHotVideos'
+));
 
 /* ############
  * ##  TEST  ##
