@@ -21,7 +21,7 @@ MediathekCrawler.ApplicationController = function() {
 
 	/* ===== CONTROLS ===== */
 	ZDFMAXRESULTS = 10,
-	ARTEMAXRESULTS = 10,
+	ARTEMAXRESULTS = 15,
 	SRFMAXPAGESTOCRAWL = 2,
 
 	init = function() {   
@@ -143,10 +143,10 @@ MediathekCrawler.ApplicationController = function() {
 	},
 
 	_getNew = function() {
-		//DasErsteService.getNew();
+		DasErsteService.getNew();
 		ZDFService.getNew(ZDFMAXRESULTS);
 		ARTEService.getNew(ARTEMAXRESULTS);
-		//SRFService.getNew();
+		SRFService.getNew();
 		//BRService blockiert; notImplemented!
 		//BRService.getNew();
 	},

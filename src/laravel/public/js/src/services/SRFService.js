@@ -37,7 +37,7 @@ MediathekCrawler.SRFService = function() {
 					type: 'GET',
 					cache: false,
 					success: function(data, textStatus, jqXHR) {
-						// console.log('YAAAY', data);
+						// console.log('SRF getNew: ', PROXY_URL + SRFSEARCHNEW);
 						_onGetNew(origin, data,'#left_day');
 						
 					},
