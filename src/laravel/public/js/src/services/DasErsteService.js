@@ -181,54 +181,60 @@ MediathekCrawler.DasErsteService = function() {
 	 * @param {String|HTML}		xmlhttp response of ajax call
 	 */
 	onDASERSTESearchString = function(origin, data) {
-		$(data).find('.modList').find('.box').each(function (index, el) {
+		/*var resp = */
+		$(data).find('.flash').each(function(index,el) {
+			// if($(el).hasClass('flash')){
 
-			// console.log('DASERSTE onDASERSTESearchString: ',element);
-			var _result = {};
-			_result._streams = [];
-			documentUrl = $(el).find('.mediaLink').attr('href');
-			documentId = documentUrl.slice(documentUrl.indexOf('documentId=') + 11, documentUrl.indexOf('&topRessort'));
-			
-			var temp2 = $(el).find('.mediaLink').find('.img');
-			_result._teaserImages = [];
-			var res = null;
-			var resX = null;
-			var resY = null;
-			var imgURL = $(temp2).attr('data-ctrl-image');
-			imgURL = imgURL.slice(imgURL.indexOf('urlScheme\':\'') + 12, imgURL.indexOf('##width##'));
-			//willkürliche Größenangabe für Bildbreite:
-			imgURL = imgURL + '384';
-			// console.log('TEASERIMAGES imgURL: ',BASE_URL + imgURL);
-			if(imgURL.indexOf('16x9') > 0){
-				resX = imgURL.slice(imgURL.indexOf('16x9/') + 5, imgURL.length);
-				resY = parseInt(resX / 1.7777);
-				res = resX +'x'+ resY;
-				_result._teaserImages.push(_model.createTeaserImage(res, BASE_URL + imgURL));
-			}else{						
-				_result._teaserImages.push(_model.createTeaserImage(IMG_RESOLUTIONS[0].resolution, BASE_URL + imgURL));
-			}
-			// if(!$(element).find(SEARCH_ITEM_ELEMENT).hasClass(SEARCH_LIVE_ITEM)) {
-			// 	// retrieving documentId for streamURL
-			// 	var documentUrl = $(element).find(SEARCH_ITEM_ELEMENT).attr('href'),
-			// 		documentId = $(element).find('.boxPlaylistIcons>img').attr('class');
-			// 		if (documentId !== undefined) {
-			// 			documentId = documentId.replace(/\D/g,'');
-			// 		// building result meta information
-			// 		var _result = {};
-			// 		_result._station = STATION;
-			// 		_result._title = $(element).find(TITLE_ELEMENT).text();
-			// 		_result._subtitle = $(element).find(SUBTITLE_ELEMENT).text();
-			// 		_result._length = $(element).find(LENGTH_ELEMENT).text();
-			// 		_result._airtime = $(element).find(DATE_ELEMENT).text();
-			// 		imgURL = $(element).find(IMAGE_ELEMENT).attr('src');
-			// 		_result._teaserImages = [];
-			// 		_result._teaserImages.push(_model.createTeaserImage(IMG_RESOLUTIONS[0].resolution, BASE_URL + imgURL));
-			// 		_result._streams = [];
-			// 		// load details
-			loadDASERSTEDetails(origin, documentId, _result, BASE_URL + documentUrl);
-			// 	}
-			// } else {
-			// 	// LIVESTREAM
+			// return((" " + this.className + " ").match(/box\s*flash/) !== null);
+			// });
+			// $(resp).each(function (index, el) {
+				// console.log('DASERSTE onDASERSTESearchString: ',el);
+				var _result = {};
+				_result._streams = [];
+				documentUrl = $(el).find('.mediaLink').attr('href');
+				documentId = documentUrl.slice(documentUrl.indexOf('documentId=') + 11, documentUrl.indexOf('&topRessort'));
+				
+				var temp2 = $(el).find('.mediaLink').find('.img');
+				_result._teaserImages = [];
+				var res = null;
+				var resX = null;
+				var resY = null;
+				var imgURL = $(temp2).attr('data-ctrl-image');
+				imgURL = imgURL.slice(imgURL.indexOf('urlScheme\':\'') + 12, imgURL.indexOf('##width##'));
+				//willkürliche Größenangabe für Bildbreite:
+				imgURL = imgURL + '384';
+				// console.log('TEASERIMAGES imgURL: ',BASE_URL + imgURL);
+				if(imgURL.indexOf('16x9') > 0){
+					resX = imgURL.slice(imgURL.indexOf('16x9/') + 5, imgURL.length);
+					resY = parseInt(resX / 1.7777);
+					res = resX +'x'+ resY;
+					_result._teaserImages.push(_model.createTeaserImage(res, BASE_URL + imgURL));
+				}else{						
+					_result._teaserImages.push(_model.createTeaserImage(IMG_RESOLUTIONS[0].resolution, BASE_URL + imgURL));
+				}
+				// if(!$(element).find(SEARCH_ITEM_ELEMENT).hasClass(SEARCH_LIVE_ITEM)) {
+				// 	// retrieving documentId for streamURL
+				// 	var documentUrl = $(element).find(SEARCH_ITEM_ELEMENT).attr('href'),
+				// 		documentId = $(element).find('.boxPlaylistIcons>img').attr('class');
+				// 		if (documentId !== undefined) {
+				// 			documentId = documentId.replace(/\D/g,'');
+				// 		// building result meta information
+				// 		var _result = {};
+				// 		_result._station = STATION;
+				// 		_result._title = $(element).find(TITLE_ELEMENT).text();
+				// 		_result._subtitle = $(element).find(SUBTITLE_ELEMENT).text();
+				// 		_result._length = $(element).find(LENGTH_ELEMENT).text();
+				// 		_result._airtime = $(element).find(DATE_ELEMENT).text();
+				// 		imgURL = $(element).find(IMAGE_ELEMENT).attr('src');
+				// 		_result._teaserImages = [];
+				// 		_result._teaserImages.push(_model.createTeaserImage(IMG_RESOLUTIONS[0].resolution, BASE_URL + imgURL));
+				// 		_result._streams = [];
+				// 		// load details
+				loadDASERSTEDetails(origin, documentId, _result, BASE_URL + documentUrl);
+				// 	}
+				// } else {
+				// 	// LIVESTREAM
+				// }
 			// }
 		});
 	},
@@ -268,7 +274,7 @@ MediathekCrawler.DasErsteService = function() {
 			
 			_result._station = STATION;
 				
-			if(!result._title || result._title === undefined){
+			if(!_result._title || _result._title === undefined){
 				try{
 
 				_result._title = $(data).find('.dachzeile').text();
@@ -276,7 +282,7 @@ MediathekCrawler.DasErsteService = function() {
 					console.log(e);
 				}
 			}
-			if(!result._subtitle || result._subtitle === undefined || result._subtitle === ''){
+			if(!_result._subtitle || _result._subtitle === undefined || _result._subtitle === ''){
 				try{
 
 				var temp = $(res).find('.headline');
@@ -286,7 +292,7 @@ MediathekCrawler.DasErsteService = function() {
 					console.log(e);
 				}
 			}
-			if(!result._length || result._length === undefined || result._length === ''){
+			if(!_result._length || _result._length === undefined || _result._length === ''){
 				try{
 
 				var temp = $(res).find('.subtitle');
@@ -297,7 +303,7 @@ MediathekCrawler.DasErsteService = function() {
 					console.log(e);
 				}
 			}
-			if(!result._airtime || result._airtime === undefined || result._airtime === '' || result._airtime.indexOf('undefined') >0){
+			if(!_result._airtime || _result._airtime === undefined || _result._airtime === '' || _result._airtime.indexOf('undefined') >0){
 				try{
 
 				// _result._airtime = $(data).find(AIRTIME_DATE_ELEMENT).text().split(' ')[1] + ' ' + $(data).find(AIRTIME_TIME_ELEMENT).text().split(' ')[0];
@@ -309,15 +315,15 @@ MediathekCrawler.DasErsteService = function() {
 					console.log(e);
 				}
 			}
-			if(!result._teaserImages || result._teaserImages === undefined || result._teaserImages.length < 1){
+			if(!_result._teaserImages || _result._teaserImages === undefined || _result._teaserImages.length < 1){
 				// 	imgURL = $(data).find(IMAGE_ELEMENT).attr('src'),
 				// 	_result._teaserImages = [],
 				// 	_result._teaserImages.push(_model.createTeaserImage(IMG_RESOLUTIONS[0].resolution, BASE_URL + imgURL)),
 			}
-			if(!result._streams || result._streams === undefined){
+			if(!_result._streams || _result._streams === undefined){
 					// _result._streams = [];
 			}
-			if(!result._details || result._details === undefined || result._details === ''){
+			if(!_result._details || _result._details === undefined || _result._details === ''){
 				try{
 
 				var temp = $(res).find('.teasertext');
@@ -360,15 +366,13 @@ MediathekCrawler.DasErsteService = function() {
 	 * @param {JSON}				JSON response of stream loading
 	 */
 	onloadDASERSTEStreams = function(origin, documentId, result, data) {
-		try{
+		
 		// only is fired for correct results:
-		console.log('DASERSTE onloadDASERSTEStreams: \n',documentId, result);
+		// console.log('DASERSTE onloadDASERSTEStreams: \n',documentId, result);
 
 		// how do the other reslts get added to the model?
 		// this is the only method with the proper call...!?
-		}catch(e){
-			console.log('could not log result: ',e);
-		}
+		
 		// console.log('DASERSTE onloadDASERSTEStreams: \n',documentId, result);
 		var data = JSON.parse(data);
 		// result._teaserImages.push(_model.createTeaserImage(IMG_RESOLUTIONS[3].resolution, BASE_URL + data._previewImage));
