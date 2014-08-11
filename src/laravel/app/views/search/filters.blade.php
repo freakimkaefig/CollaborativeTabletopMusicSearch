@@ -64,9 +64,9 @@
 	<div id="channel-filter" class="form-group col-sm-3">
 		<h4>Sender</h4>
 		<div class="col-sm-6">
-			<div class="checkbox disabled">
+			<div class="checkbox">
 				<label>
-					<input type="checkbox" name="ard" value="daserste" disabled>
+					<input type="checkbox" name="daserste" value="daserste">
 					Das Erste
 				</label>
 			</div>

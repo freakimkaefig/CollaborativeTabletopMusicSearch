@@ -155,11 +155,18 @@ MediathekCrawler.ApplicationController = function() {
 					})
 				}else{
 					if(channel == "arte"){
-							ARTEService.getNew(5);
-						}
-						if(channel == "zdf"){
-							ZDFService.getNew(6);
-						}
+						ARTEService.getNew(5);
+						ARTEService.getHot(5);
+					}
+					if(channel == "zdf"){
+						ZDFService.getNew(6);
+						ZDFService.getHot(6)
+					}
+					if(channel == "daserste"){
+						DasErsteService.getNew();
+						DasErsteService.getHot();
+					}
+
 				}
 			})
 		}

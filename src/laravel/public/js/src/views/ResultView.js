@@ -7,6 +7,8 @@ MediathekCrawler.ResultView = (function() {
 		console.info('MediathekCrawler.ResultView.init');
 		
 		$resultWrapper = $('#result-wrapper');
+		$("#alphabetic-sort").on("click",alphabeticSort);
+		$("#duration-sort").on("click",durationSort);
 	},
 
 	appendResult = function(event, result) {
@@ -41,8 +43,54 @@ MediathekCrawler.ResultView = (function() {
 		$resultWrapper.append(resultElement);
 
 		// retrieving results from localstorage
-		// var _result = localStorage.getItem(result._id);
-		// console.log(JSON.parse(_result));
+		//var _result = localStorage.getItem(result._id);
+		//console.log(JSON.parse(_result));
+	},
+	getFromLocalstorage = function(){
+		var result_json = localStorage.getItem("mediathek-crawler");
+		results = JSON.parse(result_json);
+		return results;
+	},
+	alphabeticSort = function(){
+		results = getFromLocalstorage();
+
+		sorted = results._results.sort(function(a, b){
+			var titleA=a._title.toLowerCase();
+			var titleB=b._title.toLowerCase();
+			if (titleA < titleB){
+			  return -1 
+			}
+			if (titleA > titleB){
+			  return 1
+			}
+			return 0 //default return value (no sorting)
+		})
+		
+		$resultWrapper.empty();
+		sorted.forEach(function(result){
+			appendResult(event, result);
+		})
+	},
+	durationSort = function(){
+		console.log("durationSort");
+		results = getFromLocalstorage();
+
+		sorted = results._results.sort(function(a, b){
+			var durationA=a._length.toLowerCase();
+			var durationB=b._length.toLowerCase();
+			if (durationA < durationB){
+			  return -1 
+			}
+			if (durationA > durationB){
+			  return 1
+			}
+			return 0 //default return value (no sorting)
+		})
+		$resultWrapper.empty();
+		sorted.forEach(function(result){
+			appendResult(event, result);
+		})
+
 	},
 
 	dispose = function() {
