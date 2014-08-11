@@ -108,10 +108,12 @@ MediathekCrawler.ZDFService = function() {
 				
 					var res = $(this).attr('key');
 			    	var imgUrl = $(this).text();
+			    	if(res !== 0 && res.length > 6){
 
-			    	//Array containing all the unsorted teaserImages as Objects(with resolution & url)
-			    	var ti = mediathekModel.createTeaserImage(res, imgUrl);
-			    	teaserImages.push(ti);
+				    	//Array containing all the unsorted teaserImages as Objects(with resolution & url)
+				    	var ti = mediathekModel.createTeaserImage(res, imgUrl);
+				    	teaserImages.push(ti);
+			    	}
 				});
 
 			    //get information
@@ -470,10 +472,12 @@ MediathekCrawler.ZDFService = function() {
 						
 							var res = $(this).attr('key');
 					    	var imgUrl = $(this).text();
+					    	if(res !== 0 && res.length > 6){
 
-					    	//Array containing all the unsorted teaserImages as Objects(with resolution & url)
-					    	var ti = mediathekModel.createTeaserImage(res, imgUrl);
-					    	teaserImages.push(ti);
+						    	//Array containing all the unsorted teaserImages as Objects(with resolution & url)
+						    	var ti = mediathekModel.createTeaserImage(res, imgUrl);
+						    	teaserImages.push(ti);
+					    	}
 						});
 
 					    //get information

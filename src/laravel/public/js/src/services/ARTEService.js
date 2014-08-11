@@ -81,10 +81,10 @@ MediathekCrawler.ARTEService = function() {
 			cache: false,
 			success: function(data) {
 	     		var response = $.parseJSON(data);
-				console.log('DATA _getARTEBroadcastOfCategory ', typeof response, response);
+				// console.log('DATA _getARTEBroadcastOfCategory ', typeof response, response);
 
 				if(response.videoList.length > 0){
-					console.log('found videolist entry');
+					console.log('category url: ',ARTESEARCHCATEGORY+String(category)+ARTESEARCHCATEGORY2);
 					$.each(response.videoList, function(index, element) {
 
 						var teaserImages = [],
@@ -102,7 +102,7 @@ MediathekCrawler.ARTEService = function() {
 						try{	
 							var resolution = _getResolution(element.programImage);
 							// console.log('res: ',resolution);
-							if(resolution !== 0){
+							if(resolution !== 0 && resolution.length > 6){
 								
 								var ti2 = ARTEmediathekModel.createTeaserImage(resolution, element.programImage);
 						    	teaserImages.push(ti2);
@@ -136,7 +136,7 @@ MediathekCrawler.ARTEService = function() {
 						try{	
 							var resolution = _getResolution(element.element.VTU.IUR);
 							// console.log('res: ',resolution);
-							if(resolution !== 0){
+							if(resolution !== 0 && resolution.length > 6){
 
 								var ti4 = ARTEmediathekModel.createTeaserImage(resolution, element.VTU.IUR);
 						    	teaserImages.push(ti4);
@@ -261,7 +261,7 @@ MediathekCrawler.ARTEService = function() {
 				try{	
 					var resolution = _getResolution(element.programImage);
 					// console.log('res: ',resolution);
-					if(resolution !== 0){
+					if(resolution !== 0 && resolution.length > 6){
 						
 						var ti2 = ARTEmediathekModel.createTeaserImage(resolution, element.programImage);
 				    	teaserImages.push(ti2);
@@ -295,7 +295,7 @@ MediathekCrawler.ARTEService = function() {
 				try{	
 					var resolution = _getResolution(element.element.VTU.IUR);
 					// console.log('res: ',resolution);
-					if(resolution !== 0){
+					if(resolution !== 0 && resolution.length > 6){
 
 						var ti4 = ARTEmediathekModel.createTeaserImage(resolution, element.VTU.IUR);
 				    	teaserImages.push(ti4);
@@ -422,7 +422,7 @@ MediathekCrawler.ARTEService = function() {
 				try{	
 					var resolution = _getResolution(element.programImage);
 					// console.log('res: ',resolution);
-					if(resolution !== 0){
+					if(resolution !== 0 && resolution.length > 6){
 						// console.log('IMAGE URL: ',element.programImage);
 						var ti2 = ARTEmediathekModel.createTeaserImage(resolution, element.programImage);
 				    	teaserImages.push(ti2);
@@ -456,7 +456,7 @@ MediathekCrawler.ARTEService = function() {
 				try{	
 					var resolution = _getResolution(element.element.VTU.IUR);
 					// console.log('res: ',resolution);
-					if(resolution !== 0){
+					if(resolution !== 0 && resolution.length > 6){
 
 						// console.log('IMAGE URL: ',element.VTU.IUR);
 						var ti4 = ARTEmediathekModel.createTeaserImage(resolution, element.VTU.IUR);
@@ -643,7 +643,7 @@ MediathekCrawler.ARTEService = function() {
 					//get images
 					try{
 						var resolution = _getResolution(element.IMG.IUR);
-						if(resolution !== 0){
+						if(resolution !== 0 && resolution.length > 6){
 						
 							var ti = ARTEmediathekModel.createTeaserImage(resolution, element.IMG.IUR);
 					    	teaserImages.push(ti);
@@ -653,7 +653,7 @@ MediathekCrawler.ARTEService = function() {
 					}
 					try{	
 						var resolution = _getResolution(element.VDO.programImage);
-						if(resolution !== 0){
+						if(resolution !== 0 && resolution.length > 6){
 						
 							var ti2 = ARTEmediathekModel.createTeaserImage(resolution, element.VDO.programImage);
 					    	teaserImages.push(ti2);
@@ -663,7 +663,7 @@ MediathekCrawler.ARTEService = function() {
 					}
 					try{
 						var resolution = _getResolution(element.VDO.VTU.original);
-						if(resolution !== 0){
+						if(resolution !== 0 && resolution.length > 6){
 						
 							var ti3 = ARTEmediathekModel.createTeaserImage(resolution, element.VDO.VTU.original);
 					    	teaserImages.push(ti3);
@@ -672,7 +672,8 @@ MediathekCrawler.ARTEService = function() {
 					   // console.log('image fail\n',e);
 					}
 					try{
-						var resolution = _getResolution(element.VDO.VTU.IUR);if(resolution !== 0){
+						var resolution = _getResolution(element.VDO.VTU.IUR);
+						if(resolution !== 0 && resolution.length > 6){
 						
 							var ti4 = ARTEmediathekModel.createTeaserImage(resolution, element.VDO.VTU.IUR);
 					    	teaserImages.push(ti4);
