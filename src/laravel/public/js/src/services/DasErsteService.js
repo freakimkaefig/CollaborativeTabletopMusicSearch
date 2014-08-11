@@ -511,10 +511,74 @@ MediathekCrawler.DasErsteService = function() {
 	},
 
 	onDASERSTEGetHot = function(origin, data){
+		var _url = PROXY_URL + encodeURI(BASE_URL + $(data).find('.modButton').find('.textLink').attr('href'));
+		// console.log('onDASERSTEGetHot: ', _url);
+		if(_url && _url !== undefined){
 
-		console.log('onDASERSTEGetHot: ',data);
+			$.ajax({
+				url: _url,
+				type: 'GET',
+				cache: false,
+				success: function(data) {
+					onDASERSTEParseHot(origin, data)
+				}
+			});
+
+		}else{
+			console.log('DasErste onDASERSTEGetHot could not fetch _url: ',_url);
+		}
 	},
 
+	onDASERSTEParseHot = function(origin, data){
+
+		$(data).find('.flash').each(function(index, el){
+
+			var _result = {};
+			_result._streams = [];
+			documentUrl = $(el).find('.mediaLink').attr('href');
+			documentId = documentUrl.slice(documentUrl.indexOf('documentId=') + 11, documentUrl.indexOf('&topRessort'));
+			
+			var temp2 = $(el).find('.mediaLink').find('.img');
+			_result._teaserImages = [];
+			var res = null;
+			var resX = null;
+			var resY = null;
+			var imgURL = $(temp2).attr('data-ctrl-image');
+			imgURL = imgURL.slice(imgURL.indexOf('urlScheme\':\'') + 12, imgURL.indexOf('##width##'));
+			//willkürliche Größenangabe für Bildbreite:
+			imgURL = imgURL + '384';
+			// console.log('TEASERIMAGES imgURL: ',BASE_URL + imgURL);
+			if(imgURL.indexOf('16x9') > 0){
+				resX = imgURL.slice(imgURL.indexOf('16x9/') + 5, imgURL.length);
+				resY = parseInt(resX / 1.7777);
+				res = resX +'x'+ resY;
+				_result._teaserImages.push(_model.createTeaserImage(res, BASE_URL + imgURL));
+			}else{						
+				_result._teaserImages.push(_model.createTeaserImage(IMG_RESOLUTIONS[0].resolution, BASE_URL + imgURL));
+			}
+			// if(!$(element).find(SEARCH_ITEM_ELEMENT).hasClass(SEARCH_LIVE_ITEM)) {
+			// 	// retrieving documentId for streamURL
+			// 	var documentUrl = $(element).find(SEARCH_ITEM_ELEMENT).attr('href'),
+			// 		documentId = $(element).find('.boxPlaylistIcons>img').attr('class');
+			// 		if (documentId !== undefined) {
+			// 			documentId = documentId.replace(/\D/g,'');
+			// 		// building result meta information
+			// 		var _result = {};
+			// 		_result._station = STATION;
+			// 		_result._title = $(element).find(TITLE_ELEMENT).text();
+			// 		_result._subtitle = $(element).find(SUBTITLE_ELEMENT).text();
+			// 		_result._length = $(element).find(LENGTH_ELEMENT).text();
+			// 		_result._airtime = $(element).find(DATE_ELEMENT).text();
+			// 		imgURL = $(element).find(IMAGE_ELEMENT).attr('src');
+			// 		_result._teaserImages = [];
+			// 		_result._teaserImages.push(_model.createTeaserImage(IMG_RESOLUTIONS[0].resolution, BASE_URL + imgURL));
+			// 		_result._streams = [];
+			// 		// load details
+			loadDASERSTEDetails(origin, documentId, _result, BASE_URL + documentUrl);
+
+		});
+
+	},
 
 	/**
 	 * Function to load all categories from "Das Erste Mediathek"

@@ -143,8 +143,12 @@ MediathekCrawler.ApplicationController = function() {
 	},
 
 	_getCategory = function(category) {
-		console.log('MediathekCrawler.ApplicationController._getCategory', category);
-		DasErsteService.getCategories(category, 100);
+		// console.log('MediathekCrawler.ApplicationController._getCategory', category);
+		
+		// since the relaunch of DasErste-Mediathek there are no 
+		// categoriy-subpages or any other way to fetch them
+		// DasErsteService.getCategories(category, 100);
+
 		//param: maxLength of ZDF results (videos per show/series/broadcast)
 		ZDFService.getCategories(category, 2);
 		ARTEService.getCategories(category);
