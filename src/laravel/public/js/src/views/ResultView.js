@@ -54,17 +54,34 @@ MediathekCrawler.ResultView = (function() {
 	alphabeticSort = function(){
 		results = getFromLocalstorage();
 
-		sorted = results._results.sort(function(a, b){
-			var titleA=a._title.toLowerCase();
-			var titleB=b._title.toLowerCase();
-			if (titleA < titleB){
-			  return -1 
-			}
-			if (titleA > titleB){
-			  return 1
-			}
-			return 0 //default return value (no sorting)
-		})
+		if($("#alphabetic-sort").val() == "asc"){
+			sorted = results._results.sort(function(a, b){
+				var titleA=a._title.toLowerCase();
+				var titleB=b._title.toLowerCase();
+				if (titleA < titleB){
+				  return -1 
+				}
+				if (titleA > titleB){
+				  return 1
+				}
+				return 0 //default return value (no sorting)
+			})
+			$("#alphabetic-sort").val("desc");
+		}
+		else{
+			sorted = results._results.sort(function(a, b){
+				var titleA=a._title.toLowerCase();
+				var titleB=b._title.toLowerCase();
+				if (titleA < titleB){
+				  return 1 
+				}
+				if (titleA > titleB){
+				  return -1
+				}
+				return 0 //default return value (no sorting)
+			})
+			$("#alphabetic-sort").val("asc");		
+		}
 		
 		$resultWrapper.empty();
 		sorted.forEach(function(result){
@@ -75,17 +92,36 @@ MediathekCrawler.ResultView = (function() {
 		console.log("durationSort");
 		results = getFromLocalstorage();
 
-		sorted = results._results.sort(function(a, b){
-			var durationA=a._length.toLowerCase();
-			var durationB=b._length.toLowerCase();
-			if (durationA < durationB){
-			  return -1 
-			}
-			if (durationA > durationB){
-			  return 1
-			}
-			return 0 //default return value (no sorting)
-		})
+		if($("#duration-sort").val()=="asc"){
+			sorted = results._results.sort(function(a, b){
+				var durationA=a._length.toLowerCase();
+				var durationB=b._length.toLowerCase();
+				if (durationA < durationB){
+				  return -1 
+				}
+				if (durationA > durationB){
+				  return 1
+				}
+				return 0 //default return value (no sorting)
+			})
+		$("#duration-sort").val("desc");
+		}
+		else{
+			sorted = results._results.sort(function(a, b){
+				var durationA=a._length.toLowerCase();
+				var durationB=b._length.toLowerCase();
+				if (durationA < durationB){
+				  return 1 
+				}
+				if (durationA > durationB){
+				  return -1
+				}
+				return 0 //default return value (no sorting)
+			})
+			$("#duration-sort").val("asc");
+
+		}
+
 		$resultWrapper.empty();
 		sorted.forEach(function(result){
 			appendResult(event, result);
