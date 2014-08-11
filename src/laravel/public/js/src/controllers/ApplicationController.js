@@ -139,26 +139,31 @@ MediathekCrawler.ApplicationController = function() {
 		$("#result-wrapper").empty();
 		channels = searchView.getSelectedChannels();
 		categories = searchView.getSelectedCategories();
-		channels.forEach(function(c){
-			var channel = c;
-			if(categories.length != 0){
-				categories.forEach(function(category){
+		if(channels.length != 0){	
+			channels.forEach(function(c){
+				var channel = c;
+				if(categories.length != 0){
+					categories.forEach(function(category){
+						if(channel == "arte"){
+							ARTEService.getCategories(category);
+						}
+						if(channel == "zdf"){
+							ZDFService.getCategories(category,1);
+						}
+					})
+				}else{
 					if(channel == "arte"){
-						ARTEService.getCategories(category);
-					}
-					if(channel == "zdf"){
-						ZDFService.getCategories(category,5);
-					}
-				})
-			}else{
-				if(channel == "arte"){
-						ARTEService.getNew(5);
-					}
-					if(channel == "zdf"){
-						ZDFService.getNew(5);
-					}
-			}
-		})
+							ARTEService.getNew(5);
+						}
+						if(channel == "zdf"){
+							ZDFService.getNew(5);
+						}
+				}
+			})
+		}
+		else{
+			//categories.forEach(f)
+		}
 	},
 	_search = function(searchString) {
 		mediathekModel.clearResults();
