@@ -28,5 +28,6 @@
 	{{ HTML::script('js/src/views/BroadcastView.js') }}
 	{{ HTML::script('js/src/views/PlaylistView.js') }}
 	{{ HTML::script('js/src/views/BookmarkView.js') }}
+	{{ HTML::script('js/src/views/SearchView.js') }}
 	<!-- INIT -->
 	{{ HTML::script('js/bootstrap.js') }}
