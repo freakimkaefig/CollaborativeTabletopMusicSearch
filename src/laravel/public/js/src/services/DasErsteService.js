@@ -490,6 +490,31 @@ MediathekCrawler.DasErsteService = function() {
 		});
 	},
 
+	getHot = function(){
+		var origin = {
+			_channel: 'DasErste',
+			_method: 'getHot',
+			_searchTerm: ,
+			_badge: 'hot'
+		};
+
+		var _url = PROXY_URL + encodeURI(BASE_URL);
+
+		$.ajax({
+				url: _url,
+				type: 'GET',
+				cache: false,
+				success: function(data) {
+					onDASERSTEGetHot(origin, data)
+				}
+			});
+	},
+
+	onDASERSTEGetHot = function(origin, data){
+
+		console.log('onDASERSTEGetHot: ',data);
+	},
+
 
 	/**
 	 * Function to load all categories from "Das Erste Mediathek"
@@ -592,6 +617,7 @@ MediathekCrawler.DasErsteService = function() {
 	that.dispose = dispose;
 	that.searchString = searchString;
 	that.getNew = getNew;
+	that.getHot = getHot;
 	that.getCategories = getCategories;
 
 	return that;

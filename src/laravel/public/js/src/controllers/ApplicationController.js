@@ -197,6 +197,7 @@ MediathekCrawler.ApplicationController = function() {
 		//BRService.getNew();
 	},
 	_getHot = function(){
+		DasErsteService.getHot();
 		ZDFService.getHot(ZDFMAXRESULTS);
 		ARTEService.getHot(ARTEMAXRESULTS);
 	},

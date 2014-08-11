@@ -317,7 +317,8 @@ MediathekCrawler.ZDFService = function() {
 	getNew = function(maxResults) {
 		if(maxResults >50){
 			maxResults = 50;
-		} 
+		}
+		maxResults = parseInt(maxResults / 4);
 		var origin = {
 			_channel: 'ZDF',
 			_method: 'getNew',
