@@ -2,7 +2,7 @@
 
 @section('content')
 	<!-- START search/search -->
-	<h2>Search results</h2>
+	<h2>Suchergebnisse:</h2>
 
 	@include('search.results')
 	<!-- END search/search -->
