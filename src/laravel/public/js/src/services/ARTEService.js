@@ -24,6 +24,7 @@ MediathekCrawler.ARTEService = function() {
 	ARTESEARCHCATEGORY = 'http://www.arte.tv/papi/tvguide/videos/plus7/D/L2/',
 	ARTESEARCHCATEGORY2 = '/ALL/-1/VIEWS/10/0.json',
 	PROXY_URL = '/proxy.php?url=',
+	STATION ='ARTE',
 	once = 0,
 	CATEGORIES = [
 		{
@@ -175,7 +176,7 @@ MediathekCrawler.ARTEService = function() {
 						   // console.log(e);
 						}
 						try{
-							station = element.VTX;
+							station = STATION;
 						}catch(e){
 						   // console.log(e);
 						}
@@ -334,7 +335,7 @@ MediathekCrawler.ARTEService = function() {
 				   // console.log(e);
 				}
 				try{
-					station = element.VTX;
+					station = STATION;
 				}catch(e){
 				   // console.log(e);
 				}
@@ -496,7 +497,7 @@ MediathekCrawler.ARTEService = function() {
 				   // console.log(e);
 				}
 				try{
-					station = element.VTX;
+					station = STATION;
 				}catch(e){
 				   // console.log(e);
 				}
@@ -713,7 +714,7 @@ MediathekCrawler.ARTEService = function() {
 					   // console.log('airtime fail\n',e);
 					}
 					try{
-						station = element.POR;
+						station = STATION;
 					}catch(e){
 					   // console.log('station fail\n',e);
 					}
