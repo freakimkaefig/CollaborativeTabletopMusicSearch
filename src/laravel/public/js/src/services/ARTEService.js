@@ -84,7 +84,7 @@ MediathekCrawler.ARTEService = function() {
 				// console.log('DATA _getARTEBroadcastOfCategory ', typeof response, response);
 
 				if(response.videoList.length > 0){
-					console.log('category url: ',ARTESEARCHCATEGORY+String(category)+ARTESEARCHCATEGORY2);
+					// console.log('category url: ',ARTESEARCHCATEGORY+String(category)+ARTESEARCHCATEGORY2);
 					$.each(response.videoList, function(index, element) {
 
 						var teaserImages = [],
