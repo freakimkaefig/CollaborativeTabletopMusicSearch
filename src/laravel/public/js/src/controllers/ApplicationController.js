@@ -141,10 +141,10 @@ MediathekCrawler.ApplicationController = function() {
 		$("#result-wrapper").empty();
 		channels = searchView.getSelectedChannels();
 		categories = searchView.getSelectedCategories();
-		if(channels.length != 0){	
+		if(channels.length > 0){	
 			channels.forEach(function(c){
 				var channel = c;
-				if(categories.length != 0){
+				if(categories.length > 0){
 					categories.forEach(function(category){
 						if(channel == "arte"){
 							ARTEService.getCategories(category);
@@ -158,13 +158,16 @@ MediathekCrawler.ApplicationController = function() {
 							ARTEService.getNew(5);
 						}
 						if(channel == "zdf"){
-							ZDFService.getNew(5);
+							ZDFService.getNew(6);
 						}
 				}
 			})
 		}
 		else{
-			//categories.forEach(f)
+			categories.forEach(function(category){
+				ARTEService.getCategories(category);
+				ZDFService.getCategories(category,1);	
+			})
 		}
 	},
 	_search = function(searchString) {
