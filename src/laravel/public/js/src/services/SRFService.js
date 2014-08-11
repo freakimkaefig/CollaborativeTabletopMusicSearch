@@ -140,6 +140,8 @@ MediathekCrawler.SRFService = function() {
 			_badge: null
 		};
 
+		// requesting more than 1 result page ends with the same
+		// received data -> duplicate entries!
 		for(i=1;i<=maxResults;i++){
 
 			var _url = PROXY_URL + encodeURI(SRFSEARCHSTRING+String(searchString))+'&page='+String(i);

@@ -22,7 +22,9 @@ MediathekCrawler.ApplicationController = function() {
 	/* ===== CONTROLS ===== */
 	ZDFMAXRESULTS = 10,
 	ARTEMAXRESULTS = 15,
-	SRFMAXPAGESTOCRAWL = 2,
+	// requesting more than 1 result page (SRF) leads to the same
+	// received data -> duplicate entries!
+	SRFMAXPAGESTOCRAWL = 1,
 
 	init = function() {   
 		console.info('MediathekCrawler.ApplicationController.init');
