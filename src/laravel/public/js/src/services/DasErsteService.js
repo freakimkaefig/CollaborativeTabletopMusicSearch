@@ -494,7 +494,7 @@ MediathekCrawler.DasErsteService = function() {
 		var origin = {
 			_channel: 'DasErste',
 			_method: 'getHot',
-			_searchTerm: ,
+			_searchTerm: null,
 			_badge: 'hot'
 		};
 
