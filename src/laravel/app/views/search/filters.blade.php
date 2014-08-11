@@ -1,5 +1,5 @@
 <!-- START search/filters -->
-	<div class="form-group col-sm-3">
+	<div id="category-filter" class="form-group col-sm-3">
 		<h4>Rubriken</h4>
 		<div class="col-sm-6">
 			<div class="checkbox">
@@ -8,59 +8,78 @@
 					Nachrichten
 				</label>
 			</div>
-			<div class="checkbox disabled">
+			<div class="checkbox">
 				<label>
-					<input type="checkbox" name="sport" value="sport" disabled>
+					<input type="checkbox" name="sport" value="sport" >
 					Sport
 				</label>
 			</div>
-			<div class="checkbox disabled">
+			<div class="checkbox ">
 				<label>
-					<input type="checkbox" name="serien" value="serien" disabled>
-					Serien
+					<input type="checkbox" name="politik" value="politik" >
+					Politik
+				</label>
+			</div>
+			<div class="checkbox ">
+				<label>
+					<input type="checkbox" name="wirtschaft" value="wirtschaft" >
+					Wirtschaft
+				</label>
+			</div>
+			<div class="checkbox ">
+				<label>
+					<input type="checkbox" name="kinder" value="kinder" >
+					Kinder
 				</label>
 			</div>
 		</div>
 		<div class="col-sm-6">
-			<div class="checkbox disabled">
+			<div class="checkbox ">
 				<label>
-					<input type="checkbox" name="spielfilme" value="spielfilme" disabled>
-					Spielfilme
+					<input type="checkbox" name="kino-tv" value="kino-tv" >
+					Kino und TV
 				</label>
 			</div>
-			<div class="checkbox disabled">
+			<div class="checkbox ">
 				<label>
-					<input type="checkbox" name="dokumentationen" value="dokumentationen" disabled>
-					Dokumentationen
+					<input type="checkbox" name="wissen-kultur" value="wissen-kultur" >
+					Wissen
 				</label>
 			</div>
-			<div class="checkbox disabled">
+			<div class="checkbox ">
 				<label>
-					<input type="checkbox" name="lifestyle" value="lifestyle" disabled>
-					Lifestyle
+					<input type="checkbox" name="ratgeber-gesundheit" value="ratgeber-gesundheit" 
+					>
+					Ratgeber
+				</label>
+			</div>
+			<div class="checkbox ">
+				<label>
+					<input type="checkbox" name="unterhaltung" value="unterhaltung" >
+					Unterhaltung
 				</label>
 			</div>
 		</div>
 	</div>
-	<div class="form-group col-sm-3">
+	<div id="channel-filter" class="form-group col-sm-3">
 		<h4>Sender</h4>
 		<div class="col-sm-6">
 			<div class="checkbox disabled">
 				<label>
-					<input type="checkbox" name="ard" value="ard" disabled>
+					<input type="checkbox" name="ard" value="daserste" disabled>
 					Das Erste
 				</label>
 			</div>
 			<div class="checkbox disabled">
 				<label>
-					<input type="checkbox" name="zdf" value="zdf" disabled>
+					<input type="checkbox" name="zdf" value="zdf">
 					ZDF
 				</label>
 			</div>
 			<div class="checkbox disabled">
 				<label>
-					<input type="checkbox" name="br" value="br" disabled>
-					BR
+					<input type="checkbox" name="arte" value="arte">
+					Arte
 				</label>
 			</div>
 		</div>		
@@ -85,7 +104,7 @@
 	</div>
 
 	<div class="col-sm-2">
-		<button type="submit" class="btn btn-default"><a href="{{ URL::route('search-results') }}">Absenden</a></button>
+		<button id="submit" 	class="btn btn-default">Absenden</button>
 		<button type="" class="btn btn-default">Zurücksetzen</button>
 	</div>
 <!-- END search/filters -->

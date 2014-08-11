@@ -62,6 +62,9 @@ MediathekCrawler.ApplicationController = function() {
 		playlistView.init();
 		bookmarkView =  MediathekCrawler.BookmarkView();
 		bookmarkView.init();
+
+		searchView = MediathekCrawler.SearchView();
+		searchView.init();
 		// check if $_POST data is available
 		_analyzeRoute();
 	},
@@ -104,16 +107,20 @@ MediathekCrawler.ApplicationController = function() {
 			// if (nachrichten) {
 			// 	_getCategory('nachrichten');
 			// }
+
 			var searchString = $('input[name="search"]').val();
+
 			if (searchString !== '' && searchString !== undefined) {
 				_search(searchString);
 			} else {
-				_getNew();
+				//_getNew();
+				$('#submit').on('click',_filterSeach);
 			}
+			
+
 		}
 		if (document.URL.indexOf('/video') > -1) {
 			if (document.URL.indexOf('/video/bookmark') > -1) {
-				console.log("ne merkliste");
 				_getVideoBookmark();
 			}
 			else{	
@@ -129,7 +136,40 @@ MediathekCrawler.ApplicationController = function() {
 			console.log("ich bin in einer palyliste");
 		}
 	},
-
+	_filterSeach = function(e) {
+		e.preventDefault();
+		$("#result-wrapper").empty();
+		channels = searchView.getSelectedChannels();
+		categories = searchView.getSelectedCategories();
+		if(channels.length > 0){	
+			channels.forEach(function(c){
+				var channel = c;
+				if(categories.length > 0){
+					categories.forEach(function(category){
+						if(channel == "arte"){
+							ARTEService.getCategories(category);
+						}
+						if(channel == "zdf"){
+							ZDFService.getCategories(category,1);
+						}
+					})
+				}else{
+					if(channel == "arte"){
+							ARTEService.getNew(5);
+						}
+						if(channel == "zdf"){
+							ZDFService.getNew(6);
+						}
+				}
+			})
+		}
+		else{
+			categories.forEach(function(category){
+				ARTEService.getCategories(category);
+				ZDFService.getCategories(category,1);	
+			})
+		}
+	},
 	_search = function(searchString) {
 		mediathekModel.clearResults();
 
