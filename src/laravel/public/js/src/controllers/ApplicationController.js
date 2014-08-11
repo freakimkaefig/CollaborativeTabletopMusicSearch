@@ -96,9 +96,11 @@ MediathekCrawler.ApplicationController = function() {
 			}
 			if(document.URL.indexOf('/channel/DasErste') > -1){
 				DasErsteService.getNew();
+				DasErsteService.getHot();
 			}
 			if(document.URL.indexOf('/channel/SRF') > -1){
 				SRFService.getNew();
+				SRFService.getHot();
 			}
 
 		}
@@ -207,6 +209,7 @@ MediathekCrawler.ApplicationController = function() {
 		DasErsteService.getHot();
 		ZDFService.getHot(ZDFMAXRESULTS);
 		ARTEService.getHot(ARTEMAXRESULTS);
+		SRFService.getHot();
 	},
 	_getVideoById = function() {
 		var _id = $('#video-id').val();

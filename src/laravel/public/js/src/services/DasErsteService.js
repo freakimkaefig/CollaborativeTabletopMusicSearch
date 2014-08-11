@@ -297,7 +297,7 @@ MediathekCrawler.DasErsteService = function() {
 
 				var temp = $(res).find('.subtitle');
 				_result._length = $(temp).text();
-				_result._length = _result._length.slice(_result._length.indexOf(' | ') + 3, _result._length.indexOf(' Min'));
+				_result._length = '00:'+ _result._length.slice(_result._length.indexOf(' | ') + 3, _result._length.indexOf(' Min'));
 				// console.log('_result._length: ',temp,_result._length);
 				}catch(e){
 					console.log(e);
@@ -583,91 +583,91 @@ MediathekCrawler.DasErsteService = function() {
 	/**
 	 * Function to load all categories from "Das Erste Mediathek"
 	 */
-	getCategories = function(_category, numResults) {
-		var origin = {
-			_channel: 'DasErste',
-			_method: 'getCategories',
-			_searchTerm: _category,
-			_badge: null
-		};
-		var find = CATEGORIES.filter(function (category) { return category._id == _category });
-		if (find.length > 0) {
-			var _broadcastUrl = PROXY_URL + encodeURI(find[0]._url);
-			$.ajax({
-				url: _broadcastUrl,
-				type: 'GET',
-				cache: false,
-				success: function(data) {
-					onDASERSTEGetCategories(origin, data, numResults)
-				}
-			});
-		} else {
-			console.error("Mediathek-Crawler", "|", "DasErsteController", "|", "Kategorie nicht verfügbar:", "'" + _category + "'");
-		}
-	},
+	// getCategories = function(_category, numResults) {
+	// 	var origin = {
+	// 		_channel: 'DasErste',
+	// 		_method: 'getCategories',
+	// 		_searchTerm: _category,
+	// 		_badge: null
+	// 	};
+	// 	var find = CATEGORIES.filter(function (category) { return category._id == _category });
+	// 	if (find.length > 0) {
+	// 		var _broadcastUrl = PROXY_URL + encodeURI(find[0]._url);
+	// 		$.ajax({
+	// 			url: _broadcastUrl,
+	// 			type: 'GET',
+	// 			cache: false,
+	// 			success: function(data) {
+	// 				onDASERSTEGetCategories(origin, data, numResults)
+	// 			}
+	// 		});
+	// 	} else {
+	// 		console.error("Mediathek-Crawler", "|", "DasErsteController", "|", "Kategorie nicht verfügbar:", "'" + _category + "'");
+	// 	}
+	// },
 
 	/**
 	 * Callback function for loading categories of Das Erste Mediathek
 	 * @param {String}		HTML data of the category page
 	 * @param {String}		current category
 	 */
-	onDASERSTEGetCategories = function(origin, data, numResults) {
-		$(data).find('#layer_themen2 .jsScroll').find('li').each(function(index, element) {
-			loadDASERSTECategory(origin, BASE_URL + $(element).find('a').attr('href'), numResults);
-		});
-	},
+	// onDASERSTEGetCategories = function(origin, data, numResults) {
+	// 	$(data).find('#layer_themen2 .jsScroll').find('li').each(function(index, element) {
+	// 		loadDASERSTECategory(origin, BASE_URL + $(element).find('a').attr('href'), numResults);
+	// 	});
+	// },
 
 	/**
 	 * Function to load a category from "Das Erste Mediathek"
 	 * @param {String}		the url of the category
 	 */
-	loadDASERSTECategory = function(origin, url, numResults) {
-		var _broadcastUrl = PROXY_URL + encodeURI(url);
-		$.ajax({
-			url: _broadcastUrl,
-			type: 'GET',
-			cache: false,
-			success: function(data) {
-				onGetDASERSTECategory(origin, data, numResults);
-			}
-		});
-	},
+	// loadDASERSTECategory = function(origin, url, numResults) {
+	// 	var _broadcastUrl = PROXY_URL + encodeURI(url);
+	// 	$.ajax({
+	// 		url: _broadcastUrl,
+	// 		type: 'GET',
+	// 		cache: false,
+	// 		success: function(data) {
+	// 			onGetDASERSTECategory(origin, data, numResults);
+	// 		}
+	// 	});
+	// },
 
 	/**
 	 * Callback function for async loading of category results
 	 * @param {String|HTML}		xmlhttp response of ajax call
 	 */
-	onGetDASERSTECategory = function(origin, data, numResults) {
-		$(data).find(CATEGORIES_WRAPPER_ELEMENT).find(SEARCH_ITEM_WRAPPER).each(function (index, element) {
-			if (index < numResults) {
-				if(!$(element).find(SEARCH_ITEM_ELEMENT).hasClass(SEARCH_LIVE_ITEM)) {
-					// retrieving documentId for streamURL
-					var documentUrl = $(element).find(SEARCH_ITEM_ELEMENT).attr('href'),
-						documentId = $(element).find('.boxPlaylistIcons>img').attr('class'),
-						documentId = documentId.replace(/\D/g,'');
+	// onGetDASERSTECategory = function(origin, data, numResults) {
+	// 	$(data).find(CATEGORIES_WRAPPER_ELEMENT).find(SEARCH_ITEM_WRAPPER).each(function (index, element) {
+	// 		if (index < numResults) {
+	// 			if(!$(element).find(SEARCH_ITEM_ELEMENT).hasClass(SEARCH_LIVE_ITEM)) {
+	// 				// retrieving documentId for streamURL
+	// 				var documentUrl = $(element).find(SEARCH_ITEM_ELEMENT).attr('href'),
+	// 					documentId = $(element).find('.boxPlaylistIcons>img').attr('class'),
+	// 					documentId = documentId.replace(/\D/g,'');
 
-					// building result meta information
-					var _result = {};
-						_result._station = STATION;
-						_result._title = $(element).find(TITLE_ELEMENT).text();
-						_result._subtitle = $(element).find(SUBTITLE_ELEMENT).text();
-						_result._length = $(element).find(LENGTH_ELEMENT).text();
-						_result._airtime = $(element).find(DATE_ELEMENT).text();
-						imgURL = $(element).find(IMAGE_ELEMENT).attr('src');
-						_result._teaserImages = [];
-						_result._teaserImages.push(_model.createTeaserImage(IMG_RESOLUTIONS[0].resolution, BASE_URL + imgURL));
-						_result._streams = [];
+	// 				// building result meta information
+	// 				var _result = {};
+	// 					_result._station = STATION;
+	// 					_result._title = $(element).find(TITLE_ELEMENT).text();
+	// 					_result._subtitle = $(element).find(SUBTITLE_ELEMENT).text();
+	// 					_result._length = $(element).find(LENGTH_ELEMENT).text();
+	// 					_result._airtime = $(element).find(DATE_ELEMENT).text();
+	// 					imgURL = $(element).find(IMAGE_ELEMENT).attr('src');
+	// 					_result._teaserImages = [];
+	// 					_result._teaserImages.push(_model.createTeaserImage(IMG_RESOLUTIONS[0].resolution, BASE_URL + imgURL));
+	// 					_result._streams = [];
 
-					// load details
-					loadDASERSTEDetails(origin, documentId, _result, BASE_URL + documentUrl);
-				} else {
-					// LIVESTREAM
-				}
-			} else {
-				return;
-			}
-		});
-	},
+	// 				// load details
+	// 				loadDASERSTEDetails(origin, documentId, _result, BASE_URL + documentUrl);
+	// 			} else {
+	// 				// LIVESTREAM
+	// 			}
+	// 		} else {
+	// 			return;
+	// 		}
+	// 	});
+	// },
 
 
 	/**
@@ -682,7 +682,7 @@ MediathekCrawler.DasErsteService = function() {
 	that.searchString = searchString;
 	that.getNew = getNew;
 	that.getHot = getHot;
-	that.getCategories = getCategories;
+	// that.getCategories = getCategories;
 
 	return that;
 };
