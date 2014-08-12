@@ -2,6 +2,7 @@ MediathekCrawler.ResultView = (function() {
 	var that = {},
 
 	$resultWrapper = null,
+	results = [],
 
 	init = function() {
 		console.info('MediathekCrawler.ResultView.init');
@@ -32,9 +33,10 @@ MediathekCrawler.ResultView = (function() {
 			'<source src="' + result._streams[i]._url + '" type="' + result._streams[i]._type + '">' +
 			'</video>' + */
 			'<div class="video-item-description col-xs-12">'+
-				'<div class=" video-item-title">' + result._title + '</div>' +
-				'<div  class="video-item-subtitle">' + result._subtitle + ' </div>' +
-				'<div  class=""><span>' + result._airtime + '</span> | <span>' + result._length + '</span> | <span>' + result._station + '</span></div>' +
+				'<div class="video-item-title">' + result._title + '</div>' +
+				'<div  class="video-item-subtitle">' + result._subtitle + ' &nbsp </div>' +
+				'<div  class="video-item-time"><span>' + result._airtime + '</span> </div>' + 
+				'<div class="video-item-channel"><span>' + result._station + '</span> | <span>' + result._length + '</span></div>' +
 			'</div>'+
 			'</a>' +
 			'</div>'
@@ -48,12 +50,12 @@ MediathekCrawler.ResultView = (function() {
 	},
 	getFromLocalstorage = function(){
 		var result_json = localStorage.getItem("mediathek-crawler");
-		results = JSON.parse(result_json);
-		return results;
+		var results_storage = JSON.parse(result_json);
+		return results_storage;
 	},
 	alphabeticSort = function(){
-		results = getFromLocalstorage();
-
+		var results = getFromLocalstorage();
+		sorted.length = 0;
 		if($("#alphabetic-sort").val() == "asc"){
 			sorted = results._results.sort(function(a, b){
 				var titleA=a._title.toLowerCase();
@@ -89,11 +91,10 @@ MediathekCrawler.ResultView = (function() {
 		})
 	},
 	durationSort = function(){
-		console.log("durationSort");
-		results = getFromLocalstorage();
-
+		results = getFromLocalstorage()._results;
+		console.log(results);
 		if($("#duration-sort").val()=="asc"){
-			sorted = results._results.sort(function(a, b){
+			results.sort(function(a, b){
 				var durationA=a._length.toLowerCase();
 				var durationB=b._length.toLowerCase();
 				if (durationA < durationB){
@@ -104,10 +105,10 @@ MediathekCrawler.ResultView = (function() {
 				}
 				return 0 //default return value (no sorting)
 			})
-		$("#duration-sort").val("desc");
+			$("#duration-sort").val("desc");
 		}
 		else{
-			sorted = results._results.sort(function(a, b){
+			results.sort(function(a, b){
 				var durationA=a._length.toLowerCase();
 				var durationB=b._length.toLowerCase();
 				if (durationA < durationB){
@@ -119,14 +120,13 @@ MediathekCrawler.ResultView = (function() {
 				return 0 //default return value (no sorting)
 			})
 			$("#duration-sort").val("asc");
-
 		}
 
 		$resultWrapper.empty();
-		sorted.forEach(function(result){
+		results.forEach(function(result){
 			appendResult(event, result);
 		})
-
+		return;
 	},
 
 	dispose = function() {
