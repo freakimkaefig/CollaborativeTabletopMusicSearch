@@ -60,12 +60,12 @@
      		<li><a class="navbar-brand" href="{{ URL::route('home') }}">LOGO</a></li>
      	
      		@if(Auth::check())
-     			<li class="pull-right"><a href="{{ URL::route('account-sign-out') }}">Abmelden</a></li>
-     			<li class="pull-right"><a href="">Suchen</a></li>
+     			<li class="pull-right" ><a href="{{ URL::route('account-sign-out') }}"style="color: white">Abmelden</a></li>
+     			<li class="pull-right"><a href="" style="color: white">Suchen</a></li>
 
      		@else
-				<li class="pull-right"><a href="{{ URL::route('account-sign-in') }}">Anmelden</a></li>
-				<li class="pull-right"><a href="">Suchen</a></li>
+				<li class="pull-right"><a href="{{ URL::route('account-sign-in') }}"style="color: white">Anmelden</a></li>
+				<li class="pull-right"><a href=""style="color: white">Suchen</a></li>
      		@endif
 		</ul>
 		

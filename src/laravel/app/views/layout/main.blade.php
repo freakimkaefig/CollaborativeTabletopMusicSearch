@@ -14,17 +14,17 @@
 		@include('layout.header')
 		<div class="container">
 
-		<div class="navbar visible-xs">
+		<div class="visible-xs">
 	
-			<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-			      
+			<button type="button" class="btn btn-default" data-toggle="collapse" data-target=".nav-collapse">_
+			      <!--
 			      <span class="icon-bar"></span>
 			      <span class="icon-bar"></span>
-			      <span class="icon-bar"></span>
+			      <span class="icon-bar"></span>  -->
 			</button>
 
-			<div class="nav-collapse collapse">
-			    <ul class="nav navbar-nav">
+			<div class="nav-collapse collapse" style="position: absolute; z-index: 99">
+			    <ul class="nav navbar-nav" style="background-color: #1b1b1b">
 			      <li class="active"><a href="#">Playliste</a></li>
 			      <li><a href="#">Favoriten</a></li>
 			      <li><a href="#">Merkliste</a></li>
