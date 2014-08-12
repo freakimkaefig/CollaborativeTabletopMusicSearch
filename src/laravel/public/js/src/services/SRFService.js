@@ -126,7 +126,7 @@ MediathekCrawler.SRFService = function() {
 
 					airtime = $yesterday +' '+ $(el).find('.time').text();
 					if(airtime.indexOf(' Uhr') > 0){
-						airtime = airtime.substring(1,airtime.indexOf(' Uhr'));
+						airtime = airtime.substring(0,airtime.indexOf(' Uhr'));
 					// console.log('AIRTIME: ',airtime);
 					}
 					station = 'SRF';
