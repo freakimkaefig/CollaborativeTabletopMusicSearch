@@ -61,7 +61,7 @@
      	
      		@if(Auth::check())
      			<li class="pull-right" ><a href="{{ URL::route('account-sign-out') }}"style="color: white">Abmelden</a></li>
-     			<li class="pull-right"><a href="" style="color: white">Suchen</a></li>
+     			<li class="pull-right"><a href="{{ URL::route('search-results-mobile') }}" style="color: white">Suchen</a></li>
 
      		@else
 				<li class="pull-right"><a href="{{ URL::route('account-sign-in') }}"style="color: white">Anmelden</a></li>
