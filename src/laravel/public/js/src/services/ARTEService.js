@@ -615,15 +615,16 @@ MediathekCrawler.ARTEService = function() {
 	getNew = function(maxResults, startdate, enddate){
 		var _startdate = startdate;
 		var _enddate = enddate;
-		var origin = {
-			_channel: 'ARTE',
-			_method: 'getNew',
-			_searchTerm: null,
-			_badge: 'new'
-		};
+		var origin = {};
 
 		if(!_startdate || _startdate === undefined || _startdate === '' || _startdate === null || !_enddate || _enddate === undefined || _enddate === '' || _enddate === null)
 		{
+			origin = {
+				_channel: 'ARTE',
+				_method: 'getNew',
+				_searchTerm: null,
+				_badge: 'new'
+			};
 			//set & format today
 			var today = new Date();
 			var td = today.getDate();
@@ -665,7 +666,7 @@ MediathekCrawler.ARTEService = function() {
 			dataType: 'json',
 			success: function(data, textStatus, jqXHR) {
 
-				console.log('ajax succes: \n',data,'\n',_url);
+				// console.log('ajax succes: \n',data,'\n',_url);
 				// var temp = jqXHR.responseText;
 				// var data2 = JSON.stringify(data).split('@').join('');
 				// console.log('DATA CONTAINS \" @ \" = ',data2.indexOf('@'));
