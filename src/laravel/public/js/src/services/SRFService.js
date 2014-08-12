@@ -27,30 +27,37 @@ MediathekCrawler.SRFService = function() {
 	},
 
 	getHot = function(){
-		var origin = {
-			_channel: 'SRF',
-			_method: 'getHot',
-			_searchTerm: null,
-			_badge: 'hot'
-		};
-		$.ajax({
-			url: PROXY_URL + SRFBASEURL,
-			type: 'GET',
-			cache: false,
-			success: function(data, textStatus, jqXHR) {
-				// console.log('SRF getNew: ', PROXY_URL + SRFSEARCHNEW);
-				_onSRFGetHot(origin, data);
+		// var origin = {
+		// 	_channel: 'SRF',
+		// 	_method: 'getHot',
+		// 	_searchTerm: null,
+		// 	_badge: 'hot'
+		// };
+		// $.ajax({
+		// 	url: PROXY_URL + SRFBASEURL,
+		// 	type: 'GET',
+		// 	cache: false,
+		// 	success: function(data, textStatus, jqXHR) {
+		// 		var resp = document.createElement("div");
+		// 		resp.style.visibility = 'hidden';
+		// 		document.body.appendChild(resp);
+		// 		$(resp).html(data);
+		// 		$(resp).find("script").each(function(i) {
+  //                   eval($(this).text());
+  //               });
+		// 		// console.log('SRF getHot: ', PROXY_URL + SRFBASEURL);
+		// 		_onSRFGetHot(origin, resp);
 				
-			},
-			error: function(){
-				console.warn('ERROR; SRFService.getNew(); AJAX-request did not recieve a response');
-			}
-		});
+		// 	},
+		// 	error: function(){
+		// 		console.warn('ERROR; SRFService.getNew(); AJAX-request did not recieve a response');
+		// 	}
+		// });
 	},
 
 	_onSRFGetHot = function(origin, data){
-		var temp = $(data).find('#tab_most_viewed');
-		// console.log('SRF _onSRFGetHot: ', data);
+		// var temp = $(data).find('#tab_most_viewed');
+		// console.log('SRF _onSRFGetHot: ', temp);
 		// $(data).find('#tab_most_viewed').find('.carousel_teaser').each(function(index,element){
 		// });
 	},
@@ -83,6 +90,7 @@ MediathekCrawler.SRFService = function() {
 
 			$(element).find('.sendung_item').each(function(idx, el){
 				
+			// console.log('SRF _onSRFSearchString element: ', el);
 				//check for attribute id to remove duplicate entries
 				var attr = $(el).attr('id');
 				if (typeof attr !== typeof undefined && attr !== false) {
@@ -118,7 +126,7 @@ MediathekCrawler.SRFService = function() {
 
 					airtime = $yesterday +' '+ $(el).find('.time').text();
 					if(airtime.indexOf(' Uhr') > 0){
-						airtime = airtime.substring(1,airtime.indexOf(' Uhr'));
+						airtime = airtime.substring(0,airtime.indexOf(' Uhr'));
 					// console.log('AIRTIME: ',airtime);
 					}
 					station = 'SRF';
@@ -197,7 +205,7 @@ MediathekCrawler.SRFService = function() {
 	_onSRFSearchString = function(origin, data){
 		// console.log('div: ',$(data).find('.result_row'));
 		$(data).find('.result_row').each(function(index, element){
-
+			console.log('SRF _onSRFSearchString element: ', element);
 			var teaserImages = [],
 					streams = [],
 					details = '',
@@ -238,17 +246,33 @@ MediathekCrawler.SRFService = function() {
 	},
 
 	_searchSRFStreams = function(origin, _url, title, subtitle, details, station, assetID, length, airtime, teaserImages, streams){
+		// not available:
 
 		$.ajax({
 				url: PROXY_URL + _url,
 				type: 'GET',
 				cache: false,
 				success: function(data, textStatus, jqXHR) {
-					// console.log('YAAAY', $(data).find('.button_download_img'));
+					// console.log('YAAAY', data);
+
+
+					// console.log('subtitle, length & details before fix: ', subtitle, length, details);
+					// fill missing params:
+					if(subtitle === null || subtitle === undefined || subtitle === ''){
+						subtitle = $(data).find('#asset_info_hl').text();
+					}
+					if(details === null || details === undefined || details === ''){
+						details = $(data).find('#asset_info_description').text()
+					}
+
+					// console.log('URL, title, subtitle, length & details AFTER fix: ', _url, title, subtitle, length, details);
+
+
+
 					streamUrl = $(data).find('.button_download_img').attr('href');
 
 					if(streamUrl !== 'undefined' && streamUrl !== undefined){
-						// console.log('Stream Url: ',streamUrl);
+						// console.log('Stream Url: ',_url);
 
 						var basetype = '',
 			    		quality = '',

@@ -43,15 +43,15 @@ MediathekCrawler.BroadcastView = (function() {
 		}
 
 		var infoElement = 
-			'<h3>Titel:</h3>'+
+			'<h3>Titel :</h3>'+
 			'<div>' + result._title + '</div>' +
 			/*'<div>' + result._details + '</div>' +*/
 			'<div>' + result._subtitle + '</div>' +
-			'<h3>Ausstrahlung:</h3>' +
+			'<h3>Ausstrahlung :</h3>' +
 			'<div>' + result._airtime+ '</div>' +
-			'<h3>Dauer:</h3>' +
+			'<h3>Dauer :</h3>' +
 			'<div>' + result._length + '</div>' +
-			'<h3>Sender:</h3>' +
+			'<h3>Sender :</h3>' +
 			'<div>' + result._station + '</div>';
 
 		

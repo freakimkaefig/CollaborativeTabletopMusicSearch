@@ -6,7 +6,7 @@
 			//$results = DB::select('select * from playlists where user="'+Auth::id()+'"');
 			$results= DB::table('broadcasts')->where('user_id', '=', Auth::id())->get();
 		?>
-   		 <div class="row">
+   		 <div class="list row">
     @foreach($results as $result)
     	<div id="list-item-{{$result->id}}" class="list-item col-sm-10 col-sm-offset-1">
         <?php 
@@ -27,7 +27,7 @@
         <h4>Dauer:{{$result->duration}}</h4>
         </div>
         </a>
-        <button class="btn pull-right" data-toggle="modal" data-target="#confirm-delete-{{$result->id}}">X</button>
+        <button class="btn btn-transparent pull-right" data-toggle="modal" data-target="#confirm-delete-{{$result->id}}">X</button>
         <div class="modal fade" id="confirm-delete-{{$result->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">

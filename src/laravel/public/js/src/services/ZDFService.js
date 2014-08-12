@@ -16,6 +16,10 @@ MediathekCrawler.ZDFService = function() {
 	ZDFSEARCHHOTURL = 'http://www.zdf.de/ZDFmediathek/xmlservice/web/meistGesehen?id=_GLOBAL&maxLength=',
 	ZDFBROADCASTSPERCATEGORY = 'http://www.zdf.de/ZDFmediathek/xmlservice/web/aktuellste?id=',
 	ZDFVIDEOSPERBROADCAST = 'http://www.zdf.de/ZDFmediathek/xmlservice/web/aktuellste?id=',
+	// http://www.zdf.de/ZDFmediathek/xmlservice/web/sendungVerpasst?startdate=100814&enddate=120814&maxLength=50
+	ZDFSEARCHBYDATE = 'http://www.zdf.de/ZDFmediathek/xmlservice/web/sendungVerpasst?startdate=', //+startdate
+	ZDFSEARCHBYDATE2 = '&enddate=', //+enddate
+	ZDFSEARCHBYDATE3 = '&maxLength=', //+maxResults
 	ZDFID = 322,
 	ZDFNEOID = 857392,
 	ZDFINFOID = 398,
@@ -84,6 +88,47 @@ MediathekCrawler.ZDFService = function() {
 				console.warn('ERROR; ZDFService.searchString; AJAX-request did not recieve a response');
 			}
 		});
+	},
+
+	getZDFVideosByDate = function(maxResults, startdate, enddate){
+		if(maxResults >= 50){
+			maxResults = 50;
+		}
+		var origin = {};
+
+		while(startdate.indexOf('-') > 0){
+			startdate = startdate.replace('-','');
+		}
+		startYYYY = startdate.slice(2,4);
+		startMM = startdate.slice(4,6);
+		startDD = startdate.slice(6,8);
+		startdate = startDD+startMM+startYYYY;
+		// console.log('ZDF fixxed startdate: ',startdate);
+
+		while(enddate.indexOf('-') > 0){
+			enddate = enddate.replace('-','');
+		}
+		endYYYY = enddate.slice(2,4);
+		endMM = enddate.slice(4,6);
+		endDD = enddate.slice(6,8);
+		enddate = endDD+endMM+endYYYY;
+		// console.log('ZDF fixxed enddate: ',enddate);
+
+
+		$.ajax({
+			url: encodeURI(ZDFSEARCHBYDATE+String(startdate)+ZDFSEARCHBYDATE2+String(enddate)+ZDFSEARCHBYDATE3+String(maxResults)),
+			type: 'GET',
+			success: function(data) {
+				console.log('ZDF getZDFVideosByDate ajax succes, data: ',data);
+				_parseResponse(origin, data);
+			},
+			error: function(){
+				console.warn('ERROR; ZDFService.searchString; AJAX-request did not recieve a response');
+			}
+		});
+
+
+
 	},
 
 	_parseResponse = function(origin, data){
@@ -534,6 +579,7 @@ MediathekCrawler.ZDFService = function() {
 	that.getHot = getHot;
 	that.getNew = getNew;
 	that.getCategories = getCategories;
+	that.getZDFVideosByDate = getZDFVideosByDate;
 
 	return that;
 

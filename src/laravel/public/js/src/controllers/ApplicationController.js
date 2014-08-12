@@ -71,7 +71,14 @@ MediathekCrawler.ApplicationController = function() {
 
 	onResultReceived = function(event, result) {
 		// console.log("RESULT", result);
-		resultView.appendResult(event, result);
+		/*$(document).ajaxSend(function(event, request, settings) {
+		  $('#loading-indicator').show();
+		});*/
+				resultView.appendResult(event, result);
+			$(document).ajaxStop(function(event, request, settings) {
+		  		$('#loading-indicator').hide();
+			});
+		
 	},
 
 	_analyzeRoute = function() {
@@ -89,10 +96,16 @@ MediathekCrawler.ApplicationController = function() {
 			if(document.URL.indexOf('/channel/ZDF') > -1){
 				ZDFService.getNew(ZDFMAXRESULTS);
 				ZDFService.getHot(ZDFMAXRESULTS);
+
+				// first param = maxResults (<= 50!!)
+				// ZDFService.getZDFVideosByDate(50,  '2013-07-10', '2013-07-15');
 			}
 			if(document.URL.indexOf('/channel/ARTE') > -1){
-				ARTEService.getNew(ARTEMAXRESULTS);
-				ARTEService.getHot(ARTEMAXRESULTS);
+					ARTEService.getNew(ARTEMAXRESULTS, null, null);
+					ARTEService.getHot(ARTEMAXRESULTS);
+
+				// first param: maxResults (<=200!!!)
+				// ARTEService.getVideosByDate(200, '2014-08-10', '2014-08-15');
 			}
 			if(document.URL.indexOf('/channel/DasErste') > -1){
 				DasErsteService.getNew();
@@ -140,6 +153,7 @@ MediathekCrawler.ApplicationController = function() {
 	},
 	_filterSeach = function(e) {
 		e.preventDefault();
+		console.log(JSON.parse(window.localStorage.getItem("mediathek-crawler")));
 		$("#result-wrapper").empty();
 		channels = searchView.getSelectedChannels();
 		categories = searchView.getSelectedCategories();
@@ -155,7 +169,8 @@ MediathekCrawler.ApplicationController = function() {
 							ZDFService.getCategories(category,1);
 						}
 					})
-				}else{
+				}
+				else{
 					if(channel == "arte"){
 						ARTEService.getNew(5);
 						ARTEService.getHot(5);
@@ -168,7 +183,6 @@ MediathekCrawler.ApplicationController = function() {
 						DasErsteService.getNew();
 						DasErsteService.getHot();
 					}
-
 				}
 			})
 		}
@@ -178,6 +192,7 @@ MediathekCrawler.ApplicationController = function() {
 				ZDFService.getCategories(category,1);	
 			})
 		}
+		return;
 	},
 	_search = function(searchString) {
 		mediathekModel.clearResults();
@@ -207,7 +222,7 @@ MediathekCrawler.ApplicationController = function() {
 	_getNew = function() {
 		DasErsteService.getNew();
 		ZDFService.getNew(ZDFMAXRESULTS);
-		ARTEService.getNew(ARTEMAXRESULTS);
+		ARTEService.getNew(ARTEMAXRESULTS, null, null);
 		SRFService.getNew();
 		//BRService blockiert; notImplemented!
 		//BRService.getNew();
