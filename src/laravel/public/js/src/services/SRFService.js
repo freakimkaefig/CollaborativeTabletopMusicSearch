@@ -15,6 +15,7 @@ MediathekCrawler.SRFService = function() {
 	var that = {},
 	mediathekModel = null,
 	PROXY_URL = '/proxy.php?url=',
+	SRFBASEURL ='http://www.srf.ch/player/tv',
 	SRFSEARCHSTRING = 'http://www.srf.ch/player/tv/suche?query=',
 	SRFSEARCHNEW = 'http://www.srf.ch/player/tv/sendungen-nach-datum',
 	once = 0;
@@ -25,6 +26,42 @@ MediathekCrawler.SRFService = function() {
 		mediathekModel = mModel;
 	},
 
+	getHot = function(){
+		// var origin = {
+		// 	_channel: 'SRF',
+		// 	_method: 'getHot',
+		// 	_searchTerm: null,
+		// 	_badge: 'hot'
+		// };
+		// $.ajax({
+		// 	url: PROXY_URL + SRFBASEURL,
+		// 	type: 'GET',
+		// 	cache: false,
+		// 	success: function(data, textStatus, jqXHR) {
+		// 		var resp = document.createElement("div");
+		// 		resp.style.visibility = 'hidden';
+		// 		document.body.appendChild(resp);
+		// 		$(resp).html(data);
+		// 		$(resp).find("script").each(function(i) {
+  //                   eval($(this).text());
+  //               });
+		// 		// console.log('SRF getHot: ', PROXY_URL + SRFBASEURL);
+		// 		_onSRFGetHot(origin, resp);
+				
+		// 	},
+		// 	error: function(){
+		// 		console.warn('ERROR; SRFService.getNew(); AJAX-request did not recieve a response');
+		// 	}
+		// });
+	},
+
+	_onSRFGetHot = function(origin, data){
+		// var temp = $(data).find('#tab_most_viewed');
+		// console.log('SRF _onSRFGetHot: ', temp);
+		// $(data).find('#tab_most_viewed').find('.carousel_teaser').each(function(index,element){
+		// });
+	},
+
 	getNew = function () {
 		var origin = {
 			_channel: 'SRF',
@@ -33,26 +70,27 @@ MediathekCrawler.SRFService = function() {
 			_badge: 'new'
 		};
 		$.ajax({
-					url: PROXY_URL + SRFSEARCHNEW,
-					type: 'GET',
-					cache: false,
-					success: function(data, textStatus, jqXHR) {
-						// console.log('SRF getNew: ', PROXY_URL + SRFSEARCHNEW);
-						_onGetNew(origin, data,'#left_day');
-						
-					},
-					error: function(){
-						console.warn('ERROR; SRFService.getNew(); AJAX-request did not recieve a response');
-					}
-				});
+			url: PROXY_URL + SRFSEARCHNEW,
+			type: 'GET',
+			cache: false,
+			success: function(data, textStatus, jqXHR) {
+				// console.log('SRF getNew: ', PROXY_URL + SRFSEARCHNEW);
+				_onSRFGetNew(origin, data,'#left_day');
+				
+			},
+			error: function(){
+				console.warn('ERROR; SRFService.getNew(); AJAX-request did not recieve a response');
+			}
+		});
 	},
 
-	_onGetNew = function(origin, data,divId){
+	_onSRFGetNew = function(origin, data,divId){
 		var temp = divId;
 		$(data).find(divId).find('.missed_list').each(function(index, element){
 
 			$(element).find('.sendung_item').each(function(idx, el){
 				
+			// console.log('SRF _onSRFSearchString element: ', el);
 				//check for attribute id to remove duplicate entries
 				var attr = $(el).attr('id');
 				if (typeof attr !== typeof undefined && attr !== false) {
@@ -110,7 +148,7 @@ MediathekCrawler.SRFService = function() {
 
 					// console.log('el: ', _url, title, details, length, subtitle, assetID, airtime, teaserImages);
 
-					_searchStreams(origin, _url, title, subtitle, details, station, assetID, length, airtime, teaserImages, streams);
+					_searchSRFStreams(origin, _url, title, subtitle, details, station, assetID, length, airtime, teaserImages, streams);
 		
 				}
 
@@ -121,7 +159,7 @@ MediathekCrawler.SRFService = function() {
 		
 		//recursive call to get todays content
 		if(temp === '#left_day'){
-			_onGetNew(origin, data,'#right_day');
+			_onSRFGetNew(origin, data,'#right_day');
 		}
 	},
 
@@ -153,7 +191,7 @@ MediathekCrawler.SRFService = function() {
 					cache: false,
 					success: function(data, textStatus, jqXHR) {
 						// console.log('YAAAY', data);
-						_onSearchString(origin, data);
+						_onSRFSearchString(origin, data);
 						
 					},
 					error: function(){
@@ -164,10 +202,10 @@ MediathekCrawler.SRFService = function() {
 
 	},
 
-	_onSearchString = function(origin, data){
+	_onSRFSearchString = function(origin, data){
 		// console.log('div: ',$(data).find('.result_row'));
 		$(data).find('.result_row').each(function(index, element){
-
+			console.log('SRF _onSRFSearchString element: ', element);
 			var teaserImages = [],
 					streams = [],
 					details = '',
@@ -203,22 +241,38 @@ MediathekCrawler.SRFService = function() {
 
 			// console.log('el: ', _url, title, details, length, subtitle, assetID, airtime, teaserImages);
 
-			_searchStreams(origin, _url, title, subtitle, details, station, assetID, length, airtime, teaserImages, streams);
+			_searchSRFStreams(origin, _url, title, subtitle, details, station, assetID, length, airtime, teaserImages, streams);
 		});
 	},
 
-	_searchStreams = function(origin, _url, title, subtitle, details, station, assetID, length, airtime, teaserImages, streams){
+	_searchSRFStreams = function(origin, _url, title, subtitle, details, station, assetID, length, airtime, teaserImages, streams){
+		// not available:
 
 		$.ajax({
 				url: PROXY_URL + _url,
 				type: 'GET',
 				cache: false,
 				success: function(data, textStatus, jqXHR) {
-					// console.log('YAAAY', $(data).find('.button_download_img'));
+					// console.log('YAAAY', data);
+
+
+					// console.log('subtitle, length & details before fix: ', subtitle, length, details);
+					// fill missing params:
+					if(subtitle === null || subtitle === undefined || subtitle === ''){
+						subtitle = $(data).find('#asset_info_hl').text();
+					}
+					if(details === null || details === undefined || details === ''){
+						details = $(data).find('#asset_info_description').text()
+					}
+
+					// console.log('URL, title, subtitle, length & details AFTER fix: ', _url, title, subtitle, length, details);
+
+
+
 					streamUrl = $(data).find('.button_download_img').attr('href');
 
 					if(streamUrl !== 'undefined' && streamUrl !== undefined){
-						// console.log('Stream Url: ',streamUrl);
+						// console.log('Stream Url: ',_url);
 
 						var basetype = '',
 			    		quality = '',
@@ -255,12 +309,12 @@ MediathekCrawler.SRFService = function() {
 						console.log('\'',title, '\' has ', streams.length, ' streams. \nCHECK: ',_url);
 					}
 					else{
-						_pushResultToModel(origin, title, subtitle, details, station, assetID, length, airtime, teaserImages, streams);
+						_pushSRFResultToModel(origin, title, subtitle, details, station, assetID, length, airtime, teaserImages, streams);
 					}
 
 				},
 				error: function(){
-					console.warn('ERROR; SRFService._searchStreams(); AJAX-request did not recieve a response');
+					console.warn('ERROR; SRFService._searchSRFStreams(); AJAX-request did not recieve a response');
 				}
 			});
 	},
@@ -284,14 +338,14 @@ MediathekCrawler.SRFService = function() {
 		return length;
 	},
 
-	_pushResultToModel = function(origin, title, subtitle, details, station, assetID, length, airtime, teaserImages, streams){
+	_pushSRFResultToModel = function(origin, title, subtitle, details, station, assetID, length, airtime, teaserImages, streams){
 		// console.log('pushing to result model');
 		// if(station != 'null' && title != 'null' && subtitle != 'null' && details != 'null' && length != 'null' && airtime != 'null' && teaserImages != 'null' && streams && station && title && subtitle && details && length && airtime && teaserImages && streams){
 
 			mediathekModel.addResults(origin, station, title, subtitle, details, length, airtime, teaserImages, streams);
 		// }
 		// else{
-		// console.log('some params missing @ ARTEService._pushResultToModel: ', 'station: ', station, 'title: ', title, 'subtitle: ', subtitle, 'details: ', details, 'length: ', length, 'airtime: ', airtime, 'teaserImages: ', teaserImages, 'streams: ', streams);
+		// console.log('some params missing @ ARTEService._pushSRFResultToModel: ', 'station: ', station, 'title: ', title, 'subtitle: ', subtitle, 'details: ', details, 'length: ', length, 'airtime: ', airtime, 'teaserImages: ', teaserImages, 'streams: ', streams);
 		// }
 		// console.log('number of streams: ',streams.length);
 	},
@@ -305,6 +359,7 @@ MediathekCrawler.SRFService = function() {
 	that.dispose = dispose;
 	that.searchString = searchString;
 	that.getNew = getNew;
+	that.getHot = getHot;
 
 	return that;
 

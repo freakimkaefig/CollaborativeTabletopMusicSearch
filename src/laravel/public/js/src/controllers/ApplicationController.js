@@ -98,14 +98,19 @@ MediathekCrawler.ApplicationController = function() {
 				ZDFService.getHot(ZDFMAXRESULTS);
 			}
 			if(document.URL.indexOf('/channel/ARTE') > -1){
-				ARTEService.getNew(ARTEMAXRESULTS);
+				ARTEService.getNew(ARTEMAXRESULTS, null, null);
 				ARTEService.getHot(ARTEMAXRESULTS);
+
+				// first param: maxResults (<=200!!!)
+				// ARTEService.getVideosByDate(200, '2014-08-22', '2014-08-25');
 			}
 			if(document.URL.indexOf('/channel/DasErste') > -1){
 				DasErsteService.getNew();
+				DasErsteService.getHot();
 			}
 			if(document.URL.indexOf('/channel/SRF') > -1){
 				SRFService.getNew();
+				SRFService.getHot();
 			}
 
 		}
@@ -214,7 +219,7 @@ MediathekCrawler.ApplicationController = function() {
 	_getNew = function() {
 		DasErsteService.getNew();
 		ZDFService.getNew(ZDFMAXRESULTS);
-		ARTEService.getNew(ARTEMAXRESULTS);
+		ARTEService.getNew(ARTEMAXRESULTS, null, null);
 		SRFService.getNew();
 		//BRService blockiert; notImplemented!
 		//BRService.getNew();
@@ -223,6 +228,7 @@ MediathekCrawler.ApplicationController = function() {
 		DasErsteService.getHot();
 		ZDFService.getHot(ZDFMAXRESULTS);
 		ARTEService.getHot(ARTEMAXRESULTS);
+		SRFService.getHot();
 	},
 	_getVideoById = function() {
 		var _id = $('#video-id').val();
