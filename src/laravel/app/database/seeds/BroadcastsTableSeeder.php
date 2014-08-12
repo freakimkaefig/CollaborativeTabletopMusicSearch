@@ -30,22 +30,6 @@ class BroadcastsTableSeeder extends Seeder {
 			),
 			1 => 
 			array (
-				'id' => 3,
-				'title' => 'glanz & gloria',
-				'subtitle' => '0',
-				'details' => '0',
-				'airtime' => '2014-08-01 18:43:00',
-				'url' => '[{"_basetype":"","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/podcastsource.sf.tv\\/nps\\/podcast\\/glanzundgloria\\/2014\\/08\\/glanzundgloria_20140811_184306_v_podcast_h264_q10.mp4","_filesize":"0"}]',
-				'duration' => '00:00:00',
-				'image' => '[{"_resolution":"288x166","_url":"http:\\/\\/www.srfcdn.ch\\/asset\\/image\\/audio\\/862dbbb2-cd4f-4098-881e-7c2da4dd7311\\/WEBVISUAL\\/1404293237000.jpg\\/scale\\/width\\/288"},{"_resolution":"144x83","_url":"http:\\/\\/www.srfcdn.ch\\/asset\\/image\\/audio\\/862dbbb2-cd4f-4098-881e-7c2da4dd7311\\/WEBVISUAL\\/1404293237000.jpg\\/scale\\/width\\/144"}]',
-				'station' => 'SRF',
-				'created_at' => '2014-08-12 07:07:25',
-				'updated_at' => '2014-08-12 07:07:25',
-				'playlist_id' => 1,
-				'user_id' => NULL,
-			),
-			2 => 
-			array (
 				'id' => 5,
 				'title' => 'Jesus liebt mich',
 				'subtitle' => '0',
@@ -59,6 +43,22 @@ class BroadcastsTableSeeder extends Seeder {
 				'updated_at' => '2014-08-12 11:41:06',
 				'playlist_id' => NULL,
 				'user_id' => 1,
+			),
+			2 => 
+			array (
+				'id' => 10,
+				'title' => 'Too Young To Die',
+			'subtitle' => 'River Phoenix, der scheue Star (Dokumentationsreihe)',
+				'details' => 'Ein früher Tod großer Stars bietet häufig Anlass, einen Mythos entstehen zu lassen. Die Dokureihe beschreibt das Leben früh verstorbener Hollywood-Schauspieler und Musiker hinter dem Bild, das im kollektiven Bewusstsein von ihnen fortbesteht. Diese Folge präsentiert die kurze Karriere des Schauspielers und Musikers River Phoenix, der zu den Jugendidolen der 80er Jahre gehörte.',
+				'airtime' => '2014-08-09 22:45:00',
+				'url' => '[{"_basetype":"","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/artestras.vo.llnwd.net\\/v2\\/am\\/HBBTV\\/048741-002-A_HQ_1_VA-STA_01415342_MP4-800_AMM-HBBTV.mp4","_filesize":"0"},{"_basetype":"","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/artestras.vo.llnwd.net\\/v2\\/am\\/HBBTV\\/048741-002-A_EQ_1_VA-STA_01415344_MP4-1500_AMM-HBBTV.mp4","_filesize":"0"},{"_basetype":"","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/artestras.vo.llnwd.net\\/v2\\/am\\/HBBTV\\/048741-002-A_SQ_1_VA-STA_01415346_MP4-2200_AMM-HBBTV.mp4","_filesize":"0"}]',
+				'duration' => '00:52:00',
+				'image' => '[{"_resolution":"940x530","_url":"http:\\/\\/www.arte.tv\\/papi\\/tvguide\\/images\\/1235012\\/W940H530\\/048741-002_tytd-phoenix_01-1405741512581.jpg"}]',
+				'station' => 'ARTE',
+				'created_at' => '2014-08-12 14:32:53',
+				'updated_at' => '2014-08-12 14:32:53',
+				'playlist_id' => 1,
+				'user_id' => NULL,
 			),
 		));
 	}
