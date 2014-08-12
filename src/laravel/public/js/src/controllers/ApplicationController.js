@@ -74,7 +74,7 @@ MediathekCrawler.ApplicationController = function() {
 		/*$(document).ajaxSend(function(event, request, settings) {
 		  $('#loading-indicator').show();
 		});*/
-				resultView.appendResult(event, result);
+			resultView.appendResult(event, result);
 			$(document).ajaxStop(function(event, request, settings) {
 		  		$('#loading-indicator').hide();
 			});

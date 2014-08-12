@@ -18,7 +18,7 @@ input {color: #313131;}
 
 .list {margin-bottom: 50px;}
 /* ========== FOOTER ========== */
-#footer-nav { bottom: -190px; }
+#footer-nav { bottom: -170px; }
 
 h2 { text-transform: capitalize; }
 
@@ -132,6 +132,7 @@ body{
 	overflow: hidden;
 	text-overflow:ellipsis;
 	white-space: nowrap;
+	border-bottom: 1px solid #778899;
 }
 .video-item-subtitle{
 	min-width: 100%;
@@ -180,9 +181,19 @@ body{
 	margin-bottom: 5px;
 	width: 100%;
 	color: #1b1b1b;
+	padding: 5px;
 }
 
 
+.feedback{
+	background-color: #778899;
+	border-radius: 0;
+	color: #ffffff;
+	border: 1px solid #ffffff;
+	margin-bottom: 5px;
+	border-radius: 10px;
+	width: auto;
+}
 
 
 /* ==== Playlist page ===*/

@@ -2,12 +2,12 @@
 
 @section('content')
 	<!-- START account/myaccount -->
-	<h2>Mein Konto</h2>
-	<p>Das ist die Mein Konto Übersichtsseite</p>
-	<ul>
-		<li><a href="{{ URL::route('account-sign-out') }}">Abmelden</a></li>
-		<li><a href="{{ URL::route('account-change-password') }}">Passwort ändern</a></li>
-	</ul>
+	<div class="row">
+		<h2>Mein Konto</h2>
+		<a href="{{ URL::route('account-sign-out') }}"><button class="btn btn-transparent">
+		Abmelden</button></a>
+		<a href="{{ URL::route('account-change-password') }}"><button class=" btn btn-transparent"> Passwort ändern</button></a>
+	</div>
 	<div class="col-sm-3 col-lg-4">
 		<h2 class="text-center">Favoriten</h2>
 	</div>

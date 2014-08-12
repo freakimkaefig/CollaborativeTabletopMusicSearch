@@ -58,7 +58,7 @@ MediathekCrawler.BroadcastView = (function() {
 		$infoWrapper.prepend(infoElement);
 
 		videojs("#video", {plugins : { resolutionSelector : {
-    							force_types : [ 'video/mp4', 'video/webm' ],
+    							force_types : [ 'video/webm', 'video/mp4' ],
     							default_res : "3"
 							} }}, function(){
 		});
@@ -94,7 +94,7 @@ MediathekCrawler.BroadcastView = (function() {
 		$infoWrapper.prepend(infoElement);
 
 		videojs("#video", {plugins : { resolutionSelector : {
-    							force_types : [ 'video/mp4', 'video/webm' ],
+    							force_types : [ 'video/webm', 'video/mp4' ],
     							default_res : "3"
 							} }}, function(){
 		});

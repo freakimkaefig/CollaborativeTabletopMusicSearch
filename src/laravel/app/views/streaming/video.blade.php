@@ -29,7 +29,7 @@
 								<button id="add-to-playlist-cancel" class="btn btn-transparent" type="button" >Abbrechen</button>
 							</div>
 						</form>
-						<p class="feedback col-sm-3" hidden>hinzugefügt!</p>
+						<h4 class="feedback col-sm-6 " hidden>hinzugefügt!</h4>
 					</div>
 					<div class="col-sm-12">	
 						<form >

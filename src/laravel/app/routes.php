@@ -192,7 +192,7 @@ Route::get('/suche', array(
 	'uses' => 'MediathekController@getSearchResults'
 ));
 
-Route::get('/suche', array(
+Route::get('/suche-mobile', array(
 	'as' => 'search-results-mobile',
 	'uses' => 'MediathekController@getSearchResultsMobile'
 ));
