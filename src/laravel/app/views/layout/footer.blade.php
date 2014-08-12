@@ -9,7 +9,6 @@
 						<li><a href="#">Live</a></li>
 						<li><a href="{{ URL::route('hot-videos') }}">Hot</a></li>
 						<li><a href="{{ URL::route('new-videos') }}">New</a></li>
-						<li><a href="{{URL::route('category',array('nachrichten'))}}">Nachrichten</a></li>
 						<li><a href="{{URL::route('category',array('politik'))}}">Politik</a></li>
 						<li><a href="{{URL::route('category',array('sport'))}}">Sport</a></li>
 						<li><a href="{{URL::route('category',array('kino-tv'))}}">Kino|TV</a></li>
@@ -20,6 +19,7 @@
 				</div>
 				<div class="col-sm-4 alpha">
 					<ul>
+						<li><a href="{{URL::route('category',array('nachrichten'))}}">Nachrichten</a></li>
 						<li><a href="{{URL::route('category',array('ratgeber-gesundheit'))}}">Ratgeber</a></li>
 						<li><a href="{{URL::route('category',array('unterhaltung'))}}">Unterhaltung</a></li>
 						<li><a href="{{URL::route('category',array('wirtschaft'))}}">Wirtschaft</a></li>
@@ -30,7 +30,7 @@
 			</div>
 			<div class="col-sm-3 hidden-xs">
 				<h4 class="col-sm-offset-4">Sender</h4>
-				<div class="col-sm-4 col-sm-offset-4 alpha">
+				<div class="col-sm-6 col-sm-offset-4 alpha">
 					<ul>
 					    <li><a href="{{URL::route('channel',array('DasErste'))}}">Das Erste</a></li>
 					    <li><a href="{{URL::route('channel',array('ZDF'))}}">ZDF</a></li>
