@@ -21,6 +21,11 @@ class MediathekController extends BaseController {
 			->with('isSearch', TRUE);
 	}
 
+	public function getSearchResultsMobile() {
+		return View::make('search.search_mobile')
+			->with('isSearch', TRUE);
+	}
+
 	public function getCategory($category) {
 		// validate category
 		return View::make('search.categories')

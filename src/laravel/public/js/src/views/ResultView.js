@@ -10,6 +10,9 @@ MediathekCrawler.ResultView = (function() {
 		$resultWrapper = $('#result-wrapper');
 		$("#alphabetic-sort").on("click",alphabeticSort);
 		$("#duration-sort").on("click",durationSort);
+		$("#channel-sort").on("click",channelSort);
+		$("#date-sort").on("click",dateSort);
+
 	},
 
 	appendResult = function(event, result) {
@@ -54,10 +57,9 @@ MediathekCrawler.ResultView = (function() {
 		return results_storage;
 	},
 	alphabeticSort = function(){
-		var results = getFromLocalstorage();
-		sorted.length = 0;
+		var results = getFromLocalstorage()._results;
 		if($("#alphabetic-sort").val() == "asc"){
-			sorted = results._results.sort(function(a, b){
+			results.sort(function(a, b){
 				var titleA=a._title.toLowerCase();
 				var titleB=b._title.toLowerCase();
 				if (titleA < titleB){
@@ -71,7 +73,7 @@ MediathekCrawler.ResultView = (function() {
 			$("#alphabetic-sort").val("desc");
 		}
 		else{
-			sorted = results._results.sort(function(a, b){
+			results.sort(function(a, b){
 				var titleA=a._title.toLowerCase();
 				var titleB=b._title.toLowerCase();
 				if (titleA < titleB){
@@ -86,13 +88,12 @@ MediathekCrawler.ResultView = (function() {
 		}
 		
 		$resultWrapper.empty();
-		sorted.forEach(function(result){
+		results.forEach(function(result){
 			appendResult(event, result);
 		})
 	},
 	durationSort = function(){
 		results = getFromLocalstorage()._results;
-		console.log(results);
 		if($("#duration-sort").val()=="asc"){
 			results.sort(function(a, b){
 				var durationA=a._length.toLowerCase();
@@ -120,6 +121,92 @@ MediathekCrawler.ResultView = (function() {
 				return 0 //default return value (no sorting)
 			})
 			$("#duration-sort").val("asc");
+		}
+
+		$resultWrapper.empty();
+		results.forEach(function(result){
+			appendResult(event, result);
+		})
+		return;
+	},
+	channelSort = function(){
+		var results = getFromLocalstorage()._results;
+
+		if($("#channel-sort").val() == "asc"){
+			results.sort(function(a, b){
+				var stationA=a._station.toLowerCase();
+				var stationB=b._station.toLowerCase();
+				if (stationA < stationB){
+				  return -1 
+				}
+				if (stationA > stationB){
+				  return 1
+				}
+				return 0 //default return value (no sorting)
+			})
+			$("#channel-sort").val("desc");
+		}
+		else{
+			results.sort(function(a, b){
+				var stationA=a._station.toLowerCase();
+				var stationB=b._station.toLowerCase();
+				if (stationA < stationB){
+				  return 1 
+				}
+				if (stationA > stationB){
+				  return -1
+				}
+				return 0 //default return value (no sorting)
+			})
+			$("#channel-sort").val("asc");		
+		}
+		
+		$resultWrapper.empty();
+		results.forEach(function(result){
+			appendResult(event, result);
+		})
+	},
+	dateSort = function(){
+		results = getFromLocalstorage()._results;
+		if($("#date-sort").val()=="asc"){
+			results.sort(function(a, b){
+				var airtimeA=a._airtime.toLowerCase();
+				var airtimeB=b._airtime.toLowerCase();
+				var partsA = airtimeA.split(/\s|\.|\:/);
+				var airtimeA = partsA[2]+'-'+partsA[1]+'-'+partsA[0];/*+" "+partsA[3]+':'+partsA[4];*/
+ 				var partsB = airtimeB.split(/\s|\.|\:/);
+				var airtimeB = partsB[2]+'-'+partsB[1]+'-'+partsB[0];/*+" "+partsB[3]+':'+partsB[4];*/					
+				airtimeA = new Date(airtimeA).getTime();
+				airtimeB = new Date(airtimeB).getTime();
+				if (airtimeA < airtimeB){
+				  return -1 
+				}
+				if (airtimeA > airtimeB){
+				  return 1
+				}
+				return 0 //default return value (no sorting)
+			})
+			$("#date-sort").val("desc");
+		}
+		else{
+			results.sort(function(a, b){
+				var airtimeA=a._airtime.toLowerCase();
+				var airtimeB=b._airtime.toLowerCase();
+				var partsA = airtimeA.split(/\s|\.|\:/);
+				var airtimeA = partsA[2]+'-'+partsA[1]+'-'+partsA[0];/*+" "+partsA[3]+':'+partsA[4];*/
+ 				var partsB = airtimeB.split(/\s|\.|\:/);
+				var airtimeB = partsB[2]+'-'+partsB[1]+'-'+partsB[0];/*+" "+partsB[3]+':'+partsB[4];*/				
+				airtimeA = new Date(airtimeA).getTime();
+				airtimeB = new Date(airtimeB).getTime();
+				if (airtimeA < airtimeB){
+				  return 1 
+				}
+				if (airtimeA > airtimeB){
+				  return -1
+				}
+				return 0 //default return value (no sorting)
+			})
+			$("#date-sort").val("asc");
 		}
 
 		$resultWrapper.empty();
