@@ -71,7 +71,14 @@ MediathekCrawler.ApplicationController = function() {
 
 	onResultReceived = function(event, result) {
 		// console.log("RESULT", result);
-		resultView.appendResult(event, result);
+		/*$(document).ajaxSend(function(event, request, settings) {
+		  $('#loading-indicator').show();
+		});*/
+				resultView.appendResult(event, result);
+			$(document).ajaxStop(function(event, request, settings) {
+		  		$('#loading-indicator').hide();
+			});
+		
 	},
 
 	_analyzeRoute = function() {
@@ -146,6 +153,7 @@ MediathekCrawler.ApplicationController = function() {
 	},
 	_filterSeach = function(e) {
 		e.preventDefault();
+		console.log(JSON.parse(window.localStorage.getItem("mediathek-crawler")));
 		$("#result-wrapper").empty();
 		channels = searchView.getSelectedChannels();
 		categories = searchView.getSelectedCategories();
@@ -161,7 +169,8 @@ MediathekCrawler.ApplicationController = function() {
 							ZDFService.getCategories(category,1);
 						}
 					})
-				}else{
+				}
+				else{
 					if(channel == "arte"){
 						ARTEService.getNew(5);
 						ARTEService.getHot(5);
@@ -174,7 +183,6 @@ MediathekCrawler.ApplicationController = function() {
 						DasErsteService.getNew();
 						DasErsteService.getHot();
 					}
-
 				}
 			})
 		}
@@ -184,6 +192,7 @@ MediathekCrawler.ApplicationController = function() {
 				ZDFService.getCategories(category,1);	
 			})
 		}
+		return;
 	},
 	_search = function(searchString) {
 		mediathekModel.clearResults();

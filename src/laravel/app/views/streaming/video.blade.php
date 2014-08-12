@@ -25,15 +25,15 @@
 								 		<option value="{{$pl->id}}">{{$pl->name}}</option>
 								 	@endforeach
 								</select>
-								<button id="add-to-playlist" class="btn">Hinzufügen</button>
-								<button id="add-to-playlist-cancel" class="btn" type="button" >Abbrechen</button>
+								<button id="add-to-playlist" class="btn btn-transparent">Hinzufügen</button>
+								<button id="add-to-playlist-cancel" class="btn btn-transparent" type="button" >Abbrechen</button>
 							</div>
 						</form>
 						<p class="feedback col-sm-3" hidden>hinzugefügt!</p>
 					</div>
 					<div class="col-sm-12">	
 						<form >
-							<button id="addToBookmarks" class="btn col-sm-3 broadcast-btn btn-transparent" value="{{Auth::id()}}"><span class="glyphicon glyphicon-bookmark"></span>Merken</button>
+							<button id="addToBookmarks" type="button" class="btn col-sm-3 broadcast-btn btn-transparent" value="{{Auth::id()}}"><span class="glyphicon glyphicon-bookmark"></span>Merken</button>
 							<button id="bookmark-name" class="btn col-sm-3 broadcast-btn btn-transparent hidden"><span class="glyphicon glyphicon-bookmark"></span></button>
 						</form>
 					</div>

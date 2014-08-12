@@ -21,9 +21,9 @@
           }
           try {
             $before = $results_videos[$beforeIndex]->id;
-            echo '<a href="'.URL::route("playlist-single",[$playlist,$before]).'"><button class="btn btn-transparent col-xs-6 col-sm-12" >vorheriges Video</button></a>';
-            echo "<span>".$results_videos[$beforeIndex]->title."</span>"; 
-
+            echo '<a href="'.URL::route("playlist-single",[$playlist,$before]).'"><button class="btn btn-transparent col-xs-6 col-sm-12" >vorheriges</button></a>';
+            echo "<div>".$results_videos[$beforeIndex]->title."</div>"; 
+            echo "<div>".$results_videos[$beforeIndex]->subtitle."</div>"; 
           } catch (Exception $e) {
             $before = $results_videos[$beforeIndex+1]->id;
           }
@@ -77,7 +77,8 @@
           try {
             $next = $results_videos[$nextIndex]->id;
             echo '<a href="'.URL::route("playlist-single",[$playlist,$next]).'"><button class="btn btn-transparent col-xs-6 col-sm-12" >nächstes</button></a>';
-            echo "<span>".$results_videos[$nextIndex]->title."</span>"; 
+            echo "<div>".$results_videos[$nextIndex]->title."</div>"; 
+            echo "<div>".$results_videos[$nextIndex]->subtitle."</div>"; 
           } catch (Exception $e) {
             $next = $results_videos[$nextIndex-1]->id;
           }
@@ -85,7 +86,7 @@
         </div> 
       </div>
     </div>
-    <div class="row">
+    <div class="list row">
     @foreach($results_videos as $result)
     	<div id="list-item-{{$result->id}}" class="list-item  col-xs-12 col-sm-10 col-sm-offset-1">
         <?php 
@@ -106,7 +107,7 @@
         <h4>Dauer:{{$result->duration}}</h4>
         </div>
         </a>
-        <button class="btn pull-right" data-toggle="modal" data-target="#confirm-delete-{{$result->id}}">X</button>
+        <button class="btn btn-transparent pull-right" data-toggle="modal" data-target="#confirm-delete-{{$result->id}}">X</button>
         <div class="modal fade" id="confirm-delete-{{$result->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
