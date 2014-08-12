@@ -5,6 +5,7 @@ MediathekCrawler.DasErsteService = function() {
 	// constant urls
 	BASE_URL = 'http://mediathek.daserste.de',
 	PROXY_URL = '/proxy.php?url=',
+	VIDEOSBYDATE_URL = 'http://mediathek.daserste.de/tv/sendungVerpasst?datum=',
 
 	// constants for searching
 	SEARCH_URL = 'http://mediathek.daserste.de/tv/suche?searchText=',
@@ -239,6 +240,97 @@ MediathekCrawler.DasErsteService = function() {
 		});
 	},
 
+	getDasErsteVideosByDate = function(maxResults, startdate, enddate){
+
+		// ToDo:
+		// - remove duplicates
+		// - way too many results...
+		// 
+
+
+		var documentUrl = null;
+		var documentId = null;
+		var origin = {};
+		console.log('received dates: ',startdate, enddate);
+
+		Date.prototype.addDays = function(days) {
+	       var dat = new Date(this.valueOf())
+	       dat.setDate(dat.getDate() + days);
+	       return dat;
+	   	}
+
+	   var dates = [];
+	   var currentDate = new Date(startdate);
+	   var endd = new Date(enddate);
+
+	   while (currentDate <= endd) {
+       		dates.push(String(currentDate.getDate())+'.'+String(currentDate.getMonth()+1)+'.'+String(currentDate.getFullYear()))
+        	currentDate = currentDate.addDays(1);
+       }
+
+       console.log('dates: ',dates);
+       	
+		for(i=0;i<dates.length;i++){
+
+		var counter = 1;
+        var _url = PROXY_URL + VIDEOSBYDATE_URL+String(dates[i]);
+
+    		
+   		
+				$.ajax({
+					url: _url,
+					type: 'GET',
+					cache: false,
+					success: function(data) {
+						$(data).find('.entry').each(function(index,element){
+
+							// if(counter <= maxResults){
+
+								$(element).find('.teaser').each(function(idx, el){
+
+									var _result = {};
+									_result._streams = [];
+									documentUrl = $(el).find('.mediaLink').attr('href');
+									documentId = documentUrl.slice(documentUrl.indexOf('documentId=') + 11, documentUrl.indexOf('&topRessort'));
+									
+									var temp2 = $(el).find('.mediaLink').find('.img');
+									_result._teaserImages = [];
+									var res = null;
+									var resX = null;
+									var resY = null;
+									var imgURL = $(temp2).attr('data-ctrl-image');
+									imgURL = imgURL.slice(imgURL.indexOf('urlScheme\':\'') + 12, imgURL.indexOf('##width##'));
+									//willkürliche Größenangabe für Bildbreite:
+									imgURL = imgURL + '384';
+									// console.log('TEASERIMAGES imgURL: ',BASE_URL + imgURL);
+									if(imgURL.indexOf('16x9') > 0){
+										resX = imgURL.slice(imgURL.indexOf('16x9/') + 5, imgURL.length);
+										resY = parseInt(resX / 1,7777);
+										res = resX +'x'+ resY;
+										_result._teaserImages.push(_model.createTeaserImage(res, BASE_URL + imgURL));
+									}else{						
+										_result._teaserImages.push(_model.createTeaserImage(IMG_RESOLUTIONS[0].resolution, BASE_URL + imgURL));
+									}
+
+									// console.log('DASERSTE onDASERSTEGetNew DATA: ', _result);
+									// // load details for result
+									loadDASERSTEDetails(origin, documentId, _result, BASE_URL + documentUrl);
+
+									// console.log('DasErste getDasErsteVideosByDate: ', el);
+								});
+							// counter++;
+							// }
+
+						});
+					},
+					error: function(data){
+						console.log('DasErste - Could not fetch Data from: ',_url);
+					}
+				});
+  			
+		}
+	},
+
 	/**
 	 * Private function for async loading of details for a search result
 	 * @param {String}		url of the detail page
@@ -265,7 +357,8 @@ MediathekCrawler.DasErsteService = function() {
 	 */
 	onloadDASERSTEDetails = function(origin, documentId, result, data) {
 
-		// console.log('result._streams:\n',result._streams);
+		// console.log('result._streams:\n',data);
+
 		var _result = result;
 		var res = $(data).find('.modClipinfo');
 		// console.log('DASERSTE res: ',res);
@@ -682,6 +775,7 @@ MediathekCrawler.DasErsteService = function() {
 	that.searchString = searchString;
 	that.getNew = getNew;
 	that.getHot = getHot;
+	that.getDasErsteVideosByDate = getDasErsteVideosByDate;
 	// that.getCategories = getCategories;
 
 	return that;
