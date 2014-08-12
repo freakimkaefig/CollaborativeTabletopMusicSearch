@@ -101,15 +101,18 @@ MediathekCrawler.ApplicationController = function() {
 				// ZDFService.getZDFVideosByDate(50,  '2013-07-10', '2013-07-15');
 			}
 			if(document.URL.indexOf('/channel/ARTE') > -1){
-					ARTEService.getNew(ARTEMAXRESULTS, null, null);
-					ARTEService.getHot(ARTEMAXRESULTS);
+				ARTEService.getNew(ARTEMAXRESULTS, null, null);
+				ARTEService.getHot(ARTEMAXRESULTS);
 
 				// first param: maxResults (<=200!!!)
 				// ARTEService.getVideosByDate(200, '2014-08-10', '2014-08-15');
 			}
 			if(document.URL.indexOf('/channel/DasErste') > -1){
-				DasErsteService.getNew();
-				DasErsteService.getHot();
+				// DasErsteService.getNew();
+				// DasErsteService.getHot();
+
+				// first param: max Results per day (!)
+				DasErsteService.getDasErsteVideosByDate(10, '2014-08-08', '2014-08-12');
 			}
 			if(document.URL.indexOf('/channel/SRF') > -1){
 				SRFService.getNew();
