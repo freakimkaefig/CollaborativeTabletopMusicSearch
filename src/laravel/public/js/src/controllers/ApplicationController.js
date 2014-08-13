@@ -166,6 +166,8 @@ MediathekCrawler.ApplicationController = function() {
 		if(channels.length > 0){	
 			channels.forEach(function(c){
 				var channel = c;
+
+				// Channel-category-search
 				if(categories.length > 0){
 					categories.forEach(function(category){
 						if(channel == "arte"){
@@ -176,7 +178,20 @@ MediathekCrawler.ApplicationController = function() {
 						}
 					})
 				}
+				// Channel-String-Search
 				else if(searchString !== '' && searchString !== undefined){
+					if(channel == "arte"){
+						ARTEService.searchString(searchString, ARTEMAXRESULTS);
+					}
+					if(channel == "zdf"){
+						ZDFService.searchString(searchString, ZDFMAXRESULTS);
+					}
+					if(channel == "daserste"){
+						DasErsteService.searchString(searchString, 0);
+					}
+				}
+				// Channel search
+				else{
 					if(channel == "arte"){
 						ARTEService.getNew(5);
 						ARTEService.getHot(5);
@@ -192,11 +207,14 @@ MediathekCrawler.ApplicationController = function() {
 				}
 			})
 		}
-		else{
+		else if(categories.length > 0){
 			categories.forEach(function(category){
 				ARTEService.getCategories(category);
 				ZDFService.getCategories(category,1);	
 			})
+		}
+		else if(searchString !== '' && searchString !== undefined) {
+			_search(searchString);
 		}
 		return;
 	},
