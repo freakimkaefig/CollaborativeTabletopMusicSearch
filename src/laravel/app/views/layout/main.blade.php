@@ -4,9 +4,12 @@
 		<title>Mediathek Crawler</title>
 		{{ HTML::style('css/bootstrap.min.css'); }}
 		{{ HTML::style('css/video-js.css') }}
+		{{ HTML::style('css/jquery-ui.min.css') }}
+		{{ HTML::style('css/jquery-ui.theme.css')}}
 		{{ HTML::style('css/style.css') }}
 
 		{{ HTML::script('js/libs/jquery/jquery.min.js') }}
+		{{ HTML::script('js/libs/jquery/jquery-ui.js') }}
 		{{ HTML::script('js/libs/bootstrap/bootstrap.min.js') }}
 		
 	</head>

@@ -86,14 +86,14 @@
 	</div>
 	<div class="form-group col-sm-4 form-inline">
 		<h4>Datum &amp; Dauer</h4>
-		<div class="disabled col-sm-6">
+		<div class="col-sm-6">
 			<label>Von:
-				<input type="date" name="von" value="von" disabled>
+				<input id="datepicker-from" type="text" name="from" >
 			</label>
 		</div>
-		<div class="disabled col-sm-6">
+		<div class="col-sm-6">
 			<label>Bis:
-				<input type="date" name="bis" value="bis" disabled>
+				<input  id="datepicker-to" type="type" name="to" disabled >
 			</label>
 		</div>
 		<div class="disabled col-sm-6">

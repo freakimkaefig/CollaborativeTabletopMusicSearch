@@ -163,6 +163,8 @@ MediathekCrawler.ApplicationController = function() {
 		var channels = searchView.getSelectedChannels();
 		var categories = searchView.getSelectedCategories();
 		var searchString = $('input[name="search"]').val();
+		var startDate = searchView.getDateFrom();
+		var endDate = searchView.getDateTo();
 		if(channels.length > 0){	
 			channels.forEach(function(c){
 				var channel = c;
@@ -190,6 +192,14 @@ MediathekCrawler.ApplicationController = function() {
 						DasErsteService.searchString(searchString, 0);
 					}
 				}
+				else if(startDate != "" || endDate != ""){
+					if(channel == "arte"){
+						ARTEService.getVideosByDate(50,  startDate, endDate);
+					}
+					if(channel == "zdf"){
+						ZDFService.getZDFVideosByDate(200, startDate, endDate);
+					}
+				}
 				// Channel search
 				else{
 					if(channel == "arte"){
@@ -205,6 +215,7 @@ MediathekCrawler.ApplicationController = function() {
 						DasErsteService.getHot();
 					}
 				}
+
 			})
 		}
 		else if(categories.length > 0){
@@ -216,6 +227,13 @@ MediathekCrawler.ApplicationController = function() {
 		else if(searchString !== '' && searchString !== undefined) {
 			_search(searchString);
 		}
+
+		else if(startDate != "" || endDate != ""){
+			console.log(startDate,endDate);
+			ZDFService.getZDFVideosByDate(200, startDate, endDate);
+			ARTEService.getVideosByDate(50,  startDate, endDate);
+		}
+	
 		return;
 	},
 	_search = function(searchString) {
