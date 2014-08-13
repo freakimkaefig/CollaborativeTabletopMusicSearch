@@ -74,8 +74,8 @@ MediathekCrawler.ApplicationController = function() {
 		/*$(document).ajaxSend(function(event, request, settings) {
 		  $('#loading-indicator').show();
 		});*/
-			resultView.appendResult(event, result);
-			$(document).ajaxStop(function(event, request, settings) {
+		resultView.appendResult(event, result);
+		$(document).ajaxStop(function(event, request, settings) {
 		  		$('#loading-indicator').hide();
 			});
 		
@@ -130,6 +130,8 @@ MediathekCrawler.ApplicationController = function() {
 
 			if (searchString !== '' && searchString !== undefined) {
 				_search(searchString);
+				$('#submit').on('click',_filterSeach);
+
 			} else {
 				//_getNew();
 				$('#submit').on('click',_filterSeach);
@@ -155,11 +157,12 @@ MediathekCrawler.ApplicationController = function() {
 		}
 	},
 	_filterSeach = function(e) {
-		e.preventDefault();
-		console.log(JSON.parse(window.localStorage.getItem("mediathek-crawler")));
+		//e.preventDefault();
+		mediathekModel.clearResults();
 		$("#result-wrapper").empty();
-		channels = searchView.getSelectedChannels();
-		categories = searchView.getSelectedCategories();
+		var channels = searchView.getSelectedChannels();
+		var categories = searchView.getSelectedCategories();
+		var searchString = $('input[name="search"]').val();
 		if(channels.length > 0){	
 			channels.forEach(function(c){
 				var channel = c;
@@ -173,7 +176,7 @@ MediathekCrawler.ApplicationController = function() {
 						}
 					})
 				}
-				else{
+				else if(searchString !== '' && searchString !== undefined){
 					if(channel == "arte"){
 						ARTEService.getNew(5);
 						ARTEService.getHot(5);

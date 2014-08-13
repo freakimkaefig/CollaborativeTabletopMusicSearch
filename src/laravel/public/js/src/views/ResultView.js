@@ -16,8 +16,6 @@ MediathekCrawler.ResultView = (function() {
 	},
 
 	appendResult = function(event, result) {
-		// console.log(result);
-		
 		if(result._origin._badge =="new"){
 			badge = "badge-new";
 		}
@@ -46,7 +44,7 @@ MediathekCrawler.ResultView = (function() {
 			;
 
 		$resultWrapper.append(resultElement);
-
+		result.length = 0;
 		// retrieving results from localstorage
 		//var _result = localStorage.getItem(result._id);
 		//console.log(JSON.parse(_result));
