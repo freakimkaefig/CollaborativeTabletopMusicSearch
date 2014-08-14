@@ -33,6 +33,7 @@ MediathekCrawler.SearchView = (function() {
 		$( "#datepicker-from" ).datepicker({  
 			maxDate: "+21d" , 
 			minDate: "-9d",
+			dateFormat: "dd-mm-yy",
 			monthNames: ['Januar','Februar','März','April','Mai','Juni',
         				'Juli','August','September','Oktober','November','Dezember'],
         	monthNamesShort: ['Jan','Feb','Mär','Apr','Mai','Jun',
@@ -43,6 +44,7 @@ MediathekCrawler.SearchView = (function() {
 		});
 		$( "#datepicker-to" ).datepicker({  
 			maxDate: "+21d",
+			dateFormat: "dd-mm-yy",
 			monthNames: ['Januar','Februar','März','April','Mai','Juni',
         				'Juli','August','September','Oktober','November','Dezember'],
         	monthNamesShort: ['Jan','Feb','Mär','Apr','Mai','Jun',
@@ -55,7 +57,6 @@ MediathekCrawler.SearchView = (function() {
 			$( "#datepicker-to" ).removeAttr("disabled");
 			minDate=$( "#datepicker-from" ).datepicker("getDate");
 			$( "#datepicker-to" ).datepicker('option', 'minDate', minDate);
-
 		});
 	},
 	getDateFrom = function(){
