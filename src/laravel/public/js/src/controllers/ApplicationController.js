@@ -191,7 +191,7 @@ MediathekCrawler.ApplicationController = function() {
 							ZDFService.getCategories(category,1);
 						}
 						if(channel == "srf"){
-							SRF.getCategories(category);
+							SRFService.getSRFCategories(category);
 						}
 					})
 							//checkDuration(duration);
@@ -317,7 +317,7 @@ MediathekCrawler.ApplicationController = function() {
 		//param: maxLength of ZDF results (videos per show/series/broadcast)
 		ZDFService.getCategories(category, 2);
 		ARTEService.getCategories(category);
-		SRFService.getCategories(category);
+		SRFService.getSRFCategories(category);
 	},
 
 	_getNew = function() {

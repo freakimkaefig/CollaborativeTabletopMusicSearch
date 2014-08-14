@@ -69,7 +69,7 @@ MediathekCrawler.SRFService = function() {
 		mediathekModel = mModel;
 	},
 
-	getCategories = function(_category) {
+	getSRFCategories = function(_category) {
 		var origin = {
 			_channel: 'SRF',
 			_method: 'getCategories',
@@ -95,21 +95,24 @@ MediathekCrawler.SRFService = function() {
 	},
 
 	_onSRFBroadcastOfCategory = function(origin, data, _category){
-		
+		// console.log('SRF _onSRFBroadcastOfCategory data: ',data);
+
 		var find = CATEGORIES.filter(function (category) { return category._id == _category });
 		if(find.length > 0) {
 			// console.log(find[0]._assetId);
 			$.each(find[0]._value, function(index,value){
 				
-
-				$(data).find('#'+_value).each(function(index, element){
+				var temp = '#'+value;
+				var data2 = data.responseText;
+				$(data2).find(temp).each(function(index, element){
+					// console.log(temp,': ',element);
 
 					$(element).find('.az_item').each(function(idx, el){
 						
-					// console.log('SRF _onSRFSearchString element: ', el);
+					// console.log('SRF _onSRFBroadcastOfCategory element: ', el);
 						//check for attribute id to remove duplicate entries
 						// var attr = $(el).attr('id');
-						if (typeof attr !== typeof undefined && attr !== false) {
+						// if (typeof attr !== typeof undefined && attr !== false) {
 						    // console.log('FOUND: ',el);
 
 							var teaserImages = [],
@@ -148,14 +151,11 @@ MediathekCrawler.SRFService = function() {
 							assetID = _url.substring(_url.indexOf('quicklink/')+10, _url.length);
 
 
-							console.log('el: ', _url, title, details, length, subtitle, assetID, airtime, teaserImages);
+							// console.log('el: ', _url, title, details, length, subtitle, assetID, airtime, teaserImages);
 
-							// _searchSRFStreams(origin, _url, title, subtitle, details, station, assetID, length, airtime, teaserImages, streams);
+							_searchSRFStreams(origin, _url, title, subtitle, details, station, assetID, length, airtime, teaserImages, streams);
 				
-						}
-
-
-
+						// }
 					});
 				});
 
@@ -505,7 +505,8 @@ MediathekCrawler.SRFService = function() {
 						details = $(data).find('#asset_info_description').text()
 					}
 					if(airtime === null || airtime === undefined || airtime === ''){
-						airtime = $(el).find('.asset_info_topline').text();
+						airtime = $(data).find('#asset_info_topline').text();
+						// console.log("AIRTIME: ",airtime);
 						if(airtime.indexOf('vom') > 1){
 
 							airtime = airtime.slice(airtime.indexOf('vom ') + 4, airtime.indexOf(','));
@@ -566,7 +567,7 @@ MediathekCrawler.SRFService = function() {
 								
 							}
 						}
-						console.log('airtime AFTER fix: ', airtime);
+						// console.log('airtime AFTER fix: ', airtime);
 					}
 
 					streamUrl = $(data).find('.button_download_img').attr('href');
@@ -632,23 +633,23 @@ MediathekCrawler.SRFService = function() {
 	// but since we're not able to playback those streams
 	// it returns an empty array at the moment.
 	_getFurtherSRFStreams = function(assetID){
-		_url = SRFALTERNATIVESTREAMS1 + String(assetID) + SRFALTERNATIVESTREAMS2;
-		$.ajax({
-			url: PROXY_URL + encodeURI(_url),
-			type: 'GET',
-			cache: false,
-			success: function(data, textStatus, jqXHR) {
-				data = data.replace('/*-secure-','');
-				data = data.slice(0, data.length -2);
-				var response = $.parseJSON(data);
-				// console.log('SRF _getFurtherSRFStreams: ', typeof response, response);
-				// _onSRFGetNew(origin, data,'#left_day');
+		// _url = SRFALTERNATIVESTREAMS1 + String(assetID) + SRFALTERNATIVESTREAMS2;
+		// $.ajax({
+		// 	url: PROXY_URL + encodeURI(_url),
+		// 	type: 'GET',
+		// 	cache: false,
+		// 	success: function(data, textStatus, jqXHR) {
+		// 		data = data.replace('/*-secure-','');
+		// 		data = data.slice(0, data.length -2);
+		// 		var response = $.parseJSON(data);
+		// 		// console.log('SRF _getFurtherSRFStreams: ', typeof response, response);
+		// 		// _onSRFGetNew(origin, data,'#left_day');
 				
-			},
-			error: function(){
-				console.warn('ERROR; SRFService.getNew(); AJAX-request did not recieve a response');
-			}
-		});
+		// 	},
+		// 	error: function(){
+		// 		console.warn('ERROR; SRFService.getNew(); AJAX-request did not recieve a response');
+		// 	}
+		// });
 
 		return [];
 	},
@@ -694,7 +695,7 @@ MediathekCrawler.SRFService = function() {
 	that.searchString = searchString;
 	that.getNew = getNew;
 	that.getHot = getHot;
-	that.getCategories = getCategories;
+	that.getSRFCategories = getSRFCategories;
 
 	return that;
 
