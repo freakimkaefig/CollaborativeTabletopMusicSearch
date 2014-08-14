@@ -19,15 +19,152 @@ MediathekCrawler.SRFService = function() {
 	SRFHOTURL = 'http://www.srf.ch/player/tv/carouselvideosajax/mostviews',
 	SRFSEARCHSTRING = 'http://www.srf.ch/player/tv/suche?query=',
 	SRFSEARCHNEW = 'http://www.srf.ch/player/tv/sendungen-nach-datum',
+	SRFCATEGORYURL = 'http://www.srf.ch/player/tv/sendungen-nach-thema',
 	// http://www.srf.ch/webservice/cvis/segment/87769548-f63d-4d3f-979d-47b985eba22c/.json
 	SRFALTERNATIVESTREAMS1 = 'http://www.srf.ch/webservice/cvis/segment/',
 	SRFALTERNATIVESTREAMS2 = '/.json',
-	once = 0;
+	once = 0,
+	CATEGORIES = [
+		{
+			'_id': 'nachrichten',
+			'_value': ['az_unit_NewsPolitikWirtschaft'],
+		},
+		{
+			'_id': 'politik',
+			'_value': ['az_unit_Konsum', 'az_unit_MenschGesellschaft'],
+		},
+		{
+			'_id': 'sport',
+			'_value': ['az_unit_Sport'],
+		},
+		{
+			'_id': 'kinder',
+			'_value': ['az_unit_Kinder'],
+		},
+		{
+			'_id': 'ratgeber-gesundheit',
+			'_value': ['az_unit_Gesundheit'],
+		},
+		{
+			'_id': 'wirtschaft',
+			'_value': ['az_unit_NewsPolitikWirtschaft'],
+		},
+		{
+			'_id': 'unterhaltung',
+			'_value': ['az_unit_Unterhaltung', 'az_unit_SatireComedy'],
+		},
+		{
+			'_id': 'kino-tv',
+			'_value': ['az_unit_FilmSerien'],
+		},
+		{
+			'_id': 'wissen-kultur',
+			'_value': ['az_unit_WissenDigital','az_unit_Kultur', 'az_unit_Musik', 'az_unit_Religion'],
+		},
+	];
 	
 	init = function(mModel) {
 		//init ZDFService
 		console.info('MediathekCrawler.SRFService.init');
 		mediathekModel = mModel;
+	},
+
+	getCategories = function(_category) {
+		var origin = {
+			_channel: 'SRF',
+			_method: 'getCategories',
+			_searchTerm: _category,
+			_badge: null
+		};
+
+		$.ajax({
+			url: PROXY_URL + SRFCATEGORYURL,
+			type: 'GET',
+			cache: false,
+			complete: function(data, textStatus, jqXHR) {
+				
+				// console.log('SRF getCategories: ', PROXY_URL + SRFHOTURL);
+				_onSRFBroadcastOfCategory(origin, data, _category);
+				
+			},
+			error: function(){
+				console.warn('ERROR; SRFService.getNew(); AJAX-request did not recieve a response');
+			}
+		});
+
+	},
+
+	_onSRFBroadcastOfCategory = function(origin, data, _category){
+		
+		var find = CATEGORIES.filter(function (category) { return category._id == _category });
+		if(find.length > 0) {
+			// console.log(find[0]._assetId);
+			$.each(find[0]._value, function(index,value){
+				
+
+				$(data).find('#'+_value).each(function(index, element){
+
+					$(element).find('.az_item').each(function(idx, el){
+						
+					// console.log('SRF _onSRFSearchString element: ', el);
+						//check for attribute id to remove duplicate entries
+						// var attr = $(el).attr('id');
+						if (typeof attr !== typeof undefined && attr !== false) {
+						    // console.log('FOUND: ',el);
+
+							var teaserImages = [],
+								streams = [],
+								details = '',
+								title = '',
+								assetID = 0,
+								length = '',
+								airtime = '',
+								station = '',
+								streamUrl = '',
+								subtitle = '';
+
+							// not available:
+								// subtitle = $(el).find('.title_infos_description').find('.sender').text();
+								// length = $(el).find('.title_infos_description').find('.duration').text();
+								// length = length.substring(7,100);
+								// length = _fixLength(length);
+							details = $(el).find('.az_description').text();
+
+							
+							station = 'SRF';
+							title = $(el).find('.sendung_name').text();
+
+							var resolution = $(el).find('.retina_image').attr('width') + 'x' + $(el).find('.retina_image').attr('height');
+							var imgUrl = $(el).find('.retina_image').attr('src');
+							var ti = mediathekModel.createTeaserImage(resolution, imgUrl);
+							teaserImages.push(ti);
+							var resolution2 = $(el).find('.retina_image').attr('width') * 2 + 'x' + $(el).find('.retina_image').attr('height') * 2;
+							var imgUrl2 = $(el).find('.retina_image').attr('data-src2x');
+							var ti2 = mediathekModel.createTeaserImage(resolution2, imgUrl2);
+							teaserImages.push(ti2);
+
+							var _url = 'http://www.srf.ch/' + $(el).find('.last_episode_link').attr('href');
+							
+							assetID = _url.substring(_url.indexOf('quicklink/')+10, _url.length);
+
+
+							console.log('el: ', _url, title, details, length, subtitle, assetID, airtime, teaserImages);
+
+							// _searchSRFStreams(origin, _url, title, subtitle, details, station, assetID, length, airtime, teaserImages, streams);
+				
+						}
+
+
+
+					});
+				});
+
+				
+			});
+
+		} else {
+			console.warn('ERROR; ARTEService.getCategories; Category not found');
+		}
 	},
 
 	getHot = function(){
@@ -133,7 +270,7 @@ MediathekCrawler.SRFService = function() {
 						var mm = airtime.getMonth()+1; //January is 0!
 						var yyyy = airtime.getFullYear();
 						if(dd<10){dd='0'+dd} if(mm<10){mm='0'+mm} airtime = dd+'.'+mm+'.'+yyyy
-							
+
 					    // console.log('airtime: ',airtime,' todayPos: ',todayPos,' airtimePos: ',airtimePos);
 					}
 
@@ -195,7 +332,7 @@ MediathekCrawler.SRFService = function() {
 				
 			// console.log('SRF _onSRFSearchString element: ', el);
 				//check for attribute id to remove duplicate entries
-				var attr = $(el).attr('id');
+				// var attr = $(el).attr('id');
 				if (typeof attr !== typeof undefined && attr !== false) {
 				    // console.log('FOUND: ',el);
 
@@ -367,10 +504,70 @@ MediathekCrawler.SRFService = function() {
 					if(details === null || details === undefined || details === ''){
 						details = $(data).find('#asset_info_description').text()
 					}
+					if(airtime === null || airtime === undefined || airtime === ''){
+						airtime = $(el).find('.asset_info_topline').text();
+						if(airtime.indexOf('vom') > 1){
 
-					// console.log('URL, title, subtitle, length & details AFTER fix: ', _url, title, subtitle, length, details);
+							airtime = airtime.slice(airtime.indexOf('vom ') + 4, airtime.indexOf(','));
+						}
+						else {
+							try{
 
+								var now = new Date();
+								var today = new Date();
+								var dd = today.getDate();
+								var mm = today.getMonth()+1; //January is 0!
+								var yyyy = today.getFullYear();
+								if(dd<10){dd='0'+dd} if(mm<10){mm='0'+mm} today = dd+'.'+mm+'.'+yyyy
 
+								var days = ['Sonntag','Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag'];
+								
+								if(airtime ==='Heute'){
+									airtime = today;
+								}
+								else if(airtime === 'Gestern'){
+									var yesterday = new Date(now);
+									yesterday.setDate(now.getDate() - 1);
+									var dd = yesterday.getDate();
+									var mm = yesterday.getMonth()+1; //January is 0!
+									var yyyy = yesterday.getFullYear();
+									if(dd<10){dd='0'+dd} if(mm<10){mm='0'+mm} yesterday = dd+'.'+mm+'.'+yyyy
+									airtime = yesterday;
+								}
+								else{
+									// console.log('TODAY IS: ',days[ now.getDay() ],' AIRTIME IS: ',airtime);
+									var todayPos = null;
+									var airtimePos = null;
+									for (var j=0; j<days.length; j++) {
+								        if (days[j].match(airtime)) {
+								        	airtimePos = j;
+								        }
+								        if(days[j].match(days[ now.getDay() ])){
+								        	todayPos = j;
+								        }
+								    }
+									airtime = new Date();
+								    if(todayPos > airtimePos){
+								    	var x = parseInt(todayPos - airtimePos);
+								    	airtime.setDate(now.getDate() - x);
+								    }
+								    if(todayPos < airtimePos){
+								    	var z = parseInt(todayPos + days.length - airtimePos);
+								    	airtime.setDate(now.getDate() - z)
+								    }
+								    var dd = airtime.getDate();
+									var mm = airtime.getMonth()+1; //January is 0!
+									var yyyy = airtime.getFullYear();
+									if(dd<10){dd='0'+dd} if(mm<10){mm='0'+mm} airtime = dd+'.'+mm+'.'+yyyy
+
+								    // console.log('airtime: ',airtime,' todayPos: ',todayPos,' airtimePos: ',airtimePos);
+								}
+							}catch(e){
+								
+							}
+						}
+						console.log('airtime AFTER fix: ', airtime);
+					}
 
 					streamUrl = $(data).find('.button_download_img').attr('href');
 
@@ -497,6 +694,7 @@ MediathekCrawler.SRFService = function() {
 	that.searchString = searchString;
 	that.getNew = getNew;
 	that.getHot = getHot;
+	that.getCategories = getCategories;
 
 	return that;
 

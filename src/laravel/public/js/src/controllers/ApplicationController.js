@@ -268,7 +268,7 @@ MediathekCrawler.ApplicationController = function() {
 		//param: maxLength of ZDF results (videos per show/series/broadcast)
 		ZDFService.getCategories(category, 2);
 		ARTEService.getCategories(category);
-		// SRFService.getCategories(category);
+		SRFService.getCategories(category);
 	},
 
 	_getNew = function() {
