@@ -1,5 +1,6 @@
 MediathekCrawler.SearchView = (function() {
 	var that = {},
+	duration = 0 ,
 
 	init = function(){
 		console.info('MediathekCrawler.SearchView.init');
@@ -27,8 +28,17 @@ MediathekCrawler.SearchView = (function() {
 			min: 0,
       		max: 90,
       		step: 10,
- });
-	};
+ 		});
+		$("#duration-slider").on("slidestop", function(event){
+			getSliderValue();
+			duration=$("#duration-slider").slider("value");
+		});
+	},
+	getSliderValue = function(){
+		duration=$("#duration-slider").slider("value");
+		console.log(duration);
+		return duration;
+	},
 	initDatepickers = function(){
 		$("#datepicker-from").datepicker({  
 			maxDate: "+21d" , 
@@ -120,6 +130,7 @@ MediathekCrawler.SearchView = (function() {
 	that.getSelectedCategories = getSelectedCategories;
 	that.getDateFrom = getDateFrom;
 	that.getDateTo = getDateTo;
+	that.getSliderValue = getSliderValue;
 	that.dispose = dispose;
 
 	return that;

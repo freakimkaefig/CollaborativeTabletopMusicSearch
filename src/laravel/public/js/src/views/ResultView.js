@@ -16,6 +16,7 @@ MediathekCrawler.ResultView = (function() {
 	},
 
 	appendResult = function(event, result) {
+		//console.log(result);
 		if(result._origin._badge =="new"){
 			badge = "badge-new";
 		}

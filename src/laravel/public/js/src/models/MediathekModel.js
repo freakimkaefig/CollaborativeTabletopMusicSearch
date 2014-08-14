@@ -95,6 +95,9 @@ MediathekCrawler.MediathekModel = function() {
 			// console.log("some params missing @ model.addResults:\n", "|| origin: ", orig._channel, "|| origin-METHODE: ", orig._method, " || station: ", station, " || title: ", title, " || subtitle: ", subtitle, " || details: ", details, " || length: ", length, " || airtime: ", airtime, " || teaserImages: ", teaserImages, " || streams: ", streams);
 		}
 	},
+	getResults = function(){
+		return results;
+	},
 
 	clearResults = function() {
 		results = [];
@@ -114,7 +117,7 @@ MediathekCrawler.MediathekModel = function() {
 
 	that.addResults = addResults;
 	that.clearResults = clearResults;
-
+	that.getResults = getResults;
 	return that;
 
 };
