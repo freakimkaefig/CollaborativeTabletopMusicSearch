@@ -97,8 +97,8 @@
 			</label>
 		</div>
 		<div class="disabled col-sm-6">
-			<label>Dauer in min
-				<input type="range" name="dauer" value="dauer" min="1" max="90" disabled>
+			<label>Mindestdauer in min:
+				<div id="duration-slider"></div>			
 			</label>
 		</div>
 	</div>

@@ -62,7 +62,8 @@ body{
 	border: 1px solid #ffffff;
 	margin-bottom: 5px;
 }
-.btn-transparent a{
+.btn-transparent:focus{
+	color: #ffffff;
 }
 .btn-transparent:hover{
 	background-color: #778899;
@@ -111,6 +112,9 @@ body{
 /* -- Filter --*/
 .header-container{
 	background-color: #313131;
+	border:none;
+	box-shadow: 0px 1px 5px 1px #000000;
+	padding-top: 30px;
 }
 
 
@@ -139,9 +143,6 @@ body{
 	overflow: hidden;
 	text-overflow:ellipsis;
 	white-space:nowrap;
-}
-.video-item-time{
-
 }
 .video-item img {
 	top: 0;
