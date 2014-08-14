@@ -70,16 +70,22 @@
 					Das Erste
 				</label>
 			</div>
-			<div class="checkbox disabled">
+			<div class="checkbox ">
 				<label>
 					<input type="checkbox" name="zdf" value="zdf">
 					ZDF
 				</label>
 			</div>
-			<div class="checkbox disabled">
+			<div class="checkbox ">
 				<label>
 					<input type="checkbox" name="arte" value="arte">
 					Arte
+				</label>
+			</div>
+			<div class="checkbox ">
+				<label>
+					<input type="checkbox" name="srf" value="srf">
+					SRF
 				</label>
 			</div>
 		</div>		

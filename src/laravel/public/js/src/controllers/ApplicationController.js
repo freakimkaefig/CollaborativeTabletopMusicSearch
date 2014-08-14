@@ -71,9 +71,13 @@ MediathekCrawler.ApplicationController = function() {
 
 	onResultReceived = function(event, result) {
 		if (document.URL.indexOf("/suche") > -1) {
-			$(document).ajaxStop(function(event, request, settings){
+			if($("#duration-slider").slider("value") < 1){
 				resultView.appendResult(event, result);
-			});
+				mediathekModel.clearResults();
+			}
+			else{
+				$(document).ajaxStop(checkDuration(searchView.getSliderValue()));
+			}
 		}
 		else{
 			resultView.appendResult(event, result);
@@ -159,6 +163,8 @@ MediathekCrawler.ApplicationController = function() {
 	},
 	_filterSeach = function(e) {
 		//e.preventDefault();
+					//console.log(mediathekModel.getResults());
+		//localStorage.removeItem("mediathek-crawler");
 		mediathekModel.clearResults();
 		$("#result-wrapper").empty();
 		var channels = searchView.getSelectedChannels();
@@ -166,6 +172,11 @@ MediathekCrawler.ApplicationController = function() {
 		var searchString = $('input[name="search"]').val();
 		var startDate = searchView.getDateFrom();
 		var endDate = searchView.getDateTo();
+
+		var duration = searchView.getSliderValue();
+
+			
+
 		if(channels.length > 0){	
 			channels.forEach(function(c){
 				var channel = c;
@@ -179,7 +190,11 @@ MediathekCrawler.ApplicationController = function() {
 						if(channel == "zdf"){
 							ZDFService.getCategories(category,1);
 						}
+						if(channel == "srf"){
+							SRF.getCategories(category);
+						}
 					})
+							//checkDuration(duration);
 				}
 				// Channel-String search
 				else if(searchString !== '' && searchString !== undefined){
@@ -191,6 +206,9 @@ MediathekCrawler.ApplicationController = function() {
 					}
 					if(channel == "daserste"){
 						DasErsteService.searchString(searchString, 0);
+					}
+					if(channel =="srf"){
+						SRFService.searchString(searchString, SRFMAXPAGESTOCRAWL);
 					}
 				}
 				// cahnnel-string search
@@ -206,12 +224,14 @@ MediathekCrawler.ApplicationController = function() {
 						DasErsteService.getDasErsteVideosByDate(0,  startDate, endDate);
 							
 					}
+
 				}
 				// Channel search
 				else{
 					if(channel == "arte"){
 						ARTEService.getNew(5);
 						ARTEService.getHot(5);
+						//checkDuration(duration);
 					}
 					if(channel == "zdf"){
 						ZDFService.getNew(6);
@@ -221,11 +241,17 @@ MediathekCrawler.ApplicationController = function() {
 						DasErsteService.getNew();
 						DasErsteService.getHot();
 					}
+					if (channel == "srf"){
+						SRFService.getHot();
+						SRFService.getNew();
+					};
 				}
+	
+			
 
 			})
 		}
-		// categpory search
+		// category search
 		else if(categories.length > 0){
 			categories.forEach(function(category){
 				ARTEService.getCategories(category);
@@ -238,13 +264,36 @@ MediathekCrawler.ApplicationController = function() {
 		}
 		// date search
 		else if(startDate != "" || endDate != ""){
-			console.log(startDate,endDate);
 			ZDFService.getZDFVideosByDate(200, startDate, endDate);
 			ARTEService.getVideosByDate(200,  startDate, endDate);
 			DasErsteService.getDasErsteVideosByDate(200, startDate, endDate);
 		}
 	
 		return;
+	},
+	checkDuration = function(duration){
+			$("#result-wrapper").empty();
+			if(duration > 0){
+					results = JSON.parse(localStorage.getItem("mediathek-crawler"))._results;
+					//localStorage.removeItem("mediathek-crawler");
+					//mediathekModel.clearResults();
+					//console.log("duration");
+					var newResults =[];
+					results.forEach(function(re){
+						time=re._length.split(":");
+						timeInMinutes = parseInt(time[1]); 
+						if(time[0]>0){
+							timeInMinutes = timeInMinutes + parseInt(time[0])*60;
+						}
+						if(timeInMinutes >= duration){
+							//resultView.appendResult(event, re);
+							newResults.push(re);
+						}	
+					});
+					newResults.forEach(function(i){
+						resultView.appendResult(event,i);
+					})
+				}
 	},
 	_search = function(searchString) {
 		mediathekModel.clearResults();
