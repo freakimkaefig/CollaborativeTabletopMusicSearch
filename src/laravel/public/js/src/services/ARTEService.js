@@ -214,7 +214,7 @@ MediathekCrawler.ARTEService = function() {
 							while(airtime.indexOf('/') > 0){
 								airtime = airtime.replace('/','.');
 							}
-							airtime = airtime.slice(0,temp.length - 4);
+							airtime = airtime.slice(0,airtime.length - 3);
 							// console.log('airtime: ',airtime);
 						}catch(e){
 						   // console.log(e);
@@ -380,7 +380,7 @@ MediathekCrawler.ARTEService = function() {
 					while(airtime.indexOf('/') > 0){
 						airtime = airtime.replace('/','.');
 					}
-					airtime = airtime.slice(0,temp.length - 4);
+					airtime = airtime.slice(0,airtime.length - 3);
 					// console.log('airtime: ',airtime);
 				}catch(e){
 				   // console.log(e);
@@ -549,7 +549,7 @@ MediathekCrawler.ARTEService = function() {
 					while(airtime.indexOf('/') > 0){
 						airtime = airtime.replace('/','.');
 					}
-					airtime = airtime.slice(0,temp.length - 4);
+					airtime = airtime.slice(0,airtime.length - 3);
 					// console.log('airtime: ',airtime);
 				}catch(e){
 				   // console.log(e);
@@ -657,7 +657,7 @@ MediathekCrawler.ARTEService = function() {
 		}
 
 		// build search-url
-		var _url = /*PROXY_URL + */encodeURI(ARTESEARCHNEW+String(_startdate)+'/'+String(_enddate)+'.json');
+		var _url = PROXY_URL + encodeURI(ARTESEARCHNEW+String(_startdate)+'/'+String(_enddate)+'.json');
 		// console.log('ARTEService; getNew: ', _url);
 
 		$.ajax({
@@ -781,7 +781,7 @@ MediathekCrawler.ARTEService = function() {
 						while(airtime.indexOf('/') > 0){
 							airtime = airtime.replace('/','.');
 						}
-						airtime = airtime.slice(0,temp.length - 4);
+						airtime = airtime.slice(0,airtime.length - 3);
 						// console.log('airtime: ',airtime);
 					}catch(e){
 					   // console.log('airtime fail\n',e);
