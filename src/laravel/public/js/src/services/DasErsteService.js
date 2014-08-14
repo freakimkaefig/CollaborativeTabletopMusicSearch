@@ -242,12 +242,6 @@ MediathekCrawler.DasErsteService = function() {
 
 	getDasErsteVideosByDate = function(maxResults, startdate, enddate){
 
-		// ToDo:
-		// - remove duplicates
-		// - way too many results...
-		// 
-
-
 		var documentUrl = null;
 		var documentId = null;
 		var origin = {};
@@ -282,7 +276,7 @@ MediathekCrawler.DasErsteService = function() {
 					type: 'GET',
 					cache: false,
 					success: function(data) {
-						$(data).find('.entry').each(function(index,element){
+						$(data).find('.teaserbox').each(function(index,element){
 
 							// if(counter <= maxResults){
 
