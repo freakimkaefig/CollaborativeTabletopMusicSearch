@@ -203,7 +203,7 @@ MediathekCrawler.ApplicationController = function() {
 					
 					}
 					if(channel == "daserste"){
-						DasErsteService.getDasErsteVideosByDate(50,  startDate, endDate);
+						DasErsteService.getDasErsteVideosByDate(0,  startDate, endDate);
 							
 					}
 				}
@@ -240,7 +240,8 @@ MediathekCrawler.ApplicationController = function() {
 		else if(startDate != "" || endDate != ""){
 			console.log(startDate,endDate);
 			ZDFService.getZDFVideosByDate(200, startDate, endDate);
-			ARTEService.getVideosByDate(50,  startDate, endDate);
+			ARTEService.getVideosByDate(200,  startDate, endDate);
+			DasErsteService.getDasErsteVideosByDate(200, startDate, endDate);
 		}
 	
 		return;
