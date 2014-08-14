@@ -30,9 +30,10 @@ MediathekCrawler.SearchView = (function() {
  });
 	};
 	initDatepickers = function(){
-		$( "#datepicker-from" ).datepicker({  
+		$("#datepicker-from").datepicker({  
 			maxDate: "+21d" , 
 			minDate: "-9d",
+			dateFormat: "dd-mm-yy",
 			monthNames: ['Januar','Februar','März','April','Mai','Juni',
         				'Juli','August','September','Oktober','November','Dezember'],
         	monthNamesShort: ['Jan','Feb','Mär','Apr','Mai','Jun',
@@ -41,8 +42,9 @@ MediathekCrawler.SearchView = (function() {
         	dayNamesShort: ['So','Mo','Di','Mi','Do','Fr','Sa'],
         	dayNamesMin: ['So','Mo','Di','Mi','Do','Fr','Sa']
 		});
-		$( "#datepicker-to" ).datepicker({  
+		$("#datepicker-to").datepicker({  
 			maxDate: "+21d",
+			dateFormat: "dd-mm-yy",
 			monthNames: ['Januar','Februar','März','April','Mai','Juni',
         				'Juli','August','September','Oktober','November','Dezember'],
         	monthNamesShort: ['Jan','Feb','Mär','Apr','Mai','Jun',
@@ -51,18 +53,21 @@ MediathekCrawler.SearchView = (function() {
         	dayNamesShort: ['So','Mo','Di','Mi','Do','Fr','Sa'],
         	dayNamesMin: ['So','Mo','Di','Mi','Do','Fr','Sa']});
 
-		$( "#datepicker-from" ).on("change",function(){
-			$( "#datepicker-to" ).removeAttr("disabled");
-			minDate=$( "#datepicker-from" ).datepicker("getDate");
-			$( "#datepicker-to" ).datepicker('option', 'minDate', minDate);
-
+		$("#datepicker-from").on("change",function(){
+			$("#datepicker-to").removeAttr("disabled");
+			minDate=$("#datepicker-from").datepicker("getDate");
+			$("#datepicker-to").datepicker('option', 'minDate', minDate);
+			maxDate = $("#datepicker-from").datepicker("getDate");
+			maxDate.setDate(maxDate.getDate()+7);
+			$("#datepicker-to").datepicker('option', 'maxDate', maxDate);
+			$("#datepicker-to").datepicker('setDate', minDate)
 		});
 	},
 	getDateFrom = function(){
-		if($( "#datepicker-from" ).datepicker("getDate")){
-			var dateFrom = $( "#datepicker-from" ).datepicker("getDate");
+		if($("#datepicker-from").datepicker("getDate")){
+			var dateFrom = $("#datepicker-from").datepicker("getDate");
 			if(dateFrom == undefined){
-				dateFrom =  $( "#datepicker-to" ).datepicker("getDate");
+				dateFrom =  $("#datepicker-to").datepicker("getDate");
 			}
 			year= dateFrom.getFullYear();
 			month = dateFrom.getMonth()+1;
@@ -77,8 +82,8 @@ MediathekCrawler.SearchView = (function() {
 		return date;
 	},
 	getDateTo = function(){
-		if($( "#datepicker-to" ).datepicker("getDate")){
-			var dateTo = $( "#datepicker-to" ).datepicker("getDate");
+		if($("#datepicker-to").datepicker("getDate")){
+			var dateTo = $("#datepicker-to").datepicker("getDate");
 			year= dateTo.getFullYear();
 			month = dateTo.getMonth()+1;
 			month = month < 10 ? '0'+month : ''+month;
@@ -88,8 +93,8 @@ MediathekCrawler.SearchView = (function() {
 		}
 		else{
 			if(dateTo == undefined){
-				if($( "#datepicker-from" ).datepicker("getDate")){
-					dateTo = $( "#datepicker-from" ).datepicker("getDate");
+				if($("#datepicker-from").datepicker("getDate")){
+					dateTo = $("#datepicker-from").datepicker("getDate");
 				}
 			else{
 				date ="";
