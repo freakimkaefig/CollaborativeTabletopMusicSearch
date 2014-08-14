@@ -119,7 +119,7 @@ MediathekCrawler.ZDFService = function() {
 			url: encodeURI(ZDFSEARCHBYDATE+String(startdate)+ZDFSEARCHBYDATE2+String(enddate)+ZDFSEARCHBYDATE3+String(maxResults)),
 			type: 'GET',
 			success: function(data) {
-				console.log('ZDF getZDFVideosByDate ajax succes, data: ',data);
+				// console.log('ZDF getZDFVideosByDate ajax succes, data: ',data);
 				_parseResponse(origin, data);
 			},
 			error: function(){
