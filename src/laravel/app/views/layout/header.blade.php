@@ -41,9 +41,6 @@
 
 	 	@if(isset($isSearch))
 		 	<div class="container-fluid header-container">
-		 		<p>&nbsp;</p>
-		 	</div>
-		 	<div class="container-fluid header-container">
 		 		@include('search.filters')
 		 	</div>
 	 	@endif

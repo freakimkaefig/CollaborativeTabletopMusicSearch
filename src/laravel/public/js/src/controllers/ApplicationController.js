@@ -70,15 +70,16 @@ MediathekCrawler.ApplicationController = function() {
 	},
 
 	onResultReceived = function(event, result) {
-		// console.log("RESULT", result);
-		/*$(document).ajaxSend(function(event, request, settings) {
-		  $('#loading-indicator').show();
-		});*/
-		resultView.appendResult(event, result);
-		$(document).ajaxStop(function(event, request, settings) {
-		  		$('#loading-indicator').hide();
+		if (document.URL.indexOf("/suche") > -1) {
+			$(document).ajaxStop(function(event, request, settings){
+				resultView.appendResult(event, result);
 			});
+		}
+		else{
+			resultView.appendResult(event, result);
+		}
 		
+				
 	},
 
 	_analyzeRoute = function() {
@@ -180,7 +181,7 @@ MediathekCrawler.ApplicationController = function() {
 						}
 					})
 				}
-				// Channel-String-Search
+				// Channel-String search
 				else if(searchString !== '' && searchString !== undefined){
 					if(channel == "arte"){
 						ARTEService.searchString(searchString, ARTEMAXRESULTS);
@@ -192,12 +193,19 @@ MediathekCrawler.ApplicationController = function() {
 						DasErsteService.searchString(searchString, 0);
 					}
 				}
-				else if(startDate != "" || endDate != ""){
-					if(channel == "arte"){
-						ARTEService.getVideosByDate(50,  startDate, endDate);
-					}
+				// cahnnel-string search
+				else if(startDate != ""){
 					if(channel == "zdf"){
 						ZDFService.getZDFVideosByDate(200, startDate, endDate);
+					}
+					if(channel == "arte"){
+						console.log(startDate, endDate);
+							ARTEService.getVideosByDate(50,  startDate, endDate);
+					
+					}
+					if(channel == "daserste"){
+							DasErsteService.getDasErsteVideosByDate(50,  startDate, endDate);
+							
 					}
 				}
 				// Channel search
@@ -218,16 +226,18 @@ MediathekCrawler.ApplicationController = function() {
 
 			})
 		}
+		// categpory search
 		else if(categories.length > 0){
 			categories.forEach(function(category){
 				ARTEService.getCategories(category);
 				ZDFService.getCategories(category,1);	
 			})
 		}
+		// string search
 		else if(searchString !== '' && searchString !== undefined) {
 			_search(searchString);
 		}
-
+		// date search
 		else if(startDate != "" || endDate != ""){
 			console.log(startDate,endDate);
 			ZDFService.getZDFVideosByDate(200, startDate, endDate);

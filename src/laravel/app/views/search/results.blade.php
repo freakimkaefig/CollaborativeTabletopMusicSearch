@@ -8,5 +8,4 @@
 
 </div>
 <div id="result-wrapper"></div>
-<img src="/images/loading.png" id="loading-indicator" style="" />
 <!-- END search/results -->
