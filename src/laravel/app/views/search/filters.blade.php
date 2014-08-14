@@ -94,12 +94,12 @@
 		<h4>Datum &amp; Dauer</h4>
 		<div class="col-sm-6">
 			<label>Von:
-				<input id="datepicker-from" type="text" name="from" >
+				<input id="datepicker-from" class="col-sm-12" type="text" name="from" >
 			</label>
 		</div>
 		<div class="col-sm-6">
 			<label>Bis:
-				<input  id="datepicker-to" type="type" name="to" disabled >
+				<input id="datepicker-to" class="col-sm-12"  type="type" name="to" disabled >
 			</label>
 		</div>
 		<div class="disabled col-sm-6">
