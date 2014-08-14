@@ -111,7 +111,7 @@ MediathekCrawler.ApplicationController = function() {
 				DasErsteService.getNew();
 				DasErsteService.getHot();
 
-				// first param: max Results per day (!)
+				// first param: useless at the moment!
 				// DasErsteService.getDasErsteVideosByDate(10, '2014-08-13', '2014-08-13');
 			}
 			if(document.URL.indexOf('/channel/SRF') > -1){
@@ -194,10 +194,10 @@ MediathekCrawler.ApplicationController = function() {
 				}
 				else if(startDate != "" || endDate != ""){
 					if(channel == "arte"){
-						ARTEService.getVideosByDate(50,  startDate, endDate);
+						ARTEService.getVideosByDate(200,  startDate, endDate);
 					}
 					if(channel == "zdf"){
-						ZDFService.getZDFVideosByDate(200, startDate, endDate);
+						ZDFService.getZDFVideosByDate(50, startDate, endDate);
 					}
 				}
 				// Channel search
