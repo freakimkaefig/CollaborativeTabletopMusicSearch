@@ -186,7 +186,7 @@ MediathekCrawler.SRFService = function() {
 				// $(resp).find("script").each(function(i) {
     //                 eval($(this).text());
     //             });
-				console.log('SRF getHot: ', PROXY_URL + SRFHOTURL);
+				// console.log('SRF getHot: ', PROXY_URL + SRFHOTURL);
 				_onSRFGetHot(origin, data);
 				
 			},
@@ -332,7 +332,7 @@ MediathekCrawler.SRFService = function() {
 				
 			// console.log('SRF _onSRFSearchString element: ', el);
 				//check for attribute id to remove duplicate entries
-				// var attr = $(el).attr('id');
+				var attr = $(el).attr('id');
 				if (typeof attr !== typeof undefined && attr !== false) {
 				    // console.log('FOUND: ',el);
 
