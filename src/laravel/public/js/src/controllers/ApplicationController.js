@@ -78,7 +78,7 @@ MediathekCrawler.ApplicationController = function() {
 		if (document.URL.indexOf("/suche") > -1) {
 			if($("#duration-slider").slider("value") < 1){
 				resultView.appendResult(event, result);
-				//mediathekModel.clearResults();
+				// mediathekModel.clearResults();
 			}
 			else{
 				$(document).ajaxStop(checkDuration(searchView.getSliderValue()));
@@ -199,7 +199,7 @@ MediathekCrawler.ApplicationController = function() {
 							ZDFService.getCategories(category,1);
 						}
 						if(channel == "srf"){
-							SRF.getCategories(category);
+							SRFService.getSRFCategories(category);
 						}
 					})
 							//checkDuration(duration);
@@ -231,6 +231,9 @@ MediathekCrawler.ApplicationController = function() {
 					if(channel == "daserste"){
 						DasErsteService.getDasErsteVideosByDate(0,  startDate, endDate);
 							
+					}
+					if(channel =="srf"){
+						SRFService.getSRFVideosByDate(0,  startDate, endDate);
 					}
 
 				}
@@ -325,7 +328,7 @@ MediathekCrawler.ApplicationController = function() {
 		//param: maxLength of ZDF results (videos per show/series/broadcast)
 		ZDFService.getCategories(category, 2);
 		ARTEService.getCategories(category);
-		// SRFService.getCategories(category);
+		SRFService.getSRFCategories(category);
 	},
 
 	_getNew = function() {
