@@ -12,7 +12,13 @@ MediathekCrawler.ResultView = (function() {
 		$("#duration-sort").on("click",durationSort);
 		$("#channel-sort").on("click",channelSort);
 		$("#date-sort").on("click",dateSort);
-
+		$("#waiting").hide();
+		$(document).ajaxStart(function(){
+			$("#waiting").show();
+		});
+		$(document).ajaxStop(function(){
+			$("#waiting").hide();
+		});
 	},
 
 	appendResult = function(event, result) {

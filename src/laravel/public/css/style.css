@@ -72,7 +72,9 @@ body{
 	position: relative;
 	margin-top: 10px; 	
 }
-/* -- Navigation --*/
+
+
+/* ========= Navigation ======== */
 .navbar{
 
 	background-color: #1b1b1b;
@@ -109,7 +111,7 @@ body{
 
 
 
-/* -- Filter --*/
+/*  ====== Filter  ========*/
 .header-container{
 	background-color: #313131;
 	border:none;
@@ -119,12 +121,14 @@ body{
 #duration-slider{
 	background-color: #ffffff;
 }
-#duration-slider ui-slider-handle{
+#duration-slider .ui-slider-handle{
 	background-color: #1b1b1b;
+	box-shadow: 1px 1px 3px #000000; 
 }
 
 
-
+ 
+/* ========== Video Item ====*/
 .video-item{
 	margin-bottom: 20px;
 	height:auto;
@@ -157,8 +161,24 @@ body{
 	box-shadow: 0px 0px 5px 1px #000000;
 	/*min-height:90%;*/
 }
+.badge-new{
+	position: absolute;
+	background-image: url('/css/images/badge_new.png');
+	background-repeat: no-repeat;
+	background-size:100%;
+	height: 100%;
+	top: 7px; 
+}
+.badge-hot{
+	position: absolute;
+	background-image: url('/css/images/badge_hot.png');
+	background-repeat: no-repeat;
+	background-size:100%;
+	height: 100%;
+	top: 7px; 
+}
 
-/* -- Lists -- */
+/* ========= Lists ======== */
 
 .list-item{
 	margin-top: 20px;
@@ -232,22 +252,46 @@ body{
     margin:-2em /* the old negative margin trick */
 }
 
-.badge-new{
-	position: absolute;
-	background-image: url('/css/images/badge_new.png');
-	background-repeat: no-repeat;
-	background-size:100%;
-	height: 100%;
-	top: 7px; 
-}
-.badge-hot{
-	position: absolute;
-	background-image: url('/css/images/badge_hot.png');
-	background-repeat: no-repeat;
-	background-size:100%;
-	height: 100%;
-	top: 7px; 
-}
+
 #loading-indicator {
   
+}
+
+
+/* ======= Other Design elements ===== */
+
+#waiting{
+	background-color: rgba(0,0,0,0.5);
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 10;
+	text-align:center;
+}
+#waiting h2{
+	background-color: #1b1b1b;
+	position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+#feedback-container{
+	height: 100px;
+	background-color: transparent;
+	margin-top: -20px;
+	margin-bottom: 20px;
+	display: none;
+	box-shadow: inset 0px -2px 5px 0px #1b1b1b;
+
+}
+#feedback-container div{
+	width: auto;
+	margin: 0 auto;
+	display: inline-block;
+}
+#feedback-container h2{
+	color: #ffffff;
+	
 }

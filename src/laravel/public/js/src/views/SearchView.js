@@ -32,10 +32,13 @@ MediathekCrawler.SearchView = (function() {
 		$("#duration-slider").on("slidestop", function(event){
 			getSliderValue();
 			duration=$("#duration-slider").slider("value");
+			$("#duration-display").text(getSliderValue()+"min");
 		});
+		
 	},
 	getSliderValue = function(){
 		duration=$("#duration-slider").slider("value");
+
 		console.log(duration);
 		return duration;
 	},

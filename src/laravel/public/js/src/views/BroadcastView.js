@@ -132,7 +132,9 @@ MediathekCrawler.BroadcastView = (function() {
 				},
 				dataType: 'json',		
 			});
-			$(".feedback").show().delay(1000).fadeOut();
+			//$(".feedback").show().delay(1000).fadeOut();
+			$("#feedback-container>h2").text("Zur Playlist hinzugefügt!");
+			$("#feedback-container").slideDown().delay(1000).slideUp();
 			return false;
 		});
 

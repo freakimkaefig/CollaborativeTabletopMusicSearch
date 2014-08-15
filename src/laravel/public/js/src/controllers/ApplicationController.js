@@ -73,7 +73,7 @@ MediathekCrawler.ApplicationController = function() {
 		if (document.URL.indexOf("/suche") > -1) {
 			if($("#duration-slider").slider("value") < 1){
 				resultView.appendResult(event, result);
-				mediathekModel.clearResults();
+				//mediathekModel.clearResults();
 			}
 			else{
 				$(document).ajaxStop(checkDuration(searchView.getSliderValue()));

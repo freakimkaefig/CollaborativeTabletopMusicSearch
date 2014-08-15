@@ -103,7 +103,7 @@
 			</label>
 		</div>
 		<div class="disabled col-sm-6">
-			<label>Mindestdauer in min:
+			<label>Mindestdauer: <p id="duration-display">0min</p>
 				<div id="duration-slider"></div>			
 			</label>
 		</div>

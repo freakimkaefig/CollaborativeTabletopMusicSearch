@@ -52,8 +52,7 @@
 				@endif
 			</div>
 		</div>
-
-
+		<div id="feedback-container" class="container-fluid"><h2 class="text-center"></h2></div>
 		<div class="container-fluid">
 			@yield('content')
 		</div>
