@@ -245,7 +245,7 @@ MediathekCrawler.DasErsteService = function() {
 		var documentUrl = null;
 		var documentId = null;
 		var origin = {};
-		console.log('received dates: ',startdate, enddate);
+		// console.log('DASERSTE received dates: ',startdate, enddate);
 
 		Date.prototype.addDays = function(days) {
 	       var dat = new Date(this.valueOf())
@@ -262,7 +262,7 @@ MediathekCrawler.DasErsteService = function() {
         	currentDate = currentDate.addDays(1);
        }
 
-       console.log('dates: ',dates);
+       // console.log('DASERSTE dates: ',dates);
        	
 		for(i=0;i<dates.length;i++){
 

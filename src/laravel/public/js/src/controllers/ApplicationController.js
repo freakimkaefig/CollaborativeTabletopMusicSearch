@@ -224,6 +224,9 @@ MediathekCrawler.ApplicationController = function() {
 						DasErsteService.getDasErsteVideosByDate(0,  startDate, endDate);
 							
 					}
+					if(channel =="srf"){
+						SRFService.getSRFVideosByDate(0,  startDate, endDate);
+					}
 
 				}
 				// Channel search
