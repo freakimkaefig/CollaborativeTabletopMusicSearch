@@ -507,7 +507,7 @@ MediathekCrawler.SRFService = function() {
 					if(airtime === null || airtime === undefined || airtime === ''){
 						airtime = $(data).find('#asset_info_topline').text();
 						// console.log("AIRTIME: ",airtime);
-						if(airtime.indexOf('vom') > 1){
+						if(airtime.indexOf('vom') > 1 && airtime.indexOf('.') > 1){
 
 							airtime = airtime.slice(airtime.indexOf('vom ') + 4, airtime.indexOf(','));
 						}
@@ -561,7 +561,7 @@ MediathekCrawler.SRFService = function() {
 									var yyyy = airtime.getFullYear();
 									if(dd<10){dd='0'+dd} if(mm<10){mm='0'+mm} airtime = dd+'.'+mm+'.'+yyyy
 
-								    // console.log('airtime: ',airtime,' todayPos: ',todayPos,' airtimePos: ',airtimePos);
+								    console.log('airtime: ',airtime,' todayPos: ',todayPos,' airtimePos: ',airtimePos);
 								}
 							}catch(e){
 								
@@ -674,8 +674,8 @@ MediathekCrawler.SRFService = function() {
 	},
 
 	_pushSRFResultToModel = function(origin, title, subtitle, details, station, assetID, length, airtime, teaserImages, streams){
-		console.log('pushing to result model');
-		console.log('@ SRFService._pushSRFResultToModel: ', 'station: ', station, 'title: ', title, 'subtitle: ', subtitle, 'details: ', details, 'length: ', length, 'airtime: ', airtime, 'teaserImages: ', teaserImages, 'streams: ', streams);
+		// console.log('pushing to result model');
+		// console.log('@ SRFService._pushSRFResultToModel: ', 'station: ', station, 'title: ', title, 'subtitle: ', subtitle, 'details: ', details, 'length: ', length, 'airtime: ', airtime, 'teaserImages: ', teaserImages, 'streams: ', streams);
 		// if(station != 'null' && title != 'null' && subtitle != 'null' && details != 'null' && length != 'null' && airtime != 'null' && teaserImages != 'null' && streams && station && title && subtitle && details && length && airtime && teaserImages && streams){
 
 			mediathekModel.addResults(origin, station, title, subtitle, details, length, airtime, teaserImages, streams);
