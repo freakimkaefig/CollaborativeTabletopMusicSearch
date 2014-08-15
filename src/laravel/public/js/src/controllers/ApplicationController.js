@@ -54,6 +54,9 @@ MediathekCrawler.ApplicationController = function() {
 		// init Views:
 	    footerView = MediathekCrawler.FooterView();
 		footerView.init();
+		feedbackView = MediathekCrawler.FeedbackView();
+		feedbackView.init();
+
 		resultView = MediathekCrawler.ResultView();
 		resultView.init();
 		broadcastView = MediathekCrawler.BroadcastView();
@@ -67,6 +70,8 @@ MediathekCrawler.ApplicationController = function() {
 		searchView.init();
 		// check if $_POST data is available
 		_analyzeRoute();
+		$(broadcastView).on("feedback", onFeedback);
+		$(playlistView).on("feedback", onFeedback);
 	},
 
 	onResultReceived = function(event, result) {
@@ -84,6 +89,10 @@ MediathekCrawler.ApplicationController = function() {
 		}
 		
 				
+	},
+	onFeedback = function(event,feedback){
+		console.log("feedback");
+		feedbackView.showFeedback(feedback);
 	},
 
 	_analyzeRoute = function() {
@@ -141,7 +150,6 @@ MediathekCrawler.ApplicationController = function() {
 				//_getNew();
 				$('#submit').on('click',_filterSeach);
 			}
-			
 
 		}
 		if (document.URL.indexOf('/video') > -1) {

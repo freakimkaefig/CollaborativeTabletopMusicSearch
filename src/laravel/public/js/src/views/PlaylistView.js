@@ -7,8 +7,10 @@ MediathekCrawler.PlaylistView = (function() {
 		$("#new-list").on("click",showCreatePlaylist);
 		$("#create-playlist").on("submit",hideCreatePlaylist);
 		$("#button-create-playlist-cancel").on("click",hideCreatePlaylist);
-		onDeleteVideo();
-		onDeletePlaylist();
+		//onDeleteVideo();
+		//onDeletePlaylist();
+		$("body").on("click","button[id^='delete-from-playlist-']",onDeleteVideo);
+		$("body").on("click","button[id^='delete-playlist-']",onDeletePlaylist);
 
 		if($("#video-playlist").length >0){
 
@@ -30,7 +32,8 @@ MediathekCrawler.PlaylistView = (function() {
 		$("#create-playlist").addClass("hidden");
 	},
 	onDeleteVideo = function(){
-		$("body").on("click","button[id^='delete-from-playlist-']",function(){
+		
+
 			$broadcastId = $(this).val();
 			
 			$.ajax({
@@ -42,13 +45,13 @@ MediathekCrawler.PlaylistView = (function() {
 		$('body').removeClass('modal-open');
 		$('.modal-backdrop').remove();
 		$("#list-item-"+$broadcastId).remove();
-		});
+		$(that).trigger('feedback',["deleteVideo"]);
+		
 	},
 	onDeletePlaylist = function(){
-		$("body").on("click","button[id^='delete-playlist-']",function(){
-			$playlistId = $(this).val();
+		$playlistId = $(this).val();
 			
-			$.ajax({
+		$.ajax({
 				type: "GET",
 				url: "http://mediathek-crawler/playlists/delete/"+$playlistId,
 				data: {},
@@ -57,7 +60,8 @@ MediathekCrawler.PlaylistView = (function() {
 		$('body').removeClass('modal-open');
 		$('.modal-backdrop').remove();
 		$("#list-item-"+$playlistId).remove();
-		});
+		$(that).trigger('feedback',["deletePlaylist"]);
+		
 	};
 
 	that.init = init;

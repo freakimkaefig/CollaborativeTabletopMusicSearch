@@ -20,8 +20,10 @@ MediathekCrawler.BroadcastView = (function() {
 		$infoWrapper = $('#info-wrapper');
 		$descriptionWrapper = $("#description-wrapper");
 
-		onAddToPlaylist();
-		onAddBookmark();
+		$("#choosePlaylist").on("click",onAddToPlaylist);
+		$("#addToBookmarks").on("click", onAddBookmark);
+		//onAddToPlaylist();
+		//onAddBookmark();
 	},
 
 	/**
@@ -108,11 +110,11 @@ MediathekCrawler.BroadcastView = (function() {
 
 	},
 
-	onAddToPlaylist = function(){
-		$("#choosePlaylist").click(function(e){
-			e.preventDefault();
-			$("#selectPlaylist").removeClass("hidden");
-		});
+	onAddToPlaylist = function(e){
+		$(that).trigger('feedback',["addPlaylist"]);
+		
+		e.preventDefault();
+		$("#selectPlaylist").removeClass("hidden");
 
 		$("#add-to-playlist").click( function(e){
 			e.preventDefault();
@@ -133,8 +135,6 @@ MediathekCrawler.BroadcastView = (function() {
 				dataType: 'json',		
 			});
 			//$(".feedback").show().delay(1000).fadeOut();
-			$("#feedback-container>h2").text("Zur Playlist hinzugefügt!");
-			$("#feedback-container").slideDown().delay(1000).slideUp();
 			return false;
 		});
 
@@ -145,9 +145,10 @@ MediathekCrawler.BroadcastView = (function() {
 			return false;
 		});
 	},
-	onAddBookmark = function(){
-		$('#addToBookmarks').click(function(e){
+	onAddBookmark = function(e){
 			e.preventDefault();
+			$(that).trigger('feedback',["addBookmark"]);
+
 			$("#addToBookmarks").addClass("hidden");
 			$("#bookmark-name").removeClass("hidden").html('<span class="glyphicon glyphicon-bookmark"></span>Gemerkt');
 			$.ajax({
@@ -167,7 +168,7 @@ MediathekCrawler.BroadcastView = (function() {
 				},
 				dataType: 'json',		
 			});
-		});
+		
 	},
 	checkBookmarked = function(result){
 		var allBookmarks = JSON.parse($("#all-bookmarks").val());
@@ -187,6 +188,7 @@ MediathekCrawler.BroadcastView = (function() {
 	deleteBookmark = function(id){
 		$("#bookmark-name").click(function(e){
 			e.preventDefault();
+			$(that).trigger('feedback',["deleteBookmark"]);
 			$("#addToBookmarks").removeClass("hidden");
 			$("#bookmark-name").addClass("hidden");
 			$.ajax({

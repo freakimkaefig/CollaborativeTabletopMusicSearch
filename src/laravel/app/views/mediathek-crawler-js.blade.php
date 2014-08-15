@@ -24,6 +24,7 @@
 
 	<!-- Views --> 
 	{{ HTML::script('js/src/views/FooterView.js') }}
+	{{ HTML::script('js/src/views/FeedbackView.js') }}
 	{{ HTML::script('js/src/views/ResultView.js') }}
 	{{ HTML::script('js/src/views/BroadcastView.js') }}
 	{{ HTML::script('js/src/views/PlaylistView.js') }}

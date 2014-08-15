@@ -1,5 +1,5 @@
 <!-- START search/results -->
-<div id="waiting" ><h2>Die mediatheken werden durchsucht. Das dauert ein bisschen.<br> Bitte haben Sie einen Augenblick Geduld.</h2></div>
+<div id="waiting" ><h2 class="text-center">Die mediatheken werden durchsucht. Das dauert ein bisschen.<br> Bitte haben Sie einen Augenblick Geduld.</h2></div>
 
 <div class="col-sm-12">
 	<h4>Sortieren: </h3>
