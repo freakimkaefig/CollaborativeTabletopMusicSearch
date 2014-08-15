@@ -674,13 +674,13 @@ MediathekCrawler.SRFService = function() {
 	},
 
 	_pushSRFResultToModel = function(origin, title, subtitle, details, station, assetID, length, airtime, teaserImages, streams){
-		// console.log('pushing to result model');
+		console.log('pushing to result model');
+		console.log('@ SRFService._pushSRFResultToModel: ', 'station: ', station, 'title: ', title, 'subtitle: ', subtitle, 'details: ', details, 'length: ', length, 'airtime: ', airtime, 'teaserImages: ', teaserImages, 'streams: ', streams);
 		// if(station != 'null' && title != 'null' && subtitle != 'null' && details != 'null' && length != 'null' && airtime != 'null' && teaserImages != 'null' && streams && station && title && subtitle && details && length && airtime && teaserImages && streams){
 
 			mediathekModel.addResults(origin, station, title, subtitle, details, length, airtime, teaserImages, streams);
 		// }
 		// else{
-		// console.log('some params missing @ ARTEService._pushSRFResultToModel: ', 'station: ', station, 'title: ', title, 'subtitle: ', subtitle, 'details: ', details, 'length: ', length, 'airtime: ', airtime, 'teaserImages: ', teaserImages, 'streams: ', streams);
 		// }
 		// console.log('number of streams: ',streams.length);
 	},

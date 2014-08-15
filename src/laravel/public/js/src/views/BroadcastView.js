@@ -33,7 +33,7 @@ MediathekCrawler.BroadcastView = (function() {
 		var results_json = localStorage.getItem('mediathek-crawler'),
 			results = JSON.parse(results_json);
 			result = results._results[id];
-			
+			// console.log('BroadcastView results: ', results, ' || id: ',id);
 
 
 		for (var i=result._streams.length-1; i>=0; i--) {

@@ -63,7 +63,6 @@ MediathekCrawler.MediathekModel = function() {
 		if(orig != 'null' && station != 'null' && title != 'null' && teaserImages != 'null' && streams != 'null' && orig && streams && station && title && teaserImages && streams.length > 0){
 			
 			teaserImages.sort(compare)
-			// console.log('teaserImages: ',teaserImages);
 			var _result = {
 				'_origin': orig,
 				'_id': idCounter,
@@ -85,6 +84,7 @@ MediathekCrawler.MediathekModel = function() {
 				storage_object = { '_results': results };
 				storage_json = JSON.stringify(storage_object);
 				localStorage.setItem('mediathek-crawler', storage_json);
+				// console.log('saving results in localstorage: ',results);
 
 				// trigger to view
 				$(that).trigger('resultReceived', [ _result ]);
