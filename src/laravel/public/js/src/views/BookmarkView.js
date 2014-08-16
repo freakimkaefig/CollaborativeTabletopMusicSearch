@@ -20,6 +20,8 @@ MediathekCrawler.BookmarkView = (function() {
 		$('.modal-backdrop').remove();
 		$("#list-item-"+$broadcastId).remove();
 		});
+		$(that).trigger('feedback',["deleteVideo"]);
+
 	};
 
 	that.init = init;
