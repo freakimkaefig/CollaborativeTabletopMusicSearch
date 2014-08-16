@@ -26,11 +26,11 @@ MediathekCrawler.FeedbackView = (function() {
 		setTimeout(function() { $("#feedback-container").slideDown(500); },100);
 		setTimeout(function() { $("#feedback-container").slideUp(500); },2000);
 		//$("#feedback-container").slideDown(1000).delay(0).slideUp("slow");
-		$("#feedback-container").animate({
+		/*$("#feedback-container").animate({
 			top: -10
 		},"slow").delay(1000).animate({
 			top: -70
-		},"slow");
+		},"slow");*/
 		
 	},
 	

@@ -24,6 +24,7 @@ MediathekCrawler.BroadcastView = (function() {
 		$("#addToBookmarks").on("click", onAddBookmark);
 		//onAddToPlaylist();
 		//onAddBookmark();
+
 	},
 
 	/**
@@ -54,7 +55,7 @@ MediathekCrawler.BroadcastView = (function() {
 			'<h3>Dauer :</h3>' +
 			'<div>' + result._length + '</div>' +
 			'<h3>Sender :</h3>' +
-			'<div id="icon-station"></div><div id="station">' + result._station + '</div>';
+			'<div id="icon-station" data-toggle="tooltip" data-placement="right" title="'+result._station+'"></div><div id="station">' + result._station + '</div>';
 
 		
 		$infoWrapper.prepend(infoElement);
@@ -202,12 +203,22 @@ MediathekCrawler.BroadcastView = (function() {
 
 	},
 	renderStationIcon = function(station){
+		$('#icon-station').tooltip();
 		station = station.toLowerCase();
 		if(station.indexOf("erste") > -1){
 			$("#icon-station").append("<img src='/css/images/Das_erste_2014.svg' />");
 		}
-		if(station.indexOf("zdf") > -1){
+		if(station =="zdf" ){
 			$("#icon-station").append("<img src='/css/images/zdf.svg' />");
+		}
+		if(station.indexOf("zdfneo") > -1){
+			$("#icon-station").append("<img src='/css/images/zdfneo.svg' />");
+		}
+		if(station.indexOf("zdfinfo") > -1){
+			$("#icon-station").append("<img src='/css/images/zdfinfo.svg' />");
+		}
+		if(station.indexOf("zdf.kultur") > -1){
+			$("#icon-station").append("<img src='/css/images/zdf.kultur_logo.svg' />");
 		}
 		if(station.indexOf("srf") > -1){
 			$("#icon-station").append("<img src='/css/images/srf.svg' />");
@@ -215,6 +226,7 @@ MediathekCrawler.BroadcastView = (function() {
 		if(station.indexOf("arte") > -1){
 			$("#icon-station").append("<img src='/css/images/arte.svg' />");
 		}
+
 
 	},
 	checkQuality = function(quality){

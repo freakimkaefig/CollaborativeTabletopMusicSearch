@@ -92,6 +92,22 @@ class BroadcastsTableSeeder extends Seeder {
 				'playlist_id' => NULL,
 				'user_id' => 1,
 			),
+			5 => 
+			array (
+				'id' => 71,
+			'title' => 'Welcome to the 90s (3/4)',
+			'subtitle' => 'Come as you are: Grunge, Riot Grrrl, Britpop, Nu Metal (Dokumentationsreihe)',
+				'details' => 'Offene Grenzen, Internet, moderne Kommunikation: Die 90er sind die Zeit der radikalen Globalisierung, die Welt rückt enger zusammen, doch die Rockmusik besinnt sich auf nationale Qualitäten. Der dritte Teil der Reihe erzählt von neuen Blüten des Genres: Grunge, Riot Grrrl, Crossover und Nu Metal.',
+				'airtime' => '2014-08-09 21:40:00',
+				'url' => '[{"_basetype":"","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/artestras.vo.llnwd.net\\/v2\\/am\\/HBBTV\\/051605-003-A_EQ_1_VA-STA_01415280_MP4-1500_AMM-HBBTV.mp4","_filesize":"0"},{"_basetype":"","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/artestras.vo.llnwd.net\\/v2\\/am\\/HBBTV\\/051605-003-A_HQ_1_VA-STA_01415278_MP4-800_AMM-HBBTV.mp4","_filesize":"0"},{"_basetype":"","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/artestras.vo.llnwd.net\\/v2\\/am\\/HBBTV\\/051605-003-A_SQ_1_VA-STA_01415282_MP4-2200_AMM-HBBTV.mp4","_filesize":"0"}]',
+				'duration' => '00:52:00',
+				'image' => '[{"_resolution":"940x530","_url":"http:\\/\\/www.arte.tv\\/papi\\/tvguide\\/images\\/TVGE2270\\/W940H530\\/TVGE2270-1406019725118.jpg"}]',
+				'station' => 'ARTE',
+				'created_at' => '2014-08-16 16:15:40',
+				'updated_at' => '2014-08-16 16:15:40',
+				'playlist_id' => NULL,
+				'user_id' => 1,
+			),
 		));
 	}
 
