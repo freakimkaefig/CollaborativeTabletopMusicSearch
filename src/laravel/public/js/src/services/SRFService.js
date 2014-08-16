@@ -101,13 +101,17 @@ MediathekCrawler.SRFService = function() {
 
 		var counter = 1;
         var _url = PROXY_URL + SRFGETVIDEOSBYDATEURL+String(dates[i]);
-		// console.log('SRF getSRFVideosByDate URL: ',_url);   		
+		
    		
 				$.ajax({
 					url: _url,
 					type: 'GET',
 					cache: false,
-					success: function(data) {
+					// complete: function(data){
+
+					// 	console.log('AJAX complete SRF: ',i,dates[i]);
+					// },
+					success: function(data) {	
 						_onSRFVideosByDate(data, origin);
 					},
 					error: function(data){
