@@ -12,7 +12,7 @@ MediathekCrawler.FeedbackView = (function() {
 			$("#feedback-container>h4").text("Zur Playlist hinzugefügt!");
 		}
 		if(feedback == "addBookmark"){
-			$("#feedback-container>h4").text("Der Merkliste hinzugefügt!");	
+			$("#feedback-container>h4").text("Zur Merkliste hinzugefügt!");	
 		}
 		if(feedback == "deleteBookmark"){
 			$("#feedback-container>h4").text("Aus der Merkliste gelöscht!");	
