@@ -158,22 +158,6 @@ class BroadcastsTableSeeder extends Seeder {
 			),
 			9 => 
 			array (
-				'id' => 39,
-				'title' => 'Wacken 2013: Anthrax',
-				'subtitle' => '0',
-				'details' => 'Thrash Metal aus New York: Anthrax. Beim Wacken Open Air 2013 sind sie mit bewährtem Line-up um Gründungsmitglied Scott Ian am Start und zeigen, was sie immer noch drauf haben.',
-				'airtime' => '2014-08-17 02:10:00',
-				'url' => '[{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/13\\/08\\/130807_wacken_anthrax_fes_436k_p9v11.mp4","_filesize":"208210607"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/rodl.zdf.de\\/none\\/zdf\\/13\\/08\\/130807_wacken_anthrax_fes_436k_p9v11.mp4","_filesize":"208210607"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/13\\/08\\/130807_wacken_anthrax_fes_189k_p7v11.mp4","_filesize":"96182088"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/13\\/08\\/130807_wacken_anthrax_fes_1456k_p13v11.mp4","_filesize":"669463523"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/rodl.zdf.de\\/none\\/zdf\\/13\\/08\\/130807_wacken_anthrax_fes_1456k_p13v11.mp4","_filesize":"669463523"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"2","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/13\\/08\\/130807_wacken_anthrax_fes_776k_p17v11.webm","_filesize":"243447009"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"0","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/13\\/08\\/130807_wacken_anthrax_fes_282k_p16v11.webm","_filesize":"88861737"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"3","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/13\\/08\\/130807_wacken_anthrax_fes_1496k_p18v11.webm","_filesize":"452464901"}]',
-				'duration' => '00:58:00',
-				'image' => '[{"_resolution":"946x532","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/1959342\\/timg946x532blob\\/10093056"},{"_resolution":"672x378","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/1959342\\/timg672x378blob\\/10093053"},{"_resolution":"644x363","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/1959342\\/timg644x363blob\\/10093052"},{"_resolution":"485x273","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/1959342\\/timg485x273blob\\/10093042"},{"_resolution":"476x268","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/1959342\\/timg476x268blob\\/10093049"},{"_resolution":"476x176","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/1959342\\/timg476x176blob\\/10093047"},{"_resolution":"404x227","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/1959342\\/timg404x227blob\\/10093055"},{"_resolution":"298x168","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/1959342\\/timg298x168blob\\/10093050"},{"_resolution":"276x155","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/1959342\\/timg276x155blob\\/10093043"},{"_resolution":"236x133","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/1959342\\/timg236x133blob\\/10093051"},{"_resolution":"173x120","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/1959342\\/timg173x120blob\\/10093041"}]',
-				'station' => 'ZDF.kultur',
-				'created_at' => '2014-08-16 15:49:19',
-				'updated_at' => '2014-08-16 15:49:19',
-				'playlist_id' => NULL,
-				'user_id' => 1,
-			),
-			10 => 
-			array (
 				'id' => 40,
 				'title' => 'Wacken 2013: Anthrax',
 				'subtitle' => '0',
@@ -187,6 +171,22 @@ class BroadcastsTableSeeder extends Seeder {
 				'updated_at' => '2014-08-16 15:51:07',
 				'playlist_id' => 1,
 				'user_id' => NULL,
+			),
+			10 => 
+			array (
+				'id' => 41,
+				'title' => 'Wacken 2013: Anthrax',
+				'subtitle' => '0',
+				'details' => 'Thrash Metal aus New York: Anthrax. Beim Wacken Open Air 2013 sind sie mit bewährtem Line-up um Gründungsmitglied Scott Ian am Start und zeigen, was sie immer noch drauf haben.',
+				'airtime' => '2014-08-17 02:10:00',
+				'url' => '[{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/13\\/08\\/130807_wacken_anthrax_fes_436k_p9v11.mp4","_filesize":"208210607"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/rodl.zdf.de\\/none\\/zdf\\/13\\/08\\/130807_wacken_anthrax_fes_436k_p9v11.mp4","_filesize":"208210607"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/13\\/08\\/130807_wacken_anthrax_fes_189k_p7v11.mp4","_filesize":"96182088"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/13\\/08\\/130807_wacken_anthrax_fes_1456k_p13v11.mp4","_filesize":"669463523"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/rodl.zdf.de\\/none\\/zdf\\/13\\/08\\/130807_wacken_anthrax_fes_1456k_p13v11.mp4","_filesize":"669463523"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"2","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/13\\/08\\/130807_wacken_anthrax_fes_776k_p17v11.webm","_filesize":"243447009"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"0","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/13\\/08\\/130807_wacken_anthrax_fes_282k_p16v11.webm","_filesize":"88861737"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"3","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/13\\/08\\/130807_wacken_anthrax_fes_1496k_p18v11.webm","_filesize":"452464901"}]',
+				'duration' => '00:58:00',
+				'image' => '[{"_resolution":"946x532","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/1959342\\/timg946x532blob\\/10093056"},{"_resolution":"672x378","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/1959342\\/timg672x378blob\\/10093053"},{"_resolution":"644x363","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/1959342\\/timg644x363blob\\/10093052"},{"_resolution":"485x273","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/1959342\\/timg485x273blob\\/10093042"},{"_resolution":"476x268","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/1959342\\/timg476x268blob\\/10093049"},{"_resolution":"476x176","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/1959342\\/timg476x176blob\\/10093047"},{"_resolution":"404x227","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/1959342\\/timg404x227blob\\/10093055"},{"_resolution":"298x168","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/1959342\\/timg298x168blob\\/10093050"},{"_resolution":"276x155","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/1959342\\/timg276x155blob\\/10093043"},{"_resolution":"236x133","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/1959342\\/timg236x133blob\\/10093051"},{"_resolution":"173x120","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/1959342\\/timg173x120blob\\/10093041"}]',
+				'station' => 'ZDF.kultur',
+				'created_at' => '2014-08-16 15:58:27',
+				'updated_at' => '2014-08-16 15:58:27',
+				'playlist_id' => NULL,
+				'user_id' => 1,
 			),
 		));
 	}
