@@ -111,6 +111,6 @@
 
 	<div class="col-sm-2">
 		<button id="submit" type="button" class="btn btn-transparent col-xs-12">Absenden</button>
-		<button type="" class="btn btn-transparent col-xs-12">Zurücksetzen</button>
+		<button id="reset" type="button" class="btn btn-transparent col-xs-12">Zurücksetzen</button>
 	</div>
 <!-- END search/filters -->

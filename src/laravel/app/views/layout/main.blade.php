@@ -40,7 +40,7 @@
 			</div>
 		</div>
 		
-			<div class="row">
+			<!-- <div class="row">
 				@if(Session::has('global-danger'))
 					<div class="alert alert-danger">{{ Session::get('global-danger') }}</div>
 				@endif
@@ -50,9 +50,20 @@
 				@if(Session::has('global-success'))
 					<div class="alert alert-success">{{ Session::get('global-success') }}</div>
 				@endif
-			</div>
+			</div> -->
 		</div>
-		<div id="feedback-container" class="container-fluid"><h2 class="text-center"></h2></div>
+				@if(Session::has('global-danger'))
+					<div id="feedback-container-danger" class="container-fluid feedback-container"><h4 class="text-center">{{ Session::get('global-danger') }}</h4></div>
+				@endif
+				@if(Session::has('global-warning'))				
+					<div id="feedback-container-warning" class="container-fluid feedback-container"><h4 class="text-center">{{ Session::get('global-warning') }}</h4></div>
+				@endif
+				@if(Session::has('global-success'))
+					<div id="feedback-container-success" class="container-fluid feedback-container"><h4 class="text-center">{{ Session::get('global-success') }}</h4></div>
+				@endif
+					<div id="feedback-container" class="container-fluid feedback-container"><h4 class="text-center"></h4></div>
+
+
 		<div class="container-fluid">
 			@yield('content')
 		</div>
