@@ -3,7 +3,7 @@ MediathekCrawler.FeedbackView = (function() {
 
 	init = function() {
 		console.info('MediathekCrawler.FeedbackView.init');
-		//$("#feedback-container").hide();
+		$("#feedback-container").hide();
 		
 		
 	},
@@ -12,7 +12,7 @@ MediathekCrawler.FeedbackView = (function() {
 			$("#feedback-container>h4").text("Zur Playlist hinzugefügt!");
 		}
 		if(feedback == "addBookmark"){
-			$("#feedback-container>h4").text("Der Merkliste hinzugefügt!");	
+			$("#feedback-container>h4").text("Zur Merkliste hinzugefügt!");	
 		}
 		if(feedback == "deleteBookmark"){
 			$("#feedback-container>h4").text("Aus der Merkliste gelöscht!");	
@@ -23,7 +23,8 @@ MediathekCrawler.FeedbackView = (function() {
 		if(feedback =="deletePlaylist"){
 			$("#feedback-container>h4").text("Playlist wurde gelöscht!");
 		}
-		
+		setTimeout(function() { $("#feedback-container").slideDown(500); },100);
+		setTimeout(function() { $("#feedback-container").slideUp(500); },2000);
 		//$("#feedback-container").slideDown(1000).delay(0).slideUp("slow");
 		$("#feedback-container").animate({
 			top: -10
@@ -32,6 +33,7 @@ MediathekCrawler.FeedbackView = (function() {
 		},"slow");
 		
 	},
+	
 
 	
 	
