@@ -136,10 +136,11 @@ MediathekCrawler.SRFService = function() {
 
 		var duplicates = [];
 		// console.log('_onSRFVideosByDate');
-		$(data).find('#programchannels').each(function(index, element){
+		var x = $(data).find('#programchannels');
+		x.each(function(index, element){
 					// console.log(temp,': ',element);
-
-			$(element).find('.vod').each(function(idx, el){
+			var y = $(element).find('.vod');
+			y.each(function(idx, el){
 				
 				// console.log('SRF _onSRFVideosByDate element: ', el);
 				var _url = PROXY_URL + $(el).attr('href');
@@ -356,10 +357,11 @@ MediathekCrawler.SRFService = function() {
 				
 				var temp = '#'+value;
 				var data2 = data.responseText;
-				$(data2).find(temp).each(function(index, element){
+				var x = $(data2).find(temp);
+				x.each(function(index, element){
 					// console.log(temp,': ',element);
-
-					$(element).find('.az_item').each(function(idx, el){
+					var y = $(element).find('.az_item');
+					y.each(function(idx, el){
 						
 					// console.log('SRF _onSRFBroadcastOfCategory element: ', el);
 						//check for attribute id to remove duplicate entries
@@ -453,7 +455,8 @@ MediathekCrawler.SRFService = function() {
 		// $(data).find('.	').each(function(index,element){
 			var data2 = data.responseText;
 			// console.log('SRF _onSRFGetHot: ', data2);
-			$(data2).find('.carousel_teaser').each(function(index,el){
+			var x = $(data2).find('.carousel_teaser');
+			x.each(function(index,el){
 				// console.log('SRF _onSRFGetHot: ', el);
 
 				var teaserImages = [],
@@ -578,9 +581,10 @@ MediathekCrawler.SRFService = function() {
 
 	_onSRFGetNew = function(origin, data,divId){
 		var temp = divId;
-		$(data).find(divId).find('.missed_list').each(function(index, element){
-
-			$(element).find('.sendung_item').each(function(idx, el){
+		var x = $(data).find(divId).find('.missed_list');
+		x.each(function(index, element){
+			var y = $(element).find('.sendung_item');
+			y.each(function(idx, el){
 				
 			// console.log('SRF _onSRFSearchString element: ', el);
 				//check for attribute id to remove duplicate entries
@@ -696,7 +700,8 @@ MediathekCrawler.SRFService = function() {
 
 	_onSRFSearchString = function(origin, data){
 		// console.log('div: ',$(data).find('.result_row'));
-		$(data).find('.result_row').each(function(index, element){
+		var x = $(data).find('.result_row');
+		x.each(function(index, element){
 			// console.log('SRF _onSRFSearchString element: ', element);
 			var teaserImages = [],
 					streams = [],
