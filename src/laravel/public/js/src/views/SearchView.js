@@ -7,7 +7,37 @@ MediathekCrawler.SearchView = (function() {
 		initDatepickers();
 		initSlider();
 		$('#channel-filter').on('change',getSelectedChannels);
+		$("#reset").click(function(){
+			resetFilter();
+		});
+		$("#duration-display").text("0min")
+		manageFilters();
 
+	},
+	manageFilters = function(){
+			$("input[name='daserste']").click(function(){
+				 if ($("#category-filter :input").attr('disabled')){ 
+				 	$("#category-filter :input").removeAttr('disabled');
+				 }
+				 else{
+				 	$("#category-filter :input").attr('disabled', 'disabled');
+				}
+			})
+			$("input[name='srf']").click(function(){
+				 if ($("input[name='srf']:checked")){ 
+				 	$("#duration-slider").slider("disable");
+				 }
+				 else{
+				 	$("#duration-slider").slider("enable");
+				}
+			})
+	},
+	resetFilter = function(event){
+			console.log("reset");
+			$('input').prop('checked', false);
+			$("#datepicker-from").datepicker("setDate",null);
+			$("#datepicker-to").datepicker("setDate",null);
+			$("#duration-slider").slider("value",0);
 	},
 	getSelectedChannels = function(){
 		var selectedChannels = [];

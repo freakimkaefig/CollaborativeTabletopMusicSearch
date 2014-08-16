@@ -72,6 +72,13 @@ body{
 	position: relative;
 	margin-top: 10px; 	
 }
+.broadcast-btn{
+	text-align: left;
+	text-indent: 5px;
+}
+.broadcast-btn .glyphicon{
+	margin-left: -5px; 
+}
 
 
 /* ========= Navigation ======== */
@@ -261,7 +268,7 @@ body{
 /* ======= Other Design elements ===== */
 
 #waiting{
-	background-color: rgba(0,0,0,0.5);
+	background-color: rgba(0,0,0,0.6);
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -277,22 +284,44 @@ body{
     /*left: 50%;*/
 }
 
-#feedback-container{
-	height: 70px;
+.feedback-container{
+	min-height: 50px;
 	background-color: transparent;
-	margin-top: -20px;
-	margin-bottom: 20px;
-	display: none;
-	box-shadow: inset 0px -2px 5px 0px #1b1b1b;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	box-shadow: inset 0px -3px 3px 0px #1b1b1b;
 
 }
-#feedback-container div{
+.feedback-container div{
 	width: auto;
 	margin: 0 auto;
 	display: inline-block;
 }
-#feedback-container h2{
+.feedback-container h4{
 	color: #ffffff;
 	text-transform: none;
 	
+}
+#feedback-container{	
+	/*display: none;*/
+}
+
+#feedback-container-danger{
+	background-color: #3a0c0c;
+}
+#feedback-container-warning{
+	background-color: #3f3030;
+}
+
+#icon-station{
+	float: left;
+	height: 20px;
+}
+#icon-station img{
+	height: 100%;
+	float: left;
+}
+#station{
+	padding-left: 15px;
+	float: none;
 }
