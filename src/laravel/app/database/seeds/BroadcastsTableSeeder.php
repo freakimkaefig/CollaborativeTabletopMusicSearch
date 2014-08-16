@@ -78,22 +78,6 @@ class BroadcastsTableSeeder extends Seeder {
 			),
 			4 => 
 			array (
-				'id' => 43,
-				'title' => 'Safari im Kiez',
-				'subtitle' => '0',
-				'details' => 'Sie sind unter uns: freilebende Tiere in der Großstadt. Auch für wilde Vierbeiner ist Berlin die Hauptstadt: Wildschweine durchwühlen Vorgärten und selbst vor Straßenbahnschienen machen sie nicht Halt',
-				'airtime' => '2014-08-17 06:15:00',
-				'url' => '[{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/13\\/10\\/131027_safari_rpo_436k_p9v11.mp4","_filesize":"102748180"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/rodl.zdf.de\\/none\\/zdf\\/13\\/10\\/131027_safari_rpo_436k_p9v11.mp4","_filesize":"102748180"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/13\\/10\\/131027_safari_rpo_189k_p7v11.mp4","_filesize":"47422369"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/13\\/10\\/131027_safari_rpo_1456k_p13v11.mp4","_filesize":"330511335"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/rodl.zdf.de\\/none\\/zdf\\/13\\/10\\/131027_safari_rpo_1456k_p13v11.mp4","_filesize":"330511335"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"2","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/13\\/10\\/131027_safari_rpo_776k_p17v11.webm","_filesize":"116728254"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"0","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/13\\/10\\/131027_safari_rpo_282k_p16v11.webm","_filesize":"43650213"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"3","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/13\\/10\\/131027_safari_rpo_1496k_p18v11.webm","_filesize":"219249657"}]',
-				'duration' => '00:28:00',
-				'image' => '[{"_resolution":"946x532","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2011170\\/timg946x532blob\\/10136524"},{"_resolution":"672x378","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2011170\\/timg672x378blob\\/10136521"},{"_resolution":"644x363","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2011170\\/timg644x363blob\\/10136520"},{"_resolution":"485x273","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2011170\\/timg485x273blob\\/10136510"},{"_resolution":"476x268","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2011170\\/timg476x268blob\\/10136517"},{"_resolution":"476x176","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2011170\\/timg476x176blob\\/10136515"},{"_resolution":"404x227","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2011170\\/timg404x227blob\\/10136523"},{"_resolution":"298x168","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2011170\\/timg298x168blob\\/10136518"},{"_resolution":"276x155","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2011170\\/timg276x155blob\\/10136511"},{"_resolution":"236x133","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2011170\\/timg236x133blob\\/10136519"},{"_resolution":"173x120","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2011170\\/timg173x120blob\\/10136509"}]',
-				'station' => 'ZDFinfo',
-				'created_at' => '2014-08-15 13:49:01',
-				'updated_at' => '2014-08-15 13:49:01',
-				'playlist_id' => NULL,
-				'user_id' => 1,
-			),
-			5 => 
-			array (
 				'id' => 45,
 				'title' => 'Jesus liebt mich',
 				'subtitle' => '0',
@@ -108,7 +92,7 @@ class BroadcastsTableSeeder extends Seeder {
 				'playlist_id' => 1,
 				'user_id' => NULL,
 			),
-			6 => 
+			5 => 
 			array (
 				'id' => 46,
 				'title' => 'Jesus liebt mich',
@@ -124,7 +108,7 @@ class BroadcastsTableSeeder extends Seeder {
 				'playlist_id' => NULL,
 				'user_id' => 1,
 			),
-			7 => 
+			6 => 
 			array (
 				'id' => 63,
 			'title' => 'The 90s in Music (4/6)',
@@ -140,7 +124,7 @@ class BroadcastsTableSeeder extends Seeder {
 				'playlist_id' => NULL,
 				'user_id' => 1,
 			),
-			8 => 
+			7 => 
 			array (
 				'id' => 67,
 				'title' => 'Ratatat',
@@ -155,22 +139,6 @@ class BroadcastsTableSeeder extends Seeder {
 				'updated_at' => '2014-08-16 10:10:44',
 				'playlist_id' => NULL,
 				'user_id' => 1,
-			),
-			9 => 
-			array (
-				'id' => 68,
-				'title' => '360° - Geo Reportage ',
-			'subtitle' => 'Die scharfen Klingen der Auvergne (Reportage)',
-				'details' => 'Das legendäre und unverkennbare Laguiole-Messer hat in Zentralfrankreich seine Wurzeln - und seine Meister. "360° - GEO Reportage" schaut in die Werkstätten der berühmten Messermeister in der Auvergne, einer der atemberaubendsten Regionen Frankreichs.',
-				'airtime' => '2014-08-09 19:30:00',
-				'url' => '[{"_basetype":"","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/artestras.vo.llnwd.net\\/v2\\/am\\/HBBTV\\/045794-000-B_HQ_1_VOA_01415099_MP4-800_AMM-HBBTV.mp4","_filesize":"0"},{"_basetype":"","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/artestras.vo.llnwd.net\\/v2\\/am\\/HBBTV\\/045794-000-B_EQ_1_VOA_01415101_MP4-1500_AMM-HBBTV.mp4","_filesize":"0"},{"_basetype":"","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/artestras.vo.llnwd.net\\/v2\\/am\\/HBBTV\\/045794-000-B_SQ_1_VOA_01415103_MP4-2200_AMM-HBBTV.mp4","_filesize":"0"}]',
-				'duration' => '00:43:00',
-				'image' => '[{"_resolution":"940x530","_url":"http:\\/\\/www.arte.tv\\/papi\\/tvguide\\/images\\/815019\\/W940H530\\/120128_geotaschenmesser_01-1405741512581.jpg"}]',
-				'station' => 'ARTE',
-				'created_at' => '2014-08-16 10:30:49',
-				'updated_at' => '2014-08-16 10:30:49',
-				'playlist_id' => 1,
-				'user_id' => NULL,
 			),
 		));
 	}

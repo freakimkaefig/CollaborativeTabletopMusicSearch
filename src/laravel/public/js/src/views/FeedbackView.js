@@ -3,7 +3,7 @@ MediathekCrawler.FeedbackView = (function() {
 
 	init = function() {
 		console.info('MediathekCrawler.FeedbackView.init');
-		$("#feedback-container").hide();
+		//$("#feedback-container").hide();
 		
 		
 	},
@@ -23,7 +23,12 @@ MediathekCrawler.FeedbackView = (function() {
 		if(feedback =="deletePlaylist"){
 			$("#feedback-container>h4").text("Playlist wurde gelöscht!");
 		}
-		$("#feedback-container").slideDown("slow").delay(1000).slideUp("slow");
+		//$("#feedback-container").slideDown(1000).delay(0).slideUp("slow");
+		$("#feedback-container").animate({
+			top: -10
+		},"slow").delay(1000).animate({
+			top: -70
+		},"slow");
 		
 	},
 
