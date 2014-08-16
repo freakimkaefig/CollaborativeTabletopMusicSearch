@@ -286,7 +286,7 @@ body{
 }
 
 .feedback-container{
-	min-height: 50px;
+	height: 50px;
 	background-color: transparent;
 	margin-top: 0px;
 	margin-bottom: 0px;
@@ -303,9 +303,9 @@ body{
 	text-transform: none;
 	
 }
-#feedback-container{	
-	/*display: none;*/
-}
+/*#feedback-container{	
+	display: none;
+}*/
 
 #feedback-container-danger{
 	background-color: #3a0c0c;

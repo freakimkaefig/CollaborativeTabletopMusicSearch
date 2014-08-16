@@ -113,12 +113,12 @@ MediathekCrawler.BroadcastView = (function() {
 	},
 
 	onAddToPlaylist = function(e){
-		$(that).trigger('feedback',["addPlaylist"]);
 		
 		e.preventDefault();
 		$("#selectPlaylist").removeClass("hidden");
 
 		$("#add-to-playlist").click( function(e){
+		$(that).trigger('feedback',["addPlaylist"]);
 			e.preventDefault();
 			$("#selectPlaylist").addClass("hidden");
 			$.ajax({

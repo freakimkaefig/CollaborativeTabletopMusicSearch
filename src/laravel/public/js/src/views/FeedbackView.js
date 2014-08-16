@@ -23,11 +23,11 @@ MediathekCrawler.FeedbackView = (function() {
 		if(feedback =="deletePlaylist"){
 			$("#feedback-container>h4").text("Playlist wurde gelöscht!");
 		}
-		$("#feedback-container").slideDown("slow").delay(1000).slideUp("slow");
+		setTimeout(function() { $("#feedback-container").slideDown(500); },100);
+		setTimeout(function() { $("#feedback-container").slideUp(500); },2000);
+		// $("#feedback-container").slideDown("slow").delay(1000).slideUp("slow");
 		
 	},
-
-	
 	
 	dispose = function() {
 		that = {};
