@@ -299,6 +299,7 @@ body{
 }
 .feedback-container h4{
 	color: #ffffff;
+	text-transform: none;
 	
 }
 #feedback-container{	
