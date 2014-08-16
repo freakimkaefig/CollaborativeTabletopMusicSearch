@@ -10,7 +10,6 @@ MediathekCrawler.SearchView = (function() {
 		$("#reset").click(function(){
 			resetFilter();
 		});
-		$("#duration-display").text("0min")
 		manageFilters();
 
 	},
@@ -37,7 +36,9 @@ MediathekCrawler.SearchView = (function() {
 			$('input').prop('checked', false);
 			$("#datepicker-from").datepicker("setDate",null);
 			$("#datepicker-to").datepicker("setDate",null);
-			$("#duration-slider").slider("value",0);
+			$("#duration-slider").slider("value",0);		
+			$("#duration-display").text("0min")
+
 	},
 	getSelectedChannels = function(){
 		var selectedChannels = [];

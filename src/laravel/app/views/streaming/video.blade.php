@@ -14,7 +14,7 @@
 			@if(Auth::check())
 				<div class="row">	
 					<div class="col-sm-12">
-						<button id="choosePlaylist" class="btn col-sm-6 col-lg-3 broadcast-btn btn-transparent"><span class="glyphicon glyphicon-list pull-left"></span>Playlisten</button>
+						<button id="choosePlaylist" class="btn col-xs-12 col-sm-6 col-lg-3 broadcast-btn btn-transparent"><span class="glyphicon glyphicon-list pull-left"></span>Playlisten</button>
 						<form class="col-sm-3 col-lg-3">
 							<div id="selectPlaylist" class="select-box hidden">			
 								<select id="select">
@@ -33,14 +33,14 @@
 					</div>
 					<div class="col-sm-12">	
 						<form >
-							<button id="addToBookmarks" type="button" class="btn col-sm-6 col-lg-3 broadcast-btn btn-transparent" value="{{Auth::id()}}"><span class="glyphicon glyphicon-bookmark pull-left"></span>Merken</button>
-							<button id="bookmark-name" class="btn col-sm-6 col-lg-3 broadcast-btn btn-transparent hidden"><span class="glyphicon glyphicon-bookmark pull-left"></span></button>
+							<button id="addToBookmarks" type="button" class="btn col-xs-12 col-sm-6 col-lg-3 broadcast-btn btn-transparent" value="{{Auth::id()}}"><span class="glyphicon glyphicon-bookmark pull-left"></span>Merken</button>
+							<button id="bookmark-name" class="btn col-xs-12 col-sm-6 col-lg-3 broadcast-btn btn-transparent hidden"><span class="glyphicon glyphicon-bookmark pull-left"></span></button>
 						</form>
 					</div>
 					<div class="col-sm-12">	
 						<form >
-							<button id="addToFavorites" class="btn col-sm-6 col-lg-3 btn-transparent broadcast-btn" value="{{Auth::id()}}"><span class="glyphicon glyphicon-star pull-left"></span>Favorisieren</button>
-							<button id="favorit-name" class="btn col-sm-6 col-lg-3 broadcast-btn btn-transparent hidden"><span class="glyphicon glyphicon-bookmark pull-left"></span></button>
+							<button id="addToFavorites" class="btn col-xs-12 col-sm-6 col-lg-3 btn-transparent broadcast-btn" value="{{Auth::id()}}"><span class="glyphicon glyphicon-star pull-left"></span>Favorisieren</button>
+							<button id="favorit-name" class="btn col-xs-12 col-sm-6 col-lg-3 broadcast-btn btn-transparent hidden"><span class="glyphicon glyphicon-bookmark pull-left"></span></button>
 						</form>
 					</div>
 				</div>

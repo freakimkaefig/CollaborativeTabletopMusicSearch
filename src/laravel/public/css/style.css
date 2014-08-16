@@ -306,6 +306,8 @@ body{
 /*#feedback-container{	
 	display: none;
 }*/
+	z-index: -99;
+	top:-70px;
 
 #feedback-container-danger{
 	background-color: #3a0c0c;

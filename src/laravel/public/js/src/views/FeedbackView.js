@@ -3,7 +3,7 @@ MediathekCrawler.FeedbackView = (function() {
 
 	init = function() {
 		console.info('MediathekCrawler.FeedbackView.init');
-		$("#feedback-container").hide();
+		//$("#feedback-container").hide();
 		
 		
 	},
@@ -26,6 +26,9 @@ MediathekCrawler.FeedbackView = (function() {
 		setTimeout(function() { $("#feedback-container").slideDown(500); },100);
 		setTimeout(function() { $("#feedback-container").slideUp(500); },2000);
 		// $("#feedback-container").slideDown("slow").delay(1000).slideUp("slow");
+		},"slow").delay(1000).animate({
+			top: -70
+		},"slow");
 		
 	},
 	
