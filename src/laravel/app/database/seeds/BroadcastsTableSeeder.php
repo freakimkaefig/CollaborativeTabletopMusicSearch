@@ -30,22 +30,6 @@ class BroadcastsTableSeeder extends Seeder {
 			),
 			1 => 
 			array (
-				'id' => 11,
-				'title' => 'Die Truman Show',
-			'subtitle' => ' (spielfilm)',
-				'details' => 'TRAILER: Das Leben des Versicherungsagenten Truman Burbank wird ohne dessen Wissen seit 30 Jahren weltweit live übertragen, in einer wahnsinnig erfolgreichen Fernseh-„Seifenoper“. Bis Truman Zweifel überkommen. Vor dem Hintergrund einer gigantischen "lebensechten" Fernsehkulisse wird der Zuschauer selbst zum Voyeur bei Trumans allmählicher Entdeckung einer alternativen Realität. Brillant inszeniert und gespielt, nimmt der Film Medienmanipulation, Konformismus und Kommerzialisierung aufs Korn, scheut aber auch vor existenziellen Fragestellungen nicht zurück. Furore machende, meisterhafte Satire aus den 90er Jahren.',
-				'airtime' => '2014-08-05 13:49:18',
-				'url' => '[{"_basetype":"","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/artestras.vo.llnwxd.net\\/o35\\/nogeo\\/HBBTV\\/PWA10990_SQ_1_VA_01395698_MP4-2200_AMM-HBBTV.mp4","_filesize":"0"},{"_basetype":"","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/artestras.vo.llnwxd.net\\/o35\\/nogeo\\/HBBTV\\/PWA10990_EQ_1_VA_01395697_MP4-1500_AMM-HBBTV.mp4","_filesize":"0"},{"_basetype":"","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/artestras.vo.llnwxd.net\\/o35\\/nogeo\\/HBBTV\\/PWA10990_HQ_1_VA_01395694_MP4-800_AMM-HBBTV.mp4","_filesize":"0"}]',
-				'duration' => '00:01:00',
-				'image' => '[{"_resolution":"940x530","_url":"http:\\/\\/www.arte.tv\\/papi\\/tvguide\\/images\\/1225841\\/W940H530\\/052722-000_trumanshow_01-1405223121406.jpg"},{"_resolution":"940x530","_url":"http:\\/\\/www.arte.tv\\/papi\\/tvguide\\/images\\/1225841\\/W940H530\\/052722-000_trumanshow_01-1405223121406.jpg"}]',
-				'station' => 'ARTE',
-				'created_at' => '2014-08-14 09:48:02',
-				'updated_at' => '2014-08-14 09:48:02',
-				'playlist_id' => NULL,
-				'user_id' => 1,
-			),
-			2 => 
-			array (
 				'id' => 12,
 				'title' => 'Nur die Besten kommen durch',
 				'subtitle' => '0',
@@ -60,7 +44,7 @@ class BroadcastsTableSeeder extends Seeder {
 				'playlist_id' => 1,
 				'user_id' => NULL,
 			),
-			3 => 
+			2 => 
 			array (
 				'id' => 17,
 				'title' => 'Der Weiße Hai',
@@ -76,7 +60,7 @@ class BroadcastsTableSeeder extends Seeder {
 				'playlist_id' => 1,
 				'user_id' => NULL,
 			),
-			4 => 
+			3 => 
 			array (
 				'id' => 45,
 				'title' => 'Jesus liebt mich',
@@ -92,7 +76,7 @@ class BroadcastsTableSeeder extends Seeder {
 				'playlist_id' => 1,
 				'user_id' => NULL,
 			),
-			5 => 
+			4 => 
 			array (
 				'id' => 46,
 				'title' => 'Jesus liebt mich',
@@ -105,38 +89,6 @@ class BroadcastsTableSeeder extends Seeder {
 				'station' => 'ZDFneo',
 				'created_at' => '2014-08-16 09:34:58',
 				'updated_at' => '2014-08-16 09:34:58',
-				'playlist_id' => NULL,
-				'user_id' => 1,
-			),
-			6 => 
-			array (
-				'id' => 63,
-			'title' => 'The 90s in Music (4/6)',
-			'subtitle' => 'Live, Clips & Unplugged (Dokumentationsreihe)',
-				'details' => 'In den 90er Jahren führte kein Weg an "MTV Unplugged", der Referenz für akustische Live-Konzerte, vorbei; die Sendung ging in die Annalen der Fernsehgeschichte ein. "The 90s in Music" lässt die schönsten Live-Auftritte noch einmal Revue passieren.',
-				'airtime' => '2014-08-10 23:35:00',
-				'url' => '[{"_basetype":"","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/artestras.vo.llnwd.net\\/v2\\/am\\/HBBTV\\/051060-005-B_HQ_1_VA-STA_01417078_MP4-800_AMM-HBBTV.mp4","_filesize":"0"},{"_basetype":"","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/artestras.vo.llnwd.net\\/v2\\/am\\/HBBTV\\/051060-005-B_EQ_1_VA-STA_01417080_MP4-1500_AMM-HBBTV.mp4","_filesize":"0"},{"_basetype":"","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/artestras.vo.llnwd.net\\/v2\\/am\\/HBBTV\\/051060-005-B_SQ_1_VA-STA_01417082_MP4-2200_AMM-HBBTV.mp4","_filesize":"0"}]',
-				'duration' => '00:25:00',
-				'image' => '[{"_resolution":"940x530","_url":"http:\\/\\/www.arte.tv\\/papi\\/tvguide\\/images\\/1235024\\/W940H530\\/051060-005_90smusic4_01m-1405827911880.jpg"}]',
-				'station' => 'ARTE',
-				'created_at' => '2014-08-16 10:01:52',
-				'updated_at' => '2014-08-16 10:01:52',
-				'playlist_id' => NULL,
-				'user_id' => 1,
-			),
-			7 => 
-			array (
-				'id' => 67,
-				'title' => 'Ratatat',
-			'subtitle' => 'Affentheater (Kindersendung)',
-				'details' => 'ARTE+7: „Ratatat“ ist eine actionreiche Zeichentrickserie aus Indien - voller rasanter Verfolgungsjagden, dynamitgeladener Explosionen und verrückter Situationen. Im Zentrum des Geschehens steht der liebenswürdige Hund Don, der einen erbitterten Krieg gegen die drei Mäuse Charly, Marly und Larry führt. Oder ist es vielmehr umgekehrt? Denn eigentlich wünscht sich Don nichts sehnlicher als ein ruhiges, friedliches Leben. Doch das Höllentrio sucht immer wieder Streit mit ihm. Don hat nur einen einzigen Verbündeten: seinen Bruder Colonel. Der ehemalige Armeehund ist zwar etwas gewiefter als Don, kann die teuflischen Pläne der Mäuse aber trotzdem nicht vereiteln … Ein Spaß für die ganze Familie!',
-				'airtime' => '2014-08-14 05:10:00',
-				'url' => '[{"_basetype":"","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/artestras.vo.llnwd.net\\/v2\\/am\\/HBBTV\\/051420-051-A_EQ_1_VO-STA_01421030_MP4-1500_AMM-HBBTV.mp4","_filesize":"0"},{"_basetype":"","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/artestras.vo.llnwd.net\\/v2\\/am\\/HBBTV\\/051420-051-A_HQ_1_VO-STA_01421028_MP4-800_AMM-HBBTV.mp4","_filesize":"0"},{"_basetype":"","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/artestras.vo.llnwd.net\\/v2\\/am\\/HBBTV\\/051420-051-A_SQ_1_VO-STA_01421032_MP4-2200_AMM-HBBTV.mp4","_filesize":"0"}]',
-				'duration' => '00:09:00',
-				'image' => '[{"_resolution":"940x530","_url":"http:\\/\\/www.arte.tv\\/papi\\/tvguide\\/images\\/TVGE2536\\/W940H530\\/TVGE2536-1407919840359.jpg"},{"_resolution":"940x530","_url":"http:\\/\\/www.arte.tv\\/papi\\/tvguide\\/images\\/TVGE2536\\/W940H530\\/TVGE2536-1407919840359.jpg"}]',
-				'station' => 'ARTE',
-				'created_at' => '2014-08-16 10:10:44',
-				'updated_at' => '2014-08-16 10:10:44',
 				'playlist_id' => NULL,
 				'user_id' => 1,
 			),

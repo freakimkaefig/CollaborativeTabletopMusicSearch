@@ -23,6 +23,7 @@ MediathekCrawler.FeedbackView = (function() {
 		if(feedback =="deletePlaylist"){
 			$("#feedback-container>h4").text("Playlist wurde gelöscht!");
 		}
+		
 		//$("#feedback-container").slideDown(1000).delay(0).slideUp("slow");
 		$("#feedback-container").animate({
 			top: -10

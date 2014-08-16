@@ -72,6 +72,7 @@ MediathekCrawler.ApplicationController = function() {
 		_analyzeRoute();
 		$(broadcastView).on("feedback", onFeedback);
 		$(playlistView).on("feedback", onFeedback);
+		$(bookmarkView).on("feedback", onFeedback);
 	},
 
 	onResultReceived = function(event, result) {
