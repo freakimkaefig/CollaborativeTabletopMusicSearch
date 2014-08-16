@@ -60,17 +60,17 @@ MediathekCrawler.ARTEService = function() {
 	 * @param {String|Date}	startdate (YYYY.MM.DD)
 	 */
 	getVideosByDate = function(maxResults, startdate, enddate){
-		while(startdate.indexOf('.') > 0){
-			startdate = startdate.replace('.','-');
+		if(startdate.indexOf('.') > 0){
+			startdate = _replaceAll('.','-',startdate);
 		}
-		while(startdate.indexOf('/') > 0){
-			startdate = startdate.replace('/','-');
+		if(startdate.indexOf('/') > 0){
+			startdate = _replaceAll('/','-',startdate);
 		}
-		while(enddate.indexOf('.') > 0){
-			enddate = enddate.replace('.','-');
+		if(enddate.indexOf('.') > 0){
+			enddate = _replaceAll('.','-',enddate);
 		}
-		while(enddate.indexOf('/') > 0){
-			enddate = enddate.replace('/','-');
+		if(enddate.indexOf('/') > 0){
+			enddate = _replaceAll('/','-',enddate);
 		}
 
 		this.getNew(maxResults, startdate, enddate);
@@ -123,10 +123,10 @@ MediathekCrawler.ARTEService = function() {
 			success: function(data) {
 	     		var response = $.parseJSON(data);
 				// console.log('DATA _getARTEBroadcastOfCategory ', typeof response, response);
-
-				if(response.videoList.length > 0){
+				var y = response.videoList;
+				if(y.length > 0){
 					// console.log('category url: ',ARTESEARCHCATEGORY+String(category)+ARTESEARCHCATEGORY2);
-					$.each(response.videoList, function(index, element) {
+					$.each(y, function(index, element) {
 
 						var teaserImages = [],
 							streams = [],
@@ -211,8 +211,8 @@ MediathekCrawler.ARTEService = function() {
 							airtime = element.VDA;
 							airtime = String(airtime).slice(0, airtime.length - 5);
 							airtime = airtime.trim();
-							while(airtime.indexOf('/') > 0){
-								airtime = airtime.replace('/','.');
+							if(airtime.indexOf('/') > 0){
+								airtime = _replaceAll('/','.', airtime);
 							}
 							airtime = airtime.slice(0,airtime.length - 3);
 							// console.log('airtime: ',airtime);
@@ -289,10 +289,10 @@ MediathekCrawler.ARTEService = function() {
 
 	_onARTEGetHot = function(origin, data){
 		var response = $.parseJSON(data);
+		var x = response.videoList;
+		if(x.length > 0){
 
-		if(response.videoList.length > 0){
-
-			$.each(response.videoList, function(index, element) {
+			$.each(x, function(index, element) {
 
 				var teaserImages = [],
 					streams = [],
@@ -377,8 +377,8 @@ MediathekCrawler.ARTEService = function() {
 					airtime = element.VDA;
 					airtime = String(airtime).slice(0, airtime.length - 5);
 					airtime = airtime.trim();
-					while(airtime.indexOf('/') > 0){
-						airtime = airtime.replace('/','.');
+					if(airtime.indexOf('/') > 0){
+						airtime = _replaceAll('/','.',airtime);
 					}
 					airtime = airtime.slice(0,airtime.length - 3);
 					// console.log('airtime: ',airtime);
@@ -457,10 +457,10 @@ MediathekCrawler.ARTEService = function() {
 		// }catch(e){
 		// 	console.log('ARTE onsearchString - failed to parse data', '\n', e);
 		// }
+		var x = data.videoList;
+		if(x.length > 0){
 
-		if(data.videoList.length > 0){
-
-			$.each(data.videoList, function(index, element) {
+			$.each(x, function(index, element) {
 
 				var teaserImages = [],
 					streams = [],
@@ -546,8 +546,8 @@ MediathekCrawler.ARTEService = function() {
 					airtime = element.VDA;
 					airtime = String(airtime).slice(0, airtime.length - 5);
 					airtime = airtime.trim();
-					while(airtime.indexOf('/') > 0){
-						airtime = airtime.replace('/','.');
+					if(airtime.indexOf('/') > 0){
+						airtime = _replaceAll('/','.', airtime);
 					}
 					airtime = airtime.slice(0,airtime.length - 3);
 					// console.log('airtime: ',airtime);
@@ -615,6 +615,7 @@ MediathekCrawler.ARTEService = function() {
 	getNew = function(maxResults, startdate, enddate){
 		var _startdate = startdate;
 		var _enddate = enddate;
+		// console.log('ARTE dates: ',startdate, enddate);
 		var origin = {};
 
 		if(!_startdate || _startdate === undefined || _startdate === '' || _startdate === null || !_enddate || _enddate === undefined || _enddate === '' || _enddate === null)
@@ -653,7 +654,6 @@ MediathekCrawler.ARTEService = function() {
 			var yyyyy = dayBeforeYesterday.getFullYear();
 			dayBeforeYesterday = yyyyy+'-'+ym+'-'+yd;
 			_startdate = dayBeforeYesterday;
-			// console.log('ARTE setting today & the day before today: ',_startdate, _enddate);
 		}
 
 		// build search-url
@@ -693,10 +693,10 @@ MediathekCrawler.ARTEService = function() {
 		// }catch(e){
 		// 	console.log('JSON parse FAIL\n',e);
 		// }
+		var x = data.abstractBroadcastList;
+		if(data !== undefined && x.length > 0){
 
-		if(data !== undefined && data.abstractBroadcastList.length > 0){
-
-			$.each(data.abstractBroadcastList, function(index, element) {
+			$.each(x, function(index, element) {
 				if(counter <= maxResults){
 		// console.log('ARTE _onARTEGetNew: ',element);
 
@@ -778,8 +778,8 @@ MediathekCrawler.ARTEService = function() {
 						airtime = element.BDT;
 						airtime = String(airtime).slice(0, airtime.length - 5);
 						airtime = airtime.trim();
-						while(airtime.indexOf('/') > 0){
-							airtime = airtime.replace('/','.');
+						if(airtime.indexOf('/') > 0){
+							airtime = _replaceAll('/','.',airtime);
 						}
 						airtime = airtime.slice(0,airtime.length - 3);
 						// console.log('airtime: ',airtime);
@@ -849,43 +849,48 @@ MediathekCrawler.ARTEService = function() {
 					response = data;
 				}
 				// console.log('ARTE _searchARTEStreams: ',response);
-				if(response.video.VSR.length > 0){
+				try{
+					var x = response.video.VSR;
+					if(x.length > 0){
 
-					$.each(response.video.VSR, function(index, element) {
-						var basetype = '',
-			    		quality = '',
-			    		url = '',
-			    		filesize = 0,
-		    			type = 'video/mp4';
+						$.each(x, function(index, element) {
+							var basetype = '',
+				    		quality = '',
+				    		url = '',
+				    		filesize = 0,
+			    			type = 'video/mp4';
 
-			    		try{
-				    		if(String(element.VFO) == 'HBBTV'){
-				    			url = element.VUR;
-				    			switch (element.VQU) {
-					    			case 'SQ':
-					    				quality = 3;
-					    				break;
-					    			case 'EQ':
-					    				quality = 0;
-					    				break;
-					    			case 'MQ':
-					    				quality = 1;
-					    				break;
-					    			case 'HQ':
-					    				quality = 2;
-					    				break;
-				    			}
+				    		try{
+					    		if(String(element.VFO) == 'HBBTV'){
+					    			url = element.VUR;
+					    			switch (element.VQU) {
+						    			case 'SQ':
+						    				quality = 3;
+						    				break;
+						    			case 'EQ':
+						    				quality = 0;
+						    				break;
+						    			case 'MQ':
+						    				quality = 1;
+						    				break;
+						    			case 'HQ':
+						    				quality = 2;
+						    				break;
+					    			}
 
-					    		var stream = ARTEmediathekModel.createStream(basetype, type, quality, url, filesize);
-					    		//console.log('basetype: ',basetype,', stream: ',stream._url);
-								streams.push(stream);
+						    		var stream = ARTEmediathekModel.createStream(basetype, type, quality, url, filesize);
+						    		//console.log('basetype: ',basetype,', stream: ',stream._url);
+									streams.push(stream);
 
+					    		}
+				    		}catch(e){
+				    			//fuck.	
 				    		}
-			    		}catch(e){
-			    			//fuck.	
-			    		}
 
-					});
+						});
+					}
+				}catch(e){
+					
 				}
 
 				if(streams.length < 1){				

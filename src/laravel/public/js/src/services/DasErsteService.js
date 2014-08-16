@@ -150,7 +150,7 @@ MediathekCrawler.DasErsteService = function() {
 			cache: false,
 			success: function(data, textStatus, jqXHR) {
 
-				onDASERSTESearchString(origin, data)
+				onDASERSTESearchString(origin, data);
 			}
 		});
 	},
@@ -172,7 +172,7 @@ MediathekCrawler.DasErsteService = function() {
 			cache: false,
 			success: function(data, textStatus, jqXHR) {
 
-				onDASERSTESearchString(origin, data)
+				onDASERSTESearchString(origin, data);
 			}
 		});
 	},
@@ -183,7 +183,8 @@ MediathekCrawler.DasErsteService = function() {
 	 */
 	onDASERSTESearchString = function(origin, data) {
 		/*var resp = */
-		$(data).find('.flash').each(function(index,el) {
+		var x = $(data).find('.flash');
+		x.each(function(index,el) {
 			// if($(el).hasClass('flash')){
 
 			// return((" " + this.className + " ").match(/box\s*flash/) !== null);
@@ -248,7 +249,7 @@ MediathekCrawler.DasErsteService = function() {
 		// console.log('DASERSTE received dates: ',startdate, enddate);
 
 		Date.prototype.addDays = function(days) {
-	       var dat = new Date(this.valueOf())
+	       var dat = new Date(this.valueOf());
 	       dat.setDate(dat.getDate() + days);
 	       return dat;
 	   	}
@@ -279,11 +280,12 @@ MediathekCrawler.DasErsteService = function() {
 					// 	console.log('AJAX complete DasErste: ',i,dates[i]);
 					// },
 					success: function(data) {
-						$(data).find('.teaserbox').each(function(index,element){
+						var x = $(data).find('.teaserbox');
+						x.each(function(index,element){
 
 							// if(counter <= maxResults){
-
-								$(element).find('.teaser').each(function(idx, el){
+								var y = $(element).find('.teaser');
+								y.each(function(idx, el){
 
 									var _result = {};
 									_result._streams = [];
@@ -534,12 +536,14 @@ MediathekCrawler.DasErsteService = function() {
 		var documentUrl = null;
 		var documentId = null;
 		// console.log('DASERSTE onDASERSTEGetNew: ',data);
-		$(data)./*find(NEW_WRAPPER_ELEMENT).*/find('.modHeadline').each(function (index, element) {
+		var x = $(data).find('.modHeadline');
+		x.each(function (index, element) {
 			// console.log('modHeadline-element TEXT: ',$(element).text());
 			if($(element).text() === 'Neueste Videos') {
 				temp = $(element).next();
 				// console.log('TEMP: ',temp);
-				$(temp).find('.box').each(function(idx,el){
+				var y = $(temp).find('.box');
+				y.each(function(idx,el){
 					var _result = {};
 					_result._streams = [];
 					documentUrl = $(el).find('.mediaLink').attr('href');
@@ -626,8 +630,8 @@ MediathekCrawler.DasErsteService = function() {
 	},
 
 	onDASERSTEParseHot = function(origin, data){
-
-		$(data).find('.flash').each(function(index, el){
+		var x = $(data).find('.flash');
+		x.each(function(index, el){
 
 			var _result = {};
 			_result._streams = [];

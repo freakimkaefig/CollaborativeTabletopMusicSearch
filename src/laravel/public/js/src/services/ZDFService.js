@@ -90,14 +90,18 @@ MediathekCrawler.ZDFService = function() {
 		});
 	},
 
+	_replaceAll = function(find, replace, str) {
+	  return str.replace(new RegExp(find, 'g'), replace);
+	},
+
 	getZDFVideosByDate = function(maxResults, startdate, enddate){
 		if(maxResults >= 50){
 			maxResults = 50;
 		}
 		var origin = {};
 
-		while(startdate.indexOf('-') > 0){
-			startdate = startdate.replace('-','');
+		if(startdate.indexOf('-') > 0){
+			startdate = _replaceAll('-','',startdate);
 		}
 		startYYYY = startdate.slice(2,4);
 		startMM = startdate.slice(4,6);
@@ -105,8 +109,8 @@ MediathekCrawler.ZDFService = function() {
 		startdate = startDD+startMM+startYYYY;
 		// console.log('ZDF fixxed startdate: ',startdate);
 
-		while(enddate.indexOf('-') > 0){
-			enddate = enddate.replace('-','');
+		if(enddate.indexOf('-') > 0){
+			enddate = _replaceAll('-','',enddate);
 		}
 		endYYYY = enddate.slice(2,4);
 		endMM = enddate.slice(4,6);
@@ -137,7 +141,8 @@ MediathekCrawler.ZDFService = function() {
 	     //console.log(data);
 	    if(typeof $xml  != 'undefined'){
 	    	//each teaser = 1 search Result
-	    	$xml.find('teaser').each(function(){
+	    	var x = $xml.find('teaser');
+	    	x.each(function(){
 
 				var teaserImages = [],
 				details = '',
@@ -149,7 +154,8 @@ MediathekCrawler.ZDFService = function() {
 				subtitle = '';
 
 				// get all teaserImgs with resolution
-		    	$(this).find('teaserimage').each(function(){
+		    	var y = $(this).find('teaserimage');
+		    	y.each(function(){
 				
 					var res = $(this).attr('key');
 			    	var imgUrl = $(this).text();
@@ -207,8 +213,8 @@ MediathekCrawler.ZDFService = function() {
 
 			    if(typeof $xml  != 'undefined'){
 
-
-			    	$xml.find('formitaet').each(function(){
+			    	var x = $xml.find('formitaet');
+			    	x.each(function(){
 
 			    		var basetype = '',
 			    		quality = '',
@@ -443,7 +449,8 @@ MediathekCrawler.ZDFService = function() {
 	     		//console.log(data);
 			    if(typeof $xml  != 'undefined'){
 			    	//each teaser = 1 search Result
-			    	$xml.find('teaser').each(function(){
+			    	var x = $xml.find('teaser');
+			    	x.each(function(){
 
 						var	assetID = 0;
 
@@ -473,7 +480,8 @@ MediathekCrawler.ZDFService = function() {
 	     		//console.log(data);
 			    if(typeof $xml  != 'undefined'){
 			    	//each teaser = 1 search Result
-			    	$xml.find('teaser').each(function(){
+			    	var x = $xml.find('teaser');
+			    	x.each(function(){
 
 						var	assetID = 0;
 
@@ -501,7 +509,8 @@ MediathekCrawler.ZDFService = function() {
 			    //console.log(data);
 			    if(typeof $xml  != 'undefined'){
 			    	//each teaser = 1 search Result
-			    	$xml.find('video').each(function(){
+			    	var x = $xml.find('video');
+			    	x.each(function(){
 
 						var teaserImages = [],
 						details = '',
@@ -514,7 +523,8 @@ MediathekCrawler.ZDFService = function() {
 						streams = [];
 
 						// get all teaserImgs with resolution
-				    	$(this).find('teaserimage').each(function(){
+						var y = $(this).find('teaserimage');
+				    	y.each(function(){
 						
 							var res = $(this).attr('key');
 					    	var imgUrl = $(this).text();
