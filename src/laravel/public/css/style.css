@@ -278,7 +278,7 @@ body{
 }
 
 #feedback-container{
-	height: 100px;
+	height: 70px;
 	background-color: transparent;
 	margin-top: -20px;
 	margin-bottom: 20px;
@@ -293,5 +293,6 @@ body{
 }
 #feedback-container h2{
 	color: #ffffff;
+	text-transform: none;
 	
 }
