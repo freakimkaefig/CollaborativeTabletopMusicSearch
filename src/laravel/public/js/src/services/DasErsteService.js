@@ -268,13 +268,16 @@ MediathekCrawler.DasErsteService = function() {
 
 		var counter = 1;
         var _url = PROXY_URL + VIDEOSBYDATE_URL+String(dates[i]);
-
     		
    		
 				$.ajax({
 					url: _url,
 					type: 'GET',
 					cache: false,
+					// complete: function(data){
+
+					// 	console.log('AJAX complete DasErste: ',i,dates[i]);
+					// },
 					success: function(data) {
 						$(data).find('.teaserbox').each(function(index,element){
 
