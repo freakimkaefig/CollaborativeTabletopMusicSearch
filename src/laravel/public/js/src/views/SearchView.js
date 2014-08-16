@@ -39,7 +39,7 @@ MediathekCrawler.SearchView = (function() {
 	getSliderValue = function(){
 		duration=$("#duration-slider").slider("value");
 
-		console.log(duration);
+		// console.log(duration);
 		return duration;
 	},
 	initDatepickers = function(){

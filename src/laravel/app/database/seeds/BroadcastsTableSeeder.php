@@ -46,6 +46,22 @@ class BroadcastsTableSeeder extends Seeder {
 			),
 			2 => 
 			array (
+				'id' => 10,
+				'title' => 'Too Young To Die',
+			'subtitle' => 'River Phoenix, der scheue Star (Dokumentationsreihe)',
+				'details' => 'Ein früher Tod großer Stars bietet häufig Anlass, einen Mythos entstehen zu lassen. Die Dokureihe beschreibt das Leben früh verstorbener Hollywood-Schauspieler und Musiker hinter dem Bild, das im kollektiven Bewusstsein von ihnen fortbesteht. Diese Folge präsentiert die kurze Karriere des Schauspielers und Musikers River Phoenix, der zu den Jugendidolen der 80er Jahre gehörte.',
+				'airtime' => '2014-08-09 22:45:00',
+				'url' => '[{"_basetype":"","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/artestras.vo.llnwd.net\\/v2\\/am\\/HBBTV\\/048741-002-A_HQ_1_VA-STA_01415342_MP4-800_AMM-HBBTV.mp4","_filesize":"0"},{"_basetype":"","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/artestras.vo.llnwd.net\\/v2\\/am\\/HBBTV\\/048741-002-A_EQ_1_VA-STA_01415344_MP4-1500_AMM-HBBTV.mp4","_filesize":"0"},{"_basetype":"","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/artestras.vo.llnwd.net\\/v2\\/am\\/HBBTV\\/048741-002-A_SQ_1_VA-STA_01415346_MP4-2200_AMM-HBBTV.mp4","_filesize":"0"}]',
+				'duration' => '00:52:00',
+				'image' => '[{"_resolution":"940x530","_url":"http:\\/\\/www.arte.tv\\/papi\\/tvguide\\/images\\/1235012\\/W940H530\\/048741-002_tytd-phoenix_01-1405741512581.jpg"}]',
+				'station' => 'ARTE',
+				'created_at' => '2014-08-12 14:32:53',
+				'updated_at' => '2014-08-12 14:32:53',
+				'playlist_id' => 1,
+				'user_id' => NULL,
+			),
+			3 => 
+			array (
 				'id' => 11,
 				'title' => 'Die Truman Show',
 			'subtitle' => ' (spielfilm)',
@@ -60,7 +76,7 @@ class BroadcastsTableSeeder extends Seeder {
 				'playlist_id' => NULL,
 				'user_id' => 1,
 			),
-			3 => 
+			4 => 
 			array (
 				'id' => 12,
 				'title' => 'Nur die Besten kommen durch',
@@ -76,7 +92,7 @@ class BroadcastsTableSeeder extends Seeder {
 				'playlist_id' => 1,
 				'user_id' => NULL,
 			),
-			4 => 
+			5 => 
 			array (
 				'id' => 13,
 				'title' => 'Nur die Besten kommen durch',
@@ -89,38 +105,6 @@ class BroadcastsTableSeeder extends Seeder {
 				'station' => 'ZDFinfo',
 				'created_at' => '2014-08-14 11:09:10',
 				'updated_at' => '2014-08-14 11:09:10',
-				'playlist_id' => NULL,
-				'user_id' => 1,
-			),
-			5 => 
-			array (
-				'id' => 17,
-				'title' => 'Der Weiße Hai',
-			'subtitle' => 'Täter oder Opfer? (Dokumentation)',
-				'details' => 'Der Weiße Hai gehört zu den meist gefürchteten Lebewesen unseres Planeten. Bis zu zwei Tonnen schwer jagt er mit seinem torpedoförmigen Körper an den Küsten nach Robben, Seelöwen und anderem Meeresgetier. Sind die Weißen Haie wirklich die gnadenlosen Killer, für die man sie hält? Unterwasserfilmer Mike Hoover entschlüsselt den Mythos des Raubfisches.',
-				'airtime' => '2014-08-08 21:45:00',
-				'url' => '[{"_basetype":"","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/artestras.vo.llnwd.net\\/v2\\/am\\/HBBTV\\/050530-000-A_SQ_1_VA_01413643_MP4-2200_AMM-HBBTV.mp4","_filesize":"0"},{"_basetype":"","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/artestras.vo.llnwd.net\\/v2\\/am\\/HBBTV\\/050530-000-A_HQ_1_VA_01413639_MP4-800_AMM-HBBTV.mp4","_filesize":"0"},{"_basetype":"","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/artestras.vo.llnwd.net\\/v2\\/am\\/HBBTV\\/050530-000-A_EQ_1_VA_01413641_MP4-1500_AMM-HBBTV.mp4","_filesize":"0"}]',
-				'duration' => '00:52:00',
-				'image' => '[{"_resolution":"940x530","_url":"http:\\/\\/www.arte.tv\\/papi\\/tvguide\\/images\\/1225854\\/W940H530\\/050530-000_weisserhai_03-1405655117882.jpg"}]',
-				'station' => 'ARTE',
-				'created_at' => '2014-08-15 12:29:48',
-				'updated_at' => '2014-08-15 12:29:48',
-				'playlist_id' => 1,
-				'user_id' => NULL,
-			),
-			6 => 
-			array (
-				'id' => 43,
-				'title' => 'Safari im Kiez',
-				'subtitle' => '0',
-				'details' => 'Sie sind unter uns: freilebende Tiere in der Großstadt. Auch für wilde Vierbeiner ist Berlin die Hauptstadt: Wildschweine durchwühlen Vorgärten und selbst vor Straßenbahnschienen machen sie nicht Halt',
-				'airtime' => '2014-08-17 06:15:00',
-				'url' => '[{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/13\\/10\\/131027_safari_rpo_436k_p9v11.mp4","_filesize":"102748180"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/rodl.zdf.de\\/none\\/zdf\\/13\\/10\\/131027_safari_rpo_436k_p9v11.mp4","_filesize":"102748180"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/13\\/10\\/131027_safari_rpo_189k_p7v11.mp4","_filesize":"47422369"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/13\\/10\\/131027_safari_rpo_1456k_p13v11.mp4","_filesize":"330511335"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/rodl.zdf.de\\/none\\/zdf\\/13\\/10\\/131027_safari_rpo_1456k_p13v11.mp4","_filesize":"330511335"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"2","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/13\\/10\\/131027_safari_rpo_776k_p17v11.webm","_filesize":"116728254"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"0","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/13\\/10\\/131027_safari_rpo_282k_p16v11.webm","_filesize":"43650213"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"3","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/13\\/10\\/131027_safari_rpo_1496k_p18v11.webm","_filesize":"219249657"}]',
-				'duration' => '00:28:00',
-				'image' => '[{"_resolution":"946x532","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2011170\\/timg946x532blob\\/10136524"},{"_resolution":"672x378","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2011170\\/timg672x378blob\\/10136521"},{"_resolution":"644x363","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2011170\\/timg644x363blob\\/10136520"},{"_resolution":"485x273","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2011170\\/timg485x273blob\\/10136510"},{"_resolution":"476x268","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2011170\\/timg476x268blob\\/10136517"},{"_resolution":"476x176","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2011170\\/timg476x176blob\\/10136515"},{"_resolution":"404x227","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2011170\\/timg404x227blob\\/10136523"},{"_resolution":"298x168","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2011170\\/timg298x168blob\\/10136518"},{"_resolution":"276x155","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2011170\\/timg276x155blob\\/10136511"},{"_resolution":"236x133","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2011170\\/timg236x133blob\\/10136519"},{"_resolution":"173x120","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2011170\\/timg173x120blob\\/10136509"}]',
-				'station' => 'ZDFinfo',
-				'created_at' => '2014-08-15 13:49:01',
-				'updated_at' => '2014-08-15 13:49:01',
 				'playlist_id' => NULL,
 				'user_id' => 1,
 			),

@@ -860,7 +860,7 @@ MediathekCrawler.SRFService = function() {
 						
 						if(streams.length < 1){
 
-							console.log('\'',title, '\' has ', streams2.length, ' streams. \nCHECK: ',_url);
+							console.log('\'',title, '\' has ', streams.length, ' streams. \nCHECK: ',_url);
 						}else{
 							_pushSRFResultToModel(origin, title, subtitle, details, station, assetID, length, airtime, teaserImages, streams2);
 					
