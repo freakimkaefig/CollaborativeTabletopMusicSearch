@@ -281,6 +281,7 @@ body{
 	background-color: #1b1b1b;
 	position: absolute;
     top: 50%;
+    text-transform: none;
     /*left: 50%;*/
 }
 
