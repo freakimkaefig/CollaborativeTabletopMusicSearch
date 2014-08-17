@@ -30,22 +30,6 @@ class BroadcastsTableSeeder extends Seeder {
 			),
 			1 => 
 			array (
-				'id' => 5,
-				'title' => 'Jesus liebt mich',
-				'subtitle' => '0',
-				'details' => 'Die Kinokomödie nach Motiven des gleichnamigen Romans: Gerade als für Marie alles aussichtslos zu sein scheint, trifft sie einen echten Traummann - aber irgendetwas stimmt mit ihm nicht.',
-				'airtime' => '2014-08-09 20:15:00',
-				'url' => '[{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/nrodl.zdf.de\\/dach\\/zdf\\/14\\/07\\/140725_jesus_liebt_mich_ps_fad_436k_p9v11.mp4","_filesize":"327420850"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/rodl.zdf.de\\/dach\\/zdf\\/14\\/07\\/140725_jesus_liebt_mich_ps_fad_436k_p9v11.mp4","_filesize":"327420850"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/nrodl.zdf.de\\/dach\\/zdf\\/14\\/07\\/140725_jesus_liebt_mich_ps_fad_189k_p7v11.mp4","_filesize":"151174187"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/nrodl.zdf.de\\/dach\\/zdf\\/14\\/07\\/140725_jesus_liebt_mich_ps_fad_1456k_p13v11.mp4","_filesize":"1052861405"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/rodl.zdf.de\\/dach\\/zdf\\/14\\/07\\/140725_jesus_liebt_mich_ps_fad_1456k_p13v11.mp4","_filesize":"1052861405"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"2","_url":"http:\\/\\/nrodl.zdf.de\\/dach\\/zdf\\/14\\/07\\/140725_jesus_liebt_mich_ps_fad_776k_p17v11.webm","_filesize":"344623919"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"0","_url":"http:\\/\\/nrodl.zdf.de\\/dach\\/zdf\\/14\\/07\\/140725_jesus_liebt_mich_ps_fad_282k_p16v11.webm","_filesize":"133953156"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"3","_url":"http:\\/\\/nrodl.zdf.de\\/dach\\/zdf\\/14\\/07\\/140725_jesus_liebt_mich_ps_fad_1496k_p18v11.webm","_filesize":"615706582"}]',
-				'duration' => '01:31:00',
-				'image' => '[{"_resolution":"946x532","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2213564\\/timg946x532blob\\/10104666"},{"_resolution":"672x378","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2213564\\/timg672x378blob\\/10104663"},{"_resolution":"644x363","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2213564\\/timg644x363blob\\/10104662"},{"_resolution":"485x273","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2213564\\/timg485x273blob\\/10104652"},{"_resolution":"476x268","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2213564\\/timg476x268blob\\/10104659"},{"_resolution":"476x176","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2213564\\/timg476x176blob\\/10104657"},{"_resolution":"404x227","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2213564\\/timg404x227blob\\/10104665"},{"_resolution":"298x168","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2213564\\/timg298x168blob\\/10104660"},{"_resolution":"276x155","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2213564\\/timg276x155blob\\/10104653"},{"_resolution":"236x133","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2213564\\/timg236x133blob\\/10104661"},{"_resolution":"173x120","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2213564\\/timg173x120blob\\/10104651"}]',
-				'station' => 'ZDFneo',
-				'created_at' => '2014-08-12 11:41:06',
-				'updated_at' => '2014-08-12 11:41:06',
-				'playlist_id' => NULL,
-				'user_id' => 1,
-			),
-			2 => 
-			array (
 				'id' => 10,
 				'title' => 'Too Young To Die',
 			'subtitle' => 'River Phoenix, der scheue Star (Dokumentationsreihe)',
@@ -60,7 +44,7 @@ class BroadcastsTableSeeder extends Seeder {
 				'playlist_id' => 1,
 				'user_id' => NULL,
 			),
-			3 => 
+			2 => 
 			array (
 				'id' => 11,
 				'title' => 'Die Truman Show',
@@ -76,7 +60,7 @@ class BroadcastsTableSeeder extends Seeder {
 				'playlist_id' => NULL,
 				'user_id' => 1,
 			),
-			4 => 
+			3 => 
 			array (
 				'id' => 12,
 				'title' => 'Nur die Besten kommen durch',
@@ -92,23 +76,7 @@ class BroadcastsTableSeeder extends Seeder {
 				'playlist_id' => 1,
 				'user_id' => NULL,
 			),
-			5 => 
-			array (
-				'id' => 13,
-				'title' => 'Nur die Besten kommen durch',
-				'subtitle' => '0',
-				'details' => 'Das Bundesland Hessen gilt als eines der Besten, wenn es um die Ausbildung von zukünftigen Polizisten geht. 6.000 Bewerber gibt es hier jährlich - 90 Prozent fallen direkt durch.',
-				'airtime' => '2014-08-15 10:15:00',
-				'url' => '[{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/07\\/140708_diebesten_inf_436k_p9v11.mp4","_filesize":"156931726"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/rodl.zdf.de\\/none\\/zdf\\/14\\/07\\/140708_diebesten_inf_436k_p9v11.mp4","_filesize":"156931726"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/07\\/140708_diebesten_inf_189k_p7v11.mp4","_filesize":"72386893"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/07\\/140708_diebesten_inf_1456k_p13v11.mp4","_filesize":"504600904"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/rodl.zdf.de\\/none\\/zdf\\/14\\/07\\/140708_diebesten_inf_1456k_p13v11.mp4","_filesize":"504600904"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"2","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/07\\/140708_diebesten_inf_776k_p17v11.webm","_filesize":"170890616"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"0","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/07\\/140708_diebesten_inf_282k_p16v11.webm","_filesize":"65013408"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"3","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/07\\/140708_diebesten_inf_1496k_p18v11.webm","_filesize":"324483626"}]',
-				'duration' => '00:43:00',
-				'image' => '[{"_resolution":"946x532","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2193264\\/timg946x532blob\\/10138983"},{"_resolution":"672x378","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2193264\\/timg672x378blob\\/10138980"},{"_resolution":"644x363","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2193264\\/timg644x363blob\\/10138979"},{"_resolution":"485x273","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2193264\\/timg485x273blob\\/10138969"},{"_resolution":"476x268","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2193264\\/timg476x268blob\\/10138976"},{"_resolution":"476x176","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2193264\\/timg476x176blob\\/10138974"},{"_resolution":"404x227","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2193264\\/timg404x227blob\\/10138982"},{"_resolution":"298x168","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2193264\\/timg298x168blob\\/10138977"},{"_resolution":"276x155","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2193264\\/timg276x155blob\\/10138970"},{"_resolution":"236x133","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2193264\\/timg236x133blob\\/10138978"},{"_resolution":"173x120","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2193264\\/timg173x120blob\\/10138968"}]',
-				'station' => 'ZDFinfo',
-				'created_at' => '2014-08-14 11:09:10',
-				'updated_at' => '2014-08-14 11:09:10',
-				'playlist_id' => NULL,
-				'user_id' => 1,
-			),
-			6 => 
+			4 => 
 			array (
 				'id' => 14,
 				'title' => 'Der Chronist des Todes',
@@ -124,7 +92,7 @@ class BroadcastsTableSeeder extends Seeder {
 				'playlist_id' => 1,
 				'user_id' => NULL,
 			),
-			7 => 
+			5 => 
 			array (
 				'id' => 37,
 				'title' => 'Wacken 2013: Anthrax',
@@ -140,7 +108,7 @@ class BroadcastsTableSeeder extends Seeder {
 				'playlist_id' => 1,
 				'user_id' => NULL,
 			),
-			8 => 
+			6 => 
 			array (
 				'id' => 38,
 				'title' => 'Wacken 2013: Anthrax',
@@ -156,7 +124,7 @@ class BroadcastsTableSeeder extends Seeder {
 				'playlist_id' => 1,
 				'user_id' => NULL,
 			),
-			9 => 
+			7 => 
 			array (
 				'id' => 40,
 				'title' => 'Wacken 2013: Anthrax',
@@ -172,7 +140,7 @@ class BroadcastsTableSeeder extends Seeder {
 				'playlist_id' => 1,
 				'user_id' => NULL,
 			),
-			10 => 
+			8 => 
 			array (
 				'id' => 41,
 				'title' => 'Wacken 2013: Anthrax',
@@ -188,7 +156,7 @@ class BroadcastsTableSeeder extends Seeder {
 				'playlist_id' => NULL,
 				'user_id' => 1,
 			),
-			11 => 
+			9 => 
 			array (
 				'id' => 42,
 				'title' => '"Amigo - Bei Ankunft Tod"',
@@ -204,7 +172,7 @@ class BroadcastsTableSeeder extends Seeder {
 				'playlist_id' => 1,
 				'user_id' => NULL,
 			),
-			12 => 
+			10 => 
 			array (
 				'id' => 44,
 				'title' => '"Amigo - Bei Ankunft Tod"',
@@ -220,7 +188,7 @@ class BroadcastsTableSeeder extends Seeder {
 				'playlist_id' => NULL,
 				'user_id' => 1,
 			),
-			5 => 
+			11 => 
 			array (
 				'id' => 71,
 			'title' => 'Welcome to the 90s (3/4)',
@@ -233,6 +201,22 @@ class BroadcastsTableSeeder extends Seeder {
 				'station' => 'ARTE',
 				'created_at' => '2014-08-16 16:15:40',
 				'updated_at' => '2014-08-16 16:15:40',
+				'playlist_id' => NULL,
+				'user_id' => 1,
+			),
+			12 => 
+			array (
+				'id' => 72,
+				'title' => 'Der Chronist des Todes',
+				'subtitle' => '0',
+				'details' => 'Seit fast 30 Jahren filmt der Sozialarbeiter Curtis Mozie das Leben und das Sterben der schwarzen Jugendlichen in der US-Hauptstadt. Er ist ein Chronist des Todes.',
+				'airtime' => '2014-08-21 17:30:00',
+				'url' => '[{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/01\\/140129_der_chronist_des_todes_dok_436k_p9v11.mp4","_filesize":"110022736"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/rodl.zdf.de\\/none\\/zdf\\/14\\/01\\/140129_der_chronist_des_todes_dok_436k_p9v11.mp4","_filesize":"110022736"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/01\\/140129_der_chronist_des_todes_dok_189k_p7v11.mp4","_filesize":"50820534"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/01\\/140129_der_chronist_des_todes_dok_1456k_p13v11.mp4","_filesize":"353777646"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/rodl.zdf.de\\/none\\/zdf\\/14\\/01\\/140129_der_chronist_des_todes_dok_1456k_p13v11.mp4","_filesize":"353777646"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"2","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/01\\/140129_der_chronist_des_todes_dok_776k_p17v11.webm","_filesize":"120932364"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"0","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/01\\/140129_der_chronist_des_todes_dok_282k_p16v11.webm","_filesize":"45983459"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"3","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/01\\/140129_der_chronist_des_todes_dok_1496k_p18v11.webm","_filesize":"226694445"}]',
+				'duration' => '00:30:00',
+				'image' => '[{"_resolution":"946x532","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2078198\\/timg946x532blob\\/10141631"},{"_resolution":"672x378","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2078198\\/timg672x378blob\\/10141628"},{"_resolution":"644x363","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2078198\\/timg644x363blob\\/10141627"},{"_resolution":"485x273","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2078198\\/timg485x273blob\\/10141617"},{"_resolution":"476x268","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2078198\\/timg476x268blob\\/10141624"},{"_resolution":"476x176","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2078198\\/timg476x176blob\\/10141622"},{"_resolution":"404x227","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2078198\\/timg404x227blob\\/10141630"},{"_resolution":"298x168","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2078198\\/timg298x168blob\\/10141625"},{"_resolution":"276x155","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2078198\\/timg276x155blob\\/10141618"},{"_resolution":"236x133","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2078198\\/timg236x133blob\\/10141626"},{"_resolution":"173x120","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2078198\\/timg173x120blob\\/10141616"}]',
+				'station' => 'ZDF',
+				'created_at' => '2014-08-17 10:16:45',
+				'updated_at' => '2014-08-17 10:16:45',
 				'playlist_id' => NULL,
 				'user_id' => 1,
 			),

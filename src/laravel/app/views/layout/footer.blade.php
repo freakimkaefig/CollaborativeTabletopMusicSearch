@@ -35,7 +35,7 @@
 					    <li><a href="{{URL::route('channel',array('DasErste'))}}">Das Erste</a></li>
 					    <li><a href="{{URL::route('channel',array('ZDF'))}}">ZDF</a></li>
 					    <li><a href="{{URL::route('channel',array('ARTE'))}}">Arte</a></li>
-					    <li><a href="#">BR</a></li>
+					    <li><a href="{{URL::route('channel',array('BR'))}}">BR</a></li>
 					    <li><a href="{{URL::route('channel',array('SRF'))}}">SRF</a></li>
 					    <li><a href="#">WDR</a></li>
 					    <li><a href="#">NDR</a></li>
