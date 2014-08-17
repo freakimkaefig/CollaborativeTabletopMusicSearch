@@ -174,6 +174,7 @@ MediathekCrawler.BroadcastView = (function() {
 		
 	},
 	checkBookmarked = function(result){
+		console.log("checkBookmark");
 		var allBookmarks = JSON.parse($("#all-bookmarks").val());
 		
 		for  (var i in allBookmarks){

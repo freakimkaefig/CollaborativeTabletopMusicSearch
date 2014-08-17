@@ -8,6 +8,8 @@ MediathekCrawler.FeedbackView = (function() {
 		
 	},
 	showFeedback = function(feedback){
+		/*show the feedback */
+		
 		if(feedback=="addPlaylist"){
 			$("#feedback-container>h4").text("Zur Playlist hinzugefügt!");
 		}
