@@ -666,11 +666,11 @@ MediathekCrawler.ARTEService = function() {
 			dataType: 'json',
 			success: function(data, textStatus, jqXHR) {
 
-				// console.log('ajax succes: \n',data,'\n',_url);
 				// var temp = jqXHR.responseText;
 				// var data2 = JSON.stringify(data).split('@').join('');
 				// console.log('DATA CONTAINS \" @ \" = ',data2.indexOf('@'));
 				_onARTEGetNew(origin, data, maxResults);
+				// console.log('ajax succes: \n','\n',_url);
 			},
 			error: function(){
 				console.warn('ERROR; ARTEService.getNew(); AJAX-request did not recieve a response');
@@ -683,7 +683,6 @@ MediathekCrawler.ARTEService = function() {
 	},
 
 	_onARTEGetNew = function(origin, data, maxResults){
-		// console.log('_onARTEGetNew');
 				// console.log('_onARTEGetNew(): ',data);
 		var counter = 1;
 
@@ -697,8 +696,9 @@ MediathekCrawler.ARTEService = function() {
 		if(data !== undefined && x.length > 0){
 
 			$.each(x, function(index, element) {
+				// console.log('_onARTEGetNew: ',counter, x.length);
 				if(counter <= maxResults){
-		// console.log('ARTE _onARTEGetNew: ',element);
+				// console.log('ARTE _onARTEGetNew: ',element);
 
 					var teaserImages = [],
 						details = '',
@@ -818,8 +818,9 @@ MediathekCrawler.ARTEService = function() {
 				}
 				
 			});
+			// console.log('ARTE _ongetNew - finished loop through data.abstractBroadcastList!');
 		}else{
-			console.log('response was: ',data);
+			console.log('ARTE _ongetNew - response was: ',data);
 		}
 	},
 
@@ -897,13 +898,13 @@ MediathekCrawler.ARTEService = function() {
 					// build alternative stream url:
 					var position = streamUrl.indexOf('stream')+6;
 					var newStreamUrl = [streamUrl.slice(0, position), '/player', streamUrl.slice(position)].join('');
-					var _url2 = PROXY_URL + encodeURI(newStreamUrl);
+					var _url2 = newStreamUrl;
 					// console.log('New stream url: ',_url2);
-					if(_url !== _url2){
+					if(_url !== PROXY_URL + encodeURI(_url2) && _url2.length > 15){
 						// console.log('ARTE; trying to search Streams with new streamUrl: ',_url2);
 						_searchARTEStreams(origin, assetID, title, subtitle, details, station, length, airtime, teaserImages, _url2);
 					}else if(_url === _url2){
-						console.log('ARTE; \'',title, '\' has ', streams.length, ' streams. \nCHECK: ',_url, ' AND ',_url2);
+						console.log('ARTE; \'',title, '\' has ', streams.length, ' streams. \nCHECK: ',_url, '\nAND ',_url2);
 					}
 				}
 				else{
@@ -916,6 +917,7 @@ MediathekCrawler.ARTEService = function() {
 				console.warn('ERROR; ARTEService.getNew; AJAX-request did not recieve a response');
 			}
 		});
+		console.log('ARTE _searchARTEStreams - finished ajax request')
 
 	},
 
