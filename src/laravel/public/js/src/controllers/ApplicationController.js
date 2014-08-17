@@ -256,7 +256,11 @@ MediathekCrawler.ApplicationController = function() {
 					if (channel == "srf"){
 						SRFService.getHot();
 						SRFService.getNew();
-					};
+					}
+					if (channel == "br"){
+						BRService.getHot();
+						BRService.getNew();
+					}
 				}
 	
 			
@@ -315,8 +319,8 @@ MediathekCrawler.ApplicationController = function() {
 		ZDFService.searchString(searchString, ZDFMAXRESULTS);
 		WDRService.searchString(searchString);
 		ARTEService.searchString(searchString, ARTEMAXRESULTS);
-		BRService.searchString(searchString, 0);
 		SRFService.searchString(searchString, SRFMAXPAGESTOCRAWL);
+		BRService.searchString(searchString, 0);
 	},
 
 	_getCategory = function(category) {
@@ -330,6 +334,7 @@ MediathekCrawler.ApplicationController = function() {
 		ZDFService.getCategories(category, 2);
 		ARTEService.getCategories(category);
 		SRFService.getSRFCategories(category);
+		//BRService.getBRCategories();
 	},
 
 	_getNew = function() {
@@ -337,14 +342,14 @@ MediathekCrawler.ApplicationController = function() {
 		ZDFService.getNew(ZDFMAXRESULTS);
 		ARTEService.getNew(ARTEMAXRESULTS, null, null);
 		SRFService.getNew();
-		//BRService blockiert; notImplemented!
-		//BRService.getNew();
+		//BRService.getBRNew();
 	},
 	_getHot = function(){
 		DasErsteService.getHot();
 		ZDFService.getHot(ZDFMAXRESULTS);
 		ARTEService.getHot(ARTEMAXRESULTS);
 		SRFService.getHot();
+		//BRService.getBRHot();
 	},
 	_getVideoById = function() {
 		var _id = $('#video-id').val();

@@ -61,13 +61,19 @@ MediathekCrawler.BRService = function() {
 	 * @param {Integer}		maximum number of results
 	 */
 	searchString = function(searchStr, type) {
+		var origin = {
+			_channel: 'BR',
+			_method: 'searchString',
+			_searchTerm: searchStr,
+			_badge: null
+		};
 		switch (type) {
 			case 0: 	// search by relevance
-				searchStringByRelevance(searchStr);
+				searchStringByRelevance(searchStr, origin);
 				break;
 
 			case 1: 	// search by date
-				searchStringByDate(searchStr);
+				searchStringByDate(searchStr, origin);
 				break;
 		}
 	},
@@ -76,15 +82,18 @@ MediathekCrawler.BRService = function() {
 	 * Private function to search with given string sorted by relevance
 	 * @param {String} 	The given keyword(s) to search for
 	 */
-	searchStringByRelevance = function(searchStr) {
+	searchStringByRelevance = function(searchStr, origin) {
 		// build restful URL for search in BR
 		var _searchUrl = PROXY_URL + encodeURI(SEARCH_URL + searchStr + SEARCH_PARAM_SORT_RELEVANCE);
+			// console.log('BR onLoadDetails searchStringByRelevance: ',searchStr, _searchUrl);
 
 		// send asynchronous xmphttp request
 		$.ajax({
 			url: _searchUrl,
 			type: 'GET',
-			success: onSearchString
+			success: function(data) {
+				onSearchString(data, origin);
+			}
 		});
 	},
 
@@ -92,7 +101,7 @@ MediathekCrawler.BRService = function() {
 	 * Private function to search with given string sorted by date
 	 * @param {String} 	The given keyword(s) to search for
 	 */
-	searchStringByDate = function(searchStr) {
+	searchStringByDate = function(searchStr, origin) {
 		var _searchUrl = PROXY_URL + encodeURI(SEARCH_URL + searchStr + SEARCH_PARAM_SORT_DATE);
 		
 		// send asynchronous xmphttp request
@@ -100,7 +109,7 @@ MediathekCrawler.BRService = function() {
 			url: _searchUrl,
 			type: 'GET',
 			success: function(data) {
-				onSearchString(data);
+				onSearchString(data, origin);
 			}
 		});
 	},
@@ -109,41 +118,66 @@ MediathekCrawler.BRService = function() {
 	 * Callback function for async loading of search results
 	 * @param {String|HTML}		HTML response of ajax call
 	 */
-	onSearchString = function(data) {
-		$(data).find(SEARCH_WRAPPER_ELEMENT).find(SEARCH_ITEM_WRAPPER).each(function (index, element) {
-			var detailUrl = $(element).find(SEARCH_ITEM_URL).attr('href');
-			if (detailUrl !== undefined) {
-				loadDetails(detailUrl);
-			}
-		});
+	onSearchString = function(data, origin) {
+		// console.log('NR onSearchString:', data);
+		// $(data).find('.teaser standard').each(function(idx, el){
+			$(data).find('.teaserInner').each(function (index, element) {
+
+				var detailUrl = $(element).find('.link_video').attr('href');
+				// console.log('BR onLoadDetails detailUrldetailUrl: ',detailUrl);
+				if (detailUrl !== undefined) {
+					loadDetails(detailUrl, origin);
+				}
+			});
+		// });
 	},
 
 	/**
 	 * Private function to load the broadcasts detail page
 	 * @param {String}		url of the detail page
 	 */
-	loadDetails = function(url) {
+	loadDetails = function(url, origin) {
 		var _url = PROXY_URL + encodeURI(BASE_URL + url);
 
 		$.ajax({
 			url: _url,
 			type: 'GET',
 			success: function(data) {
-				onLoadDetails(data);
+				onLoadDetails(data, origin);
 			}
 		});
+	},
+
+	_fixLength = function(length){
+		if(length.indexOf(' Min') > 0){
+			length = length.replace(' Min.', '');
+		}
+		if(Number(length) > 60){
+			var hours = String(parseInt(length / 60));
+			if(Number(hours)<10){
+				hours = '0'+String(hours);
+			}
+			var minutes = String(Number(length)-(Number(hours)*60));
+			return hours+':'+minutes+':00';
+		}
+		if(Number(length)<=60){
+			return '00:'+String(length)+':00';
+		}
+
+		return length;
 	},
 
 	/**
 	 * Callback function for parsing broadcast detail pages for details and stream urls
 	 * @param {String}		HTML data of the detail page
 	 */
-	onLoadDetails = function(data) {
+	onLoadDetails = function(data, origin) {
 		var _onclick = $(data).find('#playerFrame .player .avPlayer figure .clearFix a').attr('onclick');
 		if (_onclick !== undefined) {
 			// url for xml file containing streams is placed in click event handler
 			// searching for string between {dataURL:' and '}
 			var matches = _onclick.match(/\{dataURL:'(.*?)\'}/);
+			// console.log('BR onLoadDetails matches: ',matches);
 
 			if (matches) {
 			    var submatch = matches[1];
@@ -151,9 +185,10 @@ MediathekCrawler.BRService = function() {
 			    // build result with currently available details
 			    var _result = {}
 			    	_result._station = $(data).find('.bcastData ul.meta li.start span.welle').text(),
-			    	_result._title = $(data).find('.bcastData ul.title li.title').text(),
-			    	_result._subtitle = '',
+			    	_result._subtitle = $(data).find('.bcastData ul.title li.title').text(),
+			    	_result._title = $(data).find('.bcastData header h3').text(),
 			    	_result._length = $(data).find('.bcastData ul.meta li.duration time.duration').text(),
+			    	_result._length = _fixLength(_result._length);
 			    	_result._airtime = $(data).find('.bcastData ul.meta li.start time.start').text().replace(',', ''),
 			    	_result._details = $(data).find('#bcastInfo .bcastContent p').text() + $(data).find('#bcastInfo .bcastContent div.cast').text(),
 			    	_result._teaserImages = [],
@@ -164,7 +199,9 @@ MediathekCrawler.BRService = function() {
 			    	_result._streams = [];
 
 			    // load stream urls and metadata from xml file
-			    loadStreams(_result, submatch);
+
+			// console.log('BR onLoadDetails _result: ',_result);
+			    loadStreams(_result, submatch, origin);
 			}
 		}
 	},
@@ -174,14 +211,14 @@ MediathekCrawler.BRService = function() {
 	 * @param {object}		the current result object
 	 * @param {String}		url of the xml page
 	 */
-	loadStreams = function(result, url) {
+	loadStreams = function(result, url, origin) {
 		var _url = PROXY_URL + encodeURI(BASE_URL + url);
 
 		$.ajax({
 			url: _url,
 			type: 'GET',
 			success: function(data) {
-				onLoadStreams(result, data);
+				onLoadStreams(result, data, origin);
 			}
 		});
 	},
@@ -191,7 +228,7 @@ MediathekCrawler.BRService = function() {
 	 * @param {object}		the current result object
 	 * @param {String}		XML data containing stream urls, qualities, sizes etc
 	 */
-	onLoadStreams = function(result, data) {
+	onLoadStreams = function(result, data, origin) {
 		$(data).find('assets').find('asset').each(function (index, element) {
 			if ($(element).attr('type') !== 'HDS') {
 				var basetype = null,	// TODO: missing basetype!
@@ -223,15 +260,16 @@ MediathekCrawler.BRService = function() {
 			}
 		});
 
+			// console.log('BR onLoadStreams result._streams: ',result._streams);
 		// add result to model
-		_model.addResults(result._station, result._title, result._subtitle, result._details, result._length, result._airtime, result._teaserImages, result._streams);
+		_model.addResults(origin, result._station, result._title, result._subtitle, result._details, result._length, result._airtime, result._teaserImages, result._streams);
 	},
 
 
 	/**
 	 * Public function to get most viewed videos
 	 */
-	getNew = function() {
+	getBRNew = function() {
 		throw new NotImplementedException();
 	},
 
@@ -239,7 +277,14 @@ MediathekCrawler.BRService = function() {
 	/**
 	 * Function to load all categories from "Das Erste Mediathek"
 	 */
-	getCategories = function(_category) {
+	getBRCategories = function(_category) {
+		throw new NotImplementedException();
+	},
+
+	/**
+	 * Public function to get hot videos
+	 */
+	getBRHot = function() {
 		throw new NotImplementedException();
 	},
 
@@ -254,8 +299,9 @@ MediathekCrawler.BRService = function() {
 	that.init = init;
 	that.dispose = dispose;
 	that.searchString = searchString;
-	that.getNew = getNew;
-	that.getCategories = getCategories;
+	that.getBRNew = getBRNew;
+	that.getBRCategories = getBRCategories;
+	that.getBRHot = getBRHot;
 
 	return that;
 };
