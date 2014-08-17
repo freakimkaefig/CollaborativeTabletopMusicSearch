@@ -5,6 +5,7 @@ MediathekCrawler.BRService = function() {
 	// constant urls
 	BASE_URL = 'http://www.br.de',
 	PROXY_URL = '/proxy.php?url=',
+	BR_NEW_URL = 'http://www.br.de/mediathek/video/programm/index.html';
 
 	// constants for searching
 	SEARCH_URL = 'http://www.br.de/mediathek/video/suche/?query=',
@@ -44,6 +45,7 @@ MediathekCrawler.BRService = function() {
 	// http://www.br.de/mediathek/video/suche/tag-suche-mediathek-100.html?t=category&q=vorab-im-web
 
 	_model = null,
+	getDatesOnce = 1;
 
 	/**
 	 * Public function to initialize the instance of BRService
@@ -267,10 +269,125 @@ MediathekCrawler.BRService = function() {
 
 
 	/**
-	 * Public function to get most viewed videos
+	 * Public function to get new videos (= videos of the last 3 days including today)
 	 */
-	getBRNew = function() {
-		throw new NotImplementedException();
+	getBRNew = function(dateUrl) {
+		$today = new Date();
+		var $dd = $today.getDate();
+		if($dd<10){$dd='0'+$dd} var nowDay = $dd
+
+		var currentMonths = [ "Januar", "Februar", "März", "April", "Mai", "Juni",
+    "Juli", "August", "September", "Oktober", "November", "Dezember" ];
+
+		var currentMonth = currentMonths[$today.getMonth()];
+		var lastMonth = currentMonths[$today.getMonth() - 1];
+		var lastDayOfLastMonth = new Date($today.getFullYear(), ($today.getMonth() - 1) + 1, 0);
+		lastDayOfLastMonth = lastDayOfLastMonth.getDate();
+
+		// console.log('BR lastDayOfLastMonth: ',lastDayOfLastMonth);
+
+		var origin = {
+			_channel: 'BR',
+			_method: 'getBRNew',
+			_searchTerm: null,
+			_badge: 'new'
+		};
+		if(!dateUrl || dateUrl === undefined || dateUrl === null){
+
+			// http://www.br.de/mediathek/video/programm/index.html
+			// BR_NEW_URL
+			var _url = PROXY_URL + encodeURI(BR_NEW_URL);
+				// console.log('BR onGetBRNew url: ',_url);
+			$.ajax({
+				url: _url,
+				type: 'GET',
+				success: function(data) {
+					onGetBRNew(data, origin);
+					if(getDatesOnce === 1){
+						getDatesOnce = 0;
+						var yesterday = $(data).find('.epgCalendar')/*.find('.month active')*/.find('td');
+							// console.log('BR getBRNew yesterday: ',yesterday);
+						$(yesterday).each(function(index, element){
+
+							// console.log('BR getBRNew elementelement: ',element);
+							if(parseInt(nowDay) > 2){
+
+								var day = $(element).text();
+								if(day.indexOf(currentMonth) > 0){
+									var x = parseInt(nowDay) - 1;
+
+									var cuttedDay = parseInt(day.slice(0, day.indexOf('.')));
+									// get yesterday url:
+									if(cuttedDay === x || cuttedDay === (x - 1)){
+										// console.log('BR found yesterday: ',$(element).find('a').attr('href'));
+										getBRNew(BASE_URL + $(element).find('a').attr('href'));
+									}
+
+								}
+							}else if(parseInt(nowDay) === 2){
+								var day = $(element).text();
+								if(day.indexOf(currentMonth) > 0){
+									var x = parseInt(nowDay) - 1;
+
+									var cuttedDay = parseInt(day.slice(0, day.indexOf('.')));
+									// get yesterday url:
+									if(cuttedDay === x){
+										// console.log('BR found yesterday: ',$(element).find('a').attr('href'));
+										getBRNew(BASE_URL + $(element).find('a').attr('href'));
+									}
+								}
+								if(day.indexOf(lastMonth) > 0){
+
+									var cuttedDay = parseInt(day.slice(0, day.indexOf('.')));
+									// get yesterday url:
+									if(cuttedDay === lastDayOfLastMonth){
+										// console.log('BR found yesterday: ',$(element).find('a').attr('href'));
+										getBRNew(BASE_URL + $(element).find('a').attr('href'));
+									}
+								}
+							}else if(parseInt(nowDay) === 1){
+								var day = $(element).text();
+								if(day.indexOf(lastMonth) > 0){
+
+									var cuttedDay = parseInt(day.slice(0, day.indexOf('.')));
+									// get yesterday url:
+									if(cuttedDay === lastDayOfLastMonth || cuttedDay === lastDayOfLastMonth - 1){
+										// console.log('BR found yesterday: ',$(element).find('a').attr('href'));
+										getBRNew(BASE_URL + $(element).find('a').attr('href'));
+									}
+								}
+							}
+
+						});
+					}
+				}
+			});
+		}
+		else{
+			var _url = PROXY_URL + encodeURI(dateUrl);
+				// console.log('BR onGetBRNew ELSE url: ',_url);
+			$.ajax({
+				url: _url,
+				type: 'GET',
+				success: function(data) {
+
+					onGetBRNew(data, origin);
+				}
+			});
+		}
+	},
+
+	onGetBRNew = function(data, origin){
+		var resp = $(data)./*find('.containerMain').*/find('.epgContainer').find('#BFS');
+			// console.log('BR onGetBRNew resp: ',resp);
+		$(resp).find('.videoAvailable').each(function(index,element){
+			// console.log('BR onGetBRNew element: ',element);
+			var url = $(element).attr('data-ondemand_url');
+			// console.log('BR onGetBRNew url: ',url);
+			if (url !== undefined) {
+					loadDetails(url, origin);
+				}
+		});
 	},
 
 
@@ -278,14 +395,14 @@ MediathekCrawler.BRService = function() {
 	 * Function to load all categories from "Das Erste Mediathek"
 	 */
 	getBRCategories = function(_category) {
-		throw new NotImplementedException();
+		// throw new NotImplementedException();
 	},
 
 	/**
 	 * Public function to get hot videos
 	 */
 	getBRHot = function() {
-		throw new NotImplementedException();
+		// throw new NotImplementedException();
 	},
 
 

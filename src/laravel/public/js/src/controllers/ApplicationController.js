@@ -133,6 +133,10 @@ MediathekCrawler.ApplicationController = function() {
 				SRFService.getNew();
 				SRFService.getHot();
 			}
+			if(document.URL.indexOf('/channel/BR') > -1){
+				BRService.getBRNew();
+				BRService.getBRHot();
+			}
 
 		}
 		if (document.URL.indexOf("/suche") > -1) {
@@ -258,8 +262,8 @@ MediathekCrawler.ApplicationController = function() {
 						SRFService.getNew();
 					}
 					if (channel == "br"){
-						BRService.getHot();
-						BRService.getNew();
+						BRService.getBRHot();
+						BRService.getBRNew();
 					}
 				}
 	

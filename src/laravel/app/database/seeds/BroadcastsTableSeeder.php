@@ -236,6 +236,86 @@ class BroadcastsTableSeeder extends Seeder {
 				'playlist_id' => NULL,
 				'user_id' => 1,
 			),
+			14 => 
+			array (
+				'id' => 74,
+				'title' => 'Pinocchio',
+				'subtitle' => 'Pinocchio',
+				'details' => 'Der arme, alte Gepetto staunt nicht schlecht, als eine von ihm aus einem Stück Holz geschnitzte Figur plötzlich quicklebendig wird. Schnell sorgt Pinocchio im ganzen Dorf für Aufregung. Mit der Wahrheit nimmt es Pinocchio nicht immer so genau. Doch bei jeder Lüge wird seine Nase länger und länger. Auf seiner Reise wird Pinocchio lernen, was es heißt, ein richtiger Junge zu sein.
+Regie:
+Anna Justice
+
+Redaktion:
+Cornelia Ackers
+
+
+Besetzung
+
+Die Rollen und ihre Darsteller
+
+
+Rolle:
+Darsteller:
+
+
+
+
+Geppetto
+Mario Adorf
+
+
+Mangiafuoco
+Ulrich Tukur
+
+
+Anna
+Inka Friedrich
+
+
+Antonio
+Benjamin Sadler
+
+
+Füchsin
+Sandra Hüller
+
+
+Kater
+Florian Lukas
+
+
+Luca
+Arved Friese
+
+
+Sofia
+Nicolais Borger
+
+
+Pinocchio als Junge
+Aaron Kissiov
+
+
+
+
+Regie:
+Anna Justice
+
+Redaktion:
+Cornelia Ackers
+
+
+',
+				'airtime' => '1970-01-01 00:00:00',
+				'url' => '[{"_basetype":"","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/cdn-storage.br.de\\/b7\\/2014-08\\/17\\/1a3cf40c25e311e48a90984be10adece_0.mp4","_filesize":"64683570"},{"_basetype":"","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/cdn-storage.br.de\\/b7\\/2014-08\\/17\\/1a3cf40c25e311e48a90984be10adece_A.mp4","_filesize":"91238223"},{"_basetype":"","_type":"video\\/mp4","_quality":"1","_url":"http:\\/\\/cdn-storage.br.de\\/b7\\/2014-08\\/17\\/1a3cf40c25e311e48a90984be10adece_B.mp4","_filesize":"395579497"},{"_basetype":"","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/cdn-storage.br.de\\/b7\\/2014-08\\/17\\/1a3cf40c25e311e48a90984be10adece_C.mp4","_filesize":"792002796"},{"_basetype":"","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/cdn-storage.br.de\\/b7\\/2014-08\\/17\\/1a3cf40c25e311e48a90984be10adece_E.mp4","_filesize":"542441705"},{"_basetype":"","_type":"video\\/mp4","_quality":"HD","_url":"http:\\/\\/cdn-storage.br.de\\/b7\\/2014-08\\/17\\/1a3cf40c25e311e48a90984be10adece_X.mp4","_filesize":"1697715738"}]',
+				'duration' => '00:58:00',
+				'image' => '[{"_resolution":"640x360","_url":"http:\\/\\/www.br.de\\/fernsehen\\/bayerisches-fernsehen\\/inhalt\\/film-und-serie\\/pinocchio-104~_h-360_v-image853_w-640_-32550a25a71f9ea6a28488357c9b82d34bc5cc66.jpg?version=88481"},{"_resolution":"400x255","_url":"http:\\/\\/www.br.de\\/fernsehen\\/bayerisches-fernsehen\\/inhalt\\/film-und-serie\\/pinocchio-104~_h-225_v-image853_w-400_-46551a6ec6b42bcb6fc43f2cde7c015d39d126c0.jpg?version=88481"},{"_resolution":"320x180","_url":"http:\\/\\/www.br.de\\/fernsehen\\/bayerisches-fernsehen\\/inhalt\\/film-und-serie\\/pinocchio-104~_h-180_v-image853_w-320_-84bf43942cbaa96151d5c125e27e60633b3a04c9.jpg?version=88481"},{"_resolution":"108x61","_url":"http:\\/\\/www.br.de\\/fernsehen\\/bayerisches-fernsehen\\/inhalt\\/film-und-serie\\/pinocchio-104~_h-61_v-image853_w-108_-8bf23116f3f36b170c5e692a307c070a087283df.jpg?version=88481"}]',
+				'station' => 'Bayerisches Fernsehen',
+				'created_at' => '2014-08-17 12:22:49',
+				'updated_at' => '2014-08-17 12:22:49',
+				'playlist_id' => NULL,
+				'user_id' => 1,
+			),
 		));
 	}
 
