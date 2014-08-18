@@ -134,7 +134,7 @@ MediathekCrawler.ApplicationController = function() {
 				SRFService.getHot();
 			}
 			if(document.URL.indexOf('/channel/BR') > -1){
-				BRService.getBRNew();
+				// BRService.getBRNew();
 				BRService.getBRHot();
 			}
 
@@ -167,7 +167,7 @@ MediathekCrawler.ApplicationController = function() {
 		}
 		if (document.URL.indexOf('/rubrik') > -1) {
 			var url = document.URL.split('/'),
-				category = url[url.length-1];
+			category = url[url.length-1];
 			_getCategory(category.toLowerCase());
 		}
 		if (document.URL.indexOf('/playlists/playlist') >-1){
@@ -223,6 +223,9 @@ MediathekCrawler.ApplicationController = function() {
 					if(channel =="srf"){
 						SRFService.searchString(searchString, SRFMAXPAGESTOCRAWL);
 					}
+					if(channel =="br"){
+						BRService.searchString(searchString, 0);
+					}
 				}
 				// cahnnel-string search
 				else if(startDate != ""){
@@ -239,6 +242,9 @@ MediathekCrawler.ApplicationController = function() {
 					}
 					if(channel =="srf"){
 						SRFService.getSRFVideosByDate(0,  startDate, endDate);
+					}
+					if(channel =="br"){
+						BRService.getBRVideosByDate(startDate, endDate);
 					}
 
 				}
@@ -275,7 +281,8 @@ MediathekCrawler.ApplicationController = function() {
 		else if(categories.length > 0){
 			categories.forEach(function(category){
 				ARTEService.getCategories(category);
-				ZDFService.getCategories(category,1);	
+				ZDFService.getCategories(category,1);
+				SRFService.getSRFCategories(category);
 			})
 		}
 		// string search
@@ -287,6 +294,7 @@ MediathekCrawler.ApplicationController = function() {
 			ZDFService.getZDFVideosByDate(200, startDate, endDate);
 			ARTEService.getVideosByDate(200,  startDate, endDate);
 			DasErsteService.getDasErsteVideosByDate(200, startDate, endDate);
+			BRService.getBRVideosByDate(startDate, endDate);
 		}
 	
 		return;
@@ -346,14 +354,14 @@ MediathekCrawler.ApplicationController = function() {
 		ZDFService.getNew(ZDFMAXRESULTS);
 		ARTEService.getNew(ARTEMAXRESULTS, null, null);
 		SRFService.getNew();
-		//BRService.getBRNew();
+		BRService.getBRNew();
 	},
 	_getHot = function(){
 		DasErsteService.getHot();
 		ZDFService.getHot(ZDFMAXRESULTS);
 		ARTEService.getHot(ARTEMAXRESULTS);
 		SRFService.getHot();
-		//BRService.getBRHot();
+		BRService.getBRHot();
 	},
 	_getVideoById = function() {
 		var _id = $('#video-id').val();
