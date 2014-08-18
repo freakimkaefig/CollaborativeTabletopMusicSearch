@@ -8,10 +8,7 @@
 		Abmelden</button></a>
 		<a href="{{ URL::route('account-change-password') }}"><button class=" btn btn-transparent"> Passwort ändern</button></a>
 	</div>
-	<div class="col-sm-3 col-lg-4">
-		<h2 class="text-center">Favoriten</h2>
-	</div>
-	<div class="col-sm-6 col-lg-4">
+	<div class="col-sm-9 col-lg-8">
 		<h2 class="text-center">Playlisten</h2>
 		<?php
 			//$results = DB::select('select * from playlists where user="'+Auth::id()+'"');
@@ -37,9 +34,9 @@
 		        <img src='{{$image_playlist}}' class="img-responsive col-sm-6"/>
        			<div class="col-sm-6">
        			<h4>{{$result->name}}</h4>
-       			<h5>1){{ isset($videos[0]->title) ? substr($videos[0]->title,0,25).((strlen($videos[0]->title)>24) ? '...' : "") : '' }}</h5>
-       			<h5>2){{ isset($videos[1]->title) ? substr($videos[1]->title,0,25).((strlen($videos[1]->title)>24) ? '...' : "") : '' }}</h5>
-       			<h5>3){{ isset($videos[2]->title) ? substr($videos[2]->title,0,25).((strlen($videos[2]->title)>24) ? '...' : "") : '' }}</h5>
+       			<h5>{{ isset($videos[0]->title) ? '1) ' . substr($videos[0]->title,0,25).((strlen($videos[0]->title)>24) ? '...' : "") : '' }}</h5>
+       			<h5>{{ isset($videos[1]->title) ? '2) ' . substr($videos[1]->title,0,25).((strlen($videos[1]->title)>24) ? '...' : "") : '' }}</h5>
+       			<h5>{{ isset($videos[2]->title) ? '3) ' . substr($videos[2]->title,0,25).((strlen($videos[2]->title)>24) ? '...' : "") : '' }}</h5>
    				</div>
    			</div></a>
    			@else

@@ -236,6 +236,22 @@ class BroadcastsTableSeeder extends Seeder {
 				'playlist_id' => NULL,
 				'user_id' => 1,
 			),
+			14 => 
+			array (
+				'id' => 87,
+				'title' => 'Tatort Eulau',
+				'subtitle' => '0',
+				'details' => 'Drei Frauen, zwei Männer, acht Kinder - vor 4500 Jahren liebevoll und teils in inniger Umarmung bestattet. Der Fund sorgte weltweit für Aufsehen. Terra X ist dem Geheimnis der Skelette auf der Spur.',
+				'airtime' => '2014-08-14 22:25:00',
+				'url' => '[{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/rodl.zdf.de\\/none\\/zdf\\/10\\/08\\/100829_eulau_tex_h.mp4","_filesize":"199768141"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/rodl.zdf.de\\/none\\/zdf\\/10\\/08\\/100829_eulau_tex_vh.mp4","_filesize":"538429849"}]',
+				'duration' => '00:42:00',
+				'image' => '[{"_resolution":"672x378","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/1118362\\/timg672x378blob\\/10131117"},{"_resolution":"644x363","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/1118362\\/timg644x363blob\\/10131116"},{"_resolution":"485x273","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/1118362\\/timg485x273blob\\/10131106"},{"_resolution":"476x268","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/1118362\\/timg476x268blob\\/10131113"},{"_resolution":"476x176","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/1118362\\/timg476x176blob\\/10131111"},{"_resolution":"404x227","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/1118362\\/timg404x227blob\\/10131119"},{"_resolution":"298x168","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/1118362\\/timg298x168blob\\/10131114"},{"_resolution":"276x155","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/1118362\\/timg276x155blob\\/10131107"},{"_resolution":"236x133","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/1118362\\/timg236x133blob\\/10131115"},{"_resolution":"173x120","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/1118362\\/timg173x120blob\\/10131105"}]',
+				'station' => 'ZDFinfo',
+				'created_at' => '2014-08-18 09:33:05',
+				'updated_at' => '2014-08-18 09:33:05',
+				'playlist_id' => 2,
+				'user_id' => NULL,
+			),
 		));
 	}
 
