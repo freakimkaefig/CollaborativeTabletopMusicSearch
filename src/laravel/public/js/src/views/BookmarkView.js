@@ -4,10 +4,11 @@ MediathekCrawler.BookmarkView = (function() {
 
 	init = function() {
 		console.info('MediathekCrawler.BookmarkView.init');
-		onDeleteBookmark();
+		//onDeleteBookmark();
+		$("body").on("click","button[id^='delete-bookmark-']",onDeleteBookmark);
 	},
 	onDeleteBookmark = function(){
-		$("body").on("click","button[id^='delete-bookmark-']",function(){
+		
 			$broadcastId = $(this).val();
 			console.log($broadcastId);
 			$.ajax({
@@ -19,7 +20,7 @@ MediathekCrawler.BookmarkView = (function() {
 		$('body').removeClass('modal-open');
 		$('.modal-backdrop').remove();
 		$("#list-item-"+$broadcastId).remove();
-		});
+		
 		$(that).trigger('feedback',["deleteVideo"]);
 
 	};

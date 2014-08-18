@@ -363,7 +363,7 @@ MediathekCrawler.ApplicationController = function() {
 		var _id = $('#video-id').val();
 		broadcastView.renderVideoBookmark(_id);
 	},
-
+	
 	dispose = function() {
 		that = {};
 	};
