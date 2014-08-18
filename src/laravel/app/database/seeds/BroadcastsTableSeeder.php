@@ -236,6 +236,38 @@ class BroadcastsTableSeeder extends Seeder {
 				'playlist_id' => NULL,
 				'user_id' => 1,
 			),
+			14 => 
+			array (
+				'id' => 87,
+			'title' => 'Besuch aus der Südsee (1/3)',
+			'subtitle' => ' (Dokumentationsreihe)',
+				'details' => 'Fremde Länder, fremde Sitten: Auf der im Südpazifik gelegenen Insel Tanna lebt ein Volk in seinen ursprünglichen Traditionen. Neugierig auf das Leben derjenigen, die ihre Insel besuchen und ihre Gewohnheiten studieren, haben sich fünf Männer des Stammes aufgemacht, um den Alltag in Großbritannien zu beobachten und mit der Kamera zu dokumentieren.',
+				'airtime' => '2014-08-11 16:20:00',
+				'url' => '[{"_basetype":"","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/artestras.vo.llnwd.net\\/v2\\/am\\/HBBTV\\/041268-000-A_HQ_1_VA_01417934_MP4-800_AMM-HBBTV.mp4","_filesize":"0"},{"_basetype":"","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/artestras.vo.llnwd.net\\/v2\\/am\\/HBBTV\\/041268-000-A_EQ_1_VA_01417936_MP4-1500_AMM-HBBTV.mp4","_filesize":"0"},{"_basetype":"","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/artestras.vo.llnwd.net\\/v2\\/am\\/HBBTV\\/041268-000-A_SQ_1_VA_01417938_MP4-2200_AMM-HBBTV.mp4","_filesize":"0"}]',
+				'duration' => '00:43:00',
+				'image' => '[{"_resolution":"940x530","_url":"http:\\/\\/www.arte.tv\\/papi\\/tvguide\\/images\\/1115294\\/W940H530\\/041268-000_besuchsuedsee1_01-1405914312938.jpg"}]',
+				'station' => 'ARTE',
+				'created_at' => '2014-08-18 09:25:36',
+				'updated_at' => '2014-08-18 09:25:36',
+				'playlist_id' => 1,
+				'user_id' => NULL,
+			),
+			15 => 
+			array (
+				'id' => 88,
+			'title' => 'Besuch aus der Südsee (1/3)',
+			'subtitle' => ' (Dokumentationsreihe)',
+				'details' => 'Fremde Länder, fremde Sitten: Auf der im Südpazifik gelegenen Insel Tanna lebt ein Volk in seinen ursprünglichen Traditionen. Neugierig auf das Leben derjenigen, die ihre Insel besuchen und ihre Gewohnheiten studieren, haben sich fünf Männer des Stammes aufgemacht, um den Alltag in Großbritannien zu beobachten und mit der Kamera zu dokumentieren.',
+				'airtime' => '2014-08-11 16:20:00',
+				'url' => '[{"_basetype":"","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/artestras.vo.llnwd.net\\/v2\\/am\\/HBBTV\\/041268-000-A_HQ_1_VA_01417934_MP4-800_AMM-HBBTV.mp4","_filesize":"0"},{"_basetype":"","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/artestras.vo.llnwd.net\\/v2\\/am\\/HBBTV\\/041268-000-A_EQ_1_VA_01417936_MP4-1500_AMM-HBBTV.mp4","_filesize":"0"},{"_basetype":"","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/artestras.vo.llnwd.net\\/v2\\/am\\/HBBTV\\/041268-000-A_SQ_1_VA_01417938_MP4-2200_AMM-HBBTV.mp4","_filesize":"0"}]',
+				'duration' => '00:43:00',
+				'image' => '[{"_resolution":"940x530","_url":"http:\\/\\/www.arte.tv\\/papi\\/tvguide\\/images\\/1115294\\/W940H530\\/041268-000_besuchsuedsee1_01-1405914312938.jpg"}]',
+				'station' => 'ARTE',
+				'created_at' => '2014-08-18 09:25:55',
+				'updated_at' => '2014-08-18 09:25:55',
+				'playlist_id' => 2,
+				'user_id' => NULL,
+			),
 		));
 	}
 

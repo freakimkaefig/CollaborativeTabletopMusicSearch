@@ -34,9 +34,9 @@
 		        <img src='{{$image}}' class="img-responsive col-lg-3"/>
        			<div class="col-sm-8">
        				<h3>{{$result->name}}</h3>
-       				<h4>1) {{ isset($videos[0]->title) ? $videos[0]->title : '' }}</h4>
-       				<h4>2) {{ isset($videos[1]->title) ? $videos[1]->title : '' }}</h4>
-       				<h4>3) {{ isset($videos[2]->title) ? $videos[2]->title : '' }}</h4>
+       				<h4>{{ isset($videos[0]->title) ? '1) ' . $videos[0]->title : '' }}</h4>
+       				<h4>{{ isset($videos[1]->title) ? '2) ' . $videos[1]->title : '' }}</h4>
+       				<h4>{{ isset($videos[2]->title) ? '3) ' .$videos[2]->title : '' }}</h4>
        				<!-- <h4>3)<?php try{ echo $videos[0]->title;}catch(Exception $e){echo "";}?></h4> -->
        			</div>
        			

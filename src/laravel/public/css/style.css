@@ -316,19 +316,34 @@ body{
 #feedback-container-warning{
 	background-color: #3f3030;
 }
+#channel{
+	float: left;
+}
+#icon-station-results{
+	margin-top: 20px;
+	margin-left: 20px;
+	float: left;
+	height: 30px;
+}
 
 #icon-station{
 	float: left;
 	height: 20px;
 }
-#icon-station img{
+#icon-station-results img, #icon-station img {
 	height: 100%;
 	float: left;
 }
+#icon-station-results img{ margin-right: 20px;}
+
 #station{
 	text-indent: 5px;
 	padding-top: 5px;
 	vertical-align: bottom;
 	float: none;
 	display: none;
+}
+
+.page-title{
+	
 }
