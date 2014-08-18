@@ -38,7 +38,7 @@ MediathekCrawler.PlaylistView = (function() {
 			
 			$.ajax({
 				type: "GET",
-				url: "http://mediathek-crawler/playlists/delete/video/"+$broadcastId,
+				url: "/playlists/delete/video/"+$broadcastId,
 				data: {},
 			});
 		$('#confirm-delete-'+$broadcastId).modal('hide');
@@ -53,7 +53,7 @@ MediathekCrawler.PlaylistView = (function() {
 			
 		$.ajax({
 				type: "GET",
-				url: "http://mediathek-crawler/playlists/delete/"+$playlistId,
+				url: "/playlists/delete/"+$playlistId,
 				data: {},
 			});
 		$('#confirm-delete-'+$playlistId).modal('hide');
