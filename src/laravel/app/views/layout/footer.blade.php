@@ -6,12 +6,11 @@
 				<h4 class="col-sm-offset-4">Rubriken</h4>
 				<div class="col-sm-4 col-sm-offset-4 alpha">
 					<ul>
-						<li><a href="#">Live</a></li>
+						<li><a href="{{URL::route('category',array('live'))}}">Live</a></li>
 						<li><a href="{{ URL::route('hot-videos') }}">Hot</a></li>
 						<li><a href="{{ URL::route('new-videos') }}">New</a></li>
 						<li><a href="{{URL::route('category',array('politik'))}}">Politik</a></li>
 						<li><a href="{{URL::route('category',array('sport'))}}">Sport</a></li>
-						<li><a href="{{URL::route('category',array('kino-tv'))}}">Kino|TV</a></li>
 						<li><a href="{{URL::route('category',array('kinder'))}}">Kinder</a></li>
 						<li><a href="{{URL::route('category',array('wissen-kultur'))}}">Wissen</a></li>
 
@@ -20,9 +19,10 @@
 				<div class="col-sm-4 alpha">
 					<ul>
 						<li><a href="{{URL::route('category',array('nachrichten'))}}">Nachrichten</a></li>
+						<li><a href="{{URL::route('category',array('kino-tv'))}}">Kino und TV</a></li>
+						<li><a href="{{URL::route('category',array('wirtschaft'))}}">Wirtschaft</a></li>
 						<li><a href="{{URL::route('category',array('ratgeber-gesundheit'))}}">Ratgeber</a></li>
 						<li><a href="{{URL::route('category',array('unterhaltung'))}}">Unterhaltung</a></li>
-						<li><a href="{{URL::route('category',array('wirtschaft'))}}">Wirtschaft</a></li>
 
 
 					</ul>
@@ -37,9 +37,7 @@
 					    <li><a href="{{URL::route('channel',array('ARTE'))}}">Arte</a></li>
 					    <li><a href="{{URL::route('channel',array('BR'))}}">BR</a></li>
 					    <li><a href="{{URL::route('channel',array('SRF'))}}">SRF</a></li>
-					    <li><a href="#">WDR</a></li>
-					    <li><a href="#">NDR</a></li>
-					    <li><a href="#">3Sat</a></li>
+					    <li><a href="{{URL::route('channel',array('WDR'))}}">WDR</a></li>
 					</ul>
 				</div>
 			</div>
@@ -61,7 +59,7 @@
 				</div>
 			</div>
 			<div class="col-sm-3 hidden-xs">
-				<h4 class="col-sm-offset-4">Sonstiges</h4>
+				<h4 class="col-sm-offset-4"></h4>
 				<div class="col-sm-4 col-sm-offset-4 alpha">
 					<ul>
 					    <li><a href="#">About</a></li>

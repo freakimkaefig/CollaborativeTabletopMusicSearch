@@ -9,7 +9,7 @@
 		{{ HTML::style('css/style.css') }}
 
 		{{ HTML::script('js/libs/jquery/jquery.min.js') }}
-		{{ HTML::script('js/libs/jquery/jquery-ui.js') }}
+		{{ HTML::script('js/libs/jquery/jquery-ui.min.js') }}
 		{{ HTML::script('js/libs/bootstrap/bootstrap.min.js') }}
 		
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,14 +26,13 @@
 
 			<div class="nav-collapse collapse" style="position: absolute; z-index: 99">
 			    <ul class="nav navbar-nav" style="background-color: #1b1b1b">
-			      <li class="active"><a href="#">Playliste</a></li>
-			      <li><a href="#">Favoriten</a></li>
-			      <li><a href="#">Merkliste</a></li>
+			      <li class="active"><a href="{{ URL::route('playlists') }}">Playliste</a></li>
+			      <li><a href="{{ URL::route('bookmarks') }}">Merkliste</a></li>
 			      <li><a href="#">Live/Mediatheken</a></li>
 			      <li><a href="#">Rubriken</a></li>
 			      <li><a href="#">Kontakt</a></li>
 			      <li><a href="#">Impressum</a></li>
-			      <li><a href="#">Einstellungen</a></li>
+			      <li><a href="{{ URL::route('account-my-account') }}">Einstellungen</a></li>
 			    </ul>
 			</div>
 		</div>

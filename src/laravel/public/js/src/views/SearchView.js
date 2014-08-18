@@ -75,8 +75,8 @@ MediathekCrawler.SearchView = (function() {
 	},
 	initDatepickers = function(){
 		$("#datepicker-from").datepicker({  
-			maxDate: "+21d" , 
-			minDate: "-9d",
+			maxDate: 0 , 
+			minDate: "-30d",
 			dateFormat: "dd-mm-yy",
 			monthNames: ['Januar','Februar','März','April','Mai','Juni',
         				'Juli','August','September','Oktober','November','Dezember'],
@@ -87,7 +87,7 @@ MediathekCrawler.SearchView = (function() {
         	dayNamesMin: ['So','Mo','Di','Mi','Do','Fr','Sa']
 		});
 		$("#datepicker-to").datepicker({  
-			maxDate: "+21d",
+			maxDate: 0,
 			dateFormat: "dd-mm-yy",
 			monthNames: ['Januar','Februar','März','April','Mai','Juni',
         				'Juli','August','September','Oktober','November','Dezember'],
@@ -101,8 +101,17 @@ MediathekCrawler.SearchView = (function() {
 			$("#datepicker-to").removeAttr("disabled");
 			minDate=$("#datepicker-from").datepicker("getDate");
 			$("#datepicker-to").datepicker('option', 'minDate', minDate);
+			sevenDaysBeforeToday = new Date();
+			sevenDaysBeforeToday.setDate(sevenDaysBeforeToday.getDate()-7)
 			maxDate = $("#datepicker-from").datepicker("getDate");
-			maxDate.setDate(maxDate.getDate()+7);
+			if(maxDate > sevenDaysBeforeToday){
+
+				today = new Date();
+				maxDate.setDate(today.getDate())
+			}else{
+				maxDate.setDate(maxDate.getDate()+7);	
+			}
+
 			$("#datepicker-to").datepicker('option', 'maxDate', maxDate);
 			$("#datepicker-to").datepicker('setDate', minDate)
 		});

@@ -134,7 +134,7 @@ MediathekCrawler.ApplicationController = function() {
 				SRFService.getHot();
 			}
 			if(document.URL.indexOf('/channel/BR') > -1){
-				// BRService.getBRNew();
+				BRService.getBRNew();
 				BRService.getBRHot();
 			}
 
