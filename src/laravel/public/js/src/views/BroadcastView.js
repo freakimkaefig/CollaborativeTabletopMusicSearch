@@ -227,6 +227,9 @@ MediathekCrawler.BroadcastView = (function() {
 		if(station.indexOf("arte") > -1){
 			$("#icon-station").append("<img src='/css/images/arte.svg' />");
 		}
+		if(station.indexOf("br") > -1){
+			$("#icon-station").append("<img src='/css/images/br.svg' />");
+		}
 
 
 	},
