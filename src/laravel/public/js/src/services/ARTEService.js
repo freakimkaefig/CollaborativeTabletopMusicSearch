@@ -902,7 +902,7 @@ MediathekCrawler.ARTEService = function() {
 					// console.log('New stream url: ',_url2);
 					if(_url !== PROXY_URL + encodeURI(_url2) && _url2.length > 15){
 						// console.log('ARTE; trying to search Streams with new streamUrl: ',_url2);
-						_searchARTEStreams(origin, assetID, title, subtitle, details, station, length, airtime, teaserImages, _url2);
+						// _searchARTEStreams(origin, assetID, title, subtitle, details, station, length, airtime, teaserImages, _url2);
 					}else if(_url === _url2){
 						console.log('ARTE; \'',title, '\' has ', streams.length, ' streams. \nCHECK: ',_url, '\nAND ',_url2);
 					}
@@ -917,7 +917,7 @@ MediathekCrawler.ARTEService = function() {
 				console.warn('ERROR; ARTEService.getNew; AJAX-request did not recieve a response');
 			}
 		});
-		console.log('ARTE _searchARTEStreams - finished ajax request')
+		// console.log('ARTE _searchARTEStreams - finished ajax request')
 
 	},
 

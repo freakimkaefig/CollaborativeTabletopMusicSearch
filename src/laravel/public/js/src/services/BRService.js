@@ -273,6 +273,9 @@ MediathekCrawler.BRService = function() {
 					case 'PREMIUM':
 						quality = 3;
 						break;
+					case 'HD':
+						quality = 3;
+						break;
 				}
 
 				result._streams.push(_model.createStream(basetype, type, quality, url, filesize));
@@ -428,19 +431,19 @@ MediathekCrawler.BRService = function() {
 		// throw new NotImplementedException();
 		// BR_HOT_URL
 		var _url = PROXY_URL + encodeURI(BR_HOT_URL);
-		// console.log('BR onGetBRNew ELSE url: ',_url);
+		console.log('BR getBRHot url: ',_url);
 		$.ajax({
 			url: _url,
 			type: 'GET',
 			success: function(data) {
 
-				onGetBRHot(data, origin);
+				// onGetBRHot(data, origin);
 			}
 		});
 	},
 
 	onGetBRHot = function(data, origin){
-		console.log('BR onGetBRHot: ');
+		console.log('BR onGetBRHot: ',data);
 		$(data).find('.teaserInner').each(function (index, element) {
 		console.log('BR onGetBRHot: ',element);
 
