@@ -20,9 +20,9 @@ class UsersTableSeeder extends Seeder {
 				'password_temp' => '',
 				'code' => '',
 				'active' => 1,
-				'remember_token' => 'slZJUh4XKDEq1CDhc1HpfBqclBjers247kKzDd5dN4Y9lVg9uFa3VjGDphXa',
+				'remember_token' => 'Otm5MrxVD7V6mr9cAK3JgU4IAN2SA0wTB7LcqM37LImtrOyacYzv4Nd2Qylm',
 				'created_at' => '2014-07-08 12:56:04',
-				'updated_at' => '2014-08-12 12:44:34',
+				'updated_at' => '2014-08-18 13:03:39',
 			),
 			1 => 
 			array (
@@ -32,9 +32,9 @@ class UsersTableSeeder extends Seeder {
 				'password_temp' => '',
 				'code' => '',
 				'active' => 1,
-				'remember_token' => 'cUdrXTWN50aUdWUA717VkZtN6KBrPhnVIs23KbIxGj84G0fDO14ezPYWUwnh',
+				'remember_token' => 'pQ3HpNPmwzuku6HG5flWEDTxuQ3dWnKhTlXUAuuMSlDlWmbpAP8b6UsYCGZA',
 				'created_at' => '2014-07-22 10:20:43',
-				'updated_at' => '2014-08-18 13:08:32',
+				'updated_at' => '2014-08-12 14:10:50',
 			),
 		));
 	}

@@ -225,19 +225,19 @@ MediathekCrawler.ResultView = (function() {
 		$('#icon-station').tooltip();
 		station = station.toLowerCase();
 		if(station.indexOf("erste") > -1){
-			$("#icon-station-results").append("<img src='/css/images/Das_erste_2014.svg' />");
+			$("#icon-station-results").append("<img src='/css/images/Das_Erste_2014.svg' />");
 		}
 		if(station.indexOf("zdf") > -1 ){
-			$("#icon-station-results").append("<img src='/css/images/zdf.svg' />");
-			$("#icon-station-results").append("<img src='/css/images/zdfneo.svg' />");
-			$("#icon-station-results").append("<img src='/css/images/zdfinfo.svg' />");
-			$("#icon-station-results").append("<img src='/css/images/zdf.kultur_logo.svg' />");
+			$("#icon-station-results").append("<img src='/css/images/ZDF.svg' />");
+			$("#icon-station-results").append("<img src='/css/images/ZDFneo.svg' />");
+			$("#icon-station-results").append("<img src='/css/images/ZDFinfo.svg' />");
+			$("#icon-station-results").append("<img src='/css/images/Zdf.kultur_logo.svg' />");
 		}
 		if(station.indexOf("srf") > -1){
 			$("#icon-station-results").append("<img src='/css/images/srf.svg' />");
 		}
 		if(station.indexOf("arte") > -1){
-			$("#icon-station-results").append("<img src='/css/images/arte.svg' />");
+			$("#icon-station-results").append("<img src='/css/images/Arte.svg' />");
 		}
 		if(station.indexOf("br") > -1){
 			$("#icon-station-results").append("<img src='/css/images/br.svg' />");
