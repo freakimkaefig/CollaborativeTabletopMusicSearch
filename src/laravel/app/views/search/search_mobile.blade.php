@@ -10,14 +10,39 @@
 		{{ HTML::script('js/libs/bootstrap/bootstrap.min.js') }}
 		
 	</head>
-	<body>			
-		<div class="form-group">
-			<input type="text" class="form-control" name="search" placeholder="Suche"{{ (Input::old('search')) ? ' value="' . e(Input::old('search')) . '"' : '' }}>
-		</div>
+	<body>		
+	@include('layout.header')
+	@include('mediathek-crawler-js')
+
+		<div class="visible-xs form-search">
+		
+			<button type="button" class="btn btn-default" data-toggle="collapse" data-target=".nav-collapse">_
+			      <!--
+			      <span class="icon-bar"></span>
+			      <span class="icon-bar"></span>
+			      <span class="icon-bar"></span>  -->
+			</button>
+
+			<div class="nav-collapse collapse" style="position: absolute; z-index: 99">
+			    <ul class="nav navbar-nav" style="background-color: #1b1b1b">
+			      <li class="active"><a href="{{ URL::route('playlists') }}">Playliste</a></li>
+			      <li><a href="{{ URL::route('bookmarks') }}">Merkliste</a></li>
+			      <li><a href="#">Live/Mediatheken</a></li>
+			      <li><a href="#">Rubriken</a></li>
+			      <li><a href="#">Kontakt</a></li>
+			      <li><a href="#">Impressum</a></li>
+			      <li><a href="{{ URL::route('account-my-account') }}">Einstellungen</a></li>
+			    </ul>
+			</div>
+
+			<input type="text" class="input-medium search-query" name="search" placeholder="Suche"{{ (Input::old('search')) ? ' value="' . e(Input::old('search')) . '"' : '' }}>
+			
+			<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+			</div>
 
 
 
-		<div id="category-filter" class="form-group col-sm-3">
+		<div id="category-filter" class="form-group col-md-4 visible-xs">
 		<h4>Rubriken</h4>
 		<div class="col-sm-6">
 			<div class="checkbox">
@@ -51,6 +76,7 @@
 				</label>
 			</div>
 		</div>
+
 		<div class="col-sm-6">
 			<div class="checkbox ">
 				<label>
@@ -79,7 +105,8 @@
 			</div>
 		</div>
 	</div>
-	<div id="channel-filter" class="form-group col-sm-3">
+
+	<div id="channel-filter" class="form-group col-sm-3 visible-xs">
 		<h4>Sender</h4>
 		<div class="col-sm-6">
 			<div class="checkbox">
@@ -102,7 +129,8 @@
 			</div>
 		</div>		
 	</div>
-	<div class="form-group col-sm-4 form-inline">
+
+	<div class="form-group col-sm-4 form-inline visible-xs">
 		<h4>Datum &amp; Dauer</h4>
 		<div class="disabled col-sm-6">
 			<label>Von:
@@ -121,13 +149,10 @@
 		</div>
 	</div>
 
-	<div class="col-sm-2">
+	<div class="col-sm-2 visible-xs">
 		<button id="submit" class="btn btn-transparent col-xs-12">Absenden</button>
 		<button type="" class="btn btn-transparent col-xs-12">Zurücksetzen</button>
 	</div>
-		@include('layout.header')
-
-		@include('mediathek-crawler-js')
-
+		
 	</body>
 </html>
