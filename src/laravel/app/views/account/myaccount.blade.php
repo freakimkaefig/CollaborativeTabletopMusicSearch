@@ -76,13 +76,18 @@
 		          catch(Exception $e){
 		            $image_bookmark = "";
 		          } ?>
-			<div class="video-item col-xs-12 col-sm-12 col-lg-8 col-lg-offset-2">
+			<div class="video-item col-xs-12 col-lg-8 col-lg-offset-2">
 				<a href="/video/bookmark/{{$result->id}}">
 				<img src="{{$image_bookmark}}" class="img-responsive col-xs-12"/>
 				<div class="video-item-description col-xs-12">
-					<div class="col-xs-12">{{$result->title}}</div>
-					<div class="col-xs-12">{{($result->subtitle) ? $result->subtitle : ""}}</div>
-					<div class="col-xs-12"><span>{{date('d.m.y H:i', strtotime($result->airtime))}}</span> | <span> {{$result->duration}}</span> | <span>{{$result->station}}</span></div>
+					<div class="video-item-title">{{$result->title}}</div>
+					<div class="video-item-subtitle">{{($result->subtitle) ? $result->subtitle : ""}}</div>
+					<div class="video-item-time">
+						<span>{{date('d.m.y H:i', strtotime($result->airtime))}}</span>
+					</div>
+					<div class="video-item-channel">
+						<span>{{$result->station}}</span> | <span>{{$result->duration}}</span> 
+					</div>
 				</div>
 				</a>
 			</div>

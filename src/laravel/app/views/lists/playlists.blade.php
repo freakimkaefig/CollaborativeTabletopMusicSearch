@@ -3,7 +3,7 @@
 @section('content')
 	<!-- START lists/playlists -->
 	<h1 class="text-center">Playlisten</h1>
-	<div class="col-sm-3">
+	<div class="col-xs-3 col-sm-offset-1 alpha">
 	<button id="new-list" class="btn btn-transparent">Neue Liste</button>
 	<form id="create-playlist" class="select-box col-sm-6 hidden" action="{{ URL::route('new-playlist')}}" method="post">
 		<input type="text" name="playlistName" />
@@ -31,19 +31,23 @@
 		          }
 		        ?>
 		    @if(isset($videos[0]->id))  
-   			<div  id="list-item-{{$result->id}}" class="list-item col-sm-10 col-sm-offset-1"><a href="{{ URL::route('playlist-single',[$result->id,$videos[0]->id])}}">
-		        <img src='{{$image}}' class="img-responsive col-lg-3"/>
-       			<div class="col-sm-8">
-       				<h3>{{$result->name}}</h3>
-       				<h4>{{ isset($videos[0]->title) ? '1) ' . $videos[0]->title : '' }}</h4>
-       				<h4>{{ isset($videos[1]->title) ? '2) ' . $videos[1]->title : '' }}</h4>
-       				<h4>{{ isset($videos[2]->title) ? '3) ' .$videos[2]->title : '' }}</h4>
-       				<!-- <h4>3)<?php try{ echo $videos[0]->title;}catch(Exception $e){echo "";}?></h4> -->
-       			</div>
-       			
+   			<div  id="list-item-{{$result->id}}" class="list-item col-xs-12 col-sm-10 col-sm-offset-1">
+   				<a href="{{ URL::route('playlist-single',[$result->id,$videos[0]->id])}}">
+		        	<img src='{{$image}}' class="img-responsive col-xs-10 col-md-4 col-lg-3"/>
+		        </a>
+		       	<div class="col-xs-1 pull-right">
+		        	<button class="btn btn-transparent pull-right" data-toggle="modal" data-target="#confirm-delete-{{$result->id}}">X</button>
+		        </div>
+		        <a href="{{ URL::route('playlist-single',[$result->id,$videos[0]->id])}}">
+       				<div class="col-xs-12 col-md-7 col-lg-8">
+       					<h3>{{$result->name}}</h3>
+       					<h4>{{ isset($videos[0]->title) ? '1) ' . $videos[0]->title : '' }}</h4>
+       					<h4>{{ isset($videos[1]->title) ? '2) ' . $videos[1]->title : '' }}</h4>
+       					<h4>{{ isset($videos[2]->title) ? '3) ' .$videos[2]->title : '' }}</h4>
+       					<!-- <h4>3)<?php try{ echo $videos[0]->title;}catch(Exception $e){echo "";}?></h4> -->
+       				</div>
        			</a>
-       			<button class="btn btn-transparent pull-right" data-toggle="modal" data-target="#confirm-delete-{{$result->id}}">X</button>
-		        <div class="modal fade" id="confirm-delete-{{$result->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+       			<div class="modal fade" id="confirm-delete-{{$result->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		        <div class="modal-dialog">
 		            <div class="modal-content">
 		                <div class="modal-header">
@@ -65,13 +69,15 @@
 		        </div>
    			</div>
    			@else
-   			<div id="list-item-{{$result->id}}" class="list-item col-sm-10 col-sm-offset-1">
-   				<img src='{{$image}}' class="img-responsive col-lg-3"/>
-   				<div class="col-sm-8">
+   			<div id="list-item-{{$result->id}}" class="list-item col-xs-12 col-sm-10 col-sm-offset-1">
+   				<img src='{{$image}}' class="img-responsive col-xs-10 col-md-4 col-lg-3"/>
+   				<div class="col-xs-1 pull-right">
+		        	<button class="btn btn-transparent pull-right" data-toggle="modal" data-target="#confirm-delete-{{$result->id}}">X</button>
+		        </div>
+   				<div class="col-xs-12 col-md-7 col-lg-8">
    					<h3>{{$result->name}}</h3>
-   					<h4>Noch nichts vorhanden</h4>
+   					<h4>Diese Playliste ist leer.</h4>
    				</div>
-   				<button class="btn btn-transparent pull-right" data-toggle="modal" data-target="#confirm-delete-{{$result->id}}">X</button>
 		        <div class="modal fade" id="confirm-delete-{{$result->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		        <div class="modal-dialog">
 		            <div class="modal-content">
