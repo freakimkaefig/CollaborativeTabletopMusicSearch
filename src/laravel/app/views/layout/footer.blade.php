@@ -19,7 +19,7 @@
 				<div class="col-sm-4 alpha">
 					<ul>
 						<li><a href="{{URL::route('category',array('nachrichten'))}}">Nachrichten</a></li>
-						<li><a href="{{URL::route('category',array('kino-tv'))}}">Kino|TV</a></li>
+						<li><a href="{{URL::route('category',array('kino-tv'))}}">Kino und TV</a></li>
 						<li><a href="{{URL::route('category',array('wirtschaft'))}}">Wirtschaft</a></li>
 						<li><a href="{{URL::route('category',array('ratgeber-gesundheit'))}}">Ratgeber</a></li>
 						<li><a href="{{URL::route('category',array('unterhaltung'))}}">Unterhaltung</a></li>
