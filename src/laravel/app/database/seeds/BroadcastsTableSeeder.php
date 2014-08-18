@@ -46,22 +46,6 @@ class BroadcastsTableSeeder extends Seeder {
 			),
 			2 => 
 			array (
-				'id' => 11,
-				'title' => 'Die Truman Show',
-			'subtitle' => ' (spielfilm)',
-				'details' => 'TRAILER: Das Leben des Versicherungsagenten Truman Burbank wird ohne dessen Wissen seit 30 Jahren weltweit live übertragen, in einer wahnsinnig erfolgreichen Fernseh-„Seifenoper“. Bis Truman Zweifel überkommen. Vor dem Hintergrund einer gigantischen "lebensechten" Fernsehkulisse wird der Zuschauer selbst zum Voyeur bei Trumans allmählicher Entdeckung einer alternativen Realität. Brillant inszeniert und gespielt, nimmt der Film Medienmanipulation, Konformismus und Kommerzialisierung aufs Korn, scheut aber auch vor existenziellen Fragestellungen nicht zurück. Furore machende, meisterhafte Satire aus den 90er Jahren.',
-				'airtime' => '2014-08-05 13:49:18',
-				'url' => '[{"_basetype":"","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/artestras.vo.llnwxd.net\\/o35\\/nogeo\\/HBBTV\\/PWA10990_SQ_1_VA_01395698_MP4-2200_AMM-HBBTV.mp4","_filesize":"0"},{"_basetype":"","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/artestras.vo.llnwxd.net\\/o35\\/nogeo\\/HBBTV\\/PWA10990_EQ_1_VA_01395697_MP4-1500_AMM-HBBTV.mp4","_filesize":"0"},{"_basetype":"","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/artestras.vo.llnwxd.net\\/o35\\/nogeo\\/HBBTV\\/PWA10990_HQ_1_VA_01395694_MP4-800_AMM-HBBTV.mp4","_filesize":"0"}]',
-				'duration' => '00:01:00',
-				'image' => '[{"_resolution":"940x530","_url":"http:\\/\\/www.arte.tv\\/papi\\/tvguide\\/images\\/1225841\\/W940H530\\/052722-000_trumanshow_01-1405223121406.jpg"},{"_resolution":"940x530","_url":"http:\\/\\/www.arte.tv\\/papi\\/tvguide\\/images\\/1225841\\/W940H530\\/052722-000_trumanshow_01-1405223121406.jpg"}]',
-				'station' => 'ARTE',
-				'created_at' => '2014-08-14 09:48:02',
-				'updated_at' => '2014-08-14 09:48:02',
-				'playlist_id' => NULL,
-				'user_id' => 1,
-			),
-			3 => 
-			array (
 				'id' => 12,
 				'title' => 'Nur die Besten kommen durch',
 				'subtitle' => '0',
@@ -76,7 +60,7 @@ class BroadcastsTableSeeder extends Seeder {
 				'playlist_id' => 1,
 				'user_id' => NULL,
 			),
-			4 => 
+			3 => 
 			array (
 				'id' => 14,
 				'title' => 'Der Chronist des Todes',
@@ -92,7 +76,7 @@ class BroadcastsTableSeeder extends Seeder {
 				'playlist_id' => 1,
 				'user_id' => NULL,
 			),
-			5 => 
+			4 => 
 			array (
 				'id' => 37,
 				'title' => 'Wacken 2013: Anthrax',
@@ -108,7 +92,7 @@ class BroadcastsTableSeeder extends Seeder {
 				'playlist_id' => 1,
 				'user_id' => NULL,
 			),
-			6 => 
+			5 => 
 			array (
 				'id' => 38,
 				'title' => 'Wacken 2013: Anthrax',
@@ -124,7 +108,7 @@ class BroadcastsTableSeeder extends Seeder {
 				'playlist_id' => 1,
 				'user_id' => NULL,
 			),
-			7 => 
+			6 => 
 			array (
 				'id' => 40,
 				'title' => 'Wacken 2013: Anthrax',
@@ -140,7 +124,7 @@ class BroadcastsTableSeeder extends Seeder {
 				'playlist_id' => 1,
 				'user_id' => NULL,
 			),
-			8 => 
+			7 => 
 			array (
 				'id' => 42,
 				'title' => '"Amigo - Bei Ankunft Tod"',
@@ -156,7 +140,7 @@ class BroadcastsTableSeeder extends Seeder {
 				'playlist_id' => 1,
 				'user_id' => NULL,
 			),
-			9 => 
+			8 => 
 			array (
 				'id' => 44,
 				'title' => '"Amigo - Bei Ankunft Tod"',
@@ -172,7 +156,7 @@ class BroadcastsTableSeeder extends Seeder {
 				'playlist_id' => NULL,
 				'user_id' => 1,
 			),
-			10 => 
+			9 => 
 			array (
 				'id' => 72,
 				'title' => 'Der Chronist des Todes',
@@ -188,7 +172,7 @@ class BroadcastsTableSeeder extends Seeder {
 				'playlist_id' => NULL,
 				'user_id' => 1,
 			),
-			11 => 
+			10 => 
 			array (
 				'id' => 73,
 				'title' => 'Nicht von schlechten Vätern - Boris',
@@ -204,7 +188,7 @@ class BroadcastsTableSeeder extends Seeder {
 				'playlist_id' => NULL,
 				'user_id' => 1,
 			),
-			12 => 
+			11 => 
 			array (
 				'id' => 85,
 				'title' => '"Dschungelkampf"',
@@ -220,7 +204,7 @@ class BroadcastsTableSeeder extends Seeder {
 				'playlist_id' => NULL,
 				'user_id' => 1,
 			),
-			13 => 
+			12 => 
 			array (
 				'id' => 86,
 				'title' => 'Gasland',
@@ -236,7 +220,7 @@ class BroadcastsTableSeeder extends Seeder {
 				'playlist_id' => NULL,
 				'user_id' => 1,
 			),
-			14 => 
+			13 => 
 			array (
 				'id' => 87,
 			'title' => 'Besuch aus der Südsee (1/3)',
@@ -252,7 +236,7 @@ class BroadcastsTableSeeder extends Seeder {
 				'playlist_id' => 1,
 				'user_id' => NULL,
 			),
-			15 => 
+			14 => 
 			array (
 				'id' => 88,
 			'title' => 'Besuch aus der Südsee (1/3)',
