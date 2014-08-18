@@ -92,6 +92,38 @@ class BroadcastsTableSeeder extends Seeder {
 				'playlist_id' => NULL,
 				'user_id' => 1,
 			),
+			5 => 
+			array (
+				'id' => 87,
+				'title' => 'Tatort Internet',
+				'subtitle' => '0',
+				'details' => 'Gefälschte Wohnungsangebote, Abzocke mit Liebes-SMS oder Psychoterror durch Cybermobbing: Die weite Welt des Internets bietet Kriminellen eine ganz neue Plattform.',
+				'airtime' => '2014-08-02 18:00:00',
+				'url' => '[{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/08\\/140813_tatortneu_inf_436k_p9v11.mp4","_filesize":"155236949"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/rodl.zdf.de\\/none\\/zdf\\/14\\/08\\/140813_tatortneu_inf_436k_p9v11.mp4","_filesize":"155236949"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/08\\/140813_tatortneu_inf_189k_p7v11.mp4","_filesize":"71792982"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/08\\/140813_tatortneu_inf_1456k_p13v11.mp4","_filesize":"499313532"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/rodl.zdf.de\\/none\\/zdf\\/14\\/08\\/140813_tatortneu_inf_1456k_p13v11.mp4","_filesize":"499313532"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"2","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/08\\/140813_tatortneu_inf_776k_p17v11.webm","_filesize":"175860457"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"0","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/08\\/140813_tatortneu_inf_282k_p16v11.webm","_filesize":"66969589"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"3","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/08\\/140813_tatortneu_inf_1496k_p18v11.webm","_filesize":"312065460"}]',
+				'duration' => '00:43:00',
+				'image' => '[{"_resolution":"672x378","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/1673784\\/timg672x378blob\\/10145150"},{"_resolution":"644x363","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/1673784\\/timg644x363blob\\/10145149"},{"_resolution":"485x273","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/1673784\\/timg485x273blob\\/10145139"},{"_resolution":"476x268","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/1673784\\/timg476x268blob\\/10145146"},{"_resolution":"476x176","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/1673784\\/timg476x176blob\\/10145144"},{"_resolution":"404x227","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/1673784\\/timg404x227blob\\/10145152"},{"_resolution":"298x168","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/1673784\\/timg298x168blob\\/10145147"},{"_resolution":"276x155","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/1673784\\/timg276x155blob\\/10145140"},{"_resolution":"236x133","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/1673784\\/timg236x133blob\\/10145148"},{"_resolution":"173x120","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/1673784\\/timg173x120blob\\/10145138"}]',
+				'station' => 'ZDFinfo',
+				'created_at' => '2014-08-18 14:38:13',
+				'updated_at' => '2014-08-18 14:38:13',
+				'playlist_id' => 1,
+				'user_id' => NULL,
+			),
+			6 => 
+			array (
+				'id' => 88,
+				'title' => 'Mertesacker: 10 Jahre und 104 Einsätze',
+				'subtitle' => '0',
+				'details' => 'Weltmeister Per Mertesacker ist mit nicht einmal 30 Jahren aus der Deutschen Fußballnationalmannschaft zurückgetreten. In seinen 10 Jahren im DFB Team spielte er 104 mal und erzielte 4 Tore.',
+				'airtime' => '2014-08-16 23:48:00',
+				'url' => '[{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/08\\/140816_mertesacker_sst_436k_p9v11.mp4","_filesize":"5119709"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/rodl.zdf.de\\/none\\/zdf\\/14\\/08\\/140816_mertesacker_sst_436k_p9v11.mp4","_filesize":"5119709"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/08\\/140816_mertesacker_sst_189k_p7v11.mp4","_filesize":"2361213"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/08\\/140816_mertesacker_sst_1456k_p13v11.mp4","_filesize":"16473856"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/rodl.zdf.de\\/none\\/zdf\\/14\\/08\\/140816_mertesacker_sst_1456k_p13v11.mp4","_filesize":"16473856"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"2","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/08\\/140816_mertesacker_sst_776k_p17v11.webm","_filesize":"5695982"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"0","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/08\\/140816_mertesacker_sst_282k_p16v11.webm","_filesize":"2177310"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"3","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/08\\/140816_mertesacker_sst_1496k_p18v11.webm","_filesize":"11207575"}]',
+				'duration' => '00:01:25',
+				'image' => '[{"_resolution":"946x532","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2219490\\/timg946x532blob\\/10155092"},{"_resolution":"672x378","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2219490\\/timg672x378blob\\/10155089"},{"_resolution":"644x363","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2219490\\/timg644x363blob\\/10155088"},{"_resolution":"485x273","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2219490\\/timg485x273blob\\/10155078"},{"_resolution":"476x268","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2219490\\/timg476x268blob\\/10155085"},{"_resolution":"476x176","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2219490\\/timg476x176blob\\/10155083"},{"_resolution":"404x227","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2219490\\/timg404x227blob\\/10155091"},{"_resolution":"298x168","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2219490\\/timg298x168blob\\/10155086"},{"_resolution":"276x155","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2219490\\/timg276x155blob\\/10155079"},{"_resolution":"236x133","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2219490\\/timg236x133blob\\/10155087"},{"_resolution":"173x120","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2219490\\/timg173x120blob\\/10155077"}]',
+				'station' => 'ZDF',
+				'created_at' => '2014-08-18 14:55:13',
+				'updated_at' => '2014-08-18 14:55:13',
+				'playlist_id' => 1,
+				'user_id' => NULL,
+			),
 		));
 	}
 

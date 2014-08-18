@@ -157,6 +157,8 @@ body{
 	background-color: #313131;
 	padding-right: 15px;
 	box-shadow: 0px 1px 5px 1px #000000;
+	padding-left: 10px;
+	padding-right: 10px;
 }
 .video-item-title{
 	font-size: 14px;
@@ -194,6 +196,12 @@ body{
 	height: 100%;
 	top: 7px; 
 }
+.video-item-title,
+.video-item-subtitle, 
+.video-item-time,
+.video-item-channel {
+	padding: 2px 0;
+}
 
 /* ========= Lists ======== */
 
@@ -205,6 +213,7 @@ body{
 	padding-right: 15px;
 	box-shadow: 0px 1px 5px 1px #000000;
 	overflow: hidden;
+	word-wrap: break-word;
 }
 
 
