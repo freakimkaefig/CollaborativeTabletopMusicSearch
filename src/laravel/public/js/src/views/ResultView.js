@@ -12,6 +12,7 @@ MediathekCrawler.ResultView = (function() {
 		$("#duration-sort").on("click",durationSort);
 		$("#channel-sort").on("click",channelSort);
 		$("#date-sort").on("click",dateSort);
+		renderStationIcon($("#channel").text());
 		$("#waiting").hide();
 		$(document).ajaxStart(function(){
 			$("#waiting").show();
@@ -219,6 +220,24 @@ MediathekCrawler.ResultView = (function() {
 			appendResult(event, result);
 		})
 		return;
+	},
+	renderStationIcon = function(station){
+		$('#icon-station').tooltip();
+		station = station.toLowerCase();
+		if(station.indexOf("erste") > -1){
+			$("#station-icon-results").append("<img src='/css/images/Das_erste_2014.svg' />");
+		}
+		if(station =="zdf" ){
+			$("#station-icon-results").append("<img src='/css/images/zdf.svg' />");
+		}
+		if(station.indexOf("srf") > -1){
+			$("#station-icon-results").append("<img src='/css/images/srf.svg' />");
+		}
+		if(station.indexOf("arte") > -1){
+			$("#station-icon-results").append("<img src='/css/images/arte.svg' />");
+		}
+
+
 	},
 
 	dispose = function() {

@@ -60,7 +60,7 @@ body{
 	border-radius: 0;
 	color: #ffffff;
 	border: 1px solid #ffffff;
-	margin-bottom: 5px;
+	margin-bottom: 15px;
 }
 .btn-transparent:focus{
 	color: #ffffff;
@@ -70,7 +70,8 @@ body{
 }
 .broadcast-btn{
 	position: relative;
-	margin-top: 10px; 	
+	margin-top: 10px; 
+	margin-bottom: 5px;	
 }
 .broadcast-btn{
 	text-align: left;
@@ -288,7 +289,7 @@ body{
 .feedback-container{
 	height: 50px;
 	background-color: transparent;
-	margin-top: 0px;
+	margin-top: -20px;
 	margin-bottom: 0px;
 	box-shadow: inset 0px -3px 3px 0px #1b1b1b;
 

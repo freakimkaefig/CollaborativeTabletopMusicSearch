@@ -142,22 +142,6 @@ class BroadcastsTableSeeder extends Seeder {
 			),
 			8 => 
 			array (
-				'id' => 41,
-				'title' => 'Wacken 2013: Anthrax',
-				'subtitle' => '0',
-				'details' => 'Thrash Metal aus New York: Anthrax. Beim Wacken Open Air 2013 sind sie mit bewährtem Line-up um Gründungsmitglied Scott Ian am Start und zeigen, was sie immer noch drauf haben.',
-				'airtime' => '2014-08-17 02:10:00',
-				'url' => '[{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/13\\/08\\/130807_wacken_anthrax_fes_436k_p9v11.mp4","_filesize":"208210607"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/rodl.zdf.de\\/none\\/zdf\\/13\\/08\\/130807_wacken_anthrax_fes_436k_p9v11.mp4","_filesize":"208210607"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/13\\/08\\/130807_wacken_anthrax_fes_189k_p7v11.mp4","_filesize":"96182088"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/13\\/08\\/130807_wacken_anthrax_fes_1456k_p13v11.mp4","_filesize":"669463523"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/rodl.zdf.de\\/none\\/zdf\\/13\\/08\\/130807_wacken_anthrax_fes_1456k_p13v11.mp4","_filesize":"669463523"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"2","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/13\\/08\\/130807_wacken_anthrax_fes_776k_p17v11.webm","_filesize":"243447009"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"0","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/13\\/08\\/130807_wacken_anthrax_fes_282k_p16v11.webm","_filesize":"88861737"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"3","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/13\\/08\\/130807_wacken_anthrax_fes_1496k_p18v11.webm","_filesize":"452464901"}]',
-				'duration' => '00:58:00',
-				'image' => '[{"_resolution":"946x532","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/1959342\\/timg946x532blob\\/10093056"},{"_resolution":"672x378","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/1959342\\/timg672x378blob\\/10093053"},{"_resolution":"644x363","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/1959342\\/timg644x363blob\\/10093052"},{"_resolution":"485x273","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/1959342\\/timg485x273blob\\/10093042"},{"_resolution":"476x268","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/1959342\\/timg476x268blob\\/10093049"},{"_resolution":"476x176","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/1959342\\/timg476x176blob\\/10093047"},{"_resolution":"404x227","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/1959342\\/timg404x227blob\\/10093055"},{"_resolution":"298x168","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/1959342\\/timg298x168blob\\/10093050"},{"_resolution":"276x155","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/1959342\\/timg276x155blob\\/10093043"},{"_resolution":"236x133","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/1959342\\/timg236x133blob\\/10093051"},{"_resolution":"173x120","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/1959342\\/timg173x120blob\\/10093041"}]',
-				'station' => 'ZDF.kultur',
-				'created_at' => '2014-08-16 15:58:27',
-				'updated_at' => '2014-08-16 15:58:27',
-				'playlist_id' => NULL,
-				'user_id' => 1,
-			),
-			9 => 
-			array (
 				'id' => 42,
 				'title' => '"Amigo - Bei Ankunft Tod"',
 				'subtitle' => '0',
@@ -172,7 +156,7 @@ class BroadcastsTableSeeder extends Seeder {
 				'playlist_id' => 1,
 				'user_id' => NULL,
 			),
-			10 => 
+			9 => 
 			array (
 				'id' => 44,
 				'title' => '"Amigo - Bei Ankunft Tod"',
@@ -188,23 +172,7 @@ class BroadcastsTableSeeder extends Seeder {
 				'playlist_id' => NULL,
 				'user_id' => 1,
 			),
-			11 => 
-			array (
-				'id' => 71,
-			'title' => 'Welcome to the 90s (3/4)',
-			'subtitle' => 'Come as you are: Grunge, Riot Grrrl, Britpop, Nu Metal (Dokumentationsreihe)',
-				'details' => 'Offene Grenzen, Internet, moderne Kommunikation: Die 90er sind die Zeit der radikalen Globalisierung, die Welt rückt enger zusammen, doch die Rockmusik besinnt sich auf nationale Qualitäten. Der dritte Teil der Reihe erzählt von neuen Blüten des Genres: Grunge, Riot Grrrl, Crossover und Nu Metal.',
-				'airtime' => '2014-08-09 21:40:00',
-				'url' => '[{"_basetype":"","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/artestras.vo.llnwd.net\\/v2\\/am\\/HBBTV\\/051605-003-A_EQ_1_VA-STA_01415280_MP4-1500_AMM-HBBTV.mp4","_filesize":"0"},{"_basetype":"","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/artestras.vo.llnwd.net\\/v2\\/am\\/HBBTV\\/051605-003-A_HQ_1_VA-STA_01415278_MP4-800_AMM-HBBTV.mp4","_filesize":"0"},{"_basetype":"","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/artestras.vo.llnwd.net\\/v2\\/am\\/HBBTV\\/051605-003-A_SQ_1_VA-STA_01415282_MP4-2200_AMM-HBBTV.mp4","_filesize":"0"}]',
-				'duration' => '00:52:00',
-				'image' => '[{"_resolution":"940x530","_url":"http:\\/\\/www.arte.tv\\/papi\\/tvguide\\/images\\/TVGE2270\\/W940H530\\/TVGE2270-1406019725118.jpg"}]',
-				'station' => 'ARTE',
-				'created_at' => '2014-08-16 16:15:40',
-				'updated_at' => '2014-08-16 16:15:40',
-				'playlist_id' => NULL,
-				'user_id' => 1,
-			),
-			12 => 
+			10 => 
 			array (
 				'id' => 72,
 				'title' => 'Der Chronist des Todes',
@@ -220,7 +188,7 @@ class BroadcastsTableSeeder extends Seeder {
 				'playlist_id' => NULL,
 				'user_id' => 1,
 			),
-			13 => 
+			11 => 
 			array (
 				'id' => 73,
 				'title' => 'Nicht von schlechten Vätern - Boris',
@@ -236,147 +204,35 @@ class BroadcastsTableSeeder extends Seeder {
 				'playlist_id' => NULL,
 				'user_id' => 1,
 			),
-			14 => 
+			12 => 
 			array (
-				'id' => 74,
-				'title' => 'Pinocchio',
-				'subtitle' => 'Pinocchio',
-				'details' => 'Der arme, alte Gepetto staunt nicht schlecht, als eine von ihm aus einem Stück Holz geschnitzte Figur plötzlich quicklebendig wird. Schnell sorgt Pinocchio im ganzen Dorf für Aufregung. Mit der Wahrheit nimmt es Pinocchio nicht immer so genau. Doch bei jeder Lüge wird seine Nase länger und länger. Auf seiner Reise wird Pinocchio lernen, was es heißt, ein richtiger Junge zu sein.
-Regie:
-Anna Justice
-
-Redaktion:
-Cornelia Ackers
-
-
-Besetzung
-
-Die Rollen und ihre Darsteller
-
-
-Rolle:
-Darsteller:
-
-
-
-
-Geppetto
-Mario Adorf
-
-
-Mangiafuoco
-Ulrich Tukur
-
-
-Anna
-Inka Friedrich
-
-
-Antonio
-Benjamin Sadler
-
-
-Füchsin
-Sandra Hüller
-
-
-Kater
-Florian Lukas
-
-
-Luca
-Arved Friese
-
-
-Sofia
-Nicolais Borger
-
-
-Pinocchio als Junge
-Aaron Kissiov
-
-
-
-
-Regie:
-Anna Justice
-
-Redaktion:
-Cornelia Ackers
-
-
-',
-				'airtime' => '1970-01-01 00:00:00',
-				'url' => '[{"_basetype":"","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/cdn-storage.br.de\\/b7\\/2014-08\\/17\\/1a3cf40c25e311e48a90984be10adece_0.mp4","_filesize":"64683570"},{"_basetype":"","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/cdn-storage.br.de\\/b7\\/2014-08\\/17\\/1a3cf40c25e311e48a90984be10adece_A.mp4","_filesize":"91238223"},{"_basetype":"","_type":"video\\/mp4","_quality":"1","_url":"http:\\/\\/cdn-storage.br.de\\/b7\\/2014-08\\/17\\/1a3cf40c25e311e48a90984be10adece_B.mp4","_filesize":"395579497"},{"_basetype":"","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/cdn-storage.br.de\\/b7\\/2014-08\\/17\\/1a3cf40c25e311e48a90984be10adece_C.mp4","_filesize":"792002796"},{"_basetype":"","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/cdn-storage.br.de\\/b7\\/2014-08\\/17\\/1a3cf40c25e311e48a90984be10adece_E.mp4","_filesize":"542441705"},{"_basetype":"","_type":"video\\/mp4","_quality":"HD","_url":"http:\\/\\/cdn-storage.br.de\\/b7\\/2014-08\\/17\\/1a3cf40c25e311e48a90984be10adece_X.mp4","_filesize":"1697715738"}]',
-				'duration' => '00:58:00',
-				'image' => '[{"_resolution":"640x360","_url":"http:\\/\\/www.br.de\\/fernsehen\\/bayerisches-fernsehen\\/inhalt\\/film-und-serie\\/pinocchio-104~_h-360_v-image853_w-640_-32550a25a71f9ea6a28488357c9b82d34bc5cc66.jpg?version=88481"},{"_resolution":"400x255","_url":"http:\\/\\/www.br.de\\/fernsehen\\/bayerisches-fernsehen\\/inhalt\\/film-und-serie\\/pinocchio-104~_h-225_v-image853_w-400_-46551a6ec6b42bcb6fc43f2cde7c015d39d126c0.jpg?version=88481"},{"_resolution":"320x180","_url":"http:\\/\\/www.br.de\\/fernsehen\\/bayerisches-fernsehen\\/inhalt\\/film-und-serie\\/pinocchio-104~_h-180_v-image853_w-320_-84bf43942cbaa96151d5c125e27e60633b3a04c9.jpg?version=88481"},{"_resolution":"108x61","_url":"http:\\/\\/www.br.de\\/fernsehen\\/bayerisches-fernsehen\\/inhalt\\/film-und-serie\\/pinocchio-104~_h-61_v-image853_w-108_-8bf23116f3f36b170c5e692a307c070a087283df.jpg?version=88481"}]',
-				'station' => 'Bayerisches Fernsehen',
-				'created_at' => '2014-08-17 12:22:49',
-				'updated_at' => '2014-08-17 12:22:49',
+				'id' => 85,
+				'title' => '"Dschungelkampf"',
+				'subtitle' => '0',
+				'details' => 'Im "Dschungelkampf" taucht das "starke Team" tief in ein sozial schwaches Berliner Plattenbauviertel ein, um den Mord an dem jungen Carsten Bubenberger aufzuklären.',
+				'airtime' => '2014-08-16 20:15:00',
+				'url' => '[{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/08\\/140801_dschungelkampf_ps_ete_436k_p9v11.mp4","_filesize":"313006106"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/rodl.zdf.de\\/none\\/zdf\\/14\\/08\\/140801_dschungelkampf_ps_ete_436k_p9v11.mp4","_filesize":"313006106"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/08\\/140801_dschungelkampf_ps_ete_189k_p7v11.mp4","_filesize":"144526237"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/08\\/140801_dschungelkampf_ps_ete_1456k_p13v11.mp4","_filesize":"1006469284"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/rodl.zdf.de\\/none\\/zdf\\/14\\/08\\/140801_dschungelkampf_ps_ete_1456k_p13v11.mp4","_filesize":"1006469284"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"2","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/08\\/140801_dschungelkampf_ps_ete_776k_p17v11.webm","_filesize":"335872386"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"0","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/08\\/140801_dschungelkampf_ps_ete_282k_p16v11.webm","_filesize":"126954838"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"3","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/08\\/140801_dschungelkampf_ps_ete_1496k_p18v11.webm","_filesize":"613481725"}]',
+				'duration' => '01:27:00',
+				'image' => '[{"_resolution":"946x532","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2209656\\/timg946x532blob\\/10131027"},{"_resolution":"672x378","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2209656\\/timg672x378blob\\/10131024"},{"_resolution":"644x363","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2209656\\/timg644x363blob\\/10131023"},{"_resolution":"485x273","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2209656\\/timg485x273blob\\/10131013"},{"_resolution":"476x268","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2209656\\/timg476x268blob\\/10131020"},{"_resolution":"476x176","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2209656\\/timg476x176blob\\/10131018"},{"_resolution":"404x227","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2209656\\/timg404x227blob\\/10131026"},{"_resolution":"298x168","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2209656\\/timg298x168blob\\/10131021"},{"_resolution":"276x155","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2209656\\/timg276x155blob\\/10131014"},{"_resolution":"236x133","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2209656\\/timg236x133blob\\/10131022"},{"_resolution":"173x120","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2209656\\/timg173x120blob\\/10131012"}]',
+				'station' => 'ZDF',
+				'created_at' => '2014-08-18 08:56:38',
+				'updated_at' => '2014-08-18 08:56:38',
 				'playlist_id' => NULL,
 				'user_id' => 1,
 			),
-			15 => 
+			13 => 
 			array (
-				'id' => 75,
-				'title' => 'Der König von Bastoy / King of Devil\'s Island',
-			'subtitle' => ' (Spielfilm)',
-			'details' => 'Nach einer wahren Begebenheit: 1915 werden auf einer norwegischen Insel Jungen in einer Besserungsanstalt so lange drangsaliert, bis ein Neuankömmling (Benjamin Helstad) den Willen zum Widerstand weckt. Vor wuchtiger Naturkulisse und in wirkungsvoller Farbgebung inszeniertes Drama um Machtmissbrauch und Sehnsucht nach Freiheit.',
-				'airtime' => '2014-08-11 21:45:00',
-				'url' => '[{"_basetype":"","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/artestras.vo.llnwd.net\\/v2\\/am\\/HBBTV\\/048045-000-A_HQ_1_VA-STA_01418362_MP4-800_AMM-HBBTV.mp4","_filesize":"0"},{"_basetype":"","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/artestras.vo.llnwd.net\\/v2\\/am\\/HBBTV\\/048045-000-A_EQ_1_VA-STA_01418364_MP4-1500_AMM-HBBTV.mp4","_filesize":"0"},{"_basetype":"","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/artestras.vo.llnwd.net\\/v2\\/am\\/HBBTV\\/048045-000-A_SQ_1_VA-STA_01418366_MP4-2200_AMM-HBBTV.mp4","_filesize":"0"}]',
-				'duration' => '01:48:00',
-				'image' => '[{"_resolution":"940x530","_url":"http:\\/\\/www.arte.tv\\/papi\\/tvguide\\/images\\/1235006\\/W940H530\\/048045-000_koenigbastoy_01-1405914312938.jpg"}]',
+				'id' => 86,
+				'title' => 'Gasland',
+			'subtitle' => ' (Dokumentarfilm)',
+				'details' => 'Flammen aus dem Wasserhahn, kranke Menschen, tote Tiere: Trotz vieler Alarmzeichen setzen die USA flächendeckend auf Fracking. Wie gefährlich ist die Gas-Fördermethode wirklich? Das explosive dokumentarische Roadmovie von John Fox wurde für einen Oscar nominiert und mehrfach ausgezeichnet.',
+				'airtime' => '2014-08-12 20:15:00',
+				'url' => '[{"_basetype":"","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/artestras.vo.llnwd.net\\/v2\\/am\\/HBBTV\\/048120-000-A_HQ_1_VA-STA_01419414_MP4-800_AMM-HBBTV.mp4","_filesize":"0"},{"_basetype":"","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/artestras.vo.llnwd.net\\/v2\\/am\\/HBBTV\\/048120-000-A_SQ_1_VA-STA_01419418_MP4-2200_AMM-HBBTV.mp4","_filesize":"0"},{"_basetype":"","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/artestras.vo.llnwd.net\\/v2\\/am\\/HBBTV\\/048120-000-A_EQ_1_VA-STA_01419416_MP4-1500_AMM-HBBTV.mp4","_filesize":"0"}]',
+				'duration' => '01:43:00',
+				'image' => '[{"_resolution":"940x530","_url":"http:\\/\\/www.arte.tv\\/papi\\/tvguide\\/images\\/1017655\\/W940H530\\/048120-000_gasland_09-1406000721712.jpg"}]',
 				'station' => 'ARTE',
-				'created_at' => '2014-08-18 08:29:41',
-				'updated_at' => '2014-08-18 08:29:41',
-				'playlist_id' => NULL,
-				'user_id' => 1,
-			),
-			16 => 
-			array (
-				'id' => 76,
-				'title' => 'Der König von Bastoy / King of Devil\'s Island',
-			'subtitle' => ' (Spielfilm)',
-			'details' => 'Nach einer wahren Begebenheit: 1915 werden auf einer norwegischen Insel Jungen in einer Besserungsanstalt so lange drangsaliert, bis ein Neuankömmling (Benjamin Helstad) den Willen zum Widerstand weckt. Vor wuchtiger Naturkulisse und in wirkungsvoller Farbgebung inszeniertes Drama um Machtmissbrauch und Sehnsucht nach Freiheit.',
-				'airtime' => '2014-08-11 21:45:00',
-				'url' => '[{"_basetype":"","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/artestras.vo.llnwd.net\\/v2\\/am\\/HBBTV\\/048045-000-A_HQ_1_VA-STA_01418362_MP4-800_AMM-HBBTV.mp4","_filesize":"0"},{"_basetype":"","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/artestras.vo.llnwd.net\\/v2\\/am\\/HBBTV\\/048045-000-A_EQ_1_VA-STA_01418364_MP4-1500_AMM-HBBTV.mp4","_filesize":"0"},{"_basetype":"","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/artestras.vo.llnwd.net\\/v2\\/am\\/HBBTV\\/048045-000-A_SQ_1_VA-STA_01418366_MP4-2200_AMM-HBBTV.mp4","_filesize":"0"}]',
-				'duration' => '01:48:00',
-				'image' => '[{"_resolution":"940x530","_url":"http:\\/\\/www.arte.tv\\/papi\\/tvguide\\/images\\/1235006\\/W940H530\\/048045-000_koenigbastoy_01-1405914312938.jpg"}]',
-				'station' => 'ARTE',
-				'created_at' => '2014-08-18 08:29:50',
-				'updated_at' => '2014-08-18 08:29:50',
-				'playlist_id' => NULL,
-				'user_id' => 1,
-			),
-			17 => 
-			array (
-				'id' => 77,
-				'title' => 'Der König von Bastoy / King of Devil\'s Island',
-			'subtitle' => ' (Spielfilm)',
-			'details' => 'Nach einer wahren Begebenheit: 1915 werden auf einer norwegischen Insel Jungen in einer Besserungsanstalt so lange drangsaliert, bis ein Neuankömmling (Benjamin Helstad) den Willen zum Widerstand weckt. Vor wuchtiger Naturkulisse und in wirkungsvoller Farbgebung inszeniertes Drama um Machtmissbrauch und Sehnsucht nach Freiheit.',
-				'airtime' => '2014-08-11 21:45:00',
-				'url' => '[{"_basetype":"","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/artestras.vo.llnwd.net\\/v2\\/am\\/HBBTV\\/048045-000-A_HQ_1_VA-STA_01418362_MP4-800_AMM-HBBTV.mp4","_filesize":"0"},{"_basetype":"","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/artestras.vo.llnwd.net\\/v2\\/am\\/HBBTV\\/048045-000-A_EQ_1_VA-STA_01418364_MP4-1500_AMM-HBBTV.mp4","_filesize":"0"},{"_basetype":"","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/artestras.vo.llnwd.net\\/v2\\/am\\/HBBTV\\/048045-000-A_SQ_1_VA-STA_01418366_MP4-2200_AMM-HBBTV.mp4","_filesize":"0"}]',
-				'duration' => '01:48:00',
-				'image' => '[{"_resolution":"940x530","_url":"http:\\/\\/www.arte.tv\\/papi\\/tvguide\\/images\\/1235006\\/W940H530\\/048045-000_koenigbastoy_01-1405914312938.jpg"}]',
-				'station' => 'ARTE',
-				'created_at' => '2014-08-18 08:30:04',
-				'updated_at' => '2014-08-18 08:30:04',
-				'playlist_id' => NULL,
-				'user_id' => 1,
-			),
-			18 => 
-			array (
-				'id' => 78,
-				'title' => 'Der König von Bastoy / King of Devil\'s Island',
-			'subtitle' => ' (Spielfilm)',
-			'details' => 'Nach einer wahren Begebenheit: 1915 werden auf einer norwegischen Insel Jungen in einer Besserungsanstalt so lange drangsaliert, bis ein Neuankömmling (Benjamin Helstad) den Willen zum Widerstand weckt. Vor wuchtiger Naturkulisse und in wirkungsvoller Farbgebung inszeniertes Drama um Machtmissbrauch und Sehnsucht nach Freiheit.',
-				'airtime' => '2014-08-11 21:45:00',
-				'url' => '[{"_basetype":"","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/artestras.vo.llnwd.net\\/v2\\/am\\/HBBTV\\/048045-000-A_HQ_1_VA-STA_01418362_MP4-800_AMM-HBBTV.mp4","_filesize":"0"},{"_basetype":"","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/artestras.vo.llnwd.net\\/v2\\/am\\/HBBTV\\/048045-000-A_EQ_1_VA-STA_01418364_MP4-1500_AMM-HBBTV.mp4","_filesize":"0"},{"_basetype":"","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/artestras.vo.llnwd.net\\/v2\\/am\\/HBBTV\\/048045-000-A_SQ_1_VA-STA_01418366_MP4-2200_AMM-HBBTV.mp4","_filesize":"0"}]',
-				'duration' => '01:48:00',
-				'image' => '[{"_resolution":"940x530","_url":"http:\\/\\/www.arte.tv\\/papi\\/tvguide\\/images\\/1235006\\/W940H530\\/048045-000_koenigbastoy_01-1405914312938.jpg"}]',
-				'station' => 'ARTE',
-				'created_at' => '2014-08-18 08:30:14',
-				'updated_at' => '2014-08-18 08:30:14',
+				'created_at' => '2014-08-18 09:00:48',
+				'updated_at' => '2014-08-18 09:00:48',
 				'playlist_id' => NULL,
 				'user_id' => 1,
 			),

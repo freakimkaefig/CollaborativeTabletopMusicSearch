@@ -2,7 +2,7 @@
 
 @section('content')
 	<div class="row">
-		<h2>Sender: {{$channel}}</h2>
+		<h2 id="channel">Sender: {{$channel}}</h2><div id="station-icon-results"></div>
 		@include('search.results')
 
 	</div>

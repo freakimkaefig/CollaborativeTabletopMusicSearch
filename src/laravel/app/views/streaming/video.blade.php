@@ -4,7 +4,8 @@
 	<!-- START streaming/video -->
 	@if(isset($video))
 		<?php $inBookmarks = DB::table('broadcasts')->whereNotNull("user_id")->where("user_id","=",Auth::id())->get();
-			 echo "<input id='all-bookmarks' type='hidden' value='".json_encode($inBookmarks)."''>";
+			 //echo "<input id='all-bookmarks' type='hidden' value='".json_encode($inBookmarks)."''>";
+			echo "<div id='all-bookmarks' style='display:none'>".json_encode($inBookmarks)."</div>";
 			?>
 		<div class="row">
 			<div id="video-wrapper" class=" col-xs-12 col-sm-8 col-sm-offset-0 col-lg-7 col-lg-offset-1">
