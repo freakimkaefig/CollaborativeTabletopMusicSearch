@@ -248,7 +248,8 @@ MediathekCrawler.BRService = function() {
 	 * @param {String}		XML data containing stream urls, qualities, sizes etc
 	 */
 	onLoadStreams = function(result, data, origin) {
-		$(data).find('assets').find('asset').each(function (index, element) {
+		var x = $(data).find('assets').find('asset');
+		$(x).each(function (index, element) {
 			if ($(element).attr('type') !== 'HDS') {
 				var basetype = null,	// TODO: missing basetype!
 					type = 'video/' + $(element).find('mediaType').text(),
@@ -291,7 +292,7 @@ MediathekCrawler.BRService = function() {
 	/**
 	 * Public function to get new videos (= videos of the last 3 days including today)
 	 */
-	getBRNew = function(dateUrl) {
+	getBRNew = function(dateUrl, origin) {
 		$today = new Date();
 		var $dd = $today.getDate();
 		if($dd<10){$dd='0'+$dd} var nowDay = $dd
@@ -305,13 +306,15 @@ MediathekCrawler.BRService = function() {
 		lastDayOfLastMonth = lastDayOfLastMonth.getDate();
 
 		// console.log('BR lastDayOfLastMonth: ',lastDayOfLastMonth);
+		if(!origin || origin === undefined || origin === null){
 
-		var origin = {
-			_channel: 'BR',
-			_method: 'getBRNew',
-			_searchTerm: null,
-			_badge: 'new'
-		};
+			var origin = {
+				_channel: 'BR',
+				_method: 'getBRNew',
+				_searchTerm: null,
+				_badge: 'new'
+			};
+		}
 		if(!dateUrl || dateUrl === undefined || dateUrl === null){
 
 			// http://www.br.de/mediathek/video/programm/index.html
@@ -400,13 +403,14 @@ MediathekCrawler.BRService = function() {
 	onGetBRNew = function(data, origin){
 		var resp = $(data)./*find('.containerMain').*/find('.epgContainer').find('#BFS');
 			// console.log('BR onGetBRNew resp: ',resp);
-		$(resp).find('.videoAvailable').each(function(index,element){
+		var x = $(resp).find('.videoAvailable');
+		$(x).each(function(index,element){
 			// console.log('BR onGetBRNew element: ',element);
 			var url = $(element).attr('data-ondemand_url');
 			// console.log('BR onGetBRNew url: ',url);
 			if (url !== undefined) {
-					loadDetails(url, origin);
-				}
+				loadDetails(url, origin);
+			}
 		});
 	},
 
@@ -453,13 +457,116 @@ MediathekCrawler.BRService = function() {
 				// loadDetails(detailUrl, origin);
 			}
 		});
-	};
+	},
+
+	_checkSRFDuplicates = function(array, id){
+		for(i=0;i<array.length;i++){
+
+			if (array[i].match(id)) {
+	        	return false;
+	        }
+		}
+		return true;
+	},
 
 	/**
 	 * Public function to get videos by date
 	 */
-	getBRVideosByDate = function(startdate, enddate){
-		// throw new NotImplementedException();
+	getBRVideosByDate = function(startDate, endDate){
+		var origin = {};
+		Date.prototype.addDays = function(days) {
+	       var dat = new Date(this.valueOf())
+	       dat.setDate(dat.getDate() + days);
+	       return dat;
+	   	}
+
+	   var dates = [];
+	   var currentDate = new Date(startDate);
+	   var endd = new Date(endDate);
+
+	   while (currentDate <= endd) {
+	   		var temp = '';
+	   		var dd = currentDate.getDate();
+			var mm = currentDate.getMonth()+1; //January is 0!
+			var yyyy = currentDate.getFullYear();
+			if(dd<10){dd='0'+dd} if(mm<10){mm='0'+mm} temp = dd+'.'+mm+'.'+yyyy
+
+       		dates.push(temp)
+        	currentDate = currentDate.addDays(1);
+       }
+
+       // console.log('BR dates: ',dates);
+       	
+		// for(i=0;i<dates.length;i++){
+
+		// var counter = 1;
+        var _url = PROXY_URL + encodeURI(BR_NEW_URL);
+		
+   		
+			$.ajax({
+				url: _url,
+				type: 'GET',
+				cache: false,
+				// complete: function(data){
+
+				// 	console.log('AJAX complete BR: ',i,dates[i]);
+				// },
+				success: function(data) {	
+					_onBRVideosByDate(data, origin, dates);
+				},
+				error: function(data){
+					console.log('SRF getSRFVideosByDate - Could not fetch Data from: ',_url);
+				}
+			});
+  			
+		// }
+	},
+
+	_onBRVideosByDate = function(data, origin, dates){
+		var duplicates = [];
+
+		for(i=0;i<dates.length;i++){
+			var x = dates[i].slice(3,6)+dates[i].slice(0,3)+dates[i].slice(6,10);
+			// console.log(x);
+			$today = new Date(x);
+			var $dd = $today.getDate();
+			if($dd<10){$dd='0'+$dd} var nowDay = $dd
+
+			var currentMonths = [ "Januar", "Februar", "März", "April", "Mai", "Juni",
+		"Juli", "August", "September", "Oktober", "November", "Dezember" ];
+
+			var currentMonth = currentMonths[$today.getMonth()];
+       		// console.log('BR dates: ',dates);
+			// console.log('BR _onBRVideosByDate: ',$today,' - ', nowDay,' - ', currentMonth);
+
+			var yesterday = $(data).find('.epgCalendar')/*.find('.month active')*/.find('td');
+				// console.log('BR _onBRVideosByDate yesterday: ',yesterday);
+				$(yesterday).each(function(index, element){
+
+					var day = $(element).text();
+					var cuttedDay = parseInt(day.slice(0, day.indexOf('.')));
+					if(cuttedDay<10){cuttedDay='0'+cuttedDay}
+
+					if(day.indexOf(currentMonth) > 0){
+					// 	if(day.indexOf(currentMonth) > 0){
+					// 		var x = parseInt(nowDay) - 1;
+
+					// console.log('BR _onBRVideosByDate day: ',cuttedDay, nowDay);
+							// get yesterday url:
+						if(cuttedDay === nowDay){
+							var y = BASE_URL + $(element).find('a').attr('href');
+							if(_checkSRFDuplicates(duplicates, y)){
+								// console.log('BR found yesterday: ',y);
+
+								getBRNew(y,origin);
+
+
+								duplicates.push(y);
+							}
+						}
+					}
+				});
+		}
 	},
 
 
@@ -476,6 +583,7 @@ MediathekCrawler.BRService = function() {
 	that.getBRNew = getBRNew;
 	that.getBRCategories = getBRCategories;
 	that.getBRHot = getBRHot;
+	that.getBRVideosByDate = getBRVideosByDate;
 
 	return that;
 };
