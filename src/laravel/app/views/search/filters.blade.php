@@ -88,6 +88,12 @@
 					SRF
 				</label>
 			</div>
+			<div class="checkbox ">
+				<label>
+					<input type="checkbox" name="br" value="br">
+					BR
+				</label>
+			</div>
 		</div>		
 	</div>
 	<div class="form-group col-sm-4 form-inline">
