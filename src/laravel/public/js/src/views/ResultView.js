@@ -33,7 +33,7 @@ MediathekCrawler.ResultView = (function() {
 		else{
 			badge = "badge-null";
 		}
-		var resultElement = '<div class="video-item col-xs-6 col-sm-3 col-lg-2">' +
+		var resultElement = '<div class="video-item col-xs-12 col-sm-6 col-md-3 col-lg-2">' +
 			// TODO: desicion process for teaserImage missing!
 			'<a href="/video/' + result._id + '">' +
 			'<div class="col-xs-2 '+badge+'"></div>'+

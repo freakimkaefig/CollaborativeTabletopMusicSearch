@@ -1,6 +1,7 @@
 @extends('layout.main')
 
 @section('content')
+	<!-- START lists/playlists -->
 	<h1 class="text-center">Playlisten</h1>
 	<div class="col-sm-3">
 	<button id="new-list" class="btn btn-transparent">Neue Liste</button>
@@ -94,6 +95,5 @@
    			</div> 
    			@endif
        		@endforeach
-   			 
-
+    <!-- END lists/playlists -->
 @stop

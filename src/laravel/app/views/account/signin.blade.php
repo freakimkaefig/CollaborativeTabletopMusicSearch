@@ -3,7 +3,7 @@
 @section('content')
 	<!-- START account/signin -->
 	<div class="row">
-		<div class="col-xs-12 col-md-offset-2 col-md-3">
+		<div class="col-xs-12 col-sm-4 col-sm-offset-2 col-md-3 col-md-offset-2">
 			<h3>Anmelden</h3>
 			<form action="{{ URL::route('account-sign-in-post') }}" method="post" role="form">
 				<div class="form-group{{ ($errors->has('email')) ? ' has-error' : '' }}">
@@ -50,7 +50,8 @@
 			<a href="{{ URL::route('account-forgot-password') }}">Passwort vergessen?</a>
 		</div>
 
-		<div class="col-xs-12 col-md-offset-1 col-sm-3">
+		<div class="col-xs-12 col-sm-4 col-sm-offset-1 col-md-3 col-md-offset-1">
+			<div class="spacer visible-xs hidden-sm"></div>
 			<h3>oder Account erstellen</h3>
 			<form action="{{ URL::route('account-create-post') }}" method="post" role="form">
 				<div class="form-group{{ ($errors->has('email')) ? ' has-error' : '' }}">
