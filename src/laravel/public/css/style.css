@@ -18,7 +18,7 @@ input {color: #313131;}
 
 .list {margin-bottom: 50px;}
 /* ========== FOOTER ========== */
-#footer-nav { bottom: -150px; }
+#footer-nav { bottom: -170px; }
 
 h2 { text-transform: capitalize; }
 
@@ -264,7 +264,14 @@ body{
 #loading-indicator {
   
 }
+/* ======= Mobile Design ===== */
 
+.dropdown-menu{
+	background-color: #1b1b1b;
+	color: white !important;
+}
+
+.dropdown-menu li>a{color: #ffffff;}
 
 /* ======= Other Design elements ===== */
 
@@ -279,9 +286,7 @@ body{
 	text-align:center;
 }
 #waiting h2{
-	background-color: #778899;
-	color: #ffffff;
-	padding: 15px;
+	background-color: #1b1b1b;
 	position: absolute;
     top: 50%;
     text-transform: none;
