@@ -124,7 +124,7 @@ MediathekCrawler.BroadcastView = (function() {
 			$("#selectPlaylist").addClass("hidden");
 			$.ajax({
 	  			type: "GET",
-	 			url: "http://mediathek-crawler/playlists/add/"+$("#select").val()+"/1",
+	 			url: "/playlists/add/"+$("#select").val()+"/1",
 				data: {
 					"title": ((result._title) ? result._title : (result.title) ? result.title : 0),
 					"subtitle": ((result._subtitle) ? result._subtitle : (result.subtitle) ? result.subtitle : 0),
@@ -156,7 +156,7 @@ MediathekCrawler.BroadcastView = (function() {
 			$("#bookmark-name").removeClass("hidden").html('<span class="glyphicon glyphicon-bookmark"></span>Gemerkt');
 			$.ajax({
 				type: "GET",
-				url: "http://mediathek-crawler/bookmarks/add/"+$(this).val(),
+				url: "/bookmarks/add/"+$(this).val(),
 				data: {
 					"title": ((result._title) ? result._title : (result.title) ? result.title : 0),
 					"subtitle": ((result._subtitle) ? result._subtitle : (result.subtitle) ? result.subtitle : 0),
@@ -197,7 +197,7 @@ MediathekCrawler.BroadcastView = (function() {
 			$("#bookmark-name").addClass("hidden");
 			$.ajax({
 				type: "GET",
-				url: "http://mediathek-crawler/bookmarks/delete/"+id,
+				url: "/bookmarks/delete/"+id,
 				data: {},
 			});
 		})

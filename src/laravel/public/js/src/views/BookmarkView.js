@@ -13,7 +13,7 @@ MediathekCrawler.BookmarkView = (function() {
 			console.log($broadcastId);
 			$.ajax({
 				type: "GET",
-				url: "http://mediathek-crawler/bookmarks/delete/"+$broadcastId,
+				url: "/bookmarks/delete/"+$broadcastId,
 				data: {},
 			});
 		$('#confirm-delete-'+$broadcastId).modal('hide');
