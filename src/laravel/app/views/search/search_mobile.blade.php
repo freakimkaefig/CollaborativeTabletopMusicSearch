@@ -38,97 +38,116 @@
 			<input type="text" class="input-medium search-query" name="search" placeholder="Suche"{{ (Input::old('search')) ? ' value="' . e(Input::old('search')) . '"' : '' }}>
 			
 			<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
-			</div>
-
-
-
-		<div id="category-filter" class="form-group col-md-4 visible-xs">
-		<h4>Rubriken</h4>
-		<div class="col-sm-6">
-			<div class="checkbox">
-				<label>
-					<input type="checkbox" name="nachrichten" value="nachrichten"{{ (Input::old('nachrichten')) ? ' checked' : ' selected' }}>
-					Nachrichten
-				</label>
-			</div>
-			<div class="checkbox">
-				<label>
-					<input type="checkbox" name="sport" value="sport" >
-					Sport
-				</label>
-			</div>
-			<div class="checkbox ">
-				<label>
-					<input type="checkbox" name="politik" value="politik" >
-					Politik
-				</label>
-			</div>
-			<div class="checkbox ">
-				<label>
-					<input type="checkbox" name="wirtschaft" value="wirtschaft" >
-					Wirtschaft
-				</label>
-			</div>
-			<div class="checkbox ">
-				<label>
-					<input type="checkbox" name="kinder" value="kinder" >
-					Kinder
-				</label>
-			</div>
 		</div>
 
-		<div class="col-sm-6">
-			<div class="checkbox ">
-				<label>
-					<input type="checkbox" name="kino-tv" value="kino-tv" >
-					Kino und TV
-				</label>
-			</div>
-			<div class="checkbox ">
-				<label>
+
+	<div>
+		<div id="channel-filter" class="form-group col-sm-3 visible-xs">
+			<h4>Sender</h4>
+			<div class="col-sm-6">
+				<div class="checkbox col-xs-6">
+					<label>
+						<input type="checkbox" name="daserste" value="daserste">
+						Das Erste
+					</label>
+				</div>
+				<div class="checkbox col-xs-6">
+					<label>
+						<input type="checkbox" name="zdf" value="zdf">
+						ZDF
+					</label>
+				</div>
+				<div class="checkbox col-xs-6">
+					<label>
+						<input type="checkbox" name="br" value="br">
+						BR
+					</label>
+				</div>
+				<div class="checkbox col-xs-6">
+					<label>
+						<input type="checkbox" name="arte" value="arte">
+						Arte
+					</label>
+				</div>
+				<div class="checkbox col-xs-6">
+					<label>
+						<input type="checkbox" name="srf" value="srf">
+						SRF
+					</label>
+				</div>
+				<div class="checkbox col-xs-6">
+					<label>
+						<input type="checkbox" name="wdr" value="wdr">
+						WDR
+					</label>
+				</div>
+			</div>		
+		</div>
+
+
+
+		<div id="category-filter" class="form-group col-sm-3 visible-xs">
+			<h4>Rubriken</h4>
+			<div class="col-sm-6">
+				<div class="checkbox col-xs-6">
+					<label>
+						<input type="checkbox" name="nachrichten" value="nachrichten"{{ (Input::old('nachrichten')) ? ' checked' : ' selected' }}>
+						Nachrichten
+					</label>
+				</div>
+				<div class="checkbox col-xs-6">
+					<label>
+						<input type="checkbox" name="sport" value="sport" >
+						Sport
+					</label>
+				</div>
+				<div class="checkbox col-xs-6">
+					<label>
+						<input type="checkbox" name="politik" value="politik" >
+						Politik
+					</label>
+				</div>
+				<div class="checkbox col-xs-6">
+					<label>
+						<input type="checkbox" name="wirtschaft" value="wirtschaft" >
+						Wirtschaft
+					</label>
+				</div>
+				<div class="checkbox col-xs-6">
+					<label>
+						<input type="checkbox" name="kinder" value="kinder" >
+						Kinder
+					</label>
+				</div>
+				<div class="checkbox col-xs-6">
+					<label>
+						<input type="checkbox" name="kino-tv" value="kino-tv" >
+						Kino und TV
+					</label>
+				</div>
+				<div class="checkbox col-xs-6">
+					<label>
 					<input type="checkbox" name="wissen-kultur" value="wissen-kultur" >
-					Wissen
-				</label>
-			</div>
-			<div class="checkbox ">
-				<label>
-					<input type="checkbox" name="ratgeber-gesundheit" value="ratgeber-gesundheit" 
-					>
-					Ratgeber
-				</label>
-			</div>
-			<div class="checkbox ">
-				<label>
-					<input type="checkbox" name="unterhaltung" value="unterhaltung" >
-					Unterhaltung
-				</label>
+						Wissen
+					</label>
+				</div>
+				<div class="checkbox col-xs-6">
+					<label>
+						<input type="checkbox" name="ratgeber-gesundheit" value="ratgeber-gesundheit">
+						Ratgeber
+					</label>
+				</div>
+				<div class="checkbox col-xs-6">
+					<label>
+						<input type="checkbox" name="unterhaltung" value="unterhaltung" >
+						Unterhaltung
+					</label>
+				</div>
 			</div>
 		</div>
 	</div>
 
-	<div id="channel-filter" class="form-group col-sm-3 visible-xs">
-		<h4>Sender</h4>
-		<div class="col-sm-6">
-			<div class="checkbox">
-				<label>
-					<input type="checkbox" name="daserste" value="daserste">
-					Das Erste
-				</label>
-			</div>
-			<div class="checkbox disabled">
-				<label>
-					<input type="checkbox" name="zdf" value="zdf">
-					ZDF
-				</label>
-			</div>
-			<div class="checkbox disabled">
-				<label>
-					<input type="checkbox" name="arte" value="arte">
-					Arte
-				</label>
-			</div>
-		</div>		
-	</div>
+	
 
 	<div class="form-group col-sm-4 form-inline visible-xs">
 		<h4>Datum &amp; Dauer</h4>

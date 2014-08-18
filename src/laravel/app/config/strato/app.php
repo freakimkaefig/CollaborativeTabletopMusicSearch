@@ -13,7 +13,7 @@ return array(
 	|
 	*/
 
-	'debug' => false,
+	'debug' => TRUE,
 
 	'url' => 'http://mediathek.lukaslamm.de',
 
@@ -44,12 +44,5 @@ return array(
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
-		'Orangehill\Iseed\IseedServiceProvider',
-		'Barryvdh\Debugbar\ServiceProvider',
 	),
-
-	'aliases' => array(
-		'Debugbar' => 'Barryvdh\Debugbar\Facade',
-	),
-
 );
