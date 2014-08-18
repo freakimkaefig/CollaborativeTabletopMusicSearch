@@ -67,6 +67,8 @@
 			@yield('content')
 		</div>
 
+		<div href="#" id="to-top">TOP </div>
+
 		@include('layout.footer')
 
 		@include('mediathek-crawler-js')

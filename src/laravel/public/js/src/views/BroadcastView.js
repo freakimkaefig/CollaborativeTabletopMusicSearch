@@ -207,25 +207,25 @@ MediathekCrawler.BroadcastView = (function() {
 		$('#icon-station').tooltip();
 		station = station.toLowerCase();
 		if(station.indexOf("erste") > -1){
-			$("#icon-station").append("<img src='/css/images/Das_erste_2014.svg' />");
+			$("#icon-station").append("<img src='/css/images/Das_Erste_2014.svg' />");
 		}
 		if(station =="zdf" ){
-			$("#icon-station").append("<img src='/css/images/zdf.svg' />");
+			$("#icon-station").append("<img src='/css/images/ZDF.svg' />");
 		}
 		if(station.indexOf("zdfneo") > -1){
-			$("#icon-station").append("<img src='/css/images/zdfneo.svg' />");
+			$("#icon-station").append("<img src='/css/images/ZDFneo.svg' />");
 		}
 		if(station.indexOf("zdfinfo") > -1){
-			$("#icon-station").append("<img src='/css/images/zdfinfo.svg' />");
+			$("#icon-station").append("<img src='/css/images/ZDFinfo.svg' />");
 		}
 		if(station.indexOf("zdf.kultur") > -1){
-			$("#icon-station").append("<img src='/css/images/zdf.kultur_logo.svg' />");
+			$("#icon-station").append("<img src='/css/images/Zdf.kultur_logo.svg' />");
 		}
 		if(station.indexOf("srf") > -1){
 			$("#icon-station").append("<img src='/css/images/srf.svg' />");
 		}
 		if(station.indexOf("arte") > -1){
-			$("#icon-station").append("<img src='/css/images/arte.svg' />");
+			$("#icon-station").append("<img src='/css/images/Arte.svg' />");
 		}
 		if(station.indexOf("br") > -1){
 			$("#icon-station").append("<img src='/css/images/br.svg' />");
