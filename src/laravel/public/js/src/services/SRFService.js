@@ -921,9 +921,15 @@ MediathekCrawler.SRFService = function() {
 				hours = '0'+String(hours);
 			}
 			var minutes = String(Number(length)-(Number(hours)*60));
+			if(Number(minutes)<10){
+				minutes = '0'+String(minutes);
+			}
 			return hours+':'+minutes+':00';
 		}
 		if(Number(length)<=60){
+			if(Number(length)<10){
+				length = '0'+String(length);
+			}
 			return '00:'+String(length)+':00';
 		}
 

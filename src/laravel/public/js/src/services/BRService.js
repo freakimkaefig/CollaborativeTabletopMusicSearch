@@ -152,9 +152,9 @@ MediathekCrawler.BRService = function() {
 		});
 	},
 
-	_fixLength = function(length){
+	_fixBRLength = function(length){
 		if(length.indexOf(' Min') > 0){
-			length = length.replace(' Min.', '');
+			length = length.replace(' Min', '');
 		}
 		if(Number(length) > 60){
 			var hours = String(parseInt(length / 60));
@@ -162,13 +162,26 @@ MediathekCrawler.BRService = function() {
 				hours = '0'+String(hours);
 			}
 			var minutes = String(Number(length)-(Number(hours)*60));
+			if(Number(minutes)<10){
+				minutes = '0'+String(minutes);
+			}
+			// hours = _replaceAll('.','',hours);
+			// minutes = _replaceAll('.','',minutes);
 			return hours+':'+minutes+':00';
 		}
 		if(Number(length)<=60){
+			if(Number(length)<10){
+				length = '0'+String(length);
+			}
+			// length = _replaceAll('.','',length);
 			return '00:'+String(length)+':00';
 		}
 
 		return length;
+	},
+
+	_replaceAll = function(find, replace, str) {
+	  return str.replace(new RegExp(find, 'g'), replace);
 	},
 
 	/**
@@ -181,18 +194,20 @@ MediathekCrawler.BRService = function() {
 			// url for xml file containing streams is placed in click event handler
 			// searching for string between {dataURL:' and '}
 			var matches = _onclick.match(/\{dataURL:'(.*?)\'}/);
+			var l = null;
 			// console.log('BR onLoadDetails matches: ',matches);
 
 			if (matches) {
 			    var submatch = matches[1];
+		    	l = $(data).find('.bcastData ul.meta li.duration time.duration').text();
+		    	l = l.replace('.','');
 
 			    // build result with currently available details
 			    var _result = {}
 			    	_result._station = 'BR',
 			    	_result._subtitle = $(data).find('.bcastData ul.title li.title').text(),
 			    	_result._title = $(data).find('.bcastData header h3').text(),
-			    	_result._length = $(data).find('.bcastData ul.meta li.duration time.duration').text(),
-			    	_result._length = _fixLength(_result._length);
+			    	_result._length = _fixBRLength(l);
 			    	_result._airtime = $(data).find('.bcastData ul.meta li.start time.start').text().replace(',', ''),
 			    	_result._details = $(data).find('#bcastInfo .bcastContent p').text() + $(data).find('#bcastInfo .bcastContent div.cast').text(),
 			    	_result._teaserImages = [],
