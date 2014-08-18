@@ -279,7 +279,9 @@ body{
 	text-align:center;
 }
 #waiting h2{
-	background-color: #1b1b1b;
+	background-color: #778899;
+	color: #ffffff;
+	padding: 15px;
 	position: absolute;
     top: 50%;
     text-transform: none;
