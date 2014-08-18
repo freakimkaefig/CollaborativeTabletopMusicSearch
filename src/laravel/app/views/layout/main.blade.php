@@ -12,6 +12,7 @@
 		{{ HTML::script('js/libs/jquery/jquery-ui.js') }}
 		{{ HTML::script('js/libs/bootstrap/bootstrap.min.js') }}
 		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	</head>
 	<body>			
 		@include('layout.header')
@@ -19,11 +20,8 @@
 
 		<div class="visible-xs">
 	
-			<button type="button" class="btn btn-default" data-toggle="collapse" data-target=".nav-collapse">_
-			      <!--
-			      <span class="icon-bar"></span>
-			      <span class="icon-bar"></span>
-			      <span class="icon-bar"></span>  -->
+			<button type="button" class="btn btn-default" data-toggle="collapse" data-target=".nav-collapse">
+			      <span class="glyphicon glyphicon-align-justify"></span>
 			</button>
 
 			<div class="nav-collapse collapse" style="position: absolute; z-index: 99">
