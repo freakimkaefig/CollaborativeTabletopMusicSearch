@@ -38,24 +38,26 @@
 		            $image_playlist = get_object_vars(json_decode($videos[0]->image)[0])['_url'];
 		          }
 		          catch(Exception $e){
-		            $image_playlist = "https://photos-4.dropbox.com/t/0/AAApwsyTodwk2yHgkVFcSHvOVcX_xwrcppU_0HLeIx3GnA/12/97810337/png/1024x768/3/1406131200/0/2/rect3001.png/LEsRiQ13NKBewQUDTxuK0ie3K6O6kGJ1Oy8ez2kQfYY";
+		            $image_playlist = "/images/no_image.png";
 		          }
 		        ?>
 		    @if(isset($videos[0]->id))  
    			<a href="{{ URL::route('playlist-single',[$result->id,$videos[0]->id])}}"><div class="list-item">
-		        <img src='{{$image_playlist}}' class="img-responsive col-sm-6"/>
-       			<div class="col-sm-6">
-       			<h4>{{$result->name}}</h4>
-       			<h5>{{ isset($videos[0]->title) ? '1) ' . substr($videos[0]->title,0,25).((strlen($videos[0]->title)>24) ? '...' : "") : '' }}</h5>
-       			<h5>{{ isset($videos[1]->title) ? '2) ' . substr($videos[1]->title,0,25).((strlen($videos[1]->title)>24) ? '...' : "") : '' }}</h5>
-       			<h5>{{ isset($videos[2]->title) ? '3) ' . substr($videos[2]->title,0,25).((strlen($videos[2]->title)>24) ? '...' : "") : '' }}</h5>
+		        <img src='{{$image_playlist}}' class="img-responsive col-sm-6 col-lg-4"/>
+       			<div class="col-sm-6 col-lg-8">
+	       			<h4>{{$result->name}}</h4>
+	       			<h5>{{ isset($videos[0]->title) ? '1) ' . substr($videos[0]->title,0,25).((strlen($videos[0]->title)>24) ? '...' : "") : '' }}</h5>
+	       			<h5>{{ isset($videos[1]->title) ? '2) ' . substr($videos[1]->title,0,25).((strlen($videos[1]->title)>24) ? '...' : "") : '' }}</h5>
+	       			<h5>{{ isset($videos[2]->title) ? '3) ' . substr($videos[2]->title,0,25).((strlen($videos[2]->title)>24) ? '...' : "") : '' }}</h5>
    				</div>
    			</div></a>
    			@else
    			<div class="list-item">
-   				<img src='{{$image_playlist}}' class="img-responsive col-lg-3"/>
-   				<h3>{{$result->name}}</h3>
-   				<h4>Noch nichts vorhanden</h4>
+   				<img src='{{$image_playlist}}' class="img-responsive col-sm-6 col-lg-4"/>
+   				<div class="col-sm-6 col-lg-8">
+	   				<h3>{{$result->name}}</h3>
+	   				<h5>Diese Playliste ist leer.</h5>
+   				</div>
    			</div> 
    			@endif
        		@endforeach

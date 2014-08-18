@@ -216,6 +216,9 @@ body{
 	word-wrap: break-word;
 }
 
+#playlist-items .list-item .list-item-description h3 {
+	margin-top:0;
+}
 
 
 /* ===== Video_page ======*/
