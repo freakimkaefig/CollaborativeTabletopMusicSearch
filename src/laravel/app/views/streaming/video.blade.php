@@ -17,17 +17,22 @@
 					<div class="col-xs-12 col-sm-12">
 						<button id="choosePlaylist" class="btn col-xs-4 col-sm-6 col-lg-3 broadcast-btn btn-transparent"><span class="glyphicon glyphicon-list pull-left"></span>Playlisten</button>
 						<form class="col-sm-3 col-lg-3">
-							<div id="selectPlaylist" class="select-box hidden">			
-								<select id="select">
 									<?php
 								 		$user_playlists= DB::table('playlists')->where('user', '=', Auth::id())->get();
 								 	?>
+							<div id="selectPlaylist" class="select-box hidden">			
+								@if(sizeOf($user_playlists))
+								<select id="select">
 								 	@foreach($user_playlists as $pl)
 								 		<option value="{{$pl->id}}">{{$pl->name}}</option>
 								 	@endforeach
 								</select>
 								<button id="add-to-playlist" class="btn btn-transparent">Hinzufügen</button>
 								<button id="add-to-playlist-cancel" class="btn btn-transparent" type="button" >Abbrechen</button>
+								@else
+								<p>Es sind noch keine Playlisten vorhanden</p>
+								<button id="add-to-playlist-cancel" class="btn btn-transparent" type="button" >Abbrechen</button>
+								@endif
 							</div>
 						</form>
 						<h4 class="feedback col-sm-6 " hidden>hinzugefügt!</h4>

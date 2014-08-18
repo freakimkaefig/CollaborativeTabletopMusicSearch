@@ -9,7 +9,7 @@
 		{{ HTML::style('css/style.css') }}
 
 		{{ HTML::script('js/libs/jquery/jquery.min.js') }}
-		{{ HTML::script('js/libs/jquery/jquery-ui.js') }}
+		{{ HTML::script('js/libs/jquery/jquery-ui.min.js') }}
 		{{ HTML::script('js/libs/bootstrap/bootstrap.min.js') }}
 		
 	</head>
