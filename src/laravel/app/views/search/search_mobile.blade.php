@@ -14,7 +14,7 @@
 		@include('layout.header')
 		@include('mediathek-crawler-js')
 
-		<div class="visible-xs col-md-4">
+		<div class="visible-xs col-xs-12">
 			<!-- <button type="button" class="btn btn-default" data-toggle="collapse" data-target=".nav-collapse">_</button>
 			
 			<div class="nav-collapse collapse" style="position: absolute; z-index: 99">
@@ -30,7 +30,8 @@
 			    </ul>
 			</div> -->
 			<button class="btn btn-default dropdown">
-       			<a href="#" class="dropdown-toggle" data-toggle="dropdown">_</a>
+       			<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+				<span class="glyphicon glyphicon-align-justify"></span></a>
       			<ul class="dropdown-menu" style="border-color: white; border-radius: 5">
         		  <li><a href="{{ URL::route('playlists') }}">Playliste</a></li>
         		  <li class="divider"></li>
@@ -47,20 +48,16 @@
 			      <li><a href="{{ URL::route('account-my-account') }}">Einstellungen</a></li>
         		</ul>
       		</button>
-
-      		
       		
 			<input class="search-query " type="text" name="search" placeholder="Suche"{{ (Input::old('search')) ? ' value="' . e(Input::old('search')) . '"' : '' }}>
-			
-			<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span>Suchen</button>
-			
-			
 
+			<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span>Suchen
+			</button>
 		</div>
 
 
 		
-		<div id="channel-filter" class="form-group col-sm-3 visible-xs">
+		<div id="channel-filter" class="form-group col-xs-12 visible-xs">
 			<h4>Sender</h4>
 			<div class="col-xs-6">
 				<div class="checkbox">
@@ -106,12 +103,12 @@
 
 
 
-		<div id="category-filter" class="form-group visible-xs">
+		<div id="category-filter" class="form-group col-xs-12 visible-xs">
 			<h4>Rubriken</h4>
 			<div class="col-xs-6">
 				<div class="checkbox">
 					<label>
-						<input type="checkbox" name="nachrichten" value="nachrichten"{{ (Input::old('nachrichten')) ? ' checked' : ' selected' }}>
+						<input type="checkbox" name="nachrichten" value="nachrichten">
 						Nachrichten
 					</label>
 				</div>
@@ -168,7 +165,7 @@
 			</div>
 		</div>
 
-		<div class="form-group form-inline visible-xs">
+		<div class="form-group form-inline col-xs-12 visible-xs">
 			<h4>Datum &amp; Dauer</h4>
 			<div class="col-xs-6">
 				<label>Von:
@@ -180,7 +177,7 @@
 					<input id="datepicker-to" class="col-sm-12"  type="type" name="to" disabled>
 				</label>
 			</div>
-			<div class="disabled col-xs-6">
+			<div class="col-xs-6">
 				<label>Mindestdauer: <p id="duration-display">0min</p>
 					<div id="duration-slider"></div>			
 				</label>

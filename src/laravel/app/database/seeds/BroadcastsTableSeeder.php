@@ -124,6 +124,22 @@ class BroadcastsTableSeeder extends Seeder {
 				'playlist_id' => 1,
 				'user_id' => NULL,
 			),
+			7 => 
+			array (
+				'id' => 89,
+				'title' => 'Rote Rosen',
+				'subtitle' => 'Folge 1789: Auf später verschoben?',
+				'details' => 'Auch Thomas muss akzeptieren, dass Aylin momentan keinen Platz für eine Beziehung in ihrem Leben hat. Doch beide wissen insgeheim, dass Aylins Abschied nach Genf nicht das Ende der Geschichte ist.',
+				'airtime' => '2014-08-18 00:00:00',
+				'url' => '[{"_basetype":"","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/mvideos.daserste.de\\/videoportal\\/Film\\/c_450000\\/454795\\/format551473.mp4","_filesize":""},{"_basetype":"","_type":"rtmp\\/mp4","_quality":"1","_url":"rtmp:\\/\\/vod.daserste.de\\/ardfs\\/mp4:videoportal\\/mediathek\\/Rote+Rosen\\/c_450000\\/454795\\/format551472.mp4?sen=Rote+Rosen&amp;clip=Folge+1789+Auf+sp%C3%A4ter+verschoben%3F&amp;for=Web-M","_filesize":""},{"_basetype":"","_type":"rtmp\\/mp4","_quality":"2","_url":"rtmp:\\/\\/vod.daserste.de\\/ardfs\\/mp4:videoportal\\/mediathek\\/Rote+Rosen\\/c_450000\\/454795\\/format551482.mp4?sen=Rote+Rosen&amp;clip=Folge+1789+Auf+sp%C3%A4ter+verschoben%3F&amp;for=Web-L","_filesize":""},{"_basetype":"","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/mvideos.daserste.de\\/videoportal\\/Film\\/c_450000\\/454795\\/format551473.mp4","_filesize":""},{"_basetype":"","_type":"video\\/mp4","_quality":"1","_url":"http:\\/\\/mvideos.daserste.de\\/videoportal\\/Film\\/c_450000\\/454795\\/format551472.mp4","_filesize":""},{"_basetype":"","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/mvideos.daserste.de\\/videoportal\\/Film\\/c_450000\\/454795\\/format551531.mp4","_filesize":""},{"_basetype":"","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/mvideos.daserste.de\\/videoportal\\/Film\\/c_450000\\/454795\\/format551482.mp4","_filesize":""}]',
+				'duration' => '00:48:29',
+				'image' => '[{"_resolution":"384xNaN","_url":"http:\\/\\/mediathek.daserste.de\\/image\\/00\\/23\\/00\\/35\\/08\\/1222470096\\/16x9\\/384"}]',
+				'station' => 'Das Erste',
+				'created_at' => '2014-08-18 15:31:56',
+				'updated_at' => '2014-08-18 15:31:56',
+				'playlist_id' => 1,
+				'user_id' => NULL,
+			),
 		));
 	}
 
