@@ -321,6 +321,7 @@ MediathekCrawler.ApplicationController = function() {
 			if(duration > 0){
 					results = JSON.parse(localStorage.getItem("mediathek-crawler"))._results;
 					//localStorage.removeItem("mediathek-crawler");
+					//localStorage.removeItem("mediathek-crawler");
 					//mediathekModel.clearResults();
 					//console.log("duration");
 					var newResults =[];
@@ -338,6 +339,12 @@ MediathekCrawler.ApplicationController = function() {
 					newResults.forEach(function(i){
 						resultView.appendResult(event,i);
 					})
+					newResults = JSON.stringify(newResults);
+					newResults = '{"_results":'+newResults+'}';
+
+					localStorage.setItem("mediathek-crawler", newResults);
+					results = JSON.parse(localStorage.getItem("mediathek-crawler"))._results;
+					
 				}
 	},
 	_search = function(searchString) {
