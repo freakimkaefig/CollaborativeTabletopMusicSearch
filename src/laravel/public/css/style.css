@@ -216,6 +216,9 @@ body{
 	word-wrap: break-word;
 }
 
+#playlist-items .list-item .list-item-description h3 {
+	margin-top:0;
+}
 
 
 /* ===== Video_page ======*/
@@ -283,7 +286,14 @@ body{
 #loading-indicator {
   
 }
+/* ======= Mobile Design ===== */
 
+.dropdown-menu{
+	background-color: #1b1b1b;
+	color: white !important;
+}
+
+.dropdown-menu li>a{color: #ffffff;}
 
 /* ======= Other Design elements ===== */
 
@@ -300,12 +310,11 @@ body{
 #waiting h2{
 	background-color: #778899;
 	color: #ffffff;
-	padding: 15px;
-	/*position: absolute;
+	position: absolute;
     top: 50%;
-    left: 25%;
-    */
     text-transform: none;
+   
+   
 }
 
 .feedback-container{
