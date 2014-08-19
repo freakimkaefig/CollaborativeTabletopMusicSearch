@@ -140,7 +140,7 @@ MediathekCrawler.ApplicationController = function() {
 			if(document.URL.indexOf('/channel/WDR') > -1){
 				// WDRService.getBRNew();
 				// WDRService.getBRHot();
-				// WDRService.searchString('reportage');
+				WDRService.searchString('reportage');
 			}
 
 		}

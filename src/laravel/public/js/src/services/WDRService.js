@@ -8,9 +8,11 @@ MediathekCrawler.WDRService = function() {
 	WDR_NEW_URL = 'http://www1.wdr.de/mediathek/video/sendungverpasst/index.html',
 
 	// constants for searching
-	// SEARCH_URL = 'http://www.ardmediathek.de/tv/suche?sort=date&deviceType=pc&features=flash&sender=sel&chanWDR&searchText=',
-	SEARCH_URL = 'http://www.ardmediathek.de/tv/suche?searchText=',
-	SEARCH_PARAMS = '&sender=sel&chanWDR&mresults=page.1',
+	SEARCH_URL = 'http://www.ardmediathek.de/tv/suche?sort=date&sender=sel&chanWDR&searchText=',
+	// SEARCH_URL = 'http://www1.wdr.de/themen/suche/suche100.jsp?q=klofrau',
+	SEARCH_PARAMS = '&searchmethod=AND&num=10', 
+	SEARCH_PAGE2 = '+&start=10', //für zweite seite
+	SEARCH_PAGE3 = '&start=20', // für dritte seite etc.
 	STREAM_URL = 'http://www.ardmediathek.de/play/media/',
 	SEARCH_WRAPPER_ELEMENT = 'div.elementWrapper div.boxCon',
 	WRAPPER_ELEMENT = 'div.teaser',
@@ -87,12 +89,17 @@ MediathekCrawler.WDRService = function() {
 		};
 		// build restful URL for search in ARD
 		var searchString = searchStr + '+';
-		var _searchUrl = PROXY_URL + encodeURI(SEARCH_URL + searchStr + SEARCH_PARAMS);
+		var _searchUrl = PROXY_URL + encodeURI(SEARCH_URL + searchStr/* + SEARCH_PARAMS*/);
+		// var _searchUrl = PROXY_URL + "www.wdr.de/mediathek/video/suche/videosucheinclude100-solrSendereihenSuche_index-mediathekvideos.jsp";
 		console.log('WDR searchString url: ',_searchUrl);
 		$.ajax({
 			url: _searchUrl,
 			type: 'GET',
+			data:{
+				value: 'reportage'
+			},
 			success: function(data){
+				console.log('WDR data: ',data);
 				// onSearchString(data,origin);
 			}
 		});
