@@ -37,7 +37,8 @@ MediathekCrawler.BroadcastView = (function() {
 			results = JSON.parse(results_json);
 			result = results._results[id];
 			// console.log('BroadcastView results: ', results, ' || id: ',id);
-
+			console.log(results);
+			console.log(result);
 
 		for (var i=result._streams.length-1; i>=0; i--) {
 			var source = '<source src="' + result._streams[i]._url + '" type="' + result._streams[i]._type + '" data-res="'+ checkQuality(result._streams[i]._quality) + '">'
