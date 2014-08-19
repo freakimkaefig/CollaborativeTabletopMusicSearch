@@ -2,11 +2,12 @@
 
 @section('content')
 
-
-<div id="home-title" >
-	<h1>Meditahekcrawler</h1>
-	<h3>Der einfachste Weg Ihre Lieblingsvideos in den Mediatheken zu finden.</h3>	
-	<h4>Melden Sie sich jetzt an oder Registrieren Sie sich für ein noch besseres Mediathekerlebnis!</h4>
+<div class="container">
+	<div id="home-title" class="col-xs-12 col-sm-8 col-sm-offset-2">
+		<h1>Meditahekcrawler</h1>
+		<h3>Der einfachste Weg Ihre Lieblingsvideos in den Mediatheken zu finden.</h3>	
+		<h4>Melden Sie sich jetzt an oder Registrieren Sie sich für ein noch besseres Mediathekerlebnis!</h4>
+	</div>
 </div>
 <div id="home-channels" class="container-fluid">
 		<h3>Sender:</h3>

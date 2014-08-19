@@ -342,12 +342,10 @@ body{
 	top:-70px;
 }
 
-#feedback-container-danger{
-	background-color: #3a0c0c;
+#feedback-container-danger>h4,#feedback-container-warning>h4{
+	font-size: 12px;
 }
-#feedback-container-warning{
-	background-color: #3f3030;
-}
+
 #channel{
 	float: left;
 }
@@ -399,11 +397,8 @@ body{
 }
 
 #home-title{
-	width: 110%;
-	background-color: #313131;
+	background-color: #778899;
 	padding: 15px;
-	margin-top: -20px;
-	margin-left: -15px;
 }
 #home-channels img{
 	height: 20px;
