@@ -334,17 +334,19 @@ MediathekCrawler.ApplicationController = function() {
 						if(timeInMinutes >= duration){
 							//resultView.appendResult(event, re);
 							newResults.push(re);
-						}	
+						}
 					});
+					var resultIndex = 0;
 					newResults.forEach(function(i){
+						newResults[resultIndex]._id = resultIndex;
 						resultView.appendResult(event,i);
+						resultIndex++;
 					})
 					newResults = JSON.stringify(newResults);
 					newResults = '{"_results":'+newResults+'}';
 
 					localStorage.setItem("mediathek-crawler", newResults);
 					results = JSON.parse(localStorage.getItem("mediathek-crawler"))._results;
-					
 				}
 	},
 	_search = function(searchString) {
