@@ -2,8 +2,8 @@
 <nav id="footer-nav" class="navbar navbar-default navbar-fixed-bottom hidden-xs" role="navigation">
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-sm-4">
-				<h4 class="">Rubriken</h4>
+			<div class="col-sm-3 col-sm-offset-1">
+				<h4 class="col-sm-offset-2">Rubriken</h4>
 				<div class="col-sm-6 col-md-4 alpha">
 					<ul>
 						<li><a href="{{URL::route('category',array('live'))}}">Live</a></li>
@@ -41,7 +41,7 @@
 					</ul>
 				</div>
 			</div>
-			<div class="col-sm-2">
+			<div class="col-sm-3">
 				<h4 class="">Konto</h4>
 				<div class="col-sm-4 alpha ">
 					<ul>
