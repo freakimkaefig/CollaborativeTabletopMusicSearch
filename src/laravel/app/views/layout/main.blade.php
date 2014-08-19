@@ -64,9 +64,11 @@
 		<div class="container-fluid">
 			@yield('content')
 		</div>
-
-		<div href="#" id="to-top">TOP </div>
-
+		<a href="#">
+		<div id="to-top" class="visible-xs">
+		<span  class="glyphicon glyphicon glyphicon-chevron-up text-center"></span>
+		</div>
+		</a>
 		@include('layout.footer')
 
 		@include('mediathek-crawler-js')
