@@ -187,7 +187,7 @@
 			el : _V_.Component.prototype.createEl( 'li', {
 				
 				className	: 'vjs-menu-title vjs-res-menu-title',
-				innerHTML	: 'Quality'
+				innerHTML	: 'Qualität'
 			})
 		}));
 		

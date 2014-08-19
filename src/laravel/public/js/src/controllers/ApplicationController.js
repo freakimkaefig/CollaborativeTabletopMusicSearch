@@ -98,8 +98,8 @@ MediathekCrawler.ApplicationController = function() {
 
 	_analyzeRoute = function() {
 		if (document.URL === "http://mediathek-crawler/" || document.URL === "http://mediathek.lukaslamm.de/") {
-			_getNew();
-			_getHot();
+			//_getNew();
+			//_getHot();
 		}
 		if(document.URL.indexOf('/new') > -1){
 			_getNew();
