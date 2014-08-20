@@ -2,8 +2,10 @@
 
 @section('content')
 	<!-- START lists/playlists -->
-	<h1 class="text-center">Playlisten</h1>
-	<div class="col-xs-3 col-sm-offset-1 alpha">
+	<div class="row">
+		<h2 class="text-center page-title">Playlisten</h2>	
+	</div>
+	<div class="col-xs-3 alpha">
 	<button id="new-list" class="btn btn-transparent">Neue Liste</button>
 	<form id="create-playlist" class="select-box col-sm-6 hidden" action="{{ URL::route('new-playlist')}}" method="post">
 		<input type="text" name="playlistName" />

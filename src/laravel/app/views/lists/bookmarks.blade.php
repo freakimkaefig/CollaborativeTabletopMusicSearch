@@ -1,7 +1,7 @@
 @extends('layout.main')
 
 @section('content')
-	<h1 class="text-center">Merkliste</h1>
+	<h2 class="text-center page-title">Merkliste</h2>
 		<?php
 			//$results = DB::select('select * from playlists where user="'+Auth::id()+'"');
 			$results= DB::table('broadcasts')->where('user_id', '=', Auth::id())->get();
