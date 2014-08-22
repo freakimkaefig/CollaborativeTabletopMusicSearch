@@ -378,47 +378,60 @@ MediathekCrawler.ZDFService = function() {
 			_searchTerm: null,
 			_badge: 'new'
 		};
+		if(maxResults > 1){
 
-		$.ajax({
-			url: ZDFSEARCHNEWURL+ZDFID+'&maxLength='+String(maxResults),
-			type: 'GET',
-			success: function(data) {
-				_parseResponse(origin, data);
-			},
-			error: function(){
-				console.warn('ERROR; ZDFService.getNew; ZDF; AJAX-request did not recieve a response');
-			}
-		});
-		$.ajax({
-			url: ZDFSEARCHNEWURL+ZDFNEOID+'&maxLength='+String(maxResults),
-			type: 'GET',
-			success: function(data) {
-				_parseResponse(origin, data);
-			},
-			error: function(){
-				console.warn('ERROR; ZDFService.getNew; ZDFNEO; AJAX-request did not recieve a response');
-			}
-		});
-		$.ajax({
-			url: ZDFSEARCHNEWURL+ZDFKULTURID+'&maxLength='+String(maxResults),
-			type: 'GET',
-			success: function(data) {
-				_parseResponse(origin, data);
-			},
-			error: function(){
-				console.warn('ERROR; ZDFService.getNew; ZDFKULTUR; AJAX-request did not recieve a response');
-			}
-		});
-		$.ajax({
-			url: ZDFSEARCHNEWURL+ZDFINFOID+'&maxLength='+String(maxResults),
-			type: 'GET',
-			success: function(data) {
-				_parseResponse(origin, data);
-			},
-			error: function(){
-				console.warn('ERROR; ZDFService.getNew; ZDFINFO; AJAX-request did not recieve a response');
-			}
-		});
+			$.ajax({
+				url: ZDFSEARCHNEWURL+ZDFID+'&maxLength='+String(maxResults),
+				type: 'GET',
+				success: function(data) {
+					_parseResponse(origin, data);
+				},
+				error: function(){
+					console.warn('ERROR; ZDFService.getNew; ZDF; AJAX-request did not recieve a response');
+				}
+			});
+			$.ajax({
+				url: ZDFSEARCHNEWURL+ZDFNEOID+'&maxLength='+String(maxResults),
+				type: 'GET',
+				success: function(data) {
+					_parseResponse(origin, data);
+				},
+				error: function(){
+					console.warn('ERROR; ZDFService.getNew; ZDFNEO; AJAX-request did not recieve a response');
+				}
+			});
+			$.ajax({
+				url: ZDFSEARCHNEWURL+ZDFKULTURID+'&maxLength='+String(maxResults),
+				type: 'GET',
+				success: function(data) {
+					_parseResponse(origin, data);
+				},
+				error: function(){
+					console.warn('ERROR; ZDFService.getNew; ZDFKULTUR; AJAX-request did not recieve a response');
+				}
+			});
+			$.ajax({
+				url: ZDFSEARCHNEWURL+ZDFINFOID+'&maxLength='+String(maxResults),
+				type: 'GET',
+				success: function(data) {
+					_parseResponse(origin, data);
+				},
+				error: function(){
+					console.warn('ERROR; ZDFService.getNew; ZDFINFO; AJAX-request did not recieve a response');
+				}
+			});
+		}else{
+			$.ajax({
+				url: ZDFSEARCHNEWURL+ZDFID+'&maxLength=1',
+				type: 'GET',
+				success: function(data) {
+					_parseResponse(origin, data);
+				},
+				error: function(){
+					console.warn('ERROR; ZDFService.getNew; ZDF with maxResults = 1; AJAX-request did not recieve a response');
+				}
+			});
+		}
 	},
 
 	getCategories = function(_category, maxVidProSendung) {

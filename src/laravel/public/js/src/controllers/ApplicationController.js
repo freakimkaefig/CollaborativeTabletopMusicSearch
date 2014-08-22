@@ -32,7 +32,11 @@ MediathekCrawler.ApplicationController = function() {
 	    // init Models
 	    mediathekModel = MediathekCrawler.MediathekModel();
 	    mediathekModel.init();
-	    $(mediathekModel).on('resultReceived', onResultReceived);
+	    if (document.URL === "http://mediathek-crawler/" || document.URL === "http://mediathek.lukaslamm.de/") {
+			//fill Slider
+		}else{
+	    	$(mediathekModel).on('resultReceived', onResultReceived);
+		}
 
 	    // init Mediathek-Controllers:
 	    // ARDService = MediathekCrawler.ARDService();
@@ -102,8 +106,12 @@ MediathekCrawler.ApplicationController = function() {
 
 	_analyzeRoute = function() {
 		if (document.URL === "http://mediathek-crawler/" || document.URL === "http://mediathek.lukaslamm.de/") {
-			//_getNew();
-			//_getHot();
+			DasErsteService.getNew(1);
+			ZDFService.getNew(1);
+			ARTEService.getNew(1);
+			SRFService.getNew(1);
+			BRService.getBRNew(1);
+			// ORFService.getBRNew(1);
 		}
 		if(document.URL.indexOf('/new') > -1){
 			_getNew();
@@ -138,8 +146,8 @@ MediathekCrawler.ApplicationController = function() {
 				SRFService.getHot();
 			}
 			if(document.URL.indexOf('/channel/BR') > -1){
-				BRService.getBRHot();
 				BRService.getBRNew();
+				BRService.getBRHot();
 			}
 			if(document.URL.indexOf('/channel/ORF') > -1){
 				// ORFService.getBRNew();
@@ -385,7 +393,7 @@ MediathekCrawler.ApplicationController = function() {
 	_getNew = function() {
 		DasErsteService.getNew();
 		ZDFService.getNew(ZDFMAXRESULTS);
-		ARTEService.getNew(ARTEMAXRESULTS, null, null);
+		ARTEService.getNew(ARTEMAXRESULTS);
 		SRFService.getNew();
 		BRService.getBRNew();
 		// ORFService.getBRNew();

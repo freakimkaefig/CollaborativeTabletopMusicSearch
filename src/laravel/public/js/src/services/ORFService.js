@@ -64,12 +64,12 @@ MediathekCrawler.ORFService = function() {
 			type: 'GET',
 			success: function(data){
 				// console.log('ORF data: ',data);
-				onSearchString(data, origin);
+				onORFSearchString(data, origin);
 			}
 		});
 	},
 
-	onSearchString = function(data, origin) {
+	onORFSearchString = function(data, origin) {
 
 		// console.log('ORF pageHeadline: ',pageHeadline);
 		// find all divs with the class 'teaser'
@@ -81,13 +81,13 @@ MediathekCrawler.ORFService = function() {
 				var	documentUrl = $(element).find('a').attr('href'),
 					// broadcastUrlParams = _parseQueryString($(element).find(VIDEO_CLASS).find(LINK_CLASS).attr('href')),
 					// documentId = broadcastUrlParams.documentId;
-			// console.log('ORF onSearchString: ',documentUrl,documentId);
+			// console.log('ORF onORFSearchString: ',documentUrl,documentId);
 				
 				// find container for details
 				// var $textWrapper = $(element).find('div.textWrapper');
 				_result = {};
 				_result._station ='ORF';
-			// console.log('ORF onSearchString STATION : ',$element.find('p.subtitle').text(), _result._station);
+			// console.log('ORF onORFSearchString STATION : ',$element.find('p.subtitle').text(), _result._station);
 				_result._title = $(element).find('.item_title').text();
 				_result._subtitle = ''; //$textWrapper.find('p.teasertext').text();
 				_result._length = $(element).find('.meta_duration').text();
@@ -101,7 +101,7 @@ MediathekCrawler.ORFService = function() {
 				_result._streams = [];
 
 				// console.log(documentUrl, _result);
-				loadStreams(documentUrl, _result, origin);
+				loadORFStreams(documentUrl, _result, origin);
 			}
 		});
 
@@ -125,7 +125,7 @@ MediathekCrawler.ORFService = function() {
 	// 	_result._details = $(data).find(DETAIL_ELEMENT).text();
 
 	// 	// load streams for result
-	// 	loadStreams(documentId, _result,origin);
+	// 	loadORFStreams(documentId, _result,origin);
 	// },
 
 	/**
@@ -133,15 +133,15 @@ MediathekCrawler.ORFService = function() {
 	 * @param {String|Integer}		documentId of the broadcast
 	 * @param {object}				currently builded result (missing streams and preview images)
 	 */
-	loadStreams = function(documentUrl, result, origin) {
+	loadORFStreams = function(documentUrl, result, origin) {
 		var streamURL = PROXY_URL + encodeURI(documentUrl);
-		// console.log('ORF loadStreams streamURL: ',streamURL);
+		// console.log('ORF loadORFStreams streamURL: ',streamURL);
 		$.ajax({
 			url: streamURL,
 			type: 'GET',
 			success: function(data) {
-		// console.log('ORF loadStreams: ',typeof data, data);
-				onLoadStreams(documentUrl, result, data, origin);
+		// console.log('ORF loadORFStreams: ',typeof data, data);
+				onloadORFStreams(documentUrl, result, data, origin);
 			}
 		});
 	},
@@ -152,13 +152,20 @@ MediathekCrawler.ORFService = function() {
 	 * @param {object}				currently builded result (missing streams and preview images)
 	 * @param {JSON}				JSON response of stream loading
 	 */
-	onLoadStreams = function(documentUrl, result, data, origin) {
-		// var data = JSON.parse(data);
-		// console.log('ORF onLoadStreams: ',typeof data, data);
-		console.log('ORF onLoadStreams: ',$(data).find('#player_wrapper'));
+	onloadORFStreams = function(documentUrl, result, data, origin) {
+		// console.log(documentUrl);
+		try{
+
+			var resp = JSON.parse($(data).find('.service_link_play').attr('data-jsb'));
+		}catch(e){
+			var resp = JSON.parse($(data).find('.player_viewport').find('.jsb_VideoPlaylist').attr('data-jsb'));
+			console.log('ORF diffrent style: ', resp);
+		}
+		// console.log('ORF onloadORFStreams: ',typeof data, data);
+		// console.log('ORF onloadORFStreams: ',typeof resp, resp);
 
 
-		// console.log('ORF onLoadStreams result: ', result,origin);
+		// console.log('ORF onloadORFStreams result: ', result,origin);
 		if(result._streams.length >0){
 			_model.addResults(origin, result._station, result._title, result._subtitle, result._details, result._length, result._airtime, result._teaserImages, result._streams);
 		}
