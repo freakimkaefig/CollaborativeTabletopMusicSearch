@@ -1,5 +1,5 @@
 <!-- START search/results -->
-<div id="waiting" ><h2 class="text-center col-sm-6 col-sm-offset-3">Die Mediatheken werden durchsucht. Das dauert ein bisschen.<br> Bitte haben Sie einen Augenblick Geduld.<br><br><a class="hover" href="{{ URL::route('home') }}">Zurück zur Startseite</a></h2></div>
+<div id="waiting" ><h2 class="text-center col-sm-6 col-sm-offset-3">Die Mediatheken werden durchsucht. Das dauert ein bisschen.<br> Bitte haben Sie einen Augenblick Geduld.<br><br><a class="hover" href="{{ URL::route('home') }}">Oder zurück zur Startseite</a></h2></div>
 
 <div class="col-sm-12">
 	<span><h4>Sortieren: </h4></span>
