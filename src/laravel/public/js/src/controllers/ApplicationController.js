@@ -33,7 +33,7 @@ MediathekCrawler.ApplicationController = function() {
 	    mediathekModel = MediathekCrawler.MediathekModel();
 	    mediathekModel.init();
 	    if (document.URL === "http://mediathek-crawler/" || document.URL === "http://mediathek.lukaslamm.de/") {
-			//fill Slider
+			$(mediathekModel).on('resultReceived', onResultReceivedForSlider);
 		}else{
 	    	$(mediathekModel).on('resultReceived', onResultReceived);
 		}
@@ -99,6 +99,9 @@ MediathekCrawler.ApplicationController = function() {
 		
 				
 	},
+	onResultReceivedForSlider = function(event, result) {
+		resultView.fillSlider(event, result);
+	},
 	onFeedback = function(event,feedback){
 		console.log("feedback");
 		feedbackView.showFeedback(feedback);
@@ -155,7 +158,7 @@ MediathekCrawler.ApplicationController = function() {
 			}
 
 		}
-		if (document.URL.indexOf("/suche") > -1) {
+		if (document.URL.indexOf("/suche") > -1 || document.URL.indexOf("/suche-mobile") > -1) {
 			// var nachrichten = $('input[name="nachrichten"]').attr('checked');
 			// if (nachrichten) {
 			// 	_getCategory('nachrichten');
@@ -166,10 +169,12 @@ MediathekCrawler.ApplicationController = function() {
 			if (searchString !== '' && searchString !== undefined) {
 				_search(searchString);
 				$('#submit').on('click',_filterSeach);
+				$('#submit-mobile').on('click',_filterSeach);
 
 			} else {
 				//_getNew();
 				$('#submit').on('click',_filterSeach);
+				$('#submit-mobile').on('click',_filterSeach);
 			}
 
 		}
