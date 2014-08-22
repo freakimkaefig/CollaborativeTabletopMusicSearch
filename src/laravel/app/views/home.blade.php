@@ -8,7 +8,8 @@
 ?>
 
 <!-- START Carousel -->
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
+<div class="row">
+	<div id="myCarousel" class="carousel slide" data-ride="carousel">
       <!-- Indicators -->
       <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class=""></li>
@@ -17,32 +18,29 @@
       </ol>
       <div class="carousel-inner">
         <div class="item">
-          <img src="css/images/ZDF.png" alt="First slide">
+          <img src="/images/dummies/1.jpg" alt="First slide">
           <div class="container">
             <div class="carousel-caption">
               <h1>Example headline.</h1>
               <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
             </div>
           </div>
         </div>
         <div class="item active">
-          <img src="css/images/Das_Erste_2014.png" alt="Second slide">
+          <img src="/images/dummies/2.jpg" alt="Second slide">
           <div class="container">
             <div class="carousel-caption">
               <h1>Another example headline.</h1>
               <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
             </div>
           </div>
         </div>
         <div class="item">
-          <img src="css/images/srf.png" alt="Third slide">
+          <img src="/images/dummies/3.jpg" alt="Third slide">
           <div class="container">
             <div class="carousel-caption">
               <h1>One more for good measure.</h1>
               <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
             </div>
           </div>
         </div>
@@ -50,6 +48,7 @@
       <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
       <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
     </div>
+</div>
 <!-- END Carousel -->
 
 <ul id="home-channels" class="container-fluid">

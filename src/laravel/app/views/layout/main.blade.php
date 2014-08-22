@@ -18,7 +18,7 @@
 		@include('layout.header')
 		<div class="container">
 
-		<div class="visible-xs">
+		<div id="mobile-menu-button" class="visible-xs">
 	
 			<button class="btn btn-default dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
