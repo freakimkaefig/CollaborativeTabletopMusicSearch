@@ -19,6 +19,7 @@ MediathekCrawler.ResultView = (function() {
 			$("#waiting").show();
 		});
 		$(document).ajaxStop(function(){
+			console.log('AJAXSTOP');
 			$("#waiting").hide();
 		});
 	},
@@ -60,21 +61,43 @@ MediathekCrawler.ResultView = (function() {
 	},
 
 	fillSlider = function(event, result) {
-		console.log(result);
+		if (result._id == 0) {
+	        first = false;
+			var slideElement = '<div class="item active">'+
+	        	'<img src="' + result._teaserImages[0]._url + '" alt="' + result._title + '">'+
+	        	'<div class="container">'+
+	            	'<a href="/video/' + result._id + '">'+
+		            	'<div class="carousel-caption">'+
+		              		'<h1>' + result._title + '</h1>'+
+		              		'<p>' + result._subtitle + '</p>'+
+		            	'</div>'+
+		            '</a>'+
+	          	'</div>'+
+	        '</div>';
+    	} else {
+    		var slideElement = '<div class="item">'+
+	        	'<img src="' + result._teaserImages[0]._url + '" alt="' + result._title + '">'+
+	        	'<div class="container">'+
+	        		'<a href="/video/' + result._id + '">'+
+		            	'<div class="carousel-caption">'+
+		              		'<h1>' + result._title + '</h1>'+
+		              		'<p>' + result._subtitle + '</p>'+
+		            	'</div>'+
+		            '</a>'+
+	          	'</div>'+
+	        '</div>';
+    	}
 
-		$sliderWrapper = $('#myCarousel .carousel-inner');
+        $indicatorWrapper = $('#carousel-wrapper .carousel-indicators');
+		$indicatorWrapper.append('<li data-target="#myCarousel" data-slide-to="' + (result._id+1) + '"></li>');
 
-		var slideElement = '<div class="item">'+
-        	'<img src="/images/dummies/1.jpg" alt="First slide">'+
-        	'<div class="container">'+
-            	'<div class="carousel-caption">'+
-              		'<h1>Example headline.</h1>'+
-              		'<p></p>'+
-            	'</div>'+
-          	'</div>'+
-        '</div>';
+		$sliderWrapper = $('#carousel-wrapper .carousel-inner');
+		$sliderWrapper.append(slideElement);
 
-        $sliderWrapper.append(slideElement);
+		if (result._id == 0) {
+        	$('#carousel-loading-item').remove();
+        	$('#carousel-loading-indicator').remove();
+        }
 	},
 
 	getFromLocalstorage = function(){

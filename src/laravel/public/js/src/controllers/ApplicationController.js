@@ -109,7 +109,7 @@ MediathekCrawler.ApplicationController = function() {
 
 	_analyzeRoute = function() {
 		if (document.URL === "http://mediathek-crawler/" || document.URL === "http://mediathek.lukaslamm.de/") {
-			DasErsteService.getNew(1);
+			// DasErsteService.getNew(1);	// liefert 12 Ergebnisse statt einem
 			ZDFService.getNew(1);
 			ARTEService.getNew(1);
 			SRFService.getNew(1);
