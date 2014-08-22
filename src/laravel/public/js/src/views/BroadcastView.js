@@ -64,7 +64,8 @@ MediathekCrawler.BroadcastView = (function() {
 		videojs("#video", {plugins : { resolutionSelector : {
     							force_types : ['video/mp4' ,'video/webm'],
     							default_res : "3"
-							} }}, function(){
+							}
+							}}, function(){
 		});
 		var descriptionElement = '<div>' + result._details + '</div>';
 		$descriptionWrapper.append(descriptionElement);

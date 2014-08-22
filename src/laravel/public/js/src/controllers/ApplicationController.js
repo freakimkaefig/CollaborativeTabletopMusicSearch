@@ -73,6 +73,10 @@ MediathekCrawler.ApplicationController = function() {
 		$(broadcastView).on("feedback", onFeedback);
 		$(playlistView).on("feedback", onFeedback);
 		$(bookmarkView).on("feedback", onFeedback);
+
+		$("#video").click(function(){
+			console.log("videoclick");
+		})
 	},
 
 	onResultReceived = function(event, result) {
