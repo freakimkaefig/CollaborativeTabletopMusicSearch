@@ -22,8 +22,7 @@ class MediathekController extends BaseController {
 	}
 
 	public function getSearchResultsMobile() {
-		return View::make('search.search_mobile')
-			->with('isSearch', TRUE);
+		return View::make('search.search_mobile');
 	}
 
 	public function getCategory($category) {
@@ -47,6 +46,13 @@ class MediathekController extends BaseController {
 	public function getChannel($channel){
 		return View::make('search.channel')
 			->with('channel',$channel);
+	}
 
+	public function getChannelsOverview() {
+		return View::make('channels_overview');
+	}
+
+	public function getCategoriesOverview() {
+		return View::make('categories_overview');
 	}
 }

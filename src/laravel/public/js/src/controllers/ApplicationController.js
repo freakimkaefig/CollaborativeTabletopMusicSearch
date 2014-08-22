@@ -33,7 +33,7 @@ MediathekCrawler.ApplicationController = function() {
 	    mediathekModel = MediathekCrawler.MediathekModel();
 	    mediathekModel.init();
 	    if (document.URL === "http://mediathek-crawler/" || document.URL === "http://mediathek.lukaslamm.de/") {
-			//fill Slider
+			$(mediathekModel).on('resultReceived', onResultReceivedForSlider);
 		}else{
 	    	$(mediathekModel).on('resultReceived', onResultReceived);
 		}
@@ -98,6 +98,9 @@ MediathekCrawler.ApplicationController = function() {
 		}
 		
 				
+	},
+	onResultReceivedForSlider = function(event, result) {
+		resultView.fillSlider(event, result);
 	},
 	onFeedback = function(event,feedback){
 		console.log("feedback");

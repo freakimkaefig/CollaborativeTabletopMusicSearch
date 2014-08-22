@@ -237,3 +237,13 @@ Route::get('/update', array(
 	'as' => 'update',
 	'uses' => 'MediathekController@updateCategories'
 ));
+
+Route::get('sender', array(
+	'as' => 'channels-overview',
+	'uses' => 'MediathekController@getChannelsOverview'
+));
+
+Route::get('rubriken', array(
+	'as' => 'categories-overview',
+	'uses' => 'MediathekController@getCategoriesOverview'
+));
