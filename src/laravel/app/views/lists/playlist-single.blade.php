@@ -8,7 +8,7 @@
 
   	?>
     @foreach($results_playlist as $result)
-      <div class="col-sm-12 text-center"><h1>Playlist:{{$result->name}}</h1></div>
+      <div class="col-sm-12 text-center"><h2 class="text-center page-title">Playlist:{{$result->name}}</h2></div>
     @endforeach
     <div class="row">  
       <div class="col-sm-12 col-sm-offset-0">

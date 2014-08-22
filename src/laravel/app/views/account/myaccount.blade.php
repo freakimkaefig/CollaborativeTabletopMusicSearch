@@ -3,7 +3,7 @@
 @section('content')
 	<!-- START account/myaccount -->
 	<div class="col-xs-12">
-		<h2 class="text-center">
+		<h2 class="text-center page-title">
 			<div class="col-xs-12 col-sm-6">Mein Konto</div>
 			<div class="col-xs-12 col-sm-6 visible-xs hidden-sm">
 				<div class="spacer visible-xs hidden-sm"></div>

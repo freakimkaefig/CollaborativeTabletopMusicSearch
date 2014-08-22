@@ -22,11 +22,21 @@ MediathekCrawler.SearchView = (function() {
 				 	$("#category-filter :input").attr('disabled', 'disabled');
 				}
 			})
-			$("input[name='srf']").click(function(){
-				 if ($("input[name='srf']:checked")){ 
+			$("input[name='br']").click(function(){
+				 if ($("#category-filter :input").attr('disabled')){ 
+				 	$("#category-filter :input").removeAttr('disabled');
+				 }
+				 else{
+				 	$("#category-filter :input").attr('disabled', 'disabled');
+				}
+			})
+			$("input[name='srf']").change(function(){
+				 if ($("input[name='srf']").is(":checked")){ 
+				 	console.log("disable");
 				 	$("#duration-slider").slider("disable");
 				 }
 				 else{
+				 	console.log("enable");
 				 	$("#duration-slider").slider("enable");
 				}
 			})
@@ -41,7 +51,7 @@ MediathekCrawler.SearchView = (function() {
 
 	},
 	getSelectedChannels = function(){
-		var selectedChannels = [];
+		var selectedChannels = [];	
 		$('#channel-filter input:checked').each(function(){
 			selectedChannels.push($(this).attr('name'));
 		})
@@ -49,9 +59,14 @@ MediathekCrawler.SearchView = (function() {
 	},
 	getSelectedCategories = function(){
 		var selectedCategories = [];
-		$("#category-filter input:checked").each(function(){
-			selectedCategories.push($(this).attr('name'));
-		})
+
+		if ($("input[name='daserste']").is(":checked")||$("input[name='br']").is(":checked")){
+			selectedCategories = [];
+		}else{	
+			$("#category-filter input:checked").each(function(){
+				selectedCategories.push($(this).attr('name'));
+			})
+		}
 		return selectedCategories;
 	},
 	initSlider = function(){

@@ -11,7 +11,7 @@ MediathekCrawler.ApplicationController = function() {
 	ZDFService = null,
 	BRService = null,
 	ARTEService = null,
-	WDRService = null,
+	ORFService = null,
 	SRFService = null,
 	
 	/* ===== VIEWS ===== */
@@ -47,8 +47,8 @@ MediathekCrawler.ApplicationController = function() {
 	 	ARTEService.init(mediathekModel);
 	 	SRFService = MediathekCrawler.SRFService();
 	 	SRFService.init(mediathekModel);
-	 	WDRService = MediathekCrawler.WDRService();
-	 	WDRService.init(mediathekModel);
+	 	ORFService = MediathekCrawler.ORFService();
+	 	ORFService.init(mediathekModel);
 	 	
 
 		// init Views:
@@ -73,6 +73,10 @@ MediathekCrawler.ApplicationController = function() {
 		$(broadcastView).on("feedback", onFeedback);
 		$(playlistView).on("feedback", onFeedback);
 		$(bookmarkView).on("feedback", onFeedback);
+
+		$("#video").click(function(){
+			console.log("videoclick");
+		})
 	},
 
 	onResultReceived = function(event, result) {
@@ -134,13 +138,13 @@ MediathekCrawler.ApplicationController = function() {
 				SRFService.getHot();
 			}
 			if(document.URL.indexOf('/channel/BR') > -1){
-				BRService.getBRNew();
 				BRService.getBRHot();
+				BRService.getBRNew();
 			}
-			if(document.URL.indexOf('/channel/WDR') > -1){
-				// WDRService.getBRNew();
-				// WDRService.getBRHot();
-				WDRService.searchString('reportage');
+			if(document.URL.indexOf('/channel/ORF') > -1){
+				// ORFService.getBRNew();
+				// ORFService.getBRHot();
+				ORFService.searchString('reportage');
 			}
 
 		}
@@ -231,8 +235,8 @@ MediathekCrawler.ApplicationController = function() {
 					if(channel =="br"){
 						BRService.searchString(searchString, 0);
 					}
-					if(channel =="wdr"){
-						// WDRService.searchString(searchString);
+					if(channel =="orf"){
+						// ORFService.searchString(searchString);
 					}
 				}
 				// cahnnel-string search
@@ -254,7 +258,7 @@ MediathekCrawler.ApplicationController = function() {
 					if(channel =="br"){
 						BRService.getBRVideosByDate(startDate, endDate);
 					}
-					if(channel =="wdr"){
+					if(channel =="orf"){
 						// BRService.getBRVideosByDate(startDate, endDate);
 					}
 
@@ -282,9 +286,9 @@ MediathekCrawler.ApplicationController = function() {
 						BRService.getBRHot();
 						BRService.getBRNew();
 					}
-					if (channel == "wdr"){
-						// WDRService.getBRHot();
-						// WDRService.getBRNew();
+					if (channel == "orf"){
+						// ORFService.getBRHot();
+						// ORFService.getBRNew();
 					}
 				}
 	
@@ -298,7 +302,7 @@ MediathekCrawler.ApplicationController = function() {
 				ARTEService.getCategories(category);
 				ZDFService.getCategories(category,1);
 				SRFService.getSRFCategories(category);
-				// WDRService.getSRFCategories(category);
+				// ORFService.getSRFCategories(category);
 			})
 		}
 		// string search
@@ -311,7 +315,7 @@ MediathekCrawler.ApplicationController = function() {
 			ARTEService.getVideosByDate(200,  startDate, endDate);
 			DasErsteService.getDasErsteVideosByDate(200, startDate, endDate);
 			BRService.getBRVideosByDate(startDate, endDate);
-			// WDRService.getBRVideosByDate(startDate, endDate);
+			// ORFService.getBRVideosByDate(startDate, endDate);
 		}
 	
 		return;
@@ -355,11 +359,10 @@ MediathekCrawler.ApplicationController = function() {
 		//ardController.searchString(searchString);
 		DasErsteService.searchString(searchString, 0);
 		ZDFService.searchString(searchString, ZDFMAXRESULTS);
-		WDRService.searchString(searchString);
+		ORFService.searchString(searchString);
 		ARTEService.searchString(searchString, ARTEMAXRESULTS);
 		SRFService.searchString(searchString, SRFMAXPAGESTOCRAWL);
 		BRService.searchString(searchString, 0);
-		WDRService.searchString(searchString, 0);
 	},
 
 	_getCategory = function(category) {
@@ -374,7 +377,7 @@ MediathekCrawler.ApplicationController = function() {
 		ARTEService.getCategories(category);
 		SRFService.getSRFCategories(category);
 		//BRService.getBRCategories();
-		// WDRService.getSRFCategories(category);
+		// ORFService.getSRFCategories(category);
 	},
 
 	_getNew = function() {
@@ -383,7 +386,7 @@ MediathekCrawler.ApplicationController = function() {
 		ARTEService.getNew(ARTEMAXRESULTS, null, null);
 		SRFService.getNew();
 		BRService.getBRNew();
-		// WDRService.getBRNew();
+		// ORFService.getBRNew();
 	},
 	_getHot = function(){
 		DasErsteService.getHot();
@@ -391,7 +394,7 @@ MediathekCrawler.ApplicationController = function() {
 		ARTEService.getHot(ARTEMAXRESULTS);
 		SRFService.getHot();
 		BRService.getBRHot();
-		// WDRService.getBRHot();
+		// ORFService.getBRHot();
 	},
 	_getVideoById = function() {
 		var _id = $('#video-id').val();

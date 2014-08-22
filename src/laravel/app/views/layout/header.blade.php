@@ -61,7 +61,7 @@
 
      		@else
 				<li class="pull-right"><a href="{{ URL::route('account-sign-in') }}"style="color: white">Anmelden</a></li>
-				<li class="pull-right"><a href=""style="color: white">Suchen</a></li>
+				<li class="pull-right"><a href="{{ URL::route('search-results-mobile') }}"style="color: white">Suchen</a></li>
      		@endif
 		</ul>
 		

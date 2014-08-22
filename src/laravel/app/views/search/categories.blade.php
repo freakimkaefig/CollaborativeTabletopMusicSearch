@@ -4,7 +4,7 @@
 	<!-- START search/categories -->
 	@if($category)
 		<div class="col-xs-12">
-			<h2>{{ strtolower(str_replace('-', ' & ', $category)) }}</h2>
+			<h2 class="page-title">{{ strtolower(str_replace('-', ' & ', $category)) }}</h2>
 		</div>
 
 		@include('search.results')

@@ -3,7 +3,7 @@
 @section('content')
 	<!-- START account/password -->
 	<div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">		
-		<h3 class="text-center">Passwort ändern</h3>
+		<h3 class="text-center page-title">Passwort ändern</h3>
 		<div class="spacer"></div>
 		<form action="{{ URL::route('account-change-password-post') }}" method="post">
 			<div class="form-group">

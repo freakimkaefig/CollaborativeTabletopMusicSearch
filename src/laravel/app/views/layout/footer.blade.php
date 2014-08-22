@@ -6,7 +6,6 @@
 				<h4 class="col-sm-offset-2">Rubriken</h4>
 				<div class="col-sm-6 col-md-4 alpha">
 					<ul>
-						<li><a href="{{URL::route('category',array('live'))}}">Live</a></li>
 						<li><a href="{{ URL::route('hot-videos') }}">Hot</a></li>
 						<li><a href="{{ URL::route('new-videos') }}">New</a></li>
 						<li><a href="{{URL::route('category',array('politik'))}}">Politik</a></li>
@@ -37,7 +36,7 @@
 					    <li><a href="{{URL::route('channel',array('ARTE'))}}">Arte</a></li>
 					    <li><a href="{{URL::route('channel',array('BR'))}}">BR</a></li>
 					    <li><a href="{{URL::route('channel',array('SRF'))}}">SRF</a></li>
-					    <li><a href="{{URL::route('channel',array('WDR'))}}">WDR</a></li>
+					    <li><a href="{{URL::route('channel',array('ORF'))}}">ORF</a></li>
 					</ul>
 				</div>
 			</div>

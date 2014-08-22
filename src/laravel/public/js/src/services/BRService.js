@@ -7,7 +7,7 @@ MediathekCrawler.BRService = function() {
 	PROXY_URL = '/proxy.php?url=',
 	BR_NEW_URL = 'http://www.br.de/mediathek/video/programm/index.html';
 	// Most viewed broadcasts
-	BR_HOT_URL = 'http://www.br.de/mediathek/video/suche/tag-suche-mediathek-100.html?t=social&q=mostViewed',
+	BR_HOT_URL = 'http://www.br.de/mediathek/video/suche/tag-suche-mediathek-100~tagSearchMoreResults_count-12_entireBroadcast-false_start-0_-915410257bf253a3d2f95cebbaf43688c1e4944b.json',
 
 	// constants for searching
 	SEARCH_URL = 'http://www.br.de/mediathek/video/suche/?query=',
@@ -285,7 +285,9 @@ MediathekCrawler.BRService = function() {
 
 			// console.log('BR onLoadStreams result._streams: ',result._streams);
 		// add result to model
-		_model.addResults(origin, result._station, result._title, result._subtitle, result._details, result._length, result._airtime, result._teaserImages, result._streams);
+		if(result._streams.length >0){
+			_model.addResults(origin, result._station, result._title, result._subtitle, result._details, result._length, result._airtime, result._teaserImages, result._streams);
+		}
 	},
 
 
@@ -438,25 +440,34 @@ MediathekCrawler.BRService = function() {
 		console.log('BR getBRHot url: ',_url);
 		$.ajax({
 			url: _url,
-			type: 'GET',
+			type: 'POST',
+			data: 'q=mostViewed&t=social',
+			// data: {
+			// 	q:'mostViewed',
+			// 	t:'social'
+			// },
 			success: function(data) {
 
+				console.log('getBRHot data: ',data);
 				// onGetBRHot(data, origin);
 			}
 		});
 	},
 
 	onGetBRHot = function(data, origin){
-		console.log('BR onGetBRHot: ',data);
-		$(data).find('.teaserInner').each(function (index, element) {
-		console.log('BR onGetBRHot: ',element);
+		var response = $.parseJSON(data);
+		console.log('BR onGetBRHot: ',response, response.teasers.length);
+		
 
-			var detailUrl = $(element).find('.link_video').attr('href');
-			console.log('BR onGetBRHot detailUrldetailUrl: ',detailUrl);
-			if (detailUrl !== undefined) {
-				// loadDetails(detailUrl, origin);
-			}
-		});
+		// $(data).find('.teaserInner').each(function (index, element) {
+		// console.log('BR onGetBRHot: ',element);
+
+		// 	var detailUrl = $(element).find('.link_video').attr('href');
+		// 	console.log('BR onGetBRHot detailUrldetailUrl: ',detailUrl);
+		// 	if (detailUrl !== undefined) {
+		// 		// loadDetails(detailUrl, origin);
+		// 	}
+		// });
 	},
 
 	_checkSRFDuplicates = function(array, id){

@@ -8,6 +8,7 @@ MediathekCrawler.FooterView = (function() {
 		$footerNav = $('#footer-nav');
 		$footerNav.on('mouseenter', footerOnMouseEnter);
 		$footerNav.on('mouseleave', footerOnMouseLeave);
+		
 	},
 
 	footerOnMouseEnter = function(event) {
@@ -21,7 +22,7 @@ MediathekCrawler.FooterView = (function() {
 	footerOnMouseLeave = function(event) {
 		$(this).stop(true, false);
 		$(this).animate({
-			bottom: -150
+			bottom: -130
 		});
 	},
 	
