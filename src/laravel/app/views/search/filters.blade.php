@@ -98,7 +98,7 @@
 	</div>
 	<div class="form-group col-sm-4 form-inline">
 		<h4>Datum &amp; Dauer</h4>
-		<div class="col-sm-6">
+		<div class="col-sm-6" style="z-index: 1">
 			<label>Von:
 				<input id="datepicker-from" class="col-sm-12" type="text" name="from" >
 			</label>
