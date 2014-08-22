@@ -505,7 +505,7 @@ MediathekCrawler.DasErsteService = function() {
 	/**
 	 * Public function to get most viewed videos
 	 */
-	getNew = function() {
+	getNew = function(maxResults) {
 		var origin = {
 			_channel: 'DasErste',
 			_method: 'getNew',
@@ -523,7 +523,7 @@ MediathekCrawler.DasErsteService = function() {
 			cache: false,
 			success: function(data, textStatus, jqXHR) {
 
-				onDASERSTEGetNew(origin, data)
+				onDASERSTEGetNew(maxResults, origin, data)
 			}
 		});
 	},
@@ -532,11 +532,15 @@ MediathekCrawler.DasErsteService = function() {
 	 * Callback function for async loading of search results
 	 * @param {String|HTML}		xmlhttp response of ajax call
 	 */
-	onDASERSTEGetNew = function(origin, data) {
+	onDASERSTEGetNew = function(maxResults, origin, data) {
+		if(!maxResults || maxResults === undefined || maxResults === null){
+			maxResults = 20;
+		}
 		var documentUrl = null;
 		var documentId = null;
 		// console.log('DASERSTE onDASERSTEGetNew: ',data);
 		var x = $(data).find('.modHeadline');
+		var counter = 1;
 		x.each(function (index, element) {
 			// console.log('modHeadline-element TEXT: ',$(element).text());
 			if($(element).text() === 'Neueste Videos') {
@@ -544,47 +548,50 @@ MediathekCrawler.DasErsteService = function() {
 				// console.log('TEMP: ',temp);
 				var y = $(temp).find('.box');
 				y.each(function(idx,el){
-					var _result = {};
-					_result._streams = [];
-					documentUrl = $(el).find('.mediaLink').attr('href');
-					documentId = documentUrl.slice(documentUrl.indexOf('documentId=') + 11, documentUrl.indexOf('&topRessort'));
-					// console.log('FOUND box flash link: ',documentUrl, documentId);
+					if(counter <= maxResults){
+						
+						var _result = {};
+						_result._streams = [];
+						documentUrl = $(el).find('.mediaLink').attr('href');
+						documentId = documentUrl.slice(documentUrl.indexOf('documentId=') + 11, documentUrl.indexOf('&topRessort'));
+						// console.log('FOUND box flash link: ',documentUrl, documentId);
 
 
 
-					// retrieving documentId for streamURL
-					// var documentUrl = $(element).find(SEARCH_ITEM_ELEMENT).attr('href'),
-					// 	documentId = $(element).find('.boxPlaylistIcons>img').attr('class'),
-					// 	documentId = documentId.replace(/\D/g,'');
+						// retrieving documentId for streamURL
+						// var documentUrl = $(element).find(SEARCH_ITEM_ELEMENT).attr('href'),
+						// 	documentId = $(element).find('.boxPlaylistIcons>img').attr('class'),
+						// 	documentId = documentId.replace(/\D/g,'');
 
-					// // building result meta information
-					// 	_result._station = STATION,
-					// 	_result._title = $(element).find(TITLE_ELEMENT).text(),
-					// 	_result._subtitle = $(element).find(SUBTITLE_ELEMENT).text(),
-					// 	_result._length = $(element).find(LENGTH_ELEMENT).text(),
-					// 	_result._airtime = $(element).find(DATE_ELEMENT).text(),
-					var temp2 = $(el).find('.mediaLink').find('.img');
-					_result._teaserImages = [];
-					var res = null;
-					var resX = null;
-					var resY = null;
-					var imgURL = $(temp2).attr('data-ctrl-image');
-					imgURL = imgURL.slice(imgURL.indexOf('urlScheme\':\'') + 12, imgURL.indexOf('##width##'));
-					//willkürliche Größenangabe für Bildbreite:
-					imgURL = imgURL + '384';
-					// console.log('TEASERIMAGES imgURL: ',BASE_URL + imgURL);
-					if(imgURL.indexOf('16x9') > 0){
-						resX = imgURL.slice(imgURL.indexOf('16x9/') + 5, imgURL.length);
-						resY = parseInt(resX / 1,7777);
-						res = resX +'x'+ resY;
-						_result._teaserImages.push(_model.createTeaserImage(res, BASE_URL + imgURL));
-					}else{						
-						_result._teaserImages.push(_model.createTeaserImage(IMG_RESOLUTIONS[0].resolution, BASE_URL + imgURL));
+						// // building result meta information
+						// 	_result._station = STATION,
+						// 	_result._title = $(element).find(TITLE_ELEMENT).text(),
+						// 	_result._subtitle = $(element).find(SUBTITLE_ELEMENT).text(),
+						// 	_result._length = $(element).find(LENGTH_ELEMENT).text(),
+						// 	_result._airtime = $(element).find(DATE_ELEMENT).text(),
+						var temp2 = $(el).find('.mediaLink').find('.img');
+						_result._teaserImages = [];
+						var res = null;
+						var resX = null;
+						var resY = null;
+						var imgURL = $(temp2).attr('data-ctrl-image');
+						imgURL = imgURL.slice(imgURL.indexOf('urlScheme\':\'') + 12, imgURL.indexOf('##width##'));
+						//willkürliche Größenangabe für Bildbreite:
+						imgURL = imgURL + '384';
+						// console.log('TEASERIMAGES imgURL: ',BASE_URL + imgURL);
+						if(imgURL.indexOf('16x9') > 0){
+							resX = imgURL.slice(imgURL.indexOf('16x9/') + 5, imgURL.length);
+							resY = parseInt(resX / 1,7777);
+							res = resX +'x'+ resY;
+							_result._teaserImages.push(_model.createTeaserImage(res, BASE_URL + imgURL));
+						}else{						
+							_result._teaserImages.push(_model.createTeaserImage(IMG_RESOLUTIONS[0].resolution, BASE_URL + imgURL));
+						}
+
+						// console.log('DASERSTE onDASERSTEGetNew DATA: ', _result);
+						// // load details for result
+						loadDASERSTEDetails(origin, documentId, _result, BASE_URL + documentUrl);
 					}
-
-					// console.log('DASERSTE onDASERSTEGetNew DATA: ', _result);
-					// // load details for result
-					loadDASERSTEDetails(origin, documentId, _result, BASE_URL + documentUrl);
 				});
 			}
 		});

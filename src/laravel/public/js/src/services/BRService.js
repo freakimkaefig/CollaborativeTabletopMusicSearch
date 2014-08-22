@@ -7,7 +7,7 @@ MediathekCrawler.BRService = function() {
 	PROXY_URL = '/proxy.php?url=',
 	BR_NEW_URL = 'http://www.br.de/mediathek/video/programm/index.html';
 	// Most viewed broadcasts
-	BR_HOT_URL = 'http://www.br.de/mediathek/video/suche/tag-suche-mediathek-100~tagSearchMoreResults_count-12_entireBroadcast-false_start-0_-915410257bf253a3d2f95cebbaf43688c1e4944b.json',
+	BR_HOT_URL = 'http://www.br.de/mediathek/video/suche/tag-suche-mediathek-100~tagSearchMoreResults_count-12_entireBroadcast-false_start-0_-915410257bf253a3d2f95cebbaf43688c1e4944b.json?q=mostViewed&t=social',
 
 	// constants for searching
 	SEARCH_URL = 'http://www.br.de/mediathek/video/suche/?query=',
@@ -294,7 +294,7 @@ MediathekCrawler.BRService = function() {
 	/**
 	 * Public function to get new videos (= videos of the last 3 days including today)
 	 */
-	getBRNew = function(dateUrl, origin) {
+	getBRNew = function(maxResults, dateUrl) {
 		$today = new Date();
 		var $dd = $today.getDate();
 		if($dd<10){$dd='0'+$dd} var nowDay = $dd
@@ -308,15 +308,14 @@ MediathekCrawler.BRService = function() {
 		lastDayOfLastMonth = lastDayOfLastMonth.getDate();
 
 		// console.log('BR lastDayOfLastMonth: ',lastDayOfLastMonth);
-		if(!origin || origin === undefined || origin === null){
-
-			var origin = {
-				_channel: 'BR',
-				_method: 'getBRNew',
-				_searchTerm: null,
-				_badge: 'new'
-			};
-		}
+		
+		var origin = {
+			_channel: 'BR',
+			_method: 'getBRNew',
+			_searchTerm: null,
+			_badge: 'new'
+		};
+		
 		if(!dateUrl || dateUrl === undefined || dateUrl === null){
 
 			// http://www.br.de/mediathek/video/programm/index.html
@@ -327,7 +326,7 @@ MediathekCrawler.BRService = function() {
 				url: _url,
 				type: 'GET',
 				success: function(data) {
-					onGetBRNew(data, origin);
+					onGetBRNew(maxResults, data, origin);
 					if(getDatesOnce === 1){
 						getDatesOnce = 0;
 						var yesterday = $(data).find('.epgCalendar')/*.find('.month active')*/.find('td');
@@ -396,22 +395,30 @@ MediathekCrawler.BRService = function() {
 				type: 'GET',
 				success: function(data) {
 
-					onGetBRNew(data, origin);
+					onGetBRNew(maxResults, data, origin);
 				}
 			});
 		}
 	},
 
-	onGetBRNew = function(data, origin){
+	onGetBRNew = function(maxResults, data, origin){
+		if(!maxResults || maxResults === undefined || maxResults === null){
+			maxResults = 20;
+		}
 		var resp = $(data)./*find('.containerMain').*/find('.epgContainer').find('#BFS');
 			// console.log('BR onGetBRNew resp: ',resp);
 		var x = $(resp).find('.videoAvailable');
+		var counter = 1;
 		$(x).each(function(index,element){
-			// console.log('BR onGetBRNew element: ',element);
-			var url = $(element).attr('data-ondemand_url');
-			// console.log('BR onGetBRNew url: ',url);
-			if (url !== undefined) {
-				loadDetails(url, origin);
+			if(counter <= maxResults){
+
+				// console.log('BR onGetBRNew element: ',element);
+				var url = $(element).attr('data-ondemand_url');
+				// console.log('BR onGetBRNew url: ',url);
+				if (url !== undefined) {
+					loadDetails(url, origin);
+				}
+				counter++;
 			}
 		});
 	},
@@ -440,24 +447,16 @@ MediathekCrawler.BRService = function() {
 		console.log('BR getBRHot url: ',_url);
 		$.ajax({
 			url: _url,
-			type: 'POST',
-			data: 'q=mostViewed&t=social',
-			// data: {
-			// 	q:'mostViewed',
-			// 	t:'social'
-			// },
+			type: 'GET',
 			success: function(data) {
 
-				console.log('getBRHot data: ',data);
-				// onGetBRHot(data, origin);
+				onGetBRHot(data, origin);
 			}
 		});
 	},
 
 	onGetBRHot = function(data, origin){
-		var response = $.parseJSON(data);
-		console.log('BR onGetBRHot: ',response, response.teasers.length);
-		
+		console.log('BR onGetBRHot: ',data);
 
 		// $(data).find('.teaserInner').each(function (index, element) {
 		// console.log('BR onGetBRHot: ',element);

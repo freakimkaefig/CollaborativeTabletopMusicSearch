@@ -341,7 +341,7 @@ MediathekCrawler.SRFService = function() {
 				
 			},
 			error: function(){
-				console.warn('ERROR; SRFService.getNew(); AJAX-request did not recieve a response');
+				console.warn('ERROR; SRFService.getSRFCategories(); AJAX-request did not recieve a response');
 			}
 		});
 
@@ -445,7 +445,7 @@ MediathekCrawler.SRFService = function() {
 				
 			},
 			error: function(){
-				console.warn('ERROR; SRFService.getNew(); AJAX-request did not recieve a response');
+				console.warn('ERROR; SRFService.getHot(); AJAX-request did not recieve a response');
 			}
 		});
 	},
@@ -557,7 +557,7 @@ MediathekCrawler.SRFService = function() {
 		// });
 	},
 
-	getNew = function () {
+	getNew = function (maxResults) {
 		var origin = {
 			_channel: 'SRF',
 			_method: 'getNew',
@@ -570,7 +570,7 @@ MediathekCrawler.SRFService = function() {
 			cache: false,
 			success: function(data, textStatus, jqXHR) {
 				// console.log('SRF getNew: ', PROXY_URL + SRFSEARCHNEW);
-				_onSRFGetNew(origin, data,'#left_day');
+				_onSRFGetNew(maxResults, origin, data,'#left_day');
 				
 			},
 			error: function(){
@@ -579,12 +579,17 @@ MediathekCrawler.SRFService = function() {
 		});
 	},
 
-	_onSRFGetNew = function(origin, data,divId){
+	_onSRFGetNew = function(maxResults, origin, data,divId){
+		if(!maxResults || maxResults === undefined || maxResults === null){
+			maxResults = 20;
+		}
 		var temp = divId;
 		var x = $(data).find(divId).find('.missed_list');
+		var counter = 1;
 		x.each(function(index, element){
 			var y = $(element).find('.sendung_item');
 			y.each(function(idx, el){
+				if(counter <= maxResults){
 				
 			// console.log('SRF _onSRFSearchString element: ', el);
 				//check for attribute id to remove duplicate entries
@@ -648,7 +653,8 @@ MediathekCrawler.SRFService = function() {
 		
 				}
 
-
+					counter++;
+				}
 
 			});
 		});
