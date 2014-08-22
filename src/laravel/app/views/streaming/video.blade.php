@@ -8,8 +8,8 @@
 			echo "<div id='all-bookmarks' style='display:none'>".json_encode($inBookmarks)."</div>";
 			?>
 		<div class="row">
-			<div id="video-wrapper" class=" col-xs-12 col-sm-8 col-sm-offset-0 col-lg-7 col-lg-offset-1">
-				<video id="video" class="video-js vjs-default-skin col-xs-12 img-responsive" controls preload="none" data-setup='{"nativeControlsForTouch": false}'></video>
+			<div id="video-wrapper" class=" img-responsivecol-xs-12 col-sm-8 col-sm-offset-0 col-lg-7 col-lg-offset-1">
+				<video id="video" class="video-js vjs-default-skin" controls preload="auto" data-setup='{"nativeControlsForTouch": false}'></video>
 			</div>
 			<div id="info-wrapper" class="col-sm-4">
 			@if(Auth::check())

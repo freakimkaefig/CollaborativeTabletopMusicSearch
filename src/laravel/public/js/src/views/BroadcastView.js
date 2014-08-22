@@ -16,7 +16,8 @@ MediathekCrawler.BroadcastView = (function() {
 		console.info('MediathekCrawler.BroadcastView.init');
 		
 		$videoWrapper = $('#video-wrapper');
-		$video = $('#video');
+		$video = $('#video_html5_api');
+		$video_element = $('#video'); //this is because of mobile/desktop problems
 		$infoWrapper = $('#info-wrapper');
 		$descriptionWrapper = $("#description-wrapper");
 
@@ -40,12 +41,17 @@ MediathekCrawler.BroadcastView = (function() {
 			console.log(results);
 			console.log(result);
 
+		var sources = []; 
 		for (var i=result._streams.length-1; i>=0; i--) {
 			var source = '<source src="' + result._streams[i]._url + '" type="' + result._streams[i]._type + '" data-res="'+ checkQuality(result._streams[i]._quality) + '">'
+			$video_element.append(source);
+			//$(document).ready($video.append(source));
 			$video.append(source);
+			//source = { type:'"'+result._streams[i]._type+'"',src: '"'+result._streams[i]._url+'"'};
+			//sources.push(source);
 			url = result._streams[i]._url;
 		}
-
+		//videojs("#video").src(sources);
 		var infoElement = 
 			'<h3>Titel :</h3>'+
 			'<div>' + result._title + '</div>' +
@@ -61,12 +67,13 @@ MediathekCrawler.BroadcastView = (function() {
 		
 		$infoWrapper.prepend(infoElement);
 
-		videojs("#video", {plugins : { resolutionSelector : {
-    							force_types : ['video/mp4' ,'video/webm'],
-    							default_res : "3"
+		
+		myPlayer = videojs("#video", {plugins : { resolutionSelector : {
+    							force_types : ['video/mp4'],
 							}
 							}}, function(){
 		});
+		//myPlayer.src(sources);
 		var descriptionElement = '<div>' + result._details + '</div>';
 		$descriptionWrapper.append(descriptionElement);
 
@@ -100,8 +107,7 @@ MediathekCrawler.BroadcastView = (function() {
 		$infoWrapper.prepend(infoElement);
 
 		videojs("#video", {plugins : { resolutionSelector : {
-    							force_types : ['video/mp4', 'video/webm' ],
-    							default_res : "3"
+    							force_types : ['video/mp4']
 							} }}, function(){
 		});
 
