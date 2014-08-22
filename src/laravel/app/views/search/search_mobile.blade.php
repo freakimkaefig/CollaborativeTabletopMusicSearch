@@ -1,63 +1,57 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Mediathek Crawler</title>
-		{{ HTML::style('css/bootstrap.min.css'); }}
-		{{ HTML::style('css/video-js.css') }}
-		{{ HTML::style('css/style.css') }}
+@extends('layout.main')
 
-		{{ HTML::script('js/libs/jquery/jquery.min.js') }}
-		{{ HTML::script('js/libs/bootstrap/bootstrap.min.js') }}
-	</head>
+@section('content')
 
-	<body>		
-		@include('layout.header')
-		@include('mediathek-crawler-js')
+		<form class="" role="search" action="{{ URL::route('search-post') }}" method="post">
 
-		<div class="visible-xs col-xs-12">
-			<!-- <button type="button" class="btn btn-default" data-toggle="collapse" data-target=".nav-collapse">_</button>
+			<div class=" col-xs">
+
+
+				<!-- <button type="button" class="btn btn-default" data-toggle="collapse" data-target=".nav-collapse">_</button>
+				<div class="nav-collapse collapse" style="position: absolute; z-index: 99">
+				    <ul class="nav navbar-nav" style="background-color: #1b1b1b">
+				      
+				      <li class="active"><a href="{{ URL::route('playlists') }}">Playliste</a></li>
+				      <li><a href="{{ URL::route('bookmarks') }}">Merkliste</a></li>
+				      <li><a href="#">Live/Mediatheken</a></li>			      
+				      <li><a href="#">Rubriken</a></li>
+				      <li><a href="#">Kontakt</a></li>
+				      <li><a href="#">Impressum</a></li>
+				      <li><a href="{{ URL::route('account-my-account') }}">Einstellungen</a></li>
+				    </ul>
+				</div> -->
+
+				<!-- <button class="btn btn-default dropdown col-xs-1">
+	       			<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+					<span class="glyphicon glyphicon-align-justify"></span></a>
+	      			<ul class="dropdown-menu" style="border-color: white; border-radius: 5">
+	        		  <li><a href="{{ URL::route('playlists') }}">Playliste</a></li>
+	        		  <li class="divider"></li>
+				      <li><a href="{{ URL::route('bookmarks') }}">Merkliste</a></li>
+				      <li class="divider"></li>
+				      <li><a href="#">Live/Mediatheken</a></li>
+				      <li class="divider"></li>
+				      <li><a href="#">Rubriken</a></li>
+				      <li class="divider"></li>
+				      <li><a href="#">Kontakt</a></li>
+				      <li class="divider"></li>
+				      <li><a href="#">Impressum</a></li>
+				      <li class="divider"></li>
+				      <li><a href="{{ URL::route('account-my-account') }}">Einstellungen</a></li>
+	        		</ul>
+	      		</button> -->
 			
-			<div class="nav-collapse collapse" style="position: absolute; z-index: 99">
-			    <ul class="nav navbar-nav" style="background-color: #1b1b1b">
-			      
-			      <li class="active"><a href="{{ URL::route('playlists') }}">Playliste</a></li>
-			      <li><a href="{{ URL::route('bookmarks') }}">Merkliste</a></li>
-			      <li><a href="#">Live/Mediatheken</a></li>			      
-			      <li><a href="#">Rubriken</a></li>
-			      <li><a href="#">Kontakt</a></li>
-			      <li><a href="#">Impressum</a></li>
-			      <li><a href="{{ URL::route('account-my-account') }}">Einstellungen</a></li>
-			    </ul>
-			</div> -->
-			<button class="btn btn-default dropdown">
-       			<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-				<span class="glyphicon glyphicon-align-justify"></span></a>
-      			<ul class="dropdown-menu" style="border-color: white; border-radius: 5">
-        		  <li><a href="{{ URL::route('playlists') }}">Playliste</a></li>
-        		  <li class="divider"></li>
-			      <li><a href="{{ URL::route('bookmarks') }}">Merkliste</a></li>
-			      <li class="divider"></li>
-			      <li><a href="#">Live/Mediatheken</a></li>
-			      <li class="divider"></li>
-			      <li><a href="#">Rubriken</a></li>
-			      <li class="divider"></li>
-			      <li><a href="#">Kontakt</a></li>
-			      <li class="divider"></li>
-			      <li><a href="#">Impressum</a></li>
-			      <li class="divider"></li>
-			      <li><a href="{{ URL::route('account-my-account') }}">Einstellungen</a></li>
-        		</ul>
-      		</button>
-      		
-			<input class="search-query " type="text" name="search" placeholder="Suche"{{ (Input::old('search')) ? ' value="' . e(Input::old('search')) . '"' : '' }}>
-
-			<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span>Suchen
-			</button>
-		</div>
-
-
+				
+					<div class="form-group col-xs-8">
+						<input class="form-control" type="text" name="search" placeholder="Suche"{{ (Input::old('search')) ? ' value="' . e(Input::old('search')) . '"' : '' }}>
+					</div>
+						<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span>Suchen</button>
+				
+			</div>
+			{{ Form::token() }}
+		</form>
 		
-		<div id="channel-filter" class="form-group col-xs-12 visible-xs">
+		<div id="channel-filter" class="form-group col-xs-12 ">
 			<h4>Sender</h4>
 			<div class="col-xs-6">
 				<div class="checkbox">
@@ -103,14 +97,14 @@
 
 
 
-		<div id="category-filter" class="form-group col-xs-12 visible-xs">
+		<div id="category-filter" class="form-group col-xs-12 ">
 			<h4>Rubriken</h4>
 			<div class="col-xs-6">
 				<div class="checkbox">
 					<label>
-						<input type="checkbox" name="nachrichten" value="nachrichten">
-						Nachrichten
-					</label>
+						<input type="checkbox" name="nachrichten" value="nachrichten"{{ (Input::old('nachrichten')) ? ' checked' : ' selected' }}>
+					Nachrichten
+				</label>
 				</div>
 				<div class="checkbox">
 					<label>
@@ -165,19 +159,20 @@
 			</div>
 		</div>
 
-		<div class="form-group form-inline col-xs-12 visible-xs">
+
+		 <div class="form-group col-xs-12 form-inline">
 			<h4>Datum &amp; Dauer</h4>
 			<div class="col-xs-6">
 				<label>Von:
-					<input id="datepicker-from" class="col-sm-12" type="text" name="from" >
+					<input id="datepicker-from" class="col-xs-12" type="text" name="from" >
 				</label>
 			</div>
 			<div class="col-xs-6">
 				<label>Bis:
-					<input id="datepicker-to" class="col-sm-12"  type="type" name="to" disabled>
+					<input id="datepicker-to" class="col-xs-12" type="type" name="to" disabled>
 				</label>
 			</div>
-			<div class="col-xs-6">
+			<div class="disabled col-xs-6">
 				<label>Mindestdauer: <p id="duration-display">0min</p>
 					<div id="duration-slider"></div>			
 				</label>
@@ -185,9 +180,8 @@
 		</div>
 
 
-		<div class="col-sm-2 visible-xs">
-			<button id="submit" class="btn btn-transparent col-xs-12">Absenden</button>
-			<button type="" class="btn btn-transparent col-xs-12">Zurücksetzen</button>
+		<div class="col-xs-12 ">
+			<button id="reset" type="button" class="btn btn-transparent col-xs-6">Zurücksetzen</button>
+			<button id="submit" type="button" class="btn btn-transparent col-xs-6">Absenden</button>
 		</div>
-	</body>
-</html>
+@stop
