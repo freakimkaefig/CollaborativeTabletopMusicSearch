@@ -48,8 +48,6 @@
 						<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span>Suchen</button>
 				
 			</div>
-			{{ Form::token() }}
-		</form>
 		
 		<div id="channel-filter" class="form-group col-xs-12 ">
 			<h4>Sender</h4>
@@ -181,7 +179,10 @@
 
 
 		<div class="col-xs-12 ">
-			<button id="reset" type="button" class="btn btn-transparent col-xs-6">Zurücksetzen</button>
-			<button id="submit" type="button" class="btn btn-transparent col-xs-6">Absenden</button>
+			<button id="reset-mobile" type="button" class="btn btn-transparent col-xs-6">Zurücksetzen</button>
+			<button id="submit-mobile" type="button" class="btn btn-transparent col-xs-6">Absenden</button>
 		</div>
+
+		{{ Form::token() }}
+		</form>
 @stop

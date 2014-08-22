@@ -2,6 +2,7 @@ MediathekCrawler.ResultView = (function() {
 	var that = {},
 
 	$resultWrapper = null,
+	$sliderWrapper = null,
 	results = [],
 
 	init = function() {
@@ -57,6 +58,25 @@ MediathekCrawler.ResultView = (function() {
 		//var _result = localStorage.getItem(result._id);
 		//console.log(JSON.parse(_result));
 	},
+
+	fillSlider = function(event, result) {
+		console.log(result);
+
+		$sliderWrapper = $('#myCarousel .carousel-inner');
+
+		var slideElement = '<div class="item">'+
+        	'<img src="/images/dummies/1.jpg" alt="First slide">'+
+        	'<div class="container">'+
+            	'<div class="carousel-caption">'+
+              		'<h1>Example headline.</h1>'+
+              		'<p></p>'+
+            	'</div>'+
+          	'</div>'+
+        '</div>';
+
+        $sliderWrapper.append(slideElement);
+	},
+
 	getFromLocalstorage = function(){
 		var result_json = localStorage.getItem("mediathek-crawler");
 		var results_storage = JSON.parse(result_json);
@@ -253,6 +273,7 @@ MediathekCrawler.ResultView = (function() {
 	that.init = init;
 	that.dispose = dispose;
 	that.appendResult = appendResult;
+	that.fillSlider = fillSlider;
 
 	return that;
 });

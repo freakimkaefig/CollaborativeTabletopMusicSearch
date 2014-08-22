@@ -26,7 +26,7 @@
             </div>
           </div>
         </div>
-        <div class="item active">
+        <div class="item">
           <img src="/images/dummies/2.jpg" alt="Second slide">
           <div class="container">
             <div class="carousel-caption">
