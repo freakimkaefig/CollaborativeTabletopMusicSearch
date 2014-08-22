@@ -114,7 +114,7 @@ MediathekCrawler.ApplicationController = function() {
 			ARTEService.getNew(1);
 			SRFService.getNew(1);
 			BRService.getBRNew(1);
-			// ORFService.getBRNew(1);
+			ORFService.getNew(1);
 		}
 		if(document.URL.indexOf('/new') > -1){
 			_getNew();
@@ -153,9 +153,8 @@ MediathekCrawler.ApplicationController = function() {
 				BRService.getBRHot();
 			}
 			if(document.URL.indexOf('/channel/ORF') > -1){
-				// ORFService.getBRNew();
-				// ORFService.getBRHot();
-				ORFService.searchString('reportage');
+				ORFService.getNew(20);
+				ORFService.getHot();
 			}
 
 		}
@@ -228,6 +227,15 @@ MediathekCrawler.ApplicationController = function() {
 						if(channel == "srf"){
 							SRFService.getSRFCategories(category);
 						}
+						if(channel == "br"){
+							BRService.searchString(category,0);
+						}
+						if(channel == "daserste"){
+							DasErsteService.searchString(category,0);
+						}
+						if(channel == "orf"){
+							ORFService.searchString(category);
+						}
 					})
 							//checkDuration(duration);
 				}
@@ -249,7 +257,7 @@ MediathekCrawler.ApplicationController = function() {
 						BRService.searchString(searchString, 0);
 					}
 					if(channel =="orf"){
-						// ORFService.searchString(searchString);
+						ORFService.searchString(searchString);
 					}
 				}
 				// cahnnel-string search
@@ -272,7 +280,7 @@ MediathekCrawler.ApplicationController = function() {
 						BRService.getBRVideosByDate(startDate, endDate);
 					}
 					if(channel =="orf"){
-						// BRService.getBRVideosByDate(startDate, endDate);
+						// BRService.getORFVideosByDate(startDate, endDate);
 					}
 
 				}
@@ -300,8 +308,8 @@ MediathekCrawler.ApplicationController = function() {
 						BRService.getBRNew();
 					}
 					if (channel == "orf"){
-						// ORFService.getBRHot();
-						// ORFService.getBRNew();
+						ORFService.getHot();
+						ORFService.getBRNew();
 					}
 				}
 	
@@ -315,7 +323,9 @@ MediathekCrawler.ApplicationController = function() {
 				ARTEService.getCategories(category);
 				ZDFService.getCategories(category,1);
 				SRFService.getSRFCategories(category);
-				// ORFService.getSRFCategories(category);
+				BRService.searchString(category,0);
+				DasErsteService.searchString(category,0);
+				ORFService.searchString(category);
 			})
 		}
 		// string search
@@ -328,7 +338,7 @@ MediathekCrawler.ApplicationController = function() {
 			ARTEService.getVideosByDate(200,  startDate, endDate);
 			DasErsteService.getDasErsteVideosByDate(200, startDate, endDate);
 			BRService.getBRVideosByDate(startDate, endDate);
-			// ORFService.getBRVideosByDate(startDate, endDate);
+			// ORFService.getORFVideosByDate(startDate, endDate);
 		}
 	
 		return;
@@ -379,18 +389,12 @@ MediathekCrawler.ApplicationController = function() {
 	},
 
 	_getCategory = function(category) {
-		// console.log('MediathekCrawler.ApplicationController._getCategory', category);
-		
-		// since the relaunch of DasErste-Mediathek there are no 
-		// categoriy-subpages or any other way to fetch them
-		// DasErsteService.getCategories(category, 100);
-
-		//param: maxLength of ZDF results (videos per show/series/broadcast)
 		ZDFService.getCategories(category, 2);
 		ARTEService.getCategories(category);
 		SRFService.getSRFCategories(category);
-		//BRService.getBRCategories();
-		// ORFService.getSRFCategories(category);
+		BRService.searchString(category,0);
+		DasErsteService.searchString(category,0);
+		ORFService.searchString(category);
 	},
 
 	_getNew = function() {
@@ -399,7 +403,7 @@ MediathekCrawler.ApplicationController = function() {
 		ARTEService.getNew(ARTEMAXRESULTS);
 		SRFService.getNew();
 		BRService.getBRNew();
-		// ORFService.getBRNew();
+		ORFService.getNew();
 	},
 	_getHot = function(){
 		DasErsteService.getHot();
@@ -407,7 +411,7 @@ MediathekCrawler.ApplicationController = function() {
 		ARTEService.getHot(ARTEMAXRESULTS);
 		SRFService.getHot();
 		BRService.getBRHot();
-		// ORFService.getBRHot();
+		ORFService.getHot();
 	},
 	_getVideoById = function() {
 		var _id = $('#video-id').val();
