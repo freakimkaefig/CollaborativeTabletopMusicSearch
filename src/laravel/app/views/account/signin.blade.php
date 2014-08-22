@@ -98,7 +98,6 @@
 
 				<button type="submit" class="btn btn-default hidden-xs">Registrieren</button>
 				<button type="submit" class="btn btn-default visible-xs pull-right">Registrieren</button>
-				{{ Form::token() }}
 			</form>
 		</div>
 	</div>

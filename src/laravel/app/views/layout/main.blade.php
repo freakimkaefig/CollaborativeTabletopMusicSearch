@@ -28,15 +28,17 @@
         		  <li class="divider"></li>
 			      <li><a href="{{ URL::route('bookmarks') }}">Merkliste</a></li>
 			      <li class="divider"></li>
-			      <li><a href="#">Live/Mediatheken</a></li>
+			      <li><a href="{{ URL::route('channels-overview') }}">Mediatheken</a></li>
 			      <li class="divider"></li>
-			      <li><a href="#">Rubriken</a></li>
+			      <li><a href="{{ URL::route('categories-overview') }}">Rubriken</a></li>
 			      <li class="divider"></li>
-			      <li><a href="#">Kontakt</a></li>
+			      <li><a href="{{ URL::route('contact') }}">Kontakt</a></li>
 			      <li class="divider"></li>
-			      <li><a href="#">Impressum</a></li>
+			      <li><a href="{{ URL::route('data') }}">Datenschutz</a></li>
 			      <li class="divider"></li>
-			      <li><a href="{{ URL::route('account-my-account') }}">Einstellungen</a></li>
+			      <li><a href="{{ URL::route('imprint') }}">Impressum</a></li>
+			      <li class="divider"></li>
+			      <li><a href="{{ URL::route('account-change-password') }}">Einstellungen</a></li>
         		</ul>
 			</button>
 

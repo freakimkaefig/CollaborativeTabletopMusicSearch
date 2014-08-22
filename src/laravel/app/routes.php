@@ -182,7 +182,12 @@ Route::group(array('before' => 'csrf'), function() {
 		'as' => 'search-post',
 		'uses' => 'MediathekController@postSearch'
 	));
+
 });
+	Route::post('kontakt', array(
+		'as' => 'contact-post',
+		'uses' => 'MediathekController@postContact'
+	));
 
 
 /* SEARCH */
@@ -246,4 +251,19 @@ Route::get('sender', array(
 Route::get('rubriken', array(
 	'as' => 'categories-overview',
 	'uses' => 'MediathekController@getCategoriesOverview'
+));
+
+Route::get('kontakt', array(
+	'as' => 'contact',
+	'uses' => 'MediathekController@getContact'
+));
+
+Route::get('datenschutz', array(
+	'as' => 'data',
+	'uses' => 'MediathekController@getData'
+));
+
+Route::get('impressum', array(
+	'as' => 'imprint',
+	'uses' => 'MediathekController@getImprint'
 ));

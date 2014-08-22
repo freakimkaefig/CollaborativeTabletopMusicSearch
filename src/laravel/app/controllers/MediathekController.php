@@ -55,4 +55,48 @@ class MediathekController extends BaseController {
 	public function getCategoriesOverview() {
 		return View::make('categories_overview');
 	}
+
+	public function getContact() {
+		return View::make('contact');
+	}
+
+	public function postContact() {
+		// handles post request for contact form
+
+		// validating fields
+		$validator = Validator::make(Input::all(),
+			array(
+				'name' 			=> 'required',
+				'email'			=> 'required|email',
+				'text' 			=> 'required'
+			)
+		);
+		
+		if($validator->fails()) {
+			// redirect to sign-in-page and show errors
+			return Redirect::route('contact')
+				->withErrors($validator)
+				->withInput();
+		} else {
+			$name	= Input::get('name');
+			$email 	= Input::get('email');
+			$text 	= Input::get('text');
+			
+			Mail::send('emails.contact', array('name' => $name, 'email' => $email, 'text' => $text), function($message) use ($name, $email, $text) {
+				$message->to('lukas.lamm89@hotmail.com')->subject('Mediathek-Crawler: Kontaktanfrage');
+			});
+				
+			// redirect to contact page and show message
+			return Redirect::route('contact')
+				->with('global-success', 'Ihre Kontaktanfrage wurde versendet');
+		}
+	}
+
+	public function getData() {
+		return View::make('data');
+	}
+
+	public function getImprint() {
+		return View::make('imprint');
+	}
 }

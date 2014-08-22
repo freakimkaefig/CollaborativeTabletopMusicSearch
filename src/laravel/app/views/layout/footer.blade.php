@@ -61,10 +61,9 @@
 				<h4 class="col-sm-offset-1">&nbsp;</h4>
 				<div class="col-sm-4 col-sm-offset-1 alpha">
 					<ul>
-					    <li><a href="#">About</a></li>
-					    <li><a href="#">Kontakt</a></li>
-					    <li><a href="#">Impressum</a></li>
-					    <li><a href="#">Datenschutz</a></li>
+					    <li><a href="{{ URL::route('contact') }}">Kontakt</a></li>
+			      		<li><a href="{{ URL::route('data') }}">Datenschutz</a></li>
+			      		<li><a href="{{ URL::route('imprint') }}">Impressum</a></li>
 				    </ul>
 				</div>
 		    </div>
