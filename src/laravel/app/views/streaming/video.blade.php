@@ -9,13 +9,13 @@
 			?>
 		<div class="row">
 			<div id="video-wrapper" class=" col-xs-12 col-sm-8 col-sm-offset-0 col-lg-7 col-lg-offset-1">
-				<video id="video" class="video-js vjs-default-skin col-xs-12 img-responsive" controls preload="none" ></video>
+				<video id="video" class="video-js vjs-default-skin col-xs-12 img-responsive" controls preload="none" data-setup='{"nativeControlsForTouch": false}'></video>
 			</div>
 			<div id="info-wrapper" class="col-sm-4">
 			@if(Auth::check())
 				<div class="row">	
 					<div class="col-xs-12 col-sm-12">
-						<button id="choosePlaylist" class="btn col-xs-4 col-sm-6 col-lg-3 broadcast-btn btn-transparent"><span class="glyphicon glyphicon-list pull-left"></span>Playlisten</button>
+						<button id="choosePlaylist" class="btn col-xs-4 col-sm-6 col-md-4 col-lg-3 broadcast-btn btn-transparent"><span class="glyphicon glyphicon-list pull-left"></span>Playlisten</button>
 						<form class="col-sm-3 col-lg-3">
 									<?php
 								 		$user_playlists= DB::table('playlists')->where('user', '=', Auth::id())->get();
@@ -39,8 +39,8 @@
 					</div>
 					<div class="col-xs-12 col-sm-12">	
 						<form >
-							<button id="addToBookmarks" type="button" class="btn col-xs-4 col-sm-6 col-lg-3  broadcast-btn btn-transparent" value="{{Auth::id()}}"><span class="glyphicon glyphicon-bookmark pull-left"></span>Merken</button>
-							<button id="bookmark-name" class="btn col-xs-4 col-sm-6 col-lg-3 broadcast-btn btn-transparent hidden"><span class="glyphicon glyphicon-bookmark pull-left"></span></button>
+							<button id="addToBookmarks" type="button" class="btn col-xs-4 col-sm-6 col-md-4 col-lg-3  broadcast-btn btn-transparent" value="{{Auth::id()}}"><span class="glyphicon glyphicon-bookmark pull-left"></span>Merken</button>
+							<button id="bookmark-name" class="btn col-xs-4 col-sm-6 col-md-4 col-lg-3 broadcast-btn btn-transparent hidden"><span class="glyphicon glyphicon-bookmark pull-left"></span></button>
 						</form>
 					</div>
 					<!-- <div class="col-sm-12">	
