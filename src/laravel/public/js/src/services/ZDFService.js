@@ -278,25 +278,27 @@ MediathekCrawler.ZDFService = function() {
 			    				type = null; //'application/x-mpegURL' oder 'vnd.apple.mpegURL'
 			    				break;
 			    			case 'vp8_vorbis_webm_http_na_na':
-			    				type = 'video/webm';
-			    				url = $(this).find('url').text();
+			    				type = null; //'video/webm'
+			    				break;
+			    				// type = 'video/webm';
+			    				// url = $(this).find('url').text();
 
-		    					// console.log("ZDF searching streams");
-		    					qualityText = $(this).find('quality').text();
-		    					// console.log("ZDF quality: ",qualityText);
-					    		switch (qualityText) {
-					    			case 'low':
-					    				quality = 0;
-					    				break;
-					    			case 'med':
-					    				quality = 1;
-					    				break;
-					    			case 'high':
-					    				quality = 2;
-					    				break;
-					    			case 'veryhigh':
-					    				quality = 3;
-					    				break;
+		    					// // console.log("ZDF searching streams");
+		    					// qualityText = $(this).find('quality').text();
+		    					// // console.log("ZDF quality: ",qualityText);
+					    		// switch (qualityText) {
+					    		// 	case 'low':
+					    		// 		quality = 0;
+					    		// 		break;
+					    		// 	case 'med':
+					    		// 		quality = 1;
+					    		// 		break;
+					    		// 	case 'high':
+					    		// 		quality = 2;
+					    		// 		break;
+					    		// 	case 'veryhigh':
+					    		// 		quality = 3;
+					    		// 		break;
 					    		}
 			    				// filter metafilegenerator-URLS (not streamable!)
 			    				if(url.indexOf('metafilegenerator') == -1){

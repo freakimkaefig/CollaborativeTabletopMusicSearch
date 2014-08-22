@@ -16,7 +16,7 @@
 	{{ HTML::script('js/src/services/ZDFService.js') }}
 	{{ HTML::script('js/src/services/BRService.js') }}
 	{{ HTML::script('js/src/services/ARTEService.js') }}
-	{{ HTML::script('js/src/services/WDRService.js') }}
+	{{ HTML::script('js/src/services/ORFService.js') }}
 	{{ HTML::script('js/src/services/SRFService.js') }}
 
 	<!--Model-->

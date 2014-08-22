@@ -94,8 +94,8 @@
 				</div>
 				<div class="checkbox">
 					<label>
-						<input type="checkbox" name="wdr" value="wdr">
-						WDR
+						<input type="checkbox" name="orf" value="orf">
+						ORF
 					</label>
 				</div>
 			</div>		

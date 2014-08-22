@@ -37,7 +37,7 @@
 					    <li><a href="{{URL::route('channel',array('ARTE'))}}">Arte</a></li>
 					    <li><a href="{{URL::route('channel',array('BR'))}}">BR</a></li>
 					    <li><a href="{{URL::route('channel',array('SRF'))}}">SRF</a></li>
-					    <li><a href="{{URL::route('channel',array('WDR'))}}">WDR</a></li>
+					    <li><a href="{{URL::route('channel',array('ORF'))}}">ORF</a></li>
 					</ul>
 				</div>
 			</div>
