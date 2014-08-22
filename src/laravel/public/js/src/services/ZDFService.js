@@ -299,7 +299,7 @@ MediathekCrawler.ZDFService = function() {
 					    		// 	case 'veryhigh':
 					    		// 		quality = 3;
 					    		// 		break;
-					    		}
+					    		// }
 			    				// filter metafilegenerator-URLS (not streamable!)
 			    				if(url.indexOf('metafilegenerator') == -1){
 
