@@ -305,6 +305,14 @@ h2 small { color:#fff; }
 	background-color: #778899;
 }
 
+.vjs-res-button{
+	background-color: #1b1b1b;
+}
+.vjs-default-skin .vjs-menu-button{
+}
+.vjs-live-controls{
+	display: none;
+}
 
 #loading-indicator {
   
