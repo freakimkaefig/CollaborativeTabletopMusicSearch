@@ -32,7 +32,7 @@
         </div>
         <div id="playlist-video-wrapper" class="img-responsive col-xs-12 col-sm-8">
        
-        <video id="video-playlist" class="video-js vjs-default-skin " controls preload="auto">
+        <video id="video-playlist" class="video-js vjs-default-skin " controls preload="auto" data-setup='{"nativeControlsForTouch": false}'>
         <?php
 
           $urls = DB::table('broadcasts')->select('url')->where('id',"=", $playlistVideo)->get(); 

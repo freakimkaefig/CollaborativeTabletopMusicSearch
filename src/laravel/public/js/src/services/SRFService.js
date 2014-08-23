@@ -569,7 +569,7 @@ MediathekCrawler.SRFService = function() {
 			type: 'GET',
 			cache: false,
 			success: function(data, textStatus, jqXHR) {
-				// console.log('SRF getNew: ', PROXY_URL + SRFSEARCHNEW);
+				console.log('SRF getNew: ', PROXY_URL + SRFSEARCHNEW);
 				_onSRFGetNew(maxResults, origin, data,'#left_day');
 				
 			},
@@ -581,7 +581,7 @@ MediathekCrawler.SRFService = function() {
 
 	_onSRFGetNew = function(maxResults, origin, data,divId){
 		if(!maxResults || maxResults === undefined || maxResults === null){
-			maxResults = 20;
+			maxResults = 40;
 		}
 		var temp = divId;
 		var x = $(data).find(divId).find('.missed_list');

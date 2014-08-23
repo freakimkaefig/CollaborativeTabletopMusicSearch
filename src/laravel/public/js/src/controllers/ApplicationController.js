@@ -20,8 +20,8 @@ MediathekCrawler.ApplicationController = function() {
 	broadcastView = null,
 
 	/* ===== CONTROLS ===== */
-	ZDFMAXRESULTS = 10,
-	ARTEMAXRESULTS = 15,
+	ZDFMAXRESULTS = 20,
+	ARTEMAXRESULTS = 20,
 	// requesting more than 1 result page (SRF) leads to the same
 	// received data -> duplicate entries!
 	SRFMAXPAGESTOCRAWL = 1,
@@ -126,23 +126,14 @@ MediathekCrawler.ApplicationController = function() {
 			if(document.URL.indexOf('/channel/ZDF') > -1){
 				ZDFService.getNew(ZDFMAXRESULTS);
 				ZDFService.getHot(ZDFMAXRESULTS);
-
-				// first param = maxResults (<= 50!!)
-				// ZDFService.getZDFVideosByDate(50,  '2013-08-09', '2013-08-14');
 			}
 			if(document.URL.indexOf('/channel/ARTE') > -1){
 				ARTEService.getNew(ARTEMAXRESULTS, null, null);
 				ARTEService.getHot(ARTEMAXRESULTS);
-
-				// first param: maxResults (<=200!!!)
-				// ARTEService.getVideosByDate(200, '2014-08-10', '2014-08-15');
 			}
 			if(document.URL.indexOf('/channel/DasErste') > -1){
 				DasErsteService.getNew();
 				DasErsteService.getHot();
-
-				// first param: useless at the moment!
-				// DasErsteService.getDasErsteVideosByDate(10, '2014-08-13', '2014-08-13');
 			}
 			if(document.URL.indexOf('/channel/SRF') > -1){
 				SRFService.getNew();
