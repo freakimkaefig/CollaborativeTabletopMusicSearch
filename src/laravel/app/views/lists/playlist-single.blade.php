@@ -44,7 +44,7 @@
                   return strcmp($b->_quality, $a->_quality);
               });*/
                 foreach ($obj as $o) {
-                  echo "<source src='$o->_url' type='$o->_type' data-res='".checkQuality($o->_quality)."''>";
+                  echo "<source src=$o->_url type='$o->_type' data-res='".checkQuality($o->_quality)."'>";
                 }
             }
          } 

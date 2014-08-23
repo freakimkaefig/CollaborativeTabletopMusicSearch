@@ -56,10 +56,10 @@
      	<ul class="nav navbar-nav no-margin-top-bottom">
      		<li>
      			<div id="mobile-menu-button" class="pull-left">
-				<button class="btn btn-default btn-big dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown">
+				<button class="btn btn-default btn-big dropdown-toggle nohover" type="button" id="dropdownMenu" data-toggle="dropdown">
 					<span class="glyphicon glyphicon-align-justify"></span>
 				</button>
-	      		<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+	      		<!-- <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
 			      <li><a href="{{ URL::route('account-my-account') }}">Mein Konto</a></li>
 	        	  <li><a href="{{ URL::route('playlists') }}">Playlisten</a></li>
 				  <li><a href="{{ URL::route('bookmarks') }}">Merkliste</a></li>
@@ -70,7 +70,7 @@
 			      <li><a href="{{ URL::route('contact') }}">Kontakt</a></li>
 			      <li><a href="{{ URL::route('data') }}">Datenschutz</a></li>
 			      <li><a href="{{ URL::route('imprint') }}">Impressum</a></li>
-        		</ul>
+        		</ul> -->
 			</div>
      		</li>
      		<li><a class="navbar-brand" href="{{ URL::route('home') }}">LOGO</a></li>

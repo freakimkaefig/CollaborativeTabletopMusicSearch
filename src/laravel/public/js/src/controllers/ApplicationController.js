@@ -15,6 +15,7 @@ MediathekCrawler.ApplicationController = function() {
 	SRFService = null,
 	
 	/* ===== VIEWS ===== */
+	mainView = null,
 	footerView = null,
 	resultView = null,
 	broadcastView = null,
@@ -56,6 +57,8 @@ MediathekCrawler.ApplicationController = function() {
 	 	
 
 		// init Views:
+		mainView = MediathekCrawler.MainView();
+		mainView.init();
 	    footerView = MediathekCrawler.FooterView();
 		footerView.init();
 		feedbackView = MediathekCrawler.FeedbackView();
