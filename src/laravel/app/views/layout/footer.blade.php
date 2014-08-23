@@ -28,8 +28,8 @@
 				</div>
 			</div>
 			<div class="col-sm-3">
-				<h4 class="">Sender</h4>
-				<div class="alpha">
+				<h4 class="col-sm-offset-2">Sender</h4>
+				<div class="alpha col-sm-offset-2">
 					<ul>
 					    <li><a href="{{URL::route('channel',array('DasErste'))}}">Das Erste</a></li>
 					    <li><a href="{{URL::route('channel',array('ZDF'))}}">ZDF</a></li>
