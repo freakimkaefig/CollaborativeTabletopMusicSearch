@@ -129,7 +129,7 @@ h2 small { color:#fff; }
 /* ========== FOOTER ========== */
 #footer-nav { bottom: -130px; }
 #footer-nav li>a{color: #ffffff;}
-#footer-nav li:hover{background-color: #778899;}
+#footer-nav li>a:hover{background-color: #778899; text-decoration: none;}
 
 
 
@@ -421,6 +421,7 @@ h2 small { color:#fff; }
 
 #home-title{ background-color:#778899; padding:15px; }
 #home-channels .home-channel div{  }
+#myCarousel {background-color: #333;}
 .carousel-inner>.item>img { margin:0 auto;  }
 .inner { height:160px; position:relative; }
 .inner > img,
