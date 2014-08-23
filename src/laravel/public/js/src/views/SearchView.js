@@ -49,22 +49,22 @@ MediathekCrawler.SearchView = (function() {
 	},
 
 	manageFilters = function(){
-			$("input[name='daserste']").click(function(){
-				 if ($("#category-filter :input").attr('disabled')){ 
-				 	$("#category-filter :input").removeAttr('disabled');
-				 }
-				 else{
-				 	$("#category-filter :input").attr('disabled', 'disabled');
-				}
-			})
-			$("input[name='br']").click(function(){
-				 if ($("#category-filter :input").attr('disabled')){ 
-				 	$("#category-filter :input").removeAttr('disabled');
-				 }
-				 else{
-				 	$("#category-filter :input").attr('disabled', 'disabled');
-				}
-			})
+			// $("input[name='daserste']").click(function(){
+			// 	 if ($("#category-filter :input").attr('disabled')){ 
+			// 	 	$("#category-filter :input").removeAttr('disabled');
+			// 	 }
+			// 	 else{
+			// 	 	$("#category-filter :input").attr('disabled', 'disabled');
+			// 	}
+			// })
+			// $("input[name='br']").click(function(){
+			// 	 if ($("#category-filter :input").attr('disabled')){ 
+			// 	 	$("#category-filter :input").removeAttr('disabled');
+			// 	 }
+			// 	 else{
+			// 	 	$("#category-filter :input").attr('disabled', 'disabled');
+			// 	}
+			// })
 			$("input[name='srf']").change(function(){
 				 if ($("input[name='srf']").is(":checked")){ 
 				 	console.log("disable");
@@ -95,13 +95,13 @@ MediathekCrawler.SearchView = (function() {
 	getSelectedCategories = function(){
 		var selectedCategories = [];
 
-		if ($("input[name='daserste']").is(":checked")||$("input[name='br']").is(":checked")){
-			selectedCategories = [];
-		}else{	
+		// if ($("input[name='daserste']").is(":checked")||$("input[name='br']").is(":checked")){
+		// 	selectedCategories = [];
+		// }else{	
 			$("#category-filter input:checked").each(function(){
 				selectedCategories.push($(this).attr('name'));
 			})
-		}
+		// }
 		return selectedCategories;
 	},
 	initSlider = function(){
