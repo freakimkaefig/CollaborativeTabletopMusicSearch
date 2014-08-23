@@ -4,10 +4,8 @@
 
 <?php
 	$channel_row_class = 'home-channel col-xs-6 col-md-4 col-lg-3';
-	$category_row_class = 'home-category col-xs-6 col-md-3';
+	$category_row_class = 'home-category col-xs-6 col-sm-4 col-md-3 col-lg-2';
 ?>
-
-<div class="spacer"></div>
 
 <!-- START Carousel -->
 <div id="carousel-wrapper" class="row">
@@ -88,6 +86,7 @@
 	</li>
 </ul>
 <div class="spacer"></div>
+<h2 class="text-center">Rubriken</h2>
 <ul id="home-categories" class="container-fluid">
 	
 	<!-- <h3>Kategorien:</h3> -->

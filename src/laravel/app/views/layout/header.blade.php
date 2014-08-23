@@ -52,7 +52,27 @@
 <nav class="navbar navbar-default visible-xs" role="navigation">
 	
 	<div class="container-fluid">
-     	<ul class="nav navbar-nav">
+		
+     	<ul class="nav navbar-nav no-margin-top-bottom">
+     		<li>
+     			<div id="mobile-menu-button" class="pull-left">
+				<button class="btn btn-default btn-big dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown">
+					<span class="glyphicon glyphicon-align-justify"></span>
+				</button>
+	      		<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+			      <li><a href="{{ URL::route('account-my-account') }}">Mein Konto</a></li>
+	        	  <li><a href="{{ URL::route('playlists') }}">Playlisten</a></li>
+				  <li><a href="{{ URL::route('bookmarks') }}">Merkliste</a></li>
+	        	  <li class="divider"></li>
+			      <li><a href="{{ URL::route('channels-overview') }}">Mediatheken</a></li>
+			      <li><a href="{{ URL::route('categories-overview') }}">Rubriken</a></li>
+			      <li class="divider"></li>
+			      <li><a href="{{ URL::route('contact') }}">Kontakt</a></li>
+			      <li><a href="{{ URL::route('data') }}">Datenschutz</a></li>
+			      <li><a href="{{ URL::route('imprint') }}">Impressum</a></li>
+        		</ul>
+			</div>
+     		</li>
      		<li><a class="navbar-brand" href="{{ URL::route('home') }}">LOGO</a></li>
      	
      		@if(Auth::check())
