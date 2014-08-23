@@ -54,12 +54,12 @@
 		            <div class="modal-content">
 		                <div class="modal-header">
 		                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-		                    <h4 class="modal-title" >Video wirklich löschen?</h4>
+		                    <h4 class="modal-title" >Sicherheitsabfrage</h4>
 		                </div>
 		            
 		                <div class="modal-body">
 		                    <p>Sie sind dabei die Playliste "{{$result->name}}" zu löschen! </p>
-		                    <p>Wirklich löschen?</p>
+		                    <p>Video wirklich löschen?</p>
 		                </div>
 		                
 		                <div class="modal-footer">
@@ -85,12 +85,12 @@
 		            <div class="modal-content">
 		                <div class="modal-header">
 		                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-		                    <h4 class="modal-title" >Video wirklich löschen?</h4>
+		                    <h4 class="modal-title" >Sicherheitsabfrage</h4>
 		                </div>
 		            
 		                <div class="modal-body">
 		                    <p>Sie sind dabei die Playliste "{{$result->name}}" zu löschen! </p>
-		                    <p>Wirklich löschen?</p>
+		                    <p>Playliste wirklich löschen?</p>
 		                </div>
 		                
 		                <div class="modal-footer">
