@@ -264,7 +264,6 @@ MediathekCrawler.ZDFService = function() {
 						    		//console.log('basetype: ',basetype,', stream: ',stream._url);
 									streams.push(stream);
 			    				}
-			    				break;
 			    			case 'h264_aac_mp4_rtmp_smil_http':
 			    				type = null;	// TODO: transform to type! (.smil)
 			    				break;
@@ -280,26 +279,26 @@ MediathekCrawler.ZDFService = function() {
 			    			case 'vp8_vorbis_webm_http_na_na':
 			    				type = null; //'video/webm'
 			    				break;
-			    				// type = 'video/webm';
-			    				// url = $(this).find('url').text();
+			    				type = 'video/webm';
+			    				url = $(this).find('url').text();
 
-		    					// // console.log("ZDF searching streams");
-		    					// qualityText = $(this).find('quality').text();
-		    					// // console.log("ZDF quality: ",qualityText);
-					    		// switch (qualityText) {
-					    		// 	case 'low':
-					    		// 		quality = 0;
-					    		// 		break;
-					    		// 	case 'med':
-					    		// 		quality = 1;
-					    		// 		break;
-					    		// 	case 'high':
-					    		// 		quality = 2;
-					    		// 		break;
-					    		// 	case 'veryhigh':
-					    		// 		quality = 3;
-					    		// 		break;
-					    		// }
+		    					// console.log("ZDF searching streams");
+		    					qualityText = $(this).find('quality').text();
+		    					// console.log("ZDF quality: ",qualityText);
+					    		switch (qualityText) {
+					    			case 'low':
+					    				quality = 0;
+					    				break;
+					    			case 'med':
+					    				quality = 1;
+					    				break;
+					    			case 'high':
+					    				quality = 2;
+					    				break;
+					    			case 'veryhigh':
+					    				quality = 3;
+					    				break;
+					    		}
 			    				// filter metafilegenerator-URLS (not streamable!)
 			    				if(url.indexOf('metafilegenerator') == -1){
 
@@ -345,6 +344,8 @@ MediathekCrawler.ZDFService = function() {
 	},
 
 	getHot = function(maxResults){
+
+				// console.log('ZDF getHot');
 		if(maxResults >50){
 			maxResults = 50;
 		} 
@@ -356,9 +357,10 @@ MediathekCrawler.ZDFService = function() {
 		};
 
 		$.ajax({
-			url: ZDFSEARCHHOTURL+String(maxResults),
+			url: ZDFSEARCHHOTURL+String(maxResults)+'&offset=1',
 			type: 'GET',
 			success: function(data) {
+				// console.log('ZDF getHot data: ',data, ZDFSEARCHHOTURL+String(maxResults)+'&offset=1');
 				_parseResponse(origin, data);
 			},
 			error: function(){

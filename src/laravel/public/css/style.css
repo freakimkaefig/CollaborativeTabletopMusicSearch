@@ -38,7 +38,7 @@ h3{
 	color: #ffffff;
 }
 a:hover{
-	color: #313131;
+	color: #e3e3e3;
 }
 
 body{
@@ -378,13 +378,13 @@ body{
 
 #icon-station{
 	float: left;
-	height: 20px;
+	height: 30px;
 }
 #icon-station-results img, #icon-station img {float: left;}
  #icon-station img {height: 100%;}
 #icon-station-results img{ 
-	height: 30px;
-	margin-top:10px; 
+	height: 54px;
+	/*margin-top:10px; */
 	margin-right: 20px;
 }
 
