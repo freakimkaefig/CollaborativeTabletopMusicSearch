@@ -110,7 +110,7 @@ h2 small { color:#fff; }
 	padding: 5px;
 	color: #ffffff !important;
 }
-.navbar .dropdown-toggle:hover{background-color: #778899 !important;}
+.navbar .dropdown-toggle:not(.nohover):hover{background-color: #778899 !important;}
 
 .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus{
 	background-color: #778899;
@@ -438,7 +438,8 @@ h2 small { color:#fff; }
 .carousel-caption h1 { margin-top:10px; }
 .carousel-control.right { background:transparent; }
 .carousel-control.left { background:transparent; }
-#mobile-button-container { margin-bottom:40px; }
+#mobile-menu-button:hover button { background:transparent; }
+#mobile-menu-button.open button { background-color:#778899;}
 .no-margin-top-bottom { margin-top:0; margin-bottom:0; }
 .no-margin-top-bottom .open .dropdown-menu { position:absolute; background:#1b1b1b;}
 .no-margin-top-bottom .open .dropdown-menu>li>a { color: #e3e3e3 !important;}
@@ -448,10 +449,26 @@ h2 small { color:#fff; }
 	height:50px; width:50px;
 	border-radius:0px;
 	-moz-box-shadow: inset 0 0 10px #313131; -webkit-box-shadow: inset 0 0 10px #313131; box-shadow: inset 0 0 10px #313131;}
-#mobile-menu-button .dropdown-menu { top:inherit !important; }
+#mobile-menu-button .dropdown-menu { top:inherit !important; border-top-left-radius:0px; border-top-right-radius:0px; margin-left:-1px; }
+#mobile-menu-button .dropdown-menu>li>a { padding:10px 15px 10px 25px; }
 #mobile-search-form { overflow: hidden; }
 .btn-big { font-size: 18px; }
 #mobile-search-results { display:none;}
+
+#content { background:#525252; }
+.snap-drawer>div { height:100%; background:#1b1b1b; }
+.mobile-menu { text-align:center; }
+.mobile-menu>li:not(.divider) {
+	padding: 15px 0;
+	-moz-box-shadow: inset 0 0 5px #313131; -webkit-box-shadow: inset 0 0 5px #; box-shadow: inset 0 0 5px #313131;
+}
+.mobile-menu>li.divider-after { padding-bottom:25px; }
+.mobile-menu>li.divider { height:1px; background:#e3e3e3;}
+.mobile-menu>li.divider-before { padding-top:25px; }
+.mobile-menu>li>a { font-size: 18px; }
+.mobile-menu>li>a:hover { text-decoration:none; background }
+.mobile-menu>li:active, .mobile-menu>li:focus { background: ;}
+
 
 #carousel-wrapper .item { height: 168px; }
 /* Custom, iPhone Retina */ 
