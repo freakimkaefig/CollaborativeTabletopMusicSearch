@@ -44,10 +44,9 @@
 				<h4 class="">Konto</h4>
 				<div class="col-sm-4 alpha ">
 					<ul>
-							<li><a href="{{ URL::route('account-my-account') }}">Übersicht</a></li>
-							<li><a href="{{ URL::route('playlists') }}">Playlisten</a></li>
-							<li><a href="#">Favoriten</a></li>
-							<li><a href="{{ URL::route('bookmarks') }}">Merkliste</a></li>
+						<li><a href="{{ URL::route('account-my-account') }}">Übersicht</a></li>
+						<li><a href="{{ URL::route('playlists') }}">Playlisten</a></li>
+						<li><a href="{{ URL::route('bookmarks') }}">Merkliste</a></li>
 						
 						@if(Auth::check())
 							<li><a href="{{ URL::route('account-sign-out') }}">Abmelden</a></li>
@@ -61,6 +60,7 @@
 				<h4 class="col-sm-offset-1">&nbsp;</h4>
 				<div class="col-sm-4 col-sm-offset-1 alpha">
 					<ul>
+						<li><a href="{{ URL::route('home') }}">Startseite</a></li>
 					    <li><a href="{{ URL::route('contact') }}">Kontakt</a></li>
 			      		<li><a href="{{ URL::route('data') }}">Datenschutz</a></li>
 			      		<li><a href="{{ URL::route('imprint') }}">Impressum</a></li>

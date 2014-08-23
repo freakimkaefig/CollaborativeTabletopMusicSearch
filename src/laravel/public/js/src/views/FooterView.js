@@ -35,7 +35,7 @@ MediathekCrawler.FooterView = (function() {
 	footerOnMouseLeave = function(event) {
 		$footerNav.stop(true, false);
 		$footerNav.animate({
-			bottom: -130
+			bottom: -190
 		});
 	},
 	

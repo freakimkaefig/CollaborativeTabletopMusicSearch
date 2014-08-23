@@ -70,7 +70,7 @@ MediathekCrawler.ResultView = (function() {
 		            	'<div class="carousel-caption">'+
 		              		'<h1>' + result._title + '</h1>'+
 		              		'<p>' + result._subtitle + '</p>'+
-		              		'<p>' + result._station + '</p>'+
+		              		'<p>' + stationToImage(result._station) + '</p>'+
 		            	'</div>'+
 		            '</a>'+
 	          	'</div>'+
@@ -83,7 +83,7 @@ MediathekCrawler.ResultView = (function() {
 		            	'<div class="carousel-caption">'+
 		              		'<h1>' + result._title + '</h1>'+
 		              		'<p>' + result._subtitle + '</p>'+
-		              		'<p>' + result._station + '</p>'+
+		              		'<p>' + stationToImage(result._station) + '</p>'+
 		            	'</div>'+
 		            '</a>'+
 	          	'</div>'+
@@ -265,6 +265,30 @@ MediathekCrawler.ResultView = (function() {
 			appendResult(event, result);
 		})
 		return;
+	},
+	stationToImage = function(station) {
+		var html = '';
+		station = station.toLowerCase();
+		if(station.indexOf("erste") > -1){
+			html += '<img src="/css/images/s_Das_Erste_2014.png" />';
+		}
+		if(station.indexOf("zdf") > -1 ){
+			html += '<img src="/css/images/s_ZDF.png" />';
+		}
+		if(station.indexOf("srf") > -1){
+			html += '<img src="/css/images/s_srf.png" />';
+		}
+		if(station.indexOf("arte") > -1){
+			html += '<img src="/css/images/s_Arte.png" />';
+		}
+		if(station.indexOf("br") > -1){
+			html += '<img src="/css/images/s_br.png" />';
+		}
+		if(station.indexOf("orf") > -1){
+			html += '<img src="/css/images/s_ORF_logo.png" />';
+		}
+		html += '';
+		return html;
 	},
 	renderStationIcon = function(station){
 		$('#icon-station').tooltip();

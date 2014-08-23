@@ -2,7 +2,7 @@
 
 @section('content')
 
-	<div class="container pull-right" style="margin-top:-79px;">
+	<div class="container mobile-filter-button-container pull-right">
 		<div id="mobile-filter-button" class="visible-xs open">
 			<button class="btn btn-default btn-big">
 				<span class="glyphicon glyphicon-chevron-up"></span>

@@ -22,7 +22,9 @@
 			<div class="snap-drawer snap-drawer-left">
 				<div>
 					<ul class="mobile-menu" role="menu">
-			      		<li><a href="{{ URL::route('account-my-account') }}">Mein Konto</a></li>
+						<li class="divider-after"><a href="{{ URL::route('home') }}">Startseite</a></li>
+						<li class="divider"></li>
+			      		<li class="divider-before"><a href="{{ URL::route('account-my-account') }}">Mein Konto</a></li>
 			        	<li><a href="{{ URL::route('playlists') }}">Playlisten</a></li>
 						<li class="divider-after"><a href="{{ URL::route('bookmarks') }}">Merkliste</a></li>
 					    <li class="divider"></li>

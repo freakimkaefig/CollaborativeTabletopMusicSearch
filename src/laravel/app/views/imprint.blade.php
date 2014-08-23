@@ -41,6 +41,6 @@
 		<p>Copyright © 2014 ausschließliches Impressum von Mediathek Crawler</p>
 
 	</div>
-	<div class="spacer">
+	<div class="spacer"></div>
 
 @stop
