@@ -101,5 +101,6 @@
 			</form>
 		</div>
 	</div>
+		<div class="spacer"></div>
 	<!-- END account/signin -->
 @stop

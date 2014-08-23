@@ -84,6 +84,8 @@
 			
 			// Register our click handler
 			this.on( 'click', this.onClick );
+			this.on( 'touchstart', this.onClick );
+
 			
 			// Toggle the selected class whenever the resolution changes
 			player.on( 'changeRes', _V_.bind( this, function() {
@@ -102,7 +104,6 @@
 	
 	// Handle clicks on the menu items
 	_V_.ResolutionMenuItem.prototype.onClick = function() {
-		
 		var player = this.player(),
 			video_el = player.el().firstChild,
 			current_time = player.currentTime(),
