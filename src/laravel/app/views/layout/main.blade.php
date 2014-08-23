@@ -60,8 +60,8 @@
 					<span  class="glyphicon glyphicon glyphicon-chevron-up text-center"></span>
 				</div>
 			</a>
-			@include('layout.footer')
 		</div>
+		@include('layout.footer')
 
 		@include('mediathek-crawler-js')
 
