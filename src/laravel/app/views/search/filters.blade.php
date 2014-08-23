@@ -61,7 +61,7 @@
 			</div>
 		</div>
 	</div>
-	<div id="channel-filter" class="form-group col-sm-3">
+	<div id="channel-filter" class="form-group col-sm-3 col-sm-offset-1">
 		<h4>Sender</h4>
 		<div class="col-sm-6">
 			<div class="checkbox">

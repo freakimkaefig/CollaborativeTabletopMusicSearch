@@ -274,9 +274,6 @@ MediathekCrawler.ResultView = (function() {
 		}
 		if(station.indexOf("zdf") > -1 ){
 			$("#icon-station-results").append("<img src='/css/images/ZDF.svg' />");
-			$("#icon-station-results").append("<img src='/css/images/ZDFneo.svg' />");
-			$("#icon-station-results").append("<img src='/css/images/ZDFinfo.svg' />");
-			$("#icon-station-results").append("<img src='/css/images/Zdf.kultur_logo.svg' />");
 		}
 		if(station.indexOf("srf") > -1){
 			$("#icon-station-results").append("<img src='/css/images/srf.svg' />");
@@ -287,7 +284,9 @@ MediathekCrawler.ResultView = (function() {
 		if(station.indexOf("br") > -1){
 			$("#icon-station-results").append("<img src='/css/images/br.svg' />");
 		}
-
+		if(station.indexOf("orf") > -1){
+			$("#icon-station-results").append("<img src='/css/images/ORF_logo.svg' />");
+		}
 
 	},
 

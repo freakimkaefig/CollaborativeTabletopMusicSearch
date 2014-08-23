@@ -8,7 +8,7 @@
 
   	?>
     @foreach($results_playlist as $result)
-      <div class="col-sm-12 text-center"><h2 class="text-center page-title">Playlist:{{$result->name}}</h2></div>
+      <div class="col-sm-12 text-center"><h2 class="text-center page-title">Playlist: {{$result->name}}</h2></div>
     @endforeach
     <div class="row">  
       <div class="col-sm-12 col-sm-offset-0">
@@ -44,7 +44,7 @@
                   return strcmp($b->_quality, $a->_quality);
               });*/
                 foreach ($obj as $o) {
-                  echo "<source src='$o->_url' type='$o->_type' data-res='".checkQuality($o->_quality)."''>";
+                  echo "<source src=$o->_url type='$o->_type' data-res='".checkQuality($o->_quality)."'>";
                 }
             }
          } 
@@ -126,9 +126,9 @@
           <div class="list-item-description">
             <h3>{{$result->title}}</h3>
             <h4>{{($result->subtitle) ? $result->subtitle : ""}}</h4>
-            <h4>Sender:{{$result->station}}</h4>
-            <h4>Datum:{{date('d.m.y H:i', strtotime($result->airtime))}}</h4>
-            <h4>Dauer:{{$result->duration}}</h4>
+            <h4>Sender: {{$result->station}}</h4>
+            <h4>Datum: {{date('d.m.y H:i', strtotime($result->airtime))}}</h4>
+            <h4>Dauer: {{$result->duration}}</h4>
           </div>
         </a>
         <div class="col-sm-1 pull-right hidden-xs">

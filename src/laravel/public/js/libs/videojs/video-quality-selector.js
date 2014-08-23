@@ -222,7 +222,6 @@
 	 * Register the plugin with videojs, main plugin function
 	 ***********************************************************************************/
 	_V_.plugin( 'resolutionSelector', function( options ) {
-		
 		// Only enable the plugin on HTML5 videos
 		if ( ! this.el().firstChild.canPlayType  ) { return; }
 		
@@ -249,7 +248,7 @@
 		
 		// Get all of the available resoloutions
 		while ( i > 0 ) {
-			
+
 			i--;
 			
 			// Skip sources that don't have data-res attributes

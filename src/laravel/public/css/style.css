@@ -133,7 +133,7 @@ h2 small { color:#fff; }
 /* ========== FOOTER ========== */
 #footer-nav { bottom: -130px; }
 #footer-nav li>a{color: #ffffff;}
-#footer-nav li:hover{background-color: #778899;}
+#footer-nav li>a:hover{text-decoration: none; background-color: #778899;}
 
 
 
