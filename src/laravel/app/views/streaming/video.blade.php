@@ -58,6 +58,7 @@
 				<h3>Beschreibung:</h3>
 			</div>
 		</div>
+		<div class="spacer"></div>
 				<input id="video-id" type="hidden" value="{{ $video }}">
 				@if(isset($bookmarked))
 					<input id="bookmark" type="hidden" value='{{$bookmarked}}'>

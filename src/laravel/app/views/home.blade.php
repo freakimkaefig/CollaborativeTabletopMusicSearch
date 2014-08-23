@@ -13,7 +13,6 @@
       <!-- Indicators -->
       <ol class="carousel-indicators">
         <li id="carousel-loading-indicator" data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li id="carousel-loading-indicator" data-target="#myCarousel" data-slide-to="1"></li>
       </ol>
       <div class="carousel-inner">
         <div id="carousel-loading-item" class="item active">

@@ -45,11 +45,5 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'Orangehill\Iseed\IseedServiceProvider',
-		'Barryvdh\Debugbar\ServiceProvider',
-	),
-
-	'aliases' => array(
-		'Debugbar' => 'Barryvdh\Debugbar\Facade',
-	),
-
+	)
 );
