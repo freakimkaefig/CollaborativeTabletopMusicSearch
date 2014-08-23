@@ -9,4 +9,5 @@
 		@include('search.results')
 
 	</div>
+	<div class="spacer"></div>
 @stop
