@@ -321,7 +321,7 @@ MediathekCrawler.BRService = function() {
 			// http://www.br.de/mediathek/video/programm/index.html
 			// BR_NEW_URL
 			var _url = PROXY_URL + encodeURI(BR_NEW_URL);
-				// console.log('BR onGetBRNew url: ',_url);
+				// console.log('BR GetBRNew url: ',_url);
 			$.ajax({
 				url: _url,
 				type: 'GET',
@@ -344,7 +344,7 @@ MediathekCrawler.BRService = function() {
 									// get yesterday url:
 									if(cuttedDay === x || cuttedDay === (x - 1)){
 										// console.log('BR found yesterday: ',$(element).find('a').attr('href'));
-										getBRNew(BASE_URL + $(element).find('a').attr('href'));
+										getBRNew(maxResults, BASE_URL + $(element).find('a').attr('href'));
 									}
 
 								}
@@ -357,7 +357,7 @@ MediathekCrawler.BRService = function() {
 									// get yesterday url:
 									if(cuttedDay === x){
 										// console.log('BR found yesterday: ',$(element).find('a').attr('href'));
-										getBRNew(BASE_URL + $(element).find('a').attr('href'));
+										getBRNew(maxResults, BASE_URL + $(element).find('a').attr('href'));
 									}
 								}
 								if(day.indexOf(lastMonth) > 0){
@@ -366,7 +366,7 @@ MediathekCrawler.BRService = function() {
 									// get yesterday url:
 									if(cuttedDay === lastDayOfLastMonth){
 										// console.log('BR found yesterday: ',$(element).find('a').attr('href'));
-										getBRNew(BASE_URL + $(element).find('a').attr('href'));
+										getBRNew(maxResults, BASE_URL + $(element).find('a').attr('href'));
 									}
 								}
 							}else if(parseInt(nowDay) === 1){
@@ -377,7 +377,7 @@ MediathekCrawler.BRService = function() {
 									// get yesterday url:
 									if(cuttedDay === lastDayOfLastMonth || cuttedDay === lastDayOfLastMonth - 1){
 										// console.log('BR found yesterday: ',$(element).find('a').attr('href'));
-										getBRNew(BASE_URL + $(element).find('a').attr('href'));
+										getBRNew(maxResults, BASE_URL + $(element).find('a').attr('href'));
 									}
 								}
 							}
