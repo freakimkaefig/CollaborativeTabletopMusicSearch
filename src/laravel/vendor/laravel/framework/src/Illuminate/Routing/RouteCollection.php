@@ -61,12 +61,14 @@ class RouteCollection implements Countable, IteratorAggregate {
 	 */
 	protected function addToCollections($route)
 	{
+		$domainAndUri = $route->domain().$route->getUri();
+
 		foreach ($route->methods() as $method)
 		{
-			$this->routes[$method][$route->domain().$route->getUri()] = $route;
+			$this->routes[$method][$domainAndUri] = $route;
 		}
 
-		$this->allRoutes[$method.$route->domain().$route->getUri()] = $route;
+		$this->allRoutes[$method.$domainAndUri] = $route;
 	}
 
 	/**
@@ -285,7 +287,7 @@ class RouteCollection implements Countable, IteratorAggregate {
 	/**
 	 * Get an iterator for the items.
 	 *
-	 * @return ArrayIterator
+	 * @return \ArrayIterator
 	 */
 	public function getIterator()
 	{

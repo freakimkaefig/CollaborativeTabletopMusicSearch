@@ -15,7 +15,7 @@
 
 		{{ HTML::script('js/libs/snap/snap.min.js') }}
 		
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 	</head>
 	<body>			
 		<div class="snap-drawers">
@@ -55,12 +55,12 @@
 			<div class="container-fluid">
 				@yield('content')
 			</div>
-			<a href="#">
-				<div id="to-top" class="visible-xs">
-					<span  class="glyphicon glyphicon glyphicon-chevron-up text-center"></span>
-				</div>
-			</a>
 		</div>
+		<a href="#">
+			<div id="to-top" class="visible-xs">
+				<span  class="glyphicon glyphicon glyphicon-chevron-up text-center"></span>
+			</div>
+		</a>
 		@include('layout.footer')
 
 		@include('mediathek-crawler-js')
