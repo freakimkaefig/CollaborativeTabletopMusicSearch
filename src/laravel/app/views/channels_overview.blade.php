@@ -52,5 +52,14 @@
 				</div>
 			</a>
 		</li>
+		<li class="<?php print $channel_row_class ?>">
+			<a href="{{URL::route('channel',array('ORF'))}}">
+				<div class="outer">
+					<div class="inner">
+						<img src="css/images/ORF_logo.png" class="img-responsive col-xs-12" />
+					</div>
+				</div>
+			</a>
+		</li>
 	</ul>
 @stop

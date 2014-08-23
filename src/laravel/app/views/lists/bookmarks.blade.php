@@ -29,9 +29,9 @@
                 <div class="list-item-description">
                     <h3>{{$result->title}}</h3>
                     <h4>{{($result->subtitle) ? $result->subtitle : ""}}</h4>
-                    <h4>Sender:{{$result->station}}</h4>
-                    <h4>Datum:{{date('d.m.y H:i', strtotime($result->airtime))}}</h4>
-                    <h4>Dauer:{{$result->duration}}</h4>
+                    <h4>Sender: {{$result->station}}</h4>
+                    <h4>Datum: {{date('d.m.y H:i', strtotime($result->airtime))}}</h4>
+                    <h4>Dauer: {{$result->duration}}</h4>
                 </div>
             </a>
             <div class="col-sm-1 pull-right hidden-xs">
