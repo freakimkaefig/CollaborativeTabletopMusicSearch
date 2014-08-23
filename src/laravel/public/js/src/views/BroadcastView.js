@@ -67,12 +67,13 @@ MediathekCrawler.BroadcastView = (function() {
 		
 		$infoWrapper.prepend(infoElement);
 
-		
-		myPlayer = videojs("#video", {plugins : { resolutionSelector : {
+		videojs("#video", {plugins : { resolutionSelector : {
     							force_types : ['video/mp4'],
+    							default_res: "1,2,3"
 							}
 							}}, function(){
 		});
+		
 		//myPlayer.src(sources);
 		var descriptionElement = '<div>' + result._details + '</div>';
 		$descriptionWrapper.append(descriptionElement);
@@ -107,7 +108,8 @@ MediathekCrawler.BroadcastView = (function() {
 		$infoWrapper.prepend(infoElement);
 
 		videojs("#video", {plugins : { resolutionSelector : {
-    							force_types : ['video/mp4']
+    							force_types : ['video/mp4'],
+    							default_res : "3,2,1"
 							} }}, function(){
 		});
 
