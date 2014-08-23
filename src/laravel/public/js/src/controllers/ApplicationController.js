@@ -160,12 +160,10 @@ MediathekCrawler.ApplicationController = function() {
 			if (searchString !== '' && searchString !== undefined) {
 				_search(searchString);
 				$('#submit').on('click',_filterSeach);
-				$('#submit-mobile').on('click',_filterSeach);
 
 			} else {
 				//_getNew();
 				$('#submit').on('click',_filterSeach);
-				$('#submit-mobile').on('click',_filterSeach);
 			}
 
 		}
@@ -331,6 +329,8 @@ MediathekCrawler.ApplicationController = function() {
 			BRService.getBRVideosByDate(startDate, endDate);
 			// ORFService.getORFVideosByDate(startDate, endDate);
 		}
+
+		searchView.collapseMobileFilter();
 	
 		return;
 	},

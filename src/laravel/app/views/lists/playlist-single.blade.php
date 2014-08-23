@@ -135,25 +135,25 @@
             <button class="btn btn-transparent pull-right" data-toggle="modal" data-target="#confirm-delete-{{$result->id}}">X</button>
         </div>
         <div class="modal fade" id="confirm-delete-{{$result->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+          <div class="modal-dialog">
             <div class="modal-content">
             
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" >Video wirklich löschen?</h4>
-                </div>
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" >Video wirklich löschen?</h4>
+              </div>
             
-                <div class="modal-body">
-                    <p>Sie sind dabei das Video "{{$result->title}}" aus ihrer Playliste zu löschen! </p>
-                    <p>Wirklich löschen?</p>
-                </div>
+              <div class="modal-body">
+                <p>Sie sind dabei das Video "{{$result->title}}" aus ihrer Playliste zu löschen! </p>
+                <p>Wirklich löschen?</p>
+              </div>
                 
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Abbrechen</button>
-                    <button id="delete-from-playlist-{{$result->id}}" value="{{$result->id}}" class="btn pull-right" data-dismiss="modal">Löschen</button>
-                </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Abbrechen</button>
+                <button id="delete-from-playlist-{{$result->id}}" value="{{$result->id}}" class="btn pull-right" data-dismiss="modal">Löschen</button>
+              </div>
             </div>
-        </div>
+          </div>
         </div>
       </div>
     @endforeach

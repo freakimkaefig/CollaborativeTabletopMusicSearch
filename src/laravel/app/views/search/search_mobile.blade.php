@@ -2,6 +2,15 @@
 
 @section('content')
 
+	<div class="container pull-right" style="margin-top:-79px;">
+		<div id="mobile-filter-button" class="visible-xs open">
+			<button class="btn btn-default btn-big">
+				<span class="glyphicon glyphicon-chevron-up"></span>
+				<span>Filter</span>
+			</button>
+		</div>
+	</div>
+
 	<div id="mobile-search-form" class="row">
 		<form class="" role="search" action="{{ URL::route('search-post') }}" method="post">
 
