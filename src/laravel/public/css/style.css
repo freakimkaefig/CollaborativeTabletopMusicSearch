@@ -308,6 +308,9 @@ h2 small { color:#fff; }
 .vjs-res-button{
 	background-color: #1b1b1b;
 }
+.vjs-res-button .vjs-current-res{
+	margin-top: 1em;
+}
 .vjs-default-skin .vjs-menu-button{
 }
 .vjs-live-controls{
@@ -337,6 +340,7 @@ h2 small { color:#fff; }
 	width: 100%;
 	z-index: 10;
 	text-align:center;
+	margin-top: -2em;
 }
 #waiting h2{
 	padding: 15px;
