@@ -65,5 +65,6 @@
 
 		@include('mediathek-crawler-js')
 
+		<div id="xs-helper" class="visible-xs"></div>
 	</body>
 </html>

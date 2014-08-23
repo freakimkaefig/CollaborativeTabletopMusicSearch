@@ -20,14 +20,22 @@ MediathekCrawler.MainView = (function() {
 		    }
 
 		});
+
+		if($('#xs-helper').is(':visible')) {
+			snapper.enable();
+		} else {
+			snapper.disable();
+		}
+
+		$(window).on('resize', onResizeApp); 
 	},
 
-	disableSnap = function() {
-		snapper.disable();
-	},
-
-	enableSnap = function() {
-		snapper.enable();
+	onResizeApp = function(event) {
+		if($('#xs-helper').is(':visible')) {
+			snapper.enable();
+		} else {
+			snapper.disable();
+		}
 	},
 
 	dispose = function() {

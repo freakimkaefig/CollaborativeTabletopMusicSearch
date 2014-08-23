@@ -13,7 +13,7 @@ return array(
 	|
 	*/
 
-	'debug' => TRUE,
+	'debug' => FALSE,
 
 	'url' => 'http://mediathek.lukaslamm.de',
 
