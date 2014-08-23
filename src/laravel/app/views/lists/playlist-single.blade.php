@@ -140,12 +140,12 @@
             
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" >Video wirklich löschen?</h4>
+                <h4 class="modal-title" >Sicherheitsabfrage</h4>
               </div>
             
               <div class="modal-body">
                 <p>Sie sind dabei das Video "{{$result->title}}" aus ihrer Playliste zu löschen! </p>
-                <p>Wirklich löschen?</p>
+                <p>Video wirklich löschen?</p>
               </div>
                 
               <div class="modal-footer">

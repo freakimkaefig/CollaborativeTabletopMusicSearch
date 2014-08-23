@@ -14,22 +14,6 @@ class BroadcastsTableSeeder extends Seeder {
 		\DB::table('broadcasts')->insert(array (
 			0 => 
 			array (
-				'id' => 44,
-				'title' => '"Amigo - Bei Ankunft Tod"',
-				'subtitle' => '0',
-				'details' => 'Zwei BKA-Ermittler landen in Neapel, um den dort untergetauchten Terroristen Amigo Steiger zu fassen. Doch als sie ihn finden, kommt es zur Schießerei und einer der Ermittler wird getroffen.',
-				'airtime' => '2014-08-11 20:15:00',
-				'url' => '[{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/07\\/140725_amigo_ankunft_tod_ps_fdw_436k_p9v11.mp4","_filesize":"313511616"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/rodl.zdf.de\\/none\\/zdf\\/14\\/07\\/140725_amigo_ankunft_tod_ps_fdw_436k_p9v11.mp4","_filesize":"313511616"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/07\\/140725_amigo_ankunft_tod_ps_fdw_189k_p7v11.mp4","_filesize":"144861935"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/07\\/140725_amigo_ankunft_tod_ps_fdw_1456k_p13v11.mp4","_filesize":"1007893550"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/rodl.zdf.de\\/none\\/zdf\\/14\\/07\\/140725_amigo_ankunft_tod_ps_fdw_1456k_p13v11.mp4","_filesize":"1007893550"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"2","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/07\\/140725_amigo_ankunft_tod_ps_fdw_776k_p17v11.webm","_filesize":"335237201"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"0","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/07\\/140725_amigo_ankunft_tod_ps_fdw_282k_p16v11.webm","_filesize":"127568836"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"3","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/07\\/140725_amigo_ankunft_tod_ps_fdw_1496k_p18v11.webm","_filesize":"562574791"}]',
-				'duration' => '01:27:00',
-				'image' => '[{"_resolution":"946x532","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2204616\\/timg946x532blob\\/10118346"},{"_resolution":"672x378","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2204616\\/timg672x378blob\\/10118343"},{"_resolution":"644x363","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2204616\\/timg644x363blob\\/10118342"},{"_resolution":"485x273","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2204616\\/timg485x273blob\\/10118332"},{"_resolution":"476x268","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2204616\\/timg476x268blob\\/10118339"},{"_resolution":"476x176","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2204616\\/timg476x176blob\\/10118337"},{"_resolution":"404x227","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2204616\\/timg404x227blob\\/10118345"},{"_resolution":"298x168","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2204616\\/timg298x168blob\\/10118340"},{"_resolution":"276x155","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2204616\\/timg276x155blob\\/10118333"},{"_resolution":"236x133","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2204616\\/timg236x133blob\\/10118341"},{"_resolution":"173x120","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2204616\\/timg173x120blob\\/10118331"}]',
-				'station' => 'ZDF',
-				'created_at' => '2014-08-16 16:09:59',
-				'updated_at' => '2014-08-16 16:09:59',
-				'playlist_id' => NULL,
-				'user_id' => 1,
-			),
-			1 => 
-			array (
 				'id' => 72,
 				'title' => 'Der Chronist des Todes',
 				'subtitle' => '0',
@@ -44,7 +28,7 @@ class BroadcastsTableSeeder extends Seeder {
 				'playlist_id' => NULL,
 				'user_id' => 1,
 			),
-			2 => 
+			1 => 
 			array (
 				'id' => 73,
 				'title' => 'Nicht von schlechten Vätern - Boris',
@@ -60,7 +44,7 @@ class BroadcastsTableSeeder extends Seeder {
 				'playlist_id' => NULL,
 				'user_id' => 1,
 			),
-			3 => 
+			2 => 
 			array (
 				'id' => 85,
 				'title' => '"Dschungelkampf"',
@@ -76,7 +60,7 @@ class BroadcastsTableSeeder extends Seeder {
 				'playlist_id' => NULL,
 				'user_id' => 1,
 			),
-			4 => 
+			3 => 
 			array (
 				'id' => 86,
 				'title' => 'Gasland',
@@ -92,7 +76,7 @@ class BroadcastsTableSeeder extends Seeder {
 				'playlist_id' => NULL,
 				'user_id' => 1,
 			),
-			5 => 
+			4 => 
 			array (
 				'id' => 87,
 				'title' => 'Tatort Internet',
@@ -108,7 +92,7 @@ class BroadcastsTableSeeder extends Seeder {
 				'playlist_id' => 1,
 				'user_id' => NULL,
 			),
-			6 => 
+			5 => 
 			array (
 				'id' => 88,
 				'title' => 'Mertesacker: 10 Jahre und 104 Einsätze',
@@ -124,7 +108,7 @@ class BroadcastsTableSeeder extends Seeder {
 				'playlist_id' => 1,
 				'user_id' => NULL,
 			),
-			7 => 
+			6 => 
 			array (
 				'id' => 89,
 				'title' => 'Rote Rosen',
@@ -139,6 +123,58 @@ class BroadcastsTableSeeder extends Seeder {
 				'updated_at' => '2014-08-18 15:31:56',
 				'playlist_id' => 1,
 				'user_id' => NULL,
+			),
+			7 => 
+			array (
+				'id' => 90,
+				'title' => 'Sehen statt Hören',
+				'subtitle' => 'Sehen statt Hören',
+				'details' => '"Sehen statt Hören" ist die einzige Sendereihe in der deutschen Fernsehlandschaft, die im Bild sichtbar macht, was man sonst nur im Ton hört! Nicht im "Off", sondern im "On" werden hier die Inhalte präsentiert - mit den visuellen Mitteln des Fernsehens, Gebärdensprache und offenen Untertiteln.
+Redaktion:
+Isabel Wiemer
+
+
+
+Redaktion:
+Isabel Wiemer
+
+
+',
+				'airtime' => '1970-01-01 00:00:00',
+				'url' => '[{"_basetype":"","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/cdn-storage.br.de\\/b7\\/2014-08\\/23\\/878f33ce2a9f11e4bca2984be109059a_0.mp4","_filesize":"31623642"},{"_basetype":"","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/cdn-storage.br.de\\/b7\\/2014-08\\/23\\/878f33ce2a9f11e4bca2984be109059a_A.mp4","_filesize":"44592674"},{"_basetype":"","_type":"video\\/mp4","_quality":"1","_url":"http:\\/\\/cdn-storage.br.de\\/b7\\/2014-08\\/23\\/878f33ce2a9f11e4bca2984be109059a_B.mp4","_filesize":"193270802"},{"_basetype":"","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/cdn-storage.br.de\\/b7\\/2014-08\\/23\\/878f33ce2a9f11e4bca2984be109059a_C.mp4","_filesize":"386839907"},{"_basetype":"","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/cdn-storage.br.de\\/b7\\/2014-08\\/23\\/878f33ce2a9f11e4bca2984be109059a_E.mp4","_filesize":"264982194"},{"_basetype":"","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/cdn-storage.br.de\\/b7\\/2014-08\\/23\\/878f33ce2a9f11e4bca2984be109059a_X.mp4","_filesize":"829512825"}]',
+				'duration' => '00:28:00',
+				'image' => '[{"_resolution":"640x360","_url":"http:\\/\\/www.br.de\\/presse\\/inhalt\\/pressemitteilungen\\/sehen-statt-hoeren-logo-100~_h-360_v-image853_w-640_-32550a25a71f9ea6a28488357c9b82d34bc5cc66.jpg?version=1307d"},{"_resolution":"400x255","_url":"http:\\/\\/www.br.de\\/presse\\/inhalt\\/pressemitteilungen\\/sehen-statt-hoeren-logo-100~_h-225_v-image853_w-400_-46551a6ec6b42bcb6fc43f2cde7c015d39d126c0.jpg?version=1307d"},{"_resolution":"320x180","_url":"http:\\/\\/www.br.de\\/presse\\/inhalt\\/pressemitteilungen\\/sehen-statt-hoeren-logo-100~_h-180_v-image853_w-320_-84bf43942cbaa96151d5c125e27e60633b3a04c9.jpg?version=1307d"},{"_resolution":"108x61","_url":"http:\\/\\/www.br.de\\/presse\\/inhalt\\/pressemitteilungen\\/sehen-statt-hoeren-logo-100~_h-61_v-image853_w-108_-8bf23116f3f36b170c5e692a307c070a087283df.jpg?version=1307d"}]',
+				'station' => 'BR',
+				'created_at' => '2014-08-23 10:40:50',
+				'updated_at' => '2014-08-23 10:40:50',
+				'playlist_id' => 1,
+				'user_id' => NULL,
+			),
+			8 => 
+			array (
+				'id' => 91,
+				'title' => 'Sehen statt Hören',
+				'subtitle' => 'Sehen statt Hören',
+				'details' => '"Sehen statt Hören" ist die einzige Sendereihe in der deutschen Fernsehlandschaft, die im Bild sichtbar macht, was man sonst nur im Ton hört! Nicht im "Off", sondern im "On" werden hier die Inhalte präsentiert - mit den visuellen Mitteln des Fernsehens, Gebärdensprache und offenen Untertiteln.
+Redaktion:
+Isabel Wiemer
+
+
+
+Redaktion:
+Isabel Wiemer
+
+
+',
+				'airtime' => '1970-01-01 00:00:00',
+				'url' => '[{"_basetype":"","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/cdn-storage.br.de\\/b7\\/2014-08\\/23\\/878f33ce2a9f11e4bca2984be109059a_0.mp4","_filesize":"31623642"},{"_basetype":"","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/cdn-storage.br.de\\/b7\\/2014-08\\/23\\/878f33ce2a9f11e4bca2984be109059a_A.mp4","_filesize":"44592674"},{"_basetype":"","_type":"video\\/mp4","_quality":"1","_url":"http:\\/\\/cdn-storage.br.de\\/b7\\/2014-08\\/23\\/878f33ce2a9f11e4bca2984be109059a_B.mp4","_filesize":"193270802"},{"_basetype":"","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/cdn-storage.br.de\\/b7\\/2014-08\\/23\\/878f33ce2a9f11e4bca2984be109059a_C.mp4","_filesize":"386839907"},{"_basetype":"","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/cdn-storage.br.de\\/b7\\/2014-08\\/23\\/878f33ce2a9f11e4bca2984be109059a_E.mp4","_filesize":"264982194"},{"_basetype":"","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/cdn-storage.br.de\\/b7\\/2014-08\\/23\\/878f33ce2a9f11e4bca2984be109059a_X.mp4","_filesize":"829512825"}]',
+				'duration' => '00:28:00',
+				'image' => '[{"_resolution":"640x360","_url":"http:\\/\\/www.br.de\\/presse\\/inhalt\\/pressemitteilungen\\/sehen-statt-hoeren-logo-100~_h-360_v-image853_w-640_-32550a25a71f9ea6a28488357c9b82d34bc5cc66.jpg?version=1307d"},{"_resolution":"400x255","_url":"http:\\/\\/www.br.de\\/presse\\/inhalt\\/pressemitteilungen\\/sehen-statt-hoeren-logo-100~_h-225_v-image853_w-400_-46551a6ec6b42bcb6fc43f2cde7c015d39d126c0.jpg?version=1307d"},{"_resolution":"320x180","_url":"http:\\/\\/www.br.de\\/presse\\/inhalt\\/pressemitteilungen\\/sehen-statt-hoeren-logo-100~_h-180_v-image853_w-320_-84bf43942cbaa96151d5c125e27e60633b3a04c9.jpg?version=1307d"},{"_resolution":"108x61","_url":"http:\\/\\/www.br.de\\/presse\\/inhalt\\/pressemitteilungen\\/sehen-statt-hoeren-logo-100~_h-61_v-image853_w-108_-8bf23116f3f36b170c5e692a307c070a087283df.jpg?version=1307d"}]',
+				'station' => 'BR',
+				'created_at' => '2014-08-23 10:40:53',
+				'updated_at' => '2014-08-23 10:40:53',
+				'playlist_id' => NULL,
+				'user_id' => 1,
 			),
 		));
 	}
