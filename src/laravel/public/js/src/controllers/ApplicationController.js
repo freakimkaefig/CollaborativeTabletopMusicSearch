@@ -15,6 +15,7 @@ MediathekCrawler.ApplicationController = function() {
 	SRFService = null,
 	
 	/* ===== VIEWS ===== */
+	mainView = null,
 	footerView = null,
 	resultView = null,
 	broadcastView = null,
@@ -32,7 +33,7 @@ MediathekCrawler.ApplicationController = function() {
 	    // init Models
 	    mediathekModel = MediathekCrawler.MediathekModel();
 	    mediathekModel.init();
-	    if (document.URL === "http://mediathek-crawler/" || document.URL === "http://mediathek.lukaslamm.de/") {
+	    if (document.URL === "http://mediathek-crawler/" || document.URL === "http://mediathek.lukaslamm.de/" || document.URL === "http://mediathek.lukaslamm.de/#") {
 			$(mediathekModel).on('resultReceived', onResultReceivedForSlider);
 		}else{
 	    	$(mediathekModel).on('resultReceived', onResultReceived);
@@ -56,6 +57,8 @@ MediathekCrawler.ApplicationController = function() {
 	 	
 
 		// init Views:
+		mainView = MediathekCrawler.MainView();
+		mainView.init();
 	    footerView = MediathekCrawler.FooterView();
 		footerView.init();
 		feedbackView = MediathekCrawler.FeedbackView();
@@ -108,7 +111,7 @@ MediathekCrawler.ApplicationController = function() {
 	},
 
 	_analyzeRoute = function() {
-		if (document.URL === "http://mediathek-crawler/" || document.URL === "http://mediathek.lukaslamm.de/") {
+		if (document.URL === "http://mediathek-crawler/" || document.URL === "http://mediathek.lukaslamm.de/" || document.URL === "http://mediathek.lukaslamm.de/#") {
 			// DasErsteService.getNew(1);	// liefert 12 Ergebnisse statt einem
 			ZDFService.getNew(1);
 			ARTEService.getNew(1);

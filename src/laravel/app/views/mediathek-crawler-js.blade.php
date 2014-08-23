@@ -23,6 +23,7 @@
 	{{ HTML::script('js/src/models/MediathekModel.js') }}
 
 	<!-- Views --> 
+	{{ HTML::script('js/src/views/MainView.js') }}
 	{{ HTML::script('js/src/views/FooterView.js') }}
 	{{ HTML::script('js/src/views/FeedbackView.js') }}
 	{{ HTML::script('js/src/views/ResultView.js') }}

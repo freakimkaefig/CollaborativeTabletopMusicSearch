@@ -70,6 +70,7 @@ MediathekCrawler.ResultView = (function() {
 		            	'<div class="carousel-caption">'+
 		              		'<h1>' + result._title + '</h1>'+
 		              		'<p>' + result._subtitle + '</p>'+
+		              		'<p>' + result._station + '</p>'+
 		            	'</div>'+
 		            '</a>'+
 	          	'</div>'+
@@ -82,6 +83,7 @@ MediathekCrawler.ResultView = (function() {
 		            	'<div class="carousel-caption">'+
 		              		'<h1>' + result._title + '</h1>'+
 		              		'<p>' + result._subtitle + '</p>'+
+		              		'<p>' + result._station + '</p>'+
 		            	'</div>'+
 		            '</a>'+
 	          	'</div>'+
