@@ -26,6 +26,8 @@
 </div>
 <!-- END Carousel -->
 
+<div class="spacer"></div>
+
 <ul id="home-channels" class="container-fluid">
 	<!-- <h3>Sender:</h3> -->
 	<li class="<?php print $channel_row_class ?>">
@@ -83,10 +85,6 @@
 		</a>
 	</li>
 </ul>
-<div class="spacer"></div>
-<div class="row">
-	<div class="line col-xs-12"></div>
-</div>
 <div class="spacer"></div>
 <ul id="home-categories" class="container-fluid">
 	
