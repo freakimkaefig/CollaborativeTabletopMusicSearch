@@ -33,6 +33,7 @@ MediathekCrawler.BroadcastView = (function() {
 	 * @param {Integer}		Id of the result item in localStorage
 	 */
 	renderVideoById = function(id) {
+
 		//console.log(id);
 		var results_json = localStorage.getItem('mediathek-crawler'),
 			results = JSON.parse(results_json);
@@ -40,17 +41,41 @@ MediathekCrawler.BroadcastView = (function() {
 			// console.log('BroadcastView results: ', results, ' || id: ',id);
 			console.log(results);
 			console.log(result);
+		var ready;
+		sources = [];
 
-		var sources = []; 
 		for (var i=result._streams.length-1; i>=0; i--) {
-			var source = '<source src="' + result._streams[i]._url + '" type="' + result._streams[i]._type + '" data-res="'+ checkQuality(result._streams[i]._quality) + '">'
+			var source = '<source class="source" src="' + result._streams[i]._url + '" type="' + result._streams[i]._type + '" data-res="'+ checkQuality(result._streams[i]._quality) + '">'
 			$video_element.append(source);
 			//$(document).ready($video.append(source));
 			$video.append(source);
-			//source = { type:'"'+result._streams[i]._type+'"',src: '"'+result._streams[i]._url+'"'};
-			//sources.push(source);
+			source_b = { type:result._streams[i]._type,src: result._streams[i]._url, "data-res": checkQuality(result._streams[i]._quality) };
+			sources.push(source_b);
 			url = result._streams[i]._url;
-		}
+			}
+	
+
+		/*vjs("#video", {plugins : { resolutionSelector : {
+    							force_types : ['video/mp4'],
+    							default_res: "1,2,3"
+							}
+							}}, function(){
+								alert("videojs");
+
+		});*/
+		video = videojs("#video");
+		video.options().sources = sources; 
+		$("#video>.source").remove();
+			video.resolutionSelector({force_types : ['video/mp4'],
+    							default_res: "1,2,3"});
+		/*video.on("loadstart", function(){
+			alert("laodtstart");
+
+			setTimeout(function(){
+				video.resolutionSelector({force_types : ['video/mp4'],
+    							default_res: "1,2,3"});},1000);
+		})*/
+
 		//videojs("#video").src(sources);
 		var infoElement = 
 			'<h3>Titel :</h3>'+
@@ -66,15 +91,18 @@ MediathekCrawler.BroadcastView = (function() {
 
 		
 		$infoWrapper.prepend(infoElement);
-
-		videojs("#video", {plugins : { resolutionSelector : {
-    							force_types : ['video/mp4'],
-    							default_res: "1,2,3"
-							}
-							}}, function(){
-		});
 		
-		//myPlayer.src(sources);
+		
+
+		
+		
+		// video.on("loadstart",function(){
+		// video.resolutionSelector({
+  //   							force_types : ['video/mp4'],
+  //   							default_res: "1,2,3"
+		// 					});
+		// });
+		
 		var descriptionElement = '<div>' + result._details + '</div>';
 		$descriptionWrapper.append(descriptionElement);
 
@@ -91,7 +119,10 @@ MediathekCrawler.BroadcastView = (function() {
 			$video.append(source);
 			url = streams[i]._url;
 		}
-
+		video = videojs("#video");
+		video.options().sources = sources; 
+		$("#video>.source").remove();
+		
 		var infoElement = 
 			'<h3>Titel:</h3>'+
 			'<div>' + result.title + '</div>' +
