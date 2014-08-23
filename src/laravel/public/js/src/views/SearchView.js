@@ -12,7 +12,42 @@ MediathekCrawler.SearchView = (function() {
 		});
 		manageFilters();
 
+		$('#mobile-filter-button').on('click', onMobileFilterButtonClick);
+
 	},
+
+	onMobileFilterButtonClick = function(event) {
+		if ($(this).hasClass('open')) {
+			$('#mobile-search-form').animate({
+				height: 0
+			}, 300);
+			$(this).removeClass('open');
+			$(this).find('span.glyphicon').removeClass('glyphicon-chevron-up');
+			$(this).find('span.glyphicon').addClass('glyphicon-chevron-down');
+			$('#mobile-search-results').show();
+		} else {
+			$('#mobile-search-form').animate({
+				height: '100%'
+			}, 300);
+			$(this).addClass('open');
+			$(this).find('span.glyphicon').removeClass('glyphicon-chevron-down');
+			$(this).find('span.glyphicon').addClass('glyphicon-chevron-up');
+		}
+	},
+
+	collapseMobileFilter = function() {
+		$mobileFilter = $('#mobile-filter-button');
+		if ($mobileFilter.hasClass('open')) {
+			$('#mobile-search-form').animate({
+				height: 0
+			}, 300);
+			$mobileFilter.removeClass('open');
+			$mobileFilter.find('span.glyphicon').removeClass('glyphicon-chevron-up');
+			$mobileFilter.find('span.glyphicon').addClass('glyphicon-chevron-down');
+			$('#mobile-search-results').show();
+		}
+	},
+
 	manageFilters = function(){
 			$("input[name='daserste']").click(function(){
 				 if ($("#category-filter :input").attr('disabled')){ 
@@ -184,6 +219,7 @@ MediathekCrawler.SearchView = (function() {
 	};
 
 	that.init = init;
+	that.collapseMobileFilter = collapseMobileFilter;
 	that.getSelectedChannels = getSelectedChannels;
 	that.getSelectedCategories = getSelectedCategories;
 	that.getDateFrom = getDateFrom;
