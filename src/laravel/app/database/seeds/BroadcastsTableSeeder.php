@@ -14,22 +14,6 @@ class BroadcastsTableSeeder extends Seeder {
 		\DB::table('broadcasts')->insert(array (
 			0 => 
 			array (
-				'id' => 73,
-				'title' => 'Nicht von schlechten Vätern - Boris',
-				'subtitle' => '0',
-			'details' => 'Boris (39) ist alleinerziehender Vater von Lara (4). Er ist ein wohlsituierter Sunnyboy aus Hamburg Blankenese. "Ich genieße alles mit meiner Tochter."',
-				'airtime' => '2014-09-07 10:35:00',
-				'url' => '[{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/07\\/140710_neo_boris_vsv_436k_p9v11.mp4","_filesize":"4182400"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/rodl.zdf.de\\/none\\/zdf\\/14\\/07\\/140710_neo_boris_vsv_436k_p9v11.mp4","_filesize":"4182400"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/07\\/140710_neo_boris_vsv_189k_p7v11.mp4","_filesize":"1932365"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/07\\/140710_neo_boris_vsv_1456k_p13v11.mp4","_filesize":"13432632"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/rodl.zdf.de\\/none\\/zdf\\/14\\/07\\/140710_neo_boris_vsv_1456k_p13v11.mp4","_filesize":"13432632"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"2","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/07\\/140710_neo_boris_vsv_776k_p17v11.webm","_filesize":"4488752"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"0","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/07\\/140710_neo_boris_vsv_282k_p16v11.webm","_filesize":"1696799"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"3","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/07\\/140710_neo_boris_vsv_1496k_p18v11.webm","_filesize":"7947174"}]',
-				'duration' => '00:01:09',
-				'image' => '[{"_resolution":"946x532","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2194702\\/timg946x532blob\\/10013039"},{"_resolution":"672x378","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2194702\\/timg672x378blob\\/10013036"},{"_resolution":"644x363","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2194702\\/timg644x363blob\\/10013035"},{"_resolution":"485x273","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2194702\\/timg485x273blob\\/10013025"},{"_resolution":"476x268","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2194702\\/timg476x268blob\\/10013032"},{"_resolution":"476x176","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2194702\\/timg476x176blob\\/10013030"},{"_resolution":"404x227","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2194702\\/timg404x227blob\\/10013038"},{"_resolution":"298x168","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2194702\\/timg298x168blob\\/10013033"},{"_resolution":"276x155","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2194702\\/timg276x155blob\\/10013026"},{"_resolution":"236x133","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2194702\\/timg236x133blob\\/10013034"},{"_resolution":"173x120","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2194702\\/timg173x120blob\\/10013024"}]',
-				'station' => 'ZDFneo',
-				'created_at' => '2014-08-17 10:25:12',
-				'updated_at' => '2014-08-17 10:25:12',
-				'playlist_id' => NULL,
-				'user_id' => 1,
-			),
-			1 => 
-			array (
 				'id' => 85,
 				'title' => '"Dschungelkampf"',
 				'subtitle' => '0',
@@ -44,7 +28,7 @@ class BroadcastsTableSeeder extends Seeder {
 				'playlist_id' => NULL,
 				'user_id' => 1,
 			),
-			2 => 
+			1 => 
 			array (
 				'id' => 86,
 				'title' => 'Gasland',
@@ -60,7 +44,7 @@ class BroadcastsTableSeeder extends Seeder {
 				'playlist_id' => NULL,
 				'user_id' => 1,
 			),
-			3 => 
+			2 => 
 			array (
 				'id' => 87,
 				'title' => 'Tatort Internet',
@@ -76,7 +60,7 @@ class BroadcastsTableSeeder extends Seeder {
 				'playlist_id' => 1,
 				'user_id' => NULL,
 			),
-			4 => 
+			3 => 
 			array (
 				'id' => 88,
 				'title' => 'Mertesacker: 10 Jahre und 104 Einsätze',
@@ -92,7 +76,7 @@ class BroadcastsTableSeeder extends Seeder {
 				'playlist_id' => 1,
 				'user_id' => NULL,
 			),
-			5 => 
+			4 => 
 			array (
 				'id' => 89,
 				'title' => 'Rote Rosen',
@@ -108,7 +92,7 @@ class BroadcastsTableSeeder extends Seeder {
 				'playlist_id' => 1,
 				'user_id' => NULL,
 			),
-			6 => 
+			5 => 
 			array (
 				'id' => 90,
 				'title' => 'Sehen statt Hören',
@@ -134,7 +118,7 @@ Isabel Wiemer
 				'playlist_id' => 1,
 				'user_id' => NULL,
 			),
-			7 => 
+			6 => 
 			array (
 				'id' => 91,
 				'title' => 'Sehen statt Hören',
@@ -160,7 +144,7 @@ Isabel Wiemer
 				'playlist_id' => NULL,
 				'user_id' => 1,
 			),
-			8 => 
+			7 => 
 			array (
 				'id' => 92,
 				'title' => 'Der Chronist des Todes',
@@ -176,7 +160,7 @@ Isabel Wiemer
 				'playlist_id' => 1,
 				'user_id' => NULL,
 			),
-			9 => 
+			8 => 
 			array (
 				'id' => 93,
 				'title' => 'Der Chronist des Todes',
@@ -192,7 +176,7 @@ Isabel Wiemer
 				'playlist_id' => 1,
 				'user_id' => NULL,
 			),
-			10 => 
+			9 => 
 			array (
 				'id' => 94,
 				'title' => 'Der Chronist des Todes',
@@ -208,7 +192,7 @@ Isabel Wiemer
 				'playlist_id' => 1,
 				'user_id' => NULL,
 			),
-			11 => 
+			10 => 
 			array (
 				'id' => 95,
 				'title' => 'Der Chronist des Todes',

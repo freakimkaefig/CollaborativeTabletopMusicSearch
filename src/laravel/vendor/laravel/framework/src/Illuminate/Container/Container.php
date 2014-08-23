@@ -5,8 +5,6 @@ use ArrayAccess;
 use ReflectionClass;
 use ReflectionParameter;
 
-class BindingResolutionException extends \Exception {}
-
 class Container implements ArrayAccess {
 
 	/**
@@ -77,7 +75,18 @@ class Container implements ArrayAccess {
 	 */
 	public function bound($abstract)
 	{
-		return isset($this[$abstract]) || isset($this->instances[$abstract]);
+		return isset($this->bindings[$abstract]) || isset($this->instances[$abstract]);
+	}
+
+	/**
+	 * Determine if the given abstract type has been resolved.
+	 *
+	 * @param  string $abstract
+	 * @return bool
+	 */
+	public function resolved($abstract)
+	{
+		return isset($this->resolved[$abstract]) || isset($this->instances[$abstract]);
 	}
 
 	/**
@@ -94,7 +103,7 @@ class Container implements ArrayAccess {
 	/**
 	 * Register a binding with the container.
 	 *
-	 * @param  string  $abstract
+	 * @param  string|array  $abstract
 	 * @param  \Closure|string|null  $concrete
 	 * @param  bool  $shared
 	 * @return void
@@ -129,14 +138,12 @@ class Container implements ArrayAccess {
 			$concrete = $this->getClosure($abstract, $concrete);
 		}
 
-		$bound = $this->bound($abstract);
-
 		$this->bindings[$abstract] = compact('concrete', 'shared');
 
-		// If the abstract type was already bound in this container, we will fire the
+		// If the abstract type was already resolved in this container we'll fire the
 		// rebound listener so that any objects which have already gotten resolved
 		// can have their copy of the object updated via the listener callbacks.
-		if ($bound)
+		if ($this->resolved($abstract))
 		{
 			$this->rebound($abstract);
 		}
@@ -184,14 +191,14 @@ class Container implements ArrayAccess {
 	 */
 	public function singleton($abstract, $concrete = null)
 	{
-		return $this->bind($abstract, $concrete, true);
+		$this->bind($abstract, $concrete, true);
 	}
 
 	/**
 	 * Wrap a Closure such that it is shared.
 	 *
 	 * @param  \Closure  $closure
-	 * @return Closure
+	 * @return \Closure
 	 */
 	public function share(Closure $closure)
 	{
@@ -220,7 +227,7 @@ class Container implements ArrayAccess {
 	 */
 	public function bindShared($abstract, Closure $closure)
 	{
-		return $this->bind($abstract, $this->share($closure), true);
+		$this->bind($abstract, $this->share($closure), true);
 	}
 
 	/**
@@ -405,8 +412,6 @@ class Container implements ArrayAccess {
 	{
 		$abstract = $this->getAlias($abstract);
 
-		$this->resolved[$abstract] = true;
-
 		// If an instance of the type is currently being managed as a singleton we'll
 		// just return an existing instance instead of instantiating new instances
 		// so the developer can keep using the same objects instance every time.
@@ -438,6 +443,8 @@ class Container implements ArrayAccess {
 		}
 
 		$this->fireResolvingCallbacks($abstract, $object);
+
+		$this->resolved[$abstract] = true;
 
 		return $object;
 	}
@@ -672,7 +679,8 @@ class Container implements ArrayAccess {
 	/**
 	 * Fire all of the resolving callbacks.
 	 *
-	 * @param  mixed  $object
+	 * @param  string  $abstract
+	 * @param  mixed   $object
 	 * @return void
 	 */
 	protected function fireResolvingCallbacks($abstract, $object)

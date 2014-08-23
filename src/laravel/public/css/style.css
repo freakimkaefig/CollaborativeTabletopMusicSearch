@@ -51,6 +51,7 @@ h2 small { color:#fff; }
 .modal *{
 	color: #1b1b1b;
 }
+.modal-backdrop { display:none!important;}
 
 .spacer {
 	width: 100%;
@@ -432,7 +433,7 @@ h2 small { color:#fff; }
 #carousel-wrapper { background:#313131; padding:20px; margin-top:-20px; }
 .container-fluid<#home-title{ padding:0; margin:0; }
 #home-categories li, #home-channels li{ text-align:center; list-style:none; margin-top:10px; }
-#home-categories>li>a>div, #home-channels>li>a>div{ font-size:20px; padding:15px; min-width: 135px; box-shadow:0px 0px 3px 0px #000000; background-color:#313131; }
+#home-categories>li>a>div, #home-channels>li>a>div{ font-size:20px; padding:15px; box-shadow:0px 0px 3px 0px #000000; background-color:#313131; }
 #home-categories>li>a:hover { text-decoration:none; }
 .carousel-caption { padding:10px; margin-bottom: 40px; background:rgba(82, 82, 82, 0.6); filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#52525200,endColorstr=#52525200); }
 .carousel-caption h1 { margin-top:10px; }

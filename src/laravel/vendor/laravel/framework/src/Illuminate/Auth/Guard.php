@@ -166,7 +166,7 @@ class Guard {
 	{
 		if ($this->loggedOut) return;
 
-		return $this->session->get($this->getName()) ?: $this->getRecallerId();
+		return $this->session->get($this->getName(), $this->getRecallerId());
 	}
 
 	/**
@@ -690,7 +690,7 @@ class Guard {
 	 * Set the current request instance.
 	 *
 	 * @param  \Symfony\Component\HttpFoundation\Request
-	 * @return \Illuminate\Auth\Guard
+	 * @return $this
 	 */
 	public function setRequest(Request $request)
 	{

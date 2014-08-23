@@ -40,6 +40,10 @@ $env = $app->detectEnvironment(function()
 				return 'strato';
 				break;
 
+			case 'media.lukaslamm.de':
+				return 'strato';
+				break;
+
 			case '132.199.139.24':
 				return 'fil';
 				break;
