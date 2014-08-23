@@ -7,6 +7,8 @@
 	$category_row_class = 'home-category col-xs-6 col-md-3';
 ?>
 
+<div class="spacer"></div>
+
 <!-- START Carousel -->
 <div id="carousel-wrapper" class="row">
 	<div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -25,6 +27,8 @@
     </div>
 </div>
 <!-- END Carousel -->
+
+<div class="spacer"></div>
 
 <ul id="home-channels" class="container-fluid">
 	<!-- <h3>Sender:</h3> -->
@@ -83,10 +87,6 @@
 		</a>
 	</li>
 </ul>
-<div class="spacer"></div>
-<div class="row">
-	<div class="line col-xs-12"></div>
-</div>
 <div class="spacer"></div>
 <ul id="home-categories" class="container-fluid">
 	
