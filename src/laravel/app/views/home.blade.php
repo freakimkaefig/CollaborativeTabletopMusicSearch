@@ -7,6 +7,8 @@
 	$category_row_class = 'home-category col-xs-6 col-md-3';
 ?>
 
+<div class="spacer"></div>
+
 <!-- START Carousel -->
 <div id="carousel-wrapper" class="row">
 	<div id="myCarousel" class="carousel slide" data-ride="carousel">

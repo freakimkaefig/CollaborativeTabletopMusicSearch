@@ -16,9 +16,9 @@
 	</head>
 	<body>			
 		@include('layout.header')
-		<div id="mobile-button-container" class="container">
+		<div id="mobile-button-container" class="container visible-xs">
 
-			<div id="mobile-menu-button" class="visible-xs pull-left">
+			<div id="mobile-menu-button" class="pull-left">
 				<button class="btn btn-default btn-big dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown">
 					<span class="glyphicon glyphicon-align-justify"></span>
 					<span>Menü</span>
