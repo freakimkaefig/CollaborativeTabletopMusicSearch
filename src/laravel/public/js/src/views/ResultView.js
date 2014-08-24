@@ -4,10 +4,11 @@ MediathekCrawler.ResultView = (function() {
 	$resultWrapper = null,
 	$sliderWrapper = null,
 	results = [],
+	duplicates = [],
 
 	init = function() {
 		console.info('MediathekCrawler.ResultView.init');
-		
+		duplicates = [];
 		$resultWrapper = $('#result-wrapper');
 		$("#alphabetic-sort").on("click",alphabeticSort);
 		$("#duration-sort").on("click",durationSort);
@@ -60,8 +61,19 @@ MediathekCrawler.ResultView = (function() {
 		//console.log(JSON.parse(_result));
 	},
 
+	_checkSliderDuplicates = function(array, id){
+		for(i=0;i<array.length;i++){
+			if (array[i] === id) {
+			// console.log('_checkSliderDuplicates: ',array[i], id);
+
+	        	return false;
+	        }
+		}
+		return true;
+	},
+
 	fillSlider = function(event, result) {
-		console.log('FILLSLIDER result: ',result);
+		// console.log('FILLSLIDER result: ',result);
 		if (result._id == 0) {
 	        first = false;
 			var slideElement = '<div class="item active">'+
@@ -77,19 +89,22 @@ MediathekCrawler.ResultView = (function() {
 	          	'</div>'+
 	        '</div>';
     	} else {
-    		var slideElement = '<div class="item">'+
-	        	'<img src="' + result._teaserImages[0]._url + '" alt="' + result._title + '">'+
-	        	'<div class="container">'+
-	        		'<a href="/video/' + result._id + '">'+
-		            	'<div class="carousel-caption">'+
-		              		'<h3 style="margin-top: 0px;">' + result._title + '</h3>'+
-		              		'<p>' + result._subtitle + '</p>'+
-		              		'<p>' + stationToImage(result._station) + '</p>'+
-		            	'</div>'+
-		            '</a>'+
-	          	'</div>'+
-	        '</div>';
+    		if(_checkSliderDuplicates(duplicates, result._station)){
+	    		var slideElement = '<div class="item">'+
+		        	'<img src="' + result._teaserImages[0]._url + '" alt="' + result._title + '">'+
+		        	'<div class="container">'+
+		        		'<a href="/video/' + result._id + '">'+
+			            	'<div class="carousel-caption">'+
+			              		'<h3 style="margin-top: 0px;">' + result._title + '</h3>'+
+			              		'<p>' + result._subtitle + '</p>'+
+			              		'<p>' + stationToImage(result._station) + '</p>'+
+			            	'</div>'+
+			            '</a>'+
+		          	'</div>'+
+		        '</div>';
+	    	}
     	}
+		duplicates.push(result._station)
 
         $indicatorWrapper = $('#carousel-wrapper .carousel-indicators');
 		$indicatorWrapper.append('<li data-target="#myCarousel" data-slide-to="' + (result._id+1) + '"></li>');

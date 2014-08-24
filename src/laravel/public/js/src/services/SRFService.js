@@ -569,7 +569,7 @@ MediathekCrawler.SRFService = function() {
 			type: 'GET',
 			cache: false,
 			success: function(data, textStatus, jqXHR) {
-				console.log('SRF getNew: ', PROXY_URL + SRFSEARCHNEW);
+				// console.log('SRF getNew: ', PROXY_URL + SRFSEARCHNEW);
 				_onSRFGetNew(maxResults, origin, data,'#left_day');
 				
 			},
@@ -648,12 +648,157 @@ MediathekCrawler.SRFService = function() {
 
 
 					// console.log('el: ', _url, title, details, length, subtitle, assetID, airtime, teaserImages);
+					if(maxResults === 1){
+						$.ajax({
+							url: PROXY_URL + _url,
+							type: 'GET',
+							cache: false,
+							success: function(data, textStatus, jqXHR) {
+								// console.log('YAAAY', data);
 
-					_searchSRFStreams(origin, _url, title, subtitle, details, station, assetID, length, airtime, teaserImages, streams);
+
+								// console.log('subtitle, length & details before fix: ', subtitle, length, details);
+								// fill missing params:
+								if(subtitle === null || subtitle === undefined || subtitle === ''){
+									subtitle = $(data).find('#asset_info_hl').text();
+								}
+								if(details === null || details === undefined || details === ''){
+									details = $(data).find('#asset_info_description').text()
+								}
+								if(airtime === null || airtime === undefined || airtime === ''){
+									airtime = $(data).find('#asset_info_topline').text();
+									// console.log("AIRTIME: ",airtime);
+									if(airtime.indexOf('vom') > 1 && airtime.indexOf('.') > 1){
+
+										airtime = airtime.slice(airtime.indexOf('vom ') + 4, airtime.indexOf(' Uhr'));
+									}
+									else {
+										try{
+
+											var now = new Date();
+											var today = new Date();
+											var dd = today.getDate();
+											var mm = today.getMonth()+1; //January is 0!
+											var yyyy = today.getFullYear();
+											if(dd<10){dd='0'+dd} if(mm<10){mm='0'+mm} today = dd+'.'+mm+'.'+yyyy
+
+											var days = ['Sonntag','Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag'];
+											
+											if(airtime ==='Heute'){
+												airtime = today;
+											}
+											else if(airtime === 'Gestern'){
+												var yesterday = new Date(now);
+												yesterday.setDate(now.getDate() - 1);
+												var dd = yesterday.getDate();
+												var mm = yesterday.getMonth()+1; //January is 0!
+												var yyyy = yesterday.getFullYear();
+												if(dd<10){dd='0'+dd} if(mm<10){mm='0'+mm} yesterday = dd+'.'+mm+'.'+yyyy
+												airtime = yesterday;
+											}
+											else{
+												// console.log('TODAY IS: ',days[ now.getDay() ],' AIRTIME IS: ',airtime);
+												var todayPos = null;
+												var airtimePos = null;
+												for (var j=0; j<days.length; j++) {
+											        if (days[j].match(airtime)) {
+											        	airtimePos = j;
+											        }
+											        if(days[j].match(days[ now.getDay() ])){
+											        	todayPos = j;
+											        }
+											    }
+												airtime = new Date();
+											    if(todayPos > airtimePos){
+											    	var x = parseInt(todayPos - airtimePos);
+											    	airtime.setDate(now.getDate() - x);
+											    }
+											    if(todayPos < airtimePos){
+											    	var z = parseInt(todayPos + days.length - airtimePos);
+											    	airtime.setDate(now.getDate() - z)
+											    }
+											    var dd = airtime.getDate();
+												var mm = airtime.getMonth()+1; //January is 0!
+												var yyyy = airtime.getFullYear();
+												if(dd<10){dd='0'+dd} if(mm<10){mm='0'+mm} airtime = dd+'.'+mm+'.'+yyyy
+
+											    // console.log('airtime: ',airtime,' todayPos: ',todayPos,' airtimePos: ',airtimePos);
+											}
+										}catch(e){
+											
+										}
+									}
+									// console.log('airtime AFTER fix: ', airtime);
+								}
+
+								streamUrl = $(data).find('.button_download_img').attr('href');
+
+								if(streamUrl !== 'undefined' && streamUrl !== undefined){
+									// console.log('Stream Url: ',_url);
+
+									var basetype = '',
+						    		quality = '',
+						    		url = '',
+						    		filesize = 0,
+					    			type = 'video/mp4';
+
+					    			url = streamUrl;
+
+					    			if(url.indexOf('q10') > 0){
+					    				quality = 0;
+					    			}else if(url.indexOf('q20') > 0){
+					    				quality = 1;
+					    			}else if(url.indexOf('q30') > 0){
+					    				quality = 2;
+					    			}
+
+					    			var stream = mediathekModel.createStream(basetype, type, quality, url, filesize);
+						    		//console.log('basetype: ',basetype,', stream: ',stream._url);
+									streams.push(stream);
+
+									// SEARCH further URLS through 
+									// http://www.srf.ch/webservice/cvis/segment/assetID/.json
+									// fix incorrect params (e.g. airtime) with the received JSON
+									// push to result model!
+								}else{
+
+									// SEARCH further URLS through 
+									// http://www.srf.ch/webservice/cvis/segment/assetID/.json
+									// push to result model!
+								}
+								
+								if(streams.length < 1){		
+									//search for further streams
+									streams = _getFurtherSRFStreams(assetID);
+									
+									if(streams.length < 1){
+
+										console.log('\'',title, '\' has ', streams.length, ' streams. \nCHECK: ',_url);
+									}else{
+										counter++;
+										_pushSRFResultToModel(origin, title, subtitle, details, station, assetID, length, airtime, teaserImages, streams2);
+										
+									}	
+								}
+								else{
+									++counter;
+									_pushSRFResultToModel(origin, title, subtitle, details, station, assetID, length, airtime, teaserImages, streams);
+								}
+
+							},
+							error: function(){
+								console.warn('ERROR; SRFService._searchSRFStreams(); AJAX-request did not recieve a response');
+							}
+						});
+
+					}else{
+
+						_searchSRFStreams(origin, _url, title, subtitle, details, station, assetID, length, airtime, teaserImages, streams);
+						++counter;
+					}
 		
 				}
 
-					counter++;
 				}
 
 			});

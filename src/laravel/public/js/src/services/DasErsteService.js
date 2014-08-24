@@ -590,8 +590,8 @@ MediathekCrawler.DasErsteService = function() {
 
 						// console.log('DASERSTE onDASERSTEGetNew DATA: ', _result);
 						// // load details for result
+						++counter;
 						loadDASERSTEDetails(origin, documentId, _result, BASE_URL + documentUrl);
-						counter++;
 					}
 				});
 			}

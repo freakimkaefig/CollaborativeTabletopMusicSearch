@@ -204,7 +204,7 @@ MediathekCrawler.ZDFService = function() {
 	_searchStream = function(origin, assetID, title, subtitle, details, station, length, airtime, teaserImages){
 
 		var streams = [];
-
+		// console.log('ZDF _searchStream url: ',ZDFSTREAMURL+assetID);
 		$.ajax({
 			url: ZDFSTREAMURL+assetID,
 			type: 'GET',
@@ -320,6 +320,7 @@ MediathekCrawler.ZDFService = function() {
 						console.log('\'',title, '\' has ', streams.length, ' streams. \nCHECK: ',ZDFSTREAMURL+assetID);
 					}
 					else{
+						// console.log('pushing to resultmodel: ',origin, title, subtitle, details, station, assetID, length, airtime, teaserImages, streams);
 						_pushResultToModel(origin, title, subtitle, details, station, assetID, length, airtime, teaserImages, streams);
 					}
 			    }
@@ -373,7 +374,6 @@ MediathekCrawler.ZDFService = function() {
 		if(maxResults >50){
 			maxResults = 50;
 		}
-		maxResults = parseInt(maxResults / 4);
 		var origin = {
 			_channel: 'ZDF',
 			_method: 'getNew',
@@ -381,6 +381,7 @@ MediathekCrawler.ZDFService = function() {
 			_badge: 'new'
 		};
 		if(maxResults > 1){
+			maxResults = parseInt(maxResults / 4);
 
 			$.ajax({
 				url: ZDFSEARCHNEWURL+ZDFID+'&maxLength='+String(maxResults),
@@ -423,6 +424,7 @@ MediathekCrawler.ZDFService = function() {
 				}
 			});
 		}else{
+			// console.log('ZDF getNew with maxResults = ',maxResults, ZDFSEARCHNEWURL+ZDFID+'&maxLength=1');
 			$.ajax({
 				url: ZDFSEARCHNEWURL+ZDFID+'&maxLength=1',
 				type: 'GET',
