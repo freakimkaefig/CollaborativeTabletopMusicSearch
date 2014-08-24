@@ -49,6 +49,20 @@ MediathekCrawler.SearchView = (function() {
 	},
 
 	manageFilters = function(){
+			$("input[name='orf']").click(function(){
+				if ($("#datepicker-from").attr('disabled')){ 
+					$("#datepicker-from").removeAttr('disabled');
+					$("#datepicker-to").removeAttr('disabled');
+					$("#datepicker-from").removeClass('ui-state-disabled');
+					$("#datepicker-to").removeClass('ui-state-disabled');
+					// ui-state-disabled
+				}else{
+					$("#datepicker-from").attr('disabled', 'disabled');
+					$("#datepicker-to").attr('disabled', 'disabled');
+					$("#datepicker-from").addClass('ui-state-disabled');
+					$("#datepicker-to").addClass('ui-state-disabled');
+				}
+			})
 			// $("input[name='daserste']").click(function(){
 			// 	 if ($("#category-filter :input").attr('disabled')){ 
 			// 	 	$("#category-filter :input").removeAttr('disabled');
