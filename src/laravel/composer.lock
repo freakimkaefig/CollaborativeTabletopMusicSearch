@@ -1700,6 +1700,7 @@
     "stability-flags": {
         "orangehill/iseed": 20
     },
+    "prefer-stable": false,
     "platform": [
 
     ],

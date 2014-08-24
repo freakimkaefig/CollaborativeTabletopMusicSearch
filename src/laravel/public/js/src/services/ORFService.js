@@ -201,7 +201,7 @@ MediathekCrawler.ORFService = function() {
 			    		var stream = _model.createStream(basetype, type, quality, url, filesize);
 			    		//console.log('basetype: ',basetype,', stream: ',stream._url);
 						result._streams.push(stream);
-		console.log('ORF onloadORFStreams: ', url, quality);
+		// console.log('ORF onloadORFStreams: ', url, quality);
 				}
 			}
 
@@ -234,7 +234,7 @@ MediathekCrawler.ORFService = function() {
 			    		var stream = _model.createStream(basetype, type, quality, url, filesize);
 			    		//console.log('basetype: ',basetype,', stream: ',stream._url);
 						result._streams.push(stream);
-			console.log('ORF onloadORFStreams: ', url, quality);
+			// console.log('ORF onloadORFStreams: ', url, quality);
 					}
 				}
 			}catch(e){}
