@@ -114,8 +114,8 @@ MediathekCrawler.SRFService = function() {
 					success: function(data) {	
 						_onSRFVideosByDate(data, origin);
 					},
-					error: function(data){
-						console.log('SRF getSRFVideosByDate - Could not fetch Data from: ',_url);
+					error: function(jqXHR, textStatus, errorThrown){
+						console.warn('ERROR; SRFService.getSRFVideosByDate; AJAX-request did not recieve a response\n',jqXHR, textStatus, errorThrown);
 					}
 				});
   			
@@ -307,8 +307,8 @@ MediathekCrawler.SRFService = function() {
 								_pushSRFResultToModel(origin, title, subtitle, details, station, assetID, length, airtime, teaserImages, streams);
 							}
 						},
-						error: function(data){
-							console.log('SRF _onSRFVideosByDate - Could not fetch Data from: ',_url);
+						error: function(jqXHR, textStatus, errorThrown){
+							console.warn('ERROR; SRFService._onSRFVideosByDate; AJAX-request did not recieve a response\n',jqXHR, textStatus, errorThrown);
 						}
 					});
 
@@ -340,8 +340,8 @@ MediathekCrawler.SRFService = function() {
 				_onSRFBroadcastOfCategory(origin, data, _category);
 				
 			},
-			error: function(){
-				console.warn('ERROR; SRFService.getSRFCategories(); AJAX-request did not recieve a response');
+			error: function(jqXHR, textStatus, errorThrown){
+				console.warn('ERROR; SRFService.getSRFCategories; AJAX-request did not recieve a response\n',jqXHR, textStatus, errorThrown);
 			}
 		});
 
@@ -444,8 +444,8 @@ MediathekCrawler.SRFService = function() {
 				_onSRFGetHot(origin, data);
 				
 			},
-			error: function(){
-				console.warn('ERROR; SRFService.getHot(); AJAX-request did not recieve a response');
+			error: function(jqXHR, textStatus, errorThrown){
+				console.warn('ERROR; SRFService.getHot; AJAX-request did not recieve a response\n',jqXHR, textStatus, errorThrown);
 			}
 		});
 	},
@@ -573,8 +573,8 @@ MediathekCrawler.SRFService = function() {
 				_onSRFGetNew(maxResults, origin, data,'#left_day');
 				
 			},
-			error: function(){
-				console.warn('ERROR; SRFService.getNew(); AJAX-request did not recieve a response');
+			error: function(jqXHR, textStatus, errorThrown){
+				console.warn('ERROR; SRFService.getNew; AJAX-request did not recieve a response\n',jqXHR, textStatus, errorThrown);
 			}
 		});
 	},
@@ -786,8 +786,8 @@ MediathekCrawler.SRFService = function() {
 								}
 
 							},
-							error: function(){
-								console.warn('ERROR; SRFService._searchSRFStreams(); AJAX-request did not recieve a response');
+							error: function(jqXHR, textStatus, errorThrown){
+								console.warn('ERROR; SRFService._onSRFGetNew; AJAX-request did not recieve a response\n',jqXHR, textStatus, errorThrown);
 							}
 						});
 
@@ -841,8 +841,8 @@ MediathekCrawler.SRFService = function() {
 						_onSRFSearchString(origin, data);
 						
 					},
-					error: function(){
-						console.warn('ERROR; SRFService.searchString(); AJAX-request did not recieve a response');
+					error: function(jqXHR, textStatus, errorThrown){
+						console.warn('ERROR; SRFService.searchString; AJAX-request did not recieve a response\n',jqXHR, textStatus, errorThrown);
 					}
 				});
 		}
@@ -1031,8 +1031,8 @@ MediathekCrawler.SRFService = function() {
 					}
 
 				},
-				error: function(){
-					console.warn('ERROR; SRFService._searchSRFStreams(); AJAX-request did not recieve a response');
+				error: function(jqXHR, textStatus, errorThrown){
+					console.warn('ERROR; SRFService._searchSRFStreams; AJAX-request did not recieve a response\n',jqXHR, textStatus, errorThrown);
 				}
 			});
 	},
