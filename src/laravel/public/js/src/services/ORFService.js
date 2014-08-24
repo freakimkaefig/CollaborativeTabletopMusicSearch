@@ -201,7 +201,7 @@ MediathekCrawler.ORFService = function() {
 			    		var stream = _model.createStream(basetype, type, quality, url, filesize);
 			    		//console.log('basetype: ',basetype,', stream: ',stream._url);
 						result._streams.push(stream);
-		// console.log('ORF onloadORFStreams: ', url, quality);
+		console.log('ORF onloadORFStreams: ', url, quality);
 				}
 			}
 
@@ -213,7 +213,7 @@ MediathekCrawler.ORFService = function() {
 				var r = resp.selected_video.sources;
 				// console.log('ORF r: ',resp.video.sources);
 				for(i=0;i<=r.length;i++){
-					if(r[i].src.indexOf('.mp4') > 0){
+					if(r[i].protocol === 'http' && r[i].src.indexOf('.mp4') > 0 && r[i].src.indexOf('3gp') === -1 && r[i].src.indexOf('m3u8') === -1 && r[i].src.indexOf('rtmp') === -1 && r[i].src.indexOf('rtsp') === -1 && r[i].src.indexOf('f4m') === -1){
 						var basetype = '',
 				    		quality = '',
 				    		url = r[i].src,
@@ -234,7 +234,7 @@ MediathekCrawler.ORFService = function() {
 			    		var stream = _model.createStream(basetype, type, quality, url, filesize);
 			    		//console.log('basetype: ',basetype,', stream: ',stream._url);
 						result._streams.push(stream);
-			// console.log('ORF onloadORFStreams: ', url, quality);
+			console.log('ORF onloadORFStreams: ', url, quality);
 					}
 				}
 			}catch(e){}
