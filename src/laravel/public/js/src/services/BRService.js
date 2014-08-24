@@ -315,77 +315,89 @@ MediathekCrawler.BRService = function() {
 			_searchTerm: null,
 			_badge: 'new'
 		};
-		
+
 		if(!dateUrl || dateUrl === undefined || dateUrl === null){
+			if(maxResults >1){
 
-			// http://www.br.de/mediathek/video/programm/index.html
-			// BR_NEW_URL
-			var _url = PROXY_URL + encodeURI(BR_NEW_URL);
-				// console.log('BR GetBRNew url: ',_url);
-			$.ajax({
-				url: _url,
-				type: 'GET',
-				success: function(data) {
-					onGetBRNew(maxResults, data, origin);
-					if(getDatesOnce === 1){
-						getDatesOnce = 0;
-						var yesterday = $(data).find('.epgCalendar')/*.find('.month active')*/.find('td');
-							// console.log('BR getBRNew yesterday: ',yesterday);
-						$(yesterday).each(function(index, element){
+				// http://www.br.de/mediathek/video/programm/index.html
+				// BR_NEW_URL
+				var _url = PROXY_URL + encodeURI(BR_NEW_URL);
+					// console.log('BR GetBRNew url: ',_url);
+				$.ajax({
+					url: _url,
+					type: 'GET',
+					success: function(data) {
+						onGetBRNew(maxResults, data, origin);
+						// if(getDatesOnce === 1){
+						// 	getDatesOnce = 0;
+							var yesterday = $(data).find('.epgCalendar')/*.find('.month active')*/.find('td');
+								// console.log('BR getBRNew yesterday: ',yesterday);
+							$(yesterday).each(function(index, element){
 
-							// console.log('BR getBRNew elementelement: ',element);
-							if(parseInt(nowDay) > 2){
+								// console.log('BR getBRNew elementelement: ',element);
+								if(parseInt(nowDay) > 2){
 
-								var day = $(element).text();
-								if(day.indexOf(currentMonth) > 0){
-									var x = parseInt(nowDay) - 1;
+									var day = $(element).text();
+									if(day.indexOf(currentMonth) > 0){
+										var x = parseInt(nowDay) - 1;
 
-									var cuttedDay = parseInt(day.slice(0, day.indexOf('.')));
-									// get yesterday url:
-									if(cuttedDay === x || cuttedDay === (x - 1)){
-										// console.log('BR found yesterday: ',$(element).find('a').attr('href'));
-										getBRNew(maxResults, BASE_URL + $(element).find('a').attr('href'));
+										var cuttedDay = parseInt(day.slice(0, day.indexOf('.')));
+										// get yesterday url:
+										if(cuttedDay === x || cuttedDay === (x - 1)){
+											// console.log('BR found yesterday: ',$(element).find('a').attr('href'));
+											getBRNew(maxResults, BASE_URL + $(element).find('a').attr('href'));
+										}
+
 									}
+								}else if(parseInt(nowDay) === 2){
+									var day = $(element).text();
+									if(day.indexOf(currentMonth) > 0){
+										var x = parseInt(nowDay) - 1;
 
-								}
-							}else if(parseInt(nowDay) === 2){
-								var day = $(element).text();
-								if(day.indexOf(currentMonth) > 0){
-									var x = parseInt(nowDay) - 1;
+										var cuttedDay = parseInt(day.slice(0, day.indexOf('.')));
+										// get yesterday url:
+										if(cuttedDay === x){
+											// console.log('BR found yesterday: ',$(element).find('a').attr('href'));
+											getBRNew(maxResults, BASE_URL + $(element).find('a').attr('href'));
+										}
+									}
+									if(day.indexOf(lastMonth) > 0){
 
-									var cuttedDay = parseInt(day.slice(0, day.indexOf('.')));
-									// get yesterday url:
-									if(cuttedDay === x){
-										// console.log('BR found yesterday: ',$(element).find('a').attr('href'));
-										getBRNew(maxResults, BASE_URL + $(element).find('a').attr('href'));
+										var cuttedDay = parseInt(day.slice(0, day.indexOf('.')));
+										// get yesterday url:
+										if(cuttedDay === lastDayOfLastMonth){
+											// console.log('BR found yesterday: ',$(element).find('a').attr('href'));
+											getBRNew(maxResults, BASE_URL + $(element).find('a').attr('href'));
+										}
+									}
+								}else if(parseInt(nowDay) === 1){
+									var day = $(element).text();
+									if(day.indexOf(lastMonth) > 0){
+
+										var cuttedDay = parseInt(day.slice(0, day.indexOf('.')));
+										// get yesterday url:
+										if(cuttedDay === lastDayOfLastMonth || cuttedDay === lastDayOfLastMonth - 1){
+											// console.log('BR found yesterday: ',$(element).find('a').attr('href'));
+											getBRNew(maxResults, BASE_URL + $(element).find('a').attr('href'));
+										}
 									}
 								}
-								if(day.indexOf(lastMonth) > 0){
 
-									var cuttedDay = parseInt(day.slice(0, day.indexOf('.')));
-									// get yesterday url:
-									if(cuttedDay === lastDayOfLastMonth){
-										// console.log('BR found yesterday: ',$(element).find('a').attr('href'));
-										getBRNew(maxResults, BASE_URL + $(element).find('a').attr('href'));
-									}
-								}
-							}else if(parseInt(nowDay) === 1){
-								var day = $(element).text();
-								if(day.indexOf(lastMonth) > 0){
-
-									var cuttedDay = parseInt(day.slice(0, day.indexOf('.')));
-									// get yesterday url:
-									if(cuttedDay === lastDayOfLastMonth || cuttedDay === lastDayOfLastMonth - 1){
-										// console.log('BR found yesterday: ',$(element).find('a').attr('href'));
-										getBRNew(maxResults, BASE_URL + $(element).find('a').attr('href'));
-									}
-								}
-							}
-
-						});
+							});
+						// }
 					}
-				}
-			});
+				});
+			}else{
+				var _url = PROXY_URL + encodeURI(BR_NEW_URL);
+					// console.log('BR GetBRNew url: ',_url);
+				$.ajax({
+					url: _url,
+					type: 'GET',
+					success: function(data) {
+						onGetBRNew(maxResults, data, origin);
+					}
+				});
+			}
 		}
 		else{
 			var _url = PROXY_URL + encodeURI(dateUrl);
@@ -402,11 +414,11 @@ MediathekCrawler.BRService = function() {
 	},
 
 	onGetBRNew = function(maxResults, data, origin){
+			// console.log('BR onGetBRNew maxResults: ',maxResults);
 		if(!maxResults || maxResults === undefined || maxResults === null){
 			maxResults = 20;
 		}
 		var resp = $(data)./*find('.containerMain').*/find('.epgContainer').find('#BFS');
-			// console.log('BR onGetBRNew resp: ',resp);
 		var x = $(resp).find('.videoAvailable');
 		var counter = 1;
 		$(x).each(function(index,element){
@@ -414,7 +426,7 @@ MediathekCrawler.BRService = function() {
 
 				// console.log('BR onGetBRNew element: ',element);
 				var url = $(element).attr('data-ondemand_url');
-				// console.log('BR onGetBRNew url: ',url);
+				console.log('BR onGetBRNew url: ',url);
 				if (url !== undefined) {
 					loadDetails(url, origin);
 				}
