@@ -20,9 +20,9 @@ class UsersTableSeeder extends Seeder {
 				'password_temp' => '',
 				'code' => '',
 				'active' => 1,
-				'remember_token' => '5oJZIavLGHrUFYL4VaYqaLysw1sn9AVbJavsJjXyUJIuMtUSc0N8pY469x0c',
+				'remember_token' => '9Fn0owFxAbSBwL4iRbGXCKLQ4bdXRfkBqrsowiU8OqCxMlhX2SvMAVKtCk8K',
 				'created_at' => '2014-07-08 12:56:04',
-				'updated_at' => '2014-08-24 14:03:32',
+				'updated_at' => '2014-08-24 14:39:51',
 			),
 			1 => 
 			array (
@@ -47,6 +47,18 @@ class UsersTableSeeder extends Seeder {
 				'remember_token' => '',
 				'created_at' => '2014-08-24 14:04:22',
 				'updated_at' => '2014-08-24 14:04:22',
+			),
+			3 => 
+			array (
+				'id' => 4,
+				'email' => 'mueller-felix@web.de',
+				'password' => '$2y$10$G4EmWDyWOnWkPqPGkIRxbODvGTPJc5fYhOFofJoxtdqhKzFYETRB6',
+				'password_temp' => '',
+				'code' => '',
+				'active' => 1,
+				'remember_token' => '',
+				'created_at' => '2014-08-24 14:40:24',
+				'updated_at' => '2014-08-24 14:41:09',
 			),
 		));
 	}
