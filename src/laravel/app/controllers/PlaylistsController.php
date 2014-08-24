@@ -17,6 +17,16 @@ class PlaylistsController extends BaseController {
 		$Playlist->save();
 		return Redirect::route('playlists');
 	}
+	public function savePlaylistFromBroadcast($name){
+		//$input = Input::all();
+		//$name = $input['playlistName'];
+
+		$Playlist = new Playlist;
+		$Playlist->name=$name;
+		$Playlist->user=Auth::id();
+		
+		$Playlist->save();
+	}
 	public function addVideoToPlaylist($playlistId, $broadcastId){
 		
 		$data = Request::all();
