@@ -151,6 +151,9 @@ MediathekCrawler.DasErsteService = function() {
 			success: function(data, textStatus, jqXHR) {
 
 				onDASERSTESearchString(origin, data);
+			},
+			error: function(jqXHR, textStatus, errorThrown){
+				console.warn('ERROR; DasErsteService.searchDASERSTEStringByRelevance; AJAX-request did not recieve a response\n',jqXHR, textStatus, errorThrown);
 			}
 		});
 	},
@@ -173,6 +176,9 @@ MediathekCrawler.DasErsteService = function() {
 			success: function(data, textStatus, jqXHR) {
 
 				onDASERSTESearchString(origin, data);
+			},
+			error: function(jqXHR, textStatus, errorThrown){
+				console.warn('ERROR; DasErsteService.searchDASERSTEStringByDate; AJAX-request did not recieve a response\n',jqXHR, textStatus, errorThrown);
 			}
 		});
 	},
@@ -322,8 +328,8 @@ MediathekCrawler.DasErsteService = function() {
 
 						});
 					},
-					error: function(data){
-						console.log('DasErste - Could not fetch Data from: ',_url);
+					error: function(jqXHR, textStatus, errorThrown){
+						console.warn('ERROR; DasErsteService.getDasErsteVideosByDate; AJAX-request did not recieve a response\n',jqXHR, textStatus, errorThrown);
 					}
 				});
   			
@@ -344,6 +350,9 @@ MediathekCrawler.DasErsteService = function() {
 			cache: false,
 			success: function(data) {
 				onloadDASERSTEDetails(origin, documentId, result, data);
+			},
+			error: function(jqXHR, textStatus, errorThrown){
+				console.warn('ERROR; DasErsteService.loadDASERSTEDetails; AJAX-request did not recieve a response\n',jqXHR, textStatus, errorThrown);
 			}
 		});
 	},
@@ -453,6 +462,9 @@ MediathekCrawler.DasErsteService = function() {
 			cache: false,
 			success: function(data) {
 				onloadDASERSTEStreams(origin, documentId, result, data);
+			},
+			error: function(jqXHR, textStatus, errorThrown){
+				console.warn('ERROR; DasErsteService.loadDASERSTEStreams; AJAX-request did not recieve a response\n',jqXHR, textStatus, errorThrown);
 			}
 		});
 	},
@@ -524,6 +536,9 @@ MediathekCrawler.DasErsteService = function() {
 			success: function(data, textStatus, jqXHR) {
 
 				onDASERSTEGetNew(maxResults, origin, data)
+			},
+			error: function(jqXHR, textStatus, errorThrown){
+				console.warn('ERROR; DasErsteService.getNew; AJAX-request did not recieve a response\n',jqXHR, textStatus, errorThrown);
 			}
 		});
 	},
@@ -614,6 +629,9 @@ MediathekCrawler.DasErsteService = function() {
 				cache: false,
 				success: function(data) {
 					onDASERSTEGetHot(origin, data)
+				},
+				error: function(jqXHR, textStatus, errorThrown){
+					console.warn('ERROR; DasErsteService.getHot; AJAX-request did not recieve a response\n',jqXHR, textStatus, errorThrown);
 				}
 			});
 	},
@@ -629,6 +647,9 @@ MediathekCrawler.DasErsteService = function() {
 				cache: false,
 				success: function(data) {
 					onDASERSTEParseHot(origin, data)
+				},
+				error: function(jqXHR, textStatus, errorThrown){
+					console.warn('ERROR; DasErsteService.onDASERSTEGetHot; AJAX-request did not recieve a response\n',jqXHR, textStatus, errorThrown);
 				}
 			});
 

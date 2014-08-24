@@ -252,8 +252,8 @@ MediathekCrawler.ARTEService = function() {
 				}
 			 	
 			},
-			error: function(){
-				console.warn('ERROR; ZDFService._getARTEBroadcastOfCategory; AJAX-request did not recieve a response');
+			error: function(jqXHR, textStatus, errorThrown){
+				console.warn('ERROR; ARTEService._getARTEBroadcastOfCategory; AJAX-request did not recieve a response\n',jqXHR, textStatus, errorThrown);
 			}
 		});
 	},
@@ -281,8 +281,8 @@ MediathekCrawler.ARTEService = function() {
 					_onARTEGetHot(origin, data);
 					
 				},
-				error: function(){
-					console.warn('ERROR; ARTEService.searchString(); AJAX-request did not recieve a response');
+				error: function(jqXHR, textStatus, errorThrown){
+					console.warn('ERROR; ARTEService.getHot; AJAX-request did not recieve a response\n',jqXHR, textStatus, errorThrown);
 				}
 			});
 	},
@@ -443,8 +443,8 @@ MediathekCrawler.ARTEService = function() {
 					// console.log('ARTE.searchString; origin: ',origin, data);
 					
 				},
-				error: function(){
-					console.warn('ERROR; ARTEService.searchString(); AJAX-request did not recieve a response');
+				error: function(jqXHR, textStatus, errorThrown){
+					console.warn('ERROR; ARTEService.searchString; AJAX-request did not recieve a response\n',jqXHR, textStatus, errorThrown);
 				}
 			});
 	},
@@ -672,8 +672,8 @@ MediathekCrawler.ARTEService = function() {
 				_onARTEGetNew(origin, data, maxResults);
 				// console.log('ajax succes: \n','\n',_url);
 			},
-			error: function(){
-				console.warn('ERROR; ARTEService.getNew(); AJAX-request did not recieve a response');
+			error: function(jqXHR, textStatus, errorThrown){
+				console.warn('ERROR; ARTEService.getNew; AJAX-request did not recieve a response\n',jqXHR, textStatus, errorThrown);
 			}
 		});
 	},
@@ -913,8 +913,8 @@ MediathekCrawler.ARTEService = function() {
 				}
 
 			},
-			error: function(){
-				console.warn('ERROR; ARTEService.getNew; AJAX-request did not recieve a response');
+			error: function(jqXHR, textStatus, errorThrown){
+				console.warn('ERROR; ARTEService._searchARTEStreams; AJAX-request did not recieve a response\n',jqXHR, textStatus, errorThrown);
 			}
 		});
 		// console.log('ARTE _searchARTEStreams - finished ajax request')

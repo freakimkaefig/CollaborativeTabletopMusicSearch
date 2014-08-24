@@ -66,6 +66,9 @@ MediathekCrawler.ORFService = function() {
 			success: function(data){
 				// console.log('ORF data: ',data);
 				onORFLoadDetails(data, origin);
+			},
+			error: function(jqXHR, textStatus, errorThrown){
+				console.warn('ERROR; ORFService.searchString; AJAX-request did not recieve a response\n',jqXHR, textStatus, errorThrown);
 			}
 		});
 	},
@@ -86,6 +89,9 @@ MediathekCrawler.ORFService = function() {
 			success: function(data){
 				// console.log('ORF data: ',data);
 				onORFLoadDetails(data, origin, maxResults);
+			},
+			error: function(jqXHR, textStatus, errorThrown){
+				console.warn('ERROR; ORFService.getNew; AJAX-request did not recieve a response\n',jqXHR, textStatus, errorThrown);
 			}
 		});
 	},
@@ -106,6 +112,9 @@ MediathekCrawler.ORFService = function() {
 			success: function(data){
 				// console.log('ORF data: ',data);
 				onORFLoadDetails(data, origin);
+			},
+			error: function(jqXHR, textStatus, errorThrown){
+				console.warn('ERROR; ORFService.getHot; AJAX-request did not recieve a response\n',jqXHR, textStatus, errorThrown);
 			}
 		});
 	},
@@ -166,6 +175,9 @@ MediathekCrawler.ORFService = function() {
 			success: function(data) {
 		// console.log('ORF loadORFStreams: ',typeof data, data);
 				onloadORFStreams(documentUrl, result, data, origin);
+			},
+			error: function(jqXHR, textStatus, errorThrown){
+				console.warn('ERROR; ORFService.loadORFStreams; AJAX-request did not recieve a response\n',jqXHR, textStatus, errorThrown);
 			}
 		});
 	},
