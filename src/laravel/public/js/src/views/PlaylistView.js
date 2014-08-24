@@ -33,15 +33,15 @@ MediathekCrawler.PlaylistView = (function() {
 		$("#create-playlist").addClass("hidden");
 	},
 	savePlaylistFromBroadcast = function() {
-		console.log("save");
 		$("#selectPlaylist").addClass("hidden");
 		$.ajax({
 				type: "GET",
 				url: "/playlists/new/"+$("input[name='playlistName']").val(),
 				data: {},
 			});
-		$(that).trigger('feedback',["addNewPlaylist"]);
+
 		$("#playlistForm").load("video.blade.php #playlistForm");
+		$(that).trigger('feedback',["addNewPlaylist"]);
 
 	},
 	onDeleteVideo = function(){

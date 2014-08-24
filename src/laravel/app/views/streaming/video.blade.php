@@ -30,11 +30,12 @@
 								<button id="add-to-playlist" class="col-xs-12 btn btn-transparent">Hinzufügen</button>
 								<button id="add-to-playlist-cancel" class="col-xs-12 btn btn-transparent" type="button" >Abbrechen</button>
 								@else
-								<p>Es sind noch keine Playlisten vorhanden</p>
+								<p>Sie müssen zunächst eine Playliste erstellen:</p>
 								<form id="create-playlist" class="select-box col-sm-6 hidden" action="{{-- URL::route('new-playlist-broadcast') --}}" method="post">
 									<input type="text" name="playlistName" />
 									<button id="button-create-playlist-broadcast" class="col-xs-12 btn btn-transparent" type="button">Erstellen</button>
 								</form>	
+								<input value="{{ DB::table('playlists')->max('id') + 1 }}" hidden />
 								<button id="add-to-playlist-cancel" class="col-xs-12 btn btn-transparent" type="button" >Abbrechen</button>
 								@endif
 							</div>
