@@ -7,6 +7,7 @@ MediathekCrawler.PlaylistView = (function() {
 		$("#new-list").on("click",showCreatePlaylist);
 		$("#create-playlist").on("submit",hideCreatePlaylist);
 		$("#button-create-playlist-cancel").on("click",hideCreatePlaylist);
+		$("#button-create-playlist-broadcast").on("click",savePlaylistFromBroadcast);
 		//onDeleteVideo();
 		//onDeletePlaylist();
 		$("body").on("click","button[id^='delete-from-playlist-']",onDeleteVideo);
@@ -30,6 +31,17 @@ MediathekCrawler.PlaylistView = (function() {
 	},
 	hideCreatePlaylist = function() {
 		$("#create-playlist").addClass("hidden");
+	},
+	savePlaylistFromBroadcast = function() {
+		console.log("save");
+		$("#selectPlaylist").addClass("hidden");
+		$.ajax({
+				type: "GET",
+				url: "/playlists/new/"+$("input[name='playlistName']").val(),
+				data: {},
+			});
+		$(that).trigger('feedback',["addNewPlaylist"]);
+
 	},
 	onDeleteVideo = function(){
 		

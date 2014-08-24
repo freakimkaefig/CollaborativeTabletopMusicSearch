@@ -47,7 +47,6 @@ MediathekCrawler.BroadcastView = (function() {
 		for (var i=result._streams.length-1; i>=0; i--) {
 			var source = '<source class="source" src="' + result._streams[i]._url + '" type="' + result._streams[i]._type + '" data-res="'+ checkQuality(result._streams[i]._quality) + '">'
 			$video_element.append(source);
-			//$(document).ready($video.append(source));
 			$video.append(source);
 			source_b = { type:result._streams[i]._type,src: result._streams[i]._url, "data-res": checkQuality(result._streams[i]._quality) };
 			sources.push(source_b);
@@ -66,17 +65,9 @@ MediathekCrawler.BroadcastView = (function() {
 		video = videojs("#video");
 		video.options().sources = sources; 
 		$("#video>.source").remove();
-			video.resolutionSelector({force_types : ['video/mp4'],
+		video.resolutionSelector({force_types : ['video/mp4'],
     							default_res: "1,2,3"});
-		/*video.on("loadstart", function(){
-			alert("laodtstart");
-
-			setTimeout(function(){
-				video.resolutionSelector({force_types : ['video/mp4'],
-    							default_res: "1,2,3"});},1000);
-		})*/
-
-		//videojs("#video").src(sources);
+		
 		var infoElement = 
 			'<h3>Titel :</h3>'+
 			'<div>' + result._title + '</div>' +
@@ -114,15 +105,22 @@ MediathekCrawler.BroadcastView = (function() {
 	renderVideoBookmark = function(id){
 		result = JSON.parse($("#bookmark").val())[0];
 		var streams = JSON.parse(result.url);
+		sources = [];
+
 		for (var i=streams.length-1; i>=0; i--) {
 			var source = '<source src="' + streams[i]._url + '" type="' + streams[i]._type + '" data-res="'+ checkQuality(streams[i]._quality) +'">'
+			$video_element.append(source);
 			$video.append(source);
+			source_b = { type:streams[i]._type,src: streams[i]._url, "data-res": checkQuality(streams[i]._quality) };
+			sources.push(source_b);
 			url = streams[i]._url;
 		}
+
 		video = videojs("#video");
 		video.options().sources = sources; 
 		$("#video>.source").remove();
-		
+		video.resolutionSelector({force_types : ['video/mp4'],
+    							default_res: "1,2,3"});
 		var infoElement = 
 			'<h3>Titel:</h3>'+
 			'<div>' + result.title + '</div>' +
@@ -138,13 +136,6 @@ MediathekCrawler.BroadcastView = (function() {
 		
 		$infoWrapper.prepend(infoElement);
 
-		videojs("#video", {plugins : { resolutionSelector : {
-    							force_types : ['video/mp4'],
-    							default_res : "3,2,1"
-							} }}, function(){
-		});
-
-		
 		var descriptionElement = '<div>' + result.details + '</div>';
 		$descriptionWrapper.append(descriptionElement);
 		
@@ -270,6 +261,9 @@ MediathekCrawler.BroadcastView = (function() {
 		}
 		if(station.indexOf("br") > -1){
 			$("#icon-station").append("<img src='/css/images/br.svg' />");
+		}
+		if(station.indexOf("orf") > -1){
+			$("#icon-station").append("<img src='/css/images/ORF_logo.svg' />");
 		}
 
 

@@ -10,7 +10,6 @@ MediathekCrawler.FooterView = (function() {
 		$footerNav.on('mouseenter', footerOnMouseEnter);
 		$footerNav.on('mouseleave', footerOnMouseLeave);
 		$footerNav.click(function(){
-			console.log("click",closed);
 			if(closed){
 				footerOnMouseEnter();
 				closed = false;

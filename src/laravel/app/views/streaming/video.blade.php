@@ -27,11 +27,15 @@
 								 		<option value="{{$pl->id}}">{{$pl->name}}</option>
 								 	@endforeach
 								</select>
-								<button id="add-to-playlist" class="btn btn-transparent">Hinzufügen</button>
-								<button id="add-to-playlist-cancel" class="btn btn-transparent" type="button" >Abbrechen</button>
+								<button id="add-to-playlist" class="col-xs-12 btn btn-transparent">Hinzufügen</button>
+								<button id="add-to-playlist-cancel" class="col-xs-12 btn btn-transparent" type="button" >Abbrechen</button>
 								@else
 								<p>Es sind noch keine Playlisten vorhanden</p>
-								<button id="add-to-playlist-cancel" class="btn btn-transparent" type="button" >Abbrechen</button>
+								<form id="create-playlist" class="select-box col-sm-6 hidden" action="{{-- URL::route('new-playlist-broadcast') --}}" method="post">
+									<input type="text" name="playlistName" />
+									<button id="button-create-playlist-broadcast" class="col-xs-12 btn btn-transparent" type="button">Erstellen</button>
+								</form>	
+								<button id="add-to-playlist-cancel" class="col-xs-12 btn btn-transparent" type="button" >Abbrechen</button>
 								@endif
 							</div>
 						</form>

@@ -40,11 +40,14 @@
 					@endif
 				</div>
 				<button type="submit" class="btn btn-default">Senden</button>
-			</form>
 			{{ Form::token() }}
+			</form>
 		</div>
 
 	</div>
 	<div class="spacer">
+	{{ Session::getId() }}
+	<br>
+ 	{{ Session::token() }}
 
 @stop
