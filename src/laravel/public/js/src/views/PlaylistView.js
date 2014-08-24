@@ -41,6 +41,7 @@ MediathekCrawler.PlaylistView = (function() {
 				data: {},
 			});
 		$(that).trigger('feedback',["addNewPlaylist"]);
+		$("#playlistForm").load("video.blade.php #playlistForm");
 
 	},
 	onDeleteVideo = function(){
