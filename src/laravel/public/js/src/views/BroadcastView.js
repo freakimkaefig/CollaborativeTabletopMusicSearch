@@ -271,6 +271,9 @@ MediathekCrawler.BroadcastView = (function() {
 		if(station.indexOf("br") > -1){
 			$("#icon-station").append("<img src='/css/images/br.svg' />");
 		}
+		if(station.indexOf("orf") > -1){
+			$("#icon-station").append("<img src='/css/images/ORF_logo.svg' />");
+		}
 
 
 	},
