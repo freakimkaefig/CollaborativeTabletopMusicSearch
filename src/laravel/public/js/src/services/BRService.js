@@ -447,7 +447,7 @@ MediathekCrawler.BRService = function() {
 
 				// console.log('BR onGetBRNew element: ',element);
 				var url = $(element).attr('data-ondemand_url');
-				console.log('BR onGetBRNew url: ',url);
+				// console.log('BR onGetBRNew url: ',url);
 				if (url !== undefined) {
 					loadDetails(url, origin);
 				}
