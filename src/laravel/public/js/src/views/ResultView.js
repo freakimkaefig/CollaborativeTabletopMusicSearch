@@ -61,6 +61,7 @@ MediathekCrawler.ResultView = (function() {
 	},
 
 	fillSlider = function(event, result) {
+		console.log('FILLSLIDER result: ',result);
 		if (result._id == 0) {
 	        first = false;
 			var slideElement = '<div class="item active">'+
@@ -68,7 +69,7 @@ MediathekCrawler.ResultView = (function() {
 	        	'<div class="container">'+
 	            	'<a href="/video/' + result._id + '">'+
 		            	'<div class="carousel-caption">'+
-		              		'<h1>' + result._title + '</h1>'+
+		              		'<h3 style="margin-top: 0px;">' + result._title + '</h3>'+
 		              		'<p>' + result._subtitle + '</p>'+
 		              		'<p>' + stationToImage(result._station) + '</p>'+
 		            	'</div>'+
@@ -81,7 +82,7 @@ MediathekCrawler.ResultView = (function() {
 	        	'<div class="container">'+
 	        		'<a href="/video/' + result._id + '">'+
 		            	'<div class="carousel-caption">'+
-		              		'<h1>' + result._title + '</h1>'+
+		              		'<h3 style="margin-top: 0px;">' + result._title + '</h3>'+
 		              		'<p>' + result._subtitle + '</p>'+
 		              		'<p>' + stationToImage(result._station) + '</p>'+
 		            	'</div>'+

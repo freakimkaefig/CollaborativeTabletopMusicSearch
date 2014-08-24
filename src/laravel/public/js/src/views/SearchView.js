@@ -67,11 +67,11 @@ MediathekCrawler.SearchView = (function() {
 			// })
 			$("input[name='srf']").change(function(){
 				 if ($("input[name='srf']").is(":checked")){ 
-				 	console.log("disable");
+				 	// console.log("disable");
 				 	$("#duration-slider").slider("disable");
 				 }
 				 else{
-				 	console.log("enable");
+				 	// console.log("enable");
 				 	$("#duration-slider").slider("enable");
 				}
 			})
