@@ -19,7 +19,7 @@
 				<div class="form-group col-xs-8">
 					<input class="form-control" type="text" name="search" placeholder="Suche"{{ (Input::old('search')) ? ' value="' . e(Input::old('search')) . '"' : '' }}>
 				</div>
-				<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span>Suchen</button>
+				<button type="submit" class="btn btn-default" id="search-button-mobile"><span class="glyphicon glyphicon-search"></span>Suchen</button>
 				
 			</div>
 		

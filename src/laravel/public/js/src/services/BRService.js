@@ -97,6 +97,9 @@ MediathekCrawler.BRService = function() {
 			type: 'GET',
 			success: function(data) {
 				onSearchString(data, origin);
+			},
+			error: function(jqXHR, textStatus, errorThrown){
+				console.warn('ERROR; BRService.searchStringByRelevance; AJAX-request did not recieve a response\n',jqXHR, textStatus, errorThrown);
 			}
 		});
 	},
@@ -114,6 +117,9 @@ MediathekCrawler.BRService = function() {
 			type: 'GET',
 			success: function(data) {
 				onSearchString(data, origin);
+			},
+			error: function(jqXHR, textStatus, errorThrown){
+				console.warn('ERROR; BRService.searchStringByDate; AJAX-request did not recieve a response\n',jqXHR, textStatus, errorThrown);
 			}
 		});
 	},
@@ -148,6 +154,9 @@ MediathekCrawler.BRService = function() {
 			type: 'GET',
 			success: function(data) {
 				onLoadDetails(data, origin);
+			},
+			error: function(jqXHR, textStatus, errorThrown){
+				console.warn('ERROR; BRService.loadDetails; AJAX-request did not recieve a response\n',jqXHR, textStatus, errorThrown);
 			}
 		});
 	},
@@ -238,6 +247,9 @@ MediathekCrawler.BRService = function() {
 			type: 'GET',
 			success: function(data) {
 				onLoadStreams(result, data, origin);
+			},
+			error: function(jqXHR, textStatus, errorThrown){
+				console.warn('ERROR; BRService.loadStreams; AJAX-request did not recieve a response\n',jqXHR, textStatus, errorThrown);
 			}
 		});
 	},
@@ -385,6 +397,9 @@ MediathekCrawler.BRService = function() {
 
 							});
 						// }
+					},
+					error: function(jqXHR, textStatus, errorThrown){
+						console.warn('ERROR; BRService.getBRNew; AJAX-request did not recieve a response\n',jqXHR, textStatus, errorThrown);
 					}
 				});
 			}else{
@@ -395,6 +410,9 @@ MediathekCrawler.BRService = function() {
 					type: 'GET',
 					success: function(data) {
 						onGetBRNew(maxResults, data, origin);
+					},
+					error: function(jqXHR, textStatus, errorThrown){
+						console.warn('ERROR; BRService.getBRNew; AJAX-request did not recieve a response\n',jqXHR, textStatus, errorThrown);
 					}
 				});
 			}
@@ -408,6 +426,9 @@ MediathekCrawler.BRService = function() {
 				success: function(data) {
 
 					onGetBRNew(maxResults, data, origin);
+				},
+				error: function(jqXHR, textStatus, errorThrown){
+					console.warn('ERROR; BRService.getBRNew; AJAX-request did not recieve a response\n',jqXHR, textStatus, errorThrown);
 				}
 			});
 		}
@@ -463,6 +484,9 @@ MediathekCrawler.BRService = function() {
 			success: function(data) {
 
 				onGetBRHot(data, origin);
+			},
+			error: function(jqXHR, textStatus, errorThrown){
+				console.warn('ERROR; BRService.getBRHot; AJAX-request did not recieve a response\n',jqXHR, textStatus, errorThrown);
 			}
 		});
 	},
@@ -536,8 +560,8 @@ MediathekCrawler.BRService = function() {
 				success: function(data) {	
 					_onBRVideosByDate(data, origin, dates);
 				},
-				error: function(data){
-					console.log('SRF getSRFVideosByDate - Could not fetch Data from: ',_url);
+				error: function(jqXHR, textStatus, errorThrown){
+					console.warn('ERROR; BRService.getBRVideosByDate; AJAX-request did not recieve a response\n',jqXHR, textStatus, errorThrown);
 				}
 			});
   			

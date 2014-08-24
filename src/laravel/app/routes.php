@@ -65,6 +65,10 @@ Route::group(array('before' => 'auth'), function() {
 		'as' => 'new-playlist',
 		'uses' => 'PlaylistsController@savePlaylist' 
 	));
+	Route::get('/playlists/new/{name}', array(
+		'as' => 'new-playlist-broadcast',
+		'uses' => 'PlaylistsController@savePlaylistFromBroadcast' 
+	));
 	Route::get('/playlists/add/{playlistId}/{broadcastId}',array(
 		'as' => 'add-video-playlist',
 		'uses' => 'PlaylistsController@addVideoToPlaylist'
