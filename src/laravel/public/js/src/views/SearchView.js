@@ -14,9 +14,17 @@ MediathekCrawler.SearchView = (function() {
 
 		$('#mobile-filter-button').on('click', onMobileFilterButtonClick);
 		$('#submit').on('click', onSubmitButtonClick);
+		$('#search-button').on('click', onSearchButtonClick);
 	},
 
 	onSubmitButtonClick = function(event){
+		if($('#sort-buttons').hasClass('hidden')) {
+			$('#sort-buttons').removeClass('hidden');
+			$('#sort-buttons').show();
+		}
+	},
+
+	onSearchButtonClick = function(event){
 		if($('#sort-buttons').hasClass('hidden')) {
 			$('#sort-buttons').removeClass('hidden');
 			$('#sort-buttons').show();
