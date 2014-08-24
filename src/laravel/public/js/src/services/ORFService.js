@@ -179,12 +179,13 @@ MediathekCrawler.ORFService = function() {
 			var r = resp.video.sources;
 			// console.log('ORF r: ',resp.video.sources);
 			for(i=0;i<=r.length;i++){
-				if(r[i].src.indexOf('.mp4') > 0){
+				if(r[i].protocol === 'http' && r[i].src.indexOf('.mp4') > 0 && r[i].src.indexOf('3gp') === -1 && r[i].src.indexOf('m3u8') === -1 && r[i].src.indexOf('rtmp') === -1 && r[i].src.indexOf('rtsp') === -1 && r[i].src.indexOf('f4m') === -1){
 					var basetype = '',
 			    		quality = '',
 			    		url = r[i].src,
 			    		filesize = 0,
 		    			type = 'video/mp4';
+			    		console.log('ORF url: ',url);
 
 		    			switch (r[i].quality_string) {
 			    			case 'hoch':
