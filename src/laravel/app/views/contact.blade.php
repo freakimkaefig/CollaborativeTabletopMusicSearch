@@ -46,8 +46,5 @@
 
 	</div>
 	<div class="spacer">
-	{{ Session::getId() }}
-	<br>
- 	{{ Session::token() }}
 
 @stop
