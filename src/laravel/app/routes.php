@@ -183,11 +183,11 @@ Route::group(array('before' => 'csrf'), function() {
 		'uses' => 'MediathekController@postSearch'
 	));
 
-});
 	Route::post('kontakt', array(
 		'as' => 'contact-post',
 		'uses' => 'MediathekController@postContact'
 	));
+});
 
 
 /* SEARCH */
