@@ -201,7 +201,7 @@ MediathekCrawler.ORFService = function() {
 			    		url = r[i].src,
 			    		filesize = 0,
 		    			type = 'video/mp4';
-			    		console.log('ORF url: ',url);
+			    		// console.log('ORF url: ',url);
 
 		    			switch (r[i].quality_string) {
 			    			case 'hoch':

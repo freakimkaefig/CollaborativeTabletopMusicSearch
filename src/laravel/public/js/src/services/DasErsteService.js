@@ -191,12 +191,7 @@ MediathekCrawler.DasErsteService = function() {
 		/*var resp = */
 		var x = $(data).find('.flash');
 		x.each(function(index,el) {
-			// if($(el).hasClass('flash')){
 
-			// return((" " + this.className + " ").match(/box\s*flash/) !== null);
-			// });
-			// $(resp).each(function (index, el) {
-				// console.log('DASERSTE onDASERSTESearchString: ',el);
 				var _result = {};
 				_result._streams = [];
 				documentUrl = $(el).find('.mediaLink').attr('href');
@@ -220,30 +215,7 @@ MediathekCrawler.DasErsteService = function() {
 				}else{						
 					_result._teaserImages.push(_model.createTeaserImage(IMG_RESOLUTIONS[0].resolution, BASE_URL + imgURL));
 				}
-				// if(!$(element).find(SEARCH_ITEM_ELEMENT).hasClass(SEARCH_LIVE_ITEM)) {
-				// 	// retrieving documentId for streamURL
-				// 	var documentUrl = $(element).find(SEARCH_ITEM_ELEMENT).attr('href'),
-				// 		documentId = $(element).find('.boxPlaylistIcons>img').attr('class');
-				// 		if (documentId !== undefined) {
-				// 			documentId = documentId.replace(/\D/g,'');
-				// 		// building result meta information
-				// 		var _result = {};
-				// 		_result._station = STATION;
-				// 		_result._title = $(element).find(TITLE_ELEMENT).text();
-				// 		_result._subtitle = $(element).find(SUBTITLE_ELEMENT).text();
-				// 		_result._length = $(element).find(LENGTH_ELEMENT).text();
-				// 		_result._airtime = $(element).find(DATE_ELEMENT).text();
-				// 		imgURL = $(element).find(IMAGE_ELEMENT).attr('src');
-				// 		_result._teaserImages = [];
-				// 		_result._teaserImages.push(_model.createTeaserImage(IMG_RESOLUTIONS[0].resolution, BASE_URL + imgURL));
-				// 		_result._streams = [];
-				// 		// load details
 				loadDASERSTEDetails(origin, documentId, _result, BASE_URL + documentUrl);
-				// 	}
-				// } else {
-				// 	// LIVESTREAM
-				// }
-			// }
 		});
 	},
 
@@ -380,7 +352,7 @@ MediathekCrawler.DasErsteService = function() {
 
 				_result._title = $(data).find('.dachzeile').text();
 				}catch(e){
-					console.log(e);
+					// console.log(e);
 				}
 			}
 			if(!_result._subtitle || _result._subtitle === undefined || _result._subtitle === ''){
@@ -390,7 +362,7 @@ MediathekCrawler.DasErsteService = function() {
 				_result._subtitle = $(temp).text();
 				// console.log('_result._subtitle: ',temp,_result._subtitle);
 				}catch(e){
-					console.log(e);
+					// console.log(e);
 				}
 			}
 			if(!_result._length || _result._length === undefined || _result._length === ''){
@@ -405,7 +377,7 @@ MediathekCrawler.DasErsteService = function() {
 				}
 				// console.log('_result._length: ',$(temp).text(),' to: ',_result._length);
 				}catch(e){
-					console.log(e);
+					// console.log(e);
 				}
 			}
 			if(!_result._airtime || _result._airtime === undefined || _result._airtime === '' || _result._airtime.indexOf('undefined') >0){
@@ -419,14 +391,10 @@ MediathekCrawler.DasErsteService = function() {
 					// console.log('DASERSTE _result._airtime: ',$(temp).text(),' to: ',result._airtime);
 				}
 				}catch(e){
-					console.log(e);
+					// console.log(e);
 				}
 			}
-			if(!_result._teaserImages || _result._teaserImages === undefined || _result._teaserImages.length < 1){
-				// 	imgURL = $(data).find(IMAGE_ELEMENT).attr('src'),
-				// 	_result._teaserImages = [],
-				// 	_result._teaserImages.push(_model.createTeaserImage(IMG_RESOLUTIONS[0].resolution, BASE_URL + imgURL)),
-			}
+			
 			if(!_result._streams || _result._streams === undefined){
 					// _result._streams = [];
 			}
@@ -439,7 +407,7 @@ MediathekCrawler.DasErsteService = function() {
 				_result._details = $(temp).text();
 				// console.log('_result._details: ',temp,_result._details);
 				}catch(e){
-					console.log(e);
+					// console.log(e);
 				}
 			}
 		// console.log('DASERSTE onloadDASERSTEDetails: \n',documentId, _result);
@@ -476,13 +444,7 @@ MediathekCrawler.DasErsteService = function() {
 	 * @param {JSON}				JSON response of stream loading
 	 */
 	onloadDASERSTEStreams = function(origin, documentId, result, data) {
-		
-		// only is fired for correct results:
-		// console.log('DASERSTE onloadDASERSTEStreams: \n',documentId, result);
 
-		// how do the other reslts get added to the model?
-		// this is the only method with the proper call...!?
-		
 		// console.log('DASERSTE onloadDASERSTEStreams: \n',documentId, result);
 		var data = JSON.parse(data);
 		// result._teaserImages.push(_model.createTeaserImage(IMG_RESOLUTIONS[3].resolution, BASE_URL + data._previewImage));
@@ -569,21 +531,7 @@ MediathekCrawler.DasErsteService = function() {
 						_result._streams = [];
 						documentUrl = $(el).find('.mediaLink').attr('href');
 						documentId = documentUrl.slice(documentUrl.indexOf('documentId=') + 11, documentUrl.indexOf('&topRessort'));
-						// console.log('FOUND box flash link: ',documentUrl, documentId);
-
-
-
-						// retrieving documentId for streamURL
-						// var documentUrl = $(element).find(SEARCH_ITEM_ELEMENT).attr('href'),
-						// 	documentId = $(element).find('.boxPlaylistIcons>img').attr('class'),
-						// 	documentId = documentId.replace(/\D/g,'');
-
-						// // building result meta information
-						// 	_result._station = STATION,
-						// 	_result._title = $(element).find(TITLE_ELEMENT).text(),
-						// 	_result._subtitle = $(element).find(SUBTITLE_ELEMENT).text(),
-						// 	_result._length = $(element).find(LENGTH_ELEMENT).text(),
-						// 	_result._airtime = $(element).find(DATE_ELEMENT).text(),
+						
 						var temp2 = $(el).find('.mediaLink').find('.img');
 						_result._teaserImages = [];
 						var res = null;
@@ -685,119 +633,11 @@ MediathekCrawler.DasErsteService = function() {
 			}else{						
 				_result._teaserImages.push(_model.createTeaserImage(IMG_RESOLUTIONS[0].resolution, BASE_URL + imgURL));
 			}
-			// if(!$(element).find(SEARCH_ITEM_ELEMENT).hasClass(SEARCH_LIVE_ITEM)) {
-			// 	// retrieving documentId for streamURL
-			// 	var documentUrl = $(element).find(SEARCH_ITEM_ELEMENT).attr('href'),
-			// 		documentId = $(element).find('.boxPlaylistIcons>img').attr('class');
-			// 		if (documentId !== undefined) {
-			// 			documentId = documentId.replace(/\D/g,'');
-			// 		// building result meta information
-			// 		var _result = {};
-			// 		_result._station = STATION;
-			// 		_result._title = $(element).find(TITLE_ELEMENT).text();
-			// 		_result._subtitle = $(element).find(SUBTITLE_ELEMENT).text();
-			// 		_result._length = $(element).find(LENGTH_ELEMENT).text();
-			// 		_result._airtime = $(element).find(DATE_ELEMENT).text();
-			// 		imgURL = $(element).find(IMAGE_ELEMENT).attr('src');
-			// 		_result._teaserImages = [];
-			// 		_result._teaserImages.push(_model.createTeaserImage(IMG_RESOLUTIONS[0].resolution, BASE_URL + imgURL));
-			// 		_result._streams = [];
-			// 		// load details
 			loadDASERSTEDetails(origin, documentId, _result, BASE_URL + documentUrl);
 
 		});
 
 	},
-
-	/**
-	 * Function to load all categories from "Das Erste Mediathek"
-	 */
-	// getCategories = function(_category, numResults) {
-	// 	var origin = {
-	// 		_channel: 'DasErste',
-	// 		_method: 'getCategories',
-	// 		_searchTerm: _category,
-	// 		_badge: null
-	// 	};
-	// 	var find = CATEGORIES.filter(function (category) { return category._id == _category });
-	// 	if (find.length > 0) {
-	// 		var _broadcastUrl = PROXY_URL + encodeURI(find[0]._url);
-	// 		$.ajax({
-	// 			url: _broadcastUrl,
-	// 			type: 'GET',
-	// 			cache: false,
-	// 			success: function(data) {
-	// 				onDASERSTEGetCategories(origin, data, numResults)
-	// 			}
-	// 		});
-	// 	} else {
-	// 		console.error("Mediathek-Crawler", "|", "DasErsteController", "|", "Kategorie nicht verfügbar:", "'" + _category + "'");
-	// 	}
-	// },
-
-	/**
-	 * Callback function for loading categories of Das Erste Mediathek
-	 * @param {String}		HTML data of the category page
-	 * @param {String}		current category
-	 */
-	// onDASERSTEGetCategories = function(origin, data, numResults) {
-	// 	$(data).find('#layer_themen2 .jsScroll').find('li').each(function(index, element) {
-	// 		loadDASERSTECategory(origin, BASE_URL + $(element).find('a').attr('href'), numResults);
-	// 	});
-	// },
-
-	/**
-	 * Function to load a category from "Das Erste Mediathek"
-	 * @param {String}		the url of the category
-	 */
-	// loadDASERSTECategory = function(origin, url, numResults) {
-	// 	var _broadcastUrl = PROXY_URL + encodeURI(url);
-	// 	$.ajax({
-	// 		url: _broadcastUrl,
-	// 		type: 'GET',
-	// 		cache: false,
-	// 		success: function(data) {
-	// 			onGetDASERSTECategory(origin, data, numResults);
-	// 		}
-	// 	});
-	// },
-
-	/**
-	 * Callback function for async loading of category results
-	 * @param {String|HTML}		xmlhttp response of ajax call
-	 */
-	// onGetDASERSTECategory = function(origin, data, numResults) {
-	// 	$(data).find(CATEGORIES_WRAPPER_ELEMENT).find(SEARCH_ITEM_WRAPPER).each(function (index, element) {
-	// 		if (index < numResults) {
-	// 			if(!$(element).find(SEARCH_ITEM_ELEMENT).hasClass(SEARCH_LIVE_ITEM)) {
-	// 				// retrieving documentId for streamURL
-	// 				var documentUrl = $(element).find(SEARCH_ITEM_ELEMENT).attr('href'),
-	// 					documentId = $(element).find('.boxPlaylistIcons>img').attr('class'),
-	// 					documentId = documentId.replace(/\D/g,'');
-
-	// 				// building result meta information
-	// 				var _result = {};
-	// 					_result._station = STATION;
-	// 					_result._title = $(element).find(TITLE_ELEMENT).text();
-	// 					_result._subtitle = $(element).find(SUBTITLE_ELEMENT).text();
-	// 					_result._length = $(element).find(LENGTH_ELEMENT).text();
-	// 					_result._airtime = $(element).find(DATE_ELEMENT).text();
-	// 					imgURL = $(element).find(IMAGE_ELEMENT).attr('src');
-	// 					_result._teaserImages = [];
-	// 					_result._teaserImages.push(_model.createTeaserImage(IMG_RESOLUTIONS[0].resolution, BASE_URL + imgURL));
-	// 					_result._streams = [];
-
-	// 				// load details
-	// 				loadDASERSTEDetails(origin, documentId, _result, BASE_URL + documentUrl);
-	// 			} else {
-	// 				// LIVESTREAM
-	// 			}
-	// 		} else {
-	// 			return;
-	// 		}
-	// 	});
-	// },
-
 
 	/**
 	 * Public function to reset the instance of DasErsteService

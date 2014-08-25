@@ -1,12 +1,3 @@
-
-			    //TODO:
-			    // Abfrage ob Ajax response bereits JSON oder nicht
-			    // mehrere Suchbegriffe (wie verbinden)?
-			    // Filter
-			    // SendungenAbisZ-Suche?
-			    // CHECK ob parseResponse() bereits Daten enthät die searchStream() nochmals abruft!?
-			    // CHECK: nur mp4 Video links abspielbar!?
-
 MediathekCrawler.ZDFService = function() {
 
 	var that = {},
@@ -320,7 +311,7 @@ MediathekCrawler.ZDFService = function() {
 			    	}); // end foreach formitaet
 					if(streams.length < 1){
 						
-						console.log('\'',title, '\' has ', streams.length, ' streams. \nCHECK: ',ZDFSTREAMURL+assetID);
+						// console.log('\'',title, '\' has ', streams.length, ' streams. \nCHECK: ',ZDFSTREAMURL+assetID);
 					}
 					else{
 						// console.log('pushing to resultmodel: ',origin, title, subtitle, details, station, assetID, length, airtime, teaserImages, streams);
