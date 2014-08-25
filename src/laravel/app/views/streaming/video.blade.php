@@ -32,7 +32,7 @@
 								@else
 								<p>Sie müssen zunächst eine Playliste erstellen:</p>
 								<form id="create-playlist" class="select-box col-sm-6 hidden" action="{{-- URL::route('new-playlist-broadcast') --}}" method="post">
-									<input type="text" name="playlistName" />
+									<input type="text" name="playlistName"  placeholder="Name" />
 									<button id="button-create-playlist-broadcast" class="col-xs-12 btn btn-transparent" type="button">Erstellen</button>
 								</form>	
 								<input value="{{ DB::table('playlists')->max('id') + 1 }}" hidden />

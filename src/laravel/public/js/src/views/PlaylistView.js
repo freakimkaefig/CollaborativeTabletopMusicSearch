@@ -7,21 +7,17 @@ MediathekCrawler.PlaylistView = (function() {
 		$("#new-list").on("click",showCreatePlaylist);
 		$("#create-playlist").on("submit",hideCreatePlaylist);
 		$("#button-create-playlist-cancel").on("click",hideCreatePlaylist);
-		$("#button-create-playlist-broadcast").on("click",savePlaylistFromBroadcast);
+		//$("#button-create-playlist-broadcast").on("click",savePlaylistFromBroadcast);
 		//onDeleteVideo();
 		//onDeletePlaylist();
 		$("body").on("click","button[id^='delete-from-playlist-']",onDeleteVideo);
 		$("body").on("click","button[id^='delete-playlist-']",onDeletePlaylist);
 
 		if($("#video-playlist").length >0){
-
-		videojs("#video-playlist", {plugins : { resolutionSelector : {
-    							force_types : [ 'video/mp4' ],
-    							default_res : "3"
-							} }}, function(){
-		
-							
-		});
+			video = videojs("#video-playlist");	
+			video.options();
+			video.resolutionSelector({force_types : ['video/mp4'],
+    							default_res: "1,2,3"});
 		}
 
 	},
@@ -31,18 +27,6 @@ MediathekCrawler.PlaylistView = (function() {
 	},
 	hideCreatePlaylist = function() {
 		$("#create-playlist").addClass("hidden");
-	},
-	savePlaylistFromBroadcast = function() {
-		$("#selectPlaylist").addClass("hidden");
-		$.ajax({
-				type: "GET",
-				url: "/playlists/new/"+$("input[name='playlistName']").val(),
-				data: {},
-			});
-
-		$("#playlistForm").load("video.blade.php #playlistForm");
-		$(that).trigger('feedback',["addNewPlaylist"]);
-
 	},
 	onDeleteVideo = function(){
 		
