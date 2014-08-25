@@ -446,7 +446,11 @@ MediathekCrawler.DasErsteService = function() {
 	onloadDASERSTEStreams = function(origin, documentId, result, data) {
 
 		// console.log('DASERSTE onloadDASERSTEStreams: \n',documentId, result);
-		var data = JSON.parse(data);
+		try{
+			var data = JSON.parse(data);
+		}catch(e){
+			var data = data;
+		}
 		// result._teaserImages.push(_model.createTeaserImage(IMG_RESOLUTIONS[3].resolution, BASE_URL + data._previewImage));
 		result._streams = [];
 		for (var i=0; i<data._mediaArray.length; i++) {
