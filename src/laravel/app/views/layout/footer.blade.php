@@ -57,7 +57,7 @@
 				</div>
 			</div>
 			<div class="col-sm-2 hidden-xs">
-				<h4 class="col-sm-offset-1">&nbsp;</h4>
+				<h4 class="col-sm-offset-1"><span class="glyphicon glyphicon-chevron-up"></span></h4>
 				<div class="col-sm-4 col-sm-offset-1 alpha">
 					<ul>
 						<li><a href="{{ URL::route('home') }}">Startseite</a></li>
