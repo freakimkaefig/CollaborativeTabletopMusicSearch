@@ -14,6 +14,7 @@ MediathekCrawler.ResultView = (function() {
 		$("#duration-sort").on("click",durationSort);
 		$("#channel-sort").on("click",channelSort);
 		$("#date-sort").on("click",dateSort);
+		$("#hot-new-sort").on("click",hotNewSort);
 		renderStationIcon($("#channel").text());
 		$("#waiting").hide();
 		$(document).ajaxStart(function(){
@@ -276,6 +277,42 @@ MediathekCrawler.ResultView = (function() {
 			$("#date-sort").val("asc");
 		}
 
+		$resultWrapper.empty();
+		results.forEach(function(result){
+			appendResult(event, result);
+		})
+		return;
+	},
+	hotNewSort = function(){
+		results = getFromLocalstorage()._results;
+		if($("#hot-new-sort").val()=="asc"){
+			results.sort(function(a, b){
+				var badgeHot = a._origin._badge.toLowerCase();
+				var badgeNew = b._origin._badge.toLowerCase();;
+				if(badgeHot < badgeNew){
+					return -1
+				}
+				if(badgeHot > badgeNew){
+					return 1
+				}
+				return 0
+			})
+			$("#hot-new-sort").val("desc");
+		}
+		else{
+			results.sort(function(a, b){
+				var badgeHot = a._origin._badge.toLowerCase();
+				var badgeNew = b._origin._badge.toLowerCase();
+				if(badgeHot < badgeNew){
+					return 1
+				}
+				if(badgeHot > badgeNew){
+					return -1
+				}
+				return 0
+			})
+			$("#hot-new-sort").val("asc");
+		}
 		$resultWrapper.empty();
 		results.forEach(function(result){
 			appendResult(event, result);
