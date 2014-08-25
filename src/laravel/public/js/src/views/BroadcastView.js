@@ -22,6 +22,7 @@ MediathekCrawler.BroadcastView = (function() {
 		$descriptionWrapper = $("#description-wrapper");
 
 		$("#choosePlaylist").on("click",onAddToPlaylist);
+		$("#button-create-playlist-broadcast").on("click",onAddToPlaylist);
 		$("#addToBookmarks").on("click", onAddBookmark);
 		//onAddToPlaylist();
 		//onAddBookmark();
@@ -149,7 +150,6 @@ MediathekCrawler.BroadcastView = (function() {
 		
 		e.preventDefault();
 		$("#selectPlaylist").removeClass("hidden");
-
 		$("#add-to-playlist").click( function(e){
 		$(that).trigger('feedback',["addPlaylist"]);
 			e.preventDefault();

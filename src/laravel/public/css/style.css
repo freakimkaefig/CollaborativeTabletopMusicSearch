@@ -256,7 +256,11 @@ h2 small { color:#fff; }
 	padding: 5px;
 }
 
-
+#select{
+	background-color: #525252;
+	color: white;
+	padding: 10px;
+}
 .feedback{
 	background-color: #778899;
 	border-radius: 0;
