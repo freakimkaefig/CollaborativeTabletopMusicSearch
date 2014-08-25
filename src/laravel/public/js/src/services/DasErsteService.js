@@ -388,7 +388,13 @@ MediathekCrawler.DasErsteService = function() {
 				_result._airtime = $(temp).text();
 				if(_result._airtime.indexOf('|') > 0){
 					_result._airtime = _result._airtime.slice(0, _result._airtime.indexOf(' | '));
-					// console.log('DASERSTE _result._airtime: ',$(temp).text(),' to: ',result._airtime);
+				}
+					// console.log('DASERSTE _result._subtitle: ',_result._subtitle);
+				if(_result._subtitle.indexOf('Uhr') > 0){
+					_result._airtime += ' '+_result._subtitle.slice(_result._subtitle.indexOf('Uhr') - 6,_result._subtitle.indexOf('Uhr'));
+					if(_result._subtitle.indexOf(',') > 0){
+						_result._subtitle = _result._subtitle.slice(0, _result._subtitle.indexOf(','));
+					}
 				}
 				}catch(e){
 					// console.log(e);

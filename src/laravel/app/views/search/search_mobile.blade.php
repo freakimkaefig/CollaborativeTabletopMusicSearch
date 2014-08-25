@@ -160,8 +160,7 @@
 		{{ Form::token() }}
 		</form>
 	</div>
-	<div class="spacer"></div>
-
+<hr>
 	<div id="mobile-search-results">
 		<div class="row">
 			<h2 class="page-title">Suchergebnisse:</h2>

@@ -528,7 +528,7 @@ MediathekCrawler.SRFService = function() {
 
 	_onSRFGetNew = function(maxResults, origin, data,divId){
 		if(!maxResults || maxResults === undefined || maxResults === null){
-			maxResults = 40;
+			maxResults = 50;
 		}
 		var temp = divId;
 		var x = $(data).find(divId).find('.missed_list');
@@ -807,6 +807,56 @@ MediathekCrawler.SRFService = function() {
 
 			subtitle = $(element).find('.title_infos_description').find('.sender').text();
 			airtime = $(element).find('.title_infos_description').find('.sender').next().text();
+			
+			var now = new Date();
+			var today = new Date();
+			var dd = today.getDate();
+			var mm = today.getMonth()+1; //January is 0!
+			var yyyy = today.getFullYear();
+			if(dd<10){dd='0'+dd} if(mm<10){mm='0'+mm} today = dd+'.'+mm+'.'+yyyy
+			var days = ['Sonntag','Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag'];
+
+			
+			if(airtime ==='Heute'){
+				airtime = today;
+			}
+			else if(airtime === 'Gestern'){
+				var yesterday = new Date(now);
+				yesterday.setDate(now.getDate() - 1);
+				var dd = yesterday.getDate();
+				var mm = yesterday.getMonth()+1; //January is 0!
+				var yyyy = yesterday.getFullYear();
+				if(dd<10){dd='0'+dd} if(mm<10){mm='0'+mm} yesterday = dd+'.'+mm+'.'+yyyy
+				airtime = yesterday;
+			}
+			else{
+				// console.log('TODAY IS: ',days[ now.getDay() ],' AIRTIME IS: ',airtime);
+				var todayPos = null;
+				var airtimePos = null;
+				for (var j=0; j<days.length; j++) {
+			        if (days[j].match(airtime)) {
+			        	airtimePos = j;
+			        }
+			        if(days[j].match(days[ now.getDay() ])){
+			        	todayPos = j;
+			        }
+			    }
+				airtime = new Date();
+			    if(todayPos > airtimePos){
+			    	var x = parseInt(todayPos - airtimePos);
+			    	airtime.setDate(now.getDate() - x);
+			    }
+			    if(todayPos < airtimePos){
+			    	var z = parseInt(todayPos + days.length - airtimePos);
+			    	airtime.setDate(now.getDate() - z)
+			    }
+			    var dd = airtime.getDate();
+				var mm = airtime.getMonth()+1; //January is 0!
+				var yyyy = airtime.getFullYear();
+				if(dd<10){dd='0'+dd} if(mm<10){mm='0'+mm} airtime = dd+'.'+mm+'.'+yyyy
+
+			    // console.log('airtime: ',airtime,' todayPos: ',todayPos,' airtimePos: ',airtimePos);
+			}
 			station = 'SRF';
 			length = $(element).find('.title_infos_description').find('.duration').text();
 			length = length.substring(7,100);
