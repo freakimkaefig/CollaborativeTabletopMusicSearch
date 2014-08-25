@@ -44,7 +44,7 @@
 				<h4 class="">Konto</h4>
 				<div class="col-sm-4 alpha ">
 					<ul>
-						<li><a href="{{ URL::route('account-my-account') }}">Übersicht</a></li>
+						<li><a href="{{ URL::route('account-my-account') }}">Mein Konto</a></li>
 						<li><a href="{{ URL::route('playlists') }}">Playlisten</a></li>
 						<li><a href="{{ URL::route('bookmarks') }}">Merkliste</a></li>
 						

@@ -165,7 +165,7 @@
 		<div class="row">
 			<h2 class="page-title">Suchergebnisse:</h2>
 		</div>
-		<div class="row">
+		<div>
 			@include('search.results')
 		</div>
 	</div>
