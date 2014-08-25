@@ -4,10 +4,10 @@
 <div class="col-sm-12 hidden" id="sort-buttons">
 	<span><h4>Sortieren: </h4></span>
 	<span><button id="alphabetic-sort" class="btn-transparent" value="asc">Alphabetisch</button></span>
-	<button id="duration-sort" class="btn-transparent" value="asc">Dauer</button>
-	<button id="channel-sort" class="btn-transparent" value="asc">Sender</button>
 	<button id="date-sort" class="btn-transparent" value="asc">Datum</button>
+	<button id="duration-sort" class="btn-transparent" value="asc">Dauer</button>
 	<button id="hot-new-sort" class="btn-transparent" value="asc">Hot / New</button>
+	<button id="channel-sort" class="btn-transparent" value="asc">Sender</button>
 
 </div>
 <div id="result-wrapper"></div>
