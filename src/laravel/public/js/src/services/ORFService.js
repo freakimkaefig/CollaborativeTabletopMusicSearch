@@ -63,6 +63,7 @@ MediathekCrawler.ORFService = function() {
 		$.ajax({
 			url: _searchUrl,
 			type: 'GET',
+			cache: false,
 			success: function(data){
 				// console.log('ORF data: ',data);
 				onORFLoadDetails(data, origin);
@@ -86,6 +87,7 @@ MediathekCrawler.ORFService = function() {
 		$.ajax({
 			url: _searchUrl,
 			type: 'GET',
+			cache: false,
 			success: function(data){
 				// console.log('ORF data: ',data);
 				onORFLoadDetails(data, origin, maxResults);
@@ -109,6 +111,7 @@ MediathekCrawler.ORFService = function() {
 		$.ajax({
 			url: _searchUrl,
 			type: 'GET',
+			cache: false,
 			success: function(data){
 				// console.log('ORF data: ',data);
 				onORFLoadDetails(data, origin);
@@ -172,6 +175,7 @@ MediathekCrawler.ORFService = function() {
 		$.ajax({
 			url: streamURL,
 			type: 'GET',
+			cache: false,
 			success: function(data) {
 		// console.log('ORF loadORFStreams: ',typeof data, data);
 				onloadORFStreams(documentUrl, result, data, origin);

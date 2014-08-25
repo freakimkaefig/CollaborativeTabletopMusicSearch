@@ -663,6 +663,7 @@ MediathekCrawler.ARTEService = function() {
 		$.ajax({
 			url: _url,
 			type: 'GET',
+			cache: false,
 			dataType: 'json',
 			success: function(data, textStatus, jqXHR) {
 
@@ -842,6 +843,7 @@ MediathekCrawler.ARTEService = function() {
 		$.ajax({
 			url: _url,
 			type: 'GET',
+			cache: false,
 			success: function(data) {
 
 				try{

@@ -95,6 +95,7 @@ MediathekCrawler.BRService = function() {
 		$.ajax({
 			url: _searchUrl,
 			type: 'GET',
+			cache: false,
 			success: function(data) {
 				onSearchString(data, origin);
 			},
@@ -115,6 +116,7 @@ MediathekCrawler.BRService = function() {
 		$.ajax({
 			url: _searchUrl,
 			type: 'GET',
+			cache: false,
 			success: function(data) {
 				onSearchString(data, origin);
 			},
@@ -152,6 +154,7 @@ MediathekCrawler.BRService = function() {
 		$.ajax({
 			url: _url,
 			type: 'GET',
+			cache: false,
 			success: function(data) {
 				onLoadDetails(data, origin);
 			},
@@ -245,6 +248,7 @@ MediathekCrawler.BRService = function() {
 		$.ajax({
 			url: _url,
 			type: 'GET',
+			cache: false,
 			success: function(data) {
 				onLoadStreams(result, data, origin);
 			},
@@ -338,6 +342,7 @@ MediathekCrawler.BRService = function() {
 				$.ajax({
 					url: _url,
 					type: 'GET',
+					cache: false,
 					success: function(data) {
 						onGetBRNew(maxResults, data, origin);
 						// if(getDatesOnce === 1){
@@ -408,6 +413,7 @@ MediathekCrawler.BRService = function() {
 				$.ajax({
 					url: _url,
 					type: 'GET',
+					cache: false,
 					success: function(data) {
 						onGetBRNew(maxResults, data, origin);
 					},
@@ -423,6 +429,7 @@ MediathekCrawler.BRService = function() {
 			$.ajax({
 				url: _url,
 				type: 'GET',
+				cache: false,
 				success: function(data) {
 
 					onGetBRNew(maxResults, data, origin);
@@ -481,6 +488,7 @@ MediathekCrawler.BRService = function() {
 		$.ajax({
 			url: _url,
 			type: 'GET',
+			cache: false,
 			success: function(data) {
 
 				onGetBRHot(data, origin);
