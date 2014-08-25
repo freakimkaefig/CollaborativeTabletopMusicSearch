@@ -26,6 +26,21 @@ class PlaylistsController extends BaseController {
 		$Playlist->user=Auth::id();
 		
 		$Playlist->save();
+
+		$data = Request::all();
+		if (Request::ajax()) {
+			$Broadcast = new Broadcast;
+			$Broadcast->title=$data['title'];
+			$Broadcast->subtitle=$data['subtitle'];
+			$Broadcast->station=$data['station'];
+			$Broadcast->playlist_id=$Playlist->id;
+			$Broadcast->airtime=date('Y-m-d H:i:s', strtotime($data['airtime']));
+			$Broadcast->url=json_encode($data['url']);
+			$Broadcast->duration=$data['duration'];
+			$Broadcast->image=json_encode($data['image']);
+			$Broadcast->details=$data['details'];
+			$Broadcast->save();
+		}
 	}
 	public function addVideoToPlaylist($playlistId, $broadcastId){
 		

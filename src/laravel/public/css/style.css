@@ -52,7 +52,7 @@ h2 small { color:#fff; }
 	color: #1b1b1b;
 }
 .modal-backdrop { display:none!important;}
-
+.modal .btn {border-radius: 0; border:1px solid #000000;}
 .spacer {
 	width: 100%;
 	height: 60px; 
@@ -256,7 +256,11 @@ h2 small { color:#fff; }
 	padding: 5px;
 }
 
-
+#select{
+	background-color: #525252;
+	color: white;
+	padding: 10px;
+}
 .feedback{
 	background-color: #778899;
 	border-radius: 0;
