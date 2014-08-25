@@ -87,6 +87,7 @@ MediathekCrawler.ApplicationController = function() {
 	},
 
 	onResultReceived = function(event, result) {
+		$('#sort-buttons').removeClass('hidden');
 		if (document.URL.indexOf("/suche") > -1) {
 			if($("#duration-slider").slider("value") < 1){
 				resultView.appendResult(event, result);

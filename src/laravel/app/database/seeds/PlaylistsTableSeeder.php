@@ -38,14 +38,6 @@ class PlaylistsTableSeeder extends Seeder {
 			),
 			3 => 
 			array (
-				'id' => 8,
-				'name' => 'Fussballer',
-				'created_at' => '2014-08-24 10:01:39',
-				'updated_at' => '2014-08-24 10:01:39',
-				'user' => 2,
-			),
-			3 => 
-			array (
 				'id' => 25,
 				'name' => 'test',
 				'created_at' => '2014-08-24 17:30:41',
