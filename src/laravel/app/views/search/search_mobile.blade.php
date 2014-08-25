@@ -160,8 +160,7 @@
 		{{ Form::token() }}
 		</form>
 	</div>
-	<div class="spacer"></div>
-
+<hr>
 	<div id="mobile-search-results" class="row">
 		@include('search.results')
 	</div>

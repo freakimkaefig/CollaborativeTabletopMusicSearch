@@ -290,27 +290,33 @@ MediathekCrawler.ApplicationController = function() {
 					if(channel == "arte"){
 						ARTEService.getNew(ARTEMAXRESULTS);
 						ARTEService.getHot(ARTEMAXRESULTS);
+						$('#hot-new-sort').removeClass('hidden');
 						//checkDuration(duration);
 					}
 					if(channel == "zdf"){
 						ZDFService.getNew(ZDFMAXRESULTS);
-						ZDFService.getHot(ZDFMAXRESULTS)
+						ZDFService.getHot(ZDFMAXRESULTS);
+						$('#hot-new-sort').removeClass('hidden');
 					}
 					if(channel == "daserste"){
 						DasErsteService.getNew();
 						DasErsteService.getHot();
+						$('#hot-new-sort').removeClass('hidden');
 					}
 					if (channel == "srf"){
 						SRFService.getHot();
 						SRFService.getNew();
+						$('#hot-new-sort').removeClass('hidden');
 					}
 					if (channel == "br"){
 						BRService.getBRHot();
 						BRService.getBRNew();
+						$('#hot-new-sort').removeClass('hidden');
 					}
 					if (channel == "orf"){
 						ORFService.getHot();
 						ORFService.getBRNew();
+						$('#hot-new-sort').removeClass('hidden');
 					}
 				}
 	
