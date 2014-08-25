@@ -17,9 +17,9 @@
 			<div>
 			
 				<div class="form-group col-xs-8">
-					<input class="form-control" type="text" name="search" placeholder="Suche"{{ (Input::old('search')) ? ' value="' . e(Input::old('search')) . '"' : '' }}>
+					<input class="form-control" type="text" name="search-mobile" placeholder="Suche"{{ (Input::old('search')) ? ' value="' . e(Input::old('search')) . '"' : '' }}>
 				</div>
-				<button type="submit" class="btn btn-default" id="search-button-mobile"><span class="glyphicon glyphicon-search"></span>Suchen</button>
+				<!-- <button type="submit" class="btn btn-default" id="search-button-mobile"><span class="glyphicon glyphicon-search"></span>Suchen</button> -->
 				
 			</div>
 		
@@ -134,7 +134,7 @@
 
 			 <div class="form-group col-xs-12 form-inline">
 				<h4>Datum &amp; Dauer</h4>
-				<div class="col-xs-6">
+				<div class="col-xs-6" style="z-index: 1">
 					<label>Von:
 						<input id="datepicker-from" class="col-xs-12" type="text" name="from" >
 					</label>
@@ -162,8 +162,13 @@
 	</div>
 	<div class="spacer"></div>
 
-	<div id="mobile-search-results" class="row">
-		@include('search.results')
+	<div id="mobile-search-results">
+		<div class="row">
+			<h2 class="page-title">Suchergebnisse:</h2>
+		</div>
+		<div class="row">
+			@include('search.results')
+		</div>
 	</div>
 
 @stop

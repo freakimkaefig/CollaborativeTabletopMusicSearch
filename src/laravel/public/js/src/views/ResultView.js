@@ -77,7 +77,13 @@ MediathekCrawler.ResultView = (function() {
 	},
 
 	fillSlider = function(event, result) {
-		// console.log('FILLSLIDER result: ',result);
+
+		if (result._id == 0) {
+			$('.carousel-indicators').empty();
+			$('.carousel-inner').empty();
+			$('#content').css('overflow', 'auto');
+		}
+
 		if (result._id == 0) {
 	        first = false;
 			var slideElement = '<div class="item active">'+
@@ -111,15 +117,14 @@ MediathekCrawler.ResultView = (function() {
 		duplicates.push(result._station)
 
         $indicatorWrapper = $('#carousel-wrapper .carousel-indicators');
-		$indicatorWrapper.append('<li data-target="#myCarousel" data-slide-to="' + (result._id+1) + '"></li>');
+        if (result._id == 0) {
+			$indicatorWrapper.append('<li data-target="#myCarousel" data-slide-to="' + (result._id+1) + '" class="active"></li>');
+		} else {
+			$indicatorWrapper.append('<li data-target="#myCarousel" data-slide-to="' + (result._id+1) + '"></li>');
+		}
 
 		$sliderWrapper = $('#carousel-wrapper .carousel-inner');
 		$sliderWrapper.append(slideElement);
-
-		if (result._id == 0) {
-        	$('#carousel-loading-item').remove();
-        	$('#carousel-loading-indicator').remove();
-        }
 	},
 
 	getFromLocalstorage = function(){

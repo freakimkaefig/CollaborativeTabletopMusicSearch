@@ -33,7 +33,7 @@ MediathekCrawler.ApplicationController = function() {
 	    // init Models
 	    mediathekModel = MediathekCrawler.MediathekModel();
 	    mediathekModel.init();
-	    if (document.URL === "http://mediathek-crawler/" || document.URL === "http://mediathek-crawler/#" || document.URL === "http://mediathek.lukaslamm.de/" || document.URL === "http://mediathek.lukaslamm.de/#" || document.URL === "http://media.lukaslamm.de/" || document.URL === "http://media.lukaslamm.de/#") {
+	    if (document.URL === "http://mediathek-crawler/" || document.URL === "http://mediathek.lukaslamm.de/") {
 			$(mediathekModel).on('resultReceived', onResultReceivedForSlider);
 		}else{
 	    	$(mediathekModel).on('resultReceived', onResultReceived);
@@ -204,7 +204,11 @@ MediathekCrawler.ApplicationController = function() {
 		$("#result-wrapper").empty();
 		var channels = searchView.getSelectedChannels();
 		var categories = searchView.getSelectedCategories();
-		var searchString = $('input[name="search"]').val();
+		if ($('#xs-helper').is(':visible')) {
+			var searchString = $('input[name="search-mobile"').val();
+		} else {
+			var searchString = $('input[name="search"]').val();
+		}
 		var startDate = searchView.getDateFrom();
 		var endDate = searchView.getDateTo();
 
@@ -290,27 +294,33 @@ MediathekCrawler.ApplicationController = function() {
 					if(channel == "arte"){
 						ARTEService.getNew(ARTEMAXRESULTS);
 						ARTEService.getHot(ARTEMAXRESULTS);
+						$('#hot-new-sort').removeClass('hidden');
 						//checkDuration(duration);
 					}
 					if(channel == "zdf"){
 						ZDFService.getNew(ZDFMAXRESULTS);
-						ZDFService.getHot(ZDFMAXRESULTS)
+						ZDFService.getHot(ZDFMAXRESULTS);
+						$('#hot-new-sort').removeClass('hidden');
 					}
 					if(channel == "daserste"){
 						DasErsteService.getNew();
 						DasErsteService.getHot();
+						$('#hot-new-sort').removeClass('hidden');
 					}
 					if (channel == "srf"){
 						SRFService.getHot();
 						SRFService.getNew();
+						$('#hot-new-sort').removeClass('hidden');
 					}
 					if (channel == "br"){
 						BRService.getBRHot();
 						BRService.getBRNew();
+						$('#hot-new-sort').removeClass('hidden');
 					}
 					if (channel == "orf"){
 						ORFService.getHot();
-						ORFService.getBRNew();
+						ORFService.getNew();
+						$('#hot-new-sort').removeClass('hidden');
 					}
 				}
 	
@@ -330,16 +340,18 @@ MediathekCrawler.ApplicationController = function() {
 			})
 		}
 		// string search
-		else if(searchString !== '' && searchString !== undefined) {
+		else if(searchString !== '' && searchString != undefined) {
 			_search(searchString);
 		}
 		// date search
-		else if(startDate != "" || endDate != ""){
+		else if(startDate != "" && endDate != ""){
 			ZDFService.getZDFVideosByDate(200, startDate, endDate);
 			ARTEService.getVideosByDate(200,  startDate, endDate);
 			DasErsteService.getDasErsteVideosByDate(200, startDate, endDate);
 			BRService.getBRVideosByDate(startDate, endDate);
 			// ORFService.getORFVideosByDate(startDate, endDate);
+		} else {
+			console.log("NO FILTERS MATCHED!");
 		}
 
 		searchView.collapseMobileFilter();
