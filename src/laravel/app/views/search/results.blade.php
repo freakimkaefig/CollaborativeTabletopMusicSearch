@@ -10,5 +10,5 @@
 	<button id="hot-new-sort" class="btn-transparen hiddent" value="asc">Hot / New</button>
 
 </div>
-<div id="result-wrapper"></div>
+<div id="result-wrapper" class="row"></div>
 <!-- END search/results --> 

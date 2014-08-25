@@ -105,7 +105,7 @@
         </div> 
       </div>
     </div>
-    <div id="playlist-items" class="list">
+    <div id="playlist-items" class="list row">
     @foreach($results_videos as $result)
     	<div id="list-item-{{$result->id}}" class="list-item  col-xs-12 col-sm-10 col-sm-offset-1">
         <?php 
