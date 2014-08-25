@@ -28,7 +28,7 @@
 			        	<li><a href="{{ URL::route('playlists') }}">Playlisten</a></li>
 						<li class="divider-after"><a href="{{ URL::route('bookmarks') }}">Merkliste</a></li>
 					    <li class="divider"></li>
-					    <li class="divider-before"><a href="{{ URL::route('channels-overview') }}">Mediatheken</a></li>
+					    <li class="divider-before"><a href="{{ URL::route('channels-overview') }}">Sender</a></li>
 					    <li class="divider-after"><a href="{{ URL::route('categories-overview') }}">Rubriken</a></li>
 					    <li class="divider"></li>
 					    <li class="divider-before"><a href="{{ URL::route('contact') }}">Kontakt</a></li>
@@ -56,6 +56,7 @@
 
 			<div class="container-fluid">
 				@yield('content')
+				<div class="spacer"></div>
 			</div>
 		</div>
 		<a href="#">
@@ -67,6 +68,9 @@
 
 		@include('mediathek-crawler-js')
 
-		<div id="xs-helper" class="visible-xs"></div>
+		<div id="xs-helper" class="device-xs visible-xs"></div>
+		<div id="sm-helper" class="device-sm visible-sm"></div>
+		<div id="md-helper" class="device-md visible-md"></div>
+		<div id="lg-helper" class="device-lg visible-lg"></div>
 	</body>
 </html>

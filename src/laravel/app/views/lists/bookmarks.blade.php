@@ -8,7 +8,7 @@
 			//$results = DB::select('select * from playlists where user="'+Auth::id()+'"');
 			$results= DB::table('broadcasts')->where('user_id', '=', Auth::id())->get();
 		?>
-    <div id="bookmark-items" class="list">
+    <div id="bookmark-items" class="list row">
     @foreach($results as $result)
     	<div id="list-item-{{$result->id}}" class="list-item col-xs-12 col-sm-10 col-sm-offset-1">
         <?php 
