@@ -2489,6 +2489,7 @@ vjs.Button = vjs.Component.extend({
 
     this.on('tap', this.onClick);
     this.on('click', this.onClick);
+    this.on('touchStart', this.onClick);
     this.on('focus', this.onFocus);
     this.on('blur', this.onBlur);
   }

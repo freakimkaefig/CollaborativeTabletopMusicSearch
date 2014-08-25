@@ -35,6 +35,7 @@ MediathekCrawler.BRService = function() {
 		_model = model;
 	},
 
+
 	/**
 	 * Public function to search with given string, type and numResults
 	 * @param {String}		string to search
@@ -179,6 +180,7 @@ MediathekCrawler.BRService = function() {
 	 */
 	onLoadDetails = function(data, origin) {
 		var _onclick = $(data).find('#playerFrame .player .avPlayer figure .clearFix a').attr('onclick');
+		// console.log('BR onclick: ',_onclick);
 		if (_onclick !== undefined) {
 			// url for xml file containing streams is placed in click event handler
 			// searching for string between {dataURL:' and '}
@@ -221,7 +223,7 @@ MediathekCrawler.BRService = function() {
 	 */
 	loadStreams = function(result, url, origin) {
 		var _url = PROXY_URL + encodeURI(BASE_URL + url);
-
+		// console.log('BR stream url: ',_url);
 		$.ajax({
 			url: _url,
 			type: 'GET',
@@ -288,6 +290,10 @@ MediathekCrawler.BRService = function() {
 	 * Public function to get new videos (= videos of the last 3 days including today)
 	 */
 	getBRNew = function(maxResults, dateUrl) {
+		if(!maxResults || maxResults === undefined || maxResults === null){
+			maxResults = 20;
+		}
+
 		$today = new Date();
 		var $dd = $today.getDate();
 		if($dd<10){$dd='0'+$dd} var nowDay = $dd
@@ -431,7 +437,7 @@ MediathekCrawler.BRService = function() {
 
 				// console.log('BR onGetBRNew element: ',element);
 				var url = $(element).attr('data-ondemand_url');
-				// console.log('BR onGetBRNew url: ',url);
+				// console.log('BR data-livestream_url: ',url);
 				if (url !== undefined) {
 					loadDetails(url, origin);
 				}
