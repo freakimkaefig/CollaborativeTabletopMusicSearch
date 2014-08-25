@@ -312,6 +312,22 @@ Anja Miller
 				'playlist_id' => 6,
 				'user_id' => NULL,
 			),
+			14 => 
+			array (
+				'id' => 96,
+				'title' => '"Maria, ihm schmeckt\'s nicht!"',
+				'subtitle' => '0',
+				'details' => 'Jan möchte die Deutsch-Italienerin Sara heiraten. Ganz unspektakulär und nur standesamtlich. Doch Jan hat die Rechnung ohne seinen zukünftigen Schwiegervater gemacht.',
+				'airtime' => '2014-08-20 20:15:00',
+				'url' => '[{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/nrodl.zdf.de\\/dach\\/zdf\\/14\\/08\\/140806_maria_schmeckts_ps_fad_436k_p9v11.mp4","_filesize":"315184038"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/rodl.zdf.de\\/dach\\/zdf\\/14\\/08\\/140806_maria_schmeckts_ps_fad_436k_p9v11.mp4","_filesize":"315184038"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/nrodl.zdf.de\\/dach\\/zdf\\/14\\/08\\/140806_maria_schmeckts_ps_fad_189k_p7v11.mp4","_filesize":"145444712"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/nrodl.zdf.de\\/dach\\/zdf\\/14\\/08\\/140806_maria_schmeckts_ps_fad_1456k_p13v11.mp4","_filesize":"1013323689"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/rodl.zdf.de\\/dach\\/zdf\\/14\\/08\\/140806_maria_schmeckts_ps_fad_1456k_p13v11.mp4","_filesize":"1013323689"}]',
+				'duration' => '01:28:00',
+				'image' => '[{"_resolution":"946x532","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/1431160\\/timg946x532blob\\/8857714"},{"_resolution":"672x378","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2211912\\/timg672x378blob\\/10173254"},{"_resolution":"644x363","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2211912\\/timg644x363blob\\/10173253"},{"_resolution":"485x273","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2211912\\/timg485x273blob\\/10173243"},{"_resolution":"476x268","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2211912\\/timg476x268blob\\/10173250"},{"_resolution":"476x176","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2211912\\/timg476x176blob\\/10173248"},{"_resolution":"404x227","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2211912\\/timg404x227blob\\/10173256"},{"_resolution":"298x168","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2211912\\/timg298x168blob\\/10173251"},{"_resolution":"276x155","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2211912\\/timg276x155blob\\/10173244"},{"_resolution":"236x133","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2211912\\/timg236x133blob\\/10173252"},{"_resolution":"173x120","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2211912\\/timg173x120blob\\/10173242"}]',
+				'station' => 'ZDF',
+				'created_at' => '2014-08-25 13:52:12',
+				'updated_at' => '2014-08-25 13:52:12',
+				'playlist_id' => NULL,
+				'user_id' => 1,
+			),
 		));
 	}
 
