@@ -52,7 +52,19 @@
 				<div id="feedback-container-success" class="container-fluid feedback-container"><h4 class="text-center">{{ Session::get('global-success') }}</h4></div>
 			@endif
 
-			<div id="feedback-container" class="container-fluid feedback-container"><h4 class="text-center"></h4></div>
+			<?php
+				$error = FALSE;
+				$header = getallheaders();
+				if (isset($header['Via'])) {
+					$via = $header['Via'];
+					if (strpos($via, 'Chrome-Compression-Proxy')) {
+						$error = TRUE;
+					}
+				}
+			?>
+			<?php if ($error): ?>
+			<div class="container-fluid feedback-container"><h4 class="text-center">Bitte schalte in Google Chrome bei "Erweiterte Einstellungen | Bandbreitenverwaltung" den Punkt "Datennutzung reduzieren" aus.</h4></div>
+			<?php endif; ?>
 
 			<div class="container-fluid">
 				@yield('content')

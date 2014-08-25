@@ -227,7 +227,6 @@ MediathekCrawler.ARTEService = function() {
 	},
 
 	getHot = function(maxResults){
-		// console.log("gethot");
 		if(maxResults < 1 || maxResults === null || maxResults === 'undefined' || maxResults === undefined){
 			maxResults = 10;
 		}
