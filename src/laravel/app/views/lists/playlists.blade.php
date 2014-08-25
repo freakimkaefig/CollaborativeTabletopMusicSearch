@@ -8,9 +8,9 @@
 	<div class="col-xs-3 alpha">
 	<button id="new-list" class="btn btn-transparent">Neue Liste</button>
 	<form id="create-playlist" class="select-box col-sm-6 hidden" action="{{ URL::route('new-playlist')}}" method="post">
-		<input type="text" name="playlistName" />
+		<input type="text" name="playlistName"  placeholder="Name" />
 		<button id="button-create-playlist" class="col-xs-12 btn btn-transparent" type="submit">Erstellen</button>
-		<button id="button-create-playlist-cancel" class=" col-xs-12 btn btn-transparent" >Abbrechen</button>
+		<button id="button-create-playlist-cancel" class=" col-xs-12 btn btn-transparent" type="button" >Abbrechen</button>
 	</form>
 	</div>
 		<?php

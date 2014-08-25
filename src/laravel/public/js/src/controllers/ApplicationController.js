@@ -87,6 +87,7 @@ MediathekCrawler.ApplicationController = function() {
 	},
 
 	onResultReceived = function(event, result) {
+		$('#sort-buttons').removeClass('hidden');
 		if (document.URL.indexOf("/suche") > -1) {
 			if($("#duration-slider").slider("value") < 1){
 				resultView.appendResult(event, result);
@@ -131,7 +132,7 @@ MediathekCrawler.ApplicationController = function() {
 				ZDFService.getHot(ZDFMAXRESULTS);
 			}
 			if(document.URL.indexOf('/channel/ARTE') > -1){
-				ARTEService.getNew(ARTEMAXRESULTS, null, null);
+				ARTEService.getNew(ARTEMAXRESULTS);
 				ARTEService.getHot(ARTEMAXRESULTS);
 			}
 			if(document.URL.indexOf('/channel/DasErste') > -1){
@@ -279,13 +280,13 @@ MediathekCrawler.ApplicationController = function() {
 				// Channel search
 				else{
 					if(channel == "arte"){
-						ARTEService.getNew(5);
-						ARTEService.getHot(5);
+						ARTEService.getNew(ARTEMAXRESULTS);
+						ARTEService.getHot(ARTEMAXRESULTS);
 						//checkDuration(duration);
 					}
 					if(channel == "zdf"){
-						ZDFService.getNew(6);
-						ZDFService.getHot(6)
+						ZDFService.getNew(ZDFMAXRESULTS);
+						ZDFService.getHot(ZDFMAXRESULTS)
 					}
 					if(channel == "daserste"){
 						DasErsteService.getNew();

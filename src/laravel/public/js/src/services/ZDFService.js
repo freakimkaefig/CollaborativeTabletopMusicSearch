@@ -1,12 +1,3 @@
-
-			    //TODO:
-			    // Abfrage ob Ajax response bereits JSON oder nicht
-			    // mehrere Suchbegriffe (wie verbinden)?
-			    // Filter
-			    // SendungenAbisZ-Suche?
-			    // CHECK ob parseResponse() bereits Daten enthät die searchStream() nochmals abruft!?
-			    // CHECK: nur mp4 Video links abspielbar!?
-
 MediathekCrawler.ZDFService = function() {
 
 	var that = {},
@@ -81,11 +72,12 @@ MediathekCrawler.ZDFService = function() {
 		$.ajax({
 			url: ZDFSEARCHURL+searchStr+'&maxLength='+String(maxResults),
 			type: 'GET',
+			cache: false,
 			success: function(data) {
 				_parseResponse(origin, data);
 			},
-			error: function(){
-				console.warn('ERROR; ZDFService.searchString; AJAX-request did not recieve a response');
+			error: function(jqXHR, textStatus, errorThrown){
+				console.warn('ERROR; ZDFService.searchString; AJAX-request did not recieve a response\n',jqXHR, textStatus, errorThrown);
 			}
 		});
 	},
@@ -122,12 +114,13 @@ MediathekCrawler.ZDFService = function() {
 		$.ajax({
 			url: encodeURI(ZDFSEARCHBYDATE+String(startdate)+ZDFSEARCHBYDATE2+String(enddate)+ZDFSEARCHBYDATE3+String(maxResults)),
 			type: 'GET',
+			cache: false,
 			success: function(data) {
 				// console.log('ZDF getZDFVideosByDate ajax succes, data: ',data);
 				_parseResponse(origin, data);
 			},
-			error: function(){
-				console.warn('ERROR; ZDFService.searchString; AJAX-request did not recieve a response');
+			error: function(jqXHR, textStatus, errorThrown){
+				console.warn('ERROR; ZDFService.getZDFVideosByDate; AJAX-request did not recieve a response\n',jqXHR, textStatus, errorThrown);
 			}
 		});
 
@@ -208,6 +201,7 @@ MediathekCrawler.ZDFService = function() {
 		$.ajax({
 			url: ZDFSTREAMURL+assetID,
 			type: 'GET',
+			cache: false,
 			success: function(data) {	
 				$xml = $(data);
 
@@ -317,7 +311,7 @@ MediathekCrawler.ZDFService = function() {
 			    	}); // end foreach formitaet
 					if(streams.length < 1){
 						
-						console.log('\'',title, '\' has ', streams.length, ' streams. \nCHECK: ',ZDFSTREAMURL+assetID);
+						// console.log('\'',title, '\' has ', streams.length, ' streams. \nCHECK: ',ZDFSTREAMURL+assetID);
 					}
 					else{
 						// console.log('pushing to resultmodel: ',origin, title, subtitle, details, station, assetID, length, airtime, teaserImages, streams);
@@ -325,8 +319,8 @@ MediathekCrawler.ZDFService = function() {
 					}
 			    }
 			},
-			error: function(){
-				console.warn('ERROR; ZDFService._searchStream; AJAX-request did not recieve a response');
+			error: function(jqXHR, textStatus, errorThrown){
+				console.warn('ERROR; ZDFService._searchStream; AJAX-request did not recieve a response\n',jqXHR, textStatus, errorThrown);
 			}
 		});
 
@@ -360,12 +354,13 @@ MediathekCrawler.ZDFService = function() {
 		$.ajax({
 			url: ZDFSEARCHHOTURL+String(maxResults)+'&offset=1',
 			type: 'GET',
+			cache: false,
 			success: function(data) {
 				// console.log('ZDF getHot data: ',data, ZDFSEARCHHOTURL+String(maxResults)+'&offset=1');
 				_parseResponse(origin, data);
 			},
-			error: function(){
-				console.warn('ERROR; ZDFService.getHot; AJAX-request did not recieve a response');
+			error: function(jqXHR, textStatus, errorThrown){
+				console.warn('ERROR; ZDFService.getHot; AJAX-request did not recieve a response\n',jqXHR, textStatus, errorThrown);
 			}
 		});
 	},
@@ -386,54 +381,59 @@ MediathekCrawler.ZDFService = function() {
 			$.ajax({
 				url: ZDFSEARCHNEWURL+ZDFID+'&maxLength='+String(maxResults),
 				type: 'GET',
+				cache: false,
 				success: function(data) {
 					_parseResponse(origin, data);
 				},
-				error: function(){
-					console.warn('ERROR; ZDFService.getNew; ZDF; AJAX-request did not recieve a response');
-				}
+			error: function(jqXHR, textStatus, errorThrown){
+				console.warn('ERROR; ZDFService.getNew; AJAX-request did not recieve a response\n',jqXHR, textStatus, errorThrown);
+			}
 			});
 			$.ajax({
 				url: ZDFSEARCHNEWURL+ZDFNEOID+'&maxLength='+String(maxResults),
 				type: 'GET',
+				cache: false,
 				success: function(data) {
 					_parseResponse(origin, data);
 				},
-				error: function(){
-					console.warn('ERROR; ZDFService.getNew; ZDFNEO; AJAX-request did not recieve a response');
-				}
+			error: function(jqXHR, textStatus, errorThrown){
+				console.warn('ERROR; ZDFService.getNew; AJAX-request did not recieve a response\n',jqXHR, textStatus, errorThrown);
+			}
 			});
 			$.ajax({
 				url: ZDFSEARCHNEWURL+ZDFKULTURID+'&maxLength='+String(maxResults),
 				type: 'GET',
+				cache: false,
 				success: function(data) {
 					_parseResponse(origin, data);
 				},
-				error: function(){
-					console.warn('ERROR; ZDFService.getNew; ZDFKULTUR; AJAX-request did not recieve a response');
-				}
+			error: function(jqXHR, textStatus, errorThrown){
+				console.warn('ERROR; ZDFService.getNew; AJAX-request did not recieve a response\n',jqXHR, textStatus, errorThrown);
+			}
 			});
 			$.ajax({
 				url: ZDFSEARCHNEWURL+ZDFINFOID+'&maxLength='+String(maxResults),
 				type: 'GET',
+				cache: false,
 				success: function(data) {
 					_parseResponse(origin, data);
 				},
-				error: function(){
-					console.warn('ERROR; ZDFService.getNew; ZDFINFO; AJAX-request did not recieve a response');
-				}
+			error: function(jqXHR, textStatus, errorThrown){
+				console.warn('ERROR; ZDFService.getNew; AJAX-request did not recieve a response\n',jqXHR, textStatus, errorThrown);
+			}
 			});
 		}else{
 			// console.log('ZDF getNew with maxResults = ',maxResults, ZDFSEARCHNEWURL+ZDFID+'&maxLength=1');
 			$.ajax({
 				url: ZDFSEARCHNEWURL+ZDFID+'&maxLength=1',
 				type: 'GET',
+				cache: false,
 				success: function(data) {
 					_parseResponse(origin, data);
 				},
-				error: function(){
-					console.warn('ERROR; ZDFService.getNew; ZDF with maxResults = 1; AJAX-request did not recieve a response');
-				}
+			error: function(jqXHR, textStatus, errorThrown){
+				console.warn('ERROR; ZDFService.getNew; AJAX-request did not recieve a response\n',jqXHR, textStatus, errorThrown);
+			}
 			});
 		}
 	},
@@ -463,6 +463,7 @@ MediathekCrawler.ZDFService = function() {
 			// maxLength: max results of broadcasts per category
 			url: ZDFBROADCASTSPERCATEGORY+String(assetId)+'&maxLength=50',
 			type: 'GET',
+			cache: false,
 			success: function(data) {
 				$xml = $(data);
 	     		//console.log(data);
@@ -482,8 +483,8 @@ MediathekCrawler.ZDFService = function() {
 			    }
 
 			},
-			error: function(){
-				console.warn('ERROR; ZDFService._getBroadcastOfCategory; AJAX-request did not recieve a response');
+			error: function(jqXHR, textStatus, errorThrown){
+				console.warn('ERROR; ZDFService._getBroadcastOfCategory; AJAX-request did not recieve a response\n',jqXHR, textStatus, errorThrown);
 			}
 		});
 		
@@ -494,6 +495,7 @@ MediathekCrawler.ZDFService = function() {
 		$.ajax({
 			url: ZDFVIDEOSPERBROADCAST+String(assetId)+'&maxLength='+String(maxVidProSendung),
 			type: 'GET',
+			cache: false,
 			success: function(data) {
 				$xml = $(data);
 	     		//console.log(data);
@@ -512,8 +514,8 @@ MediathekCrawler.ZDFService = function() {
 				    	
 			    }
 			},
-			error: function(){
-				console.warn('ERROR; ZDFService._getVideosOfBroadcast; AJAX-request did not recieve a response');
+			error: function(jqXHR, textStatus, errorThrown){
+				console.warn('ERROR; ZDFService._getVideosOfBroadcast; AJAX-request did not recieve a response\n',jqXHR, textStatus, errorThrown);
 			}
 		});
 	},
@@ -523,6 +525,7 @@ MediathekCrawler.ZDFService = function() {
 		$.ajax({
 			url: ZDFSTREAMURL+assetId,
 			type: 'GET',
+			cache: false,
 			success: function(data) {
 				$xml = $(data);
 			    //console.log(data);
@@ -585,8 +588,8 @@ MediathekCrawler.ZDFService = function() {
 				    	
 			    } //end if
 			},
-			error: function(){
-				console.warn('ERROR; ZDFService._getDetailsAndStreamOfVideo; ZDFINFO; AJAX-request did not recieve a response');
+			error: function(jqXHR, textStatus, errorThrown){
+				console.warn('ERROR; ZDFService._getDetailsAndStreamOfVideo; AJAX-request did not recieve a response\n',jqXHR, textStatus, errorThrown);
 			}
 		});
 	},

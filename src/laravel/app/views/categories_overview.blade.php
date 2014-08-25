@@ -4,6 +4,9 @@
 ?>
 @section('content')
 
+<div class="row">
+    <h2 class="text-center page-title">Rubriken</h2>
+</div>
 <ul id="home-categories" class="container-fluid">
 	
 	<!-- <h3>Kategorien:</h3> -->

@@ -24,28 +24,6 @@ MediathekCrawler.BRService = function() {
 	SEARCH_WRAPPER_ELEMENT = '#teaserBundleSearch',
 	SEARCH_ITEM_WRAPPER = 'article.teaser',
 	SEARCH_ITEM_URL = 'a.link_video',
-
-	// Most recommended broadcastst
-	// http://www.br.de/mediathek/video/suche/tag-suche-mediathek-100.html?t=social&q=mostRecommended
-
-	// Best rated
-	// http://www.br.de/mediathek/video/suche/tag-suche-mediathek-100.html?t=social&q=bestRated
-
-	// Most viewed broadcasts
-	// http://www.br.de/mediathek/video/suche/tag-suche-mediathek-100.html?t=social&q=mostViewed
-
-	// Tipps der Redaktion
-	// http://www.br.de/mediathek/video/suche/tag-suche-mediathek-100.html?t=tags&q=Mediathek-Tagestipp
-
-	// Trailer
-	// http://www.br.de/mediathek/video/suche/tag-suche-mediathek-100.html?t=category&q=trailer
-
-	// Web-Exklusiv
-	// http://www.br.de/mediathek/video/suche/tag-suche-mediathek-100.html?t=category&q=web-exklusiv
-
-	// Vorab im Web
-	// http://www.br.de/mediathek/video/suche/tag-suche-mediathek-100.html?t=category&q=vorab-im-web
-
 	_model = null,
 	getDatesOnce = 1;
 
@@ -95,8 +73,12 @@ MediathekCrawler.BRService = function() {
 		$.ajax({
 			url: _searchUrl,
 			type: 'GET',
+			cache: false,
 			success: function(data) {
 				onSearchString(data, origin);
+			},
+			error: function(jqXHR, textStatus, errorThrown){
+				console.warn('ERROR; BRService.searchStringByRelevance; AJAX-request did not recieve a response\n',jqXHR, textStatus, errorThrown);
 			}
 		});
 	},
@@ -112,8 +94,12 @@ MediathekCrawler.BRService = function() {
 		$.ajax({
 			url: _searchUrl,
 			type: 'GET',
+			cache: false,
 			success: function(data) {
 				onSearchString(data, origin);
+			},
+			error: function(jqXHR, textStatus, errorThrown){
+				console.warn('ERROR; BRService.searchStringByDate; AJAX-request did not recieve a response\n',jqXHR, textStatus, errorThrown);
 			}
 		});
 	},
@@ -146,8 +132,12 @@ MediathekCrawler.BRService = function() {
 		$.ajax({
 			url: _url,
 			type: 'GET',
+			cache: false,
 			success: function(data) {
 				onLoadDetails(data, origin);
+			},
+			error: function(jqXHR, textStatus, errorThrown){
+				console.warn('ERROR; BRService.loadDetails; AJAX-request did not recieve a response\n',jqXHR, textStatus, errorThrown);
 			}
 		});
 	},
@@ -190,6 +180,7 @@ MediathekCrawler.BRService = function() {
 	 */
 	onLoadDetails = function(data, origin) {
 		var _onclick = $(data).find('#playerFrame .player .avPlayer figure .clearFix a').attr('onclick');
+		// console.log('BR onclick: ',_onclick);
 		if (_onclick !== undefined) {
 			// url for xml file containing streams is placed in click event handler
 			// searching for string between {dataURL:' and '}
@@ -232,12 +223,16 @@ MediathekCrawler.BRService = function() {
 	 */
 	loadStreams = function(result, url, origin) {
 		var _url = PROXY_URL + encodeURI(BASE_URL + url);
-
+		// console.log('BR stream url: ',_url);
 		$.ajax({
 			url: _url,
 			type: 'GET',
+			cache: false,
 			success: function(data) {
 				onLoadStreams(result, data, origin);
+			},
+			error: function(jqXHR, textStatus, errorThrown){
+				console.warn('ERROR; BRService.loadStreams; AJAX-request did not recieve a response\n',jqXHR, textStatus, errorThrown);
 			}
 		});
 	},
@@ -295,6 +290,10 @@ MediathekCrawler.BRService = function() {
 	 * Public function to get new videos (= videos of the last 3 days including today)
 	 */
 	getBRNew = function(maxResults, dateUrl) {
+		if(!maxResults || maxResults === undefined || maxResults === null){
+			maxResults = 20;
+		}
+
 		$today = new Date();
 		var $dd = $today.getDate();
 		if($dd<10){$dd='0'+$dd} var nowDay = $dd
@@ -326,6 +325,7 @@ MediathekCrawler.BRService = function() {
 				$.ajax({
 					url: _url,
 					type: 'GET',
+					cache: false,
 					success: function(data) {
 						onGetBRNew(maxResults, data, origin);
 						// if(getDatesOnce === 1){
@@ -385,6 +385,9 @@ MediathekCrawler.BRService = function() {
 
 							});
 						// }
+					},
+					error: function(jqXHR, textStatus, errorThrown){
+						console.warn('ERROR; BRService.getBRNew; AJAX-request did not recieve a response\n',jqXHR, textStatus, errorThrown);
 					}
 				});
 			}else{
@@ -393,8 +396,12 @@ MediathekCrawler.BRService = function() {
 				$.ajax({
 					url: _url,
 					type: 'GET',
+					cache: false,
 					success: function(data) {
 						onGetBRNew(maxResults, data, origin);
+					},
+					error: function(jqXHR, textStatus, errorThrown){
+						console.warn('ERROR; BRService.getBRNew; AJAX-request did not recieve a response\n',jqXHR, textStatus, errorThrown);
 					}
 				});
 			}
@@ -405,9 +412,13 @@ MediathekCrawler.BRService = function() {
 			$.ajax({
 				url: _url,
 				type: 'GET',
+				cache: false,
 				success: function(data) {
 
 					onGetBRNew(maxResults, data, origin);
+				},
+				error: function(jqXHR, textStatus, errorThrown){
+					console.warn('ERROR; BRService.getBRNew; AJAX-request did not recieve a response\n',jqXHR, textStatus, errorThrown);
 				}
 			});
 		}
@@ -426,7 +437,7 @@ MediathekCrawler.BRService = function() {
 
 				// console.log('BR onGetBRNew element: ',element);
 				var url = $(element).attr('data-ondemand_url');
-				console.log('BR onGetBRNew url: ',url);
+				// console.log('BR data-livestream_url: ',url);
 				if (url !== undefined) {
 					loadDetails(url, origin);
 				}
@@ -456,19 +467,23 @@ MediathekCrawler.BRService = function() {
 		// throw new NotImplementedException();
 		// BR_HOT_URL
 		var _url = PROXY_URL + encodeURI(BR_HOT_URL);
-		console.log('BR getBRHot url: ',_url);
+		// console.log('BR getBRHot url: ',_url);
 		$.ajax({
 			url: _url,
 			type: 'GET',
+			cache: false,
 			success: function(data) {
 
 				onGetBRHot(data, origin);
+			},
+			error: function(jqXHR, textStatus, errorThrown){
+				console.warn('ERROR; BRService.getBRHot; AJAX-request did not recieve a response\n',jqXHR, textStatus, errorThrown);
 			}
 		});
 	},
 
 	onGetBRHot = function(data, origin){
-		console.log('BR onGetBRHot: ',data);
+		// console.log('BR onGetBRHot: ',data);
 
 		// $(data).find('.teaserInner').each(function (index, element) {
 		// console.log('BR onGetBRHot: ',element);
@@ -536,8 +551,8 @@ MediathekCrawler.BRService = function() {
 				success: function(data) {	
 					_onBRVideosByDate(data, origin, dates);
 				},
-				error: function(data){
-					console.log('SRF getSRFVideosByDate - Could not fetch Data from: ',_url);
+				error: function(jqXHR, textStatus, errorThrown){
+					console.warn('ERROR; BRService.getBRVideosByDate; AJAX-request did not recieve a response\n',jqXHR, textStatus, errorThrown);
 				}
 			});
   			

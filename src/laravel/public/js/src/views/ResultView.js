@@ -21,7 +21,7 @@ MediathekCrawler.ResultView = (function() {
 			$("#waiting").show();
 		});
 		$(document).ajaxStop(function(){
-			console.log('AJAXSTOP');
+			// console.log('AJAXSTOP');
 			$("#waiting").hide();
 		});
 	},

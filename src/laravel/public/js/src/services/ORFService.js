@@ -63,9 +63,13 @@ MediathekCrawler.ORFService = function() {
 		$.ajax({
 			url: _searchUrl,
 			type: 'GET',
+			cache: false,
 			success: function(data){
 				// console.log('ORF data: ',data);
 				onORFLoadDetails(data, origin);
+			},
+			error: function(jqXHR, textStatus, errorThrown){
+				console.warn('ERROR; ORFService.searchString; AJAX-request did not recieve a response\n',jqXHR, textStatus, errorThrown);
 			}
 		});
 	},
@@ -83,9 +87,13 @@ MediathekCrawler.ORFService = function() {
 		$.ajax({
 			url: _searchUrl,
 			type: 'GET',
+			cache: false,
 			success: function(data){
 				// console.log('ORF data: ',data);
 				onORFLoadDetails(data, origin, maxResults);
+			},
+			error: function(jqXHR, textStatus, errorThrown){
+				console.warn('ERROR; ORFService.getNew; AJAX-request did not recieve a response\n',jqXHR, textStatus, errorThrown);
 			}
 		});
 	},
@@ -103,9 +111,13 @@ MediathekCrawler.ORFService = function() {
 		$.ajax({
 			url: _searchUrl,
 			type: 'GET',
+			cache: false,
 			success: function(data){
 				// console.log('ORF data: ',data);
 				onORFLoadDetails(data, origin);
+			},
+			error: function(jqXHR, textStatus, errorThrown){
+				console.warn('ERROR; ORFService.getHot; AJAX-request did not recieve a response\n',jqXHR, textStatus, errorThrown);
 			}
 		});
 	},
@@ -126,12 +138,6 @@ MediathekCrawler.ORFService = function() {
 				if($(element).length > 0) {
 					// get 'documentId' of video
 					var	documentUrl = $(element).find('a').attr('href'),
-						// broadcastUrlParams = _parseQueryString($(element).find(VIDEO_CLASS).find(LINK_CLASS).attr('href')),
-						// documentId = broadcastUrlParams.documentId;
-				// console.log('ORF onORFLoadDetails: ',documentUrl,documentId);
-					
-					// find container for details
-					// var $textWrapper = $(element).find('div.textWrapper');
 					_result = {};
 					_result._station ='ORF';
 				// console.log('ORF onORFLoadDetails STATION : ',$element.find('p.subtitle').text(), _result._station);
@@ -163,9 +169,13 @@ MediathekCrawler.ORFService = function() {
 		$.ajax({
 			url: streamURL,
 			type: 'GET',
+			cache: false,
 			success: function(data) {
 		// console.log('ORF loadORFStreams: ',typeof data, data);
 				onloadORFStreams(documentUrl, result, data, origin);
+			},
+			error: function(jqXHR, textStatus, errorThrown){
+				console.warn('ERROR; ORFService.loadORFStreams; AJAX-request did not recieve a response\n',jqXHR, textStatus, errorThrown);
 			}
 		});
 	},
@@ -185,7 +195,7 @@ MediathekCrawler.ORFService = function() {
 			    		url = r[i].src,
 			    		filesize = 0,
 		    			type = 'video/mp4';
-			    		console.log('ORF url: ',url);
+			    		// console.log('ORF url: ',url);
 
 		    			switch (r[i].quality_string) {
 			    			case 'hoch':
