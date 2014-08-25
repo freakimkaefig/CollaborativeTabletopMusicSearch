@@ -30,7 +30,7 @@
 								<button id="add-to-playlist" class="col-xs-12 btn btn-transparent">Hinzufügen</button>
 								<button id="add-to-playlist-cancel" class="col-xs-12 btn btn-transparent" type="button" >Abbrechen</button>
 								@else
-								<p>Sie müssen zunächst eine Playliste erstellen:</p>
+								<p>Du musst zunächst eine Playliste erstellen:</p>
 								<form id="create-playlist" class="select-box col-sm-6 hidden" action="{{-- URL::route('new-playlist-broadcast') --}}" method="post">
 									<input type="text" name="playlistName"  placeholder="Name" />
 									<button id="button-create-playlist-broadcast" class="col-xs-12 btn btn-transparent" type="button">Erstellen</button>
@@ -69,7 +69,7 @@
 					<input id="bookmark" type="hidden" value='{{$bookmarked}}'>
 				@endif
 	@else
-		{{ Redirect::route('home')->with('global-warning', 'Es ist ein Fehler aufgetreten. Versuchen Sie es später erneut.') }}
+		{{ Redirect::route('home')->with('global-warning', 'Es ist ein Fehler aufgetreten. Versuche es später erneut.') }}
 	@endif
 	<!-- END streaming/video -->
 @stop

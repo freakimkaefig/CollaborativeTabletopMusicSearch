@@ -58,7 +58,7 @@
 		                </div>
 		            
 		                <div class="modal-body">
-		                    <p>Sie sind dabei die Playliste "{{$result->name}}" zu löschen! </p>
+		                    <p>Du bist dabei die Playliste "{{$result->name}}" zu löschen! </p>
 		                    <p>Video wirklich löschen?</p>
 		                </div>
 		                
@@ -89,7 +89,7 @@
 		                </div>
 		            
 		                <div class="modal-body">
-		                    <p>Sie sind dabei die Playliste "{{$result->name}}" zu löschen! </p>
+		                    <p>Du bist dabei die Playliste "{{$result->name}}" zu löschen! </p>
 		                    <p>Playliste wirklich löschen?</p>
 		                </div>
 		                

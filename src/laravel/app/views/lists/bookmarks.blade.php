@@ -47,7 +47,7 @@
                   </div>
                 
                   <div class="modal-body">
-                    <p>Sie sind dabei das Video "{{$result->title}}" aus ihrer Playliste zu löschen! </p>
+                    <p>Du bist dabei das Video "{{$result->title}}" aus ihrer Playliste zu löschen! </p>
                     <p>Video wirklich löschen?</p>
                   </div>
                     
