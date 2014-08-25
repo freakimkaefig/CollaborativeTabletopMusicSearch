@@ -138,12 +138,6 @@ MediathekCrawler.ORFService = function() {
 				if($(element).length > 0) {
 					// get 'documentId' of video
 					var	documentUrl = $(element).find('a').attr('href'),
-						// broadcastUrlParams = _parseQueryString($(element).find(VIDEO_CLASS).find(LINK_CLASS).attr('href')),
-						// documentId = broadcastUrlParams.documentId;
-				// console.log('ORF onORFLoadDetails: ',documentUrl,documentId);
-					
-					// find container for details
-					// var $textWrapper = $(element).find('div.textWrapper');
 					_result = {};
 					_result._station ='ORF';
 				// console.log('ORF onORFLoadDetails STATION : ',$element.find('p.subtitle').text(), _result._station);
