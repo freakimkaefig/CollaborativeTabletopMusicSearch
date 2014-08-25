@@ -24,6 +24,28 @@ MediathekCrawler.BRService = function() {
 	SEARCH_WRAPPER_ELEMENT = '#teaserBundleSearch',
 	SEARCH_ITEM_WRAPPER = 'article.teaser',
 	SEARCH_ITEM_URL = 'a.link_video',
+
+	// Most recommended broadcastst
+	// http://www.br.de/mediathek/video/suche/tag-suche-mediathek-100.html?t=social&q=mostRecommended
+
+	// Best rated
+	// http://www.br.de/mediathek/video/suche/tag-suche-mediathek-100.html?t=social&q=bestRated
+
+	// Most viewed broadcasts
+	// http://www.br.de/mediathek/video/suche/tag-suche-mediathek-100.html?t=social&q=mostViewed
+
+	// Tipps der Redaktion
+	// http://www.br.de/mediathek/video/suche/tag-suche-mediathek-100.html?t=tags&q=Mediathek-Tagestipp
+
+	// Trailer
+	// http://www.br.de/mediathek/video/suche/tag-suche-mediathek-100.html?t=category&q=trailer
+
+	// Web-Exklusiv
+	// http://www.br.de/mediathek/video/suche/tag-suche-mediathek-100.html?t=category&q=web-exklusiv
+
+	// Vorab im Web
+	// http://www.br.de/mediathek/video/suche/tag-suche-mediathek-100.html?t=category&q=vorab-im-web
+
 	_model = null,
 	getDatesOnce = 1;
 
@@ -34,6 +56,7 @@ MediathekCrawler.BRService = function() {
 		console.info('MediathekCrawler.BRService.init');
 		_model = model;
 	},
+
 
 	/**
 	 * Public function to search with given string, type and numResults
@@ -315,7 +338,7 @@ MediathekCrawler.BRService = function() {
 				// http://www.br.de/mediathek/video/programm/index.html
 				// BR_NEW_URL
 				var _url = PROXY_URL + encodeURI(BR_NEW_URL);
-					// console.log('BR GetBRNew url: ',_url);
+					console.log('BR GetBRNew url: ',_url);
 				$.ajax({
 					url: _url,
 					type: 'GET',
@@ -386,7 +409,7 @@ MediathekCrawler.BRService = function() {
 				});
 			}else{
 				var _url = PROXY_URL + encodeURI(BR_NEW_URL);
-					// console.log('BR GetBRNew url: ',_url);
+					console.log('BR GetBRNew url: ',_url);
 				$.ajax({
 					url: _url,
 					type: 'GET',
@@ -402,7 +425,7 @@ MediathekCrawler.BRService = function() {
 		}
 		else{
 			var _url = PROXY_URL + encodeURI(dateUrl);
-				// console.log('BR onGetBRNew ELSE url: ',_url);
+				console.log('BR onGetBRNew ELSE url: ',_url);
 			$.ajax({
 				url: _url,
 				type: 'GET',
@@ -461,7 +484,7 @@ MediathekCrawler.BRService = function() {
 		// throw new NotImplementedException();
 		// BR_HOT_URL
 		var _url = PROXY_URL + encodeURI(BR_HOT_URL);
-		// console.log('BR getBRHot url: ',_url);
+		console.log('BR getBRHot url: ',_url);
 		$.ajax({
 			url: _url,
 			type: 'GET',
@@ -477,7 +500,7 @@ MediathekCrawler.BRService = function() {
 	},
 
 	onGetBRHot = function(data, origin){
-		// console.log('BR onGetBRHot: ',data);
+		console.log('BR onGetBRHot: ',data);
 
 		// $(data).find('.teaserInner').each(function (index, element) {
 		// console.log('BR onGetBRHot: ',element);
