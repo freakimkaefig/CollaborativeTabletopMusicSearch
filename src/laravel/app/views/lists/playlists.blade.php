@@ -13,6 +13,7 @@
 		<button id="button-create-playlist-cancel" class=" col-xs-12 btn btn-transparent" type="button" >Abbrechen</button>
 	</form>
 	</div>
+	<div class="col-xs-12 row">
 		<?php
 			//$results = DB::select('select * from playlists where user="'+Auth::id()+'"');
 			$results= DB::table('playlists')->where('user', '=', Auth::id())->get();
@@ -33,75 +34,80 @@
 		          }
 		        ?>
 		    @if(isset($videos[0]->id))  
-   			<div  id="list-item-{{$result->id}}" class="list-item col-xs-12 col-sm-10 col-sm-offset-1">
-   				<a href="{{ URL::route('playlist-single',[$result->id,$videos[0]->id])}}">
-		        	<img src='{{$image}}' class="img-responsive col-xs-10 col-md-4 col-lg-3"/>
-		        </a>
-		       	<div class="col-xs-1 pull-right">
-		        	<button class="btn btn-transparent pull-right" data-toggle="modal" data-target="#confirm-delete-{{$result->id}}">X</button>
-		        </div>
-		        <a href="{{ URL::route('playlist-single',[$result->id,$videos[0]->id])}}">
-       				<div class="col-xs-12 col-md-7 col-lg-8">
-       					<h3>{{$result->name}}</h3>
-       					<h4>{{ isset($videos[0]->title) ? '1) ' . $videos[0]->title : '' }}</h4>
-       					<h4>{{ isset($videos[1]->title) ? '2) ' . $videos[1]->title : '' }}</h4>
-       					<h4>{{ isset($videos[2]->title) ? '3) ' .$videos[2]->title : '' }}</h4>
-       					<!-- <h4>3)<?php try{ echo $videos[0]->title;}catch(Exception $e){echo "";}?></h4> -->
-       				</div>
-       			</a>
-       			<div class="modal fade" id="confirm-delete-{{$result->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		        <div class="modal-dialog">
-		            <div class="modal-content">
-		                <div class="modal-header">
-		                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-		                    <h4 class="modal-title" >Sicherheitsabfrage</h4>
-		                </div>
-		            
-		                <div class="modal-body">
-		                    <p>Du bist dabei die Playliste "{{$result->name}}" zu löschen! </p>
-		                    <p>Video wirklich löschen?</p>
-		                </div>
-		                
-		                <div class="modal-footer">
-		                    <button type="button" class="btn btn-default" data-dismiss="modal">Abbrechen</button>
-   							<button id="delete-playlist-{{$result->id}}" value="{{$result->id}}" class="btn pull-right">Löschen</button>
-		                </div>
-		            </div>
-		        </div>
+   			<div  id="list-item-{{$result->id}}" class="list-item col-xs-12 col-sm-10 col-sm-offset-1 col-lg-6 col-lg-offset-0">
+   				<div class="list-item-content">
+	   				<a href="{{ URL::route('playlist-single',[$result->id,$videos[0]->id])}}">
+			        	<img src='{{$image}}' class="img-responsive col-xs-10 col-md-4 col-lg-3"/>
+			        </a>
+			       	<div class="col-xs-1 pull-right">
+			        	<button class="btn btn-transparent pull-right" data-toggle="modal" data-target="#confirm-delete-{{$result->id}}">X</button>
+			        </div>
+			        <a href="{{ URL::route('playlist-single',[$result->id,$videos[0]->id])}}">
+	       				<div class="col-xs-12 col-md-7 col-lg-8">
+	       					<h3>{{$result->name}}</h3>
+	       					<h4>{{ isset($videos[0]->title) ? '1) ' . $videos[0]->title : '' }}</h4>
+	       					<h4>{{ isset($videos[1]->title) ? '2) ' . $videos[1]->title : '' }}</h4>
+	       					<h4>{{ isset($videos[2]->title) ? '3) ' .$videos[2]->title : '' }}</h4>
+	       					<!-- <h4>3)<?php try{ echo $videos[0]->title;}catch(Exception $e){echo "";}?></h4> -->
+	       				</div>
+	       			</a>
+	       			<div class="modal fade" id="confirm-delete-{{$result->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				        <div class="modal-dialog">
+				            <div class="modal-content">
+				                <div class="modal-header">
+				                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				                    <h4 class="modal-title" >Sicherheitsabfrage</h4>
+				                </div>
+				            
+				                <div class="modal-body">
+				                    <p>Du bist dabei die Playliste "{{$result->name}}" zu löschen! </p>
+				                    <p>Video wirklich löschen?</p>
+				                </div>
+				                
+				                <div class="modal-footer">
+				                    <button type="button" class="btn btn-default" data-dismiss="modal">Abbrechen</button>
+		   							<button id="delete-playlist-{{$result->id}}" value="{{$result->id}}" class="btn pull-right">Löschen</button>
+				                </div>
+				            </div>
+				        </div>
+				    </div>
 		        </div>
    			</div>
    			@else
-   			<div id="list-item-{{$result->id}}" class="list-item col-xs-12 col-sm-10 col-sm-offset-1">
-   				<img src='{{$image}}' class="img-responsive col-xs-10 col-md-4 col-lg-3"/>
-   				<div class="col-xs-1 pull-right">
-		        	<button class="btn btn-transparent pull-right" data-toggle="modal" data-target="#confirm-delete-{{$result->id}}">X</button>
-		        </div>
-   				<div class="col-xs-12 col-md-7 col-lg-8">
-   					<h3>{{$result->name}}</h3>
-   					<h4>Diese Playliste ist leer.</h4>
-   				</div>
-		        <div class="modal fade" id="confirm-delete-{{$result->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		        <div class="modal-dialog">
-		            <div class="modal-content">
-		                <div class="modal-header">
-		                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-		                    <h4 class="modal-title" >Sicherheitsabfrage</h4>
-		                </div>
-		            
-		                <div class="modal-body">
-		                    <p>Du bist dabei die Playliste "{{$result->name}}" zu löschen! </p>
-		                    <p>Playliste wirklich löschen?</p>
-		                </div>
-		                
-		                <div class="modal-footer">
-		                    <button type="button" class="btn btn-default" data-dismiss="modal">Abbrechen</button>
-   							<button id="delete-playlist-{{$result->id}}" value="{{$result->id}}" class="btn pull-right">Löschen</button>
-		                </div>
-		            </div>
-		        </div>
+   			<div id="list-item-{{$result->id}}" class="list-item col-xs-12 col-sm-10 col-sm-offset-1 col-lg-6 col-lg-offset-0">
+   				<div class="list-item-content">
+	   				<img src='{{$image}}' class="img-responsive col-xs-10 col-md-4 col-lg-3"/>
+	   				<div class="col-xs-1 pull-right">
+			        	<button class="btn btn-transparent pull-right" data-toggle="modal" data-target="#confirm-delete-{{$result->id}}">X</button>
+			        </div>
+	   				<div class="col-xs-12 col-md-7 col-lg-8">
+	   					<h3>{{$result->name}}</h3>
+	   					<h4>Diese Playliste ist leer.</h4>
+	   				</div>
+			        <div class="modal fade" id="confirm-delete-{{$result->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				        <div class="modal-dialog">
+				            <div class="modal-content">
+				                <div class="modal-header">
+				                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				                    <h4 class="modal-title" >Sicherheitsabfrage</h4>
+				                </div>
+				            
+				                <div class="modal-body">
+				                    <p>Du bist dabei die Playliste "{{$result->name}}" zu löschen! </p>
+				                    <p>Playliste wirklich löschen?</p>
+				                </div>
+				                
+				                <div class="modal-footer">
+				                    <button type="button" class="btn btn-default" data-dismiss="modal">Abbrechen</button>
+		   							<button id="delete-playlist-{{$result->id}}" value="{{$result->id}}" class="btn pull-right">Löschen</button>
+				                </div>
+				            </div>
+				        </div>
+				    </div>
 		        </div>
    			</div> 
    			@endif
        		@endforeach
+       	</div>
     <!-- END lists/playlists -->
 @stop

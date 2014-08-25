@@ -3,7 +3,7 @@
 @section('content')
 
 <?php
-	$channel_row_class = 'home-channel col-xs-6 col-md-4 col-lg-3';
+	$channel_row_class = 'home-channel col-xs-6 col-sm-4 col-md-2 col-lg-2';
 	$category_row_class = 'home-category col-xs-6 col-sm-4 col-md-3 col-lg-2';
 ?>
 
@@ -27,7 +27,7 @@
 
 <div class="spacer"></div>
 
-<ul id="home-channels" class="container-fluid">
+<ul id="home-channels" class="container-fluid row">
 	<!-- <h3>Sender:</h3> -->
 	<li class="<?php print $channel_row_class ?>">
 		<a href="{{URL::route('channel',array('DasErste'))}}">
@@ -86,7 +86,7 @@
 </ul>
 <div class="spacer"></div>
 <h2 class="text-center">Rubriken</h2>
-<ul id="home-categories" class="container-fluid">
+<ul id="home-categories" class="container-fluid row">
 	
 	<!-- <h3>Kategorien:</h3> -->
 	<li class="<?php print $category_row_class ?>">
