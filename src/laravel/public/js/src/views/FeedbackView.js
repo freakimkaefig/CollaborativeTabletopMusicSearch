@@ -26,7 +26,7 @@ MediathekCrawler.FeedbackView = (function() {
 			$("#feedback-container>h4").text("Playlist wurde gelöscht!");
 		}
 		if(feedback =="addNewPlaylist"){
-			$("#feedback-container>h4").text("Playliste erstellt!");
+			$("#feedback-container>h4").text("Video der erstellten Playlist hinzugefügt!");
 		}
 		setTimeout(function() { $("#feedback-container").slideDown(500); },100);
 		setTimeout(function() { $("#feedback-container").slideUp(500); },2000);
