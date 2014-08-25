@@ -108,7 +108,11 @@ MediathekCrawler.ARTEService = function() {
 			type: 'GET',
 			cache: false,
 			success: function(data) {
-	     		var response = $.parseJSON(data);
+	     		try{
+	     			var response = $.parseJSON(data);
+	     		}catch(e){
+	     			var response = data;
+	     		}
 				// console.log('DATA _getARTEBroadcastOfCategory ', typeof response, response);
 				var y = response.videoList;
 				if(y.length > 0){
@@ -252,7 +256,11 @@ MediathekCrawler.ARTEService = function() {
 	},
 
 	_onARTEGetHot = function(origin, data){
-		var response = $.parseJSON(data);
+		try{
+			var response = $.parseJSON(data);
+		}catch(e){
+			var response = data;
+		}
 		var x = response.videoList;
 		if(x.length > 0){
 
