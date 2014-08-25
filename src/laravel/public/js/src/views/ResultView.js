@@ -19,10 +19,13 @@ MediathekCrawler.ResultView = (function() {
 		$("#waiting").hide();
 		$(document).ajaxStart(function(){
 			$("#waiting").show();
+			$('#content').css("overflow", "hidden");
 		});
 		$(document).ajaxStop(function(){
 			// console.log('AJAXSTOP');
 			$("#waiting").hide();
+			$('#content').css("overflow", "auto");
+
 		});
 	},
 

@@ -83,7 +83,11 @@ MediathekCrawler.ApplicationController = function() {
 
 		$("#video").click(function(){
 			console.log("videoclick");
-		})
+		});
+
+		$(document).ajaxStop(function(){
+			// console.log('AJAXSTOP');
+		});
 	},
 
 	onResultReceived = function(event, result) {
@@ -115,6 +119,7 @@ MediathekCrawler.ApplicationController = function() {
 	},
 
 	_analyzeRoute = function() {
+		var url = document.URL.toLowerCase();
 		if (document.URL === "http://mediathek-crawler/" || document.URL === "http://mediathek.lukaslamm.de/" || document.URL === "http://mediathek.lukaslamm.de/#") {
 			DasErsteService.getNew(1);	// liefert 12 Ergebnisse statt einem
 			ZDFService.getNew(1);
@@ -123,40 +128,40 @@ MediathekCrawler.ApplicationController = function() {
 			ORFService.getNew(1);
 			SRFService.getNew(1);
 		}
-		if(document.URL.indexOf('/new') > -1){
+		if(url.indexOf('/new') > -1){
 			_getNew();
 		}
-		if(document.URL.indexOf('/hot') > -1){
+		if(url.indexOf('/hot') > -1){
 			_getHot();
 		}
-		if(document.URL.indexOf('/channel') > -1){
-			if(document.URL.indexOf('/channel/ZDF') > -1){
+		if(url.indexOf('/channel') > -1){
+			if(url.indexOf('/channel/zdf') > -1){
 				ZDFService.getNew(ZDFMAXRESULTS);
 				ZDFService.getHot(ZDFMAXRESULTS);
 			}
-			if(document.URL.indexOf('/channel/ARTE') > -1){
+			if(url.indexOf('/channel/arte') > -1){
 				ARTEService.getNew(ARTEMAXRESULTS);
 				ARTEService.getHot(ARTEMAXRESULTS);
 			}
-			if(document.URL.indexOf('/channel/DasErste') > -1){
+			if(url.indexOf('/channel/daserste') > -1){
 				DasErsteService.getNew();
 				DasErsteService.getHot();
 			}
-			if(document.URL.indexOf('/channel/SRF') > -1){
+			if(url.indexOf('/channel/srf') > -1){
 				SRFService.getNew();
 				SRFService.getHot();
 			}
-			if(document.URL.indexOf('/channel/BR') > -1){
+			if(url.indexOf('/channel/br') > -1){
 				BRService.getBRNew();
 				BRService.getBRHot();
 			}
-			if(document.URL.indexOf('/channel/ORF') > -1){
+			if(url.indexOf('/channel/orf') > -1){
 				ORFService.getNew(20);
 				ORFService.getHot();
 			}
 
 		}
-		if (document.URL.indexOf("/suche") > -1 || document.URL.indexOf("/suche-mobile") > -1) {
+		if (url.indexOf("/suche") > -1 || url.indexOf("/suche-mobile") > -1) {
 			// var nachrichten = $('input[name="nachrichten"]').attr('checked');
 			// if (nachrichten) {
 			// 	_getCategory('nachrichten');
@@ -174,20 +179,20 @@ MediathekCrawler.ApplicationController = function() {
 			}
 
 		}
-		if (document.URL.indexOf('/video') > -1) {
-			if (document.URL.indexOf('/video/bookmark') > -1) {
+		if (url.indexOf('/video') > -1) {
+			if (url.indexOf('/video/bookmark') > -1) {
 				_getVideoBookmark();
 			}
 			else{	
 				_getVideoById();
 			}
 		}
-		if (document.URL.indexOf('/rubrik') > -1) {
-			var url = document.URL.split('/'),
+		if (url.indexOf('/rubrik') > -1) {
+			var url = url.split('/'),
 			category = url[url.length-1];
 			_getCategory(category.toLowerCase());
 		}
-		if (document.URL.indexOf('/playlists/playlist') >-1){
+		if (url.indexOf('/playlists/playlist') >-1){
 			console.log("ich bin in einer palyliste");
 		}
 	},
@@ -342,37 +347,37 @@ MediathekCrawler.ApplicationController = function() {
 		return;
 	},
 	checkDuration = function(duration){
-			$("#result-wrapper").empty();
-			if(duration > 0){
-					results = JSON.parse(localStorage.getItem("mediathek-crawler"))._results;
-					//localStorage.removeItem("mediathek-crawler");
-					//localStorage.removeItem("mediathek-crawler");
-					//mediathekModel.clearResults();
-					//console.log("duration");
-					var newResults =[];
-					results.forEach(function(re){
-						time=re._length.split(":");
-						timeInMinutes = parseInt(time[1]); 
-						if(time[0]>0){
-							timeInMinutes = timeInMinutes + parseInt(time[0])*60;
-						}
-						if(timeInMinutes >= duration){
-							//resultView.appendResult(event, re);
-							newResults.push(re);
-						}
-					});
-					var resultIndex = 0;
-					newResults.forEach(function(i){
-						newResults[resultIndex]._id = resultIndex;
-						resultView.appendResult(event,i);
-						resultIndex++;
-					})
-					newResults = JSON.stringify(newResults);
-					newResults = '{"_results":'+newResults+'}';
-
-					localStorage.setItem("mediathek-crawler", newResults);
-					results = JSON.parse(localStorage.getItem("mediathek-crawler"))._results;
+		$("#result-wrapper").empty();
+		if(duration > 0){
+			results = JSON.parse(localStorage.getItem("mediathek-crawler"))._results;
+			//localStorage.removeItem("mediathek-crawler");
+			//localStorage.removeItem("mediathek-crawler");
+			//mediathekModel.clearResults();
+			//console.log("duration");
+			var newResults =[];
+			results.forEach(function(re){
+				time=re._length.split(":");
+				timeInMinutes = parseInt(time[1]); 
+				if(time[0]>0){
+					timeInMinutes = timeInMinutes + parseInt(time[0])*60;
 				}
+				if(timeInMinutes >= duration){
+					//resultView.appendResult(event, re);
+					newResults.push(re);
+				}
+			});
+			var resultIndex = 0;
+			newResults.forEach(function(i){
+				newResults[resultIndex]._id = resultIndex;
+				resultView.appendResult(event,i);
+				resultIndex++;
+			})
+			newResults = JSON.stringify(newResults);
+			newResults = '{"_results":'+newResults+'}';
+
+			localStorage.setItem("mediathek-crawler", newResults);
+			results = JSON.parse(localStorage.getItem("mediathek-crawler"))._results;
+		}
 	},
 	_search = function(searchString) {
 		mediathekModel.clearResults();
