@@ -14,10 +14,11 @@ MediathekCrawler.PlaylistView = (function() {
 		$("body").on("click","button[id^='delete-playlist-']",onDeletePlaylist);
 
 		if($("#video-playlist").length >0){
+			var resolutionOrder = calculateOrder();
+
 			video = videojs("#video-playlist");	
-			video.options();
 			video.resolutionSelector({force_types : ['video/mp4'],
-    							default_res: "1,2,3"});
+    							default_res: resolutionOrder});
 		}
 
 	},
@@ -59,6 +60,22 @@ MediathekCrawler.PlaylistView = (function() {
 		$("#list-item-"+$playlistId).remove();
 		$(that).trigger('feedback',["deletePlaylist"]);
 		
+	},
+	calculateOrder = function(){
+		var order;
+		if($('#xs-helper').is(':visible')) {
+			order = "Schlecht, Mittel, Gut, Hoch";
+		}else if($('#sm-helper').is(':visible')){
+			order = "Mittel, Schlecht, Gut, Hoch";
+		}else if($('#md-helper').is(':visible')){
+			order = "Hoch, Gut, Mittel, Schlecht";
+		}else if(($('#lg-helper').is(':visible'))){
+			order = "Hoch, Gut, Mittel, Schlecht";
+		}
+		else{
+			order="Hoch, Gut, Mittel, Schlecht";
+		}
+		return order;
 	};
 
 	that.init = init;

@@ -5,8 +5,7 @@
 	<span><h4>Sortieren: </h4></span>
 	<span><button id="alphabetic-sort" class="btn-transparent" value="asc">Alphabetisch</button></span>
 	<button id="date-sort" class="btn-transparent" value="asc">Datum</button>
-	<button id="duration-sort" class="btn-transparent" value="asc">Dauer</button>
-	<button id="hot-new-sort" class="btn-transparent" value="asc">Hot / New</button>
+	<button id="hot-new-sort" class="btn-transparent hidden" value="asc">Hot / New</button>
 	<button id="channel-sort" class="btn-transparent" value="asc">Sender</button>
 
 </div>
