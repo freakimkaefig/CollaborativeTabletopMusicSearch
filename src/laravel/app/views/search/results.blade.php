@@ -7,7 +7,7 @@
 	<button id="duration-sort" class="btn-transparent" value="asc">Dauer</button>
 	<button id="channel-sort" class="btn-transparent" value="asc">Sender</button>
 	<button id="date-sort" class="btn-transparent" value="asc">Datum</button>
-	<button id="hot-new-sort" class="btn-transparen hiddent" value="asc">Hot / New</button>
+	<button id="hot-new-sort" class="btn-transparen hidden" value="asc">Hot / New</button>
 
 </div>
 <div id="result-wrapper"></div>
