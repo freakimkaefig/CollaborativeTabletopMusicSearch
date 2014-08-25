@@ -28,6 +28,8 @@ MediathekCrawler.MainView = (function() {
 		}
 
 		$(window).on('resize', onResizeApp); 
+
+		$("#to-top").on("click",toTop);
 	},
 
 	onResizeApp = function(event) {
@@ -36,6 +38,10 @@ MediathekCrawler.MainView = (function() {
 		} else {
 			snapper.disable();
 		}
+	},
+
+	toTop = function(){
+		$('#content').animate({scrollTop: 0}, 2000);
 	},
 
 	dispose = function() {
