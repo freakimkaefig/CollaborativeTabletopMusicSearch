@@ -34,6 +34,22 @@ MediathekCrawler.BroadcastView = (function() {
 	 * Public function to render a video by the given id from localStorage
 	 * @param {Integer}		Id of the result item in localStorage
 	 */
+	calculateOrder = function(){
+		var order;
+		if($('#xs-helper').is(':visible')) {
+			order = "Schlecht, Mittel, Gut, Hoch";
+		}else if($('#sm-helper').is(':visible')){
+			order = "Mittel, Schlecht, Gut, Hoch";
+		}else if($('#md-helper').is(':visible')){
+			order = "Hoch, Gut, Mittel, Schlecht";
+		}else if(($('#lg-helper').is(':visible'))){
+			order = "Hoch, Gut, Mittel, Schlecht";
+		}
+		else{
+			order="Hoch, Gut, Mittel, Schlecht";
+		}
+		return order;
+	},
 	renderVideoById = function(id) {
 
 		var results_json = localStorage.getItem('mediathek-crawler'),
@@ -42,7 +58,7 @@ MediathekCrawler.BroadcastView = (function() {
 		
 		var ready;
 		sources = [];
-
+		
 		for (var i=result._streams.length-1; i>=0; i--) {
 			var source = '<source class="source" src="' + result._streams[i]._url + '" type="' + result._streams[i]._type + '" data-res="'+ checkQuality(result._streams[i]._quality) + '">'
 			$video_element.append(source);
@@ -51,12 +67,13 @@ MediathekCrawler.BroadcastView = (function() {
 			sources.push(source_b);
 			url = result._streams[i]._url;
 			}
-	
+		
+		var resolutionOrder = calculateOrder();
 		video = videojs("#video");
 		video.options().sources = sources; 
 		$("#video>.source").remove();
 		video.resolutionSelector({force_types : ['video/mp4'],
-    							default_res: "1,2,3"});
+    							default_res: resolutionOrder});
 		
 		var infoElement = 
 			'<h3>Titel :</h3>'+
@@ -95,11 +112,12 @@ MediathekCrawler.BroadcastView = (function() {
 			url = streams[i]._url;
 		}
 
+		var resolutionOrder = calculateOrder();
 		video = videojs("#video");
 		video.options().sources = sources; 
 		$("#video>.source").remove();
 		video.resolutionSelector({force_types : ['video/mp4'],
-    							default_res: "1,2,3"});
+    							default_res: resolutionOrder});
 		var infoElement = 
 			'<h3>Titel:</h3>'+
 			'<div>' + result.title + '</div>' +
