@@ -46,13 +46,13 @@ body{
 	padding-bottom: 70px; 	
 }
 
-h2 small { color:#fff; }
+h2 small { color:#fff;}
+h2 small span {padding: 5px; border: 1px solid #ffffff;}
 
-.modal *{
-	color: #1b1b1b;
-}
+.modal *{color: #1b1b1b;}
 .modal-backdrop { display:none!important;}
 .modal .btn {border-radius: 0; border:1px solid #000000;}
+
 .spacer {
 	width: 100%;
 	height: 60px; 
@@ -136,6 +136,7 @@ h2 small { color:#fff; }
 #footer-nav li>a{color: #ffffff;}
 #footer-nav li>a:hover{text-decoration: none; background-color: #778899;}
 #footer-nav h4{z-index: 99;}
+#footer-nav li { padding:5px 0; }
 
 
 /*  ====== Filter  ========*/
@@ -322,7 +323,7 @@ h2 small { color:#fff; }
 
 .dropdown-menu li>a{color: #ffffff; padding: 10px 20px;}
 
-/* ======= Other Design elements ===== */
+/* ======== Feedback ======= */
 
 #waiting{
 	background-color: rgba(0,0,0,0.6);
@@ -376,6 +377,7 @@ h2 small { color:#fff; }
 	font-size: 12px;
 }
 
+/* ======= Other Design elements ===== */
 #channel{
 	float: left;
 }
@@ -407,7 +409,7 @@ h2 small { color:#fff; }
 }
 
 
-
+/* ======= to top button ======*/
 #to-top{
 	position: fixed;
 	height: 40px;
@@ -474,7 +476,6 @@ h2 small { color:#fff; }
 .mobile-menu>li>a:hover { text-decoration:none; }
 .mobile-menu li:hover, .mobile-menu li:active, .mobile-menu>li:focus { background:#778899;}
 
-#footer-nav li { padding:5px 0; }
 
 .snapjs-left #mobile-menu-button { background:#778899; }
 
