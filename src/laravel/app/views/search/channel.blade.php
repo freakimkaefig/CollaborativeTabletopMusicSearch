@@ -5,7 +5,7 @@
 		<h2 id="channel" class="page-title">{{$channel}}</h2>
 		<div id="icon-station-results"></div>
 	</div>
-	<div class="row">
+	<div>
 		@include('search.results')
 
 	</div>

@@ -50,22 +50,28 @@
 			          }
 			        ?>
 			    @if(isset($videos[0]->id))  
-	   			<a href="{{ URL::route('playlist-single',[$result->id,$videos[0]->id])}}"><div class="list-item">
-			        <img src='{{$image_playlist}}' class="img-responsive col-sm-6 col-lg-4"/>
-	       			<div class="col-sm-6 col-lg-8">
-		       			<h4>{{$result->name}}</h4>
-		       			<h5>{{ isset($videos[0]->title) ? '1) ' . substr($videos[0]->title,0,25).((strlen($videos[0]->title)>24) ? '...' : "") : '' }}</h5>
-		       			<h5>{{ isset($videos[1]->title) ? '2) ' . substr($videos[1]->title,0,25).((strlen($videos[1]->title)>24) ? '...' : "") : '' }}</h5>
-		       			<h5>{{ isset($videos[2]->title) ? '3) ' . substr($videos[2]->title,0,25).((strlen($videos[2]->title)>24) ? '...' : "") : '' }}</h5>
+	   			<a href="{{ URL::route('playlist-single',[$result->id,$videos[0]->id])}}">
+	   				<div class="list-item">
+	   					<div class="list-item-content">
+					        <img src='{{$image_playlist}}' class="img-responsive col-sm-6 col-lg-4"/>
+			       			<div class="col-sm-6 col-lg-8">
+				       			<h4>{{$result->name}}</h4>
+				       			<h5>{{ isset($videos[0]->title) ? '1) ' . substr($videos[0]->title,0,25).((strlen($videos[0]->title)>24) ? '...' : "") : '' }}</h5>
+				       			<h5>{{ isset($videos[1]->title) ? '2) ' . substr($videos[1]->title,0,25).((strlen($videos[1]->title)>24) ? '...' : "") : '' }}</h5>
+				       			<h5>{{ isset($videos[2]->title) ? '3) ' . substr($videos[2]->title,0,25).((strlen($videos[2]->title)>24) ? '...' : "") : '' }}</h5>
+			   				</div>
+			   			</div>
 	   				</div>
-	   			</div></a>
+	   			</a>
 	   			@else
 	   			<div class="list-item">
-	   				<img src='{{$image_playlist}}' class="img-responsive col-sm-6 col-lg-4"/>
-	   				<div class="col-sm-6 col-lg-8">
-		   				<h3>{{$result->name}}</h3>
-		   				<h5>Diese Playliste ist leer.</h5>
-	   				</div>
+	   				<div class="list-item-content">
+		   				<img src='{{$image_playlist}}' class="img-responsive col-sm-6 col-lg-4"/>
+		   				<div class="col-sm-6 col-lg-8">
+			   				<h3>{{$result->name}}</h3>
+			   				<h5>Diese Playliste ist leer.</h5>
+		   				</div>
+		   			</div>
 	   			</div> 
 	   			@endif
 	       		@endforeach
@@ -91,7 +97,7 @@
 			          catch(Exception $e){
 			            $image_bookmark = "";
 			          } ?>
-				<div class="video-item col-xs-12 col-lg-8 col-lg-offset-2">
+				<div class="video-item list-item col-xs-12 col-lg-8 col-lg-offset-2">
 					<a href="/video/bookmark/{{$result->id}}">
 					<img src="{{$image_bookmark}}" class="img-responsive col-xs-12"/>
 					<div class="video-item-description col-xs-12">

@@ -88,7 +88,7 @@ class MediathekController extends BaseController {
 				
 			// redirect to contact page and show message
 			return Redirect::route('contact')
-				->with('global-success', 'Ihre Kontaktanfrage wurde versendet');
+				->with('global-success', 'Deine Kontaktanfrage wurde versendet');
 		}
 	}
 
