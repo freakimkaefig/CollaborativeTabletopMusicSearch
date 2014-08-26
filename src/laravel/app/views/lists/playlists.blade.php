@@ -40,7 +40,7 @@
 			        	<img src='{{$image}}' class="img-responsive col-xs-10 col-md-4 col-lg-3"/>
 			        </a>
 			       	<div class="col-xs-1 pull-right">
-			        	<button class="btn btn-transparent pull-right" data-toggle="modal" data-target="#confirm-delete-{{$result->id}}">X</button>
+			        	<button class="btn btn-transparent glyphicon glyphicon-trash pull-right" data-toggle="modal" data-target="#confirm-delete-{{$result->id}}"></button>
 			        </div>
 			        <a href="{{ URL::route('playlist-single',[$result->id,$videos[0]->id])}}">
 	       				<div class="col-xs-12 col-md-7 col-lg-8">
@@ -78,7 +78,7 @@
    				<div class="list-item-content">
 	   				<img src='{{$image}}' class="img-responsive col-xs-10 col-md-4 col-lg-3"/>
 	   				<div class="col-xs-1 pull-right">
-			        	<button class="btn btn-transparent pull-right" data-toggle="modal" data-target="#confirm-delete-{{$result->id}}">X</button>
+			        	<button class="btn btn-transparent glyphicon glyphicon-trash pull-right" data-toggle="modal" data-target="#confirm-delete-{{$result->id}}"></button>
 			        </div>
 	   				<div class="col-xs-12 col-md-7 col-lg-8">
 	   					<h3>{{$result->name}}</h3>
