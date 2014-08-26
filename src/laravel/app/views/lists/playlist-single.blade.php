@@ -23,8 +23,8 @@
           try {
             $before = $results_videos[$beforeIndex]->id;
             echo '<a href="'.URL::route("playlist-single",[$playlist,$before]).'"><button class="btn btn-transparent col-xs-6 col-sm-12" >vorheriges</button></a>';
-            echo "<div>".$results_videos[$beforeIndex]->title."</div>"; 
-            echo "<div>".$results_videos[$beforeIndex]->subtitle."</div>"; 
+            echo "<div class='video-item'><img src='".get_object_vars(json_decode($results_videos[$beforeIndex]->image)[0])['_url']."' class='img-responsive'/><div class='video-item-description'> <div class='video-item-title'>".$results_videos[$beforeIndex]->title."</div><div class='video-item-subtitle'>".$results_videos[$beforeIndex]->subtitle."</div><div>".$results_videos[$beforeIndex]->duration."</div></div></div>"; 
+             
           } catch (Exception $e) {
             $before = $results_videos[$beforeIndex+1]->id;
           }
@@ -77,8 +77,7 @@
           try {
             $before = $results_videos[$beforeIndex]->id;
             echo '<a href="'.URL::route("playlist-single",[$playlist,$before]).'"><button class="btn btn-transparent col-xs-12" >vorheriges</button></a>';
-            echo "<div>".$results_videos[$beforeIndex]->title."</div>"; 
-            echo "<div>".$results_videos[$beforeIndex]->subtitle."</div>"; 
+            echo "<div class='video-item'><img src='".get_object_vars(json_decode($results_videos[$beforeIndex]->image)[0])['_url']."' class='img-responsive'/><div class='video-item-description'> <div class='video-item-title'>".$results_videos[$beforeIndex]->title."</div><div class='video-item-subtitle'>".$results_videos[$beforeIndex]->subtitle."</div><div>".$results_videos[$beforeIndex]->duration."</div></div></div>"; 
           } catch (Exception $e) {
             $before = $results_videos[$beforeIndex+1]->id;
           }
@@ -96,8 +95,7 @@
           try {
             $next = $results_videos[$nextIndex]->id;
             echo '<a href="'.URL::route("playlist-single",[$playlist,$next]).'"><button class="btn btn-transparent col-xs-12" >nächstes</button></a>';
-            echo "<div>".$results_videos[$nextIndex]->title."</div>"; 
-            echo "<div>".$results_videos[$nextIndex]->subtitle."</div>"; 
+            echo "<div class='video-item'><img src='".get_object_vars(json_decode($results_videos[$nextIndex]->image)[0])['_url']."' class='img-responsive'/><div class='video-item-description'> <div class='video-item-title'>".$results_videos[$nextIndex]->title."</div><div class='video-item-subtitle'>".$results_videos[$nextIndex]->subtitle."</div><div>".$results_videos[$nextIndex]->duration."</div></div></div>"; 
           } catch (Exception $e) {
             $next = $results_videos[$nextIndex-1]->id;
           }

@@ -266,16 +266,6 @@ h2 small span {padding: 5px; border: 1px solid #ffffff;}
 	padding: 10px;
 	padding-left: 0;
 }
-.feedback{
-	background-color: #778899;
-	border-radius: 0;
-	color: #ffffff;
-	border: 1px solid #ffffff;
-	margin-bottom: 5px;
-	border-radius: 10px;
-	width: auto;
-
-}
 
 
 /* ==== Playlist page ===*/
@@ -380,6 +370,16 @@ h2 small span {padding: 5px; border: 1px solid #ffffff;}
 #feedback-container-danger>h4,#feedback-container-warning>h4{
 	font-size: 12px;
 }
+.feedback{
+	background-color: #778899;
+	border-radius: 0;
+	color: #ffffff;
+	border: 1px solid #ffffff;
+	margin-bottom: 5px;
+	border-radius: 10px;
+	width: auto;
+}
+
 
 /* ======= Other Design elements ===== */
 #channel{
