@@ -148,10 +148,13 @@ h2 small span {padding: 5px; border: 1px solid #ffffff;}
 }
 #duration-slider{
 	background-color: #ffffff;
+	min-height: 35px;
+	min-width: 200px;
 }
 #duration-slider .ui-slider-handle{
 	background-color: #1b1b1b;
 	box-shadow: 1px 1px 3px #000000; 
+	min-height: 40px;
 }
 
 /* ======== Search results ===== */

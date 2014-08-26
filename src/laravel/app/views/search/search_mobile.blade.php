@@ -154,7 +154,7 @@
 
 			<div class="col-xs-12 ">
 				<button id="reset" type="button" class="btn btn-transparent col-xs-6">Zurücksetzen</button>
-				<button id="submit" type="button" class="btn btn-transparent col-xs-6">Absenden</button>
+				<button id="submit" type="button" class="btn btn-transparent col-xs-6">Suchen</button>
 			</div>
 
 		{{ Form::token() }}
