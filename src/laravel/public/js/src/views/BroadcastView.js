@@ -22,9 +22,8 @@ MediathekCrawler.BroadcastView = (function() {
 		$descriptionWrapper = $("#description-wrapper");
 
 		$("#choosePlaylist").on("click",onAddToPlaylist);
-		$("#button-create-playlist-broadcast").on("click",onAddToPlaylist);
+		//$("#button-create-playlist-broadcast").on("click",onAddToPlaylist);
 		$("#addToBookmarks").on("click", onAddBookmark);
-		$("#button-create-playlist-broadcast").on("click",savePlaylistFromBroadcast);
 		//onAddToPlaylist();
 		//onAddBookmark();
 
@@ -158,9 +157,11 @@ MediathekCrawler.BroadcastView = (function() {
 				},
 				dataType: 'json'
 			});
-
-		$("#playlistForm").load("video.blade.php #playlistForm");
+		setTimeout($("#playlistForm").load("video.blade.php #playlistForm"),600);
+		$("#playlistForm").attr("id","oldform");
 		$(that).trigger('feedback',["addNewPlaylist"]);
+		$("#button-create-playlist-broadcast").on("click",savePlaylistFromBroadcast);
+
 
 	},
 
@@ -168,7 +169,9 @@ MediathekCrawler.BroadcastView = (function() {
 		
 		e.preventDefault();
 		$("#selectPlaylist").removeClass("hidden");
-		$("#add-to-playlist").click( function(e){
+		$("#button-create-playlist-broadcast").on("click",savePlaylistFromBroadcast);
+
+		$("#add-to-playlist").on("click", function(e){
 		$(that).trigger('feedback',["addPlaylist"]);
 			e.preventDefault();
 			$("#selectPlaylist").addClass("hidden");
@@ -188,7 +191,8 @@ MediathekCrawler.BroadcastView = (function() {
 				dataType: 'json',		
 			});
 			//$(".feedback").show().delay(1000).fadeOut();
-			return false;
+			//return false;
+			setTimeout($("#playlistForm").load("video.blade.php #playlistForm"),600);
 		});
 
 		$("#add-to-playlist-cancel").on("click", function(e){
