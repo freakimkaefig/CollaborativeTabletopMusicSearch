@@ -13,17 +13,16 @@
 	<div class="visible-xs">
 		<div class="col-xs-12 list-item">
 			<h2 class="text-center">Mein Konto</h2>
-			<div class="spacer"></div>
 			<div class="text-center">
 				<a class="text-center" href="{{ URL::route('account-change-password') }}">
 					<button class=" btn btn-transparent"> Passwort ändern</button>
 				</a>
 			</div>
+		<hr>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-xs-12 col-sm-7 col-lg-7">
-			<div class="spacer visible-xs hidden-sm"></div>
 			<h2 class="text-center">
 				Playlisten
 				<a href="{{ URL::route('playlists') }}">
@@ -75,10 +74,9 @@
 	   			</div> 
 	   			@endif
 	       		@endforeach
+			<hr class="visible-xs">
 		</div>
 		<div class="col-xs-12 col-sm-4 col-sm-offset-1 col-md-4 col-md-offset-1">
-			<div class="spacer visible-xs hidden-sm"></div>
-			<div class="spacer visible-xs hidden-sm"></div>
 			<h2 class="text-center">
 				Merkliste
 				<a href="{{ URL::route('bookmarks') }}">
