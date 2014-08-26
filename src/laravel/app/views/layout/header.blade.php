@@ -12,8 +12,8 @@
 	      				<div class="form-group">
 	      					<input type="text" class="form-control" name="search" placeholder="Suche"{{ (Input::old('search')) ? ' value="' . e(Input::old('search')) . '"' : '' }}>
 	      				</div>
-	      				<button type="submit" class="btn btn-default" id="search-button"><span class="glyphicon glyphicon-search"></span></button>
-	      				<button class="btn btn-default"><a href="{{ URL::route('search-results') }}"><span class="glyphicon glyphicon-filter"></span></a></button>
+	      				<button type="submit" class="btn btn-default" id="search-button">Suchen <span class="glyphicon glyphicon-search"></span></button>
+	      				<button class="btn btn-default"><a href="{{ URL::route('search-results') }}">Filtern <span class="glyphicon glyphicon-filter"></span></a></button>
       				</div>
 		     	</li>
 	        	@if(Auth::check())
