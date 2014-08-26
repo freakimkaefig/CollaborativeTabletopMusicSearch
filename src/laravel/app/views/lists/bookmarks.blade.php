@@ -36,7 +36,7 @@
                     </div>
                 </a>
                 <div class="col-sm-1 pull-right hidden-xs">
-                    <button class="btn btn-transparent pull-right" data-toggle="modal" data-target="#confirm-delete-{{$result->id}}">X</button>
+                    <button class="btn btn-transparent glyphicon glyphicon-trash pull-right" data-toggle="modal" data-target="#confirm-delete-{{$result->id}}"></button>
                 </div>
                 <div class="modal fade" id="confirm-delete-{{$result->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                   <div class="modal-dialog">

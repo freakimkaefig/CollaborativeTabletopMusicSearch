@@ -6,11 +6,11 @@
 		<h2 class="text-center page-title">Playlisten</h2>	
 	</div>
 	<div class="col-xs-3 alpha">
-	<button id="new-list" class="btn btn-transparent">Neue Liste</button>
+	<button id="new-list" class="btn btn-transparent"><span class="glyphicon glyphicon-file pull-left"></span>Playliste erstellen</button>
 	<form id="create-playlist" class="select-box col-sm-6 hidden" action="{{ URL::route('new-playlist')}}" method="post">
 		<input type="text" name="playlistName"  placeholder="Name" />
-		<button id="button-create-playlist" class="col-xs-12 btn btn-transparent" type="submit">Erstellen</button>
-		<button id="button-create-playlist-cancel" class=" col-xs-12 btn btn-transparent" type="button" >Abbrechen</button>
+		<button id="button-create-playlist" class="col-xs-12 btn btn-transparent" type="submit"><span class="glyphicon glyphicon-file pull-left"></span>Erstellen</button>
+		<button id="button-create-playlist-cancel" class=" col-xs-12 btn btn-transparent" type="button" ><span class="glyphicon glyphicon-remove pull-left"></span>Abbrechen</button>
 	</form>
 	</div>
 	<div class="col-xs-12 row">
@@ -40,7 +40,7 @@
 			        	<img src='{{$image}}' class="img-responsive col-xs-10 col-md-4 col-lg-3"/>
 			        </a>
 			       	<div class="col-xs-1 pull-right">
-			        	<button class="btn btn-transparent pull-right" data-toggle="modal" data-target="#confirm-delete-{{$result->id}}">X</button>
+			        	<button class="btn btn-transparent glyphicon glyphicon-trash pull-right" data-toggle="modal" data-target="#confirm-delete-{{$result->id}}"></button>
 			        </div>
 			        <a href="{{ URL::route('playlist-single',[$result->id,$videos[0]->id])}}">
 	       				<div class="col-xs-12 col-md-7 col-lg-8">
@@ -79,7 +79,7 @@
    				<div class="list-item-content">
 	   				<img src='{{$image}}' class="img-responsive col-xs-10 col-md-4 col-lg-3"/>
 	   				<div class="col-xs-1 pull-right">
-			        	<button class="btn btn-transparent pull-right" data-toggle="modal" data-target="#confirm-delete-{{$result->id}}">X</button>
+			        	<button class="btn btn-transparent glyphicon glyphicon-trash pull-right" data-toggle="modal" data-target="#confirm-delete-{{$result->id}}"></button>
 			        </div>
 	   				<div class="col-xs-12 col-md-7 col-lg-8">
 	   					<h3>{{$result->name}}</h3>

@@ -119,7 +119,7 @@
                   <img src='{{$image}}' class="img-responsive col-xs-12"/>
                 </a>
                 <div class="col-xs-1 col-xs-offset-1 pull-right hidden-sm hidden-md hidden-lg">
-                    <button class="btn btn-transparent pull-right" data-toggle="modal" data-target="#confirm-delete-{{$result->id}}">X</button>
+                    <button class="btn btn-transparent glyphicon glyphicon-trash pull-right" data-toggle="modal" data-target="#confirm-delete-{{$result->id}}"></button>
                 </div>
                 <a href="{{URL::route('playlist-single',[$playlist,$result->id])}}" class="col-xs-12 col-sm-6 alpha">
                   <div class="list-item-description">
@@ -131,7 +131,7 @@
                   </div>
                 </a>
                 <div class="col-sm-1 pull-right hidden-xs">
-                    <button class="btn btn-transparent pull-right" data-toggle="modal" data-target="#confirm-delete-{{$result->id}}">X</button>
+                    <button class="btn btn-transparent glyphicon glyphicon-trash pull-right" data-toggle="modal" data-target="#confirm-delete-{{$result->id}}"></button>
                 </div>
                 <div class="modal fade" id="confirm-delete-{{$result->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                   <div class="modal-dialog">
