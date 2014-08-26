@@ -6,11 +6,11 @@
 		<h2 class="text-center page-title">Playlisten</h2>	
 	</div>
 	<div class="col-xs-3 alpha">
-	<button id="new-list" class="btn btn-transparent">Neue Liste</button>
+	<button id="new-list" class="btn btn-transparent"><span class="glyphicon glyphicon-file pull-left"></span>Playliste erstellen</button>
 	<form id="create-playlist" class="select-box col-sm-6 hidden" action="{{ URL::route('new-playlist')}}" method="post">
 		<input type="text" name="playlistName"  placeholder="Name" />
-		<button id="button-create-playlist" class="col-xs-12 btn btn-transparent" type="submit">Erstellen</button>
-		<button id="button-create-playlist-cancel" class=" col-xs-12 btn btn-transparent" type="button" >Abbrechen</button>
+		<button id="button-create-playlist" class="col-xs-12 btn btn-transparent" type="submit"><span class="glyphicon glyphicon-file pull-left"></span>Erstellen</button>
+		<button id="button-create-playlist-cancel" class=" col-xs-12 btn btn-transparent" type="button" ><span class="glyphicon glyphicon-remove pull-left"></span>Abbrechen</button>
 	</form>
 	</div>
 	<div class="col-xs-12 row">

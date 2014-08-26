@@ -28,22 +28,22 @@
 								 		<option value="{{$pl->id}}">{{$pl->name}}</option>
 								 	@endforeach
 								</select>
-								<button id="add-to-playlist" class="col-xs-12 btn btn-transparent">Hinzufügen</button>
+								<button id="add-to-playlist" class="col-xs-12 btn btn-transparent"><span class="glyphicon glyphicon-plus-sign pull-left"></span>Hinzufügen</button>
 								<p> Neue Playlist erstellen: </p>
 								<form id="create-playlist" class="select-box col-sm-6 hidden" action="{{-- URL::route('new-playlist-broadcast') --}}" method="post">
 									<input type="text" name="playlistName"  placeholder="Name" />
 								
-									<button id="button-create-playlist-broadcast" class="col-xs-12 btn btn-transparent" type="button">Erstellen</button>
+									<button id="button-create-playlist-broadcast" class="col-xs-12 btn btn-transparent" type="button"><span class="glyphicon glyphicon-file pull-left"></span>Erstellen</button>
 								</form>
-								<button id="add-to-playlist-cancel" class="col-xs-12 btn btn-transparent" type="button" >Abbrechen</button>
+								<button id="add-to-playlist-cancel" class="col-xs-12 btn btn-transparent" type="button" ><span class="glyphicon glyphicon-remove pull-left"></span>Abbrechen</button>
 								@else
 								<p>Du musst zunächst eine Playliste erstellen:</p>
 								<form id="create-playlist" class="select-box col-sm-6 hidden" action="{{-- URL::route('new-playlist-broadcast') --}}" method="post">
 									<input type="text" name="playlistName"  placeholder="Name" />
-									<button id="button-create-playlist-broadcast" class="col-xs-12 btn btn-transparent" type="button">Erstellen</button>
+									<button id="button-create-playlist-broadcast" class="col-xs-12 btn btn-transparent" type="button"><span class="glyphicon glyphicon-file pull-left"></span>Erstellen</button>
 								</form>	
 								<input value="{{ DB::table('playlists')->max('id') + 1 }}" hidden />
-								<button id="add-to-playlist-cancel" class="col-xs-12 btn btn-transparent" type="button" >Abbrechen</button>
+								<button id="add-to-playlist-cancel" class="col-xs-12 btn btn-transparent" type="button" ><span class="glyphicon glyphicon-remove pull-left"></span>Abbrechen</button>
 								@endif
 							</div>
 						</form>
