@@ -135,6 +135,16 @@ MediathekCrawler.ResultView = (function() {
 	alphabeticSort = function(){
 		var results = getFromLocalstorage()._results;
 		if($("#alphabetic-sort").val() == "asc"){
+			$("#hot-new-sort").empty();
+			$("#hot-new-sort").append('Hot/New');
+			$("#date-sort").empty();
+			$("#date-sort").append('Datum');
+			$("#channel-sort").empty();
+			$("#channel-sort").append('Sender');
+			$("#duration-sort").empty();
+			$("#duration-sort").append('Dauer');
+			$("#alphabetic-sort").empty();
+			$("#alphabetic-sort").append('Alphabetisch <span id="hot-new-sort-up" class="glyphicon glyphicon-chevron-up"></span>');
 			results.sort(function(a, b){
 				var titleA=a._title.toLowerCase();
 				var titleB=b._title.toLowerCase();
@@ -149,6 +159,16 @@ MediathekCrawler.ResultView = (function() {
 			$("#alphabetic-sort").val("desc");
 		}
 		else{
+			$("#hot-new-sort").empty();
+			$("#hot-new-sort").append('Hot/New');
+			$("#date-sort").empty();
+			$("#date-sort").append('Datum');
+			$("#channel-sort").empty();
+			$("#channel-sort").append('Sender');
+			$("#duration-sort").empty();
+			$("#duration-sort").append('Dauer');
+			$("#alphabetic-sort").empty();
+			$("#alphabetic-sort").append('Alphabetisch <span id="hot-new-sort-down" class="glyphicon glyphicon-chevron-down"></span>');
 			results.sort(function(a, b){
 				var titleA=a._title.toLowerCase();
 				var titleB=b._title.toLowerCase();
@@ -171,6 +191,16 @@ MediathekCrawler.ResultView = (function() {
 	durationSort = function(){
 		results = getFromLocalstorage()._results;
 		if($("#duration-sort").val()=="asc"){
+			$("#alphabetic-sort").empty();
+			$("#alphabetic-sort").append('Alphabetisch');
+			$("#hot-new-sort").empty();
+			$("#hot-new-sort").append('Hot/New');
+			$("#date-sort").empty();
+			$("#date-sort").append('Datum');
+			$("#channel-sort").empty();
+			$("#channel-sort").append('Sender');
+			$("#duration-sort").empty();
+			$("#duration-sort").append('Dauer <span id="hot-new-sort-up" class="glyphicon glyphicon-chevron-up"></span>');
 			results.sort(function(a, b){
 				var durationA=a._length.toLowerCase();
 				var durationB=b._length.toLowerCase();
@@ -185,6 +215,16 @@ MediathekCrawler.ResultView = (function() {
 			$("#duration-sort").val("desc");
 		}
 		else{
+			$("#alphabetic-sort").empty();
+			$("#alphabetic-sort").append('Alphabetisch');
+			$("#hot-new-sort").empty();
+			$("#hot-new-sort").append('Hot/New');
+			$("#date-sort").empty();
+			$("#date-sort").append('Datum');
+			$("#channel-sort").empty();
+			$("#channel-sort").append('Sender');
+			$("#duration-sort").empty();
+			$("#duration-sort").append('Dauer <span id="hot-new-sort-down" class="glyphicon glyphicon-chevron-down"></span>');
 			results.sort(function(a, b){
 				var durationA=a._length.toLowerCase();
 				var durationB=b._length.toLowerCase();
@@ -209,6 +249,16 @@ MediathekCrawler.ResultView = (function() {
 		var results = getFromLocalstorage()._results;
 
 		if($("#channel-sort").val() == "asc"){
+			$("#alphabetic-sort").empty();
+			$("#alphabetic-sort").append('Alphabetisch');
+			$("#duration-sort").empty();
+			$("#duration-sort").append('Dauer');
+			$("#hot-new-sort").empty();
+			$("#hot-new-sort").append('Hot/New');
+			$("#date-sort").empty();
+			$("#date-sort").append('Datum');
+			$("#channel-sort").empty();
+			$("#channel-sort").append('Sender <span id="hot-new-sort-up" class="glyphicon glyphicon-chevron-up"></span>');
 			results.sort(function(a, b){
 				var stationA=a._station.toLowerCase();
 				var stationB=b._station.toLowerCase();
@@ -223,6 +273,16 @@ MediathekCrawler.ResultView = (function() {
 			$("#channel-sort").val("desc");
 		}
 		else{
+			$("#alphabetic-sort").empty();
+			$("#alphabetic-sort").append('Alphabetisch');
+			$("#duration-sort").empty();
+			$("#duration-sort").append('Dauer');
+			$("#hot-new-sort").empty();
+			$("#hot-new-sort").append('Hot/New');
+			$("#date-sort").empty();
+			$("#date-sort").append('Datum');
+			$("#channel-sort").empty();
+			$("#channel-sort").append('Sender <span id="hot-new-sort-down" class="glyphicon glyphicon-chevron-down"></span>');
 			results.sort(function(a, b){
 				var stationA=a._station.toLowerCase();
 				var stationB=b._station.toLowerCase();
@@ -245,6 +305,16 @@ MediathekCrawler.ResultView = (function() {
 	dateSort = function(){
 		results = getFromLocalstorage()._results;
 		if($("#date-sort").val()=="asc"){
+			$("#alphabetic-sort").empty();
+			$("#alphabetic-sort").append('Alphabetisch');
+			$("#duration-sort").empty();
+			$("#duration-sort").append('Dauer');
+			$("#channel-sort").empty();
+			$("#channel-sort").append('Sender');
+			$("#hot-new-sort").empty();
+			$("#hot-new-sort").append('Hot/New');
+			$("#date-sort").empty();
+			$("#date-sort").append('Datum <span id="hot-new-sort-up" class="glyphicon glyphicon-chevron-up"></span>');
 			results.sort(function(a, b){
 				var airtimeA=a._airtime.toLowerCase();
 				var airtimeB=b._airtime.toLowerCase();
@@ -265,6 +335,16 @@ MediathekCrawler.ResultView = (function() {
 			$("#date-sort").val("desc");
 		}
 		else{
+			$("#alphabetic-sort").empty();
+			$("#alphabetic-sort").append('Alphabetisch');
+			$("#duration-sort").empty();
+			$("#duration-sort").append('Dauer');
+			$("#channel-sort").empty();
+			$("#channel-sort").append('Sender');
+			$("#hot-new-sort").empty();
+			$("#hot-new-sort").append('Hot/New');
+			$("#date-sort").empty();
+			$("#date-sort").append('Datum <span id="hot-new-sort-down" class="glyphicon glyphicon-chevron-down"></span>');
 			results.sort(function(a, b){
 				var airtimeA=a._airtime.toLowerCase();
 				var airtimeB=b._airtime.toLowerCase();
@@ -294,6 +374,16 @@ MediathekCrawler.ResultView = (function() {
 	hotNewSort = function(){
 		results = getFromLocalstorage()._results;
 		if($("#hot-new-sort").val()=="asc"){
+			$("#alphabetic-sort").empty();
+			$("#alphabetic-sort").append('Alphabetisch');
+			$("#duration-sort").empty();
+			$("#duration-sort").append('Dauer');
+			$("#channel-sort").empty();
+			$("#channel-sort").append('Sender');
+			$("#date-sort").empty();
+			$("#date-sort").append('Datum');
+			$("#hot-new-sort").empty();
+			$("#hot-new-sort").append('Hot/New <span id="hot-new-sort-up" class="glyphicon glyphicon-chevron-up"></span>');
 			results.sort(function(a, b){
 				var badgeHot = a._origin._badge.toLowerCase();
 				var badgeNew = b._origin._badge.toLowerCase();;
@@ -308,6 +398,17 @@ MediathekCrawler.ResultView = (function() {
 			$("#hot-new-sort").val("desc");
 		}
 		else{
+
+			$("#alphabetic-sort").empty();
+			$("#alphabetic-sort").append('Alphabetisch');
+			$("#duration-sort").empty();
+			$("#duration-sort").append('Dauer');
+			$("#channel-sort").empty();
+			$("#channel-sort").append('Sender');
+			$("#date-sort").empty();
+			$("#date-sort").append('Datum');
+			$("#hot-new-sort").empty();
+			$("#hot-new-sort").append('Hot/New <span id="hot-new-sort-down" class="glyphicon glyphicon-chevron-down"></span>');
 			results.sort(function(a, b){
 				var badgeHot = a._origin._badge.toLowerCase();
 				var badgeNew = b._origin._badge.toLowerCase();

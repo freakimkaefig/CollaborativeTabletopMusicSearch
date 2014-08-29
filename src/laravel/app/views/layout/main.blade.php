@@ -88,7 +88,7 @@
 				<div id="feedback-container-success" class="container-fluid feedback-container"><h4 class="text-center">{{ Session::get('global-success') }}</h4></div>
 			@endif
 
-			<div id="feedback-container" class="container-fluid feedback-container"><h4 class="text-center"></h4></div>
+			<div id="feedback-container" class="hidden-xs container-fluid feedback-container"><h4 class="text-center"></h4></div>
 
 			<?php
 				$error = FALSE;
@@ -109,12 +109,12 @@
 				<div class="spacer"></div>
 			</div>
 		</div>
-			<div id="to-top" class="visible-xs">
-				<span  class="glyphicon glyphicon glyphicon-chevron-up text-center"></span>
-			</div>
+
+		<div id="to-top" class="visible-xs">
+			<span  class="glyphicon glyphicon glyphicon-chevron-up text-center"></span>
+		</div>
 		
 		@include('layout.footer')
-
 		@include('mediathek-crawler-js')
 
 		<div id="xs-helper" class="device-xs visible-xs"></div>

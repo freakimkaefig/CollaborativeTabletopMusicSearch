@@ -5,7 +5,6 @@
 	@if(isset($video))
 		<div class="row">
 		<?php $inBookmarks = DB::table('broadcasts')->whereNotNull("user_id")->where("user_id","=",Auth::id())->get();
-			 //echo "<input id='all-bookmarks' type='hidden' value='".json_encode($inBookmarks)."''>";
 			echo "<div id='all-bookmarks' style='display:none'>".json_encode($inBookmarks)."</div>";
 			?>
 			<div id="video-wrapper" class="img-responsive col-sm-8 col-sm-offset-0 col-lg-7 col-lg-offset-1">
@@ -20,7 +19,7 @@
 									<?php
 								 		$user_playlists= DB::table('playlists')->where('user', '=', Auth::id())->get();
 								 	?>
-						<form  class="col-sm-6 col-lg-3">
+						<form  class="col-sm-6 col-md-6 col-lg-5">
 							<div id="selectPlaylist" class="select-box hidden">			
 								@if(sizeOf($user_playlists))
 								<select id="select">
@@ -48,7 +47,7 @@
 							</div>
 						</form>
 						</div>
-						<h4 class="feedback col-sm-6 " hidden>hinzugefügt!</h4>
+
 					</div>
 					<div class="col-xs-12 col-sm-12">	
 						<form >
@@ -56,15 +55,10 @@
 							<button id="bookmark-name" class="btn col-xs-4 col-sm-6 col-md-4 col-lg-3 broadcast-btn btn-transparent hidden"><span class="glyphicon glyphicon-bookmark pull-left"></span></button>
 						</form>
 					</div>
-					<!-- <div class="col-sm-12">	
-						<form >
-							<button id="addToFavorites" class="btn col-xs-12 col-sm-6 col-lg-3 btn-transparent broadcast-btn" value="{{Auth::id()}}"><span class="glyphicon glyphicon-star pull-left"></span>Favorisieren</button>
-							<button id="favorit-name" class="btn col-xs-12 col-sm-6 col-lg-3 broadcast-btn btn-transparent hidden"><span class="glyphicon glyphicon-bookmark pull-left"></span></button>
-						</form>
-					</div> -->
 				</div>
 			@endif
 		</div>
+				<div id="feedback-container-mobile" class="container-fluid feedback-container"><h4 class="text-center"></h4></div>
 	</div>
 		<div class="row">
 			<div id="description-wrapper" class="col-sm-10 col-sm-offset-1">

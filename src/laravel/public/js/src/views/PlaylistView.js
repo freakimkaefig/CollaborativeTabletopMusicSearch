@@ -3,13 +3,9 @@ MediathekCrawler.PlaylistView = (function() {
 
 
 	init = function() {
-		console.info('MediathekCrawler.PlaylistView.init');
 		$("#new-list").on("click",showCreatePlaylist);
 		$("#create-playlist").on("submit",hideCreatePlaylist);
 		$("#button-create-playlist-cancel").on("click",hideCreatePlaylist);
-		//$("#button-create-playlist-broadcast").on("click",savePlaylistFromBroadcast);
-		//onDeleteVideo();
-		//onDeletePlaylist();
 		$("body").on("click","button[id^='delete-from-playlist-']",onDeleteVideo);
 		$("body").on("click","button[id^='delete-playlist-']",onDeletePlaylist);
 
@@ -22,16 +18,22 @@ MediathekCrawler.PlaylistView = (function() {
 		}
 
 	},
-
+	/**
+	 * Function to show create-palylist-div.
+	 */
 	showCreatePlaylist = function() {
 		$("#create-playlist").removeClass("hidden");
 	},
+	/**
+	 * Function to hide create-palylist-div.
+	 */
 	hideCreatePlaylist = function() {
 		$("#create-playlist").addClass("hidden");
 	},
+	/**
+	 * Function to delete video from playlist.
+	 */
 	onDeleteVideo = function(){
-		
-
 			$broadcastId = $(this).val();
 			
 			$.ajax({
@@ -46,6 +48,9 @@ MediathekCrawler.PlaylistView = (function() {
 		$(that).trigger('feedback',["deleteVideo"]);
 		
 	},
+	/**
+	 * Function to delete palylist.
+	 */
 	onDeletePlaylist = function(){
 		$playlistId = $(this).val();
 			
@@ -61,6 +66,9 @@ MediathekCrawler.PlaylistView = (function() {
 		$(that).trigger('feedback',["deletePlaylist"]);
 		
 	},
+	/**
+	 * Function to calculate the quality of current video.
+	 */
 	calculateOrder = function(){
 		var order;
 		if($('#xs-helper').is(':visible')) {

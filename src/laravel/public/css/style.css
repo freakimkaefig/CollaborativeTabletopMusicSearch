@@ -369,6 +369,14 @@ h2 small span {padding: 5px; border: 1px solid #ffffff;}
 	z-index: -99;
 	top:-70px;
 }
+#feedback-container-mobile{
+	display: none;
+	z-index: -99;
+	top:0;
+}
+#feedback-container-mobile>h4{
+	margin-top: 30px;
+}
 
 #feedback-container-danger>h4,#feedback-container-warning>h4{
 	font-size: 12px;
