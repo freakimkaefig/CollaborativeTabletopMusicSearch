@@ -11,7 +11,6 @@
 
 	<!-- Controller -->
 	{{ HTML::script('js/src/controllers/ApplicationController.js') }}
-	{{ HTML::script('js/src/services/ARDService.js') }}
 	{{ HTML::script('js/src/services/DasErsteService.js') }}
 	{{ HTML::script('js/src/services/ZDFService.js') }}
 	{{ HTML::script('js/src/services/BRService.js') }}

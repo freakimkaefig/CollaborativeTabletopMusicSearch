@@ -12,7 +12,6 @@ MediathekCrawler.MainView = (function() {
 		});
 
 		$(document).ajaxStop(function(){
-			console.warn("AJAXSTOP");
 			$('#flipster').flipster({
 				style: 'carousel',
 				enableMousewheel: false
