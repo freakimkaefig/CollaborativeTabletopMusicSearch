@@ -22,18 +22,51 @@
 			<div class="snap-drawer snap-drawer-left">
 				<div>
 					<ul class="mobile-menu" role="menu">
-						<li class="divider-after"><a href="{{ URL::route('home') }}">Startseite</a></li>
+						<li class="divider-after">
+							<a href="{{ URL::route('home') }}">Startseite</a>
+						</li>
 						<li class="divider"></li>
-			      		<li class="divider-before"><a class="row"href="{{ URL::route('account-my-account') }}"><span class="col-sm-2 glyphicon glyphicon-user"></span><span class="col-sm-2">Mein Konto</span></a></li>
-			        	<li><a class="row" href="{{ URL::route('playlists') }}"><span class="col-sm-2 glyphicon glyphicon-list"></span></span><span class="col-sm-2">Playlisten</span></a></li>
-						<li class="divider-after"><a class="row" href="{{ URL::route('bookmarks') }}"><span class="col-sm-2 glyphicon glyphicon-list-alt"></span></span><span class="col-sm-2">Merkliste</span></a></li>
+			      		<li class="divider-before">
+			      			<a href="{{ URL::route('account-my-account') }}">
+			      				<span class="glyphicon glyphicon-user"></span>
+			      				<span>Mein Konto</span>
+			      			</a>
+			      		</li>
+			        	<li>
+			        		<a href="{{ URL::route('playlists') }}">
+			        			<span class="glyphicon glyphicon-list"></span>
+			        			<span>Playlisten</span>
+			        		</a>
+			        	</li>
+						<li class="divider-after">
+							<a href="{{ URL::route('bookmarks') }}">
+								<span class="glyphicon glyphicon-list-alt"></span>
+								<span>Merkliste</span>
+							</a>
+						</li>
 					    <li class="divider"></li>
-					    <li class="divider-before"><a class="row" href="{{ URL::route('channels-overview') }}"><span class="col-sm-2 glyphicon glyphicon-film"></span><span class="col-sm-2">Sender</span></a></li>
-					    <li class="divider-after"><a class="row" href="{{ URL::route('categories-overview') }}"><span class="col-sm-2 glyphicon glyphicon-th"></span><span class="col-sm-2">Rubriken</span></a></li>
+					    <li class="divider-before">
+					    	<a href="{{ URL::route('channels-overview') }}">
+					    		<span class="glyphicon glyphicon-film"></span>
+					    		<span>Sender</span>
+					    	</a>
+					    </li>
+					    <li class="divider-after">
+					    	<a href="{{ URL::route('categories-overview') }}">
+					    		<span class="glyphicon glyphicon-th"></span>
+					    		<span>Rubriken</span>
+					    	</a>
+					    </li>
 					    <li class="divider"></li>
-					    <li class="divider-before"><a href="{{ URL::route('contact') }}">Kontakt</a></li>
-					    <li><a href="{{ URL::route('data') }}">Datenschutz</a></li>
-					    <li><a href="{{ URL::route('imprint') }}">Impressum</a></li>
+					    <li class="divider-before">
+					    	<a href="{{ URL::route('contact') }}">Kontakt</a>
+					    </li>
+					    <li>
+					    	<a href="{{ URL::route('data') }}">Datenschutz</a>
+					    </li>
+					    <li>
+					    	<a href="{{ URL::route('imprint') }}">Impressum</a>
+					    </li>
         			</ul>
 				</div>
 			</div>
@@ -73,12 +106,12 @@
 				<div class="spacer"></div>
 			</div>
 		</div>
-			<div id="to-top" class="visible-xs">
-				<span  class="glyphicon glyphicon glyphicon-chevron-up text-center"></span>
-			</div>
+
+		<div id="to-top" class="visible-xs">
+			<span  class="glyphicon glyphicon glyphicon-chevron-up text-center"></span>
+		</div>
 		
 		@include('layout.footer')
-
 		@include('mediathek-crawler-js')
 
 		<div id="xs-helper" class="device-xs visible-xs"></div>

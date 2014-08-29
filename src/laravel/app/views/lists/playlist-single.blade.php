@@ -43,10 +43,6 @@
         foreach ($urls as $url ) { 
             foreach ($url as $u) {
               $obj = json_decode($u);
-              /*usort($obj, function($a, $b)
-              {
-                  return strcmp($b->_quality, $a->_quality);
-              });*/
                 foreach ($obj as $o) {
                   echo "<source src=$o->_url type='$o->_type' data-res='".checkQuality($o->_quality)."'>";
                 }

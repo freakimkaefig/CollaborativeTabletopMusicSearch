@@ -30,7 +30,6 @@
 				</a>
 			</h2>
 			<?php
-				//$results = DB::select('select * from playlists where user="'+Auth::id()+'"');
 				$results= DB::table('playlists')->where('user', '=', Auth::id())->take(5)->get();
 			?>
 	   			@foreach($results as $result)
@@ -84,9 +83,7 @@
 				</a>
 			</h2>
 			<?php
-				//$results = DB::select('select * from playlists where user="'+Auth::id()+'"');
 				$results = DB::table('broadcasts')->where('user_id', '=', Auth::id())->take(5)->get();
-			     
 			?>
 	   			@foreach($results as $result)
 			    <?php try{
