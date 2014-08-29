@@ -20,9 +20,9 @@ class UsersTableSeeder extends Seeder {
 				'password_temp' => '',
 				'code' => '',
 				'active' => 1,
-				'remember_token' => 'Otm5MrxVD7V6mr9cAK3JgU4IAN2SA0wTB7LcqM37LImtrOyacYzv4Nd2Qylm',
+				'remember_token' => 'Pm8kqmPM5LhQrmZP4IQmjItKBmJq4GcIWDFmdmvjLDaxrB3ZbCitJsLk6hm4',
 				'created_at' => '2014-07-08 12:56:04',
-				'updated_at' => '2014-08-18 13:03:39',
+				'updated_at' => '2014-08-29 14:45:57',
 			),
 			1 => 
 			array (

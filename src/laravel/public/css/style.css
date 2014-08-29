@@ -199,6 +199,13 @@ h2 small span {padding: 5px; border: 1px solid #ffffff;}
 	box-shadow: 0px 0px 5px 1px #000000;
 	/*min-height:90%;*/
 }
+.bookmark-delete{	
+	position: absolute;
+	right: 1em;
+	background-color: #313131;
+
+
+}
 .badge-new{
 	position: absolute;
 	background-image: url('/css/images/badge_new.png');
@@ -240,6 +247,18 @@ h2 small span {padding: 5px; border: 1px solid #ffffff;}
 
 #playlist-items .list-item .list-item-description h3 {
 	margin-top:0;
+}
+.playlist-item h4{
+	font-size: 14px;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+.playlist-item-title{
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+	border-bottom: 1px solid #778899;
 }
 
 
@@ -533,6 +552,7 @@ h2 small span {padding: 5px; border: 1px solid #ffffff;}
 	#carousel-wrapper .item, 
 	.flip-content { height: 300px; width:480px; }
 	#result-wrapper .video-item { height: 360px;}
+	.playlist-item {height: 300px;}
 }
 
 /* Medium Devices, Desktops */
@@ -540,6 +560,7 @@ h2 small span {padding: 5px; border: 1px solid #ffffff;}
 	#carousel-wrapper .item,
 	.flip-content { height: 340px; width:544px; }
 	#result-wrapper .video-item { height: 260px;}
+	.playlist-item {height: 200px;}
 }
 
 /* Large Devices, Wide Screens */
@@ -547,6 +568,7 @@ h2 small span {padding: 5px; border: 1px solid #ffffff;}
 	#carousel-wrapper .item,
 	.flip-content { height: 360px; width:576px; }
 	#result-wrapper .video-item { height: 300px;}
+	.playlist-item {height: 200px;}
 
 	.flipster-carousel .flip-past {
 		-webkit-transform: translateX(-95%) translateZ(0) rotateY(60deg) scale(0.65);
