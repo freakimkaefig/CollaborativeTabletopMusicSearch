@@ -52,7 +52,6 @@ MediathekCrawler.ZDFService = function() {
 	];
 	
 	init = function(mModel) {
-		console.info('MediathekCrawler.ZDFService.init');
 		mediathekModel = mModel;
 	},
 

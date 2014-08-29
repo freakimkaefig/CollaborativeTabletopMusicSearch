@@ -100,7 +100,6 @@ MediathekCrawler.DasErsteService = function() {
 	_categories = null,
 
 	init = function(model) {
-		console.info("MediathekCrawler.DasErsteService.init");
 		_model = model;
 		_categories = [];
 	},
