@@ -99,7 +99,7 @@ MediathekCrawler.ResultView = (function() {
 	          	'</div>'+
 	        '</div>';
     	} else {
-    		if(_checkSliderDuplicates(duplicates, result._station)){
+    		if(_checkSliderDuplicates(duplicates, result._station)) {
 	    		var slideElement = '<div class="item">'+
 		        	'<img src="' + result._teaserImages[0]._url + '" alt="' + result._title + '">'+
 		        	'<div class="container">'+
@@ -114,6 +114,21 @@ MediathekCrawler.ResultView = (function() {
 		        '</div>';
 	    	}
     	}
+
+    	if(_checkSliderDuplicates(duplicates, result._station)) {
+    		var flip = '<li>'+
+    			'<img class="video-img" src="' + result._teaserImages[0]._url + '" alt="' + result._title + '">'+
+    			'<a href="/video/' + result._id + '">'+
+					'<div class="carousel-caption">'+
+	              		'<h3 style="margin-top: 0px;">' + result._title + '</h3>'+
+	              		'<p>' + result._subtitle + '</p>'+
+	              		'<p>' + stationToImage(result._station) + '</p>'+
+	            	'</div>'+
+	            '</a>'+
+            '</li>';
+			$('#flipster ul').append(flip);
+		}
+
 		duplicates.push(result._station)
 
         $indicatorWrapper = $('#carousel-wrapper .carousel-indicators');
@@ -432,22 +447,22 @@ MediathekCrawler.ResultView = (function() {
 		var html = '';
 		station = station.toLowerCase();
 		if(station.indexOf("erste") > -1){
-			html += '<img src="/css/images/s_Das_Erste_2014.png" />';
+			html += '<img class="channel-img" src="/css/images/s_Das_Erste_2014.png" />';
 		}
 		if(station.indexOf("zdf") > -1 ){
-			html += '<img src="/css/images/s_ZDF.png" />';
+			html += '<img class="channel-img" src="/css/images/s_ZDF.png" />';
 		}
 		if(station.indexOf("srf") > -1){
-			html += '<img src="/css/images/s_srf.png" />';
+			html += '<img class="channel-img" src="/css/images/s_srf.png" />';
 		}
 		if(station.indexOf("arte") > -1){
-			html += '<img src="/css/images/s_Arte.png" />';
+			html += '<img class="channel-img" src="/css/images/s_Arte.png" />';
 		}
 		if(station.indexOf("br") > -1){
-			html += '<img src="/css/images/s_br.png" />';
+			html += '<img class="channel-img" src="/css/images/s_br.png" />';
 		}
 		if(station.indexOf("orf") > -1){
-			html += '<img src="/css/images/s_ORF_logo.png" />';
+			html += '<img class="channel-img" src="/css/images/s_ORF_logo.png" />';
 		}
 		html += '';
 		return html;
