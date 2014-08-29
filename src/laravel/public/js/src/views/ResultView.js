@@ -34,7 +34,7 @@ MediathekCrawler.ResultView = (function() {
 	* @param{Event} 	click event.
 	* @param{Object}	result object.
 	*/
-	appendResult = function(event, result) {
+	appendResult = function(result) {
 		if(result._origin._badge =="new"){
 			badge = "badge-new";
 		}
@@ -199,7 +199,7 @@ MediathekCrawler.ResultView = (function() {
 		
 		$resultWrapper.empty();
 		results.forEach(function(result){
-			appendResult(event, result);
+			appendResult(result);
 		})
 	},
 	/**
@@ -258,7 +258,7 @@ MediathekCrawler.ResultView = (function() {
 
 		$resultWrapper.empty();
 		results.forEach(function(result){
-			appendResult(event, result);
+			appendResult(result);
 		})
 		return;
 	},
@@ -319,7 +319,7 @@ MediathekCrawler.ResultView = (function() {
 		
 		$resultWrapper.empty();
 		results.forEach(function(result){
-			appendResult(event, result);
+			appendResult(result);
 		})
 	},
 	/**
@@ -342,9 +342,9 @@ MediathekCrawler.ResultView = (function() {
 				var airtimeA=a._airtime.toLowerCase();
 				var airtimeB=b._airtime.toLowerCase();
 				var partsA = airtimeA.split(/\s|\.|\:/);
-				var airtimeA = partsA[2]+'-'+partsA[1]+'-'+partsA[0];/*+" "+partsA[3]+':'+partsA[4];*/
+				var airtimeA = partsA[2]+'-'+partsA[1]+'-'+partsA[0];
  				var partsB = airtimeB.split(/\s|\.|\:/);
-				var airtimeB = partsB[2]+'-'+partsB[1]+'-'+partsB[0];/*+" "+partsB[3]+':'+partsB[4];*/					
+				var airtimeB = partsB[2]+'-'+partsB[1]+'-'+partsB[0];					
 				airtimeA = new Date(airtimeA).getTime();
 				airtimeB = new Date(airtimeB).getTime();
 				if (airtimeA < airtimeB){
@@ -372,9 +372,9 @@ MediathekCrawler.ResultView = (function() {
 				var airtimeA=a._airtime.toLowerCase();
 				var airtimeB=b._airtime.toLowerCase();
 				var partsA = airtimeA.split(/\s|\.|\:/);
-				var airtimeA = partsA[2]+'-'+partsA[1]+'-'+partsA[0];/*+" "+partsA[3]+':'+partsA[4];*/
+				var airtimeA = partsA[2]+'-'+partsA[1]+'-'+partsA[0];
  				var partsB = airtimeB.split(/\s|\.|\:/);
-				var airtimeB = partsB[2]+'-'+partsB[1]+'-'+partsB[0];/*+" "+partsB[3]+':'+partsB[4];*/				
+				var airtimeB = partsB[2]+'-'+partsB[1]+'-'+partsB[0];				
 				airtimeA = new Date(airtimeA).getTime();
 				airtimeB = new Date(airtimeB).getTime();
 				if (airtimeA < airtimeB){
@@ -390,7 +390,7 @@ MediathekCrawler.ResultView = (function() {
 
 		$resultWrapper.empty();
 		results.forEach(function(result){
-			appendResult(event, result);
+			appendResult(result);
 		})
 		return;
 	},
@@ -399,6 +399,7 @@ MediathekCrawler.ResultView = (function() {
 	*/
 	hotNewSort = function(){
 		results = getFromLocalstorage()._results;
+		console.log('hot-new-sort results from localstorage: ',results);
 		if($("#hot-new-sort").val()=="asc"){
 			$("#alphabetic-sort").empty();
 			$("#alphabetic-sort").append('Alphabetisch');
@@ -449,8 +450,9 @@ MediathekCrawler.ResultView = (function() {
 			$("#hot-new-sort").val("asc");
 		}
 		$resultWrapper.empty();
+		console.log('hot-new-sort sorted results: ',results);
 		results.forEach(function(result){
-			appendResult(event, result);
+			appendResult(result);
 		})
 		return;
 	},
