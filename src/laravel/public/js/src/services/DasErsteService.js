@@ -571,7 +571,6 @@ MediathekCrawler.DasErsteService = function() {
 			});
 
 		}else{
-			console.log('DasErste onDASERSTEGetHot could not fetch _url! ',_url);
 		}
 	},
 

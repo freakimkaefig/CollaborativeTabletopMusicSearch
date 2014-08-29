@@ -52,7 +52,7 @@
 				<h4 class="col-sm-offset-1"><span class="glyphicon glyphicon-chevron-up"></span></h4>
 				<div class="col-sm-4 col-sm-offset-1 alpha">
 					<ul>
-						<li><a href="">Startseite</a></li>
+						<li><a href="/">Startseite</a></li>
 					    <li><a href="/kontakt">Kontakt</a></li>
 			      		<li><a href="/datenschutz">Datenschutz</a></li>
 			      		<li><a href="/impressum">Impressum</a></li>
