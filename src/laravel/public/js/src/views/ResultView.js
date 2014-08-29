@@ -342,9 +342,9 @@ MediathekCrawler.ResultView = (function() {
 				var airtimeA=a._airtime.toLowerCase();
 				var airtimeB=b._airtime.toLowerCase();
 				var partsA = airtimeA.split(/\s|\.|\:/);
-				var airtimeA = partsA[2]+'-'+partsA[1]+'-'+partsA[0];/*+" "+partsA[3]+':'+partsA[4];*/
+				var airtimeA = partsA[2]+'-'+partsA[1]+'-'+partsA[0];
  				var partsB = airtimeB.split(/\s|\.|\:/);
-				var airtimeB = partsB[2]+'-'+partsB[1]+'-'+partsB[0];/*+" "+partsB[3]+':'+partsB[4];*/					
+				var airtimeB = partsB[2]+'-'+partsB[1]+'-'+partsB[0];					
 				airtimeA = new Date(airtimeA).getTime();
 				airtimeB = new Date(airtimeB).getTime();
 				if (airtimeA < airtimeB){
@@ -372,9 +372,9 @@ MediathekCrawler.ResultView = (function() {
 				var airtimeA=a._airtime.toLowerCase();
 				var airtimeB=b._airtime.toLowerCase();
 				var partsA = airtimeA.split(/\s|\.|\:/);
-				var airtimeA = partsA[2]+'-'+partsA[1]+'-'+partsA[0];/*+" "+partsA[3]+':'+partsA[4];*/
+				var airtimeA = partsA[2]+'-'+partsA[1]+'-'+partsA[0];
  				var partsB = airtimeB.split(/\s|\.|\:/);
-				var airtimeB = partsB[2]+'-'+partsB[1]+'-'+partsB[0];/*+" "+partsB[3]+':'+partsB[4];*/				
+				var airtimeB = partsB[2]+'-'+partsB[1]+'-'+partsB[0];				
 				airtimeA = new Date(airtimeA).getTime();
 				airtimeB = new Date(airtimeB).getTime();
 				if (airtimeA < airtimeB){

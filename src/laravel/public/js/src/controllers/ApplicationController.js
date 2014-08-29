@@ -39,9 +39,6 @@ MediathekCrawler.ApplicationController = function() {
 	    	$(mediathekModel).on('resultReceived', onResultReceived);
 		}
 
-	    // init Mediathek-Controllers:
-	    // ARDService = MediathekCrawler.ARDService();
-	    // ARDService.init(mediathekModel);
 	    DasErsteService = MediathekCrawler.DasErsteService();
 	    DasErsteService.init(mediathekModel);
 		ZDFService = MediathekCrawler.ZDFService();
@@ -80,14 +77,6 @@ MediathekCrawler.ApplicationController = function() {
 		$(broadcastView).on("feedback", onFeedback);
 		$(playlistView).on("feedback", onFeedback);
 		$(bookmarkView).on("feedback", onFeedback);
-
-		$("#video").click(function(){
-			console.log("videoclick");
-		});
-
-		$(document).ajaxStop(function(){
-			// console.log('AJAXSTOP');
-		});
 	},
 
 	onResultReceived = function(event, result) {
@@ -99,7 +88,6 @@ MediathekCrawler.ApplicationController = function() {
 			if($("#duration-slider").slider("value") < 1){
 				resultView.appendResult(result);
 				removeSortIcons();
-				// mediathekModel.clearResults();
 			}
 			else{
 				$(document).ajaxStop(checkDuration(searchView.getSliderValue()));
@@ -136,7 +124,7 @@ MediathekCrawler.ApplicationController = function() {
 	_analyzeRoute = function() {
 		var url = document.URL.toLowerCase();
 		if (document.URL === "http://mediathek-crawler/" || document.URL === "http://mediathek.lukaslamm.de/" || document.URL === "http://mediathek.lukaslamm.de/#") {
-			DasErsteService.getNew(1);	// liefert 12 Ergebnisse statt einem
+			DasErsteService.getNew(1);
 			ZDFService.getNew(1);
 			ARTEService.getNew(1);
 			BRService.getBRNew(1);
@@ -177,10 +165,6 @@ MediathekCrawler.ApplicationController = function() {
 
 		}
 		if (url.indexOf("/suche") > -1 || url.indexOf("/suche-mobile") > -1) {
-			// var nachrichten = $('input[name="nachrichten"]').attr('checked');
-			// if (nachrichten) {
-			// 	_getCategory('nachrichten');
-			// }
 
 			var searchString = $('input[name="search"]').val();
 
@@ -189,7 +173,6 @@ MediathekCrawler.ApplicationController = function() {
 				$('#submit').on('click',_filterSeach);
 
 			} else {
-				//_getNew();
 				$('#submit').on('click',_filterSeach);
 			}
 
@@ -212,9 +195,6 @@ MediathekCrawler.ApplicationController = function() {
 		}
 	},
 	_filterSeach = function(e) {
-		//e.preventDefault();
-					//console.log(mediathekModel.getResults());
-		//localStorage.removeItem("mediathek-crawler");
 		mediathekModel.clearResults();
 		$("#result-wrapper").empty();
 		var channels = searchView.getSelectedChannels();
@@ -257,7 +237,6 @@ MediathekCrawler.ApplicationController = function() {
 							ORFService.searchString(category);
 						}
 					})
-							//checkDuration(duration);
 				}
 				// Channel-String search
 				else if(searchString !== '' && searchString !== undefined){
@@ -299,9 +278,7 @@ MediathekCrawler.ApplicationController = function() {
 					if(channel =="br"){
 						BRService.getBRVideosByDate(startDate, endDate);
 					}
-					if(channel =="orf"){
-						// BRService.getORFVideosByDate(startDate, endDate);
-					}
+					//not possible for ORFService
 
 				}
 				// Channel search
@@ -310,7 +287,6 @@ MediathekCrawler.ApplicationController = function() {
 						ARTEService.getNew(ARTEMAXRESULTS);
 						ARTEService.getHot(ARTEMAXRESULTS);
 						$('#hot-new-sort').removeClass('hidden');
-						//checkDuration(duration);
 					}
 					if(channel == "zdf"){
 						ZDFService.getNew(ZDFMAXRESULTS);
@@ -377,10 +353,6 @@ MediathekCrawler.ApplicationController = function() {
 		$("#result-wrapper").empty();
 		if(duration > 0){
 			results = JSON.parse(localStorage.getItem("mediathek-crawler"))._results;
-			//localStorage.removeItem("mediathek-crawler");
-			//localStorage.removeItem("mediathek-crawler");
-			//mediathekModel.clearResults();
-			//console.log("duration");
 			var newResults =[];
 			results.forEach(function(re){
 				time=re._length.split(":");
@@ -389,7 +361,6 @@ MediathekCrawler.ApplicationController = function() {
 					timeInMinutes = timeInMinutes + parseInt(time[0])*60;
 				}
 				if(timeInMinutes >= duration){
-					//resultView.appendResult(re);
 					newResults.push(re);
 				}
 			});
@@ -410,7 +381,6 @@ MediathekCrawler.ApplicationController = function() {
 	_search = function(searchString) {
 		mediathekModel.clearResults();
 
-		//ardController.searchString(searchString);
 		DasErsteService.searchString(searchString, 0);
 		ZDFService.searchString(searchString, ZDFMAXRESULTS);
 		ORFService.searchString(searchString);
