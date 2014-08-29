@@ -97,7 +97,7 @@ MediathekCrawler.ApplicationController = function() {
 		}
 		if (document.URL.indexOf("/suche") > -1) {
 			if($("#duration-slider").slider("value") < 1){
-				resultView.appendResult(event, result);
+				resultView.appendResult(result);
 				// mediathekModel.clearResults();
 			}
 			else{
@@ -105,7 +105,7 @@ MediathekCrawler.ApplicationController = function() {
 			}
 		}
 		else{
-			resultView.appendResult(event, result);
+			resultView.appendResult(result);
 		}
 		
 				
@@ -374,14 +374,14 @@ MediathekCrawler.ApplicationController = function() {
 					timeInMinutes = timeInMinutes + parseInt(time[0])*60;
 				}
 				if(timeInMinutes >= duration){
-					//resultView.appendResult(event, re);
+					//resultView.appendResult(re);
 					newResults.push(re);
 				}
 			});
 			var resultIndex = 0;
 			newResults.forEach(function(i){
 				newResults[resultIndex]._id = resultIndex;
-				resultView.appendResult(event,i);
+				resultView.appendResult(i);
 				resultIndex++;
 			})
 			newResults = JSON.stringify(newResults);

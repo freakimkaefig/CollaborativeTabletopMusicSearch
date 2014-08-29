@@ -34,7 +34,7 @@ MediathekCrawler.ResultView = (function() {
 	* @param{Event} 	click event.
 	* @param{Object}	result object.
 	*/
-	appendResult = function(event, result) {
+	appendResult = function(result) {
 		if(result._origin._badge =="new"){
 			badge = "badge-new";
 		}
@@ -199,7 +199,7 @@ MediathekCrawler.ResultView = (function() {
 		
 		$resultWrapper.empty();
 		results.forEach(function(result){
-			appendResult(event, result);
+			appendResult(result);
 		})
 	},
 	/**
@@ -258,7 +258,7 @@ MediathekCrawler.ResultView = (function() {
 
 		$resultWrapper.empty();
 		results.forEach(function(result){
-			appendResult(event, result);
+			appendResult(result);
 		})
 		return;
 	},
@@ -319,7 +319,7 @@ MediathekCrawler.ResultView = (function() {
 		
 		$resultWrapper.empty();
 		results.forEach(function(result){
-			appendResult(event, result);
+			appendResult(result);
 		})
 	},
 	/**
@@ -390,7 +390,7 @@ MediathekCrawler.ResultView = (function() {
 
 		$resultWrapper.empty();
 		results.forEach(function(result){
-			appendResult(event, result);
+			appendResult(result);
 		})
 		return;
 	},
@@ -399,6 +399,7 @@ MediathekCrawler.ResultView = (function() {
 	*/
 	hotNewSort = function(){
 		results = getFromLocalstorage()._results;
+		console.log('hot-new-sort results from localstorage: ',results);
 		if($("#hot-new-sort").val()=="asc"){
 			$("#alphabetic-sort").empty();
 			$("#alphabetic-sort").append('Alphabetisch');
@@ -449,8 +450,9 @@ MediathekCrawler.ResultView = (function() {
 			$("#hot-new-sort").val("asc");
 		}
 		$resultWrapper.empty();
+		console.log('hot-new-sort sorted results: ',results);
 		results.forEach(function(result){
-			appendResult(event, result);
+			appendResult(result);
 		})
 		return;
 	},
