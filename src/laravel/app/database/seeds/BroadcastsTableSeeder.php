@@ -14,22 +14,6 @@ class BroadcastsTableSeeder extends Seeder {
 		\DB::table('broadcasts')->insert(array (
 			0 => 
 			array (
-				'id' => 44,
-				'title' => '"Amigo - Bei Ankunft Tod"',
-				'subtitle' => '0',
-				'details' => 'Zwei BKA-Ermittler landen in Neapel, um den dort untergetauchten Terroristen Amigo Steiger zu fassen. Doch als sie ihn finden, kommt es zur Schießerei und einer der Ermittler wird getroffen.',
-				'airtime' => '2014-08-11 20:15:00',
-				'url' => '[{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/07\\/140725_amigo_ankunft_tod_ps_fdw_436k_p9v11.mp4","_filesize":"313511616"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/rodl.zdf.de\\/none\\/zdf\\/14\\/07\\/140725_amigo_ankunft_tod_ps_fdw_436k_p9v11.mp4","_filesize":"313511616"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/07\\/140725_amigo_ankunft_tod_ps_fdw_189k_p7v11.mp4","_filesize":"144861935"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/07\\/140725_amigo_ankunft_tod_ps_fdw_1456k_p13v11.mp4","_filesize":"1007893550"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/rodl.zdf.de\\/none\\/zdf\\/14\\/07\\/140725_amigo_ankunft_tod_ps_fdw_1456k_p13v11.mp4","_filesize":"1007893550"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"2","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/07\\/140725_amigo_ankunft_tod_ps_fdw_776k_p17v11.webm","_filesize":"335237201"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"0","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/07\\/140725_amigo_ankunft_tod_ps_fdw_282k_p16v11.webm","_filesize":"127568836"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"3","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/07\\/140725_amigo_ankunft_tod_ps_fdw_1496k_p18v11.webm","_filesize":"562574791"}]',
-				'duration' => '01:27:00',
-				'image' => '[{"_resolution":"946x532","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2204616\\/timg946x532blob\\/10118346"},{"_resolution":"672x378","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2204616\\/timg672x378blob\\/10118343"},{"_resolution":"644x363","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2204616\\/timg644x363blob\\/10118342"},{"_resolution":"485x273","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2204616\\/timg485x273blob\\/10118332"},{"_resolution":"476x268","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2204616\\/timg476x268blob\\/10118339"},{"_resolution":"476x176","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2204616\\/timg476x176blob\\/10118337"},{"_resolution":"404x227","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2204616\\/timg404x227blob\\/10118345"},{"_resolution":"298x168","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2204616\\/timg298x168blob\\/10118340"},{"_resolution":"276x155","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2204616\\/timg276x155blob\\/10118333"},{"_resolution":"236x133","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2204616\\/timg236x133blob\\/10118341"},{"_resolution":"173x120","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2204616\\/timg173x120blob\\/10118331"}]',
-				'station' => 'ZDF',
-				'created_at' => '2014-08-16 16:09:59',
-				'updated_at' => '2014-08-16 16:09:59',
-				'playlist_id' => NULL,
-				'user_id' => 1,
-			),
-			1 => 
-			array (
 				'id' => 72,
 				'title' => 'Der Chronist des Todes',
 				'subtitle' => '0',
@@ -44,7 +28,7 @@ class BroadcastsTableSeeder extends Seeder {
 				'playlist_id' => NULL,
 				'user_id' => 1,
 			),
-			2 => 
+			1 => 
 			array (
 				'id' => 73,
 				'title' => 'Nicht von schlechten Vätern - Boris',
@@ -60,23 +44,7 @@ class BroadcastsTableSeeder extends Seeder {
 				'playlist_id' => NULL,
 				'user_id' => 1,
 			),
-			3 => 
-			array (
-				'id' => 85,
-				'title' => '"Dschungelkampf"',
-				'subtitle' => '0',
-				'details' => 'Im "Dschungelkampf" taucht das "starke Team" tief in ein sozial schwaches Berliner Plattenbauviertel ein, um den Mord an dem jungen Carsten Bubenberger aufzuklären.',
-				'airtime' => '2014-08-16 20:15:00',
-				'url' => '[{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/08\\/140801_dschungelkampf_ps_ete_436k_p9v11.mp4","_filesize":"313006106"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/rodl.zdf.de\\/none\\/zdf\\/14\\/08\\/140801_dschungelkampf_ps_ete_436k_p9v11.mp4","_filesize":"313006106"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/08\\/140801_dschungelkampf_ps_ete_189k_p7v11.mp4","_filesize":"144526237"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/08\\/140801_dschungelkampf_ps_ete_1456k_p13v11.mp4","_filesize":"1006469284"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/rodl.zdf.de\\/none\\/zdf\\/14\\/08\\/140801_dschungelkampf_ps_ete_1456k_p13v11.mp4","_filesize":"1006469284"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"2","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/08\\/140801_dschungelkampf_ps_ete_776k_p17v11.webm","_filesize":"335872386"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"0","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/08\\/140801_dschungelkampf_ps_ete_282k_p16v11.webm","_filesize":"126954838"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"3","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/08\\/140801_dschungelkampf_ps_ete_1496k_p18v11.webm","_filesize":"613481725"}]',
-				'duration' => '01:27:00',
-				'image' => '[{"_resolution":"946x532","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2209656\\/timg946x532blob\\/10131027"},{"_resolution":"672x378","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2209656\\/timg672x378blob\\/10131024"},{"_resolution":"644x363","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2209656\\/timg644x363blob\\/10131023"},{"_resolution":"485x273","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2209656\\/timg485x273blob\\/10131013"},{"_resolution":"476x268","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2209656\\/timg476x268blob\\/10131020"},{"_resolution":"476x176","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2209656\\/timg476x176blob\\/10131018"},{"_resolution":"404x227","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2209656\\/timg404x227blob\\/10131026"},{"_resolution":"298x168","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2209656\\/timg298x168blob\\/10131021"},{"_resolution":"276x155","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2209656\\/timg276x155blob\\/10131014"},{"_resolution":"236x133","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2209656\\/timg236x133blob\\/10131022"},{"_resolution":"173x120","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2209656\\/timg173x120blob\\/10131012"}]',
-				'station' => 'ZDF',
-				'created_at' => '2014-08-18 08:56:38',
-				'updated_at' => '2014-08-18 08:56:38',
-				'playlist_id' => NULL,
-				'user_id' => 1,
-			),
-			4 => 
+			2 => 
 			array (
 				'id' => 86,
 				'title' => 'Gasland',
@@ -92,55 +60,7 @@ class BroadcastsTableSeeder extends Seeder {
 				'playlist_id' => NULL,
 				'user_id' => 1,
 			),
-			5 => 
-			array (
-				'id' => 87,
-				'title' => 'Tatort Internet',
-				'subtitle' => '0',
-				'details' => 'Gefälschte Wohnungsangebote, Abzocke mit Liebes-SMS oder Psychoterror durch Cybermobbing: Die weite Welt des Internets bietet Kriminellen eine ganz neue Plattform.',
-				'airtime' => '2014-08-02 18:00:00',
-				'url' => '[{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/08\\/140813_tatortneu_inf_436k_p9v11.mp4","_filesize":"155236949"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/rodl.zdf.de\\/none\\/zdf\\/14\\/08\\/140813_tatortneu_inf_436k_p9v11.mp4","_filesize":"155236949"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/08\\/140813_tatortneu_inf_189k_p7v11.mp4","_filesize":"71792982"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/08\\/140813_tatortneu_inf_1456k_p13v11.mp4","_filesize":"499313532"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/rodl.zdf.de\\/none\\/zdf\\/14\\/08\\/140813_tatortneu_inf_1456k_p13v11.mp4","_filesize":"499313532"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"2","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/08\\/140813_tatortneu_inf_776k_p17v11.webm","_filesize":"175860457"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"0","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/08\\/140813_tatortneu_inf_282k_p16v11.webm","_filesize":"66969589"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"3","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/08\\/140813_tatortneu_inf_1496k_p18v11.webm","_filesize":"312065460"}]',
-				'duration' => '00:43:00',
-				'image' => '[{"_resolution":"672x378","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/1673784\\/timg672x378blob\\/10145150"},{"_resolution":"644x363","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/1673784\\/timg644x363blob\\/10145149"},{"_resolution":"485x273","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/1673784\\/timg485x273blob\\/10145139"},{"_resolution":"476x268","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/1673784\\/timg476x268blob\\/10145146"},{"_resolution":"476x176","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/1673784\\/timg476x176blob\\/10145144"},{"_resolution":"404x227","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/1673784\\/timg404x227blob\\/10145152"},{"_resolution":"298x168","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/1673784\\/timg298x168blob\\/10145147"},{"_resolution":"276x155","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/1673784\\/timg276x155blob\\/10145140"},{"_resolution":"236x133","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/1673784\\/timg236x133blob\\/10145148"},{"_resolution":"173x120","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/1673784\\/timg173x120blob\\/10145138"}]',
-				'station' => 'ZDFinfo',
-				'created_at' => '2014-08-18 14:38:13',
-				'updated_at' => '2014-08-18 14:38:13',
-				'playlist_id' => 1,
-				'user_id' => NULL,
-			),
-			6 => 
-			array (
-				'id' => 88,
-				'title' => 'Mertesacker: 10 Jahre und 104 Einsätze',
-				'subtitle' => '0',
-				'details' => 'Weltmeister Per Mertesacker ist mit nicht einmal 30 Jahren aus der Deutschen Fußballnationalmannschaft zurückgetreten. In seinen 10 Jahren im DFB Team spielte er 104 mal und erzielte 4 Tore.',
-				'airtime' => '2014-08-16 23:48:00',
-				'url' => '[{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/08\\/140816_mertesacker_sst_436k_p9v11.mp4","_filesize":"5119709"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/rodl.zdf.de\\/none\\/zdf\\/14\\/08\\/140816_mertesacker_sst_436k_p9v11.mp4","_filesize":"5119709"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/08\\/140816_mertesacker_sst_189k_p7v11.mp4","_filesize":"2361213"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/08\\/140816_mertesacker_sst_1456k_p13v11.mp4","_filesize":"16473856"},{"_basetype":"h264_aac_mp4_http_na_na","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/rodl.zdf.de\\/none\\/zdf\\/14\\/08\\/140816_mertesacker_sst_1456k_p13v11.mp4","_filesize":"16473856"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"2","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/08\\/140816_mertesacker_sst_776k_p17v11.webm","_filesize":"5695982"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"0","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/08\\/140816_mertesacker_sst_282k_p16v11.webm","_filesize":"2177310"},{"_basetype":"vp8_vorbis_webm_http_na_na","_type":"video\\/webm","_quality":"3","_url":"http:\\/\\/nrodl.zdf.de\\/none\\/zdf\\/14\\/08\\/140816_mertesacker_sst_1496k_p18v11.webm","_filesize":"11207575"}]',
-				'duration' => '00:01:25',
-				'image' => '[{"_resolution":"946x532","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2219490\\/timg946x532blob\\/10155092"},{"_resolution":"672x378","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2219490\\/timg672x378blob\\/10155089"},{"_resolution":"644x363","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2219490\\/timg644x363blob\\/10155088"},{"_resolution":"485x273","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2219490\\/timg485x273blob\\/10155078"},{"_resolution":"476x268","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2219490\\/timg476x268blob\\/10155085"},{"_resolution":"476x176","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2219490\\/timg476x176blob\\/10155083"},{"_resolution":"404x227","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2219490\\/timg404x227blob\\/10155091"},{"_resolution":"298x168","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2219490\\/timg298x168blob\\/10155086"},{"_resolution":"276x155","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2219490\\/timg276x155blob\\/10155079"},{"_resolution":"236x133","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2219490\\/timg236x133blob\\/10155087"},{"_resolution":"173x120","_url":"http:\\/\\/www.zdf.de\\/ZDFmediathek\\/contentblob\\/2219490\\/timg173x120blob\\/10155077"}]',
-				'station' => 'ZDF',
-				'created_at' => '2014-08-18 14:55:13',
-				'updated_at' => '2014-08-18 14:55:13',
-				'playlist_id' => 1,
-				'user_id' => NULL,
-			),
-			7 => 
-			array (
-				'id' => 89,
-				'title' => 'Rote Rosen',
-				'subtitle' => 'Folge 1789: Auf später verschoben?',
-				'details' => 'Auch Thomas muss akzeptieren, dass Aylin momentan keinen Platz für eine Beziehung in ihrem Leben hat. Doch beide wissen insgeheim, dass Aylins Abschied nach Genf nicht das Ende der Geschichte ist.',
-				'airtime' => '2014-08-18 00:00:00',
-				'url' => '[{"_basetype":"","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/mvideos.daserste.de\\/videoportal\\/Film\\/c_450000\\/454795\\/format551473.mp4","_filesize":""},{"_basetype":"","_type":"rtmp\\/mp4","_quality":"1","_url":"rtmp:\\/\\/vod.daserste.de\\/ardfs\\/mp4:videoportal\\/mediathek\\/Rote+Rosen\\/c_450000\\/454795\\/format551472.mp4?sen=Rote+Rosen&amp;clip=Folge+1789+Auf+sp%C3%A4ter+verschoben%3F&amp;for=Web-M","_filesize":""},{"_basetype":"","_type":"rtmp\\/mp4","_quality":"2","_url":"rtmp:\\/\\/vod.daserste.de\\/ardfs\\/mp4:videoportal\\/mediathek\\/Rote+Rosen\\/c_450000\\/454795\\/format551482.mp4?sen=Rote+Rosen&amp;clip=Folge+1789+Auf+sp%C3%A4ter+verschoben%3F&amp;for=Web-L","_filesize":""},{"_basetype":"","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/mvideos.daserste.de\\/videoportal\\/Film\\/c_450000\\/454795\\/format551473.mp4","_filesize":""},{"_basetype":"","_type":"video\\/mp4","_quality":"1","_url":"http:\\/\\/mvideos.daserste.de\\/videoportal\\/Film\\/c_450000\\/454795\\/format551472.mp4","_filesize":""},{"_basetype":"","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/mvideos.daserste.de\\/videoportal\\/Film\\/c_450000\\/454795\\/format551531.mp4","_filesize":""},{"_basetype":"","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/mvideos.daserste.de\\/videoportal\\/Film\\/c_450000\\/454795\\/format551482.mp4","_filesize":""}]',
-				'duration' => '00:48:29',
-				'image' => '[{"_resolution":"384xNaN","_url":"http:\\/\\/mediathek.daserste.de\\/image\\/00\\/23\\/00\\/35\\/08\\/1222470096\\/16x9\\/384"}]',
-				'station' => 'Das Erste',
-				'created_at' => '2014-08-18 15:31:56',
-				'updated_at' => '2014-08-18 15:31:56',
-				'playlist_id' => 1,
-				'user_id' => NULL,
-			),
-			8 => 
+			3 => 
 			array (
 				'id' => 90,
 				'title' => 'Also sprach Cissé',
@@ -178,7 +98,7 @@ Marianne Kreuzer
 				'playlist_id' => 6,
 				'user_id' => NULL,
 			),
-			9 => 
+			4 => 
 			array (
 				'id' => 91,
 				'title' => 'Also sprach Cissé',
@@ -216,7 +136,7 @@ Marianne Kreuzer
 				'playlist_id' => NULL,
 				'user_id' => 2,
 			),
-			10 => 
+			5 => 
 			array (
 				'id' => 92,
 				'title' => 'Sportschau',
@@ -232,7 +152,7 @@ Marianne Kreuzer
 				'playlist_id' => NULL,
 				'user_id' => 2,
 			),
-			11 => 
+			6 => 
 			array (
 				'id' => 93,
 				'title' => 'Sportschau',
@@ -248,7 +168,7 @@ Marianne Kreuzer
 				'playlist_id' => 8,
 				'user_id' => NULL,
 			),
-			12 => 
+			7 => 
 			array (
 				'id' => 94,
 				'title' => 'Rundschau',
@@ -280,7 +200,7 @@ Anja Miller
 				'playlist_id' => NULL,
 				'user_id' => 2,
 			),
-			13 => 
+			8 => 
 			array (
 				'id' => 95,
 				'title' => 'Rundschau',
@@ -312,7 +232,7 @@ Anja Miller
 				'playlist_id' => 6,
 				'user_id' => NULL,
 			),
-			14 => 
+			9 => 
 			array (
 				'id' => 96,
 				'title' => '"Maria, ihm schmeckt\'s nicht!"',
@@ -327,6 +247,182 @@ Anja Miller
 				'updated_at' => '2014-08-25 13:52:12',
 				'playlist_id' => NULL,
 				'user_id' => 1,
+			),
+			10 => 
+			array (
+				'id' => 180,
+				'title' => 'Tagesschau',
+				'subtitle' => 'tagesschau',
+				'details' => 'Themen der Sendung: Berlins regierender Bürgermeister Wowereit will Amt abgeben, Putin und Poroschenko beraten über Ukraine-Krise, Österreichs Finanzminister Spindelegger tritt zurück, Letztes Fernsehduell zur Unabhängigkeit Schottlands, Verfahren gegen vier ehemalige BayernLB-Vorstände eingestellt, Die Börse, Vergabe der Emmy Awards, Das Wetter',
+				'airtime' => '2014-08-26 12:00:00',
+				'url' => '[{"_basetype":"","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webs.h264.mp4","_filesize":""},{"_basetype":"","_type":"video\\/mp4","_quality":"1","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webm.h264.mp4","_filesize":""},{"_basetype":"","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webml.h264.mp4","_filesize":""},{"_basetype":"","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webs.h264.mp4","_filesize":""},{"_basetype":"","_type":"rtmp\\/mp4","_quality":"1","_url":"undefinedhttp:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webm.h264.mp4,http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.websm.h264.mp4","_filesize":""},{"_basetype":"","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webml.h264.mp4","_filesize":""},{"_basetype":"","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webl.h264.mp4","_filesize":""}]',
+				'duration' => '00:14:57',
+				'image' => '[{"_resolution":"384xNaN","_url":"http:\\/\\/mediathek.daserste.de\\/image\\/00\\/23\\/14\\/16\\/22\\/-692293154\\/16x9\\/384"}]',
+				'station' => 'Das Erste',
+				'created_at' => '2014-08-26 12:08:37',
+				'updated_at' => '2014-08-26 12:08:37',
+				'playlist_id' => 62,
+				'user_id' => NULL,
+			),
+			11 => 
+			array (
+				'id' => 184,
+				'title' => 'Tagesschau',
+				'subtitle' => 'tagesschau',
+				'details' => 'Themen der Sendung: Berlins regierender Bürgermeister Wowereit will Amt abgeben, Putin und Poroschenko beraten über Ukraine-Krise, Österreichs Finanzminister Spindelegger tritt zurück, Letztes Fernsehduell zur Unabhängigkeit Schottlands, Verfahren gegen vier ehemalige BayernLB-Vorstände eingestellt, Die Börse, Vergabe der Emmy Awards, Das Wetter',
+				'airtime' => '2014-08-26 12:00:00',
+				'url' => '[{"_basetype":"","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webs.h264.mp4","_filesize":""},{"_basetype":"","_type":"video\\/mp4","_quality":"1","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webm.h264.mp4","_filesize":""},{"_basetype":"","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webml.h264.mp4","_filesize":""},{"_basetype":"","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webs.h264.mp4","_filesize":""},{"_basetype":"","_type":"rtmp\\/mp4","_quality":"1","_url":"undefinedhttp:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webm.h264.mp4,http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.websm.h264.mp4","_filesize":""},{"_basetype":"","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webml.h264.mp4","_filesize":""},{"_basetype":"","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webl.h264.mp4","_filesize":""}]',
+				'duration' => '00:14:57',
+				'image' => '[{"_resolution":"384xNaN","_url":"http:\\/\\/mediathek.daserste.de\\/image\\/00\\/23\\/14\\/16\\/22\\/-692293154\\/16x9\\/384"}]',
+				'station' => 'Das Erste',
+				'created_at' => '2014-08-26 12:10:50',
+				'updated_at' => '2014-08-26 12:10:50',
+				'playlist_id' => 62,
+				'user_id' => NULL,
+			),
+			12 => 
+			array (
+				'id' => 185,
+				'title' => 'Tagesschau',
+				'subtitle' => 'tagesschau',
+				'details' => 'Themen der Sendung: Berlins regierender Bürgermeister Wowereit will Amt abgeben, Putin und Poroschenko beraten über Ukraine-Krise, Österreichs Finanzminister Spindelegger tritt zurück, Letztes Fernsehduell zur Unabhängigkeit Schottlands, Verfahren gegen vier ehemalige BayernLB-Vorstände eingestellt, Die Börse, Vergabe der Emmy Awards, Das Wetter',
+				'airtime' => '2014-08-26 12:00:00',
+				'url' => '[{"_basetype":"","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webs.h264.mp4","_filesize":""},{"_basetype":"","_type":"video\\/mp4","_quality":"1","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webm.h264.mp4","_filesize":""},{"_basetype":"","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webml.h264.mp4","_filesize":""},{"_basetype":"","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webs.h264.mp4","_filesize":""},{"_basetype":"","_type":"rtmp\\/mp4","_quality":"1","_url":"undefinedhttp:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webm.h264.mp4,http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.websm.h264.mp4","_filesize":""},{"_basetype":"","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webml.h264.mp4","_filesize":""},{"_basetype":"","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webl.h264.mp4","_filesize":""}]',
+				'duration' => '00:14:57',
+				'image' => '[{"_resolution":"384xNaN","_url":"http:\\/\\/mediathek.daserste.de\\/image\\/00\\/23\\/14\\/16\\/22\\/-692293154\\/16x9\\/384"}]',
+				'station' => 'Das Erste',
+				'created_at' => '2014-08-26 12:10:59',
+				'updated_at' => '2014-08-26 12:10:59',
+				'playlist_id' => 63,
+				'user_id' => NULL,
+			),
+			13 => 
+			array (
+				'id' => 186,
+				'title' => 'Tagesschau',
+				'subtitle' => 'tagesschau',
+				'details' => 'Themen der Sendung: Berlins regierender Bürgermeister Wowereit will Amt abgeben, Putin und Poroschenko beraten über Ukraine-Krise, Österreichs Finanzminister Spindelegger tritt zurück, Letztes Fernsehduell zur Unabhängigkeit Schottlands, Verfahren gegen vier ehemalige BayernLB-Vorstände eingestellt, Die Börse, Vergabe der Emmy Awards, Das Wetter',
+				'airtime' => '2014-08-26 12:00:00',
+				'url' => '[{"_basetype":"","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webs.h264.mp4","_filesize":""},{"_basetype":"","_type":"video\\/mp4","_quality":"1","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webm.h264.mp4","_filesize":""},{"_basetype":"","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webml.h264.mp4","_filesize":""},{"_basetype":"","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webs.h264.mp4","_filesize":""},{"_basetype":"","_type":"rtmp\\/mp4","_quality":"1","_url":"undefinedhttp:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webm.h264.mp4,http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.websm.h264.mp4","_filesize":""},{"_basetype":"","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webml.h264.mp4","_filesize":""},{"_basetype":"","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webl.h264.mp4","_filesize":""}]',
+				'duration' => '00:14:57',
+				'image' => '[{"_resolution":"384xNaN","_url":"http:\\/\\/mediathek.daserste.de\\/image\\/00\\/23\\/14\\/16\\/22\\/-692293154\\/16x9\\/384"}]',
+				'station' => 'Das Erste',
+				'created_at' => '2014-08-26 12:11:09',
+				'updated_at' => '2014-08-26 12:11:09',
+				'playlist_id' => 64,
+				'user_id' => NULL,
+			),
+			14 => 
+			array (
+				'id' => 188,
+				'title' => 'Tagesschau',
+				'subtitle' => 'tagesschau',
+				'details' => 'Themen der Sendung: Berlins regierender Bürgermeister Wowereit will Amt abgeben, Putin und Poroschenko beraten über Ukraine-Krise, Österreichs Finanzminister Spindelegger tritt zurück, Letztes Fernsehduell zur Unabhängigkeit Schottlands, Verfahren gegen vier ehemalige BayernLB-Vorstände eingestellt, Die Börse, Vergabe der Emmy Awards, Das Wetter',
+				'airtime' => '2014-08-26 12:00:00',
+				'url' => '[{"_basetype":"","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webs.h264.mp4","_filesize":""},{"_basetype":"","_type":"video\\/mp4","_quality":"1","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webm.h264.mp4","_filesize":""},{"_basetype":"","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webml.h264.mp4","_filesize":""},{"_basetype":"","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webs.h264.mp4","_filesize":""},{"_basetype":"","_type":"rtmp\\/mp4","_quality":"1","_url":"undefinedhttp:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webm.h264.mp4,http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.websm.h264.mp4","_filesize":""},{"_basetype":"","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webml.h264.mp4","_filesize":""},{"_basetype":"","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webl.h264.mp4","_filesize":""}]',
+				'duration' => '00:14:57',
+				'image' => '[{"_resolution":"384xNaN","_url":"http:\\/\\/mediathek.daserste.de\\/image\\/00\\/23\\/14\\/16\\/22\\/-692293154\\/16x9\\/384"}]',
+				'station' => 'Das Erste',
+				'created_at' => '2014-08-26 12:11:40',
+				'updated_at' => '2014-08-26 12:11:40',
+				'playlist_id' => 65,
+				'user_id' => NULL,
+			),
+			15 => 
+			array (
+				'id' => 189,
+				'title' => 'Tagesschau',
+				'subtitle' => 'tagesschau',
+				'details' => 'Themen der Sendung: Berlins regierender Bürgermeister Wowereit will Amt abgeben, Putin und Poroschenko beraten über Ukraine-Krise, Österreichs Finanzminister Spindelegger tritt zurück, Letztes Fernsehduell zur Unabhängigkeit Schottlands, Verfahren gegen vier ehemalige BayernLB-Vorstände eingestellt, Die Börse, Vergabe der Emmy Awards, Das Wetter',
+				'airtime' => '2014-08-26 12:00:00',
+				'url' => '[{"_basetype":"","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webs.h264.mp4","_filesize":""},{"_basetype":"","_type":"video\\/mp4","_quality":"1","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webm.h264.mp4","_filesize":""},{"_basetype":"","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webml.h264.mp4","_filesize":""},{"_basetype":"","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webs.h264.mp4","_filesize":""},{"_basetype":"","_type":"rtmp\\/mp4","_quality":"1","_url":"undefinedhttp:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webm.h264.mp4,http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.websm.h264.mp4","_filesize":""},{"_basetype":"","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webml.h264.mp4","_filesize":""},{"_basetype":"","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webl.h264.mp4","_filesize":""}]',
+				'duration' => '00:14:57',
+				'image' => '[{"_resolution":"384xNaN","_url":"http:\\/\\/mediathek.daserste.de\\/image\\/00\\/23\\/14\\/16\\/22\\/-692293154\\/16x9\\/384"}]',
+				'station' => 'Das Erste',
+				'created_at' => '2014-08-26 12:11:46',
+				'updated_at' => '2014-08-26 12:11:46',
+				'playlist_id' => 65,
+				'user_id' => NULL,
+			),
+			16 => 
+			array (
+				'id' => 190,
+				'title' => 'Tagesschau',
+				'subtitle' => 'tagesschau',
+				'details' => 'Themen der Sendung: Berlins regierender Bürgermeister Wowereit will Amt abgeben, Putin und Poroschenko beraten über Ukraine-Krise, Österreichs Finanzminister Spindelegger tritt zurück, Letztes Fernsehduell zur Unabhängigkeit Schottlands, Verfahren gegen vier ehemalige BayernLB-Vorstände eingestellt, Die Börse, Vergabe der Emmy Awards, Das Wetter',
+				'airtime' => '2014-08-26 12:00:00',
+				'url' => '[{"_basetype":"","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webs.h264.mp4","_filesize":""},{"_basetype":"","_type":"video\\/mp4","_quality":"1","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webm.h264.mp4","_filesize":""},{"_basetype":"","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webml.h264.mp4","_filesize":""},{"_basetype":"","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webs.h264.mp4","_filesize":""},{"_basetype":"","_type":"rtmp\\/mp4","_quality":"1","_url":"undefinedhttp:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webm.h264.mp4,http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.websm.h264.mp4","_filesize":""},{"_basetype":"","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webml.h264.mp4","_filesize":""},{"_basetype":"","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webl.h264.mp4","_filesize":""}]',
+				'duration' => '00:14:57',
+				'image' => '[{"_resolution":"384xNaN","_url":"http:\\/\\/mediathek.daserste.de\\/image\\/00\\/23\\/14\\/16\\/22\\/-692293154\\/16x9\\/384"}]',
+				'station' => 'Das Erste',
+				'created_at' => '2014-08-26 12:11:59',
+				'updated_at' => '2014-08-26 12:11:59',
+				'playlist_id' => 64,
+				'user_id' => NULL,
+			),
+			17 => 
+			array (
+				'id' => 191,
+				'title' => 'Tagesschau',
+				'subtitle' => 'tagesschau',
+				'details' => 'Themen der Sendung: Berlins regierender Bürgermeister Wowereit will Amt abgeben, Putin und Poroschenko beraten über Ukraine-Krise, Österreichs Finanzminister Spindelegger tritt zurück, Letztes Fernsehduell zur Unabhängigkeit Schottlands, Verfahren gegen vier ehemalige BayernLB-Vorstände eingestellt, Die Börse, Vergabe der Emmy Awards, Das Wetter',
+				'airtime' => '2014-08-26 12:00:00',
+				'url' => '[{"_basetype":"","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webs.h264.mp4","_filesize":""},{"_basetype":"","_type":"video\\/mp4","_quality":"1","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webm.h264.mp4","_filesize":""},{"_basetype":"","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webml.h264.mp4","_filesize":""},{"_basetype":"","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webs.h264.mp4","_filesize":""},{"_basetype":"","_type":"rtmp\\/mp4","_quality":"1","_url":"undefinedhttp:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webm.h264.mp4,http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.websm.h264.mp4","_filesize":""},{"_basetype":"","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webml.h264.mp4","_filesize":""},{"_basetype":"","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webl.h264.mp4","_filesize":""}]',
+				'duration' => '00:14:57',
+				'image' => '[{"_resolution":"384xNaN","_url":"http:\\/\\/mediathek.daserste.de\\/image\\/00\\/23\\/14\\/16\\/22\\/-692293154\\/16x9\\/384"}]',
+				'station' => 'Das Erste',
+				'created_at' => '2014-08-26 12:12:23',
+				'updated_at' => '2014-08-26 12:12:23',
+				'playlist_id' => 66,
+				'user_id' => NULL,
+			),
+			18 => 
+			array (
+				'id' => 192,
+				'title' => 'Tagesschau',
+				'subtitle' => 'tagesschau',
+				'details' => 'Themen der Sendung: Berlins regierender Bürgermeister Wowereit will Amt abgeben, Putin und Poroschenko beraten über Ukraine-Krise, Österreichs Finanzminister Spindelegger tritt zurück, Letztes Fernsehduell zur Unabhängigkeit Schottlands, Verfahren gegen vier ehemalige BayernLB-Vorstände eingestellt, Die Börse, Vergabe der Emmy Awards, Das Wetter',
+				'airtime' => '2014-08-26 12:00:00',
+				'url' => '[{"_basetype":"","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webs.h264.mp4","_filesize":""},{"_basetype":"","_type":"video\\/mp4","_quality":"1","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webm.h264.mp4","_filesize":""},{"_basetype":"","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webml.h264.mp4","_filesize":""},{"_basetype":"","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webs.h264.mp4","_filesize":""},{"_basetype":"","_type":"rtmp\\/mp4","_quality":"1","_url":"undefinedhttp:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webm.h264.mp4,http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.websm.h264.mp4","_filesize":""},{"_basetype":"","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webml.h264.mp4","_filesize":""},{"_basetype":"","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webl.h264.mp4","_filesize":""}]',
+				'duration' => '00:14:57',
+				'image' => '[{"_resolution":"384xNaN","_url":"http:\\/\\/mediathek.daserste.de\\/image\\/00\\/23\\/14\\/16\\/22\\/-692293154\\/16x9\\/384"}]',
+				'station' => 'Das Erste',
+				'created_at' => '2014-08-26 12:12:39',
+				'updated_at' => '2014-08-26 12:12:39',
+				'playlist_id' => 63,
+				'user_id' => NULL,
+			),
+			19 => 
+			array (
+				'id' => 193,
+				'title' => 'Tagesschau',
+				'subtitle' => 'tagesschau',
+				'details' => 'Themen der Sendung: Berlins regierender Bürgermeister Wowereit will Amt abgeben, Putin und Poroschenko beraten über Ukraine-Krise, Österreichs Finanzminister Spindelegger tritt zurück, Letztes Fernsehduell zur Unabhängigkeit Schottlands, Verfahren gegen vier ehemalige BayernLB-Vorstände eingestellt, Die Börse, Vergabe der Emmy Awards, Das Wetter',
+				'airtime' => '2014-08-26 12:00:00',
+				'url' => '[{"_basetype":"","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webs.h264.mp4","_filesize":""},{"_basetype":"","_type":"video\\/mp4","_quality":"1","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webm.h264.mp4","_filesize":""},{"_basetype":"","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webml.h264.mp4","_filesize":""},{"_basetype":"","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webs.h264.mp4","_filesize":""},{"_basetype":"","_type":"rtmp\\/mp4","_quality":"1","_url":"undefinedhttp:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webm.h264.mp4,http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.websm.h264.mp4","_filesize":""},{"_basetype":"","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webml.h264.mp4","_filesize":""},{"_basetype":"","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webl.h264.mp4","_filesize":""}]',
+				'duration' => '00:14:57',
+				'image' => '[{"_resolution":"384xNaN","_url":"http:\\/\\/mediathek.daserste.de\\/image\\/00\\/23\\/14\\/16\\/22\\/-692293154\\/16x9\\/384"}]',
+				'station' => 'Das Erste',
+				'created_at' => '2014-08-26 12:12:58',
+				'updated_at' => '2014-08-26 12:12:58',
+				'playlist_id' => 66,
+				'user_id' => NULL,
+			),
+			20 => 
+			array (
+				'id' => 194,
+				'title' => 'Tagesschau',
+				'subtitle' => 'tagesschau',
+				'details' => 'Themen der Sendung: Berlins regierender Bürgermeister Wowereit will Amt abgeben, Putin und Poroschenko beraten über Ukraine-Krise, Österreichs Finanzminister Spindelegger tritt zurück, Letztes Fernsehduell zur Unabhängigkeit Schottlands, Verfahren gegen vier ehemalige BayernLB-Vorstände eingestellt, Die Börse, Vergabe der Emmy Awards, Das Wetter',
+				'airtime' => '2014-08-26 12:00:00',
+				'url' => '[{"_basetype":"","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webs.h264.mp4","_filesize":""},{"_basetype":"","_type":"video\\/mp4","_quality":"1","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webm.h264.mp4","_filesize":""},{"_basetype":"","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webml.h264.mp4","_filesize":""},{"_basetype":"","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webs.h264.mp4","_filesize":""},{"_basetype":"","_type":"rtmp\\/mp4","_quality":"1","_url":"undefinedhttp:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webm.h264.mp4,http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.websm.h264.mp4","_filesize":""},{"_basetype":"","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webml.h264.mp4","_filesize":""},{"_basetype":"","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/media.tagesschau.de\\/video\\/2014\\/0826\\/TV-20140826-1224-1001.webl.h264.mp4","_filesize":""}]',
+				'duration' => '00:14:57',
+				'image' => '[{"_resolution":"384xNaN","_url":"http:\\/\\/mediathek.daserste.de\\/image\\/00\\/23\\/14\\/16\\/22\\/-692293154\\/16x9\\/384"}]',
+				'station' => 'Das Erste',
+				'created_at' => '2014-08-26 12:13:10',
+				'updated_at' => '2014-08-26 12:13:10',
+				'playlist_id' => 66,
+				'user_id' => NULL,
 			),
 		));
 	}
