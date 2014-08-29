@@ -73,12 +73,12 @@
 				<div class="spacer"></div>
 			</div>
 		</div>
-			<div id="to-top" class="visible-xs">
-				<span  class="glyphicon glyphicon glyphicon-chevron-up text-center"></span>
-			</div>
+
+		<div id="to-top" class="visible-xs">
+			<span  class="glyphicon glyphicon glyphicon-chevron-up text-center"></span>
+		</div>
 		
 		@include('layout.footer')
-
 		@include('mediathek-crawler-js')
 
 		<div id="xs-helper" class="device-xs visible-xs"></div>

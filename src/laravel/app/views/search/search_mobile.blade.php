@@ -1,5 +1,4 @@
 @extends('layout.main')
-
 @section('content')
 
 	<div class="container mobile-filter-button-container pull-right">
@@ -13,14 +12,10 @@
 
 	<div id="mobile-search-form" class="row">
 		<form class="" role="search" action="{{ URL::route('search-post') }}" method="post">
-
 			<div>
-			
 				<div class="form-group col-xs-8">
 					<input class="form-control" type="text" name="search-mobile" placeholder="Suche"{{ (Input::old('search')) ? ' value="' . e(Input::old('search')) . '"' : '' }}>
 				</div>
-				<!-- <button type="submit" class="btn btn-default" id="search-button-mobile"><span class="glyphicon glyphicon-search"></span>Suchen</button> -->
-				
 			</div>
 		
 			<div id="channel-filter" class="form-group col-xs-12 ">
@@ -67,8 +62,6 @@
 				</div>		
 			</div>
 
-
-
 			<div id="category-filter" class="form-group col-xs-12 ">
 				<h4>Rubriken</h4>
 				<div class="col-xs-6">
@@ -76,7 +69,7 @@
 						<label>
 							<input type="checkbox" name="nachrichten" value="nachrichten"{{ (Input::old('nachrichten')) ? ' checked' : ' selected' }}>
 						Nachrichten
-					</label>
+						</label>
 					</div>
 					<div class="checkbox">
 						<label>
@@ -131,8 +124,7 @@
 				</div>
 			</div>
 
-
-			 <div class="form-group col-xs-12 form-inline">
+			<div class="form-group col-xs-12 form-inline">
 				<h4>Datum &amp; Dauer</h4>
 				<div class="col-xs-6" style="z-index: 1">
 					<label>Von:
@@ -151,7 +143,6 @@
 				</div>
 			</div>
 
-
 			<div class="col-xs-12 ">
 				<button id="reset" type="button" class="btn btn-transparent col-xs-6">Zurücksetzen</button>
 				<button id="submit" type="button" class="btn btn-transparent col-xs-6">Suchen</button>
@@ -169,5 +160,4 @@
 			@include('search.results')
 		</div>
 	</div>
-
 @stop
