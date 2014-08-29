@@ -36,16 +36,16 @@
 		        ?>
 		    @if(isset($videos[0]->id))  
    			<div  id="list-item-{{$result->id}}" class="list-item col-xs-12 col-sm-10 col-sm-offset-1 col-lg-6 col-lg-offset-0">
-   				<div class="list-item-content">
+   				<div class="list-item-content playlist-item ">
 	   				<a href="{{ URL::route('playlist-single',[$result->id,$videos[0]->id])}}">
-			        	<img src='{{$image}}' class="img-responsive col-xs-10 col-md-4 col-lg-3"/>
+			        	<img src='{{$image}}' class="img-responsive col-xs-10 col-md-6 col-lg-6"/>
 			        </a>
 			       	<div class="col-xs-1 pull-right">
 			        	<button class="btn btn-transparent glyphicon glyphicon-trash pull-right" data-toggle="modal" data-target="#confirm-delete-{{$result->id}}"></button>
 			        </div>
 			        <a href="{{ URL::route('playlist-single',[$result->id,$videos[0]->id])}}">
-	       				<div class="col-xs-12 col-md-7 col-lg-8">
-	       					<h3>{{$result->name}}</h3>
+	       				<div class="col-xs-12 col-md-5 col-lg-5">
+	       					<h3 class="playlist-item-title">{{$result->name}}</h3>
 	       					<h4>{{ isset($videos[0]->title) ? '1) ' . $videos[0]->title : '' }}</h4>
 	       					<h4>{{ isset($videos[1]->title) ? '2) ' . $videos[1]->title : '' }}</h4>
 	       					<h4>{{ isset($videos[2]->title) ? '3) ' .$videos[2]->title : '' }}</h4>
@@ -76,13 +76,13 @@
    			</div>
    			@else
    			<div id="list-item-{{$result->id}}" class="list-item col-xs-12 col-sm-10 col-sm-offset-1 col-lg-6 col-lg-offset-0">
-   				<div class="list-item-content">
+   				<div class="list-item-content playlist-item ">
 	   				<img src='{{$image}}' class="img-responsive col-xs-10 col-md-4 col-lg-3"/>
 	   				<div class="col-xs-1 pull-right">
 			        	<button class="btn btn-transparent glyphicon glyphicon-trash pull-right" data-toggle="modal" data-target="#confirm-delete-{{$result->id}}"></button>
 			        </div>
 	   				<div class="col-xs-12 col-md-7 col-lg-8">
-	   					<h3>{{$result->name}}</h3>
+	   					<h3 class="playlist-item-title">{{$result->name}}</h3>
 	   					<h4>Diese Playliste ist leer.</h4>
 	   				</div>
 			        <div class="modal fade" id="confirm-delete-{{$result->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
