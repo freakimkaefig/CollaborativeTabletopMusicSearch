@@ -12,7 +12,6 @@
 						<li><a href="/rubrik/sport">Sport</a></li>
 						<li><a href="/rubrik/kinder">Kinder</a></li>
 						<li><a href="/rubrik/wissen-kultur">Wissen</a></li>
-
 					</ul>
 				</div>
 				<div class="col-sm-6 col-md-4 alpha">
@@ -22,8 +21,6 @@
 						<li><a href="/rubrik/wirtschaft">Wirtschaft</a></li>
 						<li><a href="/rubrik/ratgeber-gesundheit">Ratgeber</a></li>
 						<li><a href="/rubrik/unterhaltung">Unterhaltung</a></li>
-
-
 					</ul>
 				</div>
 			</div>
@@ -47,9 +44,8 @@
 						<li><a href="/account/my-account">Mein Konto</a></li>
 						<li><a href="/playlists">Playlisten</a></li>
 						<li><a href="/bookmarks">Merkliste</a></li>
-						
-													<li><a href="/account/sign-out">Abmelden</a></li>
-					    					</ul>
+						<li><a href="/account/sign-out">Abmelden</a></li>
+					</ul>
 				</div>
 			</div>
 			<div class="col-sm-2 hidden-xs">

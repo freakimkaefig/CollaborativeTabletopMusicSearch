@@ -32,12 +32,8 @@
 					<li><a class="row" href="{{ URL::route('account-sign-in') }}"><span class="col-sm-2 glyphicon glyphicon-log-in pull-left"></span><span class="col-sm-2">Anmelden</span></a></li>
 				@endif
 			</ul>	
-			
-
-
 	 	</div>
 	 	
-
 	 	@if(isset($isSearch))
 		 	<div class="container-fluid header-container">
 		 		@include('search.filters')
@@ -46,32 +42,19 @@
 
  		{{ Form::token() }}
 	</form>
-	
 </nav>
+
 <!-- START mobile nav-->
 <nav class="navbar navbar-default visible-xs" role="navigation">
 	
 	<div class="container-fluid">
-		
      	<ul class="nav navbar-nav no-margin-top-bottom">
      		<li>
      			<div id="mobile-menu-button" class="pull-left">
-				<button class="btn btn-default btn-big dropdown-toggle nohover" type="button" id="dropdownMenu" data-toggle="dropdown">
-					<span class="glyphicon glyphicon-align-justify"></span>
-				</button>
-	      		<!-- <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-			      <li><a href="{{ URL::route('account-my-account') }}">Mein Konto</a></li>
-	        	  <li><a href="{{ URL::route('playlists') }}">Playlisten</a></li>
-				  <li><a href="{{ URL::route('bookmarks') }}">Merkliste</a></li>
-	        	  <li class="divider"></li>
-			      <li><a href="{{ URL::route('channels-overview') }}">Mediatheken</a></li>
-			      <li><a href="{{ URL::route('categories-overview') }}">Rubriken</a></li>
-			      <li class="divider"></li>
-			      <li><a href="{{ URL::route('contact') }}">Kontakt</a></li>
-			      <li><a href="{{ URL::route('data') }}">Datenschutz</a></li>
-			      <li><a href="{{ URL::route('imprint') }}">Impressum</a></li>
-        		</ul> -->
-			</div>
+					<button class="btn btn-default btn-big dropdown-toggle nohover" type="button" id="dropdownMenu" data-toggle="dropdown">
+						<span class="glyphicon glyphicon-align-justify"></span>
+					</button>
+				</div>
      		</li>
      		<li><a class="navbar-brand" href="{{ URL::route('home') }}">LOGO</a></li>
      	
@@ -84,7 +67,6 @@
 				<li class="pull-right"><a href="{{ URL::route('search-results-mobile') }}"style="color: white">Suchen</a></li>
      		@endif
 		</ul>
-		
     </div>
 </nav>
 <!-- END mobile nav-->
