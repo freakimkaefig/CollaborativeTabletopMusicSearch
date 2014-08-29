@@ -65,6 +65,8 @@ MediathekCrawler.BroadcastView = (function() {
 		
 		var resolutionOrder = calculateOrder();
 		video = videojs("#video");
+		// console.log('VJS: ',video.FullscreenToggle);
+		video.on('fullscreenchange', FullScreenToggle);
 		video.options().sources = sources; 
 		$("#video>.source").remove();
 		video.resolutionSelector({force_types : ['video/mp4'],
@@ -92,6 +94,23 @@ MediathekCrawler.BroadcastView = (function() {
 
 
 	},
+
+	FullScreenToggle = function(event){
+		if($('#xs-helper').is(':visible')){
+			console.log('XS helper visible');
+			if($('.snap-drawers').hasClass('hidden')){
+				$('.snap-drawers').removeClass('hidden');
+			}else{
+				$('.snap-drawers').addClass('hidden');
+			}
+			if($('#to-top').hasClass('hidden')){
+				$('#to-top').removeClass('hidden');
+			}else{
+				$('#to-top').addClass('hidden');
+			}
+		}
+	},
+
 	/**
 	 * Public function to render a bookmarked video by the given id from databse
 	 * @param {Integer}		Id of the result item in the database

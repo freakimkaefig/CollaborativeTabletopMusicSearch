@@ -186,22 +186,6 @@ Anja Miller
 			),
 			6 => 
 			array (
-				'id' => 276,
-				'title' => '112 Hochzeiten',
-			'subtitle' => ' (Dokumentarfilm)',
-				'details' => 'Hochzeit – ein Bund fürs Leben? Worin besteht eigentlich der Sinn einer Eheschließung? Gerade im Hinblick auf die hohen Scheidungsraten unserer Tage erscheinen solche Fragen berechtigt. Der Dokumentarfilmer Doug Block geht der Realität auf den Grund, was sich nach der Hochzeit im gemeinsamen Leben der Ehepaare verändert und ob dies den einstigen Erwartungen entspricht.',
-				'airtime' => '2014-08-22 22:35:00',
-				'url' => '[{"_basetype":"","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/artestras.vo.llnwd.net\\/v2\\/am\\/HBBTV\\/048583-000-A_EQ_1_VA_01433227_MP4-1500_AMM-HBBTV.mp4","_filesize":"0"},{"_basetype":"","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/artestras.vo.llnwd.net\\/v2\\/am\\/HBBTV\\/048583-000-A_SQ_1_VA_01433229_MP4-2200_AMM-HBBTV.mp4","_filesize":"0"},{"_basetype":"","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/artestras.vo.llnwd.net\\/v2\\/am\\/HBBTV\\/048583-000-A_HQ_1_VA_01433225_MP4-800_AMM-HBBTV.mp4","_filesize":"0"}]',
-				'duration' => '01:33:00',
-				'image' => '[{"_resolution":"940x530","_url":"http:\\/\\/www.arte.tv\\/papi\\/tvguide\\/images\\/1240687\\/W940H530\\/048583-000_112hochzeiten_02-1406879118417.jpg"}]',
-				'station' => 'ARTE',
-				'created_at' => '2014-08-29 13:54:52',
-				'updated_at' => '2014-08-29 13:54:52',
-				'playlist_id' => NULL,
-				'user_id' => 1,
-			),
-			7 => 
-			array (
 				'id' => 277,
 				'title' => '112 Hochzeiten',
 			'subtitle' => ' (Dokumentarfilm)',
@@ -215,6 +199,22 @@ Anja Miller
 				'updated_at' => '2014-08-29 14:44:47',
 				'playlist_id' => 27,
 				'user_id' => NULL,
+			),
+			7 => 
+			array (
+				'id' => 278,
+				'title' => '112 Hochzeiten',
+			'subtitle' => ' (Dokumentarfilm)',
+				'details' => 'Hochzeit – ein Bund fürs Leben? Worin besteht eigentlich der Sinn einer Eheschließung? Gerade im Hinblick auf die hohen Scheidungsraten unserer Tage erscheinen solche Fragen berechtigt. Der Dokumentarfilmer Doug Block geht der Realität auf den Grund, was sich nach der Hochzeit im gemeinsamen Leben der Ehepaare verändert und ob dies den einstigen Erwartungen entspricht.',
+				'airtime' => '2014-08-22 22:35:00',
+				'url' => '[{"_basetype":"","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/artestras.vo.llnwd.net\\/v2\\/am\\/HBBTV\\/048583-000-A_EQ_1_VA_01433227_MP4-1500_AMM-HBBTV.mp4","_filesize":"0"},{"_basetype":"","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/artestras.vo.llnwd.net\\/v2\\/am\\/HBBTV\\/048583-000-A_SQ_1_VA_01433229_MP4-2200_AMM-HBBTV.mp4","_filesize":"0"},{"_basetype":"","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/artestras.vo.llnwd.net\\/v2\\/am\\/HBBTV\\/048583-000-A_HQ_1_VA_01433225_MP4-800_AMM-HBBTV.mp4","_filesize":"0"}]',
+				'duration' => '01:33:00',
+				'image' => '[{"_resolution":"940x530","_url":"http:\\/\\/www.arte.tv\\/papi\\/tvguide\\/images\\/1240687\\/W940H530\\/048583-000_112hochzeiten_02-1406879118417.jpg"}]',
+				'station' => 'ARTE',
+				'created_at' => '2014-08-29 14:59:44',
+				'updated_at' => '2014-08-29 14:59:44',
+				'playlist_id' => NULL,
+				'user_id' => 1,
 			),
 		));
 	}
