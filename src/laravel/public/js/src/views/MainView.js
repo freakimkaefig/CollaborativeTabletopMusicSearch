@@ -10,6 +10,11 @@ MediathekCrawler.MainView = (function() {
 			disable: 'right'
 		});
 
+		$('#flipster').flipster({
+			style: 'carousel',
+			enableButtons: true
+		});
+
 		myToggleButton = document.getElementById('mobile-menu-button');
 		myToggleButton.addEventListener('click', function(){
 

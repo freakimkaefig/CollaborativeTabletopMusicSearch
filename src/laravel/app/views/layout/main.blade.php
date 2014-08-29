@@ -7,13 +7,16 @@
 		{{ HTML::style('css/jquery-ui.min.css') }}
 		{{ HTML::style('css/jquery-ui.theme.css')}}
 		{{ HTML::style('css/style.css') }}
+
 		{{ HTML::style('css/snap.css') }}
+		{{ HTML::style('css/jquery.flipster.min.css')}}
 
 		{{ HTML::script('js/libs/jquery/jquery.min.js') }}
 		{{ HTML::script('js/libs/jquery/jquery-ui.min.js') }}
 		{{ HTML::script('js/libs/bootstrap/bootstrap.min.js') }}
 
 		{{ HTML::script('js/libs/snap/snap.min.js') }}
+		{{ HTML::script('js/libs/flipster/jquery.flipster.min.js') }}
 		
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 	</head>

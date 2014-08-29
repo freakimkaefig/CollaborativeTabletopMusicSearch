@@ -8,7 +8,7 @@
 ?>
 
 <!-- START Carousel -->
-<div id="carousel-wrapper" class="row">
+<div id="carousel-wrapper" class="row visible-xs">
 	<div id="myCarousel" class="carousel slide" data-ride="carousel">
       <!-- Indicators -->
       <ol class="carousel-indicators">
@@ -24,6 +24,30 @@
     </div>
 </div>
 <!-- END Carousel -->
+
+<!-- START Coverflow -->
+<div id="flipster" class="hidden-xs">
+	<ul>
+		<li id="itemloading" title="Title Loading"><img src="/images/dummies/ajax-loader.gif" alt="Loading"></li>
+		<li id="item1" title="Title 1">
+			<img src="/images/dummies/1.jpg" alt="Loading">
+			<div class="carousel-caption">
+				<h3 style="margin-top: 0px;">Titel 1</h3>
+		        <p>Subtitle 1</p>
+		        <p>Channel 1</p>
+			</div>
+		</li>
+		<li id="item2" title="Title 2">
+			<img src="/images/dummies/2.jpg" alt="Loading">
+			<div class="carousel-caption">
+				<h3 style="margin-top: 0px;">Titel 2</h3>
+		        <p>Subtitle 2</p>
+		        <p>Channel 2</p>
+			</div>
+		</li>
+	</ul>
+</div>
+<!-- END COverflow -->
 
 <div class="spacer"></div>
 
