@@ -3,36 +3,123 @@
 	<head>
 		<title>Mediathek Crawler</title>
 		{{ HTML::style('css/bootstrap.min.css'); }}
-		{{ HTML::style('css/style.css') }}
 		{{ HTML::style('css/video-js.css') }}
+		{{ HTML::style('css/jquery-ui.min.css') }}
+		{{ HTML::style('css/jquery-ui.theme.css')}}
+		{{ HTML::style('css/snap.css') }}
+		{{ HTML::style('css/jquery.flipster.css')}}
+		
+		{{ HTML::style('css/style.css') }}
 
 		{{ HTML::script('js/libs/jquery/jquery.min.js') }}
+		{{ HTML::script('js/libs/jquery/jquery-ui.min.js') }}
 		{{ HTML::script('js/libs/bootstrap/bootstrap.min.js') }}
+
+		{{ HTML::script('js/libs/snap/snap.min.js') }}
+		{{ HTML::script('js/libs/flipster/jquery.flipster.min.js') }}
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 	</head>
 	<body>			
-		@include('layout.header')
-		<div class="container">
-			<div class="row">
-				@if(Session::has('global-danger'))
-					<div class="alert alert-danger">{{ Session::get('global-danger') }}</div>
-				@endif
-				@if(Session::has('global-warning'))
-					<div class="alert alert-warning">{{ Session::get('global-warning') }}</div>
-				@endif
-				@if(Session::has('global-success'))
-					<div class="alert alert-success">{{ Session::get('global-success') }}</div>
-				@endif
+		<div class="snap-drawers">
+			<div class="snap-drawer snap-drawer-left">
+				<div>
+					<ul class="mobile-menu" role="menu">
+						<li class="divider-after">
+							<a href="{{ URL::route('home') }}">Startseite</a>
+						</li>
+						<li class="divider"></li>
+			      		<li class="divider-before">
+			      			<a href="{{ URL::route('account-my-account') }}">
+			      				<span class="glyphicon glyphicon-user"></span>
+			      				<span>Mein Konto</span>
+			      			</a>
+			      		</li>
+			        	<li>
+			        		<a href="{{ URL::route('playlists') }}">
+			        			<span class="glyphicon glyphicon-list"></span>
+			        			<span>Playlisten</span>
+			        		</a>
+			        	</li>
+						<li class="divider-after">
+							<a href="{{ URL::route('bookmarks') }}">
+								<span class="glyphicon glyphicon-list-alt"></span>
+								<span>Merkliste</span>
+							</a>
+						</li>
+					    <li class="divider"></li>
+					    <li class="divider-before">
+					    	<a href="{{ URL::route('channels-overview') }}">
+					    		<span class="glyphicon glyphicon-film"></span>
+					    		<span>Sender</span>
+					    	</a>
+					    </li>
+					    <li class="divider-after">
+					    	<a href="{{ URL::route('categories-overview') }}">
+					    		<span class="glyphicon glyphicon-th"></span>
+					    		<span>Rubriken</span>
+					    	</a>
+					    </li>
+					    <li class="divider"></li>
+					    <li class="divider-before">
+					    	<a href="{{ URL::route('contact') }}">Kontakt</a>
+					    </li>
+					    <li>
+					    	<a href="{{ URL::route('data') }}">Datenschutz</a>
+					    </li>
+					    <li>
+					    	<a href="{{ URL::route('imprint') }}">Impressum</a>
+					    </li>
+        			</ul>
+				</div>
 			</div>
 		</div>
+		<div id="content" class="snap-content">
 
+			@include('layout.header')
 
-		<div class="container">
-			@yield('content')
+			@if(Session::has('global-danger'))
+				<div id="feedback-container-danger" class="container-fluid feedback-container"><h4 class="text-center">{{ Session::get('global-danger') }}</h4></div>
+			@endif
+			@if(Session::has('global-warning'))				
+				<div id="feedback-container-warning" class="container-fluid feedback-container"><h4 class="text-center">{{ Session::get('global-warning') }}</h4></div>
+			@endif
+			@if(Session::has('global-success'))
+				<div id="feedback-container-success" class="container-fluid feedback-container"><h4 class="text-center">{{ Session::get('global-success') }}</h4></div>
+			@endif
+
+			<div id="feedback-container" class="container-fluid feedback-container"><h4 class="text-center"></h4></div>
+
+			<?php
+				$error = FALSE;
+				$header = getallheaders();
+				if (isset($header['Via'])) {
+					$via = $header['Via'];
+					if (strpos($via, 'Chrome-Compression-Proxy')) {
+						$error = TRUE;
+					}
+				}
+			?>
+			<?php if ($error): ?>
+				<div class="container-fluid feedback-container"><h4 class="text-center">Bitte schalte in Google Chrome bei "Erweiterte Einstellungen | Bandbreitenverwaltung" den Punkt "Datennutzung reduzieren" aus.</h4></div>
+			<?php endif; ?>
+
+			<div class="container-fluid">
+				@yield('content')
+				<div class="spacer"></div>
+			</div>
 		</div>
-
+			<div id="to-top" class="visible-xs">
+				<span  class="glyphicon glyphicon glyphicon-chevron-up text-center"></span>
+			</div>
+		
 		@include('layout.footer')
 
 		@include('mediathek-crawler-js')
 
+		<div id="xs-helper" class="device-xs visible-xs"></div>
+		<div id="sm-helper" class="device-sm visible-sm"></div>
+		<div id="md-helper" class="device-md visible-md"></div>
+		<div id="lg-helper" class="device-lg visible-lg"></div>
 	</body>
 </html>

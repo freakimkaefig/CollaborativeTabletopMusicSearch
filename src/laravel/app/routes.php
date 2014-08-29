@@ -55,6 +55,57 @@ Route::group(array('before' => 'auth'), function() {
 		'as' => 'account-my-account',
 		'uses' => 'AccountController@getMyAccount'
 	));
+
+	Route::get('/playlists', array(
+		'as' => 'playlists',
+		'uses' => 'PlaylistsController@getAllPlaylists' 
+	));
+
+	Route::post('/playlists/new', array(
+		'as' => 'new-playlist',
+		'uses' => 'PlaylistsController@savePlaylist' 
+	));
+	Route::get('/playlists/new/{name}', array(
+		'as' => 'new-playlist-broadcast',
+		'uses' => 'PlaylistsController@savePlaylistFromBroadcast' 
+	));
+	Route::get('/playlists/add/{playlistId}/{broadcastId}',array(
+		'as' => 'add-video-playlist',
+		'uses' => 'PlaylistsController@addVideoToPlaylist'
+	));
+
+	Route::get('/playlists/playlist/{playListId}/{broadcastId}', array(
+		'as' => 'playlist-single',
+		'uses' => 'PlaylistsController@getPlaylistByIds'
+	));
+
+	Route::get('/bookmarks', array(
+		'as' => 'bookmarks',
+		'uses' => 'BookmarksController@getAllBookmarks'	
+	));	
+	Route::get('/bookmarks/add/{userID}', array(
+		'as' => 'add-bookmark',
+		'uses' => 'BookmarksController@addBookmark'
+	));
+
+	Route::get('video/bookmark/{broadcastId}', array(
+		'as' => 'video-bookmark',
+		'uses' => 'BookmarksController@getBookmarkVideo'
+	));
+
+	// Delete List-items
+	Route::get('/playlists/delete/video/{broadcastId}', array(
+		'as' => 'delete-video-playlist',
+		'uses' => 'PlaylistsController@deleteVideoFromPlaylist'
+	));
+	Route::get('/playlists/delete/{playlistId}', array(
+		'as' => 'delete-playlist',
+		'uses' => 'PlaylistsController@deletePlaylist'
+	));
+	Route::get('/bookmarks/delete/{broadcastId}', array(
+		'as' => 'delete-bookmark',
+		'uses' => 'BookmarksController@deleteBookmark'
+	));
 });
 
 
@@ -131,24 +182,56 @@ Route::group(array('before' => 'guest'), function() {
 Route::group(array('before' => 'csrf'), function() {
 
 	/* SEARCH */
-	// ARD
-	Route::post('/search', array(
+	Route::post('/suche', array(
 		'as' => 'search-post',
 		'uses' => 'MediathekController@postSearch'
 	));
 
+	Route::post('kontakt', array(
+		'as' => 'contact-post',
+		'uses' => 'MediathekController@postContact'
+	));
 });
 
 
 /* SEARCH */
 // Search results
-Route::get('/search/results', array(
+Route::get('/suche', array(
 	'as' => 'search-results',
-	'uses' => 'MediathekController@getSearch'
+	'uses' => 'MediathekController@getSearchResults'
+));
+
+Route::get('/suche-mobile', array(
+	'as' => 'search-results-mobile',
+	'uses' => 'MediathekController@getSearchResultsMobile'
 ));
 
 
+Route::get('/video/{id}', array(
+	'as' => 'video-id',
+	'uses' => 'MediathekController@getVideoById'
+));
 
+/* CATEGORIES */
+Route::get('/rubrik/{category}', array(
+	'as' => 'category',
+	'uses' => 'MediathekController@getCategory'
+));
+
+Route::get('/new', array(
+		'as' => 'new-videos',
+		'uses' => 'MediathekController@getNewVideos'
+));
+
+/* Channels */
+Route::get('/channel/{channel}', array(
+		'as' => 'channel',
+		'uses' => 'MediathekController@getChannel'
+));
+Route::get('/hot', array(
+		'as' => 'hot-videos',
+		'uses' => 'MediathekController@getHotVideos'
+));
 
 /* ############
  * ##  TEST  ##
@@ -158,3 +241,33 @@ Route::get('/search/results', array(
 Route::get('/streaming-test', function() {
 	return View::make('test.streaming-test');
 });
+
+Route::get('/update', array(
+	'as' => 'update',
+	'uses' => 'MediathekController@updateCategories'
+));
+
+Route::get('sender', array(
+	'as' => 'channels-overview',
+	'uses' => 'MediathekController@getChannelsOverview'
+));
+
+Route::get('rubriken', array(
+	'as' => 'categories-overview',
+	'uses' => 'MediathekController@getCategoriesOverview'
+));
+
+Route::get('kontakt', array(
+	'as' => 'contact',
+	'uses' => 'MediathekController@getContact'
+));
+
+Route::get('datenschutz', array(
+	'as' => 'data',
+	'uses' => 'MediathekController@getData'
+));
+
+Route::get('impressum', array(
+	'as' => 'imprint',
+	'uses' => 'MediathekController@getImprint'
+));

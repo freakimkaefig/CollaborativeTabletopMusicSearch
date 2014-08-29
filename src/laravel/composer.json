@@ -5,8 +5,7 @@
 	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.2.*",
-		"orangehill/iseed": "dev-master",
-		"barryvdh/laravel-debugbar": "1.*"
+		"orangehill/iseed": "dev-master"
 	},
 	"autoload": {
 		"classmap": [
@@ -25,8 +24,7 @@
 		],
 		"post-update-cmd": [
 			"php artisan clear-compiled",
-			"php artisan optimize",
-			"php artisan debugbar:publish"
+			"php artisan optimize"
 		],
 		"post-create-project-cmd": [
 			"php artisan key:generate"

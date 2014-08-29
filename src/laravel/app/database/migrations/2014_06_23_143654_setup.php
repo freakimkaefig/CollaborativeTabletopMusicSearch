@@ -26,28 +26,31 @@ class Setup extends Migration {
 			$table->timestamps();
 		});
 
-		Schema::create('stations', function($table) {
-			$table->increments('id', true);
-			$table->string('name', 50);
-			$table->string('logo', 250);
-			$table->timestamps();
-		});
+		// Schema::create('stations', function($table) {
+		// 	$table->increments('id', true);
+		// 	$table->string('name', 50);
+		// 	$table->string('logo', 250000);
+		// 	$table->timestamps();
+		// });
 
 		Schema::create('broadcasts', function($table) {
 			$table->engine = 'InnoDB';
 			$table->increments('id', true);
-			$table->string('title', 200);
+			$table->string('title', 250000);
+			$table->string('subtitle', 250000);
+			$table->string('details', 250000);
 			$table->dateTime('airtime');
-			$table->string('url', 250);
+			$table->string('url', 250000);
 			$table->time('duration');
-			$table->string('image', 250);
+			$table->string('image', 250000);
+			$table->string('station', 250);
 			$table->timestamps();
 		});
 
 		Schema::create('playlists', function($table) {
 			$table->engine = 'InnoDB';
 			$table->increments('id', true);
-			$table->string('name', 128);
+			$table->string('name', 250);
 			$table->timestamps();
 		});
 	}
@@ -59,10 +62,10 @@ class Setup extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('users');
-		Schema::drop('stations');
-		Schema::drop('broadcasts');
-		Schema::drop('playlists');
+		Schema::dropIfExists('users');
+		Schema::dropIfExists('stations');
+		Schema::dropIfExists('broadcasts');
+		Schema::dropIfExists('playlists');
 	}
 
 }

@@ -22,13 +22,13 @@ class Relations extends Migration {
 		});
 
 		Schema::table('broadcasts', function($table) {
-			$table->integer('station_id')->unsigned();
+			// $table->integer('station_id')->unsigned();
 			$table->integer('playlist_id')->unsigned()->nullable()->default(NULL);
 			$table->integer('user_id')->unsigned()->nullable()->default(NULL);
 		});
 
 		Schema::table('broadcasts', function($table) {
-			$table->foreign('station_id')->references('id')->on('stations');
+			// $table->foreign('station_id')->references('id')->on('stations');
 			$table->foreign('playlist_id')->references('id')->on('playlists');
 			$table->foreign('user_id')->references('id')->on('users');
 		});
@@ -50,13 +50,17 @@ class Relations extends Migration {
 		});
 
 		Schema::table('broadcasts', function($table) {
-			$table->dropForeign('broadcasts_station_id_foreign');
+			if(Schema::hasColumn('broadcasts', 'station_id')) {
+				$table->dropForeign('broadcasts_station_id_foreign');
+			}
 			$table->dropForeign('broadcasts_playlist_id_foreign');
 			$table->dropForeign('broadcasts_user_id_foreign');
 		});
 
 		Schema::table('broadcasts', function($table) {
-			$table->dropColumn('station_id');
+			if(Schema::hasColumn('broadcasts', 'station_id')) {
+				$table->dropColumn('station_id');
+			}
 			$table->dropColumn('playlist_id');
 			$table->dropColumn('user_id');
 		});

@@ -14,6 +14,10 @@ class ARDController extends BaseController {
 	const LINK_CLASS = 'mediaLink';
 	// const ELEMENT_XPATH = "//*/div[@class='media']";
 
+	public function test() {
+		
+	}
+
 	public function startSearch($searchString) {
 
 		$url = self::BASE_URL_SEARCH . $searchString;
