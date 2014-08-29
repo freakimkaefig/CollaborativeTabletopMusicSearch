@@ -27,20 +27,15 @@ MediathekCrawler.BRService = function() {
 	_model = null,
 	getDatesOnce = 1;
 
-	/**
-	 * Public function to initialize the instance of BRService
-	 */
 	init = function(model) {
-		console.info('MediathekCrawler.BRService.init');
 		_model = model;
 	},
 
 
 	/**
-	 * Public function to search with given string, type and numResults
+	 * Public function to search with a given string
 	 * @param {String}		string to search
 	 * @param {Integer}		type [0=>ByRelevance, 1=>ByDate]
-	 * @param {Integer}		maximum number of results
 	 */
 	searchString = function(searchStr, type) {
 		var origin = {
@@ -50,11 +45,11 @@ MediathekCrawler.BRService = function() {
 			_badge: null
 		};
 		switch (type) {
-			case 0: 	// search by relevance
+			case 0: 
 				searchStringByRelevance(searchStr, origin);
 				break;
 
-			case 1: 	// search by date
+			case 1: 
 				searchStringByDate(searchStr, origin);
 				break;
 		}
@@ -63,13 +58,10 @@ MediathekCrawler.BRService = function() {
 	/**
 	 * Private function to search with given string sorted by relevance
 	 * @param {String} 	The given keyword(s) to search for
+	 * @param {Object} origin
 	 */
 	searchStringByRelevance = function(searchStr, origin) {
-		// build restful URL for search in BR
 		var _searchUrl = PROXY_URL + encodeURI(SEARCH_URL + searchStr + SEARCH_PARAM_SORT_RELEVANCE);
-			// console.log('BR onLoadDetails searchStringByRelevance: ',searchStr, _searchUrl);
-
-		// send asynchronous xmphttp request
 		$.ajax({
 			url: _searchUrl,
 			type: 'GET',
@@ -86,11 +78,10 @@ MediathekCrawler.BRService = function() {
 	/**
 	 * Private function to search with given string sorted by date
 	 * @param {String} 	The given keyword(s) to search for
+	 * @param {Object} origin
 	 */
 	searchStringByDate = function(searchStr, origin) {
 		var _searchUrl = PROXY_URL + encodeURI(SEARCH_URL + searchStr + SEARCH_PARAM_SORT_DATE);
-		
-		// send asynchronous xmphttp request
 		$.ajax({
 			url: _searchUrl,
 			type: 'GET',
@@ -107,24 +98,22 @@ MediathekCrawler.BRService = function() {
 	/**
 	 * Callback function for async loading of search results
 	 * @param {String|HTML}		HTML response of ajax call
+	 * @param {Object} origin
 	 */
 	onSearchString = function(data, origin) {
-		// console.log('NR onSearchString:', data);
-		// $(data).find('.teaser standard').each(function(idx, el){
-			$(data).find('.teaserInner').each(function (index, element) {
+		$(data).find('.teaserInner').each(function (index, element) {
 
-				var detailUrl = $(element).find('.link_video').attr('href');
-				// console.log('BR onLoadDetails detailUrldetailUrl: ',detailUrl);
-				if (detailUrl !== undefined) {
-					loadDetails(detailUrl, origin);
-				}
-			});
-		// });
+			var detailUrl = $(element).find('.link_video').attr('href');
+			if (detailUrl !== undefined) {
+				loadDetails(detailUrl, origin);
+			}
+		});
 	},
 
 	/**
 	 * Private function to load the broadcasts detail page
 	 * @param {String}		url of the detail page
+	 * @param {Object} origin
 	 */
 	loadDetails = function(url, origin) {
 		var _url = PROXY_URL + encodeURI(BASE_URL + url);
@@ -142,6 +131,10 @@ MediathekCrawler.BRService = function() {
 		});
 	},
 
+	/**
+	 * Function to fix format of a given string
+	 * @param {String} length
+	 */
 	_fixBRLength = function(length){
 		if(length.indexOf(' Min') > 0){
 			length = length.replace(' Min', '');
@@ -166,6 +159,12 @@ MediathekCrawler.BRService = function() {
 		return length;
 	},
 
+	/**
+	 * Function to replace chars within a given string
+	 * @param {String} find
+	 * @param {String} replace
+	 * @param {String} str
+	 */
 	_replaceAll = function(find, replace, str) {
 	  return str.replace(new RegExp(find, 'g'), replace);
 	},
@@ -173,10 +172,10 @@ MediathekCrawler.BRService = function() {
 	/**
 	 * Callback function for parsing broadcast detail pages for details and stream urls
 	 * @param {String}		HTML data of the detail page
+	 * @param {Object} origin
 	 */
 	onLoadDetails = function(data, origin) {
 		var _onclick = $(data).find('#playerFrame .player .avPlayer figure .clearFix a').attr('onclick');
-		// console.log('BR onclick: ',_onclick);
 		if (_onclick !== undefined) {
 			// url for xml file containing streams is placed in click event handler
 			// searching for string between {dataURL:' and '}
@@ -187,9 +186,6 @@ MediathekCrawler.BRService = function() {
 			    var submatch = matches[1];
 		    	l = $(data).find('.bcastData ul.meta li.duration time.duration').text();
 		    	l = l.replace('.','');
-				// console.log('BR onLoadDetails length: ',l);
-
-			    // build result with currently available details
 			    var _result = {}
 			    	_result._station = 'BR',
 			    	_result._subtitle = $(data).find('.bcastData ul.title li.title').text(),
@@ -205,22 +201,19 @@ MediathekCrawler.BRService = function() {
 			    	_result._teaserImages.push(_model.createTeaserImage('640x360', BASE_URL + $(data).find('#playerFrame .player .avPlayer figure .clearFix a figure img').data('src-xl'))),
 			    	_result._streams = [];
 
-			    // load stream urls and metadata from xml file
-
-			// console.log('BR onLoadDetails _result: ',_result);
 			    loadStreams(_result, submatch, origin);
 			}
 		}
 	},
 
 	/**
-	 * Private function to load the xml file containing the stream url for a broadcast
-	 * @param {object}		the current result object
-	 * @param {String}		url of the xml page
+	 * Function to get streams for videos
+	 * @param {Object} results
+	 * @param {String} url
+	 * @param {Object} origin
 	 */
 	loadStreams = function(result, url, origin) {
 		var _url = PROXY_URL + encodeURI(BASE_URL + url);
-		// console.log('BR stream url: ',_url);
 		$.ajax({
 			url: _url,
 			type: 'GET',
@@ -235,15 +228,16 @@ MediathekCrawler.BRService = function() {
 	},
 
 	/**
-	 * Callback function to parse the xml file for streams and their metadata
-	 * @param {object}		the current result object
-	 * @param {String}		XML data containing stream urls, qualities, sizes etc
+	 * Function to parse streams for videos
+	 * @param {Object} results
+	 * @param {String} url
+	 * @param {Object} origin
 	 */
 	onLoadStreams = function(result, data, origin) {
 		var x = $(data).find('assets').find('asset');
 		$(x).each(function (index, element) {
 			if ($(element).attr('type') !== 'HDS') {
-				var basetype = null,	// TODO: missing basetype!
+				var basetype = null,
 					type = 'video/' + $(element).find('mediaType').text(),
 					quality = $(element).attr('type'),
 					url = $(element).find('downloadUrl').text(),
@@ -275,16 +269,16 @@ MediathekCrawler.BRService = function() {
 			}
 		});
 
-			// console.log('BR onLoadStreams result._streams: ',result._streams);
 		// add result to model
 		if(result._streams.length >0){
 			_model.addResults(origin, result._station, result._title, result._subtitle, result._details, result._length, result._airtime, result._teaserImages, result._streams);
 		}
 	},
 
-
 	/**
-	 * Public function to get new videos (= videos of the last 3 days including today)
+	 * Function to get 'new' videos
+	 * @param {String|Integer} maxResults
+	 * @param {String} dateUrl
 	 */
 	getBRNew = function(maxResults, dateUrl) {
 		if(!maxResults || maxResults === undefined || maxResults === null){
@@ -303,8 +297,6 @@ MediathekCrawler.BRService = function() {
 		var lastDayOfLastMonth = new Date($today.getFullYear(), ($today.getMonth() - 1) + 1, 0);
 		lastDayOfLastMonth = lastDayOfLastMonth.getDate();
 
-		// console.log('BR lastDayOfLastMonth: ',lastDayOfLastMonth);
-		
 		var origin = {
 			_channel: 'BR',
 			_method: 'getBRNew',
@@ -315,23 +307,16 @@ MediathekCrawler.BRService = function() {
 		if(!dateUrl || dateUrl === undefined || dateUrl === null){
 			if(maxResults >1){
 
-				// http://www.br.de/mediathek/video/programm/index.html
-				// BR_NEW_URL
 				var _url = PROXY_URL + encodeURI(BR_NEW_URL);
-					// console.log('BR GetBRNew url: ',_url);
 				$.ajax({
 					url: _url,
 					type: 'GET',
 					cache: false,
 					success: function(data) {
 						onGetBRNew(maxResults, data, origin);
-						// if(getDatesOnce === 1){
-						// 	getDatesOnce = 0;
-							var yesterday = $(data).find('.epgCalendar')/*.find('.month active')*/.find('td');
-								// console.log('BR getBRNew yesterday: ',yesterday);
+							var yesterday = $(data).find('.epgCalendar').find('td');
 							$(yesterday).each(function(index, element){
 
-								// console.log('BR getBRNew elementelement: ',element);
 								if(parseInt(nowDay) > 2){
 
 									var day = $(element).text();
@@ -341,7 +326,6 @@ MediathekCrawler.BRService = function() {
 										var cuttedDay = parseInt(day.slice(0, day.indexOf('.')));
 										// get yesterday url:
 										if(cuttedDay === x || cuttedDay === (x - 1)){
-											// console.log('BR found yesterday: ',$(element).find('a').attr('href'));
 											getBRNew(maxResults, BASE_URL + $(element).find('a').attr('href'));
 										}
 
@@ -354,7 +338,6 @@ MediathekCrawler.BRService = function() {
 										var cuttedDay = parseInt(day.slice(0, day.indexOf('.')));
 										// get yesterday url:
 										if(cuttedDay === x){
-											// console.log('BR found yesterday: ',$(element).find('a').attr('href'));
 											getBRNew(maxResults, BASE_URL + $(element).find('a').attr('href'));
 										}
 									}
@@ -363,7 +346,6 @@ MediathekCrawler.BRService = function() {
 										var cuttedDay = parseInt(day.slice(0, day.indexOf('.')));
 										// get yesterday url:
 										if(cuttedDay === lastDayOfLastMonth){
-											// console.log('BR found yesterday: ',$(element).find('a').attr('href'));
 											getBRNew(maxResults, BASE_URL + $(element).find('a').attr('href'));
 										}
 									}
@@ -374,14 +356,12 @@ MediathekCrawler.BRService = function() {
 										var cuttedDay = parseInt(day.slice(0, day.indexOf('.')));
 										// get yesterday url:
 										if(cuttedDay === lastDayOfLastMonth || cuttedDay === lastDayOfLastMonth - 1){
-											// console.log('BR found yesterday: ',$(element).find('a').attr('href'));
 											getBRNew(maxResults, BASE_URL + $(element).find('a').attr('href'));
 										}
 									}
 								}
 
 							});
-						// }
 					},
 					error: function(jqXHR, textStatus, errorThrown){
 						console.warn('ERROR; BRService.getBRNew; AJAX-request did not recieve a response\n',jqXHR, textStatus, errorThrown);
@@ -389,7 +369,6 @@ MediathekCrawler.BRService = function() {
 				});
 			}else{
 				var _url = PROXY_URL + encodeURI(BR_NEW_URL);
-					// console.log('BR GetBRNew url: ',_url);
 				$.ajax({
 					url: _url,
 					type: 'GET',
@@ -405,7 +384,6 @@ MediathekCrawler.BRService = function() {
 		}
 		else{
 			var _url = PROXY_URL + encodeURI(dateUrl);
-				// console.log('BR onGetBRNew ELSE url: ',_url);
 			$.ajax({
 				url: _url,
 				type: 'GET',
@@ -421,20 +399,23 @@ MediathekCrawler.BRService = function() {
 		}
 	},
 
+	/**
+	 * Function to traverse data for 'new' videos
+	 * @param {String|Integer} maxResult
+	 * @param {String|HTML|JSON} data
+	 * @param {Object} origin
+	 */
 	onGetBRNew = function(maxResults, data, origin){
-			// console.log('BR onGetBRNew maxResults: ',maxResults);
 		if(!maxResults || maxResults === undefined || maxResults === null){
 			maxResults = 20;
 		}
-		var resp = $(data)./*find('.containerMain').*/find('.epgContainer').find('#BFS');
+		var resp = $(data).find('.epgContainer').find('#BFS');
 		var x = $(resp).find('.videoAvailable');
 		var counter = 1;
 		$(x).each(function(index,element){
 			if(counter <= maxResults){
 
-				// console.log('BR onGetBRNew element: ',element);
 				var url = $(element).attr('data-ondemand_url');
-				// console.log('BR data-livestream_url: ',url);
 				if (url !== undefined) {
 					loadDetails(url, origin);
 				}
@@ -443,16 +424,8 @@ MediathekCrawler.BRService = function() {
 		});
 	},
 
-
 	/**
-	 * Function to load all categories from "Das Erste Mediathek"
-	 */
-	getBRCategories = function(_category) {
-		// throw new NotImplementedException();
-	},
-
-	/**
-	 * Public function to get hot videos
+	 * Function to get 'hot' videos
 	 */
 	getBRHot = function() {
 		var origin = {
@@ -461,10 +434,7 @@ MediathekCrawler.BRService = function() {
 			_searchTerm: null,
 			_badge: 'hot'
 		};
-		// throw new NotImplementedException();
-		// BR_HOT_URL
 		var _url = PROXY_URL + encodeURI(BR_HOT_URL);
-		// console.log('BR getBRHot url: ',_url);
 		$.ajax({
 			url: _url,
 			type: 'GET',
@@ -479,20 +449,20 @@ MediathekCrawler.BRService = function() {
 		});
 	},
 
+	/**
+	 * Function to get details for 'hot' videos
+	 * @param {String|HTML|JSON} data
+	 * @param {Object} origin
+	 */
 	onGetBRHot = function(data, origin){
-		// console.log('BR onGetBRHot: ',data);
-
-		// $(data).find('.teaserInner').each(function (index, element) {
-		// console.log('BR onGetBRHot: ',element);
-
-		// 	var detailUrl = $(element).find('.link_video').attr('href');
-		// 	console.log('BR onGetBRHot detailUrldetailUrl: ',detailUrl);
-		// 	if (detailUrl !== undefined) {
-		// 		// loadDetails(detailUrl, origin);
-		// 	}
-		// });
+		// not implemented due to unavailable data from BR website
 	},
 
+	/**
+	 * Function to check if a given array includes entries that own a given id
+	 * @param {Array} array
+	 * @param {String} id
+	 */
 	_checkSRFDuplicates = function(array, id){
 		for(i=0;i<array.length;i++){
 
@@ -504,7 +474,10 @@ MediathekCrawler.BRService = function() {
 	},
 
 	/**
-	 * Public function to get videos by date
+	 * Function to get videos by date
+	 * @param {Object} origin
+	 * @param {String|Date} startDate (DD.MM.YYYY)
+	 * @param {String|Date} endDate (DD.MM.YYYY)
 	 */
 	getBRVideosByDate = function(startDate, endDate){
 		var origin = {};
@@ -521,7 +494,7 @@ MediathekCrawler.BRService = function() {
 	   while (currentDate <= endd) {
 	   		var temp = '';
 	   		var dd = currentDate.getDate();
-			var mm = currentDate.getMonth()+1; //January is 0!
+			var mm = currentDate.getMonth()+1;
 			var yyyy = currentDate.getFullYear();
 			if(dd<10){dd='0'+dd} if(mm<10){mm='0'+mm} temp = dd+'.'+mm+'.'+yyyy
 
@@ -529,11 +502,6 @@ MediathekCrawler.BRService = function() {
         	currentDate = currentDate.addDays(1);
        }
 
-       // console.log('BR dates: ',dates);
-       	
-		// for(i=0;i<dates.length;i++){
-
-		// var counter = 1;
         var _url = PROXY_URL + encodeURI(BR_NEW_URL);
 		
    		
@@ -541,10 +509,6 @@ MediathekCrawler.BRService = function() {
 				url: _url,
 				type: 'GET',
 				cache: false,
-				// complete: function(data){
-
-				// 	console.log('AJAX complete BR: ',i,dates[i]);
-				// },
 				success: function(data) {	
 					_onBRVideosByDate(data, origin, dates);
 				},
@@ -552,16 +516,19 @@ MediathekCrawler.BRService = function() {
 					console.warn('ERROR; BRService.getBRVideosByDate; AJAX-request did not recieve a response\n',jqXHR, textStatus, errorThrown);
 				}
 			});
-  			
-		// }
 	},
 
+	/**
+	 * Function to get details for videos searched by date
+	 * @param {String|HTML|JSON} data
+	 * @param {Object} origin
+	 * @param {Array} dates
+	 */
 	_onBRVideosByDate = function(data, origin, dates){
 		var duplicates = [];
 
 		for(i=0;i<dates.length;i++){
 			var x = dates[i].slice(3,6)+dates[i].slice(0,3)+dates[i].slice(6,10);
-			// console.log(x);
 			$today = new Date(x);
 			var $dd = $today.getDate();
 			if($dd<10){$dd='0'+$dd} var nowDay = $dd
@@ -570,11 +537,8 @@ MediathekCrawler.BRService = function() {
 		"Juli", "August", "September", "Oktober", "November", "Dezember" ];
 
 			var currentMonth = currentMonths[$today.getMonth()];
-       		// console.log('BR dates: ',dates);
-			// console.log('BR _onBRVideosByDate: ',$today,' - ', nowDay,' - ', currentMonth);
 
-			var yesterday = $(data).find('.epgCalendar')/*.find('.month active')*/.find('td');
-				// console.log('BR _onBRVideosByDate yesterday: ',yesterday);
+			var yesterday = $(data).find('.epgCalendar').find('td');
 				$(yesterday).each(function(index, element){
 
 					var day = $(element).text();
@@ -582,19 +546,11 @@ MediathekCrawler.BRService = function() {
 					if(cuttedDay<10){cuttedDay='0'+cuttedDay}
 
 					if(day.indexOf(currentMonth) > 0){
-					// 	if(day.indexOf(currentMonth) > 0){
-					// 		var x = parseInt(nowDay) - 1;
-
-					// console.log('BR _onBRVideosByDate day: ',cuttedDay, nowDay);
-							// get yesterday url:
 						if(cuttedDay === nowDay){
 							var y = BASE_URL + $(element).find('a').attr('href');
 							if(_checkSRFDuplicates(duplicates, y)){
-								// console.log('BR found yesterday: ',y);
 
-								getBRNew(y,origin);
-
-
+								getBRNew(null, y, origin);
 								duplicates.push(y);
 							}
 						}
@@ -605,7 +561,7 @@ MediathekCrawler.BRService = function() {
 
 
 	/**
-	 * Public function to reset the instance of BRService
+	 * Function to reset the instance of ARTEService
 	 */
 	dispose = function() {
 		that = {};
@@ -615,7 +571,6 @@ MediathekCrawler.BRService = function() {
 	that.dispose = dispose;
 	that.searchString = searchString;
 	that.getBRNew = getBRNew;
-	that.getBRCategories = getBRCategories;
 	that.getBRHot = getBRHot;
 	that.getBRVideosByDate = getBRVideosByDate;
 

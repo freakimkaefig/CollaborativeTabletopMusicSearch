@@ -99,10 +99,6 @@ MediathekCrawler.DasErsteService = function() {
 	// define empty list for categories
 	_categories = null,
 
-
-	/**
-	 * Public function to initialize the instance of DasErsteService
-	 */
 	init = function(model) {
 		console.info("MediathekCrawler.DasErsteService.init");
 		_model = model;
@@ -114,7 +110,6 @@ MediathekCrawler.DasErsteService = function() {
 	 * Public function to search with given string, type and numResults
 	 * @param {String}		string to search
 	 * @param {Integer}		type [0=>ByRelevance, 1=>ByDate]
-	 * @param {Integer}		maximum number of results
 	 */
 	searchString = function(searchStr, type) {
 		var origin = {
@@ -136,12 +131,12 @@ MediathekCrawler.DasErsteService = function() {
 
 	/**
 	 * Private function to search with given string sorted by relevance
+	 * @param {Object} origin
 	 * @param {String} 	The given keyword(s) to search for
 	 */
 	searchDASERSTEStringByRelevance = function(origin, searchStr) {
 		// build restful URL for search in Das Erste
 		var _searchUrl = PROXY_URL + encodeURI(SEARCH_URL + searchStr + SEARCH_PARAM_SORT_RELEVANCE);
-		// console.log('DASERSTTE searchDASERSTEStringByRelevance: ',_searchUrl);
 
 		// send asynchronous xmphttp request
 		$.ajax({
@@ -160,12 +155,10 @@ MediathekCrawler.DasErsteService = function() {
 
 	/**
 	 * Private function to search with given string sorted by date
+	 * @param {Object} origin
 	 * @param {String} 	The given keyword(s) to search for
 	 */
 	searchDASERSTEStringByDate = function(origin, searchStr) {
-		// TODO: searching by date not working correctly
-		// 		- second tab on mediathek page is loaded by ajax --> ajax isn't ready when php queries the page
-
 		// build restful URL for search in Das Erste
 		var _searchUrl = PROXY_URL + encodeURI(SEARCH_URL + searchStr + SEARCH_PARAM_SORT_DATE);
 		// send asynchronous xmphttp request
@@ -185,10 +178,10 @@ MediathekCrawler.DasErsteService = function() {
 
 	/**
 	 * Callback function for async loading of search results
+	 * @param {Object} origin
 	 * @param {String|HTML}		xmlhttp response of ajax call
 	 */
 	onDASERSTESearchString = function(origin, data) {
-		/*var resp = */
 		var x = $(data).find('.flash');
 		x.each(function(index,el) {
 
@@ -204,9 +197,7 @@ MediathekCrawler.DasErsteService = function() {
 				var resY = null;
 				var imgURL = $(temp2).attr('data-ctrl-image');
 				imgURL = imgURL.slice(imgURL.indexOf('urlScheme\':\'') + 12, imgURL.indexOf('##width##'));
-				//willkürliche Größenangabe für Bildbreite:
 				imgURL = imgURL + '384';
-				// console.log('TEASERIMAGES imgURL: ',BASE_URL + imgURL);
 				if(imgURL.indexOf('16x9') > 0){
 					resX = imgURL.slice(imgURL.indexOf('16x9/') + 5, imgURL.length);
 					resY = parseInt(resX / 1.7777);
@@ -219,12 +210,17 @@ MediathekCrawler.DasErsteService = function() {
 		});
 	},
 
+	/**
+	 * Function to get videos by date
+	 * @param {String} maxResults
+	 * @param {String|Date} startdate (DD.MM.YYYY)
+	 * @param {String|Date} enddate (DD.MM.YYYY)
+	 */
 	getDasErsteVideosByDate = function(maxResults, startdate, enddate){
 
 		var documentUrl = null;
 		var documentId = null;
 		var origin = {};
-		// console.log('DASERSTE received dates: ',startdate, enddate);
 
 		Date.prototype.addDays = function(days) {
 	       var dat = new Date(this.valueOf());
@@ -241,8 +237,6 @@ MediathekCrawler.DasErsteService = function() {
         	currentDate = currentDate.addDays(1);
        }
 
-       // console.log('DASERSTE dates: ',dates);
-       	
 		for(i=0;i<dates.length;i++){
 
 		var counter = 1;
@@ -253,15 +247,10 @@ MediathekCrawler.DasErsteService = function() {
 					url: _url,
 					type: 'GET',
 					cache: false,
-					// complete: function(data){
-
-					// 	console.log('AJAX complete DasErste: ',i,dates[i]);
-					// },
 					success: function(data) {
 						var x = $(data).find('.teaserbox');
 						x.each(function(index,element){
 
-							// if(counter <= maxResults){
 								var y = $(element).find('.teaser');
 								y.each(function(idx, el){
 
@@ -277,9 +266,7 @@ MediathekCrawler.DasErsteService = function() {
 									var resY = null;
 									var imgURL = $(temp2).attr('data-ctrl-image');
 									imgURL = imgURL.slice(imgURL.indexOf('urlScheme\':\'') + 12, imgURL.indexOf('##width##'));
-									//willkürliche Größenangabe für Bildbreite:
 									imgURL = imgURL + '384';
-									// console.log('TEASERIMAGES imgURL: ',BASE_URL + imgURL);
 									if(imgURL.indexOf('16x9') > 0){
 										resX = imgURL.slice(imgURL.indexOf('16x9/') + 5, imgURL.length);
 										resY = parseInt(resX / 1,7777);
@@ -289,32 +276,25 @@ MediathekCrawler.DasErsteService = function() {
 										_result._teaserImages.push(_model.createTeaserImage(IMG_RESOLUTIONS[0].resolution, BASE_URL + imgURL));
 									}
 
-									// console.log('DASERSTE onDASERSTEGetNew DATA: ', _result);
-									// // load details for result
 									loadDASERSTEDetails(origin, documentId, _result, BASE_URL + documentUrl);
-
-									// console.log('DasErste getDasErsteVideosByDate: ', el);
 								});
-							// counter++;
-							// }
-
 						});
 					},
 					error: function(jqXHR, textStatus, errorThrown){
 						console.warn('ERROR; DasErsteService.getDasErsteVideosByDate; AJAX-request did not recieve a response\n',jqXHR, textStatus, errorThrown);
 					}
 				});
-  			
 		}
 	},
 
 	/**
 	 * Private function for async loading of details for a search result
-	 * @param {String}		url of the detail page
+	 * @param {Object} origin
+	 * @param {String} documentId
+	 * @param {Object} result
+	 * @param {String} detailURL
 	 */
 	loadDASERSTEDetails = function(origin, documentId, result, detailURL) {
-
-		// console.log('DASERSTE loadDASERSTEDetails: \n',documentId, result, detailURL);
 		var detailURL = PROXY_URL + encodeURI(detailURL);
 		$.ajax({
 			url: detailURL,
@@ -331,20 +311,15 @@ MediathekCrawler.DasErsteService = function() {
 
 	/** 
 	 * Callback function for async loading of details for results
+	 * @param {Object} origin
 	 * @param {String|Integer}		documentId of the broadcast
 	 * @param {object}				currently builded result (missing details and precise airtime)
 	 * @param {HTML}				HTML markup of the retrieved detail page of the broadcast
 	 */
 	onloadDASERSTEDetails = function(origin, documentId, result, data) {
-
-		// console.log('result._streams:\n',data);
-
 		var _result = result;
 		var res = $(data).find('.modClipinfo');
-		// console.log('DASERSTE res: ',res);
-		// var temp = null;
 		// fill result params if missing:
-			
 			_result._station = STATION;
 				
 			if(!_result._title || _result._title === undefined){
@@ -352,7 +327,6 @@ MediathekCrawler.DasErsteService = function() {
 
 				_result._title = $(data).find('.dachzeile').text();
 				}catch(e){
-					// console.log(e);
 				}
 			}
 			if(!_result._subtitle || _result._subtitle === undefined || _result._subtitle === ''){
@@ -360,9 +334,7 @@ MediathekCrawler.DasErsteService = function() {
 
 				var temp = $(res).find('.headline');
 				_result._subtitle = $(temp).text();
-				// console.log('_result._subtitle: ',temp,_result._subtitle);
 				}catch(e){
-					// console.log(e);
 				}
 			}
 			if(!_result._length || _result._length === undefined || _result._length === ''){
@@ -375,21 +347,17 @@ MediathekCrawler.DasErsteService = function() {
 				}else{
 					_result._length = '';
 				}
-				// console.log('_result._length: ',$(temp).text(),' to: ',_result._length);
 				}catch(e){
-					// console.log(e);
 				}
 			}
 			if(!_result._airtime || _result._airtime === undefined || _result._airtime === '' || _result._airtime.indexOf('undefined') >0){
 				try{
 
-				// _result._airtime = $(data).find(AIRTIME_DATE_ELEMENT).text().split(' ')[1] + ' ' + $(data).find(AIRTIME_TIME_ELEMENT).text().split(' ')[0];
 				var temp = $(res).find('.subtitle');
 				_result._airtime = $(temp).text();
 				if(_result._airtime.indexOf('|') > 0){
 					_result._airtime = _result._airtime.slice(0, _result._airtime.indexOf(' | '));
 				}
-					// console.log('DASERSTE _result._subtitle: ',_result._subtitle);
 				if(_result._subtitle.indexOf('Uhr') > 0){
 					_result._airtime += ' '+_result._subtitle.slice(_result._subtitle.indexOf('Uhr') - 6,_result._subtitle.indexOf('Uhr'));
 					if(_result._subtitle.indexOf(',') > 0){
@@ -397,38 +365,30 @@ MediathekCrawler.DasErsteService = function() {
 					}
 				}
 				}catch(e){
-					// console.log(e);
 				}
 			}
 			
 			if(!_result._streams || _result._streams === undefined){
-					// _result._streams = [];
 			}
 			if(!_result._details || _result._details === undefined || _result._details === ''){
 				try{
 
 				var temp = $(res).find('.teasertext');
-				// var temp2 = $(temp).next();
-				// var temp3 = $(temp).find('.teasertext');
 				_result._details = $(temp).text();
-				// console.log('_result._details: ',temp,_result._details);
 				}catch(e){
-					// console.log(e);
 				}
 			}
-		// console.log('DASERSTE onloadDASERSTEDetails: \n',documentId, _result);
 		// load streams for result
 		loadDASERSTEStreams(origin, documentId, _result);
 	},
 
 	/**
 	 * Private function for async loading of streams for a search result
+	 * @param {Object} origin
 	 * @param {String|Integer}		documentId of the broadcast
 	 * @param {object}				currently builded result (missing streams and preview images)
 	 */
 	loadDASERSTEStreams = function(origin, documentId, result) {
-
-		// console.log('DASERSTE loadDASERSTEStreams: \n',documentId, result);
 		var streamURL = PROXY_URL + encodeURI(STREAM_URL + documentId);
 		$.ajax({
 			url: streamURL,
@@ -445,19 +405,17 @@ MediathekCrawler.DasErsteService = function() {
 
 	/**
 	 * Callback function for async loading of streams
+	 * @param {Object} origin
 	 * @param {String|Integer}		documentId of the broadcast
 	 * @param {object}				currently builded result (missing streams and preview images)
 	 * @param {JSON}				JSON response of stream loading
 	 */
 	onloadDASERSTEStreams = function(origin, documentId, result, data) {
-
-		// console.log('DASERSTE onloadDASERSTEStreams: \n',documentId, result);
 		try{
 			var data = JSON.parse(data);
 		}catch(e){
 			var data = data;
 		}
-		// result._teaserImages.push(_model.createTeaserImage(IMG_RESOLUTIONS[3].resolution, BASE_URL + data._previewImage));
 		result._streams = [];
 		for (var i=0; i<data._mediaArray.length; i++) {
 			for (var j=0; j<data._mediaArray[i]._mediaStreamArray.length; j++) {
@@ -469,10 +427,10 @@ MediathekCrawler.DasErsteService = function() {
 					var _url = stream[0];
 				}
 
-				var _basetype = null,	// TODO: missing basetype!
+				var _basetype = null,
 					_type = data._type + '/' + _url.substr(_url.lastIndexOf('.') + 1);
 					_quality = data._mediaArray[i]._mediaStreamArray[j]._quality;
-					_filesize = null;	// TODO: missing filesize!
+					_filesize = null;
 
 				if(server !== ''){
 					var _url = server+stream;
@@ -488,6 +446,7 @@ MediathekCrawler.DasErsteService = function() {
 
 	/**
 	 * Public function to get most viewed videos
+	 * @param {String} maxResults
 	 */
 	getNew = function(maxResults) {
 		var origin = {
@@ -498,7 +457,6 @@ MediathekCrawler.DasErsteService = function() {
 		};
 		// build restful URL for search in Das Erste
 		var _newUrl = PROXY_URL + encodeURI(BASE_URL);
-		// console.log('dasERSTE getNew url: ',_newUrl);
 
 		// send asynchronous xmphttp request
 		$.ajax({
@@ -517,6 +475,8 @@ MediathekCrawler.DasErsteService = function() {
 
 	/**
 	 * Callback function for async loading of search results
+	 * @param {String} maxResults
+	 * @param {Object} origin
 	 * @param {String|HTML}		xmlhttp response of ajax call
 	 */
 	onDASERSTEGetNew = function(maxResults, origin, data) {
@@ -525,14 +485,11 @@ MediathekCrawler.DasErsteService = function() {
 		}
 		var documentUrl = null;
 		var documentId = null;
-		// console.log('DASERSTE onDASERSTEGetNew: ',data);
 		var x = $(data).find('.modHeadline');
 		var counter = 1;
 		x.each(function (index, element) {
-			// console.log('modHeadline-element TEXT: ',$(element).text());
 			if($(element).text() === 'Neueste Videos') {
 				temp = $(element).next();
-				// console.log('TEMP: ',temp);
 				var y = $(temp).find('.box');
 				y.each(function(idx,el){
 					if(counter <= maxResults){
@@ -549,9 +506,7 @@ MediathekCrawler.DasErsteService = function() {
 						var resY = null;
 						var imgURL = $(temp2).attr('data-ctrl-image');
 						imgURL = imgURL.slice(imgURL.indexOf('urlScheme\':\'') + 12, imgURL.indexOf('##width##'));
-						//willkürliche Größenangabe für Bildbreite:
 						imgURL = imgURL + '384';
-						// console.log('TEASERIMAGES imgURL: ',BASE_URL + imgURL);
 						if(imgURL.indexOf('16x9') > 0){
 							resX = imgURL.slice(imgURL.indexOf('16x9/') + 5, imgURL.length);
 							resY = parseInt(resX / 1,7777);
@@ -561,8 +516,6 @@ MediathekCrawler.DasErsteService = function() {
 							_result._teaserImages.push(_model.createTeaserImage(IMG_RESOLUTIONS[0].resolution, BASE_URL + imgURL));
 						}
 
-						// console.log('DASERSTE onDASERSTEGetNew DATA: ', _result);
-						// // load details for result
 						++counter;
 						loadDASERSTEDetails(origin, documentId, _result, BASE_URL + documentUrl);
 					}
@@ -571,6 +524,9 @@ MediathekCrawler.DasErsteService = function() {
 		});
 	},
 
+	/**
+	 * Function to get 'hot' videos
+	 */
 	getHot = function(){
 		var origin = {
 			_channel: 'DasErste',
@@ -582,21 +538,25 @@ MediathekCrawler.DasErsteService = function() {
 		var _url = PROXY_URL + encodeURI(BASE_URL);
 
 		$.ajax({
-				url: _url,
-				type: 'GET',
-				cache: false,
-				success: function(data) {
-					onDASERSTEGetHot(origin, data)
-				},
-				error: function(jqXHR, textStatus, errorThrown){
-					console.warn('ERROR; DasErsteService.getHot; AJAX-request did not recieve a response\n',jqXHR, textStatus, errorThrown);
-				}
-			});
+			url: _url,
+			type: 'GET',
+			cache: false,
+			success: function(data) {
+				onDASERSTEGetHot(origin, data)
+			},
+			error: function(jqXHR, textStatus, errorThrown){
+				console.warn('ERROR; DasErsteService.getHot; AJAX-request did not recieve a response\n',jqXHR, textStatus, errorThrown);
+			}
+		});
 	},
 
+	/**
+	 * Function to get detail URL of 'hot' videos
+	 * @param {Object} origin
+	 * @param {String|HTML|JSON} data
+	 */
 	onDASERSTEGetHot = function(origin, data){
 		var _url = PROXY_URL + encodeURI(BASE_URL + $(data).find('.modButton').find('.textLink').attr('href'));
-		// console.log('onDASERSTEGetHot: ', _url);
 		if(_url && _url !== undefined){
 
 			$.ajax({
@@ -616,6 +576,11 @@ MediathekCrawler.DasErsteService = function() {
 		}
 	},
 
+	/**
+	 * Function to get details of 'hot' videos
+	 * @param {Object} origin
+	 * @param {String|HTML|JSON} data
+	 */
 	onDASERSTEParseHot = function(origin, data){
 		var x = $(data).find('.flash');
 		x.each(function(index, el){
@@ -632,9 +597,7 @@ MediathekCrawler.DasErsteService = function() {
 			var resY = null;
 			var imgURL = $(temp2).attr('data-ctrl-image');
 			imgURL = imgURL.slice(imgURL.indexOf('urlScheme\':\'') + 12, imgURL.indexOf('##width##'));
-			//willkürliche Größenangabe für Bildbreite:
 			imgURL = imgURL + '384';
-			// console.log('TEASERIMAGES imgURL: ',BASE_URL + imgURL);
 			if(imgURL.indexOf('16x9') > 0){
 				resX = imgURL.slice(imgURL.indexOf('16x9/') + 5, imgURL.length);
 				resY = parseInt(resX / 1.7777);
@@ -650,7 +613,7 @@ MediathekCrawler.DasErsteService = function() {
 	},
 
 	/**
-	 * Public function to reset the instance of DasErsteService
+	 * function to reset the instance of DasErsteService
 	 */
 	dispose = function() {
 		that = {};
@@ -662,7 +625,6 @@ MediathekCrawler.DasErsteService = function() {
 	that.getNew = getNew;
 	that.getHot = getHot;
 	that.getDasErsteVideosByDate = getDasErsteVideosByDate;
-	// that.getCategories = getCategories;
 
 	return that;
 };

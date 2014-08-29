@@ -8,7 +8,6 @@ MediathekCrawler.SRFService = function() {
 	SRFSEARCHSTRING = 'http://www.srf.ch/player/tv/suche?query=',
 	SRFSEARCHNEW = 'http://www.srf.ch/player/tv/sendungen-nach-datum',
 	SRFCATEGORYURL = 'http://www.srf.ch/player/tv/sendungen-nach-thema',
-	// http://www.srf.ch/webservice/cvis/segment/87769548-f63d-4d3f-979d-47b985eba22c/.json
 	SRFALTERNATIVESTREAMS1 = 'http://www.srf.ch/webservice/cvis/segment/',
 	SRFALTERNATIVESTREAMS2 = '/.json',
 	SRFGETVIDEOSBYDATEURL ='http://tvprogramm.srf.ch/',
@@ -53,14 +52,16 @@ MediathekCrawler.SRFService = function() {
 	];
 	
 	init = function(mModel) {
-		//init ZDFService
-		console.info('MediathekCrawler.SRFService.init');
 		mediathekModel = mModel;
 	},
 
+	/**
+	 * Function to get videos by date
+	 * @param {String|Integer} maxResults
+	 * @param {String|Date} startDate
+	 * @param {String|Date} endDate
+	 */
 	getSRFVideosByDate = function(maxResults, startDate, endDate){
-		// console.log('SRF received dates: ',startdate, enddate);
-
 		var origin = {};
 		Date.prototype.addDays = function(days) {
 	       var dat = new Date(this.valueOf())
@@ -83,8 +84,6 @@ MediathekCrawler.SRFService = function() {
         	currentDate = currentDate.addDays(1);
        }
 
-       // console.log('SRF dates: ',dates);
-       	
 		for(i=0;i<dates.length;i++){
 
 		var counter = 1;
@@ -106,6 +105,11 @@ MediathekCrawler.SRFService = function() {
 		}
 	},
 
+	/**
+	 * Function to check if an entry with a given id is already within a given array
+	 * @param {Array} array
+	 * @param {String} id
+	 */
 	_checkSRFDuplicates = function(array, id){
 		for(i=0;i<array.length;i++){
 
@@ -116,17 +120,19 @@ MediathekCrawler.SRFService = function() {
 		return true;
 	},
 
+	/**
+	 * Function to get details for video search by date
+	 * @param {String|HTML|JSON} data
+	 * @param {Object} origin
+	 */
 	_onSRFVideosByDate = function(data, origin){
 
 		var duplicates = [];
-		// console.log('_onSRFVideosByDate');
 		var x = $(data).find('#programchannels');
 		x.each(function(index, element){
-					// console.log(temp,': ',element);
 			var y = $(element).find('.vod');
 			y.each(function(idx, el){
 				
-				// console.log('SRF _onSRFVideosByDate element: ', el);
 				var _url = PROXY_URL + $(el).attr('href');
 				assetID = _url.substring(_url.indexOf('id=')+3, _url.indexOf('&referrer'));
 				if(_checkSRFDuplicates(duplicates, assetID)){
@@ -135,7 +141,6 @@ MediathekCrawler.SRFService = function() {
 						type: 'GET',
 						cache: false,
 						success: function(data) {
-							// console.log('success: ',_url);
 
 							var teaserImages = [],
 								streams = [],
@@ -151,7 +156,6 @@ MediathekCrawler.SRFService = function() {
 							var todayPos = null;
 							var airtimePos = null;
 							airtime = $(data).find('#asset_info_topline').text();
-							// console.log('SRF VIDEOSBYDATE airtime: ',airtime);
 							if(airtime.indexOf('vom') > 1 && airtime.indexOf('.') > 1){
 
 								airtime = airtime.slice(airtime.indexOf('vom ') + 4, airtime.indexOf('Uhr'));
@@ -162,7 +166,7 @@ MediathekCrawler.SRFService = function() {
 									var now = new Date();
 									var today = new Date();
 									var dd = today.getDate();
-									var mm = today.getMonth()+1; //January is 0!
+									var mm = today.getMonth()+1;
 									var yyyy = today.getFullYear();
 									if(dd<10){dd='0'+dd} if(mm<10){mm='0'+mm} today = dd+'.'+mm+'.'+yyyy
 
@@ -175,13 +179,12 @@ MediathekCrawler.SRFService = function() {
 										var yesterday = new Date(now);
 										yesterday.setDate(now.getDate() - 1);
 										var dd = yesterday.getDate();
-										var mm = yesterday.getMonth()+1; //January is 0!
+										var mm = yesterday.getMonth()+1;
 										var yyyy = yesterday.getFullYear();
 										if(dd<10){dd='0'+dd} if(mm<10){mm='0'+mm} yesterday = dd+'.'+mm+'.'+yyyy
 										airtime = yesterday;
 									}
 									else{
-										// console.log('TODAY IS: ',days[ now.getDay() ],' AIRTIME IS: ',airtime);
 										for (var j=0; j<days.length; j++) {
 									        if (days[j].match(airtime)) {
 									        	airtimePos = j;
@@ -200,7 +203,7 @@ MediathekCrawler.SRFService = function() {
 									    	airtime.setDate(now.getDate() - z)
 									    }
 									    var dd = airtime.getDate();
-										var mm = airtime.getMonth()+1; //January is 0!
+										var mm = airtime.getMonth()+1;
 										var yyyy = airtime.getFullYear();
 										if(dd<10){dd='0'+dd} if(mm<10){mm='0'+mm} airtime = dd+'.'+mm+'.'+yyyy
 
@@ -212,7 +215,6 @@ MediathekCrawler.SRFService = function() {
 							if(airtime.indexOf(',') > 0){
 								airtime = airtime.replace(',','');
 							}
-						    // console.log('airtime: ',airtime,' todayPos: ',todayPos,' airtimePos: ',airtimePos);
 
 							details = $(data).find('#asset_info_description').text();
 
@@ -228,12 +230,10 @@ MediathekCrawler.SRFService = function() {
 							var imgUrl2 = $(data).find('#sendung_box_logo').find('.retina_image').attr('data-src2x');
 							var ti2 = mediathekModel.createTeaserImage(resolution2, imgUrl2);
 							teaserImages.push(ti2);
-							// console.log('el: ', _url, title, details, length, subtitle, assetID, airtime, teaserImages);
 
 							streamUrl = $(data).find('.button_download_img').attr('href');
 
 							if(streamUrl !== 'undefined' && streamUrl !== undefined){
-								// console.log('Stream Url: ',_url);
 
 								var basetype = '',
 					    		quality = '',
@@ -252,27 +252,14 @@ MediathekCrawler.SRFService = function() {
 				    			}
 
 				    			var stream = mediathekModel.createStream(basetype, type, quality, url, filesize);
-					    		//console.log('basetype: ',basetype,', stream: ',stream._url);
 								streams.push(stream);
-
-								// SEARCH further URLS through 
-								// http://www.srf.ch/webservice/cvis/segment/assetID/.json
-								// fix incorrect params (e.g. airtime) with the received JSON
-								// push to result model!
-							}else{
-
-								// SEARCH further URLS through 
-								// http://www.srf.ch/webservice/cvis/segment/assetID/.json
-								// push to result model!
 							}
 							
 							if(streams.length < 1){		
-								//search for further streams
 								var streams2 = _getFurtherSRFStreams(assetID);
 								
 								if(streams.length < 1){
 
-									// console.log('\'',title, '\' has ', streams2.length, ' streams. \nCHECK: ',_url);
 								}else{
 									_pushSRFResultToModel(origin, title, subtitle, details, station, assetID, length, airtime, teaserImages, streams2);
 							
@@ -288,7 +275,6 @@ MediathekCrawler.SRFService = function() {
 					});
 
 					duplicates.push(assetID);
-					// console.log('duplicates: ',duplicates);
 				}
 				
 
@@ -297,6 +283,10 @@ MediathekCrawler.SRFService = function() {
 		});
 	},
 
+	/**
+	 * Function to get videos matching a given category
+	 * @param {String} _category
+	 */
 	getSRFCategories = function(_category) {
 		var origin = {
 			_channel: 'SRF',
@@ -311,7 +301,6 @@ MediathekCrawler.SRFService = function() {
 			cache: false,
 			complete: function(data, textStatus, jqXHR) {
 				
-				// console.log('SRF getCategories: ', PROXY_URL + SRFHOTURL);
 				_onSRFBroadcastOfCategory(origin, data, _category);
 				
 			},
@@ -322,19 +311,21 @@ MediathekCrawler.SRFService = function() {
 
 	},
 
+	/**
+	 * Function to get details of videos matching a given category
+	 * @param {Object} origin
+	 * @param {String|HTML|JSON} data
+	 * @param {String} _category
+	 */
 	_onSRFBroadcastOfCategory = function(origin, data, _category){
-		// console.log('SRF _onSRFBroadcastOfCategory data: ',data);
-
 		var find = CATEGORIES.filter(function (category) { return category._id == _category });
 		if(find.length > 0) {
-			// console.log(find[0]._assetId);
 			$.each(find[0]._value, function(index,value){
 				
 				var temp = '#'+value;
 				var data2 = data.responseText;
 				var x = $(data2).find(temp);
 				x.each(function(index, element){
-					// console.log(temp,': ',element);
 					var y = $(element).find('.az_item');
 					y.each(function(idx, el){
 
@@ -365,12 +356,8 @@ MediathekCrawler.SRFService = function() {
 							
 							assetID = _url.substring(_url.indexOf('quicklink/')+10, _url.length);
 
-
-							// console.log('el: ', _url, title, details, length, subtitle, assetID, airtime, teaserImages);
-
 							_searchSRFStreams(origin, _url, title, subtitle, details, station, assetID, length, airtime, teaserImages, streams);
 				
-						// }
 					});
 				});
 
@@ -382,6 +369,9 @@ MediathekCrawler.SRFService = function() {
 		}
 	},
 
+	/**
+	 * Function to get 'hot' videos
+	 */
 	getHot = function(){
 		var origin = {
 			_channel: 'SRF',
@@ -394,7 +384,6 @@ MediathekCrawler.SRFService = function() {
 			type: 'GET',
 			cache: false,
 			complete: function(data, textStatus, jqXHR) {
-				// console.log('SRF getHot: ', PROXY_URL + SRFHOTURL);
 				_onSRFGetHot(origin, data);
 				
 			},
@@ -404,14 +393,15 @@ MediathekCrawler.SRFService = function() {
 		});
 	},
 
+	/**
+	 * Function to get details for 'hot' videos
+	 * @param {Object} origin
+	 * @param {String|HTML|JSON} data
+	 */
 	_onSRFGetHot = function(origin, data){
-		// var temp = $(data).find('#tab_most_viewed');
-		// $(data).find('.	').each(function(index,element){
 			var data2 = data.responseText;
-			// console.log('SRF _onSRFGetHot: ', data2);
 			var x = $(data2).find('.carousel_teaser');
 			x.each(function(index,el){
-				// console.log('SRF _onSRFGetHot: ', el);
 
 				var teaserImages = [],
 						streams = [],
@@ -429,7 +419,7 @@ MediathekCrawler.SRFService = function() {
 					var now = new Date();
 					var today = new Date();
 					var dd = today.getDate();
-					var mm = today.getMonth()+1; //January is 0!
+					var mm = today.getMonth()+1;
 					var yyyy = today.getFullYear();
 					if(dd<10){dd='0'+dd} if(mm<10){mm='0'+mm} today = dd+'.'+mm+'.'+yyyy
 
@@ -442,13 +432,12 @@ MediathekCrawler.SRFService = function() {
 						var yesterday = new Date(now);
 						yesterday.setDate(now.getDate() - 1);
 						var dd = yesterday.getDate();
-						var mm = yesterday.getMonth()+1; //January is 0!
+						var mm = yesterday.getMonth()+1;
 						var yyyy = yesterday.getFullYear();
 						if(dd<10){dd='0'+dd} if(mm<10){mm='0'+mm} yesterday = dd+'.'+mm+'.'+yyyy
 						airtime = yesterday;
 					}
 					else{
-						// console.log('TODAY IS: ',days[ now.getDay() ],' AIRTIME IS: ',airtime);
 						var todayPos = null;
 						var airtimePos = null;
 						for (var j=0; j<days.length; j++) {
@@ -469,11 +458,10 @@ MediathekCrawler.SRFService = function() {
 					    	airtime.setDate(now.getDate() - z)
 					    }
 					    var dd = airtime.getDate();
-						var mm = airtime.getMonth()+1; //January is 0!
+						var mm = airtime.getMonth()+1;
 						var yyyy = airtime.getFullYear();
 						if(dd<10){dd='0'+dd} if(mm<10){mm='0'+mm} airtime = dd+'.'+mm+'.'+yyyy
 
-					    // console.log('airtime: ',airtime,' todayPos: ',todayPos,' airtimePos: ',airtimePos);
 					}
 
 
@@ -493,9 +481,6 @@ MediathekCrawler.SRFService = function() {
 					
 					assetID = _url.substring(_url.indexOf('id=')+3, _url.length);
 
-
-					// console.log('el airtime: ', origin, _url, title, subtitle, details, station, assetID, length, airtime, teaserImages, streams);
-
 					_searchSRFStreams(origin, _url, title, subtitle, details, station, assetID, length, airtime, teaserImages, streams);
 					
 		
@@ -504,6 +489,10 @@ MediathekCrawler.SRFService = function() {
 		// });
 	},
 
+	/**
+	 * Function to get 'new' videos
+	 * @param {String|Integer} maxResults
+	 */
 	getNew = function (maxResults) {
 		var origin = {
 			_channel: 'SRF',
@@ -516,7 +505,6 @@ MediathekCrawler.SRFService = function() {
 			type: 'GET',
 			cache: false,
 			success: function(data, textStatus, jqXHR) {
-				// console.log('SRF getNew: ', PROXY_URL + SRFSEARCHNEW);
 				_onSRFGetNew(maxResults, origin, data,'#left_day');
 				
 			},
@@ -526,6 +514,13 @@ MediathekCrawler.SRFService = function() {
 		});
 	},
 
+	/**
+	 * Function to get details for 'new' videos
+	 * @param {String|Integer} maxResults
+	 * @param {Object} origin
+	 * @param {String|HTML|JSON} data
+	 * @param {String} divId
+	 */
 	_onSRFGetNew = function(maxResults, origin, data,divId){
 		if(!maxResults || maxResults === undefined || maxResults === null){
 			maxResults = 50;
@@ -538,11 +533,8 @@ MediathekCrawler.SRFService = function() {
 			y.each(function(idx, el){
 				if(counter <= maxResults){
 				
-			// console.log('SRF _onSRFSearchString element: ', el);
-				//check for attribute id to remove duplicate entries
 				var attr = $(el).attr('id');
 				if (typeof attr !== typeof undefined && attr !== false) {
-				    // console.log('FOUND: ',el);
 
 					var teaserImages = [],
 						streams = [],
@@ -559,16 +551,14 @@ MediathekCrawler.SRFService = function() {
 					$yesterday = new Date($today);
 					$yesterday.setDate($today.getDate() - 1);
 					var $dd = $yesterday.getDate();
-					var $mm = $yesterday.getMonth()+1; //January is 0!
+					var $mm = $yesterday.getMonth()+1;
 
 					var $yyyy = $yesterday.getFullYear();
 					if($dd<10){$dd='0'+$dd} if($mm<10){$mm='0'+$mm} $yesterday = $dd+'.'+$mm+'.'+$yyyy
-					// console.log($yesterday);
 
 					airtime = $yesterday +' '+ $(el).find('.time').text();
 					if(airtime.indexOf(' Uhr') > 0){
 						airtime = airtime.substring(0,airtime.indexOf(' Uhr'));
-					// console.log('AIRTIME: ',airtime);
 					}
 					station = 'SRF';
 					title = $(el).find('.title').attr('title');
@@ -586,19 +576,12 @@ MediathekCrawler.SRFService = function() {
 					
 					assetID = _url.substring(_url.indexOf('id=')+3, _url.length);
 
-
-					// console.log('el: ', _url, title, details, length, subtitle, assetID, airtime, teaserImages);
 					if(maxResults === 1){
 						$.ajax({
 							url: PROXY_URL + _url,
 							type: 'GET',
 							cache: false,
 							success: function(data, textStatus, jqXHR) {
-								// console.log('YAAAY', data);
-
-
-								// console.log('subtitle, length & details before fix: ', subtitle, length, details);
-								// fill missing params:
 								if(subtitle === null || subtitle === undefined || subtitle === ''){
 									subtitle = $(data).find('#asset_info_hl').text();
 								}
@@ -618,7 +601,7 @@ MediathekCrawler.SRFService = function() {
 											var now = new Date();
 											var today = new Date();
 											var dd = today.getDate();
-											var mm = today.getMonth()+1; //January is 0!
+											var mm = today.getMonth()+1;
 											var yyyy = today.getFullYear();
 											if(dd<10){dd='0'+dd} if(mm<10){mm='0'+mm} today = dd+'.'+mm+'.'+yyyy
 
@@ -631,13 +614,12 @@ MediathekCrawler.SRFService = function() {
 												var yesterday = new Date(now);
 												yesterday.setDate(now.getDate() - 1);
 												var dd = yesterday.getDate();
-												var mm = yesterday.getMonth()+1; //January is 0!
+												var mm = yesterday.getMonth()+1;
 												var yyyy = yesterday.getFullYear();
 												if(dd<10){dd='0'+dd} if(mm<10){mm='0'+mm} yesterday = dd+'.'+mm+'.'+yyyy
 												airtime = yesterday;
 											}
 											else{
-												// console.log('TODAY IS: ',days[ now.getDay() ],' AIRTIME IS: ',airtime);
 												var todayPos = null;
 												var airtimePos = null;
 												for (var j=0; j<days.length; j++) {
@@ -658,23 +640,19 @@ MediathekCrawler.SRFService = function() {
 											    	airtime.setDate(now.getDate() - z)
 											    }
 											    var dd = airtime.getDate();
-												var mm = airtime.getMonth()+1; //January is 0!
+												var mm = airtime.getMonth()+1;
 												var yyyy = airtime.getFullYear();
 												if(dd<10){dd='0'+dd} if(mm<10){mm='0'+mm} airtime = dd+'.'+mm+'.'+yyyy
-
-											    // console.log('airtime: ',airtime,' todayPos: ',todayPos,' airtimePos: ',airtimePos);
 											}
 										}catch(e){
 											
 										}
 									}
-									// console.log('airtime AFTER fix: ', airtime);
 								}
 
 								streamUrl = $(data).find('.button_download_img').attr('href');
 
 								if(streamUrl !== 'undefined' && streamUrl !== undefined){
-									// console.log('Stream Url: ',_url);
 
 									var basetype = '',
 						    		quality = '',
@@ -693,27 +671,14 @@ MediathekCrawler.SRFService = function() {
 					    			}
 
 					    			var stream = mediathekModel.createStream(basetype, type, quality, url, filesize);
-						    		//console.log('basetype: ',basetype,', stream: ',stream._url);
 									streams.push(stream);
-
-									// SEARCH further URLS through 
-									// http://www.srf.ch/webservice/cvis/segment/assetID/.json
-									// fix incorrect params (e.g. airtime) with the received JSON
-									// push to result model!
-								}else{
-
-									// SEARCH further URLS through 
-									// http://www.srf.ch/webservice/cvis/segment/assetID/.json
-									// push to result model!
 								}
 								
 								if(streams.length < 1){		
-									//search for further streams
 									streams = _getFurtherSRFStreams(assetID);
 									
 									if(streams.length < 1){
 
-										// console.log('\'',title, '\' has ', streams.length, ' streams. \nCHECK: ',_url);
 									}else{
 										counter++;
 										_pushSRFResultToModel(origin, title, subtitle, details, station, assetID, length, airtime, teaserImages, streams2);
@@ -750,9 +715,13 @@ MediathekCrawler.SRFService = function() {
 		}
 	},
 
+	/**
+	 * Function to search videos by a given keyword
+	 * @param {String} searchString
+	 * @param {String|Integer} maxResults
+	 */
 	searchString = function(searchString, maxResults){
 		if(searchString.indexOf(' ') > 0){
-			// console.log('SRF searchString: ',searchString);
 			searchString = searchString.replace(' ','+');
 		}
 		if(maxResults < 1 || maxResults === null || maxResults === 'undefined' || maxResults === undefined){
@@ -765,19 +734,14 @@ MediathekCrawler.SRFService = function() {
 			_badge: null
 		};
 
-		// requesting more than 1 result page ends with the same
-		// received data -> duplicate entries!
 		for(i=1;i<=maxResults;i++){
 
 			var _url = PROXY_URL + encodeURI(SRFSEARCHSTRING+String(searchString))+'&page='+String(i);
-				
-				// console.log("SRF search url: ", _url);
 				$.ajax({
 					url: _url,
 					type: 'GET',
 					cache: false,
 					success: function(data, textStatus, jqXHR) {
-						// console.log('YAAAY', data);
 						_onSRFSearchString(origin, data);
 						
 					},
@@ -789,11 +753,14 @@ MediathekCrawler.SRFService = function() {
 
 	},
 
+	/**
+	 * Function to get details for videos matching a given keyword
+	 * @param {Object} origin
+	 * @param {String|HTML|JSON} data
+	 */
 	_onSRFSearchString = function(origin, data){
-		// console.log('div: ',$(data).find('.result_row'));
 		var x = $(data).find('.result_row');
 		x.each(function(index, element){
-			// console.log('SRF _onSRFSearchString element: ', element);
 			var teaserImages = [],
 					streams = [],
 					details = '',
@@ -811,7 +778,7 @@ MediathekCrawler.SRFService = function() {
 			var now = new Date();
 			var today = new Date();
 			var dd = today.getDate();
-			var mm = today.getMonth()+1; //January is 0!
+			var mm = today.getMonth()+1;
 			var yyyy = today.getFullYear();
 			if(dd<10){dd='0'+dd} if(mm<10){mm='0'+mm} today = dd+'.'+mm+'.'+yyyy
 			var days = ['Sonntag','Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag'];
@@ -824,13 +791,12 @@ MediathekCrawler.SRFService = function() {
 				var yesterday = new Date(now);
 				yesterday.setDate(now.getDate() - 1);
 				var dd = yesterday.getDate();
-				var mm = yesterday.getMonth()+1; //January is 0!
+				var mm = yesterday.getMonth()+1;
 				var yyyy = yesterday.getFullYear();
 				if(dd<10){dd='0'+dd} if(mm<10){mm='0'+mm} yesterday = dd+'.'+mm+'.'+yyyy
 				airtime = yesterday;
 			}
 			else{
-				// console.log('TODAY IS: ',days[ now.getDay() ],' AIRTIME IS: ',airtime);
 				var todayPos = null;
 				var airtimePos = null;
 				for (var j=0; j<days.length; j++) {
@@ -851,11 +817,10 @@ MediathekCrawler.SRFService = function() {
 			    	airtime.setDate(now.getDate() - z)
 			    }
 			    var dd = airtime.getDate();
-				var mm = airtime.getMonth()+1; //January is 0!
+				var mm = airtime.getMonth()+1;
 				var yyyy = airtime.getFullYear();
 				if(dd<10){dd='0'+dd} if(mm<10){mm='0'+mm} airtime = dd+'.'+mm+'.'+yyyy
 
-			    // console.log('airtime: ',airtime,' todayPos: ',todayPos,' airtimePos: ',airtimePos);
 			}
 			station = 'SRF';
 			length = $(element).find('.title_infos_description').find('.duration').text();
@@ -877,25 +842,30 @@ MediathekCrawler.SRFService = function() {
 			
 			assetID = _url.substring(_url.indexOf('id=')+3, _url.length);
 
-			// console.log('el: ', _url, title, details, length, subtitle, assetID, airtime, teaserImages);
-
 			_searchSRFStreams(origin, _url, title, subtitle, details, station, assetID, length, airtime, teaserImages, streams);
 		});
 	},
 
+	/**
+	 * Function to search streams of videos
+	 * @param {Object} origin
+	 * @param {String} _url
+	 * @param {String} title
+	 * @param {String} subtitle
+	 * @param {String} details
+	 * @param {String} station
+	 * @param {String} assetID
+	 * @param {String} length
+	 * @param {String} airtime
+	 * @param {Array} teaserImages
+	 * @param {Array} streams
+	 */
 	_searchSRFStreams = function(origin, _url, title, subtitle, details, station, assetID, length, airtime, teaserImages, streams){
-		// not available:
-
 		$.ajax({
 				url: PROXY_URL + _url,
 				type: 'GET',
 				cache: false,
 				success: function(data, textStatus, jqXHR) {
-					// console.log('YAAAY', data);
-
-
-					// console.log('subtitle, length & details before fix: ', subtitle, length, details);
-					// fill missing params:
 					if(subtitle === null || subtitle === undefined || subtitle === ''){
 						subtitle = $(data).find('#asset_info_hl').text();
 					}
@@ -904,7 +874,6 @@ MediathekCrawler.SRFService = function() {
 					}
 					if(airtime === null || airtime === undefined || airtime === ''){
 						airtime = $(data).find('#asset_info_topline').text();
-						// console.log("AIRTIME: ",airtime);
 						if(airtime.indexOf('vom') > 1 && airtime.indexOf('.') > 1){
 
 							airtime = airtime.slice(airtime.indexOf('vom ') + 4, airtime.indexOf(' Uhr'));
@@ -928,13 +897,12 @@ MediathekCrawler.SRFService = function() {
 									var yesterday = new Date(now);
 									yesterday.setDate(now.getDate() - 1);
 									var dd = yesterday.getDate();
-									var mm = yesterday.getMonth()+1; //January is 0!
+									var mm = yesterday.getMonth()+1;
 									var yyyy = yesterday.getFullYear();
 									if(dd<10){dd='0'+dd} if(mm<10){mm='0'+mm} yesterday = dd+'.'+mm+'.'+yyyy
 									airtime = yesterday;
 								}
 								else{
-									// console.log('TODAY IS: ',days[ now.getDay() ],' AIRTIME IS: ',airtime);
 									var todayPos = null;
 									var airtimePos = null;
 									for (var j=0; j<days.length; j++) {
@@ -955,23 +923,19 @@ MediathekCrawler.SRFService = function() {
 								    	airtime.setDate(now.getDate() - z)
 								    }
 								    var dd = airtime.getDate();
-									var mm = airtime.getMonth()+1; //January is 0!
+									var mm = airtime.getMonth()+1;
 									var yyyy = airtime.getFullYear();
 									if(dd<10){dd='0'+dd} if(mm<10){mm='0'+mm} airtime = dd+'.'+mm+'.'+yyyy
-
-								    // console.log('airtime: ',airtime,' todayPos: ',todayPos,' airtimePos: ',airtimePos);
 								}
 							}catch(e){
 								
 							}
 						}
-						// console.log('airtime AFTER fix: ', airtime);
 					}
 
 					streamUrl = $(data).find('.button_download_img').attr('href');
 
 					if(streamUrl !== 'undefined' && streamUrl !== undefined){
-						// console.log('Stream Url: ',_url);
 
 						var basetype = '',
 			    		quality = '',
@@ -990,27 +954,15 @@ MediathekCrawler.SRFService = function() {
 		    			}
 
 		    			var stream = mediathekModel.createStream(basetype, type, quality, url, filesize);
-			    		//console.log('basetype: ',basetype,', stream: ',stream._url);
 						streams.push(stream);
 
-						// SEARCH further URLS through 
-						// http://www.srf.ch/webservice/cvis/segment/assetID/.json
-						// fix incorrect params (e.g. airtime) with the received JSON
-						// push to result model!
-					}else{
-
-						// SEARCH further URLS through 
-						// http://www.srf.ch/webservice/cvis/segment/assetID/.json
-						// push to result model!
 					}
 					
 					if(streams.length < 1){		
-						//search for further streams
 						streams = _getFurtherSRFStreams(assetID);
 						
 						if(streams.length < 1){
 
-							// console.log('\'',title, '\' has ', streams.length, ' streams. \nCHECK: ',_url);
 						}else{
 							_pushSRFResultToModel(origin, title, subtitle, details, station, assetID, length, airtime, teaserImages, streams2);
 					
@@ -1027,14 +979,20 @@ MediathekCrawler.SRFService = function() {
 			});
 	},
 
-	//Will be able to return several rtmp streams
-	// but since we're not able to playback those streams
-	// it returns an empty array at the moment.
+	/**
+	 * Function to get further streams of videos
+	 * @param {String} assetID
+	 * @return {Array} []
+	 */
 	_getFurtherSRFStreams = function(assetID){
-		// _url = SRFALTERNATIVESTREAMS1 + String(assetID) + SRFALTERNATIVESTREAMS2;
+		// not implemented due to unavailable content from SRF website
 		return [];
 	},
 
+	/**
+	 * Function to fix format of given string
+	 * @param {String} length
+	 */
 	_fixLength = function(length){
 		if(length.indexOf(' Min') > 0){
 			length = length.replace(' Min', '');
@@ -1060,10 +1018,26 @@ MediathekCrawler.SRFService = function() {
 		return length;
 	},
 
+	/**
+	 * Function to push videos to mainmodel
+	 * @param {Object} origin
+	 * @param {String} assetID
+	 * @param {String} title
+	 * @param {String} subtitle
+	 * @param {String} details
+	 * @param {String} station
+	 * @param {String} length
+	 * @param {String} airtime
+	 * @param {Array} teaserImages
+	 * @param {Array} streams
+	 */
 	_pushSRFResultToModel = function(origin, title, subtitle, details, station, assetID, length, airtime, teaserImages, streams){
 			mediathekModel.addResults(origin, station, title, subtitle, details, length, airtime, teaserImages, streams);
 	},
 
+	/**
+	 * Function to reset the instance of ARTEService
+	 */
 	dispose = function() {
 		that = {};
 	};

@@ -20,11 +20,13 @@ MediathekCrawler.ORFService = function() {
 	
 	
 	init = function(model) {
-		//init ORFService
-		console.info("MediathekCrawler.ORFService.init");
 		_model = model;
 	},
 
+	/**
+	 * Function to fix format of a given string
+	 * @param {String} length
+	 */
 	_fixORFLength = function(length){
 		if(length.indexOf(' Min.') > 0){
 			length = length.replace(' Min.', '');
@@ -34,7 +36,6 @@ MediathekCrawler.ORFService = function() {
 			length = length.replace(' Std.', '');
 			var hh = Number(length.slice(0,2));
 			var mm = Number(length.slice(3,5));
-			// console.log("HH UND MM: ",hh,mm);	
 			if(Number(hh)<10){
 				hh = '0'+String(hh);
 			}
@@ -45,10 +46,20 @@ MediathekCrawler.ORFService = function() {
 		}
 	},
 
+	/**
+	 * Function to replace chars within a given string
+	 * @param {String} find
+	 * @param {String} replace
+	 * @param {String} str
+	 */
 	_replaceAll = function(find, replace, str) {
 	  return str.replace(new RegExp(find, 'g'), replace);
 	},
 
+	/**
+	 * Function to search videos by a given keyword
+	 * @param {String} searchStr
+	 */
 	searchString = function(searchStr) {
 		var origin = {
 			_channel: 'ORF',
@@ -57,15 +68,12 @@ MediathekCrawler.ORFService = function() {
 			_badge: null
 		};
 
-		var _searchUrl = PROXY_URL + encodeURI(SEARCH_URL + searchStr/* + SEARCH_PARAMS*/);
-		// var _searchUrl = PROXY_URL + "www.ORF.de/mediathek/video/suche/videosucheinclude100-solrSendereihenSuche_index-mediathekvideos.jsp";
-		// console.log('ORF searchString url: ',_searchUrl);
+		var _searchUrl = PROXY_URL + encodeURI(SEARCH_URL + searchStr);
 		$.ajax({
 			url: _searchUrl,
 			type: 'GET',
 			cache: false,
 			success: function(data){
-				// console.log('ORF data: ',data);
 				onORFLoadDetails(data, origin);
 			},
 			error: function(jqXHR, textStatus, errorThrown){
@@ -74,6 +82,10 @@ MediathekCrawler.ORFService = function() {
 		});
 	},
 
+	/**
+	 * Function to get 'new' videos
+	 * @param {String|Integer} maxResults
+	 */
 	getNew = function(maxResults){
 		var origin = {
 			_channel: 'ORF',
@@ -83,13 +95,11 @@ MediathekCrawler.ORFService = function() {
 		};
 
 		var _searchUrl = PROXY_URL + encodeURI(SEARCH_NEW);
-		// console.log('ORF getNew url: ',_searchUrl);
 		$.ajax({
 			url: _searchUrl,
 			type: 'GET',
 			cache: false,
 			success: function(data){
-				// console.log('ORF data: ',data);
 				onORFLoadDetails(data, origin, maxResults);
 			},
 			error: function(jqXHR, textStatus, errorThrown){
@@ -98,6 +108,9 @@ MediathekCrawler.ORFService = function() {
 		});
 	},
 
+	/**
+	 * Function to get 'hot' videos
+	 */
 	getHot = function(){
 		var origin = {
 			_channel: 'ORF',
@@ -107,7 +120,6 @@ MediathekCrawler.ORFService = function() {
 		};
 
 		var _searchUrl = PROXY_URL + encodeURI(SEARCH_HOT);
-		// console.log('ORF getNew url: ',_searchUrl);
 		$.ajax({
 			url: _searchUrl,
 			type: 'GET',
@@ -122,10 +134,13 @@ MediathekCrawler.ORFService = function() {
 		});
 	},
 
+	/**
+	 * Function to get details for videos
+	 * @param {String|HTML|JSON} data
+	 * @param {Object} origin
+	 * @param {String|Integer} maxResults
+	 */
 	onORFLoadDetails = function(data, origin, maxResults) {
-
-		// console.log('ORF pageHeadline: ',pageHeadline);
-		// find all divs with the class 'teaser'
 		if(!maxResults || maxResults === undefined || maxResults === null){
 			maxResults = 15;
 		}
@@ -134,15 +149,12 @@ MediathekCrawler.ORFService = function() {
 		x.each(function (index, element) {
 			if(counter <= maxResults){
 
-				// check if element has child with class 'media' and 'mediaA'
 				if($(element).length > 0) {
-					// get 'documentId' of video
 					var	documentUrl = $(element).find('a').attr('href'),
 					_result = {};
 					_result._station ='ORF';
-				// console.log('ORF onORFLoadDetails STATION : ',$element.find('p.subtitle').text(), _result._station);
 					_result._title = $(element).find('.item_title').text();
-					_result._subtitle = ''; //$textWrapper.find('p.teasertext').text();
+					_result._subtitle = ''; 
 					_result._length = $(element).find('.meta_duration').text();
 					_result._length = _fixORFLength(_result._length);
 					_result._details = $(element).find('.item_description').text();
@@ -154,7 +166,6 @@ MediathekCrawler.ORFService = function() {
 					_result._teaserImages.push(_model.createTeaserImage('395x209', $(element).find('.item_image').find('img').attr('src')));
 					_result._streams = [];
 
-					// console.log(documentUrl, _result);
 					loadORFStreams(documentUrl, _result, origin);
 				}
 				counter++;
@@ -163,15 +174,19 @@ MediathekCrawler.ORFService = function() {
 
 	},
 
+	/**
+	 * Function to get streams for videos
+	 * @param {String} documentUrl
+	 * @param {Object} result
+	 * @param {Object} origin
+	 */
 	loadORFStreams = function(documentUrl, result, origin) {
 		var streamURL = PROXY_URL + encodeURI(documentUrl);
-		// console.log('ORF loadORFStreams streamURL: ',streamURL);
 		$.ajax({
 			url: streamURL,
 			type: 'GET',
 			cache: false,
 			success: function(data) {
-		// console.log('ORF loadORFStreams: ',typeof data, data);
 				onloadORFStreams(documentUrl, result, data, origin);
 			},
 			error: function(jqXHR, textStatus, errorThrown){
@@ -180,14 +195,18 @@ MediathekCrawler.ORFService = function() {
 		});
 	},
 
+	/**
+	 * Function to get & parse streams for videos
+	 * @param {String} documentUrl
+	 * @param {Object} result
+	 * @param {String|HTML|JSON} data
+	 * @param {Object} origin
+	 */
 	onloadORFStreams = function(documentUrl, result, data, origin) {
-		// console.log('ORF onloadORFStreams');;
 		try{
 
 			var resp = JSON.parse($(data).find('.service_link_play').attr('data-jsb'));
-			// console.log('ORF: ', resp);
 			var r = resp.video.sources;
-			// console.log('ORF r: ',resp.video.sources);
 			for(i=0;i<=r.length;i++){
 				if(r[i].protocol === 'http' && r[i].src.indexOf('.mp4') > 0 && r[i].src.indexOf('3gp') === -1 && r[i].src.indexOf('m3u8') === -1 && r[i].src.indexOf('rtmp') === -1 && r[i].src.indexOf('rtsp') === -1 && r[i].src.indexOf('f4m') === -1){
 					var basetype = '',
@@ -195,7 +214,6 @@ MediathekCrawler.ORFService = function() {
 			    		url = r[i].src,
 			    		filesize = 0,
 		    			type = 'video/mp4';
-			    		// console.log('ORF url: ',url);
 
 		    			switch (r[i].quality_string) {
 			    			case 'hoch':
@@ -209,19 +227,14 @@ MediathekCrawler.ORFService = function() {
 			    				break;
 	    				}
 			    		var stream = _model.createStream(basetype, type, quality, url, filesize);
-			    		//console.log('basetype: ',basetype,', stream: ',stream._url);
 						result._streams.push(stream);
-		// console.log('ORF onloadORFStreams: ', url, quality);
 				}
 			}
 
-			// result._streams
 		}catch(e){
 			try{
 				var resp = JSON.parse($(data).find('.player_viewport').find('.jsb_VideoPlaylist').attr('data-jsb'));
-				// console.log('ORF resp: ',resp);
 				var r = resp.selected_video.sources;
-				// console.log('ORF r: ',resp.video.sources);
 				for(i=0;i<=r.length;i++){
 					if(r[i].protocol === 'http' && r[i].src.indexOf('.mp4') > 0 && r[i].src.indexOf('3gp') === -1 && r[i].src.indexOf('m3u8') === -1 && r[i].src.indexOf('rtmp') === -1 && r[i].src.indexOf('rtsp') === -1 && r[i].src.indexOf('f4m') === -1){
 						var basetype = '',
@@ -242,9 +255,7 @@ MediathekCrawler.ORFService = function() {
 			    				break;
 	    				}
 			    		var stream = _model.createStream(basetype, type, quality, url, filesize);
-			    		//console.log('basetype: ',basetype,', stream: ',stream._url);
 						result._streams.push(stream);
-			// console.log('ORF onloadORFStreams: ', url, quality);
 					}
 				}
 			}catch(e){}
@@ -256,6 +267,9 @@ MediathekCrawler.ORFService = function() {
 		}
 	},
 
+	/**
+	 * Function to reset the instance of ARTEService
+	 */
 	dispose = function() {
 		that = {};
 	};
