@@ -451,7 +451,16 @@ h2 small span {padding: 5px; border: 1px solid #ffffff;}
 .carousel-inner>.item>img { margin:0 auto;  }
 .inner { height:160px; position:relative; }
 .inner > img,
-#carousel-wrapper .item > img { position:absolute; top:50%; left:50%; -webkit-transform:translate(-50%, -50%); transform:translate(-50%, -50%); max-height:100%; width:auto; }
+#carousel-wrapper .item > img,
+.flip-content img.video-img { position:absolute; top:50%; left:50%; -webkit-transform:translate(-50%, -50%); transform:translate(-50%, -50%); max-height:100%; width:auto; }
+.flip-content img.channel-img { height:20px; width:auto; display:inline-block; box-shadow:none; -webkit-box-shadow:none; -moz-box-shadow:none; }
+#flipster-wrapper { background:#313131; padding:15px 0; margin-top:-20px; }
+#flipster-loading { text-align:center; }
+#flipster-slides,
+#flipster-controls { display:none; }
+.flipster-control { position:absolute; top:230px; font-size:20px; cursor:pointer; }
+#flipster-left { right: auto; left:15px; }
+#flipster-right { right: 15px; left:auto; }
 #carousel-wrapper { background:#313131; padding:20px; margin-top:-20px; box-shadow: inset 0px -1px 5px 0px #000000;}
 .container-fluid<#home-title{ padding:0; margin:0; }
 #home-categories li, #home-channels li{ text-align:center; list-style:none; margin-top:10px; }
@@ -479,7 +488,7 @@ h2 small span {padding: 5px; border: 1px solid #ffffff;}
 
 #content { background:#525252; }
 .snap-drawer>div { height:100%; background:#1b1b1b; }
-.mobile-menu { text-align:left; }
+.mobile-menu { text-align:left; background:#1b1b1b; }
 .mobile-menu .glyphicon { padding-right:15px; }
 .mobile-menu>li:not(.divider) {
 	padding: 15px 40px;
@@ -521,18 +530,50 @@ h2 small span {padding: 5px; border: 1px solid #ffffff;}
 
 /* Small Devices, Tablets */
 @media only screen and (min-width : 768px) {
-	#carousel-wrapper .item { height: 300px; }
+	#carousel-wrapper .item, 
+	.flip-content { height: 300px; width:480px; }
 	#result-wrapper .video-item { height: 360px;}
 }
 
 /* Medium Devices, Desktops */
 @media only screen and (min-width : 992px) {
-	#carousel-wrapper .item { height: 340px; }
+	#carousel-wrapper .item,
+	.flip-content { height: 340px; width:544px; }
 	#result-wrapper .video-item { height: 260px;}
 }
 
 /* Large Devices, Wide Screens */
 @media only screen and (min-width : 1200px) {
-	#carousel-wrapper .item { height: 360px; }
+	#carousel-wrapper .item,
+	.flip-content { height: 360px; width:576px; }
 	#result-wrapper .video-item { height: 300px;}
+
+	.flipster-carousel .flip-past {
+		-webkit-transform: translateX(-95%) translateZ(0) rotateY(60deg) scale(0.65);
+		-moz-transform: translateX(-95%) translateZ(0) rotateY(60deg) scale(0.65);
+		-o-transform: translateX(-95%) translateZ(0) rotateY(60deg) scale(0.65);
+		-ms-transform: translateX(-95%) translateZ(0) rotateY(60deg) scale(0.65);
+		transform: translateX(-95%) translateZ(0) rotateY(60deg) scale(0.65);
+	}
+	.flipster-carousel .flip-prev {
+		-webkit-transform: translateX(-65%) translateZ(0) rotateY(60deg) scale(0.8);
+		-moz-transform: translateX(-65%) translateZ(0) rotateY(60deg) scale(0.8);
+		-o-transform: translateX(-65%) translateZ(0) rotateY(60deg) scale(0.8);
+		-ms-transform: translateX(-65%) translateZ(0) rotateY(60deg) scale(0.8);
+		transform: translateX(-65%) translateZ(0) rotateY(60deg) scale(0.8);
+	}
+	.flipster-carousel .flip-next {
+		-webkit-transform: translateX(65%) translateZ(0) rotateY(-60deg) scale(0.8);
+		-moz-transform: translateX(65%) translateZ(0) rotateY(-60deg) scale(0.8);
+		-o-transform: translateX(65%) translateZ(0) rotateY(-60deg) scale(0.8);
+		-ms-transform: translateX(65%) translateZ(0) rotateY(-60deg) scale(0.8);
+		transf orm: translateX(65%) translateZ(0) rotateY(-60deg) scale(0.8);
+	}
+	.flipster-carousel .flip-future {
+		-webkit-transform: translateX(95%) translateZ(0) rotateY(-60deg) scale(0.65);
+		-moz-transform: translateX(95%) translateZ(0) rotateY(-60deg) scale(0.65);
+		-o-transform: translateX(95%) translateZ(0) rotateY(-60deg) scale(0.65);
+		-ms-transform: translateX(95%) translateZ(0) rotateY(-60deg) scale(0.65);
+		transform: translateX(95%) translateZ(0) rotateY(-60deg) scale(0.65);
+	}
 }

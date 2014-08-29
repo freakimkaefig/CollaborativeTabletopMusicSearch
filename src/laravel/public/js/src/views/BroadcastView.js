@@ -73,7 +73,6 @@ MediathekCrawler.BroadcastView = (function() {
 		var infoElement = 
 			'<h3>Titel :</h3>'+
 			'<div>' + result._title + '</div>' +
-			/*'<div>' + result._details + '</div>' +*/
 			'<div>' + result._subtitle + '</div>' +
 			'<h3>Ausstrahlung :</h3>' +
 			'<div>' + result._airtime+ '</div>' +
@@ -121,7 +120,6 @@ MediathekCrawler.BroadcastView = (function() {
 			'<h3>Titel:</h3>'+
 			'<div>' + result.title + '</div>' +
 			'<div>' + result.subtitle + '</div>' +
-			/*'<div>' + result._details + '</div>' +*/
 			'<h3>Ausstrahlung:</h3>' +
 			'<div>' + result.airtime.replace(/(\d{4})-(\d{2})-(\d{2})/, "$3.$2.$1") + '</div>' +
 			'<h3>Dauer:</h3>' +

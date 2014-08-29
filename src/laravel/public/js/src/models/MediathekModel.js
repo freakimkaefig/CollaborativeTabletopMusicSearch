@@ -7,8 +7,6 @@ MediathekCrawler.MediathekModel = function() {
 		
 	
 	init = function(){
-		//init MediathekModel
-		console.info("MediathekCrawler.MediathekModel.init");
 
 		results = [];
 		idCounter = 0;
@@ -59,7 +57,6 @@ MediathekCrawler.MediathekModel = function() {
 		    return -1;
 		  return 0;
 		}
-		// console.log('MODEL ORIG: ',orig);
 		if(orig != 'null' && station != 'null' && title != 'null' && teaserImages != 'null' && streams != 'null' && orig && streams && station && title && teaserImages && streams.length > 0){
 			
 			teaserImages.sort(compare)
@@ -76,8 +73,6 @@ MediathekCrawler.MediathekModel = function() {
 				'_streams': streams
 			};
 			
-
-				// console.log("number of streams before pushing to results: ",_result._streams.length);
 				results.push(_result);
 
 				// saving results in localstorage
@@ -92,7 +87,6 @@ MediathekCrawler.MediathekModel = function() {
 			
 		}
 		else{
-			// console.log("some params missing @ model.addResults:\n", "|| origin: ", orig._channel, "|| origin-METHODE: ", orig._method, " || station: ", station, " || title: ", title, " || subtitle: ", subtitle, " || details: ", details, " || length: ", length, " || airtime: ", airtime, " || teaserImages: ", teaserImages, " || streams: ", streams);
 		}
 	},
 	getResults = function(){
@@ -101,9 +95,6 @@ MediathekCrawler.MediathekModel = function() {
 
 	clearResults = function() {
 		results = [];
-
-		//reset localStorage
-		// localStorage.removeItem('mediathek-crawler');
 	},
 
 	dispose = function() {

@@ -34,7 +34,7 @@ MediathekCrawler.ResultView = (function() {
 	* @param{Event} 	click event.
 	* @param{Object}	result object.
 	*/
-	appendResult = function(event, result) {
+	appendResult = function(result) {
 		if(result._origin._badge =="new"){
 			badge = "badge-new";
 		}
@@ -92,7 +92,7 @@ MediathekCrawler.ResultView = (function() {
 	          	'</div>'+
 	        '</div>';
     	} else {
-    		if(_checkSliderDuplicates(duplicates, result._station)){
+    		if(_checkSliderDuplicates(duplicates, result._station)) {
 	    		var slideElement = '<div class="item">'+
 		        	'<img src="' + result._teaserImages[0]._url + '" alt="' + result._title + '">'+
 		        	'<div class="container">'+
@@ -107,6 +107,21 @@ MediathekCrawler.ResultView = (function() {
 		        '</div>';
 	    	}
     	}
+
+    	if(_checkSliderDuplicates(duplicates, result._station)) {
+    		var flip = '<li>'+
+    			'<img class="video-img" src="' + result._teaserImages[0]._url + '" alt="' + result._title + '">'+
+    			'<a href="/video/' + result._id + '">'+
+					'<div class="carousel-caption">'+
+	              		'<h3 style="margin-top: 0px;">' + result._title + '</h3>'+
+	              		'<p>' + result._subtitle + '</p>'+
+	              		'<p>' + stationToImage(result._station) + '</p>'+
+	            	'</div>'+
+	            '</a>'+
+            '</li>';
+			$('#flipster ul').append(flip);
+		}
+
 		duplicates.push(result._station)
 
         $indicatorWrapper = $('#carousel-wrapper .carousel-indicators');
@@ -184,7 +199,7 @@ MediathekCrawler.ResultView = (function() {
 		
 		$resultWrapper.empty();
 		results.forEach(function(result){
-			appendResult(event, result);
+			appendResult(result);
 		})
 	},
 	/**
@@ -243,7 +258,7 @@ MediathekCrawler.ResultView = (function() {
 
 		$resultWrapper.empty();
 		results.forEach(function(result){
-			appendResult(event, result);
+			appendResult(result);
 		})
 		return;
 	},
@@ -304,7 +319,7 @@ MediathekCrawler.ResultView = (function() {
 		
 		$resultWrapper.empty();
 		results.forEach(function(result){
-			appendResult(event, result);
+			appendResult(result);
 		})
 	},
 	/**
@@ -327,9 +342,9 @@ MediathekCrawler.ResultView = (function() {
 				var airtimeA=a._airtime.toLowerCase();
 				var airtimeB=b._airtime.toLowerCase();
 				var partsA = airtimeA.split(/\s|\.|\:/);
-				var airtimeA = partsA[2]+'-'+partsA[1]+'-'+partsA[0];/*+" "+partsA[3]+':'+partsA[4];*/
+				var airtimeA = partsA[2]+'-'+partsA[1]+'-'+partsA[0];
  				var partsB = airtimeB.split(/\s|\.|\:/);
-				var airtimeB = partsB[2]+'-'+partsB[1]+'-'+partsB[0];/*+" "+partsB[3]+':'+partsB[4];*/					
+				var airtimeB = partsB[2]+'-'+partsB[1]+'-'+partsB[0];					
 				airtimeA = new Date(airtimeA).getTime();
 				airtimeB = new Date(airtimeB).getTime();
 				if (airtimeA < airtimeB){
@@ -357,9 +372,9 @@ MediathekCrawler.ResultView = (function() {
 				var airtimeA=a._airtime.toLowerCase();
 				var airtimeB=b._airtime.toLowerCase();
 				var partsA = airtimeA.split(/\s|\.|\:/);
-				var airtimeA = partsA[2]+'-'+partsA[1]+'-'+partsA[0];/*+" "+partsA[3]+':'+partsA[4];*/
+				var airtimeA = partsA[2]+'-'+partsA[1]+'-'+partsA[0];
  				var partsB = airtimeB.split(/\s|\.|\:/);
-				var airtimeB = partsB[2]+'-'+partsB[1]+'-'+partsB[0];/*+" "+partsB[3]+':'+partsB[4];*/				
+				var airtimeB = partsB[2]+'-'+partsB[1]+'-'+partsB[0];				
 				airtimeA = new Date(airtimeA).getTime();
 				airtimeB = new Date(airtimeB).getTime();
 				if (airtimeA < airtimeB){
@@ -375,7 +390,7 @@ MediathekCrawler.ResultView = (function() {
 
 		$resultWrapper.empty();
 		results.forEach(function(result){
-			appendResult(event, result);
+			appendResult(result);
 		})
 		return;
 	},
@@ -384,6 +399,7 @@ MediathekCrawler.ResultView = (function() {
 	*/
 	hotNewSort = function(){
 		results = getFromLocalstorage()._results;
+		console.log('hot-new-sort results from localstorage: ',results);
 		if($("#hot-new-sort").val()=="asc"){
 			$("#alphabetic-sort").empty();
 			$("#alphabetic-sort").append('Alphabetisch');
@@ -434,8 +450,9 @@ MediathekCrawler.ResultView = (function() {
 			$("#hot-new-sort").val("asc");
 		}
 		$resultWrapper.empty();
+		console.log('hot-new-sort sorted results: ',results);
 		results.forEach(function(result){
-			appendResult(event, result);
+			appendResult(result);
 		})
 		return;
 	},
@@ -443,22 +460,22 @@ MediathekCrawler.ResultView = (function() {
 		var html = '';
 		station = station.toLowerCase();
 		if(station.indexOf("erste") > -1){
-			html += '<img src="/css/images/s_Das_Erste_2014.png" />';
+			html += '<img class="channel-img" src="/css/images/s_Das_Erste_2014.png" />';
 		}
 		if(station.indexOf("zdf") > -1 ){
-			html += '<img src="/css/images/s_ZDF.png" />';
+			html += '<img class="channel-img" src="/css/images/s_ZDF.png" />';
 		}
 		if(station.indexOf("srf") > -1){
-			html += '<img src="/css/images/s_srf.png" />';
+			html += '<img class="channel-img" src="/css/images/s_srf.png" />';
 		}
 		if(station.indexOf("arte") > -1){
-			html += '<img src="/css/images/s_Arte.png" />';
+			html += '<img class="channel-img" src="/css/images/s_Arte.png" />';
 		}
 		if(station.indexOf("br") > -1){
-			html += '<img src="/css/images/s_br.png" />';
+			html += '<img class="channel-img" src="/css/images/s_br.png" />';
 		}
 		if(station.indexOf("orf") > -1){
-			html += '<img src="/css/images/s_ORF_logo.png" />';
+			html += '<img class="channel-img" src="/css/images/s_ORF_logo.png" />';
 		}
 		html += '';
 		return html;

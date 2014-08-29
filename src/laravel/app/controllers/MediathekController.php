@@ -10,12 +10,6 @@ class MediathekController extends BaseController {
 			->withInput();
 	}
 
-	public function updateCategories() {
-		$dasErste = new DasErsteController();
-		$dasErste->updateCategories();
-	}
-
-
 	public function getSearchResults() {
 		return View::make('search.search')
 			->with('isSearch', TRUE);
