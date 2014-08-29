@@ -1,7 +1,3 @@
-//TODO
-// welches videoformat in welcher qualität?
-// dynamischer wechsel der src attribute?
-
 MediathekCrawler.BroadcastView = (function() {
 	var that = {},
 
@@ -12,9 +8,7 @@ MediathekCrawler.BroadcastView = (function() {
 	/**
 	 * Public function to initialize the instance of BroadcastView
 	 */
-	init = function() {
-		console.info('MediathekCrawler.BroadcastView.init');
-		
+	init = function() {		
 		$videoWrapper = $('#video-wrapper');
 		$video = $('#video_html5_api');
 		$video_element = $('#video'); //this is because of mobile/desktop problems
@@ -22,16 +16,13 @@ MediathekCrawler.BroadcastView = (function() {
 		$descriptionWrapper = $("#description-wrapper");
 
 		$("#choosePlaylist").on("click",onAddToPlaylist);
-		//$("#button-create-playlist-broadcast").on("click",onAddToPlaylist);
 		$("#addToBookmarks").on("click", onAddBookmark);
-		//onAddToPlaylist();
-		//onAddBookmark();
+	
 
 	},
 
 	/**
-	 * Public function to render a video by the given id from localStorage
-	 * @param {Integer}		Id of the result item in localStorage
+	 * Function for calculating the order of the videos for every display resolution.
 	 */
 	calculateOrder = function(){
 		var order;
@@ -49,6 +40,10 @@ MediathekCrawler.BroadcastView = (function() {
 		}
 		return order;
 	},
+	/**
+	 * Public function to render a video by the given id from localStorage
+	 * @param {Integer}		Id of the result item in localStorage
+	 */
 	renderVideoById = function(id) {
 
 		var results_json = localStorage.getItem('mediathek-crawler'),
@@ -97,6 +92,10 @@ MediathekCrawler.BroadcastView = (function() {
 
 
 	},
+	/**
+	 * Public function to render a bookmarked video by the given id from databse
+	 * @param {Integer}		Id of the result item in the database
+	 */
 	renderVideoBookmark = function(id){
 		result = JSON.parse($("#bookmark").val())[0];
 		var streams = JSON.parse(result.url);
@@ -140,6 +139,9 @@ MediathekCrawler.BroadcastView = (function() {
 
 
 	},
+	/**
+	 * Function to save a new playlist an the current video into the database.
+	 */
 	savePlaylistFromBroadcast = function() {
 		$("#selectPlaylist").addClass("hidden");
 		$.ajax({
@@ -164,7 +166,10 @@ MediathekCrawler.BroadcastView = (function() {
 
 
 	},
-
+	/**
+	 * Function to add video to selected playlist.
+	 * @param {Event}		Click event
+	 */
 	onAddToPlaylist = function(e){
 		
 		e.preventDefault();
@@ -190,8 +195,6 @@ MediathekCrawler.BroadcastView = (function() {
 				},
 				dataType: 'json',		
 			});
-			//$(".feedback").show().delay(1000).fadeOut();
-			//return false;
 			setTimeout($("#playlistForm").load("video.blade.php #playlistForm"),600);
 		});
 
@@ -202,6 +205,10 @@ MediathekCrawler.BroadcastView = (function() {
 			return false;
 		});
 	},
+	/**
+	 * Function to add video to bookmarks.
+	 * @param {Event}		Click event
+	 */
 	onAddBookmark = function(e){
 			e.preventDefault();
 			$(that).trigger('feedback',["addBookmark"]);
@@ -227,8 +234,11 @@ MediathekCrawler.BroadcastView = (function() {
 			});
 		
 	},
+	/**
+	 * Public function to check if video is a bookmarks.
+	 * @param {Object}		the video result
+	 */
 	checkBookmarked = function(result){
-		console.log("checkBookmark");
 		var allBookmarks = JSON.parse($("#all-bookmarks").text());
 		
 		for  (var i in allBookmarks){
@@ -242,7 +252,10 @@ MediathekCrawler.BroadcastView = (function() {
 
 		
 	},
-
+	/**
+	 * Public function to delete bookmark.
+	 * @param {Integer}		id of the bookmark
+	 */
 	deleteBookmark = function(id){
 		$("#bookmark-name").click(function(e){
 			e.preventDefault();
@@ -257,6 +270,10 @@ MediathekCrawler.BroadcastView = (function() {
 		})
 
 	},
+	/**
+	 * Public function to render the station icons.
+	 * @param {String}		name of the station
+	 */
 	renderStationIcon = function(station){
 		$('#icon-station').tooltip();
 		station = station.toLowerCase();
@@ -290,6 +307,10 @@ MediathekCrawler.BroadcastView = (function() {
 
 
 	},
+	/**
+	 * Function to check and format quality of the video for videojs.
+	 * @param {quality}		quality in the model or database
+	 */
 	checkQuality = function(quality){
 		if(quality==3){
 			return "Hoch";

@@ -9,7 +9,6 @@
         <h2 class="text-center page-title">Sender</h2>
     </div>
 	<ul id="home-channels" class="container-fluid">
-		<!-- <h3>Sender:</h3> -->
 		<li class="<?php print $channel_row_class ?>">
 			<a href="{{URL::route('channel',array('DasErste'))}}">
 				<div class="outer">

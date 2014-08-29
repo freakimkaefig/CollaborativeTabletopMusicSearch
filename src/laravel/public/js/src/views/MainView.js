@@ -1,6 +1,7 @@
 MediathekCrawler.MainView = (function() {
 	var that = {},
 	snapper = null,
+	sliderInterval = null,
 
 	init = function() {
 		console.info('MediathekCrawler.MainView.init');
@@ -9,6 +10,38 @@ MediathekCrawler.MainView = (function() {
 			element: document.getElementById('content'),
 			disable: 'right'
 		});
+
+		$(document).ajaxStop(function(){
+			console.warn("AJAXSTOP");
+			$('#flipster').flipster({
+				style: 'carousel',
+				enableMousewheel: false
+			});
+			$('#flipster-loading').hide();
+			$('#flipster-slides').show();
+			$('#flipster-controls').show();
+			sliderInterval = window.setInterval(function() {
+				$('#flipster').flipster('jump', 'right');
+			}, 2500);
+
+			$('#flipster-wrapper').mouseover(function() {
+				window.clearInterval(sliderInterval);
+			});
+
+			$('#flipster-wrapper').mouseleave(function() {
+				sliderInterval = window.setInterval(function() {
+					$('#flipster').flipster('jump', 'right');
+				}, 2500);
+			});
+
+			$('#flipster-left').click(function() {
+				$('#flipster').flipster('jump', 'left');
+			});
+			$('#flipster-right').click(function() {
+				$('#flipster').flipster('jump', 'right');
+			});
+		});
+		
 
 		myToggleButton = document.getElementById('mobile-menu-button');
 		myToggleButton.addEventListener('click', function(){

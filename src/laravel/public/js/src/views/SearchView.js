@@ -1,9 +1,10 @@
 MediathekCrawler.SearchView = (function() {
 	var that = {},
 	duration = 0 ,
-
+	/**
+	 * Public function to initialize the instance of SearchView.
+	 */
 	init = function(){
-		console.info('MediathekCrawler.SearchView.init');
 		initDatepickers();
 		initSlider();
 		$('#channel-filter').on('change',getSelectedChannels);
@@ -17,14 +18,19 @@ MediathekCrawler.SearchView = (function() {
 		$('#search-button').on('click', onSubmitButtonClick);
 		$('#search-button-mobile').on('click', onSubmitButtonClick);
 	},
-
+	/*
+	* Function to show sort button on sumbit button click.
+	* @param {Event}	click Event.
+	*/
 	onSubmitButtonClick = function(event){
 		if($('#sort-buttons').hasClass('hidden')) {
 			$('#sort-buttons').removeClass('hidden');
 			$('#sort-buttons').show();
 		}
 	},
-
+	/** 
+	* Public function to show mobile filter.
+	*/
 	onMobileFilterButtonClick = function(event) {
 		if ($(this).hasClass('open')) {
 			$('#mobile-search-form').animate({
@@ -43,7 +49,9 @@ MediathekCrawler.SearchView = (function() {
 			$(this).find('span.glyphicon').addClass('glyphicon-chevron-up');
 		}
 	},
-
+	/** 
+	* Public function to hide mobile filter.
+	*/
 	collapseMobileFilter = function() {
 		$mobileFilter = $('#mobile-filter-button');
 		if ($mobileFilter.hasClass('open')) {
@@ -56,7 +64,9 @@ MediathekCrawler.SearchView = (function() {
 			$('#mobile-search-results').show();
 		}
 	},
-
+	/**
+	* Function to manage filter relatons.
+	*/
 	manageFilters = function(){
 			$("input[name='orf']").click(function(){
 				if ($("#datepicker-from").attr('disabled')){ 
@@ -72,35 +82,21 @@ MediathekCrawler.SearchView = (function() {
 					$("#datepicker-to").addClass('ui-state-disabled');
 				}
 			})
-			// $("input[name='daserste']").click(function(){
-			// 	 if ($("#category-filter :input").attr('disabled')){ 
-			// 	 	$("#category-filter :input").removeAttr('disabled');
-			// 	 }
-			// 	 else{
-			// 	 	$("#category-filter :input").attr('disabled', 'disabled');
-			// 	}
-			// })
-			// $("input[name='br']").click(function(){
-			// 	 if ($("#category-filter :input").attr('disabled')){ 
-			// 	 	$("#category-filter :input").removeAttr('disabled');
-			// 	 }
-			// 	 else{
-			// 	 	$("#category-filter :input").attr('disabled', 'disabled');
-			// 	}
-			// })
+			
 			$("input[name='srf']").change(function(){
 				 if ($("input[name='srf']").is(":checked")){ 
-				 	// console.log("disable");
 				 	$("#duration-slider").slider("disable");
 				 }
 				 else{
-				 	// console.log("enable");
 				 	$("#duration-slider").slider("enable");
 				}
 			})
 	},
+	/**
+	* Function to reset all filters.
+	* @param{Event} click event
+	*/
 	resetFilter = function(event){
-			console.log("reset");
 			$('input').prop('checked', false);
 			$("#datepicker-from").datepicker("setDate",null);
 			$("#datepicker-to").datepicker("setDate",null);
@@ -108,6 +104,10 @@ MediathekCrawler.SearchView = (function() {
 			$("#duration-display").text("0min")
 
 	},
+	/**
+	* Public function to return the selected channels.
+	* @return{Array} list of selected channels
+	*/
 	getSelectedChannels = function(){
 		var selectedChannels = [];	
 		$('#channel-filter input:checked').each(function(){
@@ -115,18 +115,21 @@ MediathekCrawler.SearchView = (function() {
 		})
 		return selectedChannels;
 	},
+	/**
+	* Public function to return selected caegories.
+	* @return{Array} list of selected categories.
+	*/
 	getSelectedCategories = function(){
 		var selectedCategories = [];
-
-		// if ($("input[name='daserste']").is(":checked")||$("input[name='br']").is(":checked")){
-		// 	selectedCategories = [];
-		// }else{	
 			$("#category-filter input:checked").each(function(){
 				selectedCategories.push($(this).attr('name'));
 			})
-		// }
+		
 		return selectedCategories;
 	},
+	/**
+	* Function to initalize jQueryUi Slider.
+	*/
 	initSlider = function(){
 		$("#duration-slider" ).slider({ 
 			min: 0,
@@ -140,12 +143,17 @@ MediathekCrawler.SearchView = (function() {
 		});
 		
 	},
+	/**
+	* Public function to return current slider value.
+	* @return{Integer}  duration
+	*/
 	getSliderValue = function(){
 		duration=$("#duration-slider").slider("value");
-
-		// console.log(duration);
 		return duration;
 	},
+	/**
+	* Function to initalize jQueryUi Datepicker.
+	*/
 	initDatepickers = function(){
 		$("#datepicker-from").datepicker({  
 			maxDate: 0 , 
@@ -189,6 +197,10 @@ MediathekCrawler.SearchView = (function() {
 			$("#datepicker-to").datepicker('setDate', minDate)
 		});
 	},
+	/**
+	* Public function to return date from datepicker-from.
+	* @return{Date} date-from.
+	*/
 	getDateFrom = function(){
 		if($("#datepicker-from").datepicker("getDate")){
 			var dateFrom = $("#datepicker-from").datepicker("getDate");
@@ -207,6 +219,10 @@ MediathekCrawler.SearchView = (function() {
 		}
 		return date;
 	},
+	/**
+	* Public function to return date from datepicker-to.
+	* @return{Date} date-to.
+	*/
 	getDateTo = function(){
 		if($("#datepicker-to").datepicker("getDate")){
 			var dateTo = $("#datepicker-to").datepicker("getDate");
@@ -237,6 +253,9 @@ MediathekCrawler.SearchView = (function() {
 		}
 		return date;
 	},
+	/**
+	* Public function to reset instance of SearchView.
+	*/
 	dispose = function(){
 		that = {};
 	};

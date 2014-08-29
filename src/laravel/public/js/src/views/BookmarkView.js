@@ -1,16 +1,17 @@
 MediathekCrawler.BookmarkView = (function() {
 	var that = {},
-
-
+	
+	/**
+	 * Public function to initialize the instance of BookmarkView.
+	 */
 	init = function() {
-		console.info('MediathekCrawler.BookmarkView.init');
-		//onDeleteBookmark();
 		$("body").on("click","button[id^='delete-bookmark-']",onDeleteBookmark);
 	},
+	/**
+	* Function to delete bookmark from database.
+	*/
 	onDeleteBookmark = function(){
-		
-			$broadcastId = $(this).val();
-			console.log($broadcastId);
+		$broadcastId = $(this).val();
 			$.ajax({
 				type: "GET",
 				url: "/bookmarks/delete/"+$broadcastId,
@@ -26,7 +27,5 @@ MediathekCrawler.BookmarkView = (function() {
 	};
 
 	that.init = init;
-	that.dispose = dispose;
-
 	return that;
 });

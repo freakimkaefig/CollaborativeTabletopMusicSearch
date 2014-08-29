@@ -8,8 +8,6 @@
     <h2 class="text-center page-title">Rubriken</h2>
 </div>
 <ul id="home-categories" class="container-fluid">
-	
-	<!-- <h3>Kategorien:</h3> -->
 	<li class="<?php print $category_row_class ?>">
 		<a href="{{ URL::route('hot-videos') }}">
 			<div>Hot</div>
