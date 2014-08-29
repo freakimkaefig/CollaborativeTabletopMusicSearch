@@ -4,9 +4,11 @@
 	<!-- START streaming/video -->
 	@if(isset($video))
 		<div class="row">
+		<div id="all-bookmarks-container">
 		<?php $inBookmarks = DB::table('broadcasts')->whereNotNull("user_id")->where("user_id","=",Auth::id())->get();
 			echo "<div id='all-bookmarks' style='display:none'>".json_encode($inBookmarks)."</div>";
 			?>
+		</div>
 			<div id="video-wrapper" class="img-responsive col-sm-8 col-sm-offset-0 col-lg-7 col-lg-offset-1">
 				<video id="video" class="video-js vjs-default-skin" controls preload="auto" data-setup='{"nativeControlsForTouch": false}'></video>
 			</div>

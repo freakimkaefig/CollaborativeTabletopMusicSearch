@@ -21,6 +21,7 @@ class BookmarksController extends BaseController {
 			$Broadcast->image=json_encode($data['image']);
 			$Broadcast->details=$data['details'];
 			$Broadcast->save();
+			return $Broadcast->id;
 		}
 	}
 	public function getBookmarkVideo($broadcastId) {

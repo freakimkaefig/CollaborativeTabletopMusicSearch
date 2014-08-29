@@ -4,6 +4,7 @@ MediathekCrawler.BroadcastView = (function() {
 	$videoWrapper = null,
 	$video = null,
 	$infoWrapper = null,
+	result = null,
 
 	/**
 	 * Public function to initialize the instance of BroadcastView
@@ -228,9 +229,12 @@ MediathekCrawler.BroadcastView = (function() {
 
 				
 				},
-				dataType: 'json',		
+				dataType: 'json',
+				success: function(data){
+					deleteBookmark(data);
+				}		
 			});
-		
+				
 	},
 	/**
 	 * Public function to check if video is a bookmarks.
