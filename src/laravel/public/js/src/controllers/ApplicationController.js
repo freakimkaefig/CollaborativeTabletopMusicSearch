@@ -98,6 +98,7 @@ MediathekCrawler.ApplicationController = function() {
 		if (document.URL.indexOf("/suche") > -1) {
 			if($("#duration-slider").slider("value") < 1){
 				resultView.appendResult(result);
+				removeSortIcons();
 				// mediathekModel.clearResults();
 			}
 			else{
@@ -106,13 +107,27 @@ MediathekCrawler.ApplicationController = function() {
 		}
 		else{
 			resultView.appendResult(result);
-		}
-		
-				
+			removeSortIcons();
+		}		
 	},
+
+	removeSortIcons = function(){
+		$("#alphabetic-sort").empty();
+		$("#alphabetic-sort").append('Alphabetisch');
+		$("#hot-new-sort").empty();
+		$("#hot-new-sort").append('Hot/New');
+		$("#date-sort").empty();
+		$("#date-sort").append('Datum');
+		$("#channel-sort").empty();
+		$("#channel-sort").append('Sender');
+		$("#duration-sort").empty();
+		$("#duration-sort").append('Dauer');
+	},
+
 	onResultReceivedForSlider = function(event, result) {
 		resultView.fillSlider(event, result);
 	},
+
 	onFeedback = function(event,feedback){
 		console.log("feedback");
 		feedbackView.showFeedback(feedback);
@@ -384,6 +399,7 @@ MediathekCrawler.ApplicationController = function() {
 				resultView.appendResult(i);
 				resultIndex++;
 			})
+			removeSortIcons();
 			newResults = JSON.stringify(newResults);
 			newResults = '{"_results":'+newResults+'}';
 
