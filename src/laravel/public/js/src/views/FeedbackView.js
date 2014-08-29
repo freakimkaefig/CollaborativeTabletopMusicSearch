@@ -4,44 +4,48 @@ MediathekCrawler.FeedbackView = (function() {
 	init = function() {
 		console.info('MediathekCrawler.FeedbackView.init');
 		$("#feedback-container").hide();
-		
-		
 	},
+	/**
+	 * Shows the Feedback.
+	 * @param {String}		the name of the feedback which should be shown
+	 */
 	showFeedback = function(feedback){
-		/*show the feedback */
 		
 		if(feedback=="addPlaylist"){
 			$("#feedback-container>h4").text("Zur Playlist hinzugefügt!");
+			$("#feedback-container-mobile>h4").text("Zur Playlist hinzugefügt!");
 		}
 		if(feedback == "addBookmark"){
-			$("#feedback-container>h4").text("Zur Merkliste hinzugefügt!");	
+			$("#feedback-container>h4").text("Zur Merkliste hinzugefügt!");
+			$("#feedback-container-mobile>h4").text("Zur Merkliste hinzugefügt!");	
 		}
 		if(feedback == "deleteBookmark"){
-			$("#feedback-container>h4").text("Aus der Merkliste gelöscht!");	
+			$("#feedback-container>h4").text("Aus der Merkliste gelöscht!");
+			$("#feedback-container-mobile>h4").text("Aus der Merkliste gelöscht!");	
 		}
 		if(feedback =="deleteVideo"){
 			$("#feedback-container>h4").text("Video wurde gelöscht!");
+			$("#feedback-container-mobile>h4").text("Video wurde gelöscht!");
 		}
 		if(feedback =="deletePlaylist"){
 			$("#feedback-container>h4").text("Playlist wurde gelöscht!");
+			$("#feedback-container-mobile>h4").text("Playlist wurde gelöscht!");
 		}
 		if(feedback =="addNewPlaylist"){
 			$("#feedback-container>h4").text("Video der erstellten Playlist hinzugefügt!");
+			$("#feedback-container-mobile>h4").text("Video der erstellten Playlist hinzugefügt!");
 		}
-		setTimeout(function() { $("#feedback-container").slideDown(500); },100);
-		setTimeout(function() { $("#feedback-container").slideUp(500); },2000);
-		//$("#feedback-container").slideDown(1000).delay(0).slideUp("slow");
-		/*$("#feedback-container").animate({
-			top: -10
-		},"slow").delay(1000).animate({
-			top: -70
-		},"slow");*/
-		
-	},
-	
 
-	
-	
+		if($('#xs-helper').is(':visible')) {
+			setTimeout(function() { $("#feedback-container-mobile").slideDown(500); },100);
+			setTimeout(function() { $("#feedback-container-mobile").slideUp(500); },2000);
+			
+		}else{	
+			setTimeout(function() { $("#feedback-container").slideDown(500); },100);
+			setTimeout(function() { $("#feedback-container").slideUp(500); },2000);
+		}		
+	},
+
 	dispose = function() {
 		that = {};
 	};

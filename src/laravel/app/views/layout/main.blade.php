@@ -52,7 +52,7 @@
 				<div id="feedback-container-success" class="container-fluid feedback-container"><h4 class="text-center">{{ Session::get('global-success') }}</h4></div>
 			@endif
 
-			<div id="feedback-container" class="container-fluid feedback-container"><h4 class="text-center"></h4></div>
+			<div id="feedback-container" class="hidden-xs container-fluid feedback-container"><h4 class="text-center"></h4></div>
 
 			<?php
 				$error = FALSE;

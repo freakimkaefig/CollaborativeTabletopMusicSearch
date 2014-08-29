@@ -7,9 +7,13 @@
 		$results_videos = DB::table('broadcasts')->orderBy('updated_at', 'desc')->where('playlist_id','=',$playlist)->get();
 
   	?>
+    <div class="row">
     @foreach($results_playlist as $result)
+             <div id="feedback-container-mobile" class="container-fluid feedback-container"><h4 class="text-center"></h4></div>
+
       <div class="col-sm-12 text-center"><h2 class="text-center page-title">Playlist: {{$result->name}}</h2></div>
     @endforeach
+    </div>
     <div class="row">  
       <div class="col-sm-12 col-sm-offset-0">
         <div id="playlist-before-container" class="col-sm-2 hidden-xs">

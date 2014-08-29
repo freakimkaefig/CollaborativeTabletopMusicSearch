@@ -20,7 +20,7 @@
 									<?php
 								 		$user_playlists= DB::table('playlists')->where('user', '=', Auth::id())->get();
 								 	?>
-						<form  class="col-sm-6 col-lg-3">
+						<form  class="col-sm-6 col-md-6 col-lg-5">
 							<div id="selectPlaylist" class="select-box hidden">			
 								@if(sizeOf($user_playlists))
 								<select id="select">
@@ -48,7 +48,7 @@
 							</div>
 						</form>
 						</div>
-						<h4 class="feedback col-sm-6 " hidden>hinzugefügt!</h4>
+
 					</div>
 					<div class="col-xs-12 col-sm-12">	
 						<form >
@@ -65,6 +65,7 @@
 				</div>
 			@endif
 		</div>
+				<div id="feedback-container-mobile" class="container-fluid feedback-container"><h4 class="text-center"></h4></div>
 	</div>
 		<div class="row">
 			<div id="description-wrapper" class="col-sm-10 col-sm-offset-1">

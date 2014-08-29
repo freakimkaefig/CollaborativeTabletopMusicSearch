@@ -3,6 +3,8 @@
 @section('content')
 	<!-- START lists/playlists -->
 	<div class="row">
+	       <div id="feedback-container-mobile" class="container-fluid feedback-container"><h4 class="text-center"></h4></div>
+
 		<h2 class="text-center page-title">Playlisten</h2>	
 	</div>
 	<div class="col-xs-3 alpha">
@@ -48,7 +50,7 @@
 	       					<h4>{{ isset($videos[0]->title) ? '1) ' . $videos[0]->title : '' }}</h4>
 	       					<h4>{{ isset($videos[1]->title) ? '2) ' . $videos[1]->title : '' }}</h4>
 	       					<h4>{{ isset($videos[2]->title) ? '3) ' .$videos[2]->title : '' }}</h4>
-	       					<p>Insgesamt {{sizeOf($videos) }} Videos in der Playlist</p>
+	       					<p>Insgesamt {{sizeOf($videos) }} Video/s in der Playlist</p>
 	       					<!-- <h4>3)<?php try{ echo $videos[0]->title;}catch(Exception $e){echo "";}?></h4> -->
 	       				</div>
 	       			</a>
