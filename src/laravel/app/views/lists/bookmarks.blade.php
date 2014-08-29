@@ -5,7 +5,6 @@
         <h2 class="text-center page-title">Merkliste</h2>
     </div>
 		<?php
-			//$results = DB::select('select * from playlists where user="'+Auth::id()+'"');
 			$results= DB::table('broadcasts')->where('user_id', '=', Auth::id())->get();
 		?>
     <div id="bookmark-items" class="list row">

@@ -15,7 +15,6 @@
 	</div>
 	<div class="col-xs-12 row">
 		<?php
-			//$results = DB::select('select * from playlists where user="'+Auth::id()+'"');
 			$results= DB::table('playlists')->where('user', '=', Auth::id())->get();
 		?>
    			@foreach($results as $result)
@@ -49,7 +48,6 @@
 	       					<h4>{{ isset($videos[1]->title) ? '2) ' . $videos[1]->title : '' }}</h4>
 	       					<h4>{{ isset($videos[2]->title) ? '3) ' .$videos[2]->title : '' }}</h4>
 	       					<p>Insgesamt {{sizeOf($videos) }} Videos in der Playlist</p>
-	       					<!-- <h4>3)<?php try{ echo $videos[0]->title;}catch(Exception $e){echo "";}?></h4> -->
 	       				</div>
 	       			</a>
 	       			<div class="modal fade" id="confirm-delete-{{$result->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
