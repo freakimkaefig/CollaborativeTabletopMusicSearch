@@ -184,32 +184,6 @@ Anja Miller
 				'playlist_id' => 6,
 				'user_id' => NULL,
 			),
-			6 => 
-			array (
-				'id' => 214,
-				'title' => 'weiß blau',
-				'subtitle' => 'An Großer und Kleiner Laaber',
-				'details' => '30 Minuten über Kultur und Kulturmenschen entlang der in beschaulicher bayerischer Landschaft vor sich hinfließenden Flüsse: die "Große Laaber" und die "Kleine Laaber". Wie der Namenforscher Wolf-Armin Freiherr von Reitzenstein in seinem "Lexikon bayerischer Ortsnamen" beschreibt, lässt sich "Laaber" auf das keltische Wort "labara" zurückführen. Und das heißt: "die Schwatzende, rauschend".Das Filmteam besucht die Galerie von Brigitte Zettl in Oberlindhardt bei Mallersdorf, eine der drei wichtigsten Galerien für Kunst von James Rizzi in ganz Deutschland. Vorgestellt werden das Radiomuseum in Rottenburg an der Laaber samt der es liebenden und betreuenden Radiofreunde, der Bildhauer Alfred Kainz, die regionale Krimiautorin Karoline Eisenschenk und Eisenbildhauer Manfred Heller. Und auch der Ort Haindling, wo in einem ehemaligen Eiskeller Kulturveranstaltungen ein Zuhause gefunden haben, ist eine Station von "weiß blau".
-Redaktion:
-Michael Zehetmair
-
-
-
-Redaktion:
-Michael Zehetmair
-
-
-',
-				'airtime' => '2014-08-29 10:50:00',
-				'url' => '[{"_basetype":"","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/cdn-storage.br.de\\/b7\\/2014-08\\/29\\/ade186862f5d11e4bca2984be109059a_0.mp4","_filesize":"32528074"},{"_basetype":"","_type":"video\\/mp4","_quality":"0","_url":"http:\\/\\/cdn-storage.br.de\\/b7\\/2014-08\\/29\\/ade186862f5d11e4bca2984be109059a_A.mp4","_filesize":"45874585"},{"_basetype":"","_type":"video\\/mp4","_quality":"1","_url":"http:\\/\\/cdn-storage.br.de\\/b7\\/2014-08\\/29\\/ade186862f5d11e4bca2984be109059a_B.mp4","_filesize":"198694302"},{"_basetype":"","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/cdn-storage.br.de\\/b7\\/2014-08\\/29\\/ade186862f5d11e4bca2984be109059a_C.mp4","_filesize":"397907910"},{"_basetype":"","_type":"video\\/mp4","_quality":"2","_url":"http:\\/\\/cdn-storage.br.de\\/b7\\/2014-08\\/29\\/ade186862f5d11e4bca2984be109059a_E.mp4","_filesize":"272523714"},{"_basetype":"","_type":"video\\/mp4","_quality":"3","_url":"http:\\/\\/cdn-storage.br.de\\/b7\\/2014-08\\/29\\/ade186862f5d11e4bca2984be109059a_X.mp4","_filesize":"853380964"}]',
-				'duration' => '00:29:00',
-				'image' => '[{"_resolution":"640x360","_url":"http:\\/\\/www.br.de\\/layout\\/img\\/programmfahne\\/sendungsbild_weis_blau100~_h-360_v-image853_w-640_-32550a25a71f9ea6a28488357c9b82d34bc5cc66.jpg?version=19bc8"},{"_resolution":"400x255","_url":"http:\\/\\/www.br.de\\/layout\\/img\\/programmfahne\\/sendungsbild_weis_blau100~_h-225_v-image853_w-400_-46551a6ec6b42bcb6fc43f2cde7c015d39d126c0.jpg?version=19bc8"},{"_resolution":"320x180","_url":"http:\\/\\/www.br.de\\/layout\\/img\\/programmfahne\\/sendungsbild_weis_blau100~_h-180_v-image853_w-320_-84bf43942cbaa96151d5c125e27e60633b3a04c9.jpg?version=19bc8"},{"_resolution":"108x61","_url":"http:\\/\\/www.br.de\\/layout\\/img\\/programmfahne\\/sendungsbild_weis_blau100~_h-61_v-image853_w-108_-8bf23116f3f36b170c5e692a307c070a087283df.jpg?version=19bc8"}]',
-				'station' => 'BR',
-				'created_at' => '2014-08-29 09:37:51',
-				'updated_at' => '2014-08-29 09:37:51',
-				'playlist_id' => NULL,
-				'user_id' => 1,
-			),
 		));
 	}
 
