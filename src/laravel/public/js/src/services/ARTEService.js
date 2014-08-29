@@ -339,7 +339,6 @@ MediathekCrawler.ARTEService = function() {
 				if(streamUrl !== ''){
 					_searchARTEStreams(origin, assetID, title, subtitle, details, station, length, airtime, teaserImages, streamUrl);
 				}else{
-					console.log('Could not fetch streamURL for ', title, ' with ID: ',assetID);
 				}
 
 			});
@@ -465,7 +464,6 @@ MediathekCrawler.ARTEService = function() {
 				if(streamUrl !== ''){
 					_searchARTEStreams(origin, assetID, title, subtitle, details, station, length, airtime, teaserImages, streamUrl);
 				}else{
-					console.log('Could not fetch streamURL for ', title, ' with ID: ',assetID);
 				}
 
 			});
@@ -678,7 +676,6 @@ MediathekCrawler.ARTEService = function() {
 					if(streamUrl !== '' || teaserImages.length < 0){
 						_searchARTEStreams(origin, assetID, title, subtitle, details, station, length, airtime, teaserImages, streamUrl);
 					}else{
-						console.log('Could not fetch streamURL for ', title, ' with ID: ',assetID);
 					}
 					counter++;
 
