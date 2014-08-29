@@ -1,8 +1,10 @@
 MediathekCrawler.FeedbackView = (function() {
 	var that = {},
 
+	/**
+	 * Public function to initialize the instance of FeedbackView.
+	 */
 	init = function() {
-		console.info('MediathekCrawler.FeedbackView.init');
 		$("#feedback-container").hide();
 	},
 	/**
@@ -45,7 +47,9 @@ MediathekCrawler.FeedbackView = (function() {
 			setTimeout(function() { $("#feedback-container").slideUp(500); },2000);
 		}		
 	},
-
+	/**
+	 * Public function to reset the instance of FeedbackView.
+	 */
 	dispose = function() {
 		that = {};
 	};

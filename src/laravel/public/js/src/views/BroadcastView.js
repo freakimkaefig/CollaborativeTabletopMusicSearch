@@ -1,7 +1,3 @@
-//TODO
-// welches videoformat in welcher qualität?
-// dynamischer wechsel der src attribute?
-
 MediathekCrawler.BroadcastView = (function() {
 	var that = {},
 
@@ -12,9 +8,7 @@ MediathekCrawler.BroadcastView = (function() {
 	/**
 	 * Public function to initialize the instance of BroadcastView
 	 */
-	init = function() {
-		console.info('MediathekCrawler.BroadcastView.init');
-		
+	init = function() {		
 		$videoWrapper = $('#video-wrapper');
 		$video = $('#video_html5_api');
 		$video_element = $('#video'); //this is because of mobile/desktop problems
@@ -22,10 +16,8 @@ MediathekCrawler.BroadcastView = (function() {
 		$descriptionWrapper = $("#description-wrapper");
 
 		$("#choosePlaylist").on("click",onAddToPlaylist);
-		//$("#button-create-playlist-broadcast").on("click",onAddToPlaylist);
 		$("#addToBookmarks").on("click", onAddBookmark);
-		//onAddToPlaylist();
-		//onAddBookmark();
+	
 
 	},
 
@@ -148,7 +140,7 @@ MediathekCrawler.BroadcastView = (function() {
 
 	},
 	/**
-	 * Public function to save a new playlist an the current video into the database.
+	 * Function to save a new playlist an the current video into the database.
 	 */
 	savePlaylistFromBroadcast = function() {
 		$("#selectPlaylist").addClass("hidden");
@@ -175,7 +167,7 @@ MediathekCrawler.BroadcastView = (function() {
 
 	},
 	/**
-	 * Public function to add video to selected playlist.
+	 * Function to add video to selected playlist.
 	 * @param {Event}		Click event
 	 */
 	onAddToPlaylist = function(e){
@@ -203,8 +195,6 @@ MediathekCrawler.BroadcastView = (function() {
 				},
 				dataType: 'json',		
 			});
-			//$(".feedback").show().delay(1000).fadeOut();
-			//return false;
 			setTimeout($("#playlistForm").load("video.blade.php #playlistForm"),600);
 		});
 
@@ -216,7 +206,7 @@ MediathekCrawler.BroadcastView = (function() {
 		});
 	},
 	/**
-	 * Public function to add video to bookmarks.
+	 * Function to add video to bookmarks.
 	 * @param {Event}		Click event
 	 */
 	onAddBookmark = function(e){
@@ -249,7 +239,6 @@ MediathekCrawler.BroadcastView = (function() {
 	 * @param {Object}		the video result
 	 */
 	checkBookmarked = function(result){
-		console.log("checkBookmark");
 		var allBookmarks = JSON.parse($("#all-bookmarks").text());
 		
 		for  (var i in allBookmarks){
