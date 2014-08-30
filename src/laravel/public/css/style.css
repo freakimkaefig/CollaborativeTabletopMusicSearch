@@ -137,6 +137,9 @@ h2 small span {padding: 5px; border: 1px solid #ffffff;}
 	background-color: #778899;
 }
 
+.navbar .navbar-brand { padding:5px 0; }
+.navbar .navbar-brand img { height:40px; width:auto; }
+
 /* ========== FOOTER ========== */
 #footer-nav { bottom: -190px; }
 #footer-nav li>a{color: #ffffff;}
