@@ -106,10 +106,8 @@ h2 small span {padding: 5px; border: 1px solid #ffffff;}
 	border: 1px solid #1b1b1b; 
 }
 
-#logo {
-	max-width: 35%;
-	margin-top: -1px;
-}
+.navbar .navbar-brand { padding:5px 0; }
+.navbar .navbar-brand img { height: 35px; margin-top: 3px; width:auto; }
 
 .navbar .dropdown-toggle{
 	margin: 10px;

@@ -3,7 +3,7 @@
 	<form class="" role="search" action="{{ URL::route('search-post') }}" method="post">
 		<div class="container-fluid">
 	     	<ul class="nav navbar-nav">
-	     		<li><a class="navbar-brand" href="{{ URL::route('home') }}"><img id="logo" src="css/images/logo_pixelated.jpg"/></a></li>
+	     		<li><a class="navbar-brand" href="{{ URL::route('home') }}"><img src="css/images/logo_pixelated.jpg"/></a></li>
 	     	</ul>
 
 	     	<ul class="nav navbar-nav navbar-right">
@@ -56,7 +56,7 @@
 					</button>
 				</div>
      		</li>
-     		<li><a class="navbar-brand" href="{{ URL::route('home') }}"><img id="logo" src="css/images/logo_pixelated.jpg"/></a></li>
+     		<li><a class="navbar-brand" href="{{ URL::route('home') }}"><img src="css/images/logo_pixelated.jpg"/></a></li>
      	
      		@if(Auth::check())
      			<li class="pull-right" ><a href="{{ URL::route('account-sign-out') }}"style="color: white">Abmelden</a></li>
