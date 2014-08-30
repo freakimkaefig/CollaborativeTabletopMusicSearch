@@ -105,6 +105,12 @@ h2 small span {padding: 5px; border: 1px solid #ffffff;}
 	border-radius: 0;
 	border: 1px solid #1b1b1b; 
 }
+
+#logo {
+	max-width: 45%;
+	margin-top: -5px;
+}
+
 .navbar .dropdown-toggle{
 	margin: 10px;
 	/*background-color: #778899;*/
